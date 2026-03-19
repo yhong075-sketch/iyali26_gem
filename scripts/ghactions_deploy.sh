@@ -10,7 +10,7 @@ location=$(awk -F '=' '{if (! ($0 ~ /^;/) && $0 ~ /location/) print $2}' memote.
 git config --global user.email "github-actions[bot]"
 git config --global user.name "41898282+github-actions[bot]@users.noreply.github.com"
 
-if [[ "${GITHUB_EVENT_NAME}" == "pull_request" || "${GITHUB_REPOSITORY}" != "wheeldon-lab/iyali26" ]]; then
+if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
     echo "Untracked build."
     memote run --ignore-git
 		echo "Skip deploy."
