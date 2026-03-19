@@ -7,10 +7,10 @@ echo "Parse memote.ini for values."
 deployment=$(awk -F '=' '{if (! ($0 ~ /^;/) && $0 ~ /deployment/) print $2}' memote.ini | tr -d ' ')
 location=$(awk -F '=' '{if (! ($0 ~ /^;/) && $0 ~ /location/) print $2}' memote.ini | tr -d ' ')
 
-git config --global user.email "amcnaugh@ucr.edu"
-git config --global user.name "mcnaughtonadm/iyali26" 
+git config --global user.email "github-actions[bot]"
+git config --global user.name "41898282+github-actions[bot]@users.noreply.github.com"
 
-if [[ "${GITHUB_EVENT_NAME}" == "pull_request" || "${GITHUB_REPOSITORY}" != "mcnaughtonadm/iyali26" ]]; then
+if [[ "${GITHUB_EVENT_NAME}" == "pull_request" || "${GITHUB_REPOSITORY}" != "wheeldon-lab/iyali26" ]]; then
     echo "Untracked build."
     memote run --ignore-git
 		echo "Skip deploy."
@@ -38,4 +38,4 @@ git add "${output}"
 git commit -m "Github actions report # ${GITHUB_SHA}"
 git push --quiet "https://github.com/${GITHUB_REPOSITORY}.git" "${deployment}" > /dev/null
 
-echo "Your new report will be visible at https://mcnaughtonadm.github.io/iyali26 in a moment."
+echo "Your new report will be visible at https://wheeldon-lab.github.io/iyali26 in a moment."
