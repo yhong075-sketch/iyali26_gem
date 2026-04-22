@@ -13,6 +13,13 @@ All `memote` commands have extensive help descriptions.
 2. To generate a pretty report, check out `memote report snapshot -h`.
 
 
+## Data
+Download MetaNetX files and place in `data/metanetx/`:
+- https://www.metanetx.org/ftp/latest/chem_prop.tsv
+- https://www.metanetx.org/ftp/latest/chem_xref.tsv
+- https://www.metanetx.org/ftp/latest/reac_xref.tsv
+
+
 
 ---
 
