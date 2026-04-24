@@ -800,6 +800,10 @@ _KEGG_CONV_URL       = "https://rest.kegg.jp/conv/uniprot/yli"
 _TIER_B_LIMIT        = 1100  # per-gene UniProt search cap (~3 min at 0.15 s/call)
 # W29/CLIB89 = UP000182444 (Other proteome); CLIB122 reference = UP000001300
 _PROTEOME_IDS        = ("UP000182444", "UP000001300")
+# NCBI E-utilities — Tier A-prime (bulk NCBI Gene, covers all YALI1 locus tags)
+_NCBI_ESEARCH_URL    = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+_NCBI_EFETCH_URL     = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+_NCBI_EFETCH_BATCH   = 400   # IDs per efetch request (NCBI recommends ≤500)
 
 
 def _normalise_locus_tag(raw: str) -> set[str]:
@@ -1010,6 +1014,161 @@ def _tier_b(unmapped: list[str]) -> dict[str, dict]:
     return mapping
 
 
+def _tier_ncbi(unmapped: list[str]) -> dict[str, dict]:
+    """
+    Tier A-prime: bulk NCBI Gene lookup for genes missed by UniProt proteome download.
+
+    NCBI Gene has 8 689 complete records for Y. lipolytica W29 including every
+    YALI1 locus tag, so this tier should cover the vast majority of unmapped genes.
+
+    Strategy
+    --------
+    1. esearch  — one query: "YALI1[All Fields] AND 4952[Taxonomy ID]"
+                  returns the full list of NCBI Gene IDs for the organism.
+    2. efetch   — fetch those IDs in batches of _NCBI_EFETCH_BATCH, XML format.
+    3. Parse    — extract per-gene: Locus_tag, GeneID, RefSeq protein, UniProt.
+    4. Match    — normalise locus tags and look up in candidate_to_model.
+
+    XML fields harvested
+    --------------------
+    - Entrezgene_locus / Gene-ref_locus-tag  → locus tag for matching
+    - Entrezgene_track-info / Gene-track_geneid → ncbigene
+    - Entrezgene_locus[]/Gene-commentary_products[]/Gene-commentary_accession
+      where type=protein → refseq
+    - Entrezgene_comments[]/Gene-commentary_refs[]/Dbtag where db=UniProtKB → uniprot
+
+    Returns {model_gene_id: annotation_dict}
+    """
+    import xml.etree.ElementTree as ET
+
+    if not unmapped:
+        return {}
+
+    # ── Build candidate lookup ────────────────────────────────────────────
+    candidate_to_model: dict[str, str] = {}
+    for gid in unmapped:
+        for cand in _normalise_locus_tag(gid):
+            candidate_to_model[cand.lower()] = gid
+
+    # ── Step 1: esearch — get all NCBI Gene IDs for Y. lipolytica ─────────
+    # Search for all YALI locus-tagged genes under taxid 4952.
+    # "txid4952[Organism]" covers W29 and all Y. lipolytica strains.
+    gene_ids_ncbi: list[str] = []
+    try:
+        resp = requests.get(
+            _NCBI_ESEARCH_URL,
+            params={
+                "db":      "gene",
+                "term":    "txid4952[Organism] AND alive[property]",
+                "retmax":  "15000",
+                "retmode": "json",
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        gene_ids_ncbi = data.get("esearchresult", {}).get("idlist", [])
+        logger.info(f"  Tier A′: NCBI esearch returned {len(gene_ids_ncbi)} Gene IDs")
+    except Exception as e:
+        logger.warning(f"  Tier A′: NCBI esearch failed: {e}")
+        return {}
+
+    if not gene_ids_ncbi:
+        logger.warning("  Tier A′: esearch returned 0 IDs — skipping")
+        return {}
+
+    # ── Step 2+3: efetch in batches, parse XML ────────────────────────────
+    mapping: dict[str, dict] = {}
+
+    for batch_start in range(0, len(gene_ids_ncbi), _NCBI_EFETCH_BATCH):
+        batch = gene_ids_ncbi[batch_start: batch_start + _NCBI_EFETCH_BATCH]
+        try:
+            resp = requests.get(
+                _NCBI_EFETCH_URL,
+                params={
+                    "db":      "gene",
+                    "id":      ",".join(batch),
+                    "retmode": "xml",
+                },
+                timeout=120,
+            )
+            resp.raise_for_status()
+        except Exception as e:
+            logger.warning(f"  Tier A′: efetch batch {batch_start} failed: {e}")
+            continue
+
+        try:
+            root = ET.fromstring(resp.content)
+        except ET.ParseError as e:
+            logger.warning(f"  Tier A′: XML parse error at batch {batch_start}: {e}")
+            continue
+
+        # Each <Entrezgene> element is one gene record
+        for eg in root.iter("Entrezgene"):
+            ann: dict = {}
+
+            # ── ncbigene: Gene-track/Gene-track_geneid ───────────────────
+            geneid_el = eg.find(".//Gene-track/Gene-track_geneid")
+            if geneid_el is not None and geneid_el.text:
+                ann["ncbigene"] = [geneid_el.text.strip()]
+
+            # ── locus tag: Gene-ref/Gene-ref_locus-tag ───────────────────
+            locus_tag_el = eg.find(".//Gene-ref/Gene-ref_locus-tag")
+            locus_tag = locus_tag_el.text.strip() if (
+                locus_tag_el is not None and locus_tag_el.text
+            ) else ""
+
+            # Also try Gene-ref_locus (gene symbol) as fallback
+            if not locus_tag:
+                sym_el = eg.find(".//Gene-ref/Gene-ref_locus")
+                if sym_el is not None and sym_el.text:
+                    locus_tag = sym_el.text.strip()
+
+            if not locus_tag:
+                continue
+
+            # ── refseq: protein accessions from Gene-commentary ──────────
+            # Type 8 = protein in NCBI Gene XML
+            for gc in eg.iter("Gene-commentary"):
+                type_el = gc.find("Gene-commentary_type")
+                acc_el  = gc.find("Gene-commentary_accession")
+                if (
+                    type_el is not None
+                    and type_el.get("value") == "protein"
+                    and acc_el is not None
+                    and acc_el.text
+                ):
+                    ann.setdefault("refseq", []).append(acc_el.text.strip())
+
+            # ── uniprot: Dbtag where db="UniProtKB" ──────────────────────
+            for dbtag in eg.iter("Dbtag"):
+                db_el  = dbtag.find("Dbtag_db")
+                tag_el = dbtag.find("Dbtag_tag/Object-id/Object-id_str")
+                if (
+                    db_el is not None
+                    and db_el.text
+                    and db_el.text.strip().lower() in ("uniprotkb", "uniprot")
+                    and tag_el is not None
+                    and tag_el.text
+                ):
+                    ann.setdefault("uniprot", []).append(tag_el.text.strip())
+
+            # ── Match locus tag → model gene ─────────────────────────────
+            for cand in _normalise_locus_tag(locus_tag):
+                model_id = candidate_to_model.get(cand.lower())
+                if model_id and model_id not in mapping:
+                    mapping[model_id] = ann
+                    break
+
+        logger.info(
+            f"  Tier A′: batch {batch_start}–{batch_start + len(batch) - 1} "
+            f"processed → {len(mapping)} mapped so far"
+        )
+
+    logger.info(f"  Tier A′: {len(mapping)}/{len(unmapped)} mapped")
+    return mapping
+
+
 def _build_kegg_uniprot_index() -> dict[str, str]:
     """
     Download KEGG conv/uniprot/yli and return a reverse index:
@@ -1063,15 +1222,16 @@ def annotate_genes(model) -> None:
     """
     Map YALI1* locus IDs to UniProt accessions and cross-database identifiers.
 
-    Tier A — Bulk proteome download (W29/CLIB89: UP000182444, CLIB122: UP000001300).
-              Matches via Ordered Locus Name (OLN) with normalised comparison
-              (YALI0↔YALI1 interchangeable, underscore optional).
-    Tier B — Per-gene UniProt search (gene_exact + taxonomy_id:4952) for Tier A
-              misses, up to _TIER_B_LIMIT queries (~3 min at 0.15 s/call).
-    KEGG enrichment — After Tier A+B, fetches KEGG conv/uniprot/yli and uses
-              UniProt accession as bridge to append kegg.genes to already-mapped
-              genes.  KEGG locus tags (DSM 3286) no longer match YALI0/YALI1 IDs
-              so KEGG cannot serve as an independent gene→UniProt mapping source.
+    Tier A  — Bulk UniProt proteome download (W29/CLIB89: UP000182444,
+              CLIB122: UP000001300).  Matches via OLN (YALI0↔YALI1, underscore
+              optional).  Coverage limited by UniProt's incomplete W29 proteome.
+    Tier A′ — Bulk NCBI Gene download (txid4952, ~8 700 records).  NCBI has
+              complete YALI1 locus-tag coverage; this tier is the main driver
+              toward 80 %+ annotation rate.
+    Tier B  — Per-gene UniProt search (gene_exact + taxonomy_id:4952) for any
+              genes still unmapped after A + A′, capped at _TIER_B_LIMIT queries.
+    KEGG enrichment — After all tiers, appends kegg.genes via UniProt accession
+              bridge (KEGG locus tags no longer match YALI0/YALI1).
 
     Writes uniprot, kegg.genes, refseq, ncbigene, ensembl into gene.annotation,
     extending (not overwriting) any values already present.
@@ -1079,31 +1239,44 @@ def annotate_genes(model) -> None:
     gene_ids = [g.id for g in model.genes]
     logger.info(f"Annotating {len(gene_ids)} genes …")
 
-    # ── Tier A ───────────────────────────────────────────────────────────
-    logger.info("=== Gene annotation Tier A: bulk proteome download ===")
+    # ── Tier A: UniProt proteome bulk download ────────────────────────────
+    logger.info("=== Gene annotation Tier A: UniProt proteome download ===")
     tier_a_map = _tier_a(gene_ids)
     logger.info(f"Tier A: {len(tier_a_map)}/{len(gene_ids)} mapped")
 
     unmapped_a = [gid for gid in gene_ids if gid not in tier_a_map]
 
-    # ── Tier B ───────────────────────────────────────────────────────────
-    tier_b_map: dict[str, dict] = {}
+    # ── Tier A′: NCBI Gene bulk download ─────────────────────────────────
+    tier_ap_map: dict[str, dict] = {}
     if unmapped_a:
-        logger.info(f"=== Gene annotation Tier B: per-gene search ({len(unmapped_a)} remaining) ===")
-        tier_b_map = _tier_b(unmapped_a)
+        logger.info(f"=== Gene annotation Tier A′: NCBI Gene bulk ({len(unmapped_a)} remaining) ===")
+        tier_ap_map = _tier_ncbi(unmapped_a)
 
-    # ── Apply Tier A + B to model ─────────────────────────────────────────
+    unmapped_ap = [gid for gid in unmapped_a if gid not in tier_ap_map]
+
+    # ── Tier B: per-gene UniProt search for residual misses ───────────────
+    tier_b_map: dict[str, dict] = {}
+    if unmapped_ap:
+        logger.info(f"=== Gene annotation Tier B: per-gene UniProt search ({len(unmapped_ap)} remaining) ===")
+        tier_b_map = _tier_b(unmapped_ap)
+
+    # ── Apply all tiers to model ──────────────────────────────────────────
     annotated = 0
     for gene in model.genes:
-        ann = tier_a_map.get(gene.id) or tier_b_map.get(gene.id)
+        ann = (
+            tier_a_map.get(gene.id)
+            or tier_ap_map.get(gene.id)
+            or tier_b_map.get(gene.id)
+        )
         if ann:
             _merge_gene_annotation(gene, ann)
             annotated += 1
 
     still_unmapped = len(gene_ids) - annotated
     logger.info(
-        f"Genes after Tier A+B: {annotated}/{len(gene_ids)} annotated "
-        f"(A={len(tier_a_map)}, B={len(tier_b_map)}), {still_unmapped} unmapped"
+        f"Genes annotated: {annotated}/{len(gene_ids)} "
+        f"(A={len(tier_a_map)}, A′={len(tier_ap_map)}, B={len(tier_b_map)}), "
+        f"{still_unmapped} unmapped"
     )
 
     # ── KEGG cross-ref enrichment ─────────────────────────────────────────
