@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "source": {
+    "model_path": "../iyali26_gem/model.xml",
+    "model_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+    "model_fingerprint": "8a0cc7e2e283f996926be0506c3f3a9807b9eb9ce0c8fe44732b21f14298e85a",
+    "tuple_convention": "legacy_source_convention",
+    "source": "current model.xml snapshot; reaction IDs and annotations are the direct template source"
+  },
+  "chains": [
+    {"id": "lauroyl", "lp_acyl_coa_id": "m1480[C_lp]", "legacy_tuple": {"formula": "C33H58N7O17P3S", "charge": 0}, "weight": 0.002892744479495268},
+    {"id": "myristoyl", "lp_acyl_coa_id": "m1482[C_lp]", "legacy_tuple": {"formula": "C35H62N7O17P3S", "charge": 0}, "weight": 0.001928496319663512},
+    {"id": "palmitoyl", "lp_acyl_coa_id": "m1484[C_lp]", "legacy_tuple": {"formula": "C37H66N7O17P3S", "charge": 0}, "weight": 0.18320715036803364},
+    {"id": "palmitoleoyl", "lp_acyl_coa_id": "m1486[C_lp]", "legacy_tuple": {"formula": "C37H64N7O17P3S", "charge": 0}, "weight": 0.083},
+    {"id": "stearoyl", "lp_acyl_coa_id": "m1488[C_lp]", "legacy_tuple": {"formula": "C39H70N7O17P3S", "charge": 0}, "weight": 0.04049842271293375},
+    {"id": "oleoyl", "lp_acyl_coa_id": "m1490[C_lp]", "legacy_tuple": {"formula": "C39H68N7O17P3S", "charge": 0}, "weight": 0.49658780231335437},
+    {"id": "linoleoyl", "lp_acyl_coa_id": "m1735[C_lp]", "legacy_tuple": {"formula": "C39H66N7O17P3S", "charge": -4}, "weight": 0.19188538380651946}
+  ],
+  "states": [
+    {"id": "lpa_lp", "name": "lysophosphatidate", "compartment": "C_lp"},
+    {"id": "pa_lp", "name": "phosphatidate", "compartment": "C_lp"}, {"id": "pa_em", "name": "phosphatidate", "compartment": "C_em"},
+    {"id": "cdp_dag_em", "name": "CDP-diacylglycerol", "compartment": "C_em"}, {"id": "pi_em", "name": "phosphatidylinositol", "compartment": "C_em"},
+    {"id": "ps_em", "name": "phosphatidylserine", "compartment": "C_em"}, {"id": "ps_mm", "name": "phosphatidylserine", "compartment": "C_mm"},
+    {"id": "pe_mm", "name": "phosphatidylethanolamine", "compartment": "C_mm"}, {"id": "pe_em", "name": "phosphatidylethanolamine", "compartment": "C_em"}, {"id": "pe_lp", "name": "phosphatidylethanolamine", "compartment": "C_lp"},
+    {"id": "pmme_em", "name": "phosphatidyl-N-methylethanolamine", "compartment": "C_em"}, {"id": "pdme_em", "name": "phosphatidyl-N,N-dimethylethanolamine", "compartment": "C_em"},
+    {"id": "pc_em", "name": "phosphatidylcholine", "compartment": "C_em"}, {"id": "pc_lp", "name": "phosphatidylcholine", "compartment": "C_lp"},
+    {"id": "dag_em", "name": "diacylglycerol", "compartment": "C_em"}, {"id": "dag_cy", "name": "diacylglycerol", "compartment": "C_cy"}, {"id": "dag_lp", "name": "diacylglycerol", "compartment": "C_lp"},
+    {"id": "tag_lp", "name": "triacylglycerol", "compartment": "C_lp"}
+  ],
+  "steps": [
+    {"reaction_id": "R353", "bounds": [0.0, 1000.0], "gpr": "YALI1C00230g", "stoichiometry": {"m570[C_lp]": -1.0, "m576[C_lp]": -1.0, "m573[C_lp]": 1.0, "m577[C_lp]": 1.0}},
+    {"reaction_id": "R1846", "bounds": [0.0, 1000.0], "gpr": "YALI1E22736g or YALI1F13550g or YALI1D21511g", "stoichiometry": {"m570[C_lp]": -1.0, "m577[C_lp]": -1.0, "m1705[C_lp]": 1.0, "m573[C_lp]": 1.0}, "source_state": "lpa_lp", "target_state": "pa_lp", "template_source_id": "m577[C_lp]", "template_target_id": "m1705[C_lp]"},
+    {"reaction_id": "R1790", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m1705[C_lp]": -1.0, "m378[C_em]": 1.0}, "source_state": "pa_lp", "target_state": "pa_em", "template_source_id": "m1705[C_lp]", "template_target_id": "m378[C_em]"},
+    {"reaction_id": "R196", "bounds": [-1000.0, 1000.0], "gpr": "YALI1E17431g", "stoichiometry": {"m376[C_em]": -1.0, "m377[C_em]": -1.0, "m378[C_em]": -1.0, "m379[C_em]": 1.0, "m380[C_em]": 1.0}, "source_state": "pa_em", "target_state": "cdp_dag_em", "template_source_id": "m378[C_em]", "template_target_id": "m379[C_em]"},
+    {"reaction_id": "R1839", "bounds": [0.0, 1000.0], "gpr": "YALI1F27002g", "stoichiometry": {"m1605[C_em]": -1.0, "m379[C_em]": -1.0, "m1601[C_em]": 1.0, "m1648[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "cdp_dag_em", "target_state": "pi_em", "template_source_id": "m379[C_em]", "template_target_id": "m1648[C_em]"},
+    {"reaction_id": "R1841", "bounds": [0.0, 1000.0], "gpr": "YALI1D10930g", "stoichiometry": {"m1604[C_em]": -1.0, "m379[C_em]": -1.0, "m1601[C_em]": 1.0, "m1631[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "cdp_dag_em", "target_state": "ps_em", "template_source_id": "m379[C_em]", "template_target_id": "m1631[C_em]"},
+    {"reaction_id": "R1792", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m1631[C_em]": -1.0, "m868[C_mm]": 1.0}, "source_state": "ps_em", "target_state": "ps_mm", "template_source_id": "m1631[C_em]", "template_target_id": "m868[C_mm]"},
+    {"reaction_id": "R629", "bounds": [0.0, 1000.0], "gpr": "YALI1D27274g", "stoichiometry": {"m382[C_mm]": -1.0, "m868[C_mm]": -1.0, "m869[C_mm]": 1.0, "m870[C_mm]": 1.0}, "source_state": "ps_mm", "target_state": "pe_mm", "template_source_id": "m868[C_mm]", "template_target_id": "m870[C_mm]"},
+    {"reaction_id": "R1793", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m870[C_mm]": -1.0, "m1633[C_em]": 1.0}, "source_state": "pe_mm", "target_state": "pe_em", "template_source_id": "m870[C_mm]", "template_target_id": "m1633[C_em]"},
+    {"reaction_id": "R1787", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m1633[C_em]": -1.0, "m1700[C_lp]": 1.0}, "source_state": "pe_em", "target_state": "pe_lp", "template_source_id": "m1633[C_em]", "template_target_id": "m1700[C_lp]"},
+    {"reaction_id": "R1835", "bounds": [0.0, 1000.0], "gpr": "YALI1E07347g", "stoichiometry": {"m1606[C_em]": -1.0, "m1633[C_em]": -1.0, "m1607[C_em]": 1.0, "m1717[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "pe_em", "target_state": "pmme_em", "template_source_id": "m1633[C_em]", "template_target_id": "m1717[C_em]"},
+    {"reaction_id": "R1845", "bounds": [0.0, 1000.0], "gpr": "YALI1E15432g", "stoichiometry": {"m1606[C_em]": -1.0, "m1717[C_em]": -1.0, "m1607[C_em]": 1.0, "m1719[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "pmme_em", "target_state": "pdme_em", "template_source_id": "m1717[C_em]", "template_target_id": "m1719[C_em]"},
+    {"reaction_id": "R1844", "bounds": [0.0, 1000.0], "gpr": "YALI1E15432g", "stoichiometry": {"m1606[C_em]": -1.0, "m1719[C_em]": -1.0, "m1607[C_em]": 1.0, "m1632[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "pdme_em", "target_state": "pc_em", "template_source_id": "m1719[C_em]", "template_target_id": "m1632[C_em]"},
+    {"reaction_id": "R1786", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m1632[C_em]": -1.0, "m1701[C_lp]": 1.0}, "source_state": "pc_em", "target_state": "pc_lp", "template_source_id": "m1632[C_em]", "template_target_id": "m1701[C_lp]"},
+    {"reaction_id": "R1773", "bounds": [0.0, 1000.0], "gpr": "YALI1D35593g", "stoichiometry": {"m1447[C_em]": -1.0, "m378[C_em]": -1.0, "m1599[C_em]": 1.0, "m1649[C_em]": 1.0}, "source_state": "pa_em", "target_state": "dag_em", "template_source_id": "m378[C_em]", "template_target_id": "m1649[C_em]"},
+    {"reaction_id": "R1776", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m1670[C_cy]": -1.0, "m1649[C_em]": 1.0}, "source_state": "dag_em", "target_state": "dag_cy", "template_source_id": "m1649[C_em]", "template_target_id": "m1670[C_cy]"},
+    {"reaction_id": "R1778", "bounds": [-1000.0, 1000.0], "gpr": "", "stoichiometry": {"m1670[C_cy]": -1.0, "m1642[C_lp]": 1.0}, "source_state": "dag_cy", "target_state": "dag_lp", "template_source_id": "m1670[C_cy]", "template_target_id": "m1642[C_lp]"},
+    {"reaction_id": "R1771", "bounds": [-1000.0, 1000.0], "gpr": "YALI1E38810g", "stoichiometry": {"m1642[C_lp]": -1.0, "m570[C_lp]": -1.0, "m1640[C_lp]": 1.0, "m573[C_lp]": 1.0}}
+  ],
+  "biomass": {"reaction_id": "biomass_C", "terms": [
+    {"generic_metabolite_id": "m1705[C_lp]", "state": "pa_lp", "compartment": "C_lp", "coefficient": 0.000058, "arity": 2},
+    {"generic_metabolite_id": "m1631[C_em]", "state": "ps_em", "compartment": "C_em", "coefficient": 0.000035, "arity": 2},
+    {"generic_metabolite_id": "m1648[C_em]", "state": "pi_em", "compartment": "C_em", "coefficient": 0.000075, "arity": 2},
+    {"generic_metabolite_id": "m1700[C_lp]", "state": "pe_lp", "compartment": "C_lp", "coefficient": 0.000237, "arity": 2},
+    {"generic_metabolite_id": "m1701[C_lp]", "state": "pc_lp", "compartment": "C_lp", "coefficient": 0.000346, "arity": 2},
+    {"generic_metabolite_id": "m1640[C_lp]", "state": "tag_lp", "compartment": "C_lp", "coefficient": 0.000234, "arity": 3}
+  ]},
+  "generic_acyl_coa_ids": ["m570[C_lp]", "m567[C_em]", "m790[C_mm]"],
+  "remove_reactions": ["R351", "R1902", "R1766", "R1719", "R350", "R2091", "R352", "R1843", "R1772", "R1727", "R530", "xPOOL_AC_LP", "xPOOL_AC_EM", "xPOOL_AC_MM"],
+  "close_reactions": ["R2135", "R2144", "R2145", "R2168", "R2169", "R2170", "R1707", "R1785", "R2165"],
+  "blockers": ["pH_7_3_coa_acyl_coa_tuple_migration_unresolved", "R1521_R1708_R2004_component_chemistry_unresolved", "cardiolipin_four_chain_expansion_deferred", "production_apply_forbidden_pending_human_approval"]
+}
