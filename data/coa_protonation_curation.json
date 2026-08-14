@@ -1,0 +1,1398 @@
+{
+  "schema_version": 1,
+  "curation_id": "iyli21_coa_biochemical_ph_anionic",
+  "activation_state": "blocked",
+  "activation_reason": "Current-main pH 7.3 tuple migration is an audit-only connected-component candidate. Production activation remains blocked until every source-backed component reaction is closed and the separate cardiolipin gate is reviewed.",
+  "convention": "biochemical-pH anionic",
+  "source_model": "../iyali26_gem/model.xml",
+  "source_stage": "current_main_model_xml",
+  "source_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+  "source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+  "tuple_fields": [
+    "formula",
+    "charge"
+  ],
+  "groups": [
+    {
+      "id": "coenzyme_a",
+      "identity_names": [
+        "coenzyme a"
+      ],
+      "expected_ids": [
+        "m69[C_cy]",
+        "m73[C_mi]",
+        "m182[C_pe]",
+        "m207[C_nu]",
+        "m233[C_em]",
+        "m252[C_er]",
+        "m573[C_lp]",
+        "m792[C_mm]",
+        "m1494[C_en]"
+      ],
+      "expected_copy_count": 9,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m69[C_cy]",
+            "m73[C_mi]",
+            "m182[C_pe]",
+            "m207[C_nu]",
+            "m233[C_em]",
+            "m252[C_er]",
+            "m573[C_lp]",
+            "m792[C_mm]",
+            "m1494[C_en]"
+          ],
+          "formula": "C21H36N7O16P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C21H32N7O16P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical CoA4- biochemical-pH anion; four phosphate protons removed from the legacy neutral formula."
+    },
+    {
+      "id": "lauroyl_coa",
+      "identity_names": [
+        "lauroyl-coa"
+      ],
+      "expected_ids": [
+        "m191[C_pe]",
+        "m1422[C_em]",
+        "m1480[C_lp]",
+        "m1514[C_cy]",
+        "m1738[C_mm]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m191[C_pe]",
+            "m1422[C_em]",
+            "m1480[C_lp]",
+            "m1514[C_cy]",
+            "m1738[C_mm]"
+          ],
+          "formula": "C33H58N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C33H54N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical saturated C12 acyl-CoA4- biochemical-pH anion."
+    },
+    {
+      "id": "myristoyl_coa",
+      "identity_names": [
+        "myristoyl-coa"
+      ],
+      "expected_ids": [
+        "m188[C_pe]",
+        "m1426[C_em]",
+        "m1482[C_lp]",
+        "m1515[C_cy]",
+        "m1739[C_mm]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m188[C_pe]",
+            "m1426[C_em]",
+            "m1482[C_lp]",
+            "m1515[C_cy]",
+            "m1739[C_mm]"
+          ],
+          "formula": "C35H62N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C35H58N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical saturated C14 acyl-CoA4- biochemical-pH anion."
+    },
+    {
+      "id": "palmitoyl_coa",
+      "identity_names": [
+        "palmitoyl-coa"
+      ],
+      "expected_ids": [
+        "m184[C_pe]",
+        "m250[C_er]",
+        "m1349[C_cy]",
+        "m1428[C_em]",
+        "m1484[C_lp]",
+        "m1741[C_mm]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m184[C_pe]",
+            "m250[C_er]",
+            "m1349[C_cy]",
+            "m1428[C_em]",
+            "m1484[C_lp]",
+            "m1741[C_mm]"
+          ],
+          "formula": "C37H66N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C37H62N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical saturated C16 acyl-CoA4- biochemical-pH anion."
+    },
+    {
+      "id": "palmitoleoyl_coa",
+      "identity_names": [
+        "palmitoleoyl-coa"
+      ],
+      "expected_ids": [
+        "m243[C_em]",
+        "m1486[C_lp]",
+        "m1491[C_pe]",
+        "m1516[C_cy]",
+        "m1624[C_mm]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m243[C_em]",
+            "m1486[C_lp]",
+            "m1491[C_pe]",
+            "m1516[C_cy]",
+            "m1624[C_mm]"
+          ],
+          "formula": "C37H64N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C37H60N7O17P3S",
+        "charge": -4
+      },
+      "annotation_target": {
+        "bigg.metabolite": "hdcoa",
+        "kegg.compound": "C21072",
+        "metanetx.chemical": "MNXM781",
+        "chebi": "CHEBI:61540"
+      },
+      "replace_annotation_keys": [
+        "bigg.metabolite",
+        "biggm",
+        "kegg.compound",
+        "keggc",
+        "metanetx.chemical",
+        "mnx",
+        "chebi",
+        "inchi",
+        "inchikey",
+        "hmdb",
+        "lipidmaps",
+        "lipidmapsm",
+        "metacyc.compound",
+        "metacycm",
+        "reactome",
+        "reactomem",
+        "sabiork.compound",
+        "sabiorkm",
+        "seed.compound",
+        "seedm",
+        "vmhmetabolite",
+        "vmhm",
+        "slm",
+        "envipath",
+        "envipathm"
+      ],
+      "evidence": "Verified canonical C16:1 palmitoleoyl-CoA identity: BiGG hdcoa, KEGG C21072, MNXM781, ChEBI 61540. Legacy CHEBI:52381 and its InChI describe a trans-2-enoyl misassignment and are removed rather than replaced with an unverified InChI."
+    },
+    {
+      "id": "stearoyl_coa",
+      "identity_names": [
+        "stearoyl-coa"
+      ],
+      "expected_ids": [
+        "m228[C_pe]",
+        "m1409[C_cy]",
+        "m1430[C_em]",
+        "m1488[C_lp]",
+        "m1742[C_mm]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m228[C_pe]",
+            "m1409[C_cy]",
+            "m1430[C_em]",
+            "m1488[C_lp]",
+            "m1742[C_mm]"
+          ],
+          "formula": "C39H70N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C39H66N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical saturated C18 acyl-CoA4- biochemical-pH anion."
+    },
+    {
+      "id": "oleoyl_coa",
+      "identity_names": [
+        "oleoyl-coa"
+      ],
+      "expected_ids": [
+        "m231[C_em]",
+        "m1490[C_lp]",
+        "m1493[C_pe]",
+        "m1517[C_cy]",
+        "m1625[C_mm]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m231[C_em]",
+            "m1490[C_lp]",
+            "m1493[C_pe]",
+            "m1517[C_cy]",
+            "m1625[C_mm]"
+          ],
+          "formula": "C39H68N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C39H64N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical cis C18:1 acyl-CoA4- biochemical-pH anion."
+    },
+    {
+      "id": "linoleoyl_coa",
+      "identity_names": [
+        "linoleoyl-coa"
+      ],
+      "expected_ids": [
+        "m1731[C_em]",
+        "m1735[C_lp]",
+        "m1743[C_mm]",
+        "m1797[C_pe]",
+        "m1798[C_cy]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1731[C_em]",
+            "m1735[C_lp]",
+            "m1743[C_mm]",
+            "m1797[C_pe]",
+            "m1798[C_cy]"
+          ],
+          "formula": "C39H66N7O17P3S",
+          "charge": -4
+        }
+      ],
+      "target_tuple": {
+        "formula": "C39H62N7O17P3S",
+        "charge": -4
+      },
+      "annotation_target": {
+        "bigg.metabolite": "lnlccoa",
+        "kegg.compound": "C02050",
+        "metanetx.chemical": "MNXM638",
+        "chebi": "CHEBI:57383"
+      },
+      "replace_annotation_keys": [
+        "bigg.metabolite",
+        "biggm",
+        "kegg.compound",
+        "keggc",
+        "metanetx.chemical",
+        "mnx",
+        "chebi",
+        "inchi",
+        "inchikey",
+        "hmdb",
+        "lipidmaps",
+        "lipidmapsm",
+        "metacyc.compound",
+        "metacycm",
+        "reactome",
+        "reactomem",
+        "sabiork.compound",
+        "sabiorkm",
+        "seed.compound",
+        "seedm",
+        "vmhmetabolite",
+        "vmhm",
+        "slm",
+        "envipath",
+        "envipathm"
+      ],
+      "evidence": "Verified canonical C18:2 linoleoyl-CoA identity: BiGG lnlccoa, KEGG C02050, MNXM638, ChEBI 57383. Legacy stearoyl mappings and InChI are removed rather than retained or replaced with an unverified InChI."
+    },
+    {
+      "id": "pimeloyl_coa",
+      "identity_names": [
+        "pimeloyl-coa"
+      ],
+      "expected_ids": [
+        "m171[C_cy]"
+      ],
+      "expected_copy_count": 1,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m171[C_cy]"
+          ],
+          "formula": "C28H46N7O19P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C28H41N7O19P3S",
+        "charge": -5
+      },
+      "evidence": "Dicarboxylic acyl-CoA biochemical-pH pentaanion; required CoA closure for R74."
+    },
+    {
+      "id": "hexadec_2_enoyl_coa",
+      "identity_names": [
+        "hexadec-2-enoyl-coa"
+      ],
+      "expected_ids": [
+        "m227[C_pe]"
+      ],
+      "expected_copy_count": 1,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m227[C_pe]"
+          ],
+          "formula": "C37H64N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C37H60N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R100."
+    },
+    {
+      "id": "trans_octadec_2_enoyl_coa",
+      "identity_names": [
+        "trans-octadec-2-enoyl-coa"
+      ],
+      "expected_ids": [
+        "m229[C_pe]",
+        "m1450[C_em]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m229[C_pe]",
+            "m1450[C_em]"
+          ],
+          "formula": "C39H68N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C39H64N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R101 and R1429."
+    },
+    {
+      "id": "hexacosanoyl_coa",
+      "identity_names": [
+        "hexacosanoyl-coa"
+      ],
+      "expected_ids": [
+        "m225[C_pe]",
+        "m395[C_er]",
+        "m1251[C_cy]",
+        "m1455[C_em]",
+        "m1504[C_en]",
+        "m1513[C_lp]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m225[C_pe]",
+            "m395[C_er]",
+            "m1251[C_cy]",
+            "m1455[C_em]",
+            "m1504[C_en]",
+            "m1513[C_lp]"
+          ],
+          "formula": "C47H86N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C47H82N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R203, R205 and R99."
+    },
+    {
+      "id": "butanoyl_coa",
+      "identity_names": [
+        "butanoyl-coa"
+      ],
+      "expected_ids": [
+        "m1524[C_pe]"
+      ],
+      "expected_copy_count": 1,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1524[C_pe]"
+          ],
+          "formula": "C25H42N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C25H38N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R1483 and R1535."
+    },
+    {
+      "id": "3_oxohexanoyl_coa",
+      "identity_names": [
+        "3-oxohexanoyl-coa"
+      ],
+      "expected_ids": [
+        "m1560[C_pe]"
+      ],
+      "expected_copy_count": 1,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1560[C_pe]"
+          ],
+          "formula": "C27H44N7O18P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C27H40N7O18P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R1535."
+    },
+    {
+      "id": "acetyl_coa",
+      "identity_names": [
+        "acetyl-coa"
+      ],
+      "expected_ids": [
+        "m68[C_cy]",
+        "m71[C_mi]",
+        "m183[C_pe]",
+        "m208[C_nu]"
+      ],
+      "expected_copy_count": 4,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m68[C_cy]",
+            "m71[C_mi]",
+            "m183[C_pe]",
+            "m208[C_nu]"
+          ],
+          "formula": "C23H38N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C23H34N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Canonical acetyl-CoA4- biochemical-pH anion; closure for R1535, R1539, R1708 and R2004."
+    },
+    {
+      "id": "docosanoyl_coa",
+      "identity_names": [
+        "docosanoyl-coa"
+      ],
+      "expected_ids": [
+        "m1434[C_em]",
+        "m1500[C_en]",
+        "m1509[C_lp]",
+        "m1520[C_cy]",
+        "m1521[C_pe]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1434[C_em]",
+            "m1500[C_en]",
+            "m1509[C_lp]",
+            "m1520[C_cy]",
+            "m1521[C_pe]"
+          ],
+          "formula": "C43H78N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C43H74N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R1539."
+    },
+    {
+      "id": "3_oxotetracosanoyl_coa",
+      "identity_names": [
+        "3-oxotetracosanoyl-coa"
+      ],
+      "expected_ids": [
+        "m1435[C_em]",
+        "m1564[C_pe]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1435[C_em]",
+            "m1564[C_pe]"
+          ],
+          "formula": "C45H80N7O18P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C45H76N7O18P3S",
+        "charge": -4
+      },
+      "evidence": "CoA closure for R1539; both exact compartment copies are required."
+    },
+    {
+      "id": "3_oxooctadecanoyl_coa",
+      "identity_names": [
+        "3-oxooctadecanoyl-coa"
+      ],
+      "expected_ids": [
+        "m181[C_pe]",
+        "m1429[C_em]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m181[C_pe]",
+            "m1429[C_em]"
+          ],
+          "formula": "C39H68N7O18P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C39H64N7O18P3S",
+        "charge": -4
+      },
+      "evidence": "Recursive CoA-only closure for R79; target agrees with its existing InChI protonation /p-4."
+    },
+    {
+      "id": "3_oxotetradecanoyl_coa",
+      "identity_names": [
+        "3-oxotetradecanoyl-coa"
+      ],
+      "expected_ids": [
+        "m117[C_pe]",
+        "m1425[C_em]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m117[C_pe]",
+            "m1425[C_em]"
+          ],
+          "formula": "C35H60N7O18P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C35H56N7O18P3S",
+        "charge": -4
+      },
+      "evidence": "Recursive CoA-only closure for R84; target agrees with its existing InChI protonation /p-4."
+    },
+    {
+      "id": "trans_hexacos_2_enoyl_coa",
+      "identity_names": [
+        "trans-hexacos-2-enoyl-coa"
+      ],
+      "expected_ids": [
+        "m226[C_pe]",
+        "m1454[C_em]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m226[C_pe]",
+            "m1454[C_em]"
+          ],
+          "formula": "C47H84N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C47H80N7O17P3S",
+        "charge": -4
+      },
+      "evidence": "Recursive CoA-only closure for R99 and R1433."
+    },
+    {
+      "id": "3_hydroxyoctadecanoyl_coa",
+      "identity_names": [
+        "3-hydroxyoctadecanoyl-coa"
+      ],
+      "expected_ids": [
+        "m1442[C_em]"
+      ],
+      "expected_copy_count": 1,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1442[C_em]"
+          ],
+          "formula": "C39H70N7O18P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C39H66N7O18P3S",
+        "charge": -4
+      },
+      "evidence": "Recursive CoA-only closure for R1415; target agrees with its existing InChI protonation /p-4."
+    },
+    {
+      "id": "succinyl_coa",
+      "identity_names": [
+        "succinyl-coa"
+      ],
+      "expected_ids": [
+        "m156[C_mi]",
+        "m2046[C_cy]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m156[C_mi]"
+          ],
+          "formula": "C25H40N7O19P3S",
+          "charge": 0
+        },
+        {
+          "ids": [
+            "m2046[C_cy]"
+          ],
+          "formula": "C25H35N7O19P3S",
+          "charge": -5
+        }
+      ],
+      "target_tuple": {
+        "formula": "C25H35N7O19P3S",
+        "charge": -5
+      },
+      "evidence": "Authoritative pentaanionic tuple is recorded for audit only. Applying it requires the non-CoA acetate/succinate protonation migration described in activation_blockers."
+    },
+    {
+      "id": "er_vlcfa_3r_hydroxyhexacosanoyl_coa",
+      "identity_names": [
+        "(s)-3-hydroxyhexacosanoyl-coa",
+        "(3r)-3-hydroxyhexacosanoyl-coa",
+        "(r)-3-hydroxyhexacosanoyl-coa"
+      ],
+      "target_name": "(3R)-3-hydroxyhexacosanoyl-CoA",
+      "expected_ids": [
+        "m1446[C_em]",
+        "m1546[C_pe]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1446[C_em]"
+          ],
+          "formula": "C47H86N7O18P3S",
+          "charge": 0
+        },
+        {
+          "ids": [
+            "m1546[C_pe]"
+          ],
+          "formula": null,
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C47H82N7O18P3S",
+        "charge": -4
+      },
+      "annotation_target": {
+        "chebi": "CHEBI:76378"
+      },
+      "replace_annotation_keys": [
+        "chebi",
+        "hmdb",
+        "inchi",
+        "inchikey",
+        "lipidmaps",
+        "lipidmapsm",
+        "metacyc.compound",
+        "metacycm",
+        "metanetx.chemical",
+        "seed.compound",
+        "seedm"
+      ],
+      "evidence": "Rhea's ER VLCFA elongation reactions use (3R)-3-hydroxyhexacosanoyl-CoA. CHEBI:76378 is the exact C26 CoA(4-) biochemical-pH microspecies; together with the curated trans-hexacos-2-enoyl-CoA4- tuple it makes R1426 exactly balanced without adding H+."
+    },
+    {
+      "id": "tetracosanoyl_coa",
+      "identity_names": [
+        "tetracosanoyl-coa"
+      ],
+      "expected_ids": [
+        "m186[C_pe]",
+        "m394[C_er]",
+        "m1374[C_cy]",
+        "m1436[C_em]",
+        "m1502[C_en]",
+        "m1511[C_lp]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m186[C_pe]",
+            "m394[C_er]",
+            "m1374[C_cy]",
+            "m1436[C_em]",
+            "m1502[C_en]",
+            "m1511[C_lp]"
+          ],
+          "formula": "C45H82N7O17P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C45H78N7O17P3S",
+        "charge": -4
+      },
+      "annotation_target": {
+        "chebi": "CHEBI:65052"
+      },
+      "replace_annotation_keys": [
+        "chebi",
+        "hmdb",
+        "inchi",
+        "inchikey",
+        "lipidmaps",
+        "lipidmapsm",
+        "metacyc.compound",
+        "metacycm",
+        "metanetx.chemical",
+        "seed.compound",
+        "seedm"
+      ],
+      "evidence": "CHEBI:65052 / RHEA:36515 and RHEA:78639 define tetracosanoyl-CoA4- as C45H78N7O17P3S/-4. All six same-identity compartment copies must migrate together; the prior C45H82/-4 tuple is chemically inconsistent."
+    },
+    {
+      "id": "3_oxohexacosanoyl_coa",
+      "identity_names": [
+        "3-oxohexacosanoyl-coa"
+      ],
+      "expected_ids": [
+        "m1437[C_em]",
+        "m185[C_pe]"
+      ],
+      "expected_copy_count": 2,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1437[C_em]",
+            "m185[C_pe]"
+          ],
+          "formula": "C47H84N7O18P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C47H80N7O18P3S",
+        "charge": -4
+      },
+      "annotation_target": {
+        "chebi": "CHEBI:73980"
+      },
+      "replace_annotation_keys": [
+        "chebi",
+        "hmdb",
+        "inchi",
+        "inchikey",
+        "lipidmaps",
+        "lipidmapsm",
+        "metacyc.compound",
+        "metacycm",
+        "metanetx.chemical",
+        "seed.compound",
+        "seedm"
+      ],
+      "evidence": "CHEBI:73980 / RHEA:39207 and RHEA:78639 define 3-oxohexacosanoyl-CoA4- as C47H80N7O18P3S/-4. m1437[C_em] and m185[C_pe] are one chemical identity and must be migrated atomically."
+    },
+    {
+      "id": "malonyl_coa",
+      "identity_names": [
+        "malonyl-coa"
+      ],
+      "expected_ids": [
+        "m198[C_mi]",
+        "m200[C_cy]",
+        "m1423[C_em]"
+      ],
+      "expected_copy_count": 3,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m198[C_mi]",
+            "m200[C_cy]",
+            "m1423[C_em]"
+          ],
+          "formula": "C24H38N7O19P3S",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C24H33N7O19P3S",
+        "charge": -5
+      },
+      "evidence": "Authoritative pentaanionic tuple is recorded for audit only. Applying it requires the non-CoA pyruvate/oxaloacetate protonation migration described in activation_blockers."
+    },
+    {
+      "id": "nad_plus",
+      "identity_names": [
+        "nad"
+      ],
+      "expected_ids": [
+        "m116[C_pe]",
+        "m122[C_cy]",
+        "m1458[C_em]",
+        "m27[C_mi]",
+        "m817[C_nu]",
+        "m960[C_er]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m116[C_pe]",
+            "m122[C_cy]",
+            "m1458[C_em]",
+            "m27[C_mi]",
+            "m817[C_nu]",
+            "m960[C_er]"
+          ],
+          "formula": "C21H27N7O14P2",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C21H26N7O14P2",
+        "charge": -1
+      },
+      "evidence": "NAD+ pH 7.3 microspecies, CHEBI:57540 / RHEA:11709."
+    },
+    {
+      "id": "nadh",
+      "identity_names": [
+        "nadh"
+      ],
+      "expected_ids": [
+        "m119[C_pe]",
+        "m123[C_cy]",
+        "m1457[C_em]",
+        "m30[C_mi]",
+        "m957[C_er]"
+      ],
+      "expected_copy_count": 5,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m119[C_pe]",
+            "m123[C_cy]",
+            "m1457[C_em]",
+            "m30[C_mi]",
+            "m957[C_er]"
+          ],
+          "formula": "C21H29N7O14P2",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C21H27N7O14P2",
+        "charge": -2
+      },
+      "evidence": "NADH pH 7.3 microspecies, CHEBI:57945 / RHEA:10300."
+    },
+    {
+      "id": "nadp_plus",
+      "identity_names": [
+        "nadp(+)"
+      ],
+      "expected_ids": [
+        "m104[C_er]",
+        "m1439[C_em]",
+        "m1610[C_lp]",
+        "m178[C_mi]",
+        "m41[C_cy]",
+        "m740[C_pe]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m104[C_er]",
+            "m1439[C_em]",
+            "m1610[C_lp]",
+            "m178[C_mi]",
+            "m41[C_cy]",
+            "m740[C_pe]"
+          ],
+          "formula": "C21H29N7O17P3",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C21H25N7O17P3",
+        "charge": -3
+      },
+      "evidence": "NADP+ pH 7.3 microspecies, CHEBI:58349 / RHEA:19819."
+    },
+    {
+      "id": "nadph",
+      "identity_names": [
+        "nadph"
+      ],
+      "expected_ids": [
+        "m103[C_er]",
+        "m1438[C_em]",
+        "m1609[C_lp]",
+        "m176[C_mi]",
+        "m40[C_cy]",
+        "m742[C_pe]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m103[C_er]",
+            "m1438[C_em]",
+            "m1609[C_lp]",
+            "m176[C_mi]",
+            "m40[C_cy]",
+            "m742[C_pe]"
+          ],
+          "formula": "C21H30N7O17P3",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C21H26N7O17P3",
+        "charge": -4
+      },
+      "evidence": "NADPH pH 7.3 microspecies, CHEBI:57783 / RHEA:19819."
+    },
+    {
+      "id": "acetate",
+      "identity_names": [
+        "acetate"
+      ],
+      "expected_ids": [
+        "m1025[C_ex]",
+        "m201[C_mi]",
+        "m202[C_cy]",
+        "m205[C_nu]",
+        "m597[C_er]",
+        "m2053[C_pe]"
+      ],
+      "expected_copy_count": 6,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1025[C_ex]",
+            "m201[C_mi]",
+            "m202[C_cy]",
+            "m205[C_nu]",
+            "m597[C_er]"
+          ],
+          "formula": "C2H4O2",
+          "charge": 0
+        },
+        {
+          "ids": [
+            "m2053[C_pe]"
+          ],
+          "formula": "C2H3O2",
+          "charge": -1
+        }
+      ],
+      "target_tuple": {
+        "formula": "C2H3O2",
+        "charge": -1
+      },
+      "evidence": "Acetate pH 7.3 microspecies, CHEBI:30089."
+    },
+    {
+      "id": "succinate",
+      "identity_names": [
+        "succinate"
+      ],
+      "expected_ids": [
+        "m1368[C_ex]",
+        "m541[C_cy]",
+        "m810[C_mi]"
+      ],
+      "expected_copy_count": 3,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1368[C_ex]",
+            "m541[C_cy]",
+            "m810[C_mi]"
+          ],
+          "formula": "C4H6O4",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C4H4O4",
+        "charge": -2
+      },
+      "evidence": "Succinate pH 7.3 microspecies, CHEBI:30031 / RHEA:30059."
+    },
+    {
+      "id": "pyruvate",
+      "identity_names": [
+        "pyruvate"
+      ],
+      "expected_ids": [
+        "m1103[C_ex]",
+        "m4[C_cy]",
+        "m6[C_mi]"
+      ],
+      "expected_copy_count": 3,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1103[C_ex]",
+            "m4[C_cy]",
+            "m6[C_mi]"
+          ],
+          "formula": "C3H4O3",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C3H3O3",
+        "charge": -1
+      },
+      "evidence": "Pyruvate pH 7.3 microspecies, CHEBI:15361 / RHEA:64722."
+    },
+    {
+      "id": "oxaloacetate",
+      "identity_names": [
+        "oxaloacetate"
+      ],
+      "expected_ids": [
+        "m1344[C_ex]",
+        "m328[C_cy]",
+        "m333[C_pe]",
+        "m77[C_mi]"
+      ],
+      "expected_copy_count": 4,
+      "legacy_tuples": [
+        {
+          "ids": [
+            "m1344[C_ex]",
+            "m328[C_cy]",
+            "m333[C_pe]",
+            "m77[C_mi]"
+          ],
+          "formula": "C4H4O5",
+          "charge": 0
+        }
+      ],
+      "target_tuple": {
+        "formula": "C4H2O5",
+        "charge": -2
+      },
+      "evidence": "Oxaloacetate pH 7.3 microspecies, CHEBI:16452 / RHEA:71603."
+    }
+  ],
+  "reaction_corrections": [
+    {
+      "reaction_id": "R74",
+      "metabolite_id": "m10[C_cy]",
+      "legacy_coefficient": 0,
+      "target_coefficient": -1,
+      "evidence": "Exact proton reactant required by the authoritative pimeloyl-CoA5-/CoA4- tuple; no general proton repair is permitted."
+    },
+    {
+      "reaction_id": "R2076",
+      "metabolite_id": "m10[C_cy]",
+      "legacy_coefficient": 3,
+      "target_coefficient": -1,
+      "evidence": "Exact curated correction: replace three product protons with one reactant proton; this zeros both H and charge with m2047 left unchanged."
+    },
+    {
+      "reaction_id": "R1412",
+      "metabolite_id": "m377[C_em]",
+      "legacy_coefficient": 0,
+      "target_coefficient": -1,
+      "evidence": "RHEA:36515 requires one H+ reactant in the C24-to-C26 elongase reaction; the correction is an exact source-to-target contract, not generic proton repair."
+    }
+  ],
+  "reaction_identity_corrections": [
+    {
+      "reaction_id": "R1412",
+      "legacy_name": "elongase III (3-oxohexacosanoyl-CoA)",
+      "target_name": "elongase III (3-oxohexacosanoyl-CoA)",
+      "annotation_target": {
+        "rh": [
+          "36515",
+          "36516"
+        ],
+        "rhea": [
+          "36515",
+          "36516"
+        ]
+      }
+    },
+    {
+      "reaction_id": "R1419",
+      "legacy_name": "B-ketoacyl-CoA reductase ((S)-3-hydroxyhexacosanoyl-CoA)",
+      "target_name": "B-ketoacyl-CoA reductase ((3R)-3-hydroxyhexacosanoyl-CoA)",
+      "annotation_target": {
+        "rh": [
+          "39207",
+          "39208"
+        ],
+        "rhea": [
+          "39207",
+          "39208"
+        ]
+      }
+    },
+    {
+      "reaction_id": "R1426",
+      "legacy_name": "B-hydroxyacyl-CoA dehydratase (trans-hexacos-2-enoyl-CoA)",
+      "target_name": "B-hydroxyacyl-CoA dehydratase (trans-hexacos-2-enoyl-CoA)",
+      "annotation_target": {
+        "rhea": [
+          "39211",
+          "39214"
+        ],
+        "rh": [
+          "39211",
+          "39214"
+        ]
+      }
+    },
+    {
+      "reaction_id": "R80",
+      "legacy_name": "acetyl-CoA C-acyltransferase (tetracosanoyl-CoA)",
+      "target_name": "acetyl-CoA C-acyltransferase (tetracosanoyl-CoA)",
+      "annotation_target": {
+        "rh": [
+          "78639",
+          "78641"
+        ],
+        "rhea": [
+          "78639",
+          "78641"
+        ]
+      }
+    }
+  ],
+  "reaction_contracts": [
+    {
+      "reaction_id": "R1412",
+      "bounds": [
+        0,
+        1000
+      ],
+      "reversible": false,
+      "source_stoichiometry": {
+        "m1423[C_em]": -1,
+        "m1436[C_em]": -1,
+        "m1424[C_em]": 1,
+        "m1437[C_em]": 1,
+        "m233[C_em]": 1
+      },
+      "target_stoichiometry": {
+        "m1423[C_em]": -1,
+        "m1436[C_em]": -1,
+        "m377[C_em]": -1,
+        "m1424[C_em]": 1,
+        "m1437[C_em]": 1,
+        "m233[C_em]": 1
+      },
+      "evidence": "RHEA:36515 / RHEA:36516: tetracosanoyl-CoA + malonyl-CoA + H+ = 3-oxohexacosanoyl-CoA + CO2 + CoA."
+    },
+    {
+      "reaction_id": "R1419",
+      "bounds": [
+        0,
+        1000
+      ],
+      "reversible": false,
+      "source_stoichiometry": {
+        "m377[C_em]": -1,
+        "m1437[C_em]": -1,
+        "m1438[C_em]": -1,
+        "m1439[C_em]": 1,
+        "m1446[C_em]": 1
+      },
+      "target_stoichiometry": {
+        "m377[C_em]": -1,
+        "m1437[C_em]": -1,
+        "m1438[C_em]": -1,
+        "m1439[C_em]": 1,
+        "m1446[C_em]": 1
+      },
+      "evidence": "RHEA:39207 / RHEA:39208: 3-oxohexacosanoyl-CoA + NADPH + H+ = (3R)-3-hydroxyhexacosanoyl-CoA + NADP+."
+    },
+    {
+      "reaction_id": "R80",
+      "bounds": [
+        0,
+        1000
+      ],
+      "reversible": false,
+      "source_stoichiometry": {
+        "m182[C_pe]": -1,
+        "m185[C_pe]": -1,
+        "m183[C_pe]": 1,
+        "m186[C_pe]": 1
+      },
+      "target_stoichiometry": {
+        "m182[C_pe]": -1,
+        "m185[C_pe]": -1,
+        "m183[C_pe]": 1,
+        "m186[C_pe]": 1
+      },
+      "evidence": "RHEA:78639 / RHEA:78641 is the reverse chemistry: CoA + 3-oxohexacosanoyl-CoA = acetyl-CoA + tetracosanoyl-CoA."
+    },
+    {
+      "reaction_id": "R1504",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "reversible": false,
+      "source_stoichiometry": {
+        "m226[C_pe]": -1.0,
+        "m375[C_pe]": -1.0,
+        "m1546[C_pe]": 1.0
+      },
+      "target_stoichiometry": {
+        "m226[C_pe]": -1.0,
+        "m375[C_pe]": -1.0,
+        "m1546[C_pe]": 1.0
+      },
+      "evidence": "YALI1E18441g maps to the peroxisomal multifunctional enzyme type 2 (MFE2/YALI0E15378g), whose hydroxyacyl-CoA dehydrogenase chemistry is 3R. Rhea 39211/39213 gives the enoyl-C26-CoA + H2O -> 3R hydroxy-C26-CoA direction matching R1504; Rhea master 78635 with bidirectional 78638 supports the reversible R1521 chemistry, and 78637 is only the written direction 3R-hydroxy-C26-CoA + NAD+ -> 3-oxo-C26-CoA + NADH + H+."
+    },
+    {
+      "reaction_id": "R1521",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "reversible": true,
+      "source_stoichiometry": {
+        "m116[C_pe]": -1.0,
+        "m1546[C_pe]": -1.0,
+        "m118[C_pe]": 1.0,
+        "m119[C_pe]": 1.0,
+        "m185[C_pe]": 1.0
+      },
+      "target_stoichiometry": {
+        "m116[C_pe]": -1.0,
+        "m1546[C_pe]": -1.0,
+        "m118[C_pe]": 1.0,
+        "m119[C_pe]": 1.0,
+        "m185[C_pe]": 1.0
+      },
+      "evidence": "YALI1E18441g maps to the peroxisomal multifunctional enzyme type 2 (MFE2/YALI0E15378g), whose hydroxyacyl-CoA dehydrogenase chemistry is 3R. Rhea 39211/39213 gives the enoyl-C26-CoA + H2O -> 3R hydroxy-C26-CoA direction matching R1504; Rhea master 78635 with bidirectional 78638 supports the reversible R1521 chemistry, and 78637 is only the written direction 3R-hydroxy-C26-CoA + NAD+ -> 3-oxo-C26-CoA + NADH + H+."
+    }
+  ],
+  "target_balance_reaction_ids": [
+    "R74",
+    "R2076",
+    "R1412",
+    "R1419",
+    "R1426",
+    "R80",
+    "R202",
+    "R204",
+    "R1521",
+    "R1708",
+    "R2004",
+    "R1504",
+    "R613"
+  ],
+  "activation_blockers": [
+    {
+      "reaction_id": "R613",
+      "residual_after_curated_tuples": null,
+      "reason": "Reaction identity maps to a different MetaNetX compound than its reference equation; no tuple or proton repair is authorized."
+    },
+    {
+      "reaction_id": "R2076",
+      "residual_after_curated_tuples": null,
+      "reason": "Reaction has no biochemical identity; no tuple or proton repair is authorized."
+    },
+    {
+      "reaction_id": "R1419",
+      "residual_after_curated_tuples": {},
+      "reason": "NADP+/NADPH joins the redox connected component; closure requires the complete source-backed component."
+    },
+    {
+      "reaction_id": "R1708",
+      "residual_after_curated_tuples": {},
+      "reason": "Acetate/succinate closure requires the complete source-backed component; original reaction stoichiometry receives no H+ edit."
+    },
+    {
+      "reaction_id": "R2004",
+      "residual_after_curated_tuples": {},
+      "reason": "Pyruvate/oxaloacetate closure requires the complete source-backed component; original reaction stoichiometry receives no H+ edit."
+    }
+  ],
+  "r1521_current_snapshot_contract_sha256": "86490628d67345559e94e1a68d51ed307c7013363aa4794d2f4f494a19325bb4"
+}

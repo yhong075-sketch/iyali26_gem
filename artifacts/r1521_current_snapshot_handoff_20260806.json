@@ -1,0 +1,118 @@
+{
+  "activation": {
+    "approval_rule": "This evidence-backed 3R counterfactual still needs a reviewed, complete same-identity copy migration and closure of the independent R1708/R2004 blockers; this handoff cannot activate production.",
+    "production_apply_forbidden": true,
+    "ready_for_activation": false,
+    "state": "blocked"
+  },
+  "adjacent_absolute_balance": {
+    "R1504": {
+      "actual": {
+        "C": -47.0,
+        "H": -86.0,
+        "N": -7.0,
+        "O": -18.0,
+        "P": -3.0,
+        "S": -1.0
+      },
+      "expected": {
+        "C": -47.0,
+        "H": -86.0,
+        "N": -7.0,
+        "O": -18.0,
+        "P": -3.0,
+        "S": -1.0
+      },
+      "is_balanced": false,
+      "matches_exactly": true
+    },
+    "R1521": {
+      "actual": {
+        "C": 47.0,
+        "H": 87.0,
+        "N": 7.0,
+        "O": 18.0,
+        "P": 3.0,
+        "S": 1.0,
+        "charge": 1.0
+      },
+      "expected": {
+        "C": 47.0,
+        "H": 87.0,
+        "N": 7.0,
+        "O": 18.0,
+        "P": 3.0,
+        "S": 1.0,
+        "charge": 1.0
+      },
+      "is_balanced": false,
+      "matches_exactly": true
+    },
+    "R80": {
+      "actual": {},
+      "expected": {},
+      "is_balanced": true,
+      "matches_exactly": true
+    }
+  },
+  "artifact_type": "r1521_current_snapshot_handoff_audit",
+  "blockers": [
+    "The 3R counterfactual is not a production patch: every same-identity CoA/acyl-CoA copy must be reviewed and migrated atomically.",
+    "R1708 and R2004 remain independent biochemical-pH closure blockers.",
+    "The current-model reaction stoichiometry is fixed; this handoff does not add or remove H+ from R1521. R1504's EC 4.2.1.17 note conflicts with EC 4.2.1.119/MFE2 GPR evidence and is recorded as stale metadata, not a production annotation edit."
+  ],
+  "candidate_adjacent_absolute_balance": {
+    "R1504": {},
+    "R1521": {},
+    "R80": {}
+  },
+  "candidate_closes_adjacent_reactions": true,
+  "evidence_dependencies": {
+    "er_vlcfa_3r_stereochemistry": {
+      "canonical_contract_sha256": "1a527ee0bb99b1703f2cc8e18b4af147aa3bde7ca1dcb634d8220d4cb375ab80",
+      "path": "data/er_vlcfa_3r_stereochemistry.json"
+    }
+  },
+  "global_nad_migration_gate": {
+    "actual": {
+      "changed_reaction_ids_sha256": "3da08f731be8d26bf79e0d9dfd483912384ffd3bb05e59ac653321ec71e33413",
+      "changed_residual_count": 114,
+      "incident_reaction_count": 121,
+      "incident_reaction_ids_sha256": "a403b74e21e72a582e514348934da7aa45556726b75bd6c4fedab56e49fda48b",
+      "newly_unbalanced_count": 73,
+      "newly_unbalanced_ids_sha256": "7e37a9bfcdab904b318500ed60bee842451b1da4cb67168197f30e86441fa02e",
+      "repaired_count": 2,
+      "representative_newly_unbalanced_present": true
+    },
+    "checks": {
+      "changed_reaction_ids_sha256": true,
+      "changed_residual_count": true,
+      "incident_reaction_count": true,
+      "incident_reaction_ids_sha256": true,
+      "newly_unbalanced_count": true,
+      "newly_unbalanced_ids_sha256": true,
+      "repaired_count": true,
+      "representative_newly_unbalanced": true
+    },
+    "matches_expected": true
+  },
+  "handoff_contract_sha256": "86490628d67345559e94e1a68d51ed307c7013363aa4794d2f4f494a19325bb4",
+  "objective_after": 1.3875914754870937,
+  "objective_before": 1.3875914754870884,
+  "objective_unchanged": true,
+  "ready_for_activation": false,
+  "schema_version": 1,
+  "source_snapshot": {
+    "actual_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+    "actual_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+    "declared_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+    "declared_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+    "fingerprint_verified": true,
+    "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model.xml",
+    "sha256_verified": true
+  },
+  "validation": {
+    "errors": [],
+    "valid": true
+  }
+}

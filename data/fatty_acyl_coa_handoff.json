@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "artifact_type": "fatty_acyl_coa_curation_handoff",
+  "purpose": "Machine-readable handoff for the controlled fatty acyl-CoA menu; it is not a production model patch.",
+  "activation": {
+    "state": "blocked",
+    "ready_for_activation": false,
+    "production_apply_forbidden": true,
+    "approval_rule": "A fresh source SHA/fingerprint audit, zero activation blockers, passing chemical gates, and explicit human approval are all required before production application."
+  },
+  "authoritative_inputs": {
+    "coa_protonation_curation": {
+      "path": "data/coa_protonation_curation.json",
+      "source_model": "../iyali26_gem/model.xml",
+      "source_model_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+      "source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+      "target_model_fingerprint_rule": "Absent while blocked. If activation is proposed, derive it from the complete candidate model after all atomic curation changes and require an exact match at application time."
+    },
+    "lipid_moiety_ledger_spec": {
+      "path": "data/lipid_moiety_ledger_spec.json",
+      "role": "Canonical seven-chain mapping, source chemical convention, and non-activatable generalized-lipid ledger policy."
+    },
+    "r1521_current_snapshot_handoff": {
+      "path": "data/r1521_current_snapshot_handoff.json",
+      "source_model": "../iyali26_gem/model.xml",
+      "source_model_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+      "source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+      "role": "Current-snapshot, read-only component review that resolves the local 3R identity and R1504/R1521/R80 chemistry while keeping production activation blocked.",
+      "activation_state": "blocked",
+      "ready_for_activation": false
+    },
+    "human_review_table": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/outputs/fatty_acyl_coa_curation_20260805/fatty_acyl_coa_curation.xlsx",
+      "machine_input_forbidden": true,
+      "role": "Human-readable review only; the JSON files above are the pipeline inputs."
+    }
+  },
+  "compartments": {
+    "C_cy": "cytoplasm",
+    "C_em": "endosomal membrane",
+    "C_er": "endoplasmic reticulum",
+    "C_lp": "lipid particle",
+    "C_mm": "mitochondrial membrane",
+    "C_pe": "peroxisome"
+  },
+  "tuple_convention": {
+    "name": "biochemical_pH_anionic",
+    "specific_metabolite_rule": "Every concrete fatty acyl-CoA copy must be one of its explicitly declared legacy or target formula/charge tuples; a third tuple is rejected.",
+    "generic_pool_rule": "A generalized acyl-CoA pool is not a chemical entity and must never receive an authoritative formula, ChEBI mapping, or complete element/charge-balance tuple. A legacy SBML charge=0 is permitted only as a non-authoritative missing-formula placeholder."
+  },
+  "concrete_acyl_coa_groups": [
+    {
+      "id": "lauroyl_coa",
+      "chemical_identity": "lauroyl-CoA",
+      "chain_length_c": 12,
+      "double_bonds": 0,
+      "legacy_tuple": {
+        "formula": "C33H58N7O17P3S",
+        "charge": 0
+      },
+      "target_tuple": {
+        "formula": "C33H54N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "ddcacoa",
+        "kegg": "C01832",
+        "mnxm": "MNXM363",
+        "chebi": "CHEBI:57375"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57375"
+      ],
+      "copies": [
+        {
+          "id": "m191[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m1422[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1480[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1514[C_cy]",
+          "compartment": "C_cy"
+        },
+        {
+          "id": "m1738[C_mm]",
+          "compartment": "C_mm"
+        }
+      ]
+    },
+    {
+      "id": "myristoyl_coa",
+      "chemical_identity": "myristoyl-CoA",
+      "chain_length_c": 14,
+      "double_bonds": 0,
+      "legacy_tuple": {
+        "formula": "C35H62N7O17P3S",
+        "charge": 0
+      },
+      "target_tuple": {
+        "formula": "C35H58N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "tdcoa",
+        "kegg": "C02593",
+        "mnxm": "MNXM224",
+        "chebi": "CHEBI:57385"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57385"
+      ],
+      "copies": [
+        {
+          "id": "m188[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m1426[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1482[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1515[C_cy]",
+          "compartment": "C_cy"
+        },
+        {
+          "id": "m1739[C_mm]",
+          "compartment": "C_mm"
+        }
+      ]
+    },
+    {
+      "id": "palmitoyl_coa",
+      "chemical_identity": "palmitoyl-CoA",
+      "chain_length_c": 16,
+      "double_bonds": 0,
+      "legacy_tuple": {
+        "formula": "C37H66N7O17P3S",
+        "charge": 0
+      },
+      "target_tuple": {
+        "formula": "C37H62N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "pmtcoa",
+        "kegg": "C00154",
+        "mnxm": "MNXM88",
+        "chebi": "CHEBI:57379"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57379"
+      ],
+      "copies": [
+        {
+          "id": "m184[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m250[C_er]",
+          "compartment": "C_er"
+        },
+        {
+          "id": "m1349[C_cy]",
+          "compartment": "C_cy"
+        },
+        {
+          "id": "m1428[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1484[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1741[C_mm]",
+          "compartment": "C_mm"
+        }
+      ]
+    },
+    {
+      "id": "palmitoleoyl_coa",
+      "chemical_identity": "palmitoleoyl-CoA",
+      "chain_length_c": 16,
+      "double_bonds": 1,
+      "legacy_tuple": {
+        "formula": "C37H64N7O17P3S",
+        "charge": 0
+      },
+      "target_tuple": {
+        "formula": "C37H60N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "hdcoa",
+        "kegg": "C21072",
+        "mnxm": "MNXM781",
+        "chebi": "CHEBI:61540"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:61540"
+      ],
+      "copies": [
+        {
+          "id": "m243[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1486[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1491[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m1516[C_cy]",
+          "compartment": "C_cy"
+        },
+        {
+          "id": "m1624[C_mm]",
+          "compartment": "C_mm"
+        }
+      ]
+    },
+    {
+      "id": "stearoyl_coa",
+      "chemical_identity": "stearoyl-CoA",
+      "chain_length_c": 18,
+      "double_bonds": 0,
+      "legacy_tuple": {
+        "formula": "C39H70N7O17P3S",
+        "charge": 0
+      },
+      "target_tuple": {
+        "formula": "C39H66N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "stcoa",
+        "kegg": "C00412",
+        "mnxm": "MNXM272",
+        "chebi": "CHEBI:57394"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57394"
+      ],
+      "copies": [
+        {
+          "id": "m228[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m1409[C_cy]",
+          "compartment": "C_cy"
+        },
+        {
+          "id": "m1430[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1488[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1742[C_mm]",
+          "compartment": "C_mm"
+        }
+      ]
+    },
+    {
+      "id": "oleoyl_coa",
+      "chemical_identity": "oleoyl-CoA",
+      "chain_length_c": 18,
+      "double_bonds": 1,
+      "legacy_tuple": {
+        "formula": "C39H68N7O17P3S",
+        "charge": 0
+      },
+      "target_tuple": {
+        "formula": "C39H64N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "ocdce9coa",
+        "kegg": "C00510",
+        "mnxm": "MNXM686",
+        "chebi": "CHEBI:57387"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57387"
+      ],
+      "copies": [
+        {
+          "id": "m231[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1490[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1493[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m1517[C_cy]",
+          "compartment": "C_cy"
+        },
+        {
+          "id": "m1625[C_mm]",
+          "compartment": "C_mm"
+        }
+      ]
+    },
+    {
+      "id": "linoleoyl_coa",
+      "chemical_identity": "linoleoyl-CoA",
+      "chain_length_c": 18,
+      "double_bonds": 2,
+      "legacy_tuple": {
+        "formula": "C39H66N7O17P3S",
+        "charge": -4
+      },
+      "target_tuple": {
+        "formula": "C39H62N7O17P3S",
+        "charge": -4
+      },
+      "canonical_mapping": {
+        "bigg": "lnlccoa",
+        "kegg": "C02050",
+        "mnxm": "MNXM638",
+        "chebi": "CHEBI:57383"
+      },
+      "sources": [
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57383"
+      ],
+      "copies": [
+        {
+          "id": "m1731[C_em]",
+          "compartment": "C_em"
+        },
+        {
+          "id": "m1735[C_lp]",
+          "compartment": "C_lp"
+        },
+        {
+          "id": "m1743[C_mm]",
+          "compartment": "C_mm"
+        },
+        {
+          "id": "m1797[C_pe]",
+          "compartment": "C_pe"
+        },
+        {
+          "id": "m1798[C_cy]",
+          "compartment": "C_cy"
+        }
+      ]
+    }
+  ],
+  "generic_acyl_coa_pools": [
+    {
+      "reaction_id": "xPOOL_AC_EM",
+      "product_id": "m567[C_em]",
+      "compartment": "C_em",
+      "formula": null,
+      "charge": null,
+      "live_model_charge_policy": "zero_placeholder_only",
+      "status": "generic_nonchemical_interface",
+      "member_group_ids": [
+        "lauroyl_coa",
+        "myristoyl_coa",
+        "palmitoyl_coa",
+        "palmitoleoyl_coa",
+        "stearoyl_coa",
+        "oleoyl_coa",
+        "linoleoyl_coa"
+      ]
+    },
+    {
+      "reaction_id": "xPOOL_AC_LP",
+      "product_id": "m570[C_lp]",
+      "compartment": "C_lp",
+      "formula": null,
+      "charge": null,
+      "live_model_charge_policy": "zero_placeholder_only",
+      "status": "generic_nonchemical_interface",
+      "member_group_ids": [
+        "lauroyl_coa",
+        "myristoyl_coa",
+        "palmitoyl_coa",
+        "palmitoleoyl_coa",
+        "stearoyl_coa",
+        "oleoyl_coa",
+        "linoleoyl_coa"
+      ]
+    },
+    {
+      "reaction_id": "xPOOL_AC_MM",
+      "product_id": "m790[C_mm]",
+      "compartment": "C_mm",
+      "formula": null,
+      "charge": null,
+      "live_model_charge_policy": "zero_placeholder_only",
+      "status": "generic_nonchemical_interface",
+      "member_group_ids": [
+        "lauroyl_coa",
+        "myristoyl_coa",
+        "palmitoyl_coa",
+        "palmitoleoyl_coa",
+        "stearoyl_coa",
+        "oleoyl_coa",
+        "linoleoyl_coa"
+      ]
+    }
+  ],
+  "reaction_and_identity_corrections": {
+    "source": "data/coa_protonation_curation.json",
+    "C24_to_C26_atomic_candidate": {
+      "curated_groups": [
+        "tetracosanoyl_coa",
+        "3_oxohexacosanoyl_coa"
+      ],
+      "reaction_ids": [
+        "R1412",
+        "R1419",
+        "R80",
+        "R202",
+        "R204"
+      ],
+      "required_result": "Every listed reaction is exactly element and charge balanced after the complete candidate transaction; partial application is forbidden.",
+      "direct_sources": [
+        "https://www.rhea-db.org/rhea/36515",
+        "https://www.rhea-db.org/rhea/39207",
+        "https://www.rhea-db.org/rhea/78639"
+      ]
+    }
+  },
+  "remaining_activation_blockers": [
+    {
+      "reaction_id": "R613",
+      "status": "identity_unresolved",
+      "reason": "Model identity conflicts with its cited reference equation; tuple and proton repairs are forbidden."
+    },
+    {
+      "reaction_id": "R2076",
+      "status": "identity_unresolved",
+      "reason": "The reaction has no biochemical identity; tuple and proton repairs are forbidden."
+    },
+    {
+      "reaction_id": "R1521",
+      "status": "connected_component_migration_blocked",
+      "reason": "The local 3R identity is closed, but full NAD/NADH migration exposes a source-reviewed connected-component frontier."
+    },
+    {
+      "reaction_id": "R1708",
+      "status": "connected_component_migration_blocked",
+      "reason": "The focal reaction closes without H+ after its four tuples migrate, but the acetate/succinate component is still open."
+    },
+    {
+      "reaction_id": "R2004",
+      "status": "connected_component_migration_blocked",
+      "reason": "The focal reaction closes without H+ after its four tuples migrate, but the pyruvate/oxaloacetate component is still open."
+    }
+  ],
+  "acceptance_checks": {
+    "specific_groups_exact": 7,
+    "specific_copies_exact": 36,
+    "generic_pools_exact": 3,
+    "source_sha_and_fingerprint_required": true,
+    "unknown_third_tuple_rejected": true,
+    "atomic_rollback_required": true,
+    "sbml_roundtrip_required": true,
+    "fba_objective_unchanged_required": true,
+    "ready_for_activation_expected": false
+  }
+}

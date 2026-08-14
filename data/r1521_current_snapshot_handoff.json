@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "curation_id": "iyali26_r1521_current_snapshot_handoff",
+  "activation": {
+    "state": "blocked",
+    "ready_for_activation": false,
+    "production_apply_forbidden": true,
+    "approval_rule": "This evidence-backed 3R counterfactual still needs a reviewed, complete same-identity copy migration and closure of the independent R1708/R2004 blockers; this handoff cannot activate production."
+  },
+  "source_model": "../iyali26_gem/model.xml",
+  "source_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+  "source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+  "evidence_dependencies": {
+    "er_vlcfa_3r_stereochemistry": {
+      "path": "data/er_vlcfa_3r_stereochemistry.json",
+      "canonical_contract_sha256": "1a527ee0bb99b1703f2cc8e18b4af147aa3bde7ca1dcb634d8220d4cb375ab80"
+    }
+  },
+  "legacy_metabolite_contract": {
+    "identity_name": "(r)-3-hydroxyhexacosanoyl-coa",
+    "expected_copy_count": 1,
+    "copies": [
+      {
+        "id": "m1546[C_pe]",
+        "name": "(R)-3-hydroxyhexacosanoyl-CoA_",
+        "legacy_tuple": {"formula": null, "charge": 0},
+        "absent_annotation_keys": ["chebi", "hmdb", "inchi", "inchikey", "lipidmaps", "lipidmapsm", "metacyc.compound", "metacycm", "metanetx.chemical", "seed.compound", "seedm"]
+      }
+    ]
+  },
+  "local_counterfactual": {
+    "evidence": "YALI1E18441g maps to the peroxisomal multifunctional enzyme type 2 (MFE2/YALI0E15378g), whose hydroxyacyl-CoA dehydrogenase chemistry is 3R. Rhea 39211/39213 gives the enoyl-C26-CoA + H2O -> 3R hydroxy-C26-CoA direction matching R1504; Rhea master 78635 with bidirectional 78638 supports the reversible R1521 chemistry, and 78637 is only the written direction 3R-hydroxy-C26-CoA + NAD+ -> 3-oxo-C26-CoA + NADH + H+.",
+    "supersedes": "The final sentence of data/er_vlcfa_3r_stereochemistry.json that inferred a distinct peroxisomal 3S convention from Rhea 16105/22432. Those type-1 general reactions are not authority for MFE2.",
+    "rhea": {"hydratase_master": "39211", "hydratase_direction": "39213", "dehydrogenase_master": "78635", "dehydrogenase_bidirectional": "78638", "dehydrogenase_written_direction": "78637"},
+    "target_tuples": [
+      {"id": "m1546[C_pe]", "name": "(3R)-3-hydroxyhexacosanoyl-CoA", "legacy_tuple": {"formula": null, "charge": 0}, "formula": "C47H82N7O18P3S", "charge": -4, "annotation_target": {"chebi": "CHEBI:76378"}},
+      {"id": "m226[C_pe]", "legacy_tuple": {"formula": "C47H84N7O17P3S", "charge": 0}, "formula": "C47H80N7O17P3S", "charge": -4},
+      {"id": "m116[C_pe]", "legacy_tuple": {"formula": "C21H27N7O14P2", "charge": 0}, "formula": "C21H26N7O14P2", "charge": -1},
+      {"id": "m119[C_pe]", "legacy_tuple": {"formula": "C21H29N7O14P2", "charge": 0}, "formula": "C21H27N7O14P2", "charge": -2},
+      {"id": "m185[C_pe]", "legacy_tuple": {"formula": "C47H84N7O18P3S", "charge": 0}, "formula": "C47H80N7O18P3S", "charge": -4},
+      {"id": "m182[C_pe]", "legacy_tuple": {"formula": "C21H36N7O16P3S", "charge": 0}, "formula": "C21H32N7O16P3S", "charge": -4},
+      {"id": "m183[C_pe]", "legacy_tuple": {"formula": "C23H38N7O17P3S", "charge": 0}, "formula": "C23H34N7O17P3S", "charge": -4},
+      {"id": "m186[C_pe]", "legacy_tuple": {"formula": "C45H82N7O17P3S", "charge": 0}, "formula": "C45H78N7O17P3S", "charge": -4}
+    ]
+  },
+  "global_nad_migration_gate": {
+    "baseline": "source_snapshot_only; no CoA/local transaction pre-applied",
+    "nad_plus": {
+      "identity_name": "nad_c21h27n7o14p2",
+      "ids": ["m27[C_mi]", "m116[C_pe]", "m122[C_cy]", "m817[C_nu]", "m960[C_er]", "m1458[C_em]"],
+      "legacy_tuple": {"formula": "C21H27N7O14P2", "charge": 0},
+      "target_tuple": {"formula": "C21H26N7O14P2", "charge": -1}
+    },
+    "nadh": {
+      "identity_name": "nadh_c21h29n7o14p2",
+      "ids": ["m30[C_mi]", "m119[C_pe]", "m123[C_cy]", "m957[C_er]", "m1457[C_em]"],
+      "legacy_tuple": {"formula": "C21H29N7O14P2", "charge": 0},
+      "target_tuple": {"formula": "C21H27N7O14P2", "charge": -2}
+    },
+    "expected": {
+      "incident_reaction_count": 121,
+      "changed_residual_count": 114,
+      "newly_unbalanced_count": 73,
+      "repaired_count": 2,
+      "incident_reaction_ids_sha256": "a403b74e21e72a582e514348934da7aa45556726b75bd6c4fedab56e49fda48b",
+      "changed_reaction_ids_sha256": "3da08f731be8d26bf79e0d9dfd483912384ffd3bb05e59ac653321ec71e33413",
+      "newly_unbalanced_ids_sha256": "7e37a9bfcdab904b318500ed60bee842451b1da4cb67168197f30e86441fa02e",
+      "representative_newly_unbalanced": ["R1517", "R1518", "R1522", "R1524", "R535", "R564"]
+    },
+    "production_apply_forbidden": true
+  },
+  "reaction_contracts": [
+    {
+      "id": "R1504",
+      "bounds": [0.0, 1000.0],
+      "reversible": false,
+      "stoichiometry": {"m226[C_pe]": -1.0, "m375[C_pe]": -1.0, "m1546[C_pe]": 1.0}
+    },
+    {
+      "id": "R1521",
+      "bounds": [-1000.0, 1000.0],
+      "reversible": true,
+      "stoichiometry": {"m116[C_pe]": -1.0, "m1546[C_pe]": -1.0, "m118[C_pe]": 1.0, "m119[C_pe]": 1.0, "m185[C_pe]": 1.0}
+    },
+    {
+      "id": "R80",
+      "bounds": [0.0, 1000.0],
+      "reversible": false,
+      "stoichiometry": {"m182[C_pe]": -1.0, "m185[C_pe]": -1.0, "m183[C_pe]": 1.0, "m186[C_pe]": 1.0}
+    }
+  ],
+  "absolute_balance_contract": {
+    "R1504": {"C": -47.0, "H": -86.0, "N": -7.0, "O": -18.0, "P": -3.0, "S": -1.0},
+    "R1521": {"charge": 1.0, "C": 47.0, "H": 87.0, "N": 7.0, "O": 18.0, "P": 3.0, "S": 1.0},
+    "R80": {}
+  },
+  "blockers": [
+    "The 3R counterfactual is not a production patch: every same-identity CoA/acyl-CoA copy must be reviewed and migrated atomically.",
+    "R1708 and R2004 remain independent biochemical-pH closure blockers.",
+    "The current-model reaction stoichiometry is fixed; this handoff does not add or remove H+ from R1521. R1504's EC 4.2.1.17 note conflicts with EC 4.2.1.119/MFE2 GPR evidence and is recorded as stale metadata, not a production annotation edit."
+  ],
+  "target_contract_sha256": "86490628d67345559e94e1a68d51ed307c7013363aa4794d2f4f494a19325bb4"
+}

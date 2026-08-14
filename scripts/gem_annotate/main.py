@@ -18,6 +18,7 @@ from .io import load_chem_prop, load_chem_xref, load_mnxm_depr, load_reac_prop, 
 from .metabolites import annotate_metabolites, fix_proton_water_balance, normalize_all_annotations
 from .patches import add_isozyme_gprs, annotate_isozyme_genes, apply_all_patches, clean_ec_overload, extend_acyl_pool_c161, fill_neutral_formulas, fix_activex_names, fix_ec_code_format, move_tcdb_out_of_ec
 from .reactions import annotate_reactions, backfill_reaction_xrefs
+from .vlcfa_stereochemistry import correct_er_vlcfa_3r_stereochemistry, verify_er_vlcfa_3r_stereochemistry_target
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -80,6 +81,18 @@ def main():
             "Download chem_xref.tsv, chem_prop.tsv, reac_xref.tsv from "
             "https://www.metanetx.org/mnxdoc/mnxref.html"
         )
+
+    # Independent of MetaNetX: the raw source's erroneous (S) identity must
+    # not survive an offline rebuild.  Its curated contract fills the exact
+    # neutral source tuple before applying the identity correction.
+    logger.info("=== Curation: ER VLCFA (3R)-3-hydroxyhexacosanoyl-CoA ===")
+    n_vlcfa_stereo = correct_er_vlcfa_3r_stereochemistry(model)
+    logger.info(
+        "  ER VLCFA stereochemistry: metabolites=%d reactions=%d annotations=%d",
+        n_vlcfa_stereo["metabolites"],
+        n_vlcfa_stereo["reactions"],
+        n_vlcfa_stereo["annotations"],
+    )
 
     # Stoichiometric consistency: merge known duplicate metabolite pairs
     # These pairs were identified by MIS analysis (metabolites appearing in
@@ -324,6 +337,9 @@ def main():
 
     ec_check2 = sum(1 for r in model.reactions if isinstance(r.annotation, dict) and 'ec-code' in r.annotation)
     logger.info(f"  DEBUG: reactions with ec-code AFTER normalize: {ec_check2}")
+
+    logger.info("=== Final gate: ER VLCFA (3R) stereochemistry ===")
+    verify_er_vlcfa_3r_stereochemistry_target(model)
 
     logger.info(f"Saving updated model to: {OUTPUT_MODEL_PATH.name}")
     write_sbml_model(model, str(OUTPUT_MODEL_PATH))

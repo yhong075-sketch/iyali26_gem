@@ -33,9 +33,15 @@ Currently applied patches:
 
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import re
 from collections import Counter
+from copy import deepcopy
+from math import isclose, isfinite
+from numbers import Real
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -875,6 +881,1139 @@ def unlump_stage1(model) -> int:
         logger.info("  Stage 1 unlump: %s -> %d chain rxns + re-mix %s"
                     % (rid, len(new_rxns), remix.id))
     return done
+
+
+# ── CoA / acyl-CoA biochemical-pH protonation curation (inactive) ─────────
+
+# This is deliberately separate from apply_all_patches().  The curated core
+# tuples are chemically sound, but the current model's charge/formula convention
+# makes their full reaction closure reach several non-CoA acids.  The curation
+# file therefore remains activation_state="blocked" until that wider migration
+# is reviewed.  Keeping the machinery here provides a strict, reproducible
+# preflight rather than permitting an incomplete formula-only patch.
+_COA_PROTONATION_CURATION = "data/coa_protonation_curation.json"
+_COA_GATE_NON_H_ELEMENTS = frozenset({"C", "N", "O", "P", "S"})
+_COA_PROTONATION_SOURCE_MODEL = "../iyali26_gem/model.xml"
+_COA_PROTONATION_SOURCE_STAGE = "current_main_model_xml"
+_R1521_HANDOFF_CONTRACT = "86490628d67345559e94e1a68d51ed307c7013363aa4794d2f4f494a19325bb4"
+_SHA256_HEX = re.compile(r"[0-9a-f]{64}\Z")
+_COA_CHEMICAL_IDENTITY_KEYS = frozenset(
+    {
+        "chebi", "hmdb", "inchi", "inchikey", "lipidmaps", "lipidmapsm",
+        "metacyc.compound", "metacycm", "metanetx.chemical", "seed.compound", "seedm",
+    }
+)
+_COA_ATOMIC_CLOSURE_ANNOTATIONS = {
+    "tetracosanoyl_coa": {"chebi": "CHEBI:65052"},
+    "3_oxohexacosanoyl_coa": {"chebi": "CHEBI:73980"},
+    "er_vlcfa_3r_hydroxyhexacosanoyl_coa": {"chebi": "CHEBI:76378"},
+}
+
+
+class CoAProtonationCurationError(RuntimeError):
+    """The curated CoA protonation patch cannot safely be applied."""
+
+
+class CoAProtonationActivationBlocked(CoAProtonationCurationError):
+    """The current curation intentionally has no production activation."""
+
+
+def _coa_protonation_curation_path(curation_path: str | Path | None = None) -> Path:
+    if curation_path is not None:
+        return Path(curation_path)
+    return Path(__file__).resolve().parents[2] / _COA_PROTONATION_CURATION
+
+
+def _coa_protonation_repository_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _has_source_provenance(curation: dict) -> bool:
+    fields = {"source_stage", "source_model_fingerprint"}
+    return bool(fields.intersection(curation))
+
+
+def _validate_curation_source_file(curation: dict) -> Path:
+    """Verify that the manifest is tied to this exact post-annotation snapshot."""
+
+    source_path = _coa_protonation_repository_root() / curation["source_model"]
+    if not source_path.is_file():
+        raise CoAProtonationCurationError(
+            f"CoA protonation source model is unavailable: {source_path}"
+        )
+    actual_sha256 = _sha256_file(source_path)
+    if actual_sha256 != curation["source_sha256"]:
+        raise CoAProtonationCurationError(
+            "CoA protonation source model SHA-256 drifted from the curated "
+            f"post-annotation snapshot ({curation['source_sha256']} -> {actual_sha256})"
+        )
+    return source_path
+
+
+def _validate_r1521_dependency(curation: dict) -> None:
+    """Keep the merged tuples tied to the separate, source-reviewed handoff."""
+
+    if curation.get("source_model") != _COA_PROTONATION_SOURCE_MODEL:
+        return
+    if curation.get("r1521_current_snapshot_contract_sha256") != _R1521_HANDOFF_CONTRACT:
+        raise CoAProtonationCurationError("R1521 handoff contract digest drifted")
+    path = _coa_protonation_repository_root() / "data/r1521_current_snapshot_handoff.json"
+    try:
+        handoff = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise CoAProtonationCurationError(f"cannot read R1521 handoff: {exc}") from exc
+    if (
+        handoff.get("target_contract_sha256") != _R1521_HANDOFF_CONTRACT
+        or handoff.get("source_sha256") != curation.get("source_sha256")
+        or handoff.get("source_model_fingerprint") != curation.get("source_model_fingerprint")
+    ):
+        raise CoAProtonationCurationError("R1521 handoff source contract drifted")
+    targets = {
+        entry["id"]: (entry["formula"], entry["charge"])
+        for entry in handoff["local_counterfactual"]["target_tuples"]
+    }
+    curated = {
+        met_id: _tuple_from_record(group["target_tuple"])
+        for group in curation["groups"]
+        for met_id in group["expected_ids"]
+    }
+    if any(curated.get(met_id) != target for met_id, target in targets.items()):
+        raise CoAProtonationCurationError("R1521 tuple contract drifted")
+
+
+def load_coa_protonation_curation(
+    curation_path: str | Path | None = None,
+) -> dict:
+    """Load and structurally validate the curated CoA protonation manifest."""
+    path = _coa_protonation_curation_path(curation_path)
+    try:
+        with path.open(encoding="utf-8") as handle:
+            curation = json.load(handle)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise CoAProtonationCurationError(
+            f"Cannot read CoA protonation curation {path}: {exc}"
+        ) from exc
+    _validate_coa_protonation_manifest(
+        curation, require_source_provenance=True, require_source_file=True
+    )
+    _validate_curation_source_file(curation)
+    return curation
+
+
+def _validate_coa_protonation_manifest(
+    curation: dict,
+    *,
+    require_source_provenance: bool = False,
+    require_source_file: bool = False,
+) -> None:
+    """Reject a malformed or internally ambiguous curation manifest."""
+    if not isinstance(curation, dict):
+        raise CoAProtonationCurationError("CoA protonation curation must be an object")
+    if type(curation.get("schema_version")) is not int or curation.get(
+        "schema_version"
+    ) != 1:
+        raise CoAProtonationCurationError("Unsupported CoA protonation curation schema")
+    if curation.get("activation_state") not in {"approved", "blocked"}:
+        raise CoAProtonationCurationError(
+            "CoA protonation activation_state must be 'approved' or 'blocked'"
+        )
+
+    provenance_present = _has_source_provenance(curation)
+    if require_source_provenance and not provenance_present:
+        raise CoAProtonationCurationError(
+            "CoA protonation curation lacks required source snapshot provenance"
+        )
+    if provenance_present:
+        required_provenance = {"source_stage", "source_model_fingerprint"}
+        if not required_provenance.issubset(curation):
+            raise CoAProtonationCurationError(
+                "CoA protonation source provenance is incomplete"
+            )
+        if type(curation["source_stage"]) is not str or not curation["source_stage"]:
+            raise CoAProtonationCurationError(
+                "CoA protonation source_stage must be a non-empty string"
+            )
+        if (
+            ("source_model" in curation) != ("source_sha256" in curation)
+        ):
+            raise CoAProtonationCurationError(
+                "CoA protonation source file provenance is incomplete"
+            )
+        has_source_file = "source_model" in curation
+        if require_source_file and not has_source_file:
+            raise CoAProtonationCurationError(
+                "CoA protonation curation lacks required source model file provenance"
+            )
+        if has_source_file:
+            if curation["source_model"] != _COA_PROTONATION_SOURCE_MODEL:
+                raise CoAProtonationCurationError(
+                    "CoA protonation curation must reference the current model.xml snapshot"
+                )
+            if curation["source_stage"] != _COA_PROTONATION_SOURCE_STAGE:
+                raise CoAProtonationCurationError(
+                    "CoA protonation curation has an unexpected source model stage"
+                )
+        for field in ("source_model_fingerprint", "target_model_fingerprint"):
+            if field not in curation:
+                continue
+            value = curation[field]
+            if type(value) is not str or _SHA256_HEX.fullmatch(value) is None:
+                raise CoAProtonationCurationError(
+                    f"CoA protonation {field} must be a lowercase SHA-256 hex digest"
+                )
+        if has_source_file:
+            value = curation["source_sha256"]
+            if type(value) is not str or _SHA256_HEX.fullmatch(value) is None:
+                raise CoAProtonationCurationError(
+                    "CoA protonation source_sha256 must be a lowercase SHA-256 hex digest"
+                )
+    elif require_source_file:
+        raise CoAProtonationCurationError(
+            "CoA protonation curation lacks required source model file provenance"
+        )
+    if (
+        curation["activation_state"] == "approved"
+        and "target_model_fingerprint" not in curation
+    ):
+        raise CoAProtonationCurationError(
+            "Approved CoA protonation curation requires target_model_fingerprint"
+        )
+
+    activation_blockers = curation.get("activation_blockers")
+    if type(activation_blockers) is not list:
+        raise CoAProtonationCurationError(
+            "CoA protonation curation must declare activation_blockers as a list"
+        )
+    blocker_reaction_ids: set[str] = set()
+    for blocker in activation_blockers:
+        if type(blocker) is not dict or not isinstance(
+            blocker.get("reaction_id"), str
+        ) or not blocker["reaction_id"]:
+            raise CoAProtonationCurationError(
+                "CoA protonation activation blockers need non-empty reaction ids"
+            )
+        blocker_reaction_ids.add(blocker["reaction_id"])
+    if len(blocker_reaction_ids) != len(activation_blockers):
+        raise CoAProtonationCurationError(
+            "CoA protonation activation blocker reaction ids must be unique"
+        )
+    target_balance_reaction_ids = curation.get("target_balance_reaction_ids")
+    if (
+        type(target_balance_reaction_ids) is not list
+        or not target_balance_reaction_ids
+        or len(set(target_balance_reaction_ids)) != len(target_balance_reaction_ids)
+        or not all(isinstance(reaction_id, str) and reaction_id for reaction_id in target_balance_reaction_ids)
+    ):
+        raise CoAProtonationCurationError(
+            "CoA protonation curation needs unique target_balance_reaction_ids"
+        )
+    if not blocker_reaction_ids.issubset(target_balance_reaction_ids):
+        raise CoAProtonationCurationError(
+            "Every CoA protonation activation blocker must be target-balance checked"
+        )
+
+    groups = curation.get("groups")
+    if not isinstance(groups, list) or not groups:
+        raise CoAProtonationCurationError("CoA protonation curation has no groups")
+
+    seen_group_ids: set[str] = set()
+    seen_metabolite_ids: set[str] = set()
+    for group in groups:
+        if not isinstance(group, dict):
+            raise CoAProtonationCurationError("CoA protonation group must be an object")
+        group_id = group.get("id")
+        identity_names = group.get("identity_names")
+        expected_ids = group.get("expected_ids")
+        target = group.get("target_tuple")
+        if not isinstance(group_id, str) or not group_id or group_id in seen_group_ids:
+            raise CoAProtonationCurationError("CoA protonation group ids must be unique")
+        if not isinstance(identity_names, list) or not all(
+            isinstance(name, str) and name for name in identity_names
+        ):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} lacks identity_names"
+            )
+        if (
+            not isinstance(expected_ids, list)
+            or not expected_ids
+            or len(set(expected_ids)) != len(expected_ids)
+            or not all(isinstance(met_id, str) and met_id for met_id in expected_ids)
+        ):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} has invalid expected_ids"
+            )
+        if type(group.get("expected_copy_count")) is not int or group.get(
+            "expected_copy_count"
+        ) != len(expected_ids):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} copy count disagrees with ids"
+            )
+        if (
+            not isinstance(target, dict)
+            or not isinstance(target.get("formula"), str)
+            or type(target.get("charge")) is not int
+        ):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} lacks an exact target tuple"
+            )
+        target_name = group.get("target_name")
+        if target_name is not None and (
+            not isinstance(target_name, str) or not target_name
+        ):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} has an invalid target_name"
+            )
+
+        legacy_ids: list[str] = []
+        for legacy in group.get("legacy_tuples", []):
+            if (
+                not isinstance(legacy, dict)
+                or not (
+                    legacy.get("formula") is None
+                    or isinstance(legacy.get("formula"), str)
+                )
+                or type(legacy.get("charge")) is not int
+            ):
+                raise CoAProtonationCurationError(
+                    f"CoA protonation group {group_id} has an invalid legacy tuple"
+                )
+            ids = legacy.get("ids")
+            if not isinstance(ids, list) or not ids or not all(isinstance(met_id, str) for met_id in ids):
+                raise CoAProtonationCurationError(
+                    f"CoA protonation group {group_id} has an invalid legacy id list"
+                )
+            legacy_ids.extend(ids)
+        if len(set(legacy_ids)) != len(legacy_ids) or not set(legacy_ids) <= set(expected_ids):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} has ambiguous legacy ids"
+            )
+        if set(legacy_ids) != set(expected_ids):
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} source tuples do not cover every copy"
+            )
+        if group_id in _COA_ATOMIC_CLOSURE_ANNOTATIONS:
+            if group.get("annotation_target") != _COA_ATOMIC_CLOSURE_ANNOTATIONS[group_id]:
+                raise CoAProtonationCurationError(
+                    f"CoA protonation group {group_id} has an invalid chemical annotation target"
+                )
+            replacement_keys = group.get("replace_annotation_keys")
+            if (
+                not isinstance(replacement_keys, list)
+                or set(replacement_keys) != _COA_CHEMICAL_IDENTITY_KEYS
+                or len(replacement_keys) != len(_COA_CHEMICAL_IDENTITY_KEYS)
+            ):
+                raise CoAProtonationCurationError(
+                    f"CoA protonation group {group_id} has incomplete chemical annotation replacement keys"
+                )
+        if set(expected_ids) & seen_metabolite_ids:
+            raise CoAProtonationCurationError(
+                f"CoA protonation group {group_id} reuses a metabolite id"
+            )
+        seen_group_ids.add(group_id)
+        seen_metabolite_ids.update(expected_ids)
+
+    _validate_r1521_dependency(curation)
+
+    reaction_corrections = curation.get("reaction_corrections", [])
+    if type(reaction_corrections) is not list:
+        raise CoAProtonationCurationError(
+            "CoA protonation reaction_corrections must be a list"
+        )
+    correction_reaction_ids: set[str] = set()
+    for correction in reaction_corrections:
+        if not isinstance(correction, dict) or not all(
+            isinstance(correction.get(key), str) and correction[key]
+            for key in ("reaction_id", "metabolite_id")
+        ):
+            raise CoAProtonationCurationError("Invalid curated CoA reaction correction")
+        for field in ("legacy_coefficient", "target_coefficient"):
+            _finite_numeric(
+                correction.get(field), f"CoA reaction correction {field}"
+            )
+        correction_reaction_ids.add(correction["reaction_id"])
+    if not correction_reaction_ids.issubset(target_balance_reaction_ids):
+        raise CoAProtonationCurationError(
+            "Every CoA protonation reaction correction must be target-balance checked"
+        )
+
+    reaction_contracts = curation.get("reaction_contracts", [])
+    if type(reaction_contracts) is not list:
+        raise CoAProtonationCurationError(
+            "CoA protonation reaction_contracts must be a list"
+        )
+    seen_contract_reactions: set[str] = set()
+    for contract in reaction_contracts:
+        if not isinstance(contract, dict) or set(contract) != {
+            "reaction_id", "bounds", "reversible", "source_stoichiometry",
+            "target_stoichiometry", "evidence",
+        }:
+            raise CoAProtonationCurationError("Invalid curated CoA reaction contract")
+        reaction_id = contract["reaction_id"]
+        if not isinstance(reaction_id, str) or not reaction_id or reaction_id in seen_contract_reactions:
+            raise CoAProtonationCurationError(
+                "CoA protonation reaction contract ids must be unique"
+            )
+        bounds = contract["bounds"]
+        if (
+            not isinstance(bounds, list)
+            or len(bounds) != 2
+            or any(isinstance(value, bool) or not isinstance(value, Real) for value in bounds)
+        ):
+            raise CoAProtonationCurationError(
+                f"CoA reaction contract {reaction_id} has invalid bounds"
+            )
+        if type(contract["reversible"]) is not bool:
+            raise CoAProtonationCurationError(
+                f"CoA reaction contract {reaction_id} has invalid reversibility"
+            )
+        for field in ("source_stoichiometry", "target_stoichiometry"):
+            stoichiometry = contract[field]
+            if (
+                not isinstance(stoichiometry, dict)
+                or not stoichiometry
+                or not all(
+                    isinstance(metabolite_id, str)
+                    and metabolite_id
+                    and not isinstance(coefficient, bool)
+                    and isinstance(coefficient, Real)
+                    and isfinite(float(coefficient))
+                    and float(coefficient) != 0.0
+                    for metabolite_id, coefficient in stoichiometry.items()
+                )
+            ):
+                raise CoAProtonationCurationError(
+                    f"CoA reaction contract {reaction_id} has invalid {field}"
+                )
+        if not isinstance(contract["evidence"], str) or not contract["evidence"]:
+            raise CoAProtonationCurationError(
+                f"CoA reaction contract {reaction_id} lacks evidence"
+            )
+        seen_contract_reactions.add(reaction_id)
+    if not seen_contract_reactions.issubset(target_balance_reaction_ids):
+        raise CoAProtonationCurationError(
+            "Every CoA protonation reaction contract must be target-balance checked"
+        )
+
+    identity_corrections = curation.get("reaction_identity_corrections", [])
+    if not isinstance(identity_corrections, list):
+        raise CoAProtonationCurationError(
+            "CoA protonation reaction_identity_corrections must be a list"
+        )
+    seen_identity_reactions: set[str] = set()
+    for correction in identity_corrections:
+        if not isinstance(correction, dict) or not all(
+            isinstance(correction.get(field), str) and correction[field]
+            for field in ("reaction_id", "legacy_name", "target_name")
+        ):
+            raise CoAProtonationCurationError(
+                "Invalid curated CoA reaction identity correction"
+            )
+        reaction_id = correction["reaction_id"]
+        if reaction_id in seen_identity_reactions:
+            raise CoAProtonationCurationError(
+                "CoA protonation reaction identity corrections must be unique"
+            )
+        annotation_target = correction.get("annotation_target", {})
+        if not isinstance(annotation_target, dict) or not all(
+            isinstance(key, str) and key for key in annotation_target
+        ):
+            raise CoAProtonationCurationError(
+                "CoA reaction identity annotations must be an object with string keys"
+            )
+        seen_identity_reactions.add(reaction_id)
+
+
+def _coa_identity_key(name: str | None) -> str:
+    """Normalize only the iYli21 trailing formula token for exact identity checks."""
+    normalized = (name or "").strip().lower().rstrip("_")
+    return re.sub(r"_[A-Z][A-Za-z0-9]*$", "", normalized, flags=re.IGNORECASE)
+
+
+def _exact_live_charge(value, metabolite_id: str) -> int | None:
+    """Return an integral live charge without silently coercing model state."""
+
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, Real):
+        raise CoAProtonationCurationError(
+            f"{metabolite_id} has a non-numeric or boolean charge {value!r}"
+        )
+    numeric = float(value)
+    if not isfinite(numeric) or not numeric.is_integer():
+        raise CoAProtonationCurationError(
+            f"{metabolite_id} has a non-finite or fractional charge {value!r}"
+        )
+    return int(value)
+
+
+def _finite_numeric(value, label: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, Real):
+        raise CoAProtonationCurationError(f"{label} must be a finite numeric value")
+    numeric = float(value)
+    if not isfinite(numeric):
+        raise CoAProtonationCurationError(f"{label} must be a finite numeric value")
+    return numeric
+
+
+def _tuple_of(met) -> tuple[str | None, int | None]:
+    return met.formula, _exact_live_charge(met.charge, met.id)
+
+
+def _tuple_from_record(record: dict) -> tuple[str, int]:
+    charge = record["charge"]
+    if type(charge) is not int:
+        raise CoAProtonationCurationError("Curated CoA tuple charge must be an int")
+    return record["formula"], charge
+
+
+def _group_source_tuple_fingerprint(group: dict) -> str:
+    """Hash the exact pre-migration tuple expected for every named copy."""
+
+    legacy_by_id = {
+        metabolite_id: {"formula": legacy["formula"], "charge": legacy["charge"]}
+        for legacy in group.get("legacy_tuples", [])
+        for metabolite_id in legacy["ids"]
+    }
+    payload = {
+        "ids": sorted(group["expected_ids"]),
+        "legacy_tuples": {metabolite_id: legacy_by_id[metabolite_id] for metabolite_id in sorted(legacy_by_id)},
+    }
+    return hashlib.sha256(
+        json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
+    ).hexdigest()
+
+
+def _legacy_tuples_by_id(group: dict) -> dict[str, tuple[str, int]]:
+    legacy_by_id: dict[str, tuple[str, int]] = {}
+    for legacy in group.get("legacy_tuples", []):
+        tuple_value = _tuple_from_record(legacy)
+        for met_id in legacy["ids"]:
+            legacy_by_id[met_id] = tuple_value
+    return legacy_by_id
+
+
+def _reaction_stoichiometry(reaction) -> dict[str, float]:
+    return {
+        metabolite.id: float(coefficient)
+        for metabolite, coefficient in reaction.metabolites.items()
+    }
+
+
+def _reaction_matches_contract(reaction, contract: dict, field: str) -> bool:
+    return (
+        isclose(float(reaction.lower_bound), float(contract["bounds"][0]), abs_tol=1e-12)
+        and isclose(float(reaction.upper_bound), float(contract["bounds"][1]), abs_tol=1e-12)
+        and bool(reaction.reversibility) is contract["reversible"]
+        and _reaction_stoichiometry(reaction)
+        == {metabolite_id: float(coefficient) for metabolite_id, coefficient in contract[field].items()}
+    )
+
+
+def _model_snapshot_fingerprint(model) -> str:
+    """Hash the complete in-memory model state needed to identify its source stage."""
+
+    metabolites = []
+    for met in sorted(model.metabolites, key=lambda candidate: candidate.id):
+        annotation = getattr(met, "annotation", {}) or {}
+        if type(annotation) is not dict:
+            raise CoAProtonationCurationError(
+                f"{met.id} has a non-object annotation in source snapshot"
+            )
+        metabolites.append(
+            {
+                "annotation": annotation,
+                "charge": _exact_live_charge(met.charge, met.id),
+                "compartment": met.compartment,
+                "formula": met.formula,
+                "id": met.id,
+                "name": met.name,
+            }
+        )
+
+    reactions = []
+    objective_coefficients: list[dict[str, float | str]] = []
+    for reaction in sorted(model.reactions, key=lambda candidate: candidate.id):
+        coefficient = _finite_numeric(
+            reaction.objective_coefficient,
+            f"{reaction.id} objective coefficient",
+        )
+        if coefficient != 0.0:
+            objective_coefficients.append({"id": reaction.id, "value": coefficient})
+        reactions.append(
+            {
+                "gene_reaction_rule": reaction.gene_reaction_rule,
+                "id": reaction.id,
+                "lower_bound": _finite_numeric(
+                    reaction.lower_bound, f"{reaction.id} lower bound"
+                ),
+                "metabolites": [
+                    {
+                        "id": met.id,
+                        "coefficient": _finite_numeric(
+                            value, f"{reaction.id}/{met.id} coefficient"
+                        ),
+                    }
+                    for met, value in sorted(
+                        reaction.metabolites.items(), key=lambda item: item[0].id
+                    )
+                ],
+                "upper_bound": _finite_numeric(
+                    reaction.upper_bound, f"{reaction.id} upper bound"
+                ),
+            }
+        )
+    payload = {
+        "id": model.id,
+        "metabolites": metabolites,
+        "objective": {
+            "direction": str(model.objective.direction),
+            "coefficients": objective_coefficients,
+        },
+        "reactions": reactions,
+    }
+    try:
+        serialized = json.dumps(
+            payload,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+            allow_nan=False,
+        )
+    except (TypeError, ValueError) as exc:
+        raise CoAProtonationCurationError(
+            "source model has a non-canonical value that cannot be fingerprinted"
+        ) from exc
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+def _source_snapshot_report(model, curation: dict) -> dict:
+    """Verify both the declared source file and the supplied in-memory model."""
+
+    if not _has_source_provenance(curation):
+        return {
+            "declared": False,
+            "file_sha256_verified": None,
+            "model_fingerprint_verified": None,
+            "verified": False,
+            "errors": ["CoA protonation curation lacks source provenance"],
+        }
+
+    errors: list[str] = []
+    has_source_file = "source_model" in curation
+    file_sha256_verified: bool | None = None
+    model_fingerprint_verified = False
+    target_model_fingerprint_verified: bool | None = None
+    actual_fingerprint: str | None = None
+    if has_source_file:
+        file_sha256_verified = False
+        try:
+            _validate_curation_source_file(curation)
+            file_sha256_verified = True
+        except CoAProtonationCurationError as exc:
+            errors.append(str(exc))
+    try:
+        actual_fingerprint = _model_snapshot_fingerprint(model)
+        model_fingerprint_verified = (
+            actual_fingerprint == curation["source_model_fingerprint"]
+        )
+        if "target_model_fingerprint" in curation:
+            target_model_fingerprint_verified = (
+                actual_fingerprint == curation["target_model_fingerprint"]
+            )
+        if not model_fingerprint_verified and not target_model_fingerprint_verified:
+            errors.append(
+                "CoA protonation model fingerprint differs from both the curated "
+                "post-annotation source and declared target snapshots"
+            )
+    except CoAProtonationCurationError as exc:
+        errors.append(str(exc))
+    return {
+        "declared": True,
+        "source_model": curation.get("source_model"),
+        "source_stage": curation["source_stage"],
+        "source_sha256": curation.get("source_sha256"),
+        "source_model_fingerprint": curation["source_model_fingerprint"],
+        "target_model_fingerprint": curation.get("target_model_fingerprint"),
+        "actual_model_fingerprint": actual_fingerprint,
+        "file_sha256_verified": file_sha256_verified,
+        "model_fingerprint_verified": model_fingerprint_verified,
+        "target_model_fingerprint_verified": target_model_fingerprint_verified,
+        "verified": (
+            (model_fingerprint_verified or bool(target_model_fingerprint_verified))
+            and (file_sha256_verified is None or file_sha256_verified)
+        ),
+        "errors": errors,
+    }
+
+
+def validate_coa_protonation_curation(model, curation: dict | None = None) -> dict:
+    """
+    Check the live model against the exact curated IDs and tuple states.
+
+    This function never mutates ``model``.  Each expected copy may be at its
+    explicitly enumerated legacy tuple or target tuple; any third tuple, a
+    missing copy, a new copy with the same identity, or a changed reaction
+    coefficient is an error.
+    """
+    if curation is None:
+        curation = load_coa_protonation_curation()
+    else:
+        _validate_coa_protonation_manifest(curation, require_source_provenance=True)
+
+    errors: list[str] = []
+    for group in curation["groups"]:
+        group_id = group["id"]
+        expected_ids = set(group["expected_ids"])
+        identity_names = set(group["identity_names"])
+        observed_ids = {
+            met.id
+            for met in model.metabolites
+            if _coa_identity_key(met.name) in identity_names
+        }
+        missing = sorted(expected_ids - observed_ids)
+        unexpected = sorted(observed_ids - expected_ids)
+        if missing:
+            errors.append(f"{group_id}: missing expected copy/copies {missing}")
+        if unexpected:
+            errors.append(f"{group_id}: unexpected same-identity copy/copies {unexpected}")
+        if len(observed_ids) != group["expected_copy_count"]:
+            errors.append(
+                f"{group_id}: observed {len(observed_ids)} copies, expected "
+                f"{group['expected_copy_count']}"
+            )
+
+        target = _tuple_from_record(group["target_tuple"])
+        legacy_by_id = _legacy_tuples_by_id(group)
+        for met_id in sorted(expected_ids):
+            try:
+                met = model.metabolites.get_by_id(met_id)
+            except KeyError:
+                continue
+            actual = _tuple_of(met)
+            allowed = {target}
+            if met_id in legacy_by_id:
+                allowed.add(legacy_by_id[met_id])
+            if actual not in allowed:
+                errors.append(
+                    f"{group_id}: {met_id} has third tuple {actual!r}; "
+                    f"allowed={sorted(allowed)!r}"
+                )
+
+            target_name = group.get("target_name")
+            if (
+                target_name is not None
+                and met.name != target_name
+                and _coa_identity_key(met.name) not in set(group["identity_names"])
+            ):
+                errors.append(
+                    f"{group_id}: {met_id} has unexpected identity {met.name!r}"
+                )
+
+    for correction in curation.get("reaction_corrections", []):
+        rid = correction["reaction_id"]
+        met_id = correction["metabolite_id"]
+        try:
+            reaction = model.reactions.get_by_id(rid)
+            met = model.metabolites.get_by_id(met_id)
+        except KeyError as exc:
+            errors.append(f"reaction correction {rid}: missing {exc.args[0]}")
+            continue
+        coefficient = reaction.metabolites.get(met, 0.0)
+        allowed = {
+            float(correction["legacy_coefficient"]),
+            float(correction["target_coefficient"]),
+        }
+        if coefficient not in allowed:
+            errors.append(
+                f"reaction correction {rid}: {met_id} coefficient {coefficient} "
+                f"is not an exact curated state {sorted(allowed)}"
+            )
+
+    for contract in curation.get("reaction_contracts", []):
+        try:
+            reaction = model.reactions.get_by_id(contract["reaction_id"])
+        except KeyError:
+            errors.append(f"reaction contract {contract['reaction_id']}: missing reaction")
+            continue
+        if not any(
+            _reaction_matches_contract(reaction, contract, field)
+            for field in ("source_stoichiometry", "target_stoichiometry")
+        ):
+            errors.append(
+                f"reaction contract {reaction.id}: bounds, direction, or stoichiometry drifted"
+            )
+
+    for correction in curation.get("reaction_identity_corrections", []):
+        rid = correction["reaction_id"]
+        try:
+            reaction = model.reactions.get_by_id(rid)
+        except KeyError:
+            errors.append(f"reaction identity correction {rid}: missing reaction")
+            continue
+        if reaction.name not in {correction["legacy_name"], correction["target_name"]}:
+            errors.append(
+                f"reaction identity correction {rid}: unexpected identity "
+                f"{reaction.name!r}"
+            )
+
+    return {"valid": not errors, "errors": errors}
+
+
+def _safe_mass_balance(reaction) -> dict | None:
+    """Return a mass-balance residual, or None when COBRA cannot parse it."""
+    try:
+        return reaction.check_mass_balance()
+    except (TypeError, ValueError):
+        return None
+
+
+def _formula_complete_balanced_reactions(model) -> set[str]:
+    return {
+        reaction.id
+        for reaction in model.reactions
+        if all(met.formula for met in reaction.metabolites)
+        and _safe_mass_balance(reaction) == {}
+    }
+
+
+def _all_mass_balances(model) -> dict[str, dict | None]:
+    return {reaction.id: _safe_mass_balance(reaction) for reaction in model.reactions}
+
+
+def _target_reaction_residuals(model, curation: dict) -> dict[str, dict | None]:
+    """Require every explicitly declared target reaction to be exactly balanced."""
+
+    residuals: dict[str, dict | None] = {}
+    for reaction_id in curation["target_balance_reaction_ids"]:
+        try:
+            reaction = model.reactions.get_by_id(reaction_id)
+        except KeyError:
+            residuals[reaction_id] = None
+            continue
+        balance = _safe_mass_balance(reaction)
+        if balance != {}:
+            residuals[reaction_id] = balance
+    return residuals
+
+
+def _balance_delta(before: dict | None, after: dict | None) -> dict[str, float]:
+    if before is None or after is None:
+        return {}
+    keys = set(before) | set(after)
+    return {
+        key: float(after.get(key, 0.0) - before.get(key, 0.0))
+        for key in keys
+        if not isclose(float(after.get(key, 0.0)), float(before.get(key, 0.0)), abs_tol=1e-12)
+    }
+
+
+def _objective_value(model) -> float | None:
+    """Return a finite FBA optimum when one is available; otherwise None."""
+    try:
+        value = model.slim_optimize(error_value=None)
+    except Exception:  # solver availability is outside patch correctness
+        return None
+    if value is None or not isfinite(float(value)):
+        return None
+    return float(value)
+
+
+def _apply_coa_protonation_curation_unsafe(model, curation: dict) -> dict[str, int]:
+    """Apply a preflighted curation to an in-memory model only."""
+    counts = {
+        "metabolites": 0,
+        "annotations": 0,
+        "reaction_corrections": 0,
+        "identity_corrections": 0,
+    }
+    for group in curation["groups"]:
+        target = _tuple_from_record(group["target_tuple"])
+        legacy_by_id = _legacy_tuples_by_id(group)
+        for met_id in group["expected_ids"]:
+            met = model.metabolites.get_by_id(met_id)
+            actual = _tuple_of(met)
+            if actual != target:
+                if legacy_by_id.get(met_id) != actual:
+                    raise CoAProtonationCurationError(
+                        f"Refusing third tuple for {met_id}: {actual!r}"
+                    )
+                met.formula, met.charge = target
+                counts["metabolites"] += 1
+
+            target_name = group.get("target_name")
+            if target_name is not None and met.name != target_name:
+                met.name = target_name
+                counts["identity_corrections"] += 1
+
+            annotation_target = group.get("annotation_target")
+            if annotation_target:
+                annotation = dict(met.annotation or {})
+                before = dict(annotation)
+                for key in group.get("replace_annotation_keys", []):
+                    annotation.pop(key, None)
+                annotation.update(annotation_target)
+                if annotation != before:
+                    met.annotation = annotation
+                    counts["annotations"] += 1
+
+    for correction in curation.get("reaction_corrections", []):
+        reaction = model.reactions.get_by_id(correction["reaction_id"])
+        met = model.metabolites.get_by_id(correction["metabolite_id"])
+        legacy = float(correction["legacy_coefficient"])
+        target = float(correction["target_coefficient"])
+        actual = float(reaction.metabolites.get(met, 0.0))
+        if actual == target:
+            continue
+        if actual != legacy:
+            raise CoAProtonationCurationError(
+                f"Refusing third coefficient for {reaction.id}/{met.id}: {actual}"
+            )
+        reaction.add_metabolites({met: target - actual})
+        counts["reaction_corrections"] += 1
+
+    for correction in curation.get("reaction_identity_corrections", []):
+        reaction = model.reactions.get_by_id(correction["reaction_id"])
+        if reaction.name != correction["target_name"]:
+            if reaction.name != correction["legacy_name"]:
+                raise CoAProtonationCurationError(
+                    f"Refusing unexpected reaction identity for {reaction.id}: "
+                    f"{reaction.name!r}"
+                )
+            reaction.name = correction["target_name"]
+            counts["identity_corrections"] += 1
+        annotation_target = correction.get("annotation_target", {})
+        if annotation_target:
+            annotation = dict(reaction.annotation or {})
+            before = dict(annotation)
+            annotation.update(annotation_target)
+            if annotation != before:
+                reaction.annotation = annotation
+                counts["annotations"] += 1
+
+    for contract in curation.get("reaction_contracts", []):
+        reaction = model.reactions.get_by_id(contract["reaction_id"])
+        if not _reaction_matches_contract(reaction, contract, "target_stoichiometry"):
+            raise CoAProtonationCurationError(
+                f"Refusing incomplete CoA reaction contract for {reaction.id}"
+            )
+    return counts
+
+
+def _apply_coa_protonation_curation(model, curation: dict) -> dict[str, int]:
+    """Apply the staged curation transactionally after a caller's preflight."""
+
+    metabolite_ids = {
+        metabolite_id
+        for group in curation["groups"]
+        for metabolite_id in group["expected_ids"]
+    }
+    reaction_ids = {
+        correction["reaction_id"]
+        for correction in curation.get("reaction_corrections", [])
+    } | {
+        correction["reaction_id"]
+        for correction in curation.get("reaction_identity_corrections", [])
+    } | {
+        contract["reaction_id"]
+        for contract in curation.get("reaction_contracts", [])
+    }
+    metabolites = [model.metabolites.get_by_id(metabolite_id) for metabolite_id in metabolite_ids]
+    reactions = [model.reactions.get_by_id(reaction_id) for reaction_id in reaction_ids]
+    metabolite_snapshot = [
+        (metabolite, metabolite.name, metabolite.formula, metabolite.charge, deepcopy(metabolite.annotation or {}))
+        for metabolite in metabolites
+    ]
+    reaction_snapshot = [
+        (reaction, reaction.name, deepcopy(reaction.annotation or {}), dict(reaction.metabolites))
+        for reaction in reactions
+    ]
+    try:
+        return _apply_coa_protonation_curation_unsafe(model, curation)
+    except Exception:
+        for metabolite, name, formula, charge, annotation in metabolite_snapshot:
+            metabolite.name, metabolite.formula, metabolite.charge, metabolite.annotation = (
+                name, formula, charge, annotation,
+            )
+        for reaction, name, annotation, stoichiometry in reaction_snapshot:
+            current = dict(reaction.metabolites)
+            changes = {
+                metabolite: stoichiometry.get(metabolite, 0.0) - current.get(metabolite, 0.0)
+                for metabolite in set(current) | set(stoichiometry)
+                if not isclose(
+                    float(stoichiometry.get(metabolite, 0.0)),
+                    float(current.get(metabolite, 0.0)),
+                    abs_tol=1e-12,
+                )
+            }
+            if changes:
+                reaction.add_metabolites(changes)
+            reaction.name, reaction.annotation = name, annotation
+        raise
+
+
+def _evaluate_coa_protonation_gate(model, curation: dict) -> dict:
+    """Evaluate all source, target-balance, and objective gates on a model copy."""
+
+    validation = validate_coa_protonation_curation(model, curation)
+    source_snapshot = _source_snapshot_report(model, curation)
+    activation_blockers_clear = not curation["activation_blockers"]
+    report = {
+        "validation": validation,
+        "source_snapshot": source_snapshot,
+        "activation_blockers_clear": activation_blockers_clear,
+    }
+    if not validation["valid"]:
+        report.update(
+            {
+                "gate_passed": False,
+                "newly_unbalanced": {},
+                "non_h_charge_deltas": {},
+                "target_reactions_unbalanced": {},
+                "balanced_count_before": None,
+                "balanced_count_after": None,
+                "objective_before": None,
+                "objective_after": None,
+                "objective_unchanged": False,
+            }
+        )
+        return report
+
+    candidate = model.copy()
+    balanced_before = _formula_complete_balanced_reactions(candidate)
+    formula_complete_before = {
+        reaction.id
+        for reaction in candidate.reactions
+        if all(met.formula for met in reaction.metabolites)
+    }
+    balances_before = _all_mass_balances(candidate)
+    objective_before = _objective_value(candidate)
+    counts = _apply_coa_protonation_curation(candidate, curation)
+    balances_after = _all_mass_balances(candidate)
+    balanced_after = _formula_complete_balanced_reactions(candidate)
+    objective_after = _objective_value(candidate)
+    target_reactions_unbalanced = _target_reaction_residuals(candidate, curation)
+
+    newly_unbalanced = {
+        reaction_id: balances_after[reaction_id]
+        for reaction_id in sorted(balanced_before)
+        if balances_after[reaction_id] not in ({}, None)
+    }
+    changed_residuals = {
+        reaction_id: _balance_delta(balances_before[reaction_id], balances_after[reaction_id])
+        for reaction_id in balances_before
+        if _balance_delta(balances_before[reaction_id], balances_after[reaction_id])
+    }
+    non_h_charge_deltas = {
+        reaction_id: delta
+        for reaction_id, delta in changed_residuals.items()
+        if (
+            reaction_id in formula_complete_before
+            and _COA_GATE_NON_H_ELEMENTS.intersection(delta)
+        )
+    }
+    objective_unchanged = (
+        objective_before is not None
+        and objective_after is not None
+        and isclose(objective_before, objective_after, rel_tol=0.0, abs_tol=1e-9)
+    )
+    report.update(
+        {
+            "counts": counts,
+            "newly_unbalanced": newly_unbalanced,
+            "non_h_charge_deltas": non_h_charge_deltas,
+            "target_reactions_unbalanced": target_reactions_unbalanced,
+            "balanced_count_before": len(balanced_before),
+            "balanced_count_after": len(balanced_after),
+            "objective_before": objective_before,
+            "objective_after": objective_after,
+            "objective_unchanged": objective_unchanged,
+        }
+    )
+    report["gate_passed"] = (
+        source_snapshot["verified"]
+        and activation_blockers_clear
+        and not newly_unbalanced
+        and not non_h_charge_deltas
+        and not target_reactions_unbalanced
+        and len(balanced_after) >= len(balanced_before)
+        and objective_unchanged
+    )
+    return report
+
+
+def audit_coa_protonation_curation(
+    model, curation: dict | None = None, curation_path: str | Path | None = None
+) -> dict:
+    """
+    Read-only audit of the curated CoA protonation proposal.
+
+    It validates exact identity/copy/tuple states and evaluates all safety
+    gates on a copy.  ``activation_blockers`` are reported verbatim so callers
+    cannot mistake a chemically incomplete closure for an applicable patch.
+    """
+    if curation is None:
+        curation = load_coa_protonation_curation(curation_path)
+    else:
+        _validate_coa_protonation_manifest(curation, require_source_provenance=True)
+    report = _evaluate_coa_protonation_gate(model, curation)
+    report["activation_state"] = curation["activation_state"]
+    report["activation_reason"] = curation.get("activation_reason", "")
+    report["activation_blockers"] = curation["activation_blockers"]
+    report["ready_for_activation"] = (
+        curation["activation_state"] == "approved"
+        and report["activation_blockers_clear"]
+        and report["gate_passed"]
+    )
+    return report
+
+
+def normalize_coa_protonation(
+    model, curation: dict | None = None, curation_path: str | Path | None = None
+) -> dict[str, int]:
+    """
+    Apply the CoA curation only after every exact preflight gate passes.
+
+    The repository curation is intentionally blocked and this function raises
+    before mutating the model.  It is not wired into apply_all_patches() or the
+    pipeline until the documented external protonation closure is approved.
+    """
+    if curation is None:
+        curation = load_coa_protonation_curation(curation_path)
+    else:
+        _validate_coa_protonation_manifest(curation, require_source_provenance=True)
+    if curation["activation_state"] != "approved":
+        raise CoAProtonationActivationBlocked(
+            "CoA protonation curation is blocked: "
+            f"{curation.get('activation_reason', 'no approval recorded')}"
+        )
+
+    report = _evaluate_coa_protonation_gate(model, curation)
+    if not report["gate_passed"]:
+        raise CoAProtonationCurationError(
+            "CoA protonation safety gate failed: "
+            f"newly_unbalanced={report['newly_unbalanced']}; "
+            f"non_h_charge_deltas={report['non_h_charge_deltas']}; "
+            f"target_reactions_unbalanced={report['target_reactions_unbalanced']}; "
+            f"source_snapshot_verified={report['source_snapshot']['verified']}; "
+            f"balanced={report['balanced_count_before']}->{report['balanced_count_after']}; "
+            f"objective={report['objective_before']}->{report['objective_after']}"
+        )
+    counts = _apply_coa_protonation_curation(model, curation)
+    logger.info(
+        "CoA protonation curation applied: metabolites=%d annotations=%d reactions=%d",
+        counts["metabolites"],
+        counts["annotations"],
+        counts["reaction_corrections"],
+    )
+    return counts
 
 
 # ── Top-level driver ──────────────────────────────────────────────────────
