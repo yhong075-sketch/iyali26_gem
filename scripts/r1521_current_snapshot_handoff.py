@@ -27,7 +27,7 @@ from scripts.gem_annotate.patches import (
 REPOSITORY = Path(__file__).resolve().parents[1]
 HANDOFF_PATH = REPOSITORY / "data" / "r1521_current_snapshot_handoff.json"
 ER_EVIDENCE_PATH = REPOSITORY / "data" / "er_vlcfa_3r_stereochemistry.json"
-_TRUSTED_CONTRACT_SHA256 = "86490628d67345559e94e1a68d51ed307c7013363aa4794d2f4f494a19325bb4"
+_TRUSTED_CONTRACT_SHA256 = "2f80ce48c930c948c0c0a0d38151b8a40b49f4af7babae586b4b16e04431b5b0"
 _IDENTITY_KEYS = frozenset(
     {
         "chebi", "hmdb", "inchi", "inchikey", "lipidmaps", "lipidmapsm",

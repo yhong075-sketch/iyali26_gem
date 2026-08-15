@@ -75,7 +75,7 @@ def _read_curation(path: Path = CURATION_PATH) -> dict[str, Any]:
         raise ContractError("invalid lipid-unlump curation manifest")
     if len(curation["chains"]) != 7 or len(curation["steps"]) != 18:
         raise ContractError("curation must define seven chains and eighteen templates")
-    if curation["source"].get("model_sha256") != "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415":
+    if curation["source"].get("model_sha256") != "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee":
         raise ContractError("curation source SHA is not the approved snapshot")
     return curation
 

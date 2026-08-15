@@ -895,7 +895,7 @@ _COA_PROTONATION_CURATION = "data/coa_protonation_curation.json"
 _COA_GATE_NON_H_ELEMENTS = frozenset({"C", "N", "O", "P", "S"})
 _COA_PROTONATION_SOURCE_MODEL = "../iyali26_gem/model.xml"
 _COA_PROTONATION_SOURCE_STAGE = "current_main_model_xml"
-_R1521_HANDOFF_CONTRACT = "86490628d67345559e94e1a68d51ed307c7013363aa4794d2f4f494a19325bb4"
+_R1521_HANDOFF_CONTRACT = "2f80ce48c930c948c0c0a0d38151b8a40b49f4af7babae586b4b16e04431b5b0"
 _SHA256_HEX = re.compile(r"[0-9a-f]{64}\Z")
 _COA_CHEMICAL_IDENTITY_KEYS = frozenset(
     {

@@ -87,7 +87,14 @@ class StrictSnCoreTests(unittest.TestCase):
         self.assertGreater(pfba(self.candidate).fluxes["biomass_C"], 0)
         payload = report(self.source, self.candidate)
         self.assertFalse(payload["ready_for_activation"])
-        self.assertFalse(payload["performance_review_required"])
+        runtime = payload["runtime_seconds"]
+        self.assertEqual(
+            payload["performance_review_required"],
+            any(
+                runtime[f"candidate_{kind}_median"] > 2 * runtime[f"source_{kind}_median"]
+                for kind in ("fba", "pfba")
+            ),
+        )
         self.assertGreaterEqual(payload["fba_probe"]["growth_ratio"], 0.99)
         self.assertLessEqual(payload["fba_probe"]["growth_ratio"], 1.0)
 

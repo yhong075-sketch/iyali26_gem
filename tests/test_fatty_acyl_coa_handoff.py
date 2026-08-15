@@ -24,7 +24,7 @@ from scripts.fatty_acyl_coa_handoff import (
 REPOSITORY = Path(__file__).resolve().parents[1]
 CURRENT_MAIN_MODEL = REPOSITORY.parent / "iyali26_gem" / "model.xml"
 MODEL_PATH = CURRENT_MAIN_MODEL
-CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_20260806.json"
+CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_20260815.json"
 
 
 class FattyAcylCoAHandoffTests(unittest.TestCase):

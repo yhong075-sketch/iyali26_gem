@@ -33,7 +33,7 @@ from scripts.r1521_current_snapshot_handoff import (
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 CURRENT_MAIN_MODEL = REPOSITORY.parent / "iyali26_gem" / "model.xml"
-CURRENT_MAIN_AUDIT = REPOSITORY / "artifacts" / "r1521_current_snapshot_handoff_20260806.json"
+CURRENT_MAIN_AUDIT = REPOSITORY / "artifacts" / "r1521_current_snapshot_handoff_20260815.json"
 
 
 @unittest.skipUnless(CURRENT_MAIN_MODEL.exists(), "requires the declared current-main model")
