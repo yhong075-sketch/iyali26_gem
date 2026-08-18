@@ -1164,13 +1164,6 @@
       "evidence": "Exact proton reactant required by the authoritative pimeloyl-CoA5-/CoA4- tuple; no general proton repair is permitted."
     },
     {
-      "reaction_id": "R2076",
-      "metabolite_id": "m10[C_cy]",
-      "legacy_coefficient": 3,
-      "target_coefficient": -1,
-      "evidence": "Exact curated correction: replace three product protons with one reactant proton; this zeros both H and charge with m2047 left unchanged."
-    },
-    {
       "reaction_id": "R1412",
       "metabolite_id": "m377[C_em]",
       "legacy_coefficient": 0,
@@ -1482,8 +1475,289 @@
     },
     {
       "reaction_id": "R2076",
-      "residual_after_curated_tuples": null,
-      "reason": "Reaction has no biochemical identity; no tuple or proton repair is authorized."
+      "residual_after_curated_tuples": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "reason": "The ATP-free reaction is not KEGG R03383 and has no supported Yarrowia enzyme or GPR. Its former H+ correction is withdrawn; retain, complete-R03383 replacement, and removal remain non-production candidates behind full identity, frontier, HPCC, and human gates.",
+      "identity_resolution": {
+        "status": "decision_package_ready_production_unapplied",
+        "evidence_status": "canonical_chemistry_supported_yarrowia_assignment_unverified",
+        "current_snapshot": {
+          "name": "NO NAME",
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "gpr": "",
+          "annotation": {
+            "sbo": "SBO:0000176"
+          },
+          "stoichiometry": {
+            "m2045[C_cy]": -1.0,
+            "m69[C_cy]": -1.0,
+            "m10[C_cy]": 3.0,
+            "m2047[C_cy]": 1.0,
+            "m32[C_cy]": 1.0
+          },
+          "methylmalonate_copy_ids": [
+            "m2045[C_cy]"
+          ],
+          "methylmalonate_incident_reaction_ids": [
+            "R2074",
+            "R2076"
+          ],
+          "r_methylmalonyl_coa_copy_ids": [
+            "m2047[C_cy]"
+          ],
+          "r_methylmalonyl_coa_incident_reaction_ids": [
+            "R2075",
+            "R2076"
+          ]
+        },
+        "crosswalk_resolution": {
+          "MNXR134362": "ATP-free methylmalonate + H+ + CoA <=> (R)-methylmalonyl-CoA + H2O; sourced from ModelSEED rxn02425, EC blank, and not the complete KEGG R03383 chemistry.",
+          "MNXR108133": "The true MetaNetX crosswalk for KEGG R03383, including ATP, AMP, and diphosphate.",
+          "MNXR158086": "Methylmalonate/phosphate antiport; excluded as the wrong reaction class.",
+          "stereochemistry_exclusion": "EC 3.1.2.17/RHEA:17345 is the (S)-methylmalonyl-CoA hydrolase and cannot support formation of the model's (R) product."
+        },
+        "canonical_reaction": {
+          "name": "methylmalonate:CoA ligase (AMP-forming)",
+          "kegg_reaction": "R03383",
+          "metanetx_reaction": "MNXR108133",
+          "ec": "6.2.1.-",
+          "reference_orthology_ids": [
+            "K18660",
+            "K18661"
+          ],
+          "ph_7_3_stoichiometry": {
+            "methylmalonate": -1.0,
+            "CoA": -1.0,
+            "ATP": -1.0,
+            "(R)-methylmalonyl-CoA": 1.0,
+            "AMP": 1.0,
+            "diphosphate": 1.0
+          },
+          "ph_7_3_tuples": {
+            "methylmalonate": {
+              "formula": "C4H4O4",
+              "charge": -2
+            },
+            "CoA": {
+              "formula": "C21H32N7O16P3S",
+              "charge": -4
+            },
+            "ATP": {
+              "formula": "C10H12N5O13P3",
+              "charge": -4
+            },
+            "(R)-methylmalonyl-CoA": {
+              "formula": "C25H35N7O19P3S",
+              "charge": -5
+            },
+            "AMP": {
+              "formula": "C10H12N5O7P",
+              "charge": -2
+            },
+            "diphosphate": {
+              "formula": "HO7P2",
+              "charge": -3
+            }
+          },
+          "aggregate_each_side": {
+            "formula": "C35H48N12O33P6S",
+            "charge": -10
+          },
+          "explicit_proton_coefficient": 0,
+          "water_coefficient": 0
+        },
+        "frontier": {
+          "reason": "The current ATP, AMP, and diphosphate copies use neutral legacy tuples. A pH 7.3 R03383 candidate requires all-copy connected-component closure; no local H+ repair may substitute for it.",
+          "coa": {
+            "copy_count": 9,
+            "copy_ids": [
+              "m69[C_cy]",
+              "m73[C_mi]",
+              "m182[C_pe]",
+              "m207[C_nu]",
+              "m233[C_em]",
+              "m252[C_er]",
+              "m573[C_lp]",
+              "m792[C_mm]",
+              "m1494[C_en]"
+            ],
+            "incident_reaction_count": 170,
+            "incident_reaction_ids_sha256": "edbb221db4c45b4028a0dab9cfa01766d8ae361f6044293e817169861b43592e"
+          },
+          "atp": {
+            "copy_count": 10,
+            "copy_ids": [
+              "m16[C_vm]",
+              "m21[C_en]",
+              "m46[C_mi]",
+              "m141[C_cy]",
+              "m206[C_nu]",
+              "m515[C_pe]",
+              "m953[C_er]",
+              "m1469[C_em]",
+              "m1477[C_lp]",
+              "m1621[C_gm]"
+            ],
+            "legacy_tuple": {
+              "formula": "C10H16N5O13P3",
+              "charge": 0
+            },
+            "incident_reaction_count": 273,
+            "incident_reaction_ids_sha256": "69a779b92c2a4ee85bec6fb816a975ffcc1c3e0d72564b90059b75c3c5c03fbb"
+          },
+          "amp": {
+            "copy_count": 7,
+            "copy_ids": [
+              "m48[C_mi]",
+              "m86[C_cy]",
+              "m209[C_nu]",
+              "m517[C_pe]",
+              "m1471[C_em]",
+              "m1479[C_lp]",
+              "m1496[C_en]"
+            ],
+            "legacy_tuple": {
+              "formula": "C10H14N5O7P",
+              "charge": 0
+            },
+            "incident_reaction_count": 109,
+            "incident_reaction_ids_sha256": "4281bdcdeb7283de2325490aabdbe62704eba9710050e67af7fe2102a782bae2"
+          },
+          "diphosphate": {
+            "copy_count": 8,
+            "copy_ids": [
+              "m203[C_cy]",
+              "m204[C_mi]",
+              "m210[C_nu]",
+              "m380[C_em]",
+              "m385[C_mm]",
+              "m413[C_lp]",
+              "m518[C_pe]",
+              "m1497[C_en]"
+            ],
+            "legacy_tuple": {
+              "formula": "H4O7P2",
+              "charge": 0
+            },
+            "incident_reaction_count": 164,
+            "incident_reaction_ids_sha256": "e6028b5451a42461b2808080d415b7e044545272dc915731b8510a4b93da2acb"
+          }
+        },
+        "gpr_evidence": {
+          "assigned_gene": {
+            "systematic_identifier": null,
+            "established_name": null,
+            "protein_function": null,
+            "evidence_status": "unverified_no_direct_yarrowia_evidence"
+          },
+          "model_gpr": "",
+          "search_summary": "KEGG Yarrowia mappings for R03383/K18660/K18661 and exact UniProt/NCBI searches for the activity returned no direct assignment. This is absence of curated evidence, not proof of biological absence.",
+          "search_provenance": {
+            "accessed_on": "2026-08-18",
+            "kegg": {
+              "organism_code": "yli",
+              "taxonomy_id": 284591,
+              "zero_hit_endpoints": [
+                "https://rest.kegg.jp/link/yli/ko:K18660",
+                "https://rest.kegg.jp/link/yli/ko:K18661",
+                "https://rest.kegg.jp/link/yli/rn:R03383"
+              ],
+              "positive_control": {
+                "endpoint": "https://rest.kegg.jp/link/yli/ko:K11262",
+                "hit": "yli:2909424"
+              }
+            },
+            "uniprot": {
+              "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+              "taxonomy_ids": [
+                284591,
+                4952
+              ],
+              "zero_hit_queries": [
+                "taxonomy_id:284591 AND ec:6.2.1.76",
+                "taxonomy_id:284591 AND protein_name:\"methylmalonyl-CoA synthetase\"",
+                "taxonomy_id:284591 AND gene:ACSF3",
+                "taxonomy_id:284591 AND gene:matB"
+              ],
+              "positive_control": {
+                "query": "taxonomy_id:284591 AND ec:6.4.1.2",
+                "hit": "Q6CC91"
+              }
+            },
+            "ncbi": {
+              "gene_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gene",
+              "protein_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=protein",
+              "zero_hit_query": "Yarrowia lipolytica[Organism] AND (methylmalonyl-CoA synthetase[Title] OR malonyl-CoA synthetase[Title])"
+            }
+          },
+          "gpr_assignment_authorized": false
+        },
+        "candidates": [
+          {
+            "decision": "retain",
+            "status": "rejected",
+            "allowed_for_testing": true,
+            "production_authorized": false,
+            "reason": "ATP-free thioester formation is supported only by a formal ModelSEED/MetaNetX record, is opposite the ModelSEED forward hydrolysis direction, and has no matching EC or Yarrowia evidence."
+          },
+          {
+            "decision": "replace_forward",
+            "status": "chemically_supported_organism_unverified",
+            "allowed_for_testing": true,
+            "production_authorized": false,
+            "legacy_snapshot_test_stoichiometry": {
+              "m2045[C_cy]": -1.0,
+              "m69[C_cy]": -1.0,
+              "m141[C_cy]": -1.0,
+              "m2047[C_cy]": 1.0,
+              "m86[C_cy]": 1.0,
+              "m203[C_cy]": 1.0,
+              "m10[C_cy]": 3.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "reason": "Complete R03383 topology for network sensitivity only; the three product protons are a legacy-tuple representation artifact, not an authorized pH 7.3 decision."
+          },
+          {
+            "decision": "replace_reversible_sensitivity",
+            "status": "chemically_supported_direction_unverified",
+            "allowed_for_testing": true,
+            "production_authorized": false,
+            "bounds": [
+              -1000.0,
+              1000.0
+            ],
+            "reason": "Database reversible notation is tested only for sensitivity because reverse flux could create an ATP-forming bypass."
+          },
+          {
+            "decision": "remove",
+            "status": "recommended_fail_closed_candidate",
+            "allowed_for_testing": true,
+            "production_authorized": false,
+            "operation": "remove_reaction",
+            "reason": "Preferred candidate while the ATP-free chemistry and Yarrowia assignment remain unsupported; this does not assert biological absence."
+          }
+        ],
+        "recommended_decision": "remove",
+        "recommendation_status": "candidate_only_human_gate_required",
+        "sources": [
+          "https://www.metanetx.org/equa_info/MNXR134362",
+          "https://www.metanetx.org/equa_info/MNXR108133",
+          "https://www.metanetx.org/equa_info/MNXR158086",
+          "https://www.kegg.jp/entry/R03383",
+          "https://modelseed.org/PMS/api/biochem/reactions?ids=rxn02425",
+          "https://www.rhea-db.org/rhea/17345",
+          "https://www.rhea-db.org/help/chebi-in-rhea"
+        ],
+        "ready_for_activation": false
+      }
     },
     {
       "reaction_id": "R1419",

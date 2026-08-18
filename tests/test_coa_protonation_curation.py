@@ -13,6 +13,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from cobra import Metabolite, Model, Reaction
+from cobra.flux_analysis import flux_variability_analysis, pfba
 from cobra.io import read_sbml_model
 
 import scripts.gem_annotate.patches as coa_patches
@@ -64,7 +65,7 @@ def approved_minimal_curation() -> dict:
         "activation_state": "approved",
         "source_stage": "in_memory_test_fixture",
         "activation_blockers": [],
-        "target_balance_reaction_ids": ["R2076"],
+        "target_balance_reaction_ids": ["fixture_reaction"],
         "groups": [
             {
                 "id": "coenzyme_a",
@@ -83,7 +84,7 @@ def approved_minimal_curation() -> dict:
         ],
         "reaction_corrections": [
             {
-                "reaction_id": "R2076",
+                "reaction_id": "fixture_reaction",
                 "metabolite_id": "h_c",
                 "legacy_coefficient": 3,
                 "target_coefficient": -1,
@@ -101,7 +102,7 @@ def approved_minimal_curation() -> dict:
 
 
 def build_balanced_fixture() -> Model:
-    """Build a model where the exact R2076 correction preserves all gates."""
+    """Build a synthetic model where one exact correction preserves all gates."""
     model = Model("coa_curation_fixture")
     coa = Metabolite(
         "coa_c",
@@ -119,8 +120,8 @@ def build_balanced_fixture() -> Model:
     )
     proton = Metabolite("h_c", formula="H", charge=1, compartment="c")
     water = Metabolite("h2o_c", formula="H2O", charge=0, compartment="c")
-    r2076 = Reaction("R2076")
-    r2076.add_metabolites(
+    fixture_reaction = Reaction("fixture_reaction")
+    fixture_reaction.add_metabolites(
         {
             methylmalonate: -1,
             coa: -1,
@@ -141,7 +142,7 @@ def build_balanced_fixture() -> Model:
     demand.add_metabolites({product: -1})
     demand.bounds = (0, 1000)
 
-    model.add_reactions([r2076, growth, exchange, demand])
+    model.add_reactions([fixture_reaction, growth, exchange, demand])
     model.objective = demand
     return model
 
@@ -362,17 +363,198 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
         )
         self.assertTrue(validation["valid"], validation["errors"])
 
-    def test_r2076_is_the_exact_enumerated_correction(self) -> None:
+    def test_r2076_correction_is_withdrawn_and_decision_contract_is_exact(self) -> None:
         curation = load_coa_protonation_curation()
         corrections = {entry["reaction_id"]: entry for entry in curation["reaction_corrections"]}
-        self.assertEqual(corrections["R2076"]["metabolite_id"], "m10[C_cy]")
-        self.assertEqual(corrections["R2076"]["legacy_coefficient"], 3)
-        self.assertEqual(corrections["R2076"]["target_coefficient"], -1)
-        self.assertEqual(set(corrections), {"R74", "R2076", "R1412"})
+        self.assertNotIn("R2076", corrections)
+        self.assertEqual(set(corrections), {"R74", "R1412"})
         self.assertEqual(
             (corrections["R1412"]["metabolite_id"], corrections["R1412"]["legacy_coefficient"], corrections["R1412"]["target_coefficient"]),
             ("m377[C_em]", 0, -1),
         )
+
+        self.assertIn("R2076", curation["target_balance_reaction_ids"])
+        blocker = next(row for row in curation["activation_blockers"] if row["reaction_id"] == "R2076")
+        resolution = blocker["identity_resolution"]
+        self.assertEqual(blocker["residual_after_curated_tuples"], {"H": 4.0, "charge": 4.0})
+        self.assertEqual(resolution["recommended_decision"], "remove")
+        self.assertFalse(resolution["ready_for_activation"])
+        self.assertEqual(
+            resolution["gpr_evidence"]["assigned_gene"],
+            {
+                "systematic_identifier": None,
+                "established_name": None,
+                "protein_function": None,
+                "evidence_status": "unverified_no_direct_yarrowia_evidence",
+            },
+        )
+        self.assertEqual(resolution["gpr_evidence"]["model_gpr"], "")
+        self.assertFalse(resolution["gpr_evidence"]["gpr_assignment_authorized"])
+        provenance = resolution["gpr_evidence"]["search_provenance"]
+        self.assertEqual(provenance["accessed_on"], "2026-08-18")
+        self.assertEqual(provenance["kegg"]["taxonomy_id"], 284591)
+        self.assertEqual(provenance["kegg"]["positive_control"]["hit"], "yli:2909424")
+        self.assertEqual(provenance["uniprot"]["positive_control"]["hit"], "Q6CC91")
+
+        canonical = resolution["canonical_reaction"]
+        self.assertEqual((canonical["kegg_reaction"], canonical["metanetx_reaction"]), ("R03383", "MNXR108133"))
+        self.assertEqual(canonical["explicit_proton_coefficient"], 0)
+        self.assertEqual(canonical["water_coefficient"], 0)
+        metabolites = {
+            name: Metabolite(name, formula=state["formula"], charge=state["charge"])
+            for name, state in canonical["ph_7_3_tuples"].items()
+        }
+        reaction = Reaction("canonical_r03383")
+        reaction.add_metabolites(
+            {metabolites[name]: coefficient for name, coefficient in canonical["ph_7_3_stoichiometry"].items()}
+        )
+        self.assertEqual(reaction.check_mass_balance(), {})
+
+        candidates = {row["decision"]: row for row in resolution["candidates"]}
+        self.assertEqual(set(candidates), {"retain", "replace_forward", "replace_reversible_sensitivity", "remove"})
+        self.assertEqual(candidates["retain"]["status"], "rejected")
+        self.assertEqual(candidates["remove"]["status"], "recommended_fail_closed_candidate")
+        self.assertTrue(all(row["allowed_for_testing"] for row in candidates.values()))
+        self.assertTrue(all(not row["production_authorized"] for row in candidates.values()))
+
+    @unittest.skipUnless(os.environ.get("IYALI26_SOURCE_MODEL"), "requires explicit IYALI26_SOURCE_MODEL")
+    def test_r2076_candidates_preserve_source_contract_and_stay_flux_blocked(self) -> None:
+        curation = load_coa_protonation_curation()
+        blocker = next(row for row in curation["activation_blockers"] if row["reaction_id"] == "R2076")
+        resolution = blocker["identity_resolution"]
+        source = read_sbml_model(str(MODEL_PATH))
+        source_fingerprint = coa_patches._model_snapshot_fingerprint(source)
+        source_balances = coa_patches._all_mass_balances(source)
+        r2076 = source.reactions.get_by_id("R2076")
+        self.assertEqual(r2076.name, "NO NAME")
+        self.assertEqual(r2076.bounds, (0.0, 1000.0))
+        self.assertEqual(r2076.gene_reaction_rule, "")
+        self.assertEqual(r2076.annotation, {"sbo": "SBO:0000176"})
+        self.assertEqual(
+            {metabolite.id: coefficient for metabolite, coefficient in r2076.metabolites.items()},
+            resolution["current_snapshot"]["stoichiometry"],
+        )
+        self.assertEqual(r2076.check_mass_balance(), {})
+
+        def annotation_values(metabolite, key: str) -> set[str]:
+            value = metabolite.annotation.get(key)
+            return {value} if isinstance(value, str) else set(value or [])
+
+        self.assertEqual(
+            {metabolite.id for metabolite in source.metabolites if "C02170" in annotation_values(metabolite, "kegg.compound")},
+            set(resolution["current_snapshot"]["methylmalonate_copy_ids"]),
+        )
+        self.assertEqual(
+            {metabolite.id for metabolite in source.metabolites if "C01213" in annotation_values(metabolite, "kegg.compound")},
+            set(resolution["current_snapshot"]["r_methylmalonyl_coa_copy_ids"]),
+        )
+        self.assertEqual(
+            {reaction.id for reaction in source.metabolites.get_by_id("m2045[C_cy]").reactions},
+            set(resolution["current_snapshot"]["methylmalonate_incident_reaction_ids"]),
+        )
+        self.assertEqual(
+            {reaction.id for reaction in source.metabolites.get_by_id("m2047[C_cy]").reactions},
+            set(resolution["current_snapshot"]["r_methylmalonyl_coa_incident_reaction_ids"]),
+        )
+
+        frontier = resolution["frontier"]
+        frontier_kegg = {"atp": "C00002", "amp": "C00020", "diphosphate": "C00013"}
+        self.assertEqual(set(frontier["coa"]["copy_ids"]), set(group_by_id(curation, "coenzyme_a")["expected_ids"]))
+        for identity, kegg_id in frontier_kegg.items():
+            copy_ids = {
+                metabolite.id
+                for metabolite in source.metabolites
+                if kegg_id in annotation_values(metabolite, "kegg.compound")
+            }
+            self.assertEqual(copy_ids, set(frontier[identity]["copy_ids"]))
+            self.assertEqual(len(copy_ids), frontier[identity]["copy_count"])
+        for identity in ("coa", "atp", "amp", "diphosphate"):
+            incident_ids = {
+                reaction.id
+                for metabolite_id in frontier[identity]["copy_ids"]
+                for reaction in source.metabolites.get_by_id(metabolite_id).reactions
+            }
+            self.assertEqual(len(incident_ids), frontier[identity]["incident_reaction_count"])
+            self.assertEqual(
+                hashlib.sha256("\n".join(sorted(incident_ids)).encode()).hexdigest(),
+                frontier[identity]["incident_reaction_ids_sha256"],
+            )
+
+        post_coa = source.copy()
+        coa_patches._apply_coa_protonation_curation(post_coa, curation)
+        self.assertEqual(post_coa.reactions.get_by_id("R2076").check_mass_balance(), {"charge": 4.0, "H": 4.0})
+
+        candidate_contracts = {row["decision"]: row for row in resolution["candidates"]}
+
+        def build_candidate(decision: str):
+            candidate = source.copy()
+            reaction = candidate.reactions.get_by_id("R2076")
+            if decision.startswith("replace"):
+                reaction.add_metabolites(
+                    {
+                        candidate.metabolites.get_by_id("m32[C_cy]"): -1.0,
+                        candidate.metabolites.get_by_id("m141[C_cy]"): -1.0,
+                        candidate.metabolites.get_by_id("m86[C_cy]"): 1.0,
+                        candidate.metabolites.get_by_id("m203[C_cy]"): 1.0,
+                    }
+                )
+                reaction.bounds = tuple(candidate_contracts[decision]["bounds"])
+            elif decision == "remove":
+                candidate.remove_reactions([reaction])
+            return candidate
+
+        baseline_objective = source.slim_optimize()
+        for decision in ("retain", "replace_forward", "replace_reversible_sensitivity", "remove"):
+            candidate = build_candidate(decision)
+            if decision.startswith("replace"):
+                reaction = candidate.reactions.get_by_id("R2076")
+                self.assertEqual(reaction.check_mass_balance(), {})
+                self.assertEqual(
+                    {metabolite.id: coefficient for metabolite, coefficient in reaction.metabolites.items()},
+                    candidate_contracts["replace_forward"]["legacy_snapshot_test_stoichiometry"],
+                )
+            elif decision == "retain":
+                self.assertEqual(candidate.reactions.get_by_id("R2076").check_mass_balance(), {})
+            else:
+                self.assertNotIn("R2076", candidate.reactions)
+
+            candidate_balances = coa_patches._all_mass_balances(candidate)
+            self.assertEqual(
+                [
+                    reaction_id
+                    for reaction_id, balance in candidate_balances.items()
+                    if source_balances.get(reaction_id) == {} and balance != {}
+                ],
+                [],
+            )
+            solution = candidate.optimize()
+            self.assertEqual(solution.status, "optimal")
+            self.assertAlmostEqual(solution.objective_value, baseline_objective, places=8)
+            parsimonious = pfba(candidate)
+            self.assertAlmostEqual(parsimonious.fluxes["biomass_C"], baseline_objective, places=8)
+
+            local_reactions = ["R2074", "R2075", "R2077"]
+            if decision != "remove":
+                local_reactions.append("R2076")
+            variability = flux_variability_analysis(
+                candidate,
+                reaction_list=local_reactions,
+                fraction_of_optimum=1.0,
+                processes=1,
+            )
+            self.assertTrue((variability.abs() < 1e-8).all().all())
+            self.assertTrue(all(abs(parsimonious.fluxes[reaction_id]) < 1e-8 for reaction_id in local_reactions))
+
+            if decision != "remove":
+                forced = candidate.copy()
+                forced.reactions.get_by_id("R2076").bounds = (1.0, 1000.0)
+                self.assertEqual(forced.optimize().status, "infeasible")
+            for cut_reaction_id in ("R2074", "R2075"):
+                cut = candidate.copy()
+                cut.reactions.get_by_id(cut_reaction_id).bounds = (0.0, 0.0)
+                self.assertAlmostEqual(cut.slim_optimize(), baseline_objective, places=8)
+
+        self.assertEqual(coa_patches._model_snapshot_fingerprint(source), source_fingerprint)
 
     def test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy(self) -> None:
         curation = load_coa_protonation_curation()
@@ -509,11 +691,11 @@ class CoAProtonationGateTests(unittest.TestCase):
                 self.assertFalse(report["gate_passed"])
                 self.assertFalse(report["ready_for_activation"])
 
-    def test_r2076_zero_newly_unbalanced_gate_idempotence_and_fba(self) -> None:
+    def test_fixture_zero_newly_unbalanced_gate_idempotence_and_fba(self) -> None:
         model = build_balanced_fixture()
         curation = approved_minimal_curation()
         before = model.slim_optimize()
-        self.assertEqual(model.reactions.get_by_id("R2076").check_mass_balance(), {})
+        self.assertEqual(model.reactions.get_by_id("fixture_reaction").check_mass_balance(), {})
 
         counts = normalize_coa_protonation(model, curation)
         self.assertEqual(
@@ -527,8 +709,8 @@ class CoAProtonationGateTests(unittest.TestCase):
         )
         self.assertEqual(model.metabolites.get_by_id("coa_c").formula, "C21H32N7O16P3S")
         self.assertEqual(model.metabolites.get_by_id("coa_c").charge, -4)
-        self.assertEqual(model.reactions.get_by_id("R2076").metabolites[model.metabolites.get_by_id("h_c")], -1)
-        self.assertEqual(model.reactions.get_by_id("R2076").check_mass_balance(), {})
+        self.assertEqual(model.reactions.get_by_id("fixture_reaction").metabolites[model.metabolites.get_by_id("h_c")], -1)
+        self.assertEqual(model.reactions.get_by_id("fixture_reaction").check_mass_balance(), {})
         self.assertAlmostEqual(model.slim_optimize(), before)
 
         self.assertEqual(
@@ -548,14 +730,14 @@ class CoAProtonationGateTests(unittest.TestCase):
         before = (
             model.metabolites.get_by_id("coa_c").formula,
             model.metabolites.get_by_id("coa_c").charge,
-            model.reactions.get_by_id("R2076").metabolites[model.metabolites.get_by_id("h_c")],
+            model.reactions.get_by_id("fixture_reaction").metabolites[model.metabolites.get_by_id("h_c")],
         )
         with self.assertRaises(CoAProtonationActivationBlocked):
             normalize_coa_protonation(model, curation)
         after = (
             model.metabolites.get_by_id("coa_c").formula,
             model.metabolites.get_by_id("coa_c").charge,
-            model.reactions.get_by_id("R2076").metabolites[model.metabolites.get_by_id("h_c")],
+            model.reactions.get_by_id("fixture_reaction").metabolites[model.metabolites.get_by_id("h_c")],
         )
         self.assertEqual(after, before)
 
@@ -578,7 +760,13 @@ class CoAProtonationGateTests(unittest.TestCase):
         self.assertFalse(report["activation_blockers_clear"])
         self.assertTrue(report["source_snapshot"]["verified"])
         self.assertTrue(report["source_snapshot"]["target_model_fingerprint_verified"])
-        self.assertEqual(set(report["target_reactions_unbalanced"]), {"R613"})
+        self.assertEqual(
+            report["target_reactions_unbalanced"],
+            {
+                "R2076": {"H": 4.0, "charge": 4.0},
+                "R613": {"H": -1.0, "charge": -1.0},
+            },
+        )
         self.assertFalse(report["gate_passed"])
         self.assertFalse(report["ready_for_activation"])
 
@@ -590,7 +778,13 @@ class CoAProtonationGateTests(unittest.TestCase):
             model, without_blockers, source_model_path=MODEL_PATH
         )
         self.assertTrue(report["activation_blockers_clear"])
-        self.assertEqual(set(report["target_reactions_unbalanced"]), {"R613"})
+        self.assertEqual(
+            report["target_reactions_unbalanced"],
+            {
+                "R2076": {"H": 4.0, "charge": 4.0},
+                "R613": {"H": -1.0, "charge": -1.0},
+            },
+        )
         self.assertFalse(report["gate_passed"])
         self.assertFalse(report["ready_for_activation"])
 
@@ -689,8 +883,14 @@ class CoAProtonationGateTests(unittest.TestCase):
         self.assertFalse(report["ready_for_activation"])
         self.assertFalse(report["gate_passed"])
         self.assertGreater(len(report["newly_unbalanced"]), 100)
-        self.assertTrue({"R344", "R613", "R742"}.issubset(report["newly_unbalanced"]))
-        self.assertEqual(set(report["target_reactions_unbalanced"]), {"R613"})
+        self.assertTrue({"R344", "R613", "R742", "R2076"}.issubset(report["newly_unbalanced"]))
+        self.assertEqual(
+            report["target_reactions_unbalanced"],
+            {
+                "R2076": {"H": 4.0, "charge": 4.0},
+                "R613": {"H": -1.0, "charge": -1.0},
+            },
+        )
         self.assertEqual(report["non_h_charge_deltas"], {})
         self.assertTrue(report["source_snapshot"]["verified"])
         self.assertFalse(report["activation_blockers_clear"])
