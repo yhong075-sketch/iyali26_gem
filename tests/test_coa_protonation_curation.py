@@ -205,7 +205,87 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
             hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(),
         )
         self.assertRegex(curation["source_model_fingerprint"], r"^[0-9a-f]{64}$")
-        self.assertTrue({"R1419", "R1504", "R1521", "R1708", "R2004", "R613"}.issubset(curation["target_balance_reaction_ids"]))
+        self.assertTrue({"R1419", "R1504", "R1521", "R1708", "R2004", "R613", "R614"}.issubset(curation["target_balance_reaction_ids"]))
+
+    @unittest.skipUnless(os.environ.get("IYALI26_SOURCE_MODEL"), "requires explicit IYALI26_SOURCE_MODEL")
+    def test_r613_identity_is_resolved_but_its_full_copy_frontier_stays_blocked(self) -> None:
+        curation = load_coa_protonation_curation()
+        blocker = next(row for row in curation["activation_blockers"] if row["reaction_id"] == "R613")
+        resolution = blocker["identity_resolution"]
+        frontier = resolution["frontier"]
+        self.assertEqual(resolution["status"], "identity_resolved_frontier_unclosed")
+        self.assertFalse(resolution["ready_for_activation"])
+        self.assertEqual(resolution["biological_identity"]["ph_7_3_tuple"], {"formula": "C12H20NO4S2", "charge": -1})
+        self.assertEqual(resolution["namespace_resolution"]["excluded_s6_metanetx_ids"], ["MNXM735016", "MNXM735017"])
+
+        model = read_sbml_model(str(MODEL_PATH))
+        source_fingerprint = coa_patches._model_snapshot_fingerprint(model)
+
+        def annotation_values(metabolite, key: str) -> set[str]:
+            value = metabolite.annotation.get(key)
+            return {value} if isinstance(value, str) else set(value or [])
+
+        same_identity_ids = {
+            metabolite.id
+            for metabolite in model.metabolites
+            if coa_patches._coa_identity_key(metabolite.name) == "s(8)-succinyldihydrolipoamide"
+            or annotation_values(metabolite, "bigg.metabolite") & {"HC00695", "sdhlam"}
+            or annotation_values(metabolite, "metanetx.chemical") & {"MNXM735015", "MNXM735016", "MNXM735017", "MNXM735018"}
+        }
+        self.assertEqual(same_identity_ids, {"m853[C_mi]"})
+        m853 = model.metabolites.get_by_id("m853[C_mi]")
+        self.assertEqual((m853.formula, m853.charge), ("C12H21NO4S2", 0))
+        self.assertEqual(annotation_values(m853, "bigg.metabolite"), {"HC00695"})
+        self.assertIn("MNXM735015", annotation_values(m853, "metanetx.chemical"))
+        self.assertTrue(
+            annotation_values(m853, "metanetx.chemical").isdisjoint(
+                resolution["namespace_resolution"]["excluded_s6_metanetx_ids"]
+            )
+        )
+        self.assertEqual({reaction.id for reaction in m853.reactions}, set(resolution["current_snapshot"]["incident_reaction_ids"]))
+        self.assertEqual(model.reactions.get_by_id("R613").check_mass_balance(), {})
+        self.assertEqual(model.reactions.get_by_id("R614").check_mass_balance(), {})
+
+        two_oxoglutarate_ids = set(frontier["required_copy_ids"])
+        self.assertEqual(
+            {metabolite.id for metabolite in model.metabolites if coa_patches._coa_identity_key(metabolite.name) == "2-oxoglutarate"},
+            two_oxoglutarate_ids,
+        )
+        self.assertEqual(
+            len({reaction.id for metabolite_id in two_oxoglutarate_ids for reaction in model.metabolites.get_by_id(metabolite_id).reactions}),
+            frontier["incident_reaction_count"],
+        )
+
+        candidate = model.copy()
+        coa_patches._apply_coa_protonation_curation(candidate, curation)
+        balances_before = coa_patches._all_mass_balances(candidate)
+        candidate_m853 = candidate.metabolites.get_by_id("m853[C_mi]")
+        candidate_m853.formula = resolution["biological_identity"]["ph_7_3_tuple"]["formula"]
+        candidate_m853.charge = resolution["biological_identity"]["ph_7_3_tuple"]["charge"]
+        for metabolite_id in two_oxoglutarate_ids:
+            metabolite = candidate.metabolites.get_by_id(metabolite_id)
+            metabolite.formula = frontier["target_tuple"]["formula"]
+            metabolite.charge = frontier["target_tuple"]["charge"]
+        proton_contract = resolution["proton_contract"]
+        candidate.reactions.get_by_id("R614").add_metabolites({
+            candidate.metabolites.get_by_id(proton_contract["R614"]["metabolite_id"]): proton_contract["R614"]["target_coefficient"]
+        })
+        balances_after = coa_patches._all_mass_balances(candidate)
+        self.assertEqual(
+            {reaction_id for reaction_id in balances_before if balances_before[reaction_id] == {} and balances_after[reaction_id] not in ({}, None)},
+            set(frontier["incremental_newly_unbalanced_reaction_ids"]),
+        )
+        self.assertEqual(
+            {reaction_id for reaction_id in balances_before if balances_before[reaction_id] not in ({}, None) and balances_after[reaction_id] == {}},
+            set(frontier["incremental_repaired_reaction_ids"]),
+        )
+        self.assertEqual(balances_after["R613"], {})
+        self.assertEqual(balances_after["R614"], {})
+        self.assertEqual(candidate.reactions.get_by_id("R613").metabolites.get(candidate.metabolites.get_by_id("m28[C_mi]"), 0), 0)
+        self.assertEqual(candidate.reactions.get_by_id("R614").metabolites[candidate.metabolites.get_by_id("m28[C_mi]")], -1)
+        self.assertNotIn("m853[C_mi]", {metabolite_id for group in curation["groups"] for metabolite_id in group["expected_ids"]})
+        self.assertNotIn("R614", {correction["reaction_id"] for correction in curation["reaction_corrections"]})
+        self.assertEqual(coa_patches._model_snapshot_fingerprint(model), source_fingerprint)
 
     def test_loader_rejects_a_drifted_source_snapshot_digest(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))

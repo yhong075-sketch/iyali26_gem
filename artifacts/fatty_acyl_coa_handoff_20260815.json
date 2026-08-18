@@ -3,9 +3,115 @@
   "coa_curation_audit": {
     "activation_blockers": [
       {
+        "identity_resolution": {
+          "biological_identity": {
+            "connectivity": "Succinyl thioester on terminal S8; C6-bound sulfur remains a thiol.",
+            "name": "(R)-S(8)-succinyldihydrolipoamide(1-)",
+            "ph_7_3_tuple": {
+              "charge": -1,
+              "formula": "C12H20NO4S2"
+            },
+            "stereochemistry": "R at C6 is directly supported for the protein-bound biological intermediate and inferred for the free model proxy."
+          },
+          "current_snapshot": {
+            "incident_reaction_ids": [
+              "R613",
+              "R614"
+            ],
+            "legacy_tuple": {
+              "charge": 0,
+              "formula": "C12H21NO4S2"
+            },
+            "metabolite_ids": [
+              "m853[C_mi]"
+            ]
+          },
+          "evidence_status": "protein_bound_identity_supported_free_anion_structure_inferred",
+          "frontier": {
+            "incident_reaction_count": 49,
+            "incremental_newly_unbalanced_reaction_ids": [
+              "R1170",
+              "R15",
+              "R2066",
+              "R2120",
+              "R391",
+              "R396",
+              "R491",
+              "R492",
+              "R506",
+              "R507",
+              "R508",
+              "R520",
+              "R521",
+              "R624",
+              "R660",
+              "R770",
+              "R773",
+              "R774",
+              "R796",
+              "R797",
+              "R96"
+            ],
+            "incremental_repaired_reaction_ids": [
+              "R161",
+              "R162",
+              "R163",
+              "R613",
+              "R747"
+            ],
+            "required_copy_ids": [
+              "m51[C_cy]",
+              "m219[C_mi]",
+              "m330[C_pe]",
+              "m625[C_nu]",
+              "m1145[C_ex]"
+            ],
+            "required_identity": "2-oxoglutarate",
+            "target_tuple": {
+              "charge": -2,
+              "formula": "C5H4O5"
+            }
+          },
+          "namespace_resolution": {
+            "bigg_hc00695": "BiGG HC00695 is C12H20NO4S2/-1; its MNX crosswalk MNXM735015 is C12H21NO4S2/0 with unspecified C6 stereochemistry, not the exact microspecies.",
+            "bigg_sdhlam": "BiGG sdhlam is C12H20NO4S2/-1; its MNX crosswalk MNXM735018 is a structureless provenance stub, not an exact chemical identity record.",
+            "excluded_s6_metanetx_ids": [
+              "MNXM735016",
+              "MNXM735017"
+            ]
+          },
+          "proton_contract": {
+            "R613": {
+              "decision": "no additional H+",
+              "metabolite_id": "m28[C_mi]",
+              "target_coefficient": 0
+            },
+            "R614": {
+              "decision": "one reactant H+ after 2-oxoglutarate migrates to its dianion",
+              "metabolite_id": "m28[C_mi]",
+              "target_coefficient": -1
+            }
+          },
+          "ready_for_activation": false,
+          "sources": [
+            "https://www.rhea-db.org/rhea/12188",
+            "https://www.rhea-db.org/rhea/15213",
+            "https://www.ebi.ac.uk/chebi/backend/api/public/compound/CHEBI%3A83120/",
+            "https://www.metanetx.org/chem_info/MNXM735015",
+            "https://www.metanetx.org/chem_info/MNXM735016",
+            "https://www.metanetx.org/chem_info/MNXM735017",
+            "https://www.metanetx.org/chem_info/MNXM735018",
+            "http://bigg.ucsd.edu/api/v2/universal/metabolites/HC00695",
+            "http://bigg.ucsd.edu/api/v2/universal/metabolites/sdhlam"
+          ],
+          "status": "identity_resolved_frontier_unclosed"
+        },
         "reaction_id": "R613",
-        "reason": "Reaction identity maps to a different MetaNetX compound than its reference equation; no tuple or proton repair is authorized.",
-        "residual_after_curated_tuples": null
+        "reason": "The biological identity is (R)-S(8)-succinyldihydrolipoamide, but its pH 7.3 tuple and the R614 reactant H+ require full five-copy 2-oxoglutarate frontier closure; no tuple, annotation, or proton edit is authorized while that transaction introduces regressions.",
+        "residual_after_curated_tuples": {
+          "H": -1.0,
+          "charge": -1.0
+        }
       },
       {
         "reaction_id": "R2076",
@@ -647,8 +753,8 @@
   "declared_source_model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
   "declared_source_model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
   "file_sha256": {
-    "coa_curation": "b378a0ff01810541fb831101141cb094e59669fb91be04d07fc0c612fa20e790",
-    "handoff": "3886a7e07580c6e47450e12154b897aa4fb3b556e708933ec4362b74b025b597",
+    "coa_curation": "de30361e3d5f3f84f6230a93cbe948b74af671fc5bdbf84705c8568d7b3d449f",
+    "handoff": "bfe14f45d0326706f563bc518afc0fd8f63a91c0ea6d3d1fa019c6169ece54ac",
     "lipid_moiety_ledger": "8274bf4fbba79e9573ff5def4a0713aeb0d5814399567258546f75dbf617b578",
     "r1521_handoff": "5816f32a784032424d80d0a56b93ec202a7497e5f6257aadd91705bbfe76e910",
     "source_model": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
@@ -757,8 +863,8 @@
   "remaining_blockers": [
     {
       "reaction_id": "R613",
-      "reason": "Model identity conflicts with its cited reference equation; tuple and proton repairs are forbidden.",
-      "status": "identity_unresolved"
+      "reason": "The (R)-S(8) identity is resolved, but its pH 7.3 tuple and R614 reactant H+ remain forbidden until the five-copy 2-oxoglutarate frontier closes with zero regressions.",
+      "status": "identity_resolved_frontier_unclosed"
     },
     {
       "reaction_id": "R2076",

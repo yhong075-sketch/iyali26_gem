@@ -1365,13 +1365,120 @@
     "R1708",
     "R2004",
     "R1504",
-    "R613"
+    "R613",
+    "R614"
   ],
   "activation_blockers": [
     {
       "reaction_id": "R613",
-      "residual_after_curated_tuples": null,
-      "reason": "Reaction identity maps to a different MetaNetX compound than its reference equation; no tuple or proton repair is authorized."
+      "residual_after_curated_tuples": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "reason": "The biological identity is (R)-S(8)-succinyldihydrolipoamide, but its pH 7.3 tuple and the R614 reactant H+ require full five-copy 2-oxoglutarate frontier closure; no tuple, annotation, or proton edit is authorized while that transaction introduces regressions.",
+      "identity_resolution": {
+        "status": "identity_resolved_frontier_unclosed",
+        "evidence_status": "protein_bound_identity_supported_free_anion_structure_inferred",
+        "current_snapshot": {
+          "metabolite_ids": [
+            "m853[C_mi]"
+          ],
+          "incident_reaction_ids": [
+            "R613",
+            "R614"
+          ],
+          "legacy_tuple": {
+            "formula": "C12H21NO4S2",
+            "charge": 0
+          }
+        },
+        "biological_identity": {
+          "name": "(R)-S(8)-succinyldihydrolipoamide(1-)",
+          "connectivity": "Succinyl thioester on terminal S8; C6-bound sulfur remains a thiol.",
+          "stereochemistry": "R at C6 is directly supported for the protein-bound biological intermediate and inferred for the free model proxy.",
+          "ph_7_3_tuple": {
+            "formula": "C12H20NO4S2",
+            "charge": -1
+          }
+        },
+        "namespace_resolution": {
+          "bigg_hc00695": "BiGG HC00695 is C12H20NO4S2/-1; its MNX crosswalk MNXM735015 is C12H21NO4S2/0 with unspecified C6 stereochemistry, not the exact microspecies.",
+          "bigg_sdhlam": "BiGG sdhlam is C12H20NO4S2/-1; its MNX crosswalk MNXM735018 is a structureless provenance stub, not an exact chemical identity record.",
+          "excluded_s6_metanetx_ids": [
+            "MNXM735016",
+            "MNXM735017"
+          ]
+        },
+        "proton_contract": {
+          "R613": {
+            "metabolite_id": "m28[C_mi]",
+            "target_coefficient": 0,
+            "decision": "no additional H+"
+          },
+          "R614": {
+            "metabolite_id": "m28[C_mi]",
+            "target_coefficient": -1,
+            "decision": "one reactant H+ after 2-oxoglutarate migrates to its dianion"
+          }
+        },
+        "frontier": {
+          "required_identity": "2-oxoglutarate",
+          "required_copy_ids": [
+            "m51[C_cy]",
+            "m219[C_mi]",
+            "m330[C_pe]",
+            "m625[C_nu]",
+            "m1145[C_ex]"
+          ],
+          "target_tuple": {
+            "formula": "C5H4O5",
+            "charge": -2
+          },
+          "incident_reaction_count": 49,
+          "incremental_newly_unbalanced_reaction_ids": [
+            "R1170",
+            "R15",
+            "R2066",
+            "R2120",
+            "R391",
+            "R396",
+            "R491",
+            "R492",
+            "R506",
+            "R507",
+            "R508",
+            "R520",
+            "R521",
+            "R624",
+            "R660",
+            "R770",
+            "R773",
+            "R774",
+            "R796",
+            "R797",
+            "R96"
+          ],
+          "incremental_repaired_reaction_ids": [
+            "R161",
+            "R162",
+            "R163",
+            "R613",
+            "R747"
+          ]
+        },
+        "sources": [
+          "https://www.rhea-db.org/rhea/12188",
+          "https://www.rhea-db.org/rhea/15213",
+          "https://www.ebi.ac.uk/chebi/backend/api/public/compound/CHEBI%3A83120/",
+          "https://www.metanetx.org/chem_info/MNXM735015",
+          "https://www.metanetx.org/chem_info/MNXM735016",
+          "https://www.metanetx.org/chem_info/MNXM735017",
+          "https://www.metanetx.org/chem_info/MNXM735018",
+          "http://bigg.ucsd.edu/api/v2/universal/metabolites/HC00695",
+          "http://bigg.ucsd.edu/api/v2/universal/metabolites/sdhlam"
+        ],
+        "ready_for_activation": false
+      }
     },
     {
       "reaction_id": "R2076",
