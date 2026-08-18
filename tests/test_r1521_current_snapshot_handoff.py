@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -32,7 +33,9 @@ from scripts.r1521_current_snapshot_handoff import (
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-CURRENT_MAIN_MODEL = REPOSITORY.parent / "iyali26_gem" / "model.xml"
+CURRENT_MAIN_MODEL = Path(os.environ.get(
+    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
+))
 CURRENT_MAIN_AUDIT = REPOSITORY / "artifacts" / "r1521_current_snapshot_handoff_20260815.json"
 
 
@@ -43,7 +46,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
         self.model = read_sbml_model(str(CURRENT_MAIN_MODEL))
 
     def test_current_sha_fingerprint_legacy_tuple_and_copy_inventory_are_exact(self) -> None:
-        report = audit_r1521_current_snapshot()
+        report = audit_r1521_current_snapshot(CURRENT_MAIN_MODEL)
         self.assertTrue(report["source_snapshot"]["sha256_verified"])
         self.assertTrue(report["source_snapshot"]["fingerprint_verified"])
         self.assertTrue(report["validation"]["valid"], report["validation"]["errors"])
@@ -139,10 +142,10 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
             return_value=drifted,
         ):
             with self.assertRaisesRegex(R1521CurrentSnapshotError, "global NAD"):
-                audit_r1521_current_snapshot()
+                audit_r1521_current_snapshot(CURRENT_MAIN_MODEL)
 
     def test_adjacent_contracts_preserve_the_exact_current_absolute_balances(self) -> None:
-        report = audit_r1521_current_snapshot()
+        report = audit_r1521_current_snapshot(CURRENT_MAIN_MODEL)
         balances = report["adjacent_absolute_balance"]
         self.assertEqual(set(balances), {"R1504", "R1521", "R80"})
         self.assertTrue(all(row["matches_exactly"] for row in balances.values()))
@@ -211,7 +214,9 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
             with self.assertRaisesRegex(R1521CurrentSnapshotError, "evidence dependency"):
                 validate_r1521_current_snapshot_model(self.model, self.handoff)
             with self.assertRaisesRegex(R1521CurrentSnapshotError, "evidence dependency"):
-                audit_r1521_current_snapshot(handoff=self.handoff)
+                audit_r1521_current_snapshot(
+                    CURRENT_MAIN_MODEL, handoff=self.handoff
+                )
             with self.assertRaisesRegex(R1521CurrentSnapshotError, "evidence dependency"):
                 apply_r1521_current_snapshot_handoff(self.model, self.handoff)
 
@@ -223,8 +228,8 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
             self.assertEqual(_model_snapshot_fingerprint(self.model), before)
 
     def test_read_only_audit_preserves_fba_objective_and_repeats_deterministically(self) -> None:
-        first = audit_r1521_current_snapshot()
-        second = audit_r1521_current_snapshot()
+        first = audit_r1521_current_snapshot(CURRENT_MAIN_MODEL)
+        second = audit_r1521_current_snapshot(CURRENT_MAIN_MODEL)
         self.assertEqual(first, second)
         self.assertTrue(first["objective_unchanged"])
         self.assertAlmostEqual(float(first["objective_before"]), float(first["objective_after"]))
@@ -248,7 +253,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
         self.assertEqual(self.handoff["activation"]["state"], "blocked")
 
     def test_checked_in_audit_is_fresh_and_records_evidence_provenance(self) -> None:
-        expected = audit_r1521_current_snapshot()
+        expected = audit_r1521_current_snapshot(CURRENT_MAIN_MODEL)
         observed = json.loads(CURRENT_MAIN_AUDIT.read_text(encoding="utf-8"))
         self.assertEqual(observed, expected)
         self.assertEqual(

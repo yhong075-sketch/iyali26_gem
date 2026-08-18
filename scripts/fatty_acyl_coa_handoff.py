@@ -111,10 +111,14 @@ def load_handoff(path: Path = HANDOFF_PATH) -> dict:
     return handoff
 
 
-def validate_handoff_inputs(handoff: dict) -> None:
+def validate_handoff_inputs(
+    handoff: dict, *, source_model_path: str | Path | None = None
+) -> None:
     """Cross-check handoff entries against the two canonical pipeline JSON inputs."""
 
-    curation = load_coa_protonation_curation()
+    curation = load_coa_protonation_curation(
+        source_model_path=source_model_path
+    )
     ledger = _read_json(LEDGER_PATH)
     r1521_handoff = load_r1521_current_snapshot_handoff()
     declared = handoff["authoritative_inputs"]["coa_protonation_curation"]
@@ -156,9 +160,11 @@ def audit_handoff(model_path: Path) -> dict:
 
     model_path = Path(model_path).resolve()
     handoff = load_handoff()
-    validate_handoff_inputs(handoff)
+    validate_handoff_inputs(handoff, source_model_path=model_path)
     model = read_sbml_model(str(model_path))
-    coa_audit = audit_coa_protonation_curation(model)
+    coa_audit = audit_coa_protonation_curation(
+        model, source_model_path=model_path
+    )
     groups = {group["id"]: group for group in handoff["concrete_acyl_coa_groups"]}
     pool_rows = []
     for pool in handoff["generic_acyl_coa_pools"]:
@@ -202,17 +208,23 @@ def audit_handoff(model_path: Path) -> dict:
                 "inventory_linked": actual_members == expected_members,
             }
         )
-    files = [model_path, HANDOFF_PATH, COA_CURATION_PATH, LEDGER_PATH, R1521_HANDOFF_PATH]
+    files = {
+        "source_model": model_path,
+        "handoff": HANDOFF_PATH,
+        "coa_curation": COA_CURATION_PATH,
+        "lipid_moiety_ledger": LEDGER_PATH,
+        "r1521_handoff": R1521_HANDOFF_PATH,
+    }
     return {
         "schema_version": 1,
         "artifact_type": "fatty_acyl_coa_handoff_acceptance_report",
-        "model_path": str(model_path),
+        "model_path": handoff["authoritative_inputs"]["coa_protonation_curation"]["source_model"],
         "model_sha256": _sha256(model_path),
         "model_fingerprint": _model_snapshot_fingerprint(model),
         "declared_source_model_sha256": handoff["authoritative_inputs"]["coa_protonation_curation"]["source_model_sha256"],
         "declared_source_model_fingerprint": handoff["authoritative_inputs"]["coa_protonation_curation"]["source_model_fingerprint"],
         "current_model_matches_declared_source": coa_audit["source_snapshot"]["model_fingerprint_verified"],
-        "file_sha256": {str(path): _sha256(path) for path in files},
+        "file_sha256": {name: _sha256(path) for name, path in files.items()},
         "inventory": {"specific_groups": 7, "specific_copies": 36, "generic_pools": 3},
         "generic_pool_policy": pool_rows,
         "coa_curation_audit": coa_audit,

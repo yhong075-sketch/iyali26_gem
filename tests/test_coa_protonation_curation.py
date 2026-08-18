@@ -6,6 +6,7 @@ import copy
 import hashlib
 import inspect
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -21,16 +22,23 @@ from scripts.gem_annotate.patches import (
     CoAProtonationCurationError,
     apply_all_patches,
     audit_coa_protonation_curation,
-    load_coa_protonation_curation,
     normalize_coa_protonation,
     validate_coa_protonation_curation,
 )
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-MODEL_PATH = REPOSITORY.parent / "iyali26_gem" / "model.xml"
+MODEL_PATH = Path(os.environ.get(
+    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
+))
 COA_CURATION_PATH = REPOSITORY / "data" / "coa_protonation_curation.json"
 LEDGER_SPEC_PATH = REPOSITORY / "data" / "lipid_moiety_ledger_spec.json"
+
+
+def load_coa_protonation_curation(curation_path: Path | None = None) -> dict:
+    return coa_patches.load_coa_protonation_curation(
+        curation_path, source_model_path=MODEL_PATH
+    )
 
 
 CORE_TARGETS = {
@@ -208,6 +216,18 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
             with self.assertRaises(CoAProtonationCurationError):
                 load_coa_protonation_curation(path)
 
+    def test_explicit_source_model_path_overrides_manifest_location(self) -> None:
+        curation = {
+            "source_model": "missing.xml",
+            "source_sha256": hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(),
+        }
+        self.assertEqual(
+            coa_patches._validate_curation_source_file(curation, MODEL_PATH),
+            MODEL_PATH.resolve(),
+        )
+        with self.assertRaisesRegex(CoAProtonationCurationError, "unavailable"):
+            coa_patches._validate_curation_source_file(curation)
+
     def test_loader_rejects_r1521_handoff_tuple_drift(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
         group_by_id(curation, "nad_plus")["target_tuple"]["charge"] = 0
@@ -257,7 +277,9 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
     @unittest.skipUnless(MODEL_PATH.exists(), "requires repository model.xml")
     def test_all_expected_copies_match_exact_legacy_or_target_states(self) -> None:
         model = read_sbml_model(str(MODEL_PATH))
-        validation = validate_coa_protonation_curation(model)
+        validation = validate_coa_protonation_curation(
+            model, source_model_path=MODEL_PATH
+        )
         self.assertTrue(validation["valid"], validation["errors"])
 
     def test_r2076_is_the_exact_enumerated_correction(self) -> None:
@@ -470,7 +492,9 @@ class CoAProtonationGateTests(unittest.TestCase):
             model
         )
 
-        report = audit_coa_protonation_curation(model, approved)
+        report = audit_coa_protonation_curation(
+            model, approved, source_model_path=MODEL_PATH
+        )
         self.assertFalse(report["activation_blockers_clear"])
         self.assertTrue(report["source_snapshot"]["verified"])
         self.assertTrue(report["source_snapshot"]["target_model_fingerprint_verified"])
@@ -482,7 +506,9 @@ class CoAProtonationGateTests(unittest.TestCase):
         # target-model residuals from the absolute-balance safety gate.
         without_blockers = copy.deepcopy(approved)
         without_blockers["activation_blockers"] = []
-        report = audit_coa_protonation_curation(model, without_blockers)
+        report = audit_coa_protonation_curation(
+            model, without_blockers, source_model_path=MODEL_PATH
+        )
         self.assertTrue(report["activation_blockers_clear"])
         self.assertEqual(set(report["target_reactions_unbalanced"]), {"R613"})
         self.assertFalse(report["gate_passed"])
@@ -576,7 +602,9 @@ class CoAProtonationGateTests(unittest.TestCase):
 
     @unittest.skipUnless(MODEL_PATH.exists(), "requires repository model.xml")
     def test_production_audit_reports_the_recursive_closure_blockers(self) -> None:
-        report = audit_coa_protonation_curation(read_sbml_model(str(MODEL_PATH)))
+        report = audit_coa_protonation_curation(
+            read_sbml_model(str(MODEL_PATH)), source_model_path=MODEL_PATH
+        )
         self.assertEqual(report["activation_state"], "blocked")
         self.assertFalse(report["ready_for_activation"])
         self.assertFalse(report["gate_passed"])

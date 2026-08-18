@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -15,7 +16,9 @@ from cobra.flux_analysis import flux_variability_analysis, pfba
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-MODEL_PATH = REPOSITORY.parent / "iyali26_gem" / "model.xml"
+MODEL_PATH = Path(os.environ.get(
+    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
+))
 if str(REPOSITORY) not in sys.path:
     sys.path.insert(0, str(REPOSITORY))
 

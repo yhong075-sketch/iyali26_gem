@@ -365,7 +365,7 @@ def _source_snapshot_report(model_path: Path, model, handoff: dict) -> dict:
     actual_sha = _sha256_file(model_path)
     actual_fingerprint = _model_snapshot_fingerprint(model)
     return {
-        "model_path": str(model_path),
+        "model_path": handoff["source_model"],
         "declared_sha256": handoff["source_sha256"],
         "actual_sha256": actual_sha,
         "sha256_verified": actual_sha == handoff["source_sha256"],

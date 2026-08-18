@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -22,7 +23,9 @@ from scripts.fatty_acyl_coa_handoff import (
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-CURRENT_MAIN_MODEL = REPOSITORY.parent / "iyali26_gem" / "model.xml"
+CURRENT_MAIN_MODEL = Path(os.environ.get(
+    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
+))
 MODEL_PATH = CURRENT_MAIN_MODEL
 CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_20260815.json"
 
@@ -30,7 +33,7 @@ CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_2026081
 class FattyAcylCoAHandoffTests(unittest.TestCase):
     def test_handoff_matches_pipeline_inputs_and_complete_inventory(self) -> None:
         handoff = load_handoff()
-        validate_handoff_inputs(handoff)
+        validate_handoff_inputs(handoff, source_model_path=MODEL_PATH)
         self.assertEqual(len(handoff["concrete_acyl_coa_groups"]), 7)
         self.assertEqual(
             len([copy for group in handoff["concrete_acyl_coa_groups"] for copy in group["copies"]]),
@@ -105,7 +108,9 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
     @unittest.skipUnless(MODEL_PATH.exists(), "requires repository model.xml")
     def test_candidate_survives_sbml_roundtrip_without_relaxing_blocked_state(self) -> None:
         model = read_sbml_model(str(MODEL_PATH))
-        curation = coa_patches.load_coa_protonation_curation()
+        curation = coa_patches.load_coa_protonation_curation(
+            source_model_path=MODEL_PATH
+        )
         coa_patches._apply_coa_protonation_curation(model, curation)
         with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
             path = Path(temp_dir) / "candidate.xml"

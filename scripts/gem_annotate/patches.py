@@ -941,10 +941,16 @@ def _has_source_provenance(curation: dict) -> bool:
     return bool(fields.intersection(curation))
 
 
-def _validate_curation_source_file(curation: dict) -> Path:
+def _validate_curation_source_file(
+    curation: dict, source_model_path: str | Path | None = None
+) -> Path:
     """Verify that the manifest is tied to this exact post-annotation snapshot."""
 
-    source_path = _coa_protonation_repository_root() / curation["source_model"]
+    source_path = (
+        Path(source_model_path).resolve()
+        if source_model_path is not None
+        else (_coa_protonation_repository_root() / curation["source_model"]).resolve()
+    )
     if not source_path.is_file():
         raise CoAProtonationCurationError(
             f"CoA protonation source model is unavailable: {source_path}"
@@ -991,6 +997,8 @@ def _validate_r1521_dependency(curation: dict) -> None:
 
 def load_coa_protonation_curation(
     curation_path: str | Path | None = None,
+    *,
+    source_model_path: str | Path | None = None,
 ) -> dict:
     """Load and structurally validate the curated CoA protonation manifest."""
     path = _coa_protonation_curation_path(curation_path)
@@ -1004,7 +1012,7 @@ def load_coa_protonation_curation(
     _validate_coa_protonation_manifest(
         curation, require_source_provenance=True, require_source_file=True
     )
-    _validate_curation_source_file(curation)
+    _validate_curation_source_file(curation, source_model_path)
     return curation
 
 
@@ -1494,7 +1502,9 @@ def _model_snapshot_fingerprint(model) -> str:
     return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
 
 
-def _source_snapshot_report(model, curation: dict) -> dict:
+def _source_snapshot_report(
+    model, curation: dict, *, source_model_path: str | Path | None = None
+) -> dict:
     """Verify both the declared source file and the supplied in-memory model."""
 
     if not _has_source_provenance(curation):
@@ -1515,7 +1525,7 @@ def _source_snapshot_report(model, curation: dict) -> dict:
     if has_source_file:
         file_sha256_verified = False
         try:
-            _validate_curation_source_file(curation)
+            _validate_curation_source_file(curation, source_model_path)
             file_sha256_verified = True
         except CoAProtonationCurationError as exc:
             errors.append(str(exc))
@@ -1554,7 +1564,12 @@ def _source_snapshot_report(model, curation: dict) -> dict:
     }
 
 
-def validate_coa_protonation_curation(model, curation: dict | None = None) -> dict:
+def validate_coa_protonation_curation(
+    model,
+    curation: dict | None = None,
+    *,
+    source_model_path: str | Path | None = None,
+) -> dict:
     """
     Check the live model against the exact curated IDs and tuple states.
 
@@ -1564,7 +1579,9 @@ def validate_coa_protonation_curation(model, curation: dict | None = None) -> di
     coefficient is an error.
     """
     if curation is None:
-        curation = load_coa_protonation_curation()
+        curation = load_coa_protonation_curation(
+            source_model_path=source_model_path
+        )
     else:
         _validate_coa_protonation_manifest(curation, require_source_provenance=True)
 
@@ -1859,11 +1876,17 @@ def _apply_coa_protonation_curation(model, curation: dict) -> dict[str, int]:
         raise
 
 
-def _evaluate_coa_protonation_gate(model, curation: dict) -> dict:
+def _evaluate_coa_protonation_gate(
+    model, curation: dict, *, source_model_path: str | Path | None = None
+) -> dict:
     """Evaluate all source, target-balance, and objective gates on a model copy."""
 
-    validation = validate_coa_protonation_curation(model, curation)
-    source_snapshot = _source_snapshot_report(model, curation)
+    validation = validate_coa_protonation_curation(
+        model, curation, source_model_path=source_model_path
+    )
+    source_snapshot = _source_snapshot_report(
+        model, curation, source_model_path=source_model_path
+    )
     activation_blockers_clear = not curation["activation_blockers"]
     report = {
         "validation": validation,
@@ -1950,7 +1973,11 @@ def _evaluate_coa_protonation_gate(model, curation: dict) -> dict:
 
 
 def audit_coa_protonation_curation(
-    model, curation: dict | None = None, curation_path: str | Path | None = None
+    model,
+    curation: dict | None = None,
+    curation_path: str | Path | None = None,
+    *,
+    source_model_path: str | Path | None = None,
 ) -> dict:
     """
     Read-only audit of the curated CoA protonation proposal.
@@ -1960,10 +1987,14 @@ def audit_coa_protonation_curation(
     cannot mistake a chemically incomplete closure for an applicable patch.
     """
     if curation is None:
-        curation = load_coa_protonation_curation(curation_path)
+        curation = load_coa_protonation_curation(
+            curation_path, source_model_path=source_model_path
+        )
     else:
         _validate_coa_protonation_manifest(curation, require_source_provenance=True)
-    report = _evaluate_coa_protonation_gate(model, curation)
+    report = _evaluate_coa_protonation_gate(
+        model, curation, source_model_path=source_model_path
+    )
     report["activation_state"] = curation["activation_state"]
     report["activation_reason"] = curation.get("activation_reason", "")
     report["activation_blockers"] = curation["activation_blockers"]
@@ -1976,7 +2007,11 @@ def audit_coa_protonation_curation(
 
 
 def normalize_coa_protonation(
-    model, curation: dict | None = None, curation_path: str | Path | None = None
+    model,
+    curation: dict | None = None,
+    curation_path: str | Path | None = None,
+    *,
+    source_model_path: str | Path | None = None,
 ) -> dict[str, int]:
     """
     Apply the CoA curation only after every exact preflight gate passes.
@@ -1986,7 +2021,9 @@ def normalize_coa_protonation(
     pipeline until the documented external protonation closure is approved.
     """
     if curation is None:
-        curation = load_coa_protonation_curation(curation_path)
+        curation = load_coa_protonation_curation(
+            curation_path, source_model_path=source_model_path
+        )
     else:
         _validate_coa_protonation_manifest(curation, require_source_provenance=True)
     if curation["activation_state"] != "approved":
@@ -1995,7 +2032,9 @@ def normalize_coa_protonation(
             f"{curation.get('activation_reason', 'no approval recorded')}"
         )
 
-    report = _evaluate_coa_protonation_gate(model, curation)
+    report = _evaluate_coa_protonation_gate(
+        model, curation, source_model_path=source_model_path
+    )
     if not report["gate_passed"]:
         raise CoAProtonationCurationError(
             "CoA protonation safety gate failed: "
