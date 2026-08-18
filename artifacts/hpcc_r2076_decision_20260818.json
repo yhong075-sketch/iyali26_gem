@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "artifact_type": "hpcc_slurm_validation_batch",
+  "batch_id": "r2076_decision_package",
+  "recorded_at": "2026-08-18",
+  "formal_evidence_scope": "HPCC Slurm jobs only",
+  "git": {
+    "remote_branch": "origin/lipid-unlump",
+    "commit": "9273757c97107081273d55295305e94f2ab24d6a",
+    "hpcc_repository": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014",
+    "tracked_clean_before_after": true
+  },
+  "model": {
+    "logical_source": "../iyali26_gem/model.xml",
+    "hpcc_snapshot": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml",
+    "mode": "0444",
+    "sha256_before_after": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "fingerprint_before_after": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "dimensions": {
+      "metabolites": 1877,
+      "reactions": 2313,
+      "genes": 1074
+    },
+    "unchanged": true
+  },
+  "software": {
+    "slurm": "24.11.1",
+    "python": "3.11.15",
+    "cobra": "0.30.0",
+    "solver": "optlang.glpk_interface",
+    "glpk": "5.0"
+  },
+  "commands": {
+    "tests": "IYALI26_SOURCE_MODEL=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml PYTHONPATH=/rhome/yhong075/iyali26_gem_lipid_unlump_a014${PYTHONPATH:+:$PYTHONPATH} /rhome/yhong075/iyali26_flow_phase2/.venv/bin/python /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/metrics.py tests --output /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/test_summary.json",
+    "candidates": "IYALI26_SOURCE_MODEL=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml PYTHONPATH=/rhome/yhong075/iyali26_gem_lipid_unlump_a014${PYTHONPATH:+:$PYTHONPATH} /rhome/yhong075/iyali26_flow_phase2/.venv/bin/python /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/metrics.py candidates --model /rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml --repo /rhome/yhong075/iyali26_gem_lipid_unlump_a014 --tests /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/test_summary.json --output /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/candidate_metrics.json"
+  },
+  "jobs": [
+    {
+      "job_id": "27547759",
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "partition": "short",
+      "account": "iwheeldonlab",
+      "node": "x04",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "elapsed": "00:00:31",
+      "batch_max_rss_kb": 475992,
+      "submit_time": "2026-08-18T13:39:45-07:00",
+      "start_time": "2026-08-18T13:39:46-07:00",
+      "end_time": "2026-08-18T13:40:17-07:00",
+      "failure": "The temporary snapshot wrapper read a nonexistent top-level ready_for_activation key before tests or candidates ran.",
+      "tests_status": 125,
+      "candidate_status": 125,
+      "superseded_scope": "wrapper_only_failure_before_scientific_execution",
+      "run_dir": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_9273757_20260818T203909Z",
+      "stdout": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_9273757_20260818T203909Z/slurm-27547759.out",
+        "bytes": 34,
+        "sha256": "33a2f1414e23a3378c8fcf23b882b1e003a48ae1988c730b66e746f89cefc806"
+      },
+      "stderr": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_9273757_20260818T203909Z/slurm-27547759.err",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "job_script": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_9273757_20260818T203909Z/job.sh",
+        "bytes": 2375,
+        "sha256": "cb715266fc0b9ced2f49f0240d2111b8f2eced64691c4860ba13d38979b21ae8"
+      },
+      "metrics_script": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_9273757_20260818T203909Z/metrics.py",
+        "bytes": 27033,
+        "sha256": "c44e3a9fbadbf894f53fc8daa791e9004aac685729224f478907cad5c44794d4"
+      }
+    },
+    {
+      "job_id": "27547798",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "partition": "short",
+      "account": "iwheeldonlab",
+      "node": "x02",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "elapsed": "00:06:01",
+      "batch_max_rss_kb": 1042144,
+      "submit_time": "2026-08-18T13:44:03-07:00",
+      "start_time": "2026-08-18T13:44:04-07:00",
+      "end_time": "2026-08-18T13:50:05-07:00",
+      "run_dir": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z",
+      "tests": {
+        "requested": 54,
+        "passed": 54,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runtime_seconds": 255.7308444478549,
+        "r2076_integration_test": "passed",
+        "source_contract_idempotency_rollback": "passed"
+      },
+      "candidate_matrix_runtime_seconds": 50.901664956938475,
+      "hpcc_computational_validation_gate_passed": true
+    }
+  ],
+  "candidate_matrix": {
+    "baseline_fba_objective": 1.3875914754870862,
+    "retain": {
+      "scientific_status": "rejected",
+      "production_authorized": false,
+      "fba_objective": 1.3875914754870897,
+      "pfba_biomass": 1.3875914754870897,
+      "pfba_total_absolute_flux": 969.5058117613743,
+      "r2076_flux": 0.0,
+      "r2076_max": -6.704488516319374e-16,
+      "force_r2076_at_least_1": "infeasible",
+      "local_fva_absolute_max": 3.4075684407995555e-13,
+      "balanced_to_unbalanced_regressions": [],
+      "sbml_roundtrip": true,
+      "hpcc_candidate_validation_gate_passed": true
+    },
+    "replace_forward": {
+      "scientific_status": "chemically_supported_organism_unverified",
+      "production_authorized": false,
+      "fba_objective": 1.3875914754870902,
+      "pfba_biomass": 1.3875914754870902,
+      "pfba_total_absolute_flux": 969.5058117613743,
+      "r2076_flux": 0.0,
+      "r2076_max": 7.657254186408767e-16,
+      "force_r2076_at_least_1": "infeasible",
+      "local_fva_absolute_max": 4.203840495124822e-14,
+      "balanced_to_unbalanced_regressions": [],
+      "sbml_roundtrip": true,
+      "hpcc_candidate_validation_gate_passed": true
+    },
+    "replace_reversible_sensitivity": {
+      "scientific_status": "chemically_supported_direction_unverified",
+      "production_authorized": false,
+      "fba_objective": 1.3875914754870902,
+      "pfba_biomass": 1.3875914754870902,
+      "pfba_total_absolute_flux": 969.5058117613743,
+      "r2076_flux": 0.0,
+      "r2076_max": 2.5485057299327023e-15,
+      "force_r2076_at_least_1": "infeasible",
+      "local_fva_absolute_max": 2.29998586063879e-13,
+      "balanced_to_unbalanced_regressions": [],
+      "sbml_roundtrip": true,
+      "hpcc_candidate_validation_gate_passed": true
+    },
+    "remove": {
+      "scientific_status": "recommended_fail_closed_candidate",
+      "production_authorized": false,
+      "fba_objective": 1.3875914754870826,
+      "pfba_biomass": 1.387591475487083,
+      "pfba_total_absolute_flux": 969.5058117613215,
+      "r2076_flux": null,
+      "r2076_max": null,
+      "force_r2076_at_least_1": "not_applicable_removed",
+      "local_fva_absolute_max": 0.0,
+      "balanced_to_unbalanced_regressions": [],
+      "sbml_roundtrip": true,
+      "hpcc_candidate_validation_gate_passed": true
+    },
+    "cuts": {
+      "R2074": "objective_preserved_for_all_candidates",
+      "R2075": "objective_preserved_for_all_candidates"
+    }
+  },
+  "canonical_r03383": {
+    "mass_charge_residual": {},
+    "explicit_proton_coefficient": 0,
+    "water_coefficient": 0,
+    "aggregate_each_side": {
+      "formula": "C35H48N12O33P6S",
+      "charge": -10
+    },
+    "legacy_frontier_closed": false
+  },
+  "controlled_challenge": {
+    "artificial_boundary_conditions": true,
+    "forward_fixed_r2076_flux": 1.0,
+    "forward_artificially_reachable": true,
+    "forward_depends_on_atp_amp_diphosphate": true,
+    "reverse_fixed_r2076_flux": -1.0,
+    "reverse_artificially_reachable": true,
+    "reverse_atp_formed": 1.0,
+    "reverse_depends_on_atp_amp_diphosphate": true,
+    "biological_evidence": false
+  },
+  "gpr": {
+    "systematic_identifier": null,
+    "established_name": null,
+    "protein_function": null,
+    "evidence_status": "unverified_no_direct_yarrowia_evidence",
+    "model_gpr": "",
+    "assignment_authorized": false
+  },
+  "primary_artifacts": {
+    "candidate_metrics": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/candidate_metrics.json",
+      "bytes": 22995,
+      "sha256": "d8fe0b27259cdae9f86d5ab4ea8394b38334181eb13cf6a2ac4dc562044e3a8e"
+    },
+    "test_summary": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/test_summary.json",
+      "bytes": 1397,
+      "sha256": "80d9ab1ecbf3e3aae4b89fbd90c766738f8c4b773eaa9ed89fd6c21c33dc47cf"
+    },
+    "unittest_log": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/unittest.log",
+      "sha256": "98f1e54df216bcb2921020ddcfc586b7300883197fa7544ced98c45254635cb6"
+    },
+    "stdout": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/slurm-27547798.out",
+      "sha256": "ba5bc9d8d99ff5601bedd788339a5743b9ada35147c644c17851034d90902780"
+    },
+    "stderr": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/slurm-27547798.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "job_script": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/job.sh",
+      "sha256": "cb715266fc0b9ced2f49f0240d2111b8f2eced64691c4860ba13d38979b21ae8"
+    },
+    "metrics_script": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/metrics.py",
+      "sha256": "2e064cea884aee41843fa8d1bec18d8f4baea60f5275e797615c7d849f4f38d7"
+    },
+    "snapshot_before": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/snapshot_before.json",
+      "bytes": 1676,
+      "sha256": "49801c5c50b3cce5a6f0b4a6a4ef88b9275259ecc60e2065f7524db95f4ca134"
+    },
+    "snapshot_after": {
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r2076_decision_corrected_9273757_20260818T204248Z/snapshot_after.json",
+      "bytes": 1816,
+      "sha256": "e4abfb10499b1736968a761a4da6569e7a78b426480e54ffcee0179d49f3d007"
+    }
+  },
+  "acceptance": {
+    "hpcc_reproducibility": "passed",
+    "four_candidate_matrix": "passed",
+    "network_discriminates_biological_identity": false,
+    "recommended_decision": "remove_candidate_only",
+    "production_gate_passed": false,
+    "production_apply_performed": false,
+    "activation_state": "blocked",
+    "r2076_ready_for_activation": false,
+    "all_candidate_production_authorized": false,
+    "human_gate_required": true
+  }
+}
