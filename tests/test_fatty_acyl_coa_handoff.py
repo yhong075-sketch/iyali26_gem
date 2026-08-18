@@ -56,7 +56,7 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
     def test_generic_pool_cannot_become_a_chemical_tuple(self) -> None:
         changed = copy.deepcopy(load_handoff())
         changed["generic_acyl_coa_pools"][0]["formula"] = "C1"
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+        with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "handoff.json"
             path.write_text(json.dumps(changed), encoding="utf-8")
             with self.assertRaises(HandoffError):
@@ -65,7 +65,7 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
     def test_malformed_activation_is_a_handoff_error(self) -> None:
         changed = copy.deepcopy(load_handoff())
         changed["activation"] = None
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+        with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "handoff.json"
             path.write_text(json.dumps(changed), encoding="utf-8")
             with self.assertRaises(HandoffError):
@@ -112,7 +112,7 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
             source_model_path=MODEL_PATH
         )
         coa_patches._apply_coa_protonation_curation(model, curation)
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+        with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "candidate.xml"
             write_sbml_model(model, str(path))
             loaded = read_sbml_model(str(path))

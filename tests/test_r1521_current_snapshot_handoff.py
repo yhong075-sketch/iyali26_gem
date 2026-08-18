@@ -111,7 +111,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
         self.assertTrue(any("nad_plus: copy completeness" in error for error in errors), errors)
 
     def test_source_sha_or_fingerprint_drift_fails_before_counterfactual(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+        with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "drifted.xml"
             write_sbml_model(self.model, str(path))
             with self.assertRaises(R1521CurrentSnapshotError):
@@ -165,7 +165,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
     def test_manifest_drift_and_reaction_drift_are_rejected(self) -> None:
         changed = copy.deepcopy(self.handoff)
         changed["activation"]["state"] = "approved"
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+        with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "handoff.json"
             path.write_text(json.dumps(changed), encoding="utf-8")
             with self.assertRaises(R1521CurrentSnapshotError):
@@ -236,7 +236,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
 
     def test_candidate_sbml_round_trip_keeps_3r_identity_and_blocked_handoff(self) -> None:
         candidate = _local_counterfactual_on_copy(self.model, self.handoff)
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+        with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "r1521-candidate-roundtrip.xml"
             write_sbml_model(candidate, str(path))
             reloaded = read_sbml_model(str(path))

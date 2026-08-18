@@ -210,7 +210,7 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
     def test_loader_rejects_a_drifted_source_snapshot_digest(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
         curation["source_sha256"] = "0" * 64
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             path = Path(temporary_directory) / "curation.json"
             path.write_text(json.dumps(curation), encoding="utf-8")
             with self.assertRaises(CoAProtonationCurationError):
@@ -231,7 +231,7 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
     def test_loader_rejects_r1521_handoff_tuple_drift(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
         group_by_id(curation, "nad_plus")["target_tuple"]["charge"] = 0
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             path = Path(temporary_directory) / "curation.json"
             path.write_text(json.dumps(curation), encoding="utf-8")
             with self.assertRaisesRegex(CoAProtonationCurationError, "R1521 tuple contract"):
@@ -325,7 +325,7 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
     def test_legacy_tuple_group_cannot_omit_a_copy(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
         group_by_id(curation, "3_oxohexacosanoyl_coa")["legacy_tuples"][0]["ids"].pop()
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             path = Path(temporary_directory) / "curation.json"
             path.write_text(json.dumps(curation), encoding="utf-8")
             with self.assertRaises(CoAProtonationCurationError):

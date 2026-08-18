@@ -1955,8 +1955,8 @@ def _evaluate_coa_protonation_gate(
             "target_reactions_unbalanced": target_reactions_unbalanced,
             "balanced_count_before": len(balanced_before),
             "balanced_count_after": len(balanced_after),
-            "objective_before": objective_before,
-            "objective_after": objective_after,
+            "objective_before": None if objective_before is None else round(objective_before, 12),
+            "objective_after": None if objective_after is None else round(objective_after, 12),
             "objective_unchanged": objective_unchanged,
         }
     )

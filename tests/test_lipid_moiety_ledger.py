@@ -716,7 +716,7 @@ class LipidMoietyLedgerIntegrationTests(unittest.TestCase):
 
     def test_cli_hash_seed_determinism_and_atomic_output_alias_guards(self) -> None:
         before = immutable_input_sha256()
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             directory = Path(temporary_directory)
             payloads: list[bytes] = []
             for seed in ("1", "777"):
@@ -754,7 +754,7 @@ class LipidMoietyLedgerIntegrationTests(unittest.TestCase):
                 "source_coa_acyl_formula_charge_verified", "not checked"
             ),
         )
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             directory = Path(temporary_directory)
             for index, mutate in enumerate(mutations):
                 candidate = copy.deepcopy(base)
@@ -786,7 +786,7 @@ class LipidMoietyLedgerIntegrationTests(unittest.TestCase):
                 "chain_identity_conserved"
             ].__setitem__("chains", 7.0),
         }
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             directory = Path(temporary_directory)
             for label, mutate in mutations.items():
                 candidate = copy.deepcopy(base)
@@ -817,7 +817,7 @@ class LipidMoietyLedgerIntegrationTests(unittest.TestCase):
                 }
             ),
         }
-        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             directory = Path(temporary_directory)
             for label, mutate in mutations.items():
                 candidate = copy.deepcopy(base)

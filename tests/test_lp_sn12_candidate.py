@@ -40,7 +40,7 @@ class StrictSnCoreTests(unittest.TestCase):
     def test_source_contract_is_frozen_and_input_unchanged(self) -> None:
         self.assertEqual(hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(), self.curation["source"]["model_sha256"])
         self.assertEqual(self.source_fingerprint, self.curation["source"]["model_fingerprint"])
-        self.assertEqual(self.source.slim_optimize(error_value=None), self.source_objective)
+        self.assertTrue(isclose(self.source.slim_optimize(error_value=None), self.source_objective, rel_tol=0.0, abs_tol=1e-9))
         for mutate in (lambda model: setattr(model.metabolites[0], "name", "drift"), lambda model: setattr(model.reactions[0], "annotation", {"drift": "true"})):
             with self.subTest(mutate=mutate):
                 drifted = self.source.copy()

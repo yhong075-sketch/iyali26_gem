@@ -91,7 +91,7 @@ class ERVLCFAStereochemistryTests(unittest.TestCase):
             ("source_sha256", "0" * 64),
             ("target_contract_sha256", "0" * 64),
         ):
-            with self.subTest(field=field), tempfile.TemporaryDirectory(dir="/private/tmp") as temp_dir:
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as temp_dir:
                 changed = copy.deepcopy(original)
                 changed[field] = value
                 path = Path(temp_dir) / "curation.json"
