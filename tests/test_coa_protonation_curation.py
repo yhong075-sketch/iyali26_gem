@@ -318,6 +318,16 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
             with self.assertRaisesRegex(CoAProtonationCurationError, "R1521 tuple contract"):
                 load_coa_protonation_curation(path)
 
+    def test_r1521_dependency_recomputes_the_declared_contract_digest(self) -> None:
+        curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
+        handoff = json.loads(
+            (REPOSITORY / "data" / "r1521_current_snapshot_handoff.json").read_text(encoding="utf-8")
+        )
+        handoff["activation"]["state"] = "approved"
+        with patch("pathlib.Path.read_text", return_value=json.dumps(handoff)):
+            with self.assertRaisesRegex(CoAProtonationCurationError, "R1521 handoff source contract"):
+                coa_patches._validate_r1521_dependency(curation)
+
     def test_core_45_tuples_and_identity_annotation_targets_are_explicit(self) -> None:
         curation = load_coa_protonation_curation()
         observed_copies = 0

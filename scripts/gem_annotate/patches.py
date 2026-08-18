@@ -976,8 +976,19 @@ def _validate_r1521_dependency(curation: dict) -> None:
         handoff = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise CoAProtonationCurationError(f"cannot read R1521 handoff: {exc}") from exc
+    contract = dict(handoff)
+    contract.pop("target_contract_sha256", None)
+    actual_contract = hashlib.sha256(
+        json.dumps(
+            contract,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+        ).encode()
+    ).hexdigest()
     if (
         handoff.get("target_contract_sha256") != _R1521_HANDOFF_CONTRACT
+        or actual_contract != _R1521_HANDOFF_CONTRACT
         or handoff.get("source_sha256") != curation.get("source_sha256")
         or handoff.get("source_model_fingerprint") != curation.get("source_model_fingerprint")
     ):
