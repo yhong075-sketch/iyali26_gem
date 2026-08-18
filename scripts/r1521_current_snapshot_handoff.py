@@ -376,11 +376,8 @@ def _source_snapshot_report(model_path: Path, model, handoff: dict) -> dict:
 
 
 def _source_path(model_path: Path | None, handoff: dict) -> Path:
-    return (
-        (REPOSITORY / handoff["source_model"]).resolve()
-        if model_path is None
-        else Path(model_path).resolve()
-    )
+    _require(model_path is not None, "explicit R1521 source model path is required")
+    return Path(model_path).resolve()
 
 
 def _validate_output_path(
@@ -390,7 +387,7 @@ def _validate_output_path(
     _validate_runtime_handoff(handoff)
     protected = {
         source_path.resolve(),
-        _source_path(None, handoff),
+        (REPOSITORY / handoff["source_model"]).resolve(),
         HANDOFF_PATH.resolve(),
         ER_EVIDENCE_PATH.resolve(),
     }
@@ -486,7 +483,7 @@ def _write_json(path: Path, value: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", type=Path)
+    parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     handoff = load_r1521_current_snapshot_handoff()

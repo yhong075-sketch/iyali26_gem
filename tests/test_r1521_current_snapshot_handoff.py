@@ -33,13 +33,12 @@ from scripts.r1521_current_snapshot_handoff import (
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-CURRENT_MAIN_MODEL = Path(os.environ.get(
-    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
-))
+SOURCE_MODEL_ENV = os.environ.get("IYALI26_SOURCE_MODEL")
+CURRENT_MAIN_MODEL = Path(SOURCE_MODEL_ENV) if SOURCE_MODEL_ENV else None
 CURRENT_MAIN_AUDIT = REPOSITORY / "artifacts" / "r1521_current_snapshot_handoff_20260815.json"
 
 
-@unittest.skipUnless(CURRENT_MAIN_MODEL.exists(), "requires the declared current-main model")
+@unittest.skipUnless(SOURCE_MODEL_ENV, "requires explicit IYALI26_SOURCE_MODEL")
 class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
     def setUp(self) -> None:
         self.handoff = load_r1521_current_snapshot_handoff()
@@ -116,6 +115,10 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
             write_sbml_model(self.model, str(path))
             with self.assertRaises(R1521CurrentSnapshotError):
                 audit_r1521_current_snapshot(path)
+
+    def test_audit_requires_an_explicit_source_model_path(self) -> None:
+        with self.assertRaisesRegex(R1521CurrentSnapshotError, "explicit R1521 source model"):
+            audit_r1521_current_snapshot()
 
     def test_direct_script_entry_resolves_to_the_lipid_worktree(self) -> None:
         completed = subprocess.run(
