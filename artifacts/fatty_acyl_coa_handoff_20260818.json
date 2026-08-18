@@ -1,0 +1,1184 @@
+{
+  "activation_state": "blocked",
+  "artifact_type": "fatty_acyl_coa_handoff_acceptance_report",
+  "coa_curation_audit": {
+    "activation_blockers": [
+      {
+        "identity_resolution": {
+          "biological_identity": {
+            "connectivity": "Succinyl thioester on terminal S8; C6-bound sulfur remains a thiol.",
+            "name": "(R)-S(8)-succinyldihydrolipoamide(1-)",
+            "ph_7_3_tuple": {
+              "charge": -1,
+              "formula": "C12H20NO4S2"
+            },
+            "stereochemistry": "R at C6 is directly supported for the protein-bound biological intermediate and inferred for the free model proxy."
+          },
+          "current_snapshot": {
+            "incident_reaction_ids": [
+              "R613",
+              "R614"
+            ],
+            "legacy_tuple": {
+              "charge": 0,
+              "formula": "C12H21NO4S2"
+            },
+            "metabolite_ids": [
+              "m853[C_mi]"
+            ]
+          },
+          "evidence_status": "protein_bound_identity_supported_free_anion_structure_inferred",
+          "frontier": {
+            "incident_reaction_count": 49,
+            "incremental_newly_unbalanced_reaction_ids": [
+              "R1170",
+              "R15",
+              "R2066",
+              "R2120",
+              "R391",
+              "R396",
+              "R491",
+              "R492",
+              "R506",
+              "R507",
+              "R508",
+              "R520",
+              "R521",
+              "R624",
+              "R660",
+              "R770",
+              "R773",
+              "R774",
+              "R796",
+              "R797",
+              "R96"
+            ],
+            "incremental_repaired_reaction_ids": [
+              "R161",
+              "R162",
+              "R163",
+              "R613",
+              "R747"
+            ],
+            "required_copy_ids": [
+              "m51[C_cy]",
+              "m219[C_mi]",
+              "m330[C_pe]",
+              "m625[C_nu]",
+              "m1145[C_ex]"
+            ],
+            "required_identity": "2-oxoglutarate",
+            "target_tuple": {
+              "charge": -2,
+              "formula": "C5H4O5"
+            }
+          },
+          "namespace_resolution": {
+            "bigg_hc00695": "BiGG HC00695 is C12H20NO4S2/-1; its MNX crosswalk MNXM735015 is C12H21NO4S2/0 with unspecified C6 stereochemistry, not the exact microspecies.",
+            "bigg_sdhlam": "BiGG sdhlam is C12H20NO4S2/-1; its MNX crosswalk MNXM735018 is a structureless provenance stub, not an exact chemical identity record.",
+            "excluded_s6_metanetx_ids": [
+              "MNXM735016",
+              "MNXM735017"
+            ]
+          },
+          "proton_contract": {
+            "R613": {
+              "decision": "no additional H+",
+              "metabolite_id": "m28[C_mi]",
+              "target_coefficient": 0
+            },
+            "R614": {
+              "decision": "one reactant H+ after 2-oxoglutarate migrates to its dianion",
+              "metabolite_id": "m28[C_mi]",
+              "target_coefficient": -1
+            }
+          },
+          "ready_for_activation": false,
+          "sources": [
+            "https://www.rhea-db.org/rhea/12188",
+            "https://www.rhea-db.org/rhea/15213",
+            "https://www.ebi.ac.uk/chebi/backend/api/public/compound/CHEBI%3A83120/",
+            "https://www.metanetx.org/chem_info/MNXM735015",
+            "https://www.metanetx.org/chem_info/MNXM735016",
+            "https://www.metanetx.org/chem_info/MNXM735017",
+            "https://www.metanetx.org/chem_info/MNXM735018",
+            "http://bigg.ucsd.edu/api/v2/universal/metabolites/HC00695",
+            "http://bigg.ucsd.edu/api/v2/universal/metabolites/sdhlam"
+          ],
+          "status": "identity_resolved_frontier_unclosed"
+        },
+        "reaction_id": "R613",
+        "reason": "The biological identity is (R)-S(8)-succinyldihydrolipoamide, but its pH 7.3 tuple and the R614 reactant H+ require full five-copy 2-oxoglutarate frontier closure; no tuple, annotation, or proton edit is authorized while that transaction introduces regressions.",
+        "residual_after_curated_tuples": {
+          "H": -1.0,
+          "charge": -1.0
+        }
+      },
+      {
+        "identity_resolution": {
+          "candidates": [
+            {
+              "allowed_for_testing": true,
+              "decision": "retain",
+              "production_authorized": false,
+              "reason": "ATP-free thioester formation is supported only by a formal ModelSEED/MetaNetX record, is opposite the ModelSEED forward hydrolysis direction, and has no matching EC or Yarrowia evidence.",
+              "status": "rejected"
+            },
+            {
+              "allowed_for_testing": true,
+              "bounds": [
+                0.0,
+                1000.0
+              ],
+              "decision": "replace_forward",
+              "legacy_snapshot_test_stoichiometry": {
+                "m10[C_cy]": 3.0,
+                "m141[C_cy]": -1.0,
+                "m203[C_cy]": 1.0,
+                "m2045[C_cy]": -1.0,
+                "m2047[C_cy]": 1.0,
+                "m69[C_cy]": -1.0,
+                "m86[C_cy]": 1.0
+              },
+              "production_authorized": false,
+              "reason": "Complete R03383 topology for network sensitivity only; the three product protons are a legacy-tuple representation artifact, not an authorized pH 7.3 decision.",
+              "status": "chemically_supported_organism_unverified"
+            },
+            {
+              "allowed_for_testing": true,
+              "bounds": [
+                -1000.0,
+                1000.0
+              ],
+              "decision": "replace_reversible_sensitivity",
+              "production_authorized": false,
+              "reason": "Database reversible notation is tested only for sensitivity because reverse flux could create an ATP-forming bypass.",
+              "status": "chemically_supported_direction_unverified"
+            },
+            {
+              "allowed_for_testing": true,
+              "decision": "remove",
+              "operation": "remove_reaction",
+              "production_authorized": false,
+              "reason": "Preferred candidate while the ATP-free chemistry and Yarrowia assignment remain unsupported; this does not assert biological absence.",
+              "status": "recommended_fail_closed_candidate"
+            }
+          ],
+          "canonical_reaction": {
+            "aggregate_each_side": {
+              "charge": -10,
+              "formula": "C35H48N12O33P6S"
+            },
+            "ec": "6.2.1.-",
+            "explicit_proton_coefficient": 0,
+            "kegg_reaction": "R03383",
+            "metanetx_reaction": "MNXR108133",
+            "name": "methylmalonate:CoA ligase (AMP-forming)",
+            "ph_7_3_stoichiometry": {
+              "(R)-methylmalonyl-CoA": 1.0,
+              "AMP": 1.0,
+              "ATP": -1.0,
+              "CoA": -1.0,
+              "diphosphate": 1.0,
+              "methylmalonate": -1.0
+            },
+            "ph_7_3_tuples": {
+              "(R)-methylmalonyl-CoA": {
+                "charge": -5,
+                "formula": "C25H35N7O19P3S"
+              },
+              "AMP": {
+                "charge": -2,
+                "formula": "C10H12N5O7P"
+              },
+              "ATP": {
+                "charge": -4,
+                "formula": "C10H12N5O13P3"
+              },
+              "CoA": {
+                "charge": -4,
+                "formula": "C21H32N7O16P3S"
+              },
+              "diphosphate": {
+                "charge": -3,
+                "formula": "HO7P2"
+              },
+              "methylmalonate": {
+                "charge": -2,
+                "formula": "C4H4O4"
+              }
+            },
+            "reference_orthology_ids": [
+              "K18660",
+              "K18661"
+            ],
+            "water_coefficient": 0
+          },
+          "crosswalk_resolution": {
+            "MNXR108133": "The true MetaNetX crosswalk for KEGG R03383, including ATP, AMP, and diphosphate.",
+            "MNXR134362": "ATP-free methylmalonate + H+ + CoA <=> (R)-methylmalonyl-CoA + H2O; sourced from ModelSEED rxn02425, EC blank, and not the complete KEGG R03383 chemistry.",
+            "MNXR158086": "Methylmalonate/phosphate antiport; excluded as the wrong reaction class.",
+            "stereochemistry_exclusion": "EC 3.1.2.17/RHEA:17345 is the (S)-methylmalonyl-CoA hydrolase and cannot support formation of the model's (R) product."
+          },
+          "current_snapshot": {
+            "annotation": {
+              "sbo": "SBO:0000176"
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": "",
+            "methylmalonate_copy_ids": [
+              "m2045[C_cy]"
+            ],
+            "methylmalonate_incident_reaction_ids": [
+              "R2074",
+              "R2076"
+            ],
+            "name": "NO NAME",
+            "r_methylmalonyl_coa_copy_ids": [
+              "m2047[C_cy]"
+            ],
+            "r_methylmalonyl_coa_incident_reaction_ids": [
+              "R2075",
+              "R2076"
+            ],
+            "stoichiometry": {
+              "m10[C_cy]": 3.0,
+              "m2045[C_cy]": -1.0,
+              "m2047[C_cy]": 1.0,
+              "m32[C_cy]": 1.0,
+              "m69[C_cy]": -1.0
+            }
+          },
+          "evidence_status": "canonical_chemistry_supported_yarrowia_assignment_unverified",
+          "frontier": {
+            "amp": {
+              "copy_count": 7,
+              "copy_ids": [
+                "m48[C_mi]",
+                "m86[C_cy]",
+                "m209[C_nu]",
+                "m517[C_pe]",
+                "m1471[C_em]",
+                "m1479[C_lp]",
+                "m1496[C_en]"
+              ],
+              "incident_reaction_count": 109,
+              "incident_reaction_ids_sha256": "4281bdcdeb7283de2325490aabdbe62704eba9710050e67af7fe2102a782bae2",
+              "legacy_tuple": {
+                "charge": 0,
+                "formula": "C10H14N5O7P"
+              }
+            },
+            "atp": {
+              "copy_count": 10,
+              "copy_ids": [
+                "m16[C_vm]",
+                "m21[C_en]",
+                "m46[C_mi]",
+                "m141[C_cy]",
+                "m206[C_nu]",
+                "m515[C_pe]",
+                "m953[C_er]",
+                "m1469[C_em]",
+                "m1477[C_lp]",
+                "m1621[C_gm]"
+              ],
+              "incident_reaction_count": 273,
+              "incident_reaction_ids_sha256": "69a779b92c2a4ee85bec6fb816a975ffcc1c3e0d72564b90059b75c3c5c03fbb",
+              "legacy_tuple": {
+                "charge": 0,
+                "formula": "C10H16N5O13P3"
+              }
+            },
+            "coa": {
+              "copy_count": 9,
+              "copy_ids": [
+                "m69[C_cy]",
+                "m73[C_mi]",
+                "m182[C_pe]",
+                "m207[C_nu]",
+                "m233[C_em]",
+                "m252[C_er]",
+                "m573[C_lp]",
+                "m792[C_mm]",
+                "m1494[C_en]"
+              ],
+              "incident_reaction_count": 170,
+              "incident_reaction_ids_sha256": "edbb221db4c45b4028a0dab9cfa01766d8ae361f6044293e817169861b43592e"
+            },
+            "diphosphate": {
+              "copy_count": 8,
+              "copy_ids": [
+                "m203[C_cy]",
+                "m204[C_mi]",
+                "m210[C_nu]",
+                "m380[C_em]",
+                "m385[C_mm]",
+                "m413[C_lp]",
+                "m518[C_pe]",
+                "m1497[C_en]"
+              ],
+              "incident_reaction_count": 164,
+              "incident_reaction_ids_sha256": "e6028b5451a42461b2808080d415b7e044545272dc915731b8510a4b93da2acb",
+              "legacy_tuple": {
+                "charge": 0,
+                "formula": "H4O7P2"
+              }
+            },
+            "reason": "The current ATP, AMP, and diphosphate copies use neutral legacy tuples. A pH 7.3 R03383 candidate requires all-copy connected-component closure; no local H+ repair may substitute for it."
+          },
+          "gpr_evidence": {
+            "assigned_gene": {
+              "established_name": null,
+              "evidence_status": "unverified_no_direct_yarrowia_evidence",
+              "protein_function": null,
+              "systematic_identifier": null
+            },
+            "gpr_assignment_authorized": false,
+            "model_gpr": "",
+            "search_provenance": {
+              "accessed_on": "2026-08-18",
+              "kegg": {
+                "organism_code": "yli",
+                "positive_control": {
+                  "endpoint": "https://rest.kegg.jp/link/yli/ko:K11262",
+                  "hit": "yli:2909424"
+                },
+                "taxonomy_id": 284591,
+                "zero_hit_endpoints": [
+                  "https://rest.kegg.jp/link/yli/ko:K18660",
+                  "https://rest.kegg.jp/link/yli/ko:K18661",
+                  "https://rest.kegg.jp/link/yli/rn:R03383"
+                ]
+              },
+              "ncbi": {
+                "gene_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gene",
+                "protein_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=protein",
+                "zero_hit_query": "Yarrowia lipolytica[Organism] AND (methylmalonyl-CoA synthetase[Title] OR malonyl-CoA synthetase[Title])"
+              },
+              "uniprot": {
+                "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+                "positive_control": {
+                  "hit": "Q6CC91",
+                  "query": "taxonomy_id:284591 AND ec:6.4.1.2"
+                },
+                "taxonomy_ids": [
+                  284591,
+                  4952
+                ],
+                "zero_hit_queries": [
+                  "taxonomy_id:284591 AND ec:6.2.1.76",
+                  "taxonomy_id:284591 AND protein_name:\"methylmalonyl-CoA synthetase\"",
+                  "taxonomy_id:284591 AND gene:ACSF3",
+                  "taxonomy_id:284591 AND gene:matB"
+                ]
+              }
+            },
+            "search_summary": "KEGG Yarrowia mappings for R03383/K18660/K18661 and exact UniProt/NCBI searches for the activity returned no direct assignment. This is absence of curated evidence, not proof of biological absence."
+          },
+          "ready_for_activation": false,
+          "recommendation_status": "candidate_only_human_gate_required",
+          "recommended_decision": "remove",
+          "sources": [
+            "https://www.metanetx.org/equa_info/MNXR134362",
+            "https://www.metanetx.org/equa_info/MNXR108133",
+            "https://www.metanetx.org/equa_info/MNXR158086",
+            "https://www.kegg.jp/entry/R03383",
+            "https://modelseed.org/PMS/api/biochem/reactions?ids=rxn02425",
+            "https://www.rhea-db.org/rhea/17345",
+            "https://www.rhea-db.org/help/chebi-in-rhea"
+          ],
+          "status": "decision_package_ready_production_unapplied"
+        },
+        "reaction_id": "R2076",
+        "reason": "The ATP-free reaction is not KEGG R03383 and has no supported Yarrowia enzyme or GPR. Its former H+ correction is withdrawn; retain, complete-R03383 replacement, and removal remain non-production candidates behind full identity, frontier, HPCC, and human gates.",
+        "residual_after_curated_tuples": {
+          "H": 4.0,
+          "charge": 4.0
+        }
+      },
+      {
+        "reaction_id": "R1419",
+        "reason": "NADP+/NADPH joins the redox connected component; closure requires the complete source-backed component.",
+        "residual_after_curated_tuples": {}
+      },
+      {
+        "reaction_id": "R1708",
+        "reason": "Acetate/succinate closure requires the complete source-backed component; original reaction stoichiometry receives no H+ edit.",
+        "residual_after_curated_tuples": {}
+      },
+      {
+        "reaction_id": "R2004",
+        "reason": "Pyruvate/oxaloacetate closure requires the complete source-backed component; original reaction stoichiometry receives no H+ edit.",
+        "residual_after_curated_tuples": {}
+      }
+    ],
+    "activation_blockers_clear": false,
+    "activation_reason": "Current-main pH 7.3 tuple migration is an audit-only connected-component candidate. Production activation remains blocked until every source-backed component reaction is closed and the separate cardiolipin gate is reviewed.",
+    "activation_state": "blocked",
+    "balanced_count_after": 1274,
+    "balanced_count_before": 1350,
+    "counts": {
+      "annotations": 24,
+      "identity_corrections": 3,
+      "metabolites": 127,
+      "reaction_corrections": 2
+    },
+    "gate_passed": false,
+    "newly_unbalanced": {
+      "R1043": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1092": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R128": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R13": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R130": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R132": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R133": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R135": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1377": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1378": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1379": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1381": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1406": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1408": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1409": {
+        "H": 5.0,
+        "charge": 5.0
+      },
+      "R1411": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1434": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1435": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R146": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R148": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1484": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R1517": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1518": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1522": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1523": {
+        "H": -5.0,
+        "charge": -5.0
+      },
+      "R1524": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1534": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R1537": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R161": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R162": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R163": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1885": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1886": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1894": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1931": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1933": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1947": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1953": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1964": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1968": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1969": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1970": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1974": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R1975": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1979": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1997": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2003": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R2007": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R2043": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R2062": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R2064": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2068": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2069": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R2070": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R2071": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2076": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R2078": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2086": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2096": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2119": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2190": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R236": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R237": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R246": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R247": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R25": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R254": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R257": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R265": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R297": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R300": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R307": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R308": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R316": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R331": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R344": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R348": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R349": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R361": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R389": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R398": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R45": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R487": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R49": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R490": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R496": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R500": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R501": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R502": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R513": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R517": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R52": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R533": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R534": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R535": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R538": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R552": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R564": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R567": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R568": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R569": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R571": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R572": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R573": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R578": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R579": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R604": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R605": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R606": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R61": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R613": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R618": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R623": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R634": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R641": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R690": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R691": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R692": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R694": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R695": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R718": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R726": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R737": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R740": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R741": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R742": {
+        "H": -2.0,
+        "charge": -3.0
+      },
+      "R747": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R77": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R801": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R82": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R83": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R87": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R88": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R89": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R9": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R90": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R91": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R92": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R_OAADCm": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R_PGAM1_PhosHydro": {
+        "H": -1.0,
+        "charge": -1.0
+      }
+    },
+    "non_h_charge_deltas": {},
+    "objective_after": 1.387591475487,
+    "objective_before": 1.387591475487,
+    "objective_unchanged": true,
+    "ready_for_activation": false,
+    "source_snapshot": {
+      "actual_model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+      "declared": true,
+      "errors": [],
+      "file_sha256_verified": true,
+      "model_fingerprint_verified": true,
+      "source_model": "../iyali26_gem/model.xml",
+      "source_model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+      "source_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "source_stage": "current_main_model_xml",
+      "target_model_fingerprint": null,
+      "target_model_fingerprint_verified": null,
+      "verified": true
+    },
+    "target_reactions_unbalanced": {
+      "R2076": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R613": {
+        "H": -1.0,
+        "charge": -1.0
+      }
+    },
+    "validation": {
+      "errors": [],
+      "valid": true
+    }
+  },
+  "current_model_matches_declared_source": true,
+  "current_snapshot_component_reviews": {
+    "R1521": {
+      "activation_state": "blocked",
+      "path": "data/r1521_current_snapshot_handoff.json",
+      "ready_for_activation": false,
+      "role": "Current-snapshot, read-only review that supports the 3R identity and confirms exact R1504/R1521/R80 balance only after the locked counterfactual; source reactions and full local/global/36-copy frontiers remain blocked.",
+      "source_model": "../iyali26_gem/model.xml",
+      "source_model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+      "source_model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
+    }
+  },
+  "declared_model_locator": "../iyali26_gem/model.xml",
+  "declared_source_model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+  "declared_source_model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+  "evidence_role": "local_cross_check_not_hpcc_acceptance",
+  "file_sha256": {
+    "coa_curation": "4d92ca0c05ca58017d5fb663a10565515b58ddb21483078bd37354849c07b46d",
+    "handoff": "945295e3641709251ec5bebf5d02da252cbb23eb80436c90891d690db3604ce8",
+    "lipid_moiety_ledger": "8274bf4fbba79e9573ff5def4a0713aeb0d5814399567258546f75dbf617b578",
+    "r1521_handoff": "dd11bf93605903084b77137b05ae3130a8967fafb6724a6f91d4fa5af4e67ca5",
+    "source_model": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
+  },
+  "generic_pool_policy": [
+    {
+      "actual_member_ids": [
+        "m1422[C_em]",
+        "m1426[C_em]",
+        "m1428[C_em]",
+        "m1430[C_em]",
+        "m1731[C_em]",
+        "m231[C_em]",
+        "m243[C_em]"
+      ],
+      "charge_is_nonchemical_placeholder": true,
+      "chebi_is_absent": true,
+      "expected_member_ids": [
+        "m1422[C_em]",
+        "m1426[C_em]",
+        "m1428[C_em]",
+        "m1430[C_em]",
+        "m1731[C_em]",
+        "m231[C_em]",
+        "m243[C_em]"
+      ],
+      "formula_is_absent": true,
+      "handoff_tuple_is_null": true,
+      "inventory_linked": true,
+      "live_model_charge": 0,
+      "no_complete_chemical_tuple": true,
+      "product_id": "m567[C_em]",
+      "product_is_the_only_positive_member": true,
+      "reaction_id": "xPOOL_AC_EM"
+    },
+    {
+      "actual_member_ids": [
+        "m1480[C_lp]",
+        "m1482[C_lp]",
+        "m1484[C_lp]",
+        "m1486[C_lp]",
+        "m1488[C_lp]",
+        "m1490[C_lp]",
+        "m1735[C_lp]"
+      ],
+      "charge_is_nonchemical_placeholder": true,
+      "chebi_is_absent": true,
+      "expected_member_ids": [
+        "m1480[C_lp]",
+        "m1482[C_lp]",
+        "m1484[C_lp]",
+        "m1486[C_lp]",
+        "m1488[C_lp]",
+        "m1490[C_lp]",
+        "m1735[C_lp]"
+      ],
+      "formula_is_absent": true,
+      "handoff_tuple_is_null": true,
+      "inventory_linked": true,
+      "live_model_charge": 0,
+      "no_complete_chemical_tuple": true,
+      "product_id": "m570[C_lp]",
+      "product_is_the_only_positive_member": true,
+      "reaction_id": "xPOOL_AC_LP"
+    },
+    {
+      "actual_member_ids": [
+        "m1624[C_mm]",
+        "m1625[C_mm]",
+        "m1738[C_mm]",
+        "m1739[C_mm]",
+        "m1741[C_mm]",
+        "m1742[C_mm]",
+        "m1743[C_mm]"
+      ],
+      "charge_is_nonchemical_placeholder": true,
+      "chebi_is_absent": true,
+      "expected_member_ids": [
+        "m1624[C_mm]",
+        "m1625[C_mm]",
+        "m1738[C_mm]",
+        "m1739[C_mm]",
+        "m1741[C_mm]",
+        "m1742[C_mm]",
+        "m1743[C_mm]"
+      ],
+      "formula_is_absent": true,
+      "handoff_tuple_is_null": true,
+      "inventory_linked": true,
+      "live_model_charge": 0,
+      "no_complete_chemical_tuple": true,
+      "product_id": "m790[C_mm]",
+      "product_is_the_only_positive_member": true,
+      "reaction_id": "xPOOL_AC_MM"
+    }
+  ],
+  "inventory": {
+    "generic_pools": 3,
+    "specific_copies": 36,
+    "specific_groups": 7
+  },
+  "model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+  "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+  "physical_input_locator_recorded_in_execution_metadata": true,
+  "production_gate_passed": false,
+  "ready_for_activation": false,
+  "remaining_blockers": [
+    {
+      "reaction_id": "R613",
+      "reason": "The (R)-S(8) identity is resolved, but its pH 7.3 tuple and R614 reactant H+ remain forbidden until the five-copy 2-oxoglutarate frontier closes with zero regressions.",
+      "status": "identity_resolved_frontier_unclosed"
+    },
+    {
+      "reaction_id": "R2076",
+      "reason": "The ATP-free reaction is rejected, complete KEGG R03383 remains organism/GPR-unverified, and remove is the fail-closed candidate; no production decision is applied.",
+      "status": "decision_package_ready_production_unapplied"
+    },
+    {
+      "reaction_id": "R1521",
+      "reason": "The 3R focal identity is supported, but the local 8-copy transaction creates 30 regressions, the 11-copy NAD(H) migration creates 73, and the atomic 36-copy transaction creates 146 with 75 unassessable reactions including R364; 51 atomic regressions remain outside this source-audit scope.",
+      "status": "connected_component_migration_blocked"
+    },
+    {
+      "reaction_id": "R1708",
+      "reason": "The focal reaction closes without H+ after its four tuples migrate, but the acetate/succinate component is still open.",
+      "status": "connected_component_migration_blocked"
+    },
+    {
+      "reaction_id": "R2004",
+      "reason": "The focal reaction closes without H+ after its four tuples migrate, but the pyruvate/oxaloacetate component is still open.",
+      "status": "connected_component_migration_blocked"
+    }
+  ],
+  "schema_version": 1
+}

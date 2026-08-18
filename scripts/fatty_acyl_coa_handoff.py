@@ -218,7 +218,9 @@ def audit_handoff(model_path: Path) -> dict:
     return {
         "schema_version": 1,
         "artifact_type": "fatty_acyl_coa_handoff_acceptance_report",
-        "model_path": handoff["authoritative_inputs"]["coa_protonation_curation"]["source_model"],
+        "evidence_role": "local_cross_check_not_hpcc_acceptance",
+        "declared_model_locator": handoff["authoritative_inputs"]["coa_protonation_curation"]["source_model"],
+        "physical_input_locator_recorded_in_execution_metadata": True,
         "model_sha256": _sha256(model_path),
         "model_fingerprint": _model_snapshot_fingerprint(model),
         "declared_source_model_sha256": handoff["authoritative_inputs"]["coa_protonation_curation"]["source_model_sha256"],
@@ -232,6 +234,8 @@ def audit_handoff(model_path: Path) -> dict:
             "R1521": handoff["authoritative_inputs"]["r1521_current_snapshot_handoff"]
         },
         "remaining_blockers": handoff["remaining_activation_blockers"],
+        "activation_state": handoff["activation"]["state"],
+        "production_gate_passed": False,
         "ready_for_activation": False,
     }
 
@@ -257,11 +261,16 @@ def _validate_output_path(
     output_path: Path, model_path: Path, handoff: dict | None = None
 ) -> None:
     handoff = load_handoff() if handoff is None else handoff
+    r1521 = load_r1521_current_snapshot_handoff()
     inputs = handoff["authoritative_inputs"]
     protected = {
         model_path.resolve(),
         HANDOFF_PATH.resolve(),
         ER_EVIDENCE_PATH.resolve(),
+        *(
+            (REPOSITORY / dependency["path"]).resolve()
+            for dependency in r1521["evidence_dependencies"].values()
+        ),
         *(
             _declared_input_path(entry[key]).resolve()
             for entry in inputs.values()
@@ -277,7 +286,7 @@ def _validate_output_path(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", type=Path, default=REPOSITORY / "model.xml")
+    parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     handoff = load_handoff()

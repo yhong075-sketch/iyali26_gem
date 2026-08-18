@@ -25,7 +25,7 @@
       "source_model": "../iyali26_gem/model.xml",
       "source_model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
       "source_model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
-      "role": "Current-snapshot, read-only component review that resolves the local 3R identity and R1504/R1521/R80 chemistry while keeping production activation blocked.",
+      "role": "Current-snapshot, read-only review that supports the 3R identity and confirms exact R1504/R1521/R80 balance only after the locked counterfactual; source reactions and full local/global/36-copy frontiers remain blocked.",
       "activation_state": "blocked",
       "ready_for_activation": false
     },
@@ -461,7 +461,7 @@
     {
       "reaction_id": "R1521",
       "status": "connected_component_migration_blocked",
-      "reason": "The local 3R identity is closed, but full NAD/NADH migration exposes a source-reviewed connected-component frontier."
+      "reason": "The 3R focal identity is supported, but the local 8-copy transaction creates 30 regressions, the 11-copy NAD(H) migration creates 73, and the atomic 36-copy transaction creates 146 with 75 unassessable reactions including R364; 51 atomic regressions remain outside this source-audit scope."
     },
     {
       "reaction_id": "R1708",

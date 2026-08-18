@@ -1,0 +1,1220 @@
+{
+  "schema_version": 1,
+  "audit_id": "iyali26_r1521_rhea_frontier_20260818",
+  "governance": {
+    "scope": "Read-only independent Rhea source audit; no model mutation, no solver run, no GPR inference.",
+    "activation_status": "blocked_pending_human_review",
+    "model_mutation_performed": false,
+    "solver_run": false
+  },
+  "authoritative_model": {
+    "path": "../iyali26_gem/model.xml",
+    "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "dimensions": {
+      "metabolites": 1877,
+      "reactions": 2313,
+      "genes": 1074
+    }
+  },
+  "coefficient_convention": "Signed H(+) stoichiometric coefficient aligned to the model-written left-to-right direction only after exact participant identity is supported: reactant negative, product positive. Null means identity is contradicted or too under-specified to align safely.",
+  "coverage": {
+    "global_enumerated": 40,
+    "local_label_claimed": 14,
+    "local_enumerated": 13,
+    "input_discrepancy": "The task label says LOCAL 14, but the supplied LOCAL list contains 13 distinct IDs.",
+    "unique_model_reactions": 53,
+    "unique_rhea_master_records": 42,
+    "html_master_entries_opened": 40,
+    "exact_rest_entries_opened_after_html_access_failure": 2,
+    "rows_audited": 53,
+    "supported": 34,
+    "unverified": 5,
+    "contradicted": 14,
+    "supported_h_exact": 8,
+    "supported_h_not_exact": 26,
+    "unchecked": 0,
+    "coverage_digest_sha256": "bd71b9ecee878ff02dd833361fbf786897491d4f5ed5048b2cd0e18a5c2aeae7",
+    "reaction_ids_sha256": "afc7e5f027975572169a911acc025549a4f990711a84f1aec6189ec6fadd5dd4",
+    "rhea_master_ids_sha256": "0ed61b7947d66852bf9ed521ca2798d548bb176719a37b6b074d94972325d0b4"
+  },
+  "source_snapshot": {
+    "database": "Rhea reaction knowledgebase",
+    "retrieved_on": "2026-08-18",
+    "rest_documentation": "https://www.rhea-db.org/help/rest-api",
+    "ph73_method": "https://www.rhea-db.org/help/reaction-side-direction",
+    "access_note": "All 42 unique master entries were opened from official Rhea: 40 as HTML pages and RHEA:31143/RHEA:31179 by exact official REST entry query because direct HTML access returned an error/403."
+  },
+  "rows": [
+    {
+      "reaction_id": "R130",
+      "source_equation": "m122[C_cy] + m275[C_cy] <=> m123[C_cy] + m173[C_cy]",
+      "rhea_ids": [
+        "25290",
+        "25291",
+        "25292",
+        "25293"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: ethanol + NAD(+) = acetaldehyde + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/25290",
+        "https://www.rhea-db.org/rhea/?query=25290&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R135",
+      "source_equation": "m26[C_mi] + m278[C_mi] + m27[C_mi] --> m201[C_mi] + m30[C_mi]",
+      "rhea_ids": [
+        "25294",
+        "25295",
+        "25296",
+        "25297"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: acetaldehyde + NAD(+) + H2O = acetate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/25294",
+        "https://www.rhea-db.org/rhea/?query=25294&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1377",
+      "source_equation": "m123[C_cy] + m173[C_cy] --> m122[C_cy] + m275[C_cy]",
+      "rhea_ids": [
+        "25290",
+        "25291",
+        "25292",
+        "25293"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to reactants (signed coefficient 0 -> -1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: ethanol + NAD(+) = acetaldehyde + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/25290",
+        "https://www.rhea-db.org/rhea/?query=25290&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R146",
+      "source_equation": "m26[C_mi] + m27[C_mi] + m303[C_mi] --> m304[C_mi] + m30[C_mi]",
+      "rhea_ids": [
+        "19105",
+        "19106",
+        "19107",
+        "19108"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 4-aminobutanal + NAD(+) + H2O = 4-aminobutanoate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/19105",
+        "https://www.rhea-db.org/rhea/?query=19105&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1517",
+      "source_equation": "m116[C_pe] + m1542[C_pe] <=> m119[C_pe] + m192[C_pe]",
+      "rhea_ids": [
+        "31187",
+        "31188",
+        "31189",
+        "31190"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: (3S)-hydroxydecanoyl-CoA + NAD(+) = 3-oxodecanoyl-CoA + NADH + H(+). Model uses (R)-3-hydroxydecanoyl-CoA, but RHEA:31187 is the (3S) stereoisomer. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/31187",
+        "https://www.rhea-db.org/rhea/?query=31187&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1518",
+      "source_equation": "m116[C_pe] + m1543[C_pe] <=> m119[C_pe] + m194[C_pe]",
+      "rhea_ids": [
+        "31179",
+        "31180",
+        "31181",
+        "31182"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: (3S)-3-hydroxydodecanoyl-CoA + NAD(+) = 3-oxododecanoyl-CoA + NADH + H(+). Model uses (R)-3-hydroxydodecanoyl-CoA, but RHEA:31179 is the (3S) stereoisomer. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/31179",
+        "https://www.rhea-db.org/rhea/?query=31179&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1523",
+      "source_equation": "m116[C_pe] + m1548[C_pe] --> m119[C_pe] + m1560[C_pe]",
+      "rhea_ids": [
+        "31143",
+        "31144",
+        "31145",
+        "31146"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: (3S)-hydroxyhexanoyl-CoA + NAD(+) = 3-oxohexanoyl-CoA + NADH + H(+). Model uses (R)-3-hydroxyhexanoyl-CoA, but RHEA:31143 is the (3S) stereoisomer. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/31143",
+        "https://www.rhea-db.org/rhea/?query=31143&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1524",
+      "source_equation": "m116[C_pe] + m1549[C_pe] --> 4.0 m118[C_pe] + m119[C_pe] + m1561[C_pe]",
+      "rhea_ids": [
+        "31195",
+        "31196",
+        "31197",
+        "31198"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 4.0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: (3S)-hydroxyoctanoyl-CoA + NAD(+) = 3-oxooctanoyl-CoA + NADH + H(+). Model uses an (R)-labelled hydroxyoctanoyl-CoA and 4 product H(+), while RHEA:31195 is (3S) and has 1 product H(+). The model's 4 H(+) is coupled to its legacy neutral substrate tuple and is not an identity-safe proton repair. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/31195",
+        "https://www.rhea-db.org/rhea/?query=31195&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1931",
+      "source_equation": "m122[C_cy] + m32[C_cy] + m552[C_cy] <=> m123[C_cy] + m50[C_cy]",
+      "rhea_ids": [
+        "30235",
+        "30236",
+        "30237",
+        "30238"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: L-glutamate 5-semialdehyde + NAD(+) + H2O = L-glutamate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30235",
+        "https://www.rhea-db.org/rhea/?query=30235&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1953",
+      "source_equation": "m122[C_cy] + m32[C_cy] + m605[C_cy] --> m123[C_cy] + m1818[C_cy]",
+      "rhea_ids": [
+        "16669",
+        "16670",
+        "16671",
+        "16672"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: xanthine + NAD(+) + H2O = urate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/16669",
+        "https://www.rhea-db.org/rhea/?query=16669&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1968",
+      "source_equation": "m27[C_mi] + m73[C_mi] + m84[C_mi] --> m1828[C_mi] + m30[C_mi] + m44[C_mi]",
+      "rhea_ids": [
+        "25177",
+        "25178",
+        "25179",
+        "25180"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 4-methyl-2-oxopentanoate + NAD(+) + CoA = 3-methylbutanoyl-CoA + CO2 + NADH. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/25177",
+        "https://www.rhea-db.org/rhea/?query=25177&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1969",
+      "source_equation": "m27[C_mi] + m70[C_mi] + m73[C_mi] --> m1829[C_mi] + m30[C_mi] + m44[C_mi]",
+      "rhea_ids": [
+        "13997",
+        "13998",
+        "13999",
+        "14000"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 3-methyl-2-oxobutanoate + NAD(+) + CoA = 2-methylpropanoyl-CoA + CO2 + NADH. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/13997",
+        "https://www.rhea-db.org/rhea/?query=13997&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1979",
+      "source_equation": "m1835[C_mi] + m27[C_mi] --> m190[C_mi] + m30[C_mi]",
+      "rhea_ids": [
+        "30799",
+        "30800",
+        "30801",
+        "30802"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (3S)-3-hydroxybutanoyl-CoA + NAD(+) = acetoacetyl-CoA + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30799",
+        "https://www.rhea-db.org/rhea/?query=30799&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1997",
+      "source_equation": "m122[C_cy] + m1848[C_cy] <=> m123[C_cy] + m1821[C_cy]",
+      "rhea_ids": [
+        "20521",
+        "20522",
+        "20523",
+        "20524"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (R)-3-hydroxybutanoate + NAD(+) = acetoacetate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/20521",
+        "https://www.rhea-db.org/rhea/?query=20521&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2068",
+      "source_equation": "m122[C_cy] + m280[C_cy] + m32[C_cy] --> m123[C_cy] + m281[C_cy]",
+      "rhea_ids": [
+        "30695",
+        "30696",
+        "30697",
+        "30698"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 3-aminopropanal + NAD(+) + H2O = beta-alanine + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30695",
+        "https://www.rhea-db.org/rhea/?query=30695&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2069",
+      "source_equation": "m123[C_cy] + m276[C_cy] <=> m122[C_cy] + m277[C_cy]",
+      "rhea_ids": [
+        "30783",
+        "30784",
+        "30785",
+        "30786"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: D-glyceraldehyde + NAD(+) + H2O = (R)-glycerate + NADH + 2 H(+). Model reduces D-glyceraldehyde to glycerol with NADH; RHEA:30783 oxidizes D-glyceraldehyde to (R)-glycerate with NAD(+) and H2O. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30783",
+        "https://www.rhea-db.org/rhea/?query=30783&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2070",
+      "source_equation": "m26[C_mi] + m278[C_mi] + m27[C_mi] --> m201[C_mi] + m30[C_mi]",
+      "rhea_ids": [
+        "25294",
+        "25295",
+        "25296",
+        "25297"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: acetaldehyde + NAD(+) + H2O = acetate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/25294",
+        "https://www.rhea-db.org/rhea/?query=25294&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2071",
+      "source_equation": "m122[C_cy] + m2042[C_cy] + m32[C_cy] --> m123[C_cy] + m1259[C_cy]",
+      "rhea_ids": [
+        "30867",
+        "30868",
+        "30869",
+        "30870"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: indole-3-acetaldehyde + NAD(+) + H2O = (indol-3-yl)acetate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30867",
+        "https://www.rhea-db.org/rhea/?query=30867&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2078",
+      "source_equation": "m122[C_cy] + m280[C_cy] + m32[C_cy] --> m123[C_cy] + m281[C_cy]",
+      "rhea_ids": [
+        "30695",
+        "30696",
+        "30697",
+        "30698"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 3-aminopropanal + NAD(+) + H2O = beta-alanine + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30695",
+        "https://www.rhea-db.org/rhea/?query=30695&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2096",
+      "source_equation": "m122[C_cy] + m1952[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1950[C_cy]",
+      "rhea_ids": [
+        "69080",
+        "69081",
+        "69082",
+        "69083"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 1.0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 1 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 3,4-dihydroxyphenylacetaldehyde + NAD(+) + H2O = 3,4-dihydroxyphenylacetate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/69080",
+        "https://www.rhea-db.org/rhea/?query=69080&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R307",
+      "source_equation": "m122[C_cy] + m529[C_cy] + m530[C_cy] <=> m123[C_cy] + m531[C_cy]",
+      "rhea_ids": [
+        "19985",
+        "19986",
+        "19987",
+        "19988"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: S-(hydroxymethyl)glutathione + NAD(+) = S-formylglutathione + NADH + H(+). Model consumes separate formaldehyde plus glutathione; RHEA:19985 consumes the preformed S-(hydroxymethyl)glutathione adduct. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/19985",
+        "https://www.rhea-db.org/rhea/?query=19985&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R331",
+      "source_equation": "m123[C_cy] + m130[C_cy] + m51[C_cy] --> m122[C_cy] + 2.0 m50[C_cy]",
+      "rhea_ids": [
+        "13753",
+        "13754",
+        "13755",
+        "13756"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to reactants (signed coefficient 0 -> -1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 2 L-glutamate + NAD(+) = L-glutamine + 2-oxoglutarate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/13753",
+        "https://www.rhea-db.org/rhea/?query=13753&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R389",
+      "source_equation": "2.0 m122[C_cy] + m32[C_cy] + m614[C_cy] --> 2.0 m123[C_cy] + m615[C_cy]",
+      "rhea_ids": [
+        "20641",
+        "20642",
+        "20643",
+        "20644"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 3,
+      "model_h_coefficient": 0,
+      "required_change": "Add 3 H(+) to products (signed coefficient 0 -> 3), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: L-histidinol + 2 NAD(+) + H2O = L-histidine + 2 NADH + 3 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/20641",
+        "https://www.rhea-db.org/rhea/?query=20641&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R45",
+      "source_equation": "m121[C_cy] + m122[C_cy] --> m123[C_cy] + m80[C_cy]",
+      "rhea_ids": [
+        "10892",
+        "10893",
+        "10894",
+        "10895"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (2R,3S)-3-isopropylmalate + NAD(+) = (2S)-2-isopropyl-3-oxosuccinate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/10892",
+        "https://www.rhea-db.org/rhea/?query=10892&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R487",
+      "source_equation": "m27[C_mi] + m410[C_mi] --> m219[C_mi] + m30[C_mi] + m44[C_mi]",
+      "rhea_ids": [
+        "23632",
+        "23633",
+        "23634",
+        "23635"
+      ],
+      "verdict": "unverified_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: close the exact participant identity first; if it resolves to the cited Rhea reaction, the provisional aligned H(+) coefficient would be +0.",
+      "evidence_status": "unverified",
+      "limitations": "Official Rhea master equation: D-threo-isocitrate + NAD(+) = 2-oxoglutarate + CO2 + NADH. RHEA:23632 requires D-threo-isocitrate (CHEBI:15562), while model m410 is named only isocitrate, has no stereochemical InChI, and lacks CHEBI:15562. No exact H(+) change is authorized from an under-specified identity.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/23632",
+        "https://www.rhea-db.org/rhea/?query=23632&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R500",
+      "source_equation": "2.0 m26[C_mi] + m27[C_mi] + m28[C_mi] + m753[C_mi] --> m30[C_mi] + m754[C_mi]",
+      "rhea_ids": [
+        "31155",
+        "31156",
+        "31157",
+        "31158"
+      ],
+      "verdict": "unverified_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": -1.0,
+      "required_change": "BLOCKER: close the exact participant identity first; if it resolves to the cited Rhea reaction, the provisional aligned H(+) coefficient would be +1.",
+      "evidence_status": "unverified",
+      "limitations": "Official Rhea master equation: (3R,5S)-1-pyrroline-3-hydroxy-5-carboxylate + NAD(+) + 2 H2O = (4S)-4-hydroxy-L-glutamate + NADH + H(+). RHEA:31155 requires the defined (3R,5S) substrate and (4S) product; model m753/m754 do not carry those exact Rhea ChEBI identities and the substrate InChI is stereochemically undefined. No exact H(+) change is authorized from an under-specified identity.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/31155",
+        "https://www.rhea-db.org/rhea/?query=31155&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R517",
+      "source_equation": "m122[C_cy] + m32[C_cy] + m766[C_cy] --> m123[C_cy] + m7[C_cy]",
+      "rhea_ids": [
+        "14277",
+        "14278",
+        "14279",
+        "14280"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Add 2 H(+) to products (signed coefficient 0 -> 2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/14277",
+        "https://www.rhea-db.org/rhea/?query=14277&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R533",
+      "source_equation": "m27[C_mi] + m538[C_mi] <=> m30[C_mi] + m77[C_mi]",
+      "rhea_ids": [
+        "21432",
+        "21433",
+        "21434",
+        "21435"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (S)-malate + NAD(+) = oxaloacetate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/21432",
+        "https://www.rhea-db.org/rhea/?query=21432&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R535",
+      "source_equation": "m116[C_pe] + m799[C_pe] <=> m119[C_pe] + m333[C_pe]",
+      "rhea_ids": [
+        "21432",
+        "21433",
+        "21434",
+        "21435"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (S)-malate + NAD(+) = oxaloacetate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/21432",
+        "https://www.rhea-db.org/rhea/?query=21432&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R538",
+      "source_equation": "m27[C_mi] + m538[C_mi] --> m30[C_mi] + m44[C_mi] + m6[C_mi]",
+      "rhea_ids": [
+        "18253",
+        "18254",
+        "18255",
+        "18256"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: (S)-malate + NADP(+) = pyruvate + CO2 + NADPH. Model uses NAD(+)/NADH, but RHEA:18253 uses NADP(+)/NADPH. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/18253",
+        "https://www.rhea-db.org/rhea/?query=18253&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R564",
+      "source_equation": "m116[C_pe] + m375[C_pe] --> m517[C_pe] + m816[C_pe]",
+      "rhea_ids": [
+        "11800",
+        "11801",
+        "11802",
+        "11803"
+      ],
+      "verdict": "unverified_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: close the exact participant identity first; if it resolves to the cited Rhea reaction, the provisional aligned H(+) coefficient would be +2.",
+      "evidence_status": "unverified",
+      "limitations": "Official Rhea master equation: NAD(+) + H2O = beta-nicotinamide D-ribonucleotide + AMP + 2 H(+). RHEA:11800 requires beta-nicotinamide D-ribonucleotide; model m816 is bare NMN with no structure or ChEBI identity. No exact H(+) change is authorized from an under-specified identity.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/11800",
+        "https://www.rhea-db.org/rhea/?query=11800&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R568",
+      "source_equation": "m130[C_cy] + m141[C_cy] + m32[C_cy] + m820[C_cy] --> m122[C_cy] + m203[C_cy] + m50[C_cy] + m86[C_cy]",
+      "rhea_ids": [
+        "24384",
+        "24385",
+        "24386",
+        "24387"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: deamido-NAD(+) + L-glutamine + ATP + H2O = L-glutamate + AMP + diphosphate + NAD(+) + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/24384",
+        "https://www.rhea-db.org/rhea/?query=24384&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R569",
+      "source_equation": "m206[C_nu] + m626[C_nu] + m821[C_nu] + m822[C_nu] --> m209[C_nu] + m210[C_nu] + m817[C_nu] + m823[C_nu]",
+      "rhea_ids": [
+        "24384",
+        "24385",
+        "24386",
+        "24387"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: deamido-NAD(+) + L-glutamine + ATP + H2O = L-glutamate + AMP + diphosphate + NAD(+) + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/24384",
+        "https://www.rhea-db.org/rhea/?query=24384&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R571",
+      "source_equation": "m123[C_cy] + m141[C_cy] --> m143[C_cy] + m40[C_cy]",
+      "rhea_ids": [
+        "12260",
+        "12261",
+        "12262",
+        "12263"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: NADH + ATP = ADP + NADPH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/12260",
+        "https://www.rhea-db.org/rhea/?query=12260&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R578",
+      "source_equation": "m141[C_cy] + m831[C_cy] --> m122[C_cy] + m203[C_cy]",
+      "rhea_ids": [
+        "21360",
+        "21361",
+        "21362",
+        "21363"
+      ],
+      "verdict": "unverified_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: close the exact participant identity first; if it resolves to the cited Rhea reaction, the provisional aligned H(+) coefficient would be -1.",
+      "evidence_status": "unverified",
+      "limitations": "Official Rhea master equation: beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+). RHEA:21360 requires beta-nicotinamide D-ribonucleotide; model m831 is bare NMN with no structure or ChEBI identity. No exact H(+) change is authorized from an under-specified identity.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/21360",
+        "https://www.rhea-db.org/rhea/?query=21360&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R579",
+      "source_equation": "m206[C_nu] + m832[C_nu] --> m210[C_nu] + m817[C_nu]",
+      "rhea_ids": [
+        "21360",
+        "21361",
+        "21362",
+        "21363"
+      ],
+      "verdict": "unverified_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: close the exact participant identity first; if it resolves to the cited Rhea reaction, the provisional aligned H(+) coefficient would be -1.",
+      "evidence_status": "unverified",
+      "limitations": "Official Rhea master equation: beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+). RHEA:21360 requires beta-nicotinamide D-ribonucleotide; model m832 is bare NMN with no structure or ChEBI identity. No exact H(+) change is authorized from an under-specified identity.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/21360",
+        "https://www.rhea-db.org/rhea/?query=21360&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R641",
+      "source_equation": "m122[C_cy] + m884[C_cy] --> m123[C_cy] + m885[C_cy]",
+      "rhea_ids": [
+        "12641",
+        "12642",
+        "12643",
+        "12644"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (2R)-3-phosphoglycerate + NAD(+) = 3-phosphooxypyruvate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/12641",
+        "https://www.rhea-db.org/rhea/?query=12641&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R718",
+      "source_equation": "m122[C_cy] + m32[C_cy] + m940[C_cy] <=> m123[C_cy] + m51[C_cy] + m793[C_cy]",
+      "rhea_ids": [
+        "12440",
+        "12441",
+        "12442",
+        "12443"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: L-saccharopine + NAD(+) + H2O = L-lysine + 2-oxoglutarate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/12440",
+        "https://www.rhea-db.org/rhea/?query=12440&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R801",
+      "source_equation": "m1014[C_cy] + m122[C_cy] --> m1015[C_cy] + m123[C_cy]",
+      "rhea_ids": [
+        "20433",
+        "20434",
+        "20435",
+        "20436"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Add 1 H(+) to products (signed coefficient 0 -> 1), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: xylitol + NAD(+) = D-xylulose + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/20433",
+        "https://www.rhea-db.org/rhea/?query=20433&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R9",
+      "source_equation": "m25[C_mi] + 2.0 m26[C_mi] + m27[C_mi] + m28[C_mi] --> m29[C_mi] + m30[C_mi]",
+      "rhea_ids": [
+        "16417",
+        "16418",
+        "16419",
+        "16420"
+      ],
+      "verdict": "identity_and_direction_supported_h_not_exact",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": -1.0,
+      "required_change": "Move 1 H(+) from reactants to products (signed coefficient -1 -> +1; net delta +2), atomically with all identity copies.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: (S)-1-pyrroline-5-carboxylate + NAD(+) + 2 H2O = L-glutamate + NADH + H(+). Identity and written direction (or bidirectionality) align, but the explicit model H(+) coefficient does not. The proposed coefficient is conditional on frontier-wide NAD(H)/CoA tuple migration and must not be applied in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/16417",
+        "https://www.rhea-db.org/rhea/?query=16417&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1458",
+      "source_equation": "m182[C_pe] + m515[C_pe] + m858[C_pe] --> m228[C_pe] + m517[C_pe] + m518[C_pe]",
+      "rhea_ids": [
+        "33615",
+        "33616",
+        "33617",
+        "33618"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: octadecanoate + ATP + CoA = octadecanoyl-CoA + AMP + diphosphate. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33615",
+        "https://www.rhea-db.org/rhea/?query=33615&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1534",
+      "source_equation": "m1559[C_pe] + m182[C_pe] --> 2.0 m183[C_pe]",
+      "rhea_ids": [
+        "21036",
+        "21037",
+        "21038",
+        "21039"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: 2 acetyl-CoA = acetoacetyl-CoA + CoA. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/21036",
+        "https://www.rhea-db.org/rhea/?query=21036&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R297",
+      "source_equation": "m182[C_pe] + m515[C_pe] + m516[C_pe] --> m195[C_pe] + m517[C_pe] + m518[C_pe]",
+      "rhea_ids": [
+        "33627",
+        "33628",
+        "33629",
+        "33630"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: decanoate + ATP + CoA = decanoyl-CoA + AMP + diphosphate. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33627",
+        "https://www.rhea-db.org/rhea/?query=33627&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R299",
+      "source_equation": "m182[C_pe] + m515[C_pe] + m520[C_pe] --> m184[C_pe] + m517[C_pe] + m518[C_pe]",
+      "rhea_ids": [
+        "30751",
+        "30752",
+        "30753",
+        "30754"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: hexadecanoate + ATP + CoA = hexadecanoyl-CoA + AMP + diphosphate. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30751",
+        "https://www.rhea-db.org/rhea/?query=30751&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R300",
+      "source_equation": "m182[C_pe] + m515[C_pe] + m521[C_pe] --> m193[C_pe] + m517[C_pe] + m518[C_pe]",
+      "rhea_ids": [
+        "33631",
+        "33632",
+        "33633",
+        "33634"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: octanoate + ATP + CoA = octanoyl-CoA + AMP + diphosphate. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33631",
+        "https://www.rhea-db.org/rhea/?query=33631&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R301",
+      "source_equation": "m182[C_pe] + m515[C_pe] + m522[C_pe] --> m188[C_pe] + m517[C_pe] + m518[C_pe]",
+      "rhea_ids": [
+        "33619",
+        "33620",
+        "33621",
+        "33622"
+      ],
+      "verdict": "identity_direction_and_h_supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H(+) coefficient change; retain only within the frontier-wide tuple/source-contract transaction.",
+      "evidence_status": "supported",
+      "limitations": "Official Rhea master equation: tetradecanoate + ATP + CoA = tetradecanoyl-CoA + AMP + diphosphate. Identity, written direction (or bidirectionality), and explicit H(+) coefficient align. Current formula/charge tuples remain legacy representations and were not accepted here as completed pH 7.3 tuple migration.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33619",
+        "https://www.rhea-db.org/rhea/?query=33619&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R618",
+      "source_equation": "m195[C_pe] + m375[C_pe] --> m182[C_pe] + m516[C_pe]",
+      "rhea_ids": [
+        "40415",
+        "40416",
+        "40417",
+        "40418"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: pristanoyl-CoA + H2O = 2,6,10,14-tetramethylpentadecanoate + CoA + H(+). Model hydrolyzes decanoyl-CoA; RHEA:40415 is pristanoyl-CoA hydrolysis. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40415",
+        "https://www.rhea-db.org/rhea/?query=40415&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R619",
+      "source_equation": "m191[C_pe] + m375[C_pe] --> m182[C_pe] + m519[C_pe]",
+      "rhea_ids": [
+        "40415",
+        "40416",
+        "40417",
+        "40418"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: pristanoyl-CoA + H2O = 2,6,10,14-tetramethylpentadecanoate + CoA + H(+). Model hydrolyzes lauroyl-CoA; RHEA:40415 is pristanoyl-CoA hydrolysis. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40415",
+        "https://www.rhea-db.org/rhea/?query=40415&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R620",
+      "source_equation": "m184[C_pe] + m375[C_pe] --> m182[C_pe] + m520[C_pe]",
+      "rhea_ids": [
+        "40415",
+        "40416",
+        "40417",
+        "40418"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: pristanoyl-CoA + H2O = 2,6,10,14-tetramethylpentadecanoate + CoA + H(+). Model hydrolyzes palmitoyl-CoA; RHEA:40415 is pristanoyl-CoA hydrolysis. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40415",
+        "https://www.rhea-db.org/rhea/?query=40415&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R621",
+      "source_equation": "m188[C_pe] + m375[C_pe] --> m182[C_pe] + m522[C_pe]",
+      "rhea_ids": [
+        "40415",
+        "40416",
+        "40417",
+        "40418"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: pristanoyl-CoA + H2O = 2,6,10,14-tetramethylpentadecanoate + CoA + H(+). Model hydrolyzes myristoyl-CoA; RHEA:40415 is pristanoyl-CoA hydrolysis. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40415",
+        "https://www.rhea-db.org/rhea/?query=40415&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R622",
+      "source_equation": "m228[C_pe] + m375[C_pe] --> m182[C_pe] + m858[C_pe]",
+      "rhea_ids": [
+        "40415",
+        "40416",
+        "40417",
+        "40418"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: pristanoyl-CoA + H2O = 2,6,10,14-tetramethylpentadecanoate + CoA + H(+). Model hydrolyzes stearoyl-CoA; RHEA:40415 is pristanoyl-CoA hydrolysis. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40415",
+        "https://www.rhea-db.org/rhea/?query=40415&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R623",
+      "source_equation": "m193[C_pe] + m375[C_pe] --> m182[C_pe] + m521[C_pe]",
+      "rhea_ids": [
+        "40415",
+        "40416",
+        "40417",
+        "40418"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: pristanoyl-CoA + H2O = 2,6,10,14-tetramethylpentadecanoate + CoA + H(+). Model hydrolyzes octanoyl-CoA; RHEA:40415 is pristanoyl-CoA hydrolysis. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40415",
+        "https://www.rhea-db.org/rhea/?query=40415&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R99",
+      "source_equation": "m221[C_pe] + m225[C_pe] --> m222[C_pe] + m226[C_pe]",
+      "rhea_ids": [
+        "40179",
+        "40180",
+        "40181",
+        "40182"
+      ],
+      "verdict": "contradicted_identity_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "BLOCKER: resolve or replace the reaction identity/xref before any proton edit; H(+) repair alone is forbidden.",
+      "evidence_status": "contradicted",
+      "limitations": "Official Rhea master equation: decanoyl-CoA + O2 = (2E)-decenoyl-CoA + H2O2. Model oxidizes hexacosanoyl-CoA; RHEA:40179 is decanoyl-CoA oxidation. The Rhea H(+) coefficient is not aligned to the model because identities differ.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40179",
+        "https://www.rhea-db.org/rhea/?query=40179&columns=rhea-id%2Cequation%2Cchebi-id&format=tsv&limit=10"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    }
+  ],
+  "activation_state": "blocked",
+  "ready_for_activation": false,
+  "production_apply_forbidden": true,
+  "isolated_proton_edits_authorized": false
+}

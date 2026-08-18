@@ -895,7 +895,7 @@ _COA_PROTONATION_CURATION = "data/coa_protonation_curation.json"
 _COA_GATE_NON_H_ELEMENTS = frozenset({"C", "N", "O", "P", "S"})
 _COA_PROTONATION_SOURCE_MODEL = "../iyali26_gem/model.xml"
 _COA_PROTONATION_SOURCE_STAGE = "current_main_model_xml"
-_R1521_HANDOFF_CONTRACT = "2f80ce48c930c948c0c0a0d38151b8a40b49f4af7babae586b4b16e04431b5b0"
+_R1521_HANDOFF_CONTRACT = "18d60ef4e583311fd95581dcce2a96f4af6ac6c1d0dc19bc36799c163334d678"
 _SHA256_HEX = re.compile(r"[0-9a-f]{64}\Z")
 _COA_CHEMICAL_IDENTITY_KEYS = frozenset(
     {
@@ -993,6 +993,31 @@ def _validate_r1521_dependency(curation: dict) -> None:
         or handoff.get("source_model_fingerprint") != curation.get("source_model_fingerprint")
     ):
         raise CoAProtonationCurationError("R1521 handoff source contract drifted")
+    dependencies = handoff.get("evidence_dependencies")
+    if not isinstance(dependencies, dict):
+        raise CoAProtonationCurationError("R1521 evidence dependency contract drifted")
+    root = _coa_protonation_repository_root()
+    for name, dependency in dependencies.items():
+        try:
+            evidence = json.loads(
+                (root / dependency["path"]).read_text(encoding="utf-8")
+            )
+            actual_digest = hashlib.sha256(
+                json.dumps(
+                    evidence,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                    ensure_ascii=True,
+                ).encode()
+            ).hexdigest()
+        except (KeyError, OSError, TypeError, json.JSONDecodeError) as exc:
+            raise CoAProtonationCurationError(
+                f"cannot read R1521 evidence dependency {name}: {exc}"
+            ) from exc
+        if actual_digest != dependency.get("canonical_contract_sha256"):
+            raise CoAProtonationCurationError(
+                f"R1521 evidence dependency drifted: {name}"
+            )
     targets = {
         entry["id"]: (entry["formula"], entry["charge"])
         for entry in handoff["local_counterfactual"]["target_tuples"]

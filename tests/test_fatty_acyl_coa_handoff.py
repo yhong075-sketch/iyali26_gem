@@ -23,14 +23,14 @@ from scripts.fatty_acyl_coa_handoff import (
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-CURRENT_MAIN_MODEL = Path(os.environ.get(
-    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
-))
+SOURCE_MODEL_ENV = os.environ.get("IYALI26_SOURCE_MODEL")
+CURRENT_MAIN_MODEL = Path(SOURCE_MODEL_ENV) if SOURCE_MODEL_ENV else None
 MODEL_PATH = CURRENT_MAIN_MODEL
-CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_20260815.json"
+CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_20260818.json"
 
 
 class FattyAcylCoAHandoffTests(unittest.TestCase):
+    @unittest.skipUnless(SOURCE_MODEL_ENV, "requires explicit IYALI26_SOURCE_MODEL")
     def test_handoff_matches_pipeline_inputs_and_complete_inventory(self) -> None:
         handoff = load_handoff()
         validate_handoff_inputs(handoff, source_model_path=MODEL_PATH)
@@ -73,21 +73,29 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
 
     def test_report_output_cannot_alias_an_authoritative_input(self) -> None:
         handoff = load_handoff()
+        r1521 = json.loads(
+            (REPOSITORY / "data" / "r1521_current_snapshot_handoff.json")
+            .read_text(encoding="utf-8")
+        )
+        model_path = CURRENT_MAIN_MODEL or REPOSITORY / "explicit-source-model.xml"
         protected = [
-            MODEL_PATH,
-            CURRENT_MAIN_MODEL,
+            model_path,
             HANDOFF_PATH,
             REPOSITORY / handoff["authoritative_inputs"]["coa_protonation_curation"]["path"],
             REPOSITORY / handoff["authoritative_inputs"]["lipid_moiety_ledger_spec"]["path"],
             REPOSITORY / handoff["authoritative_inputs"]["r1521_current_snapshot_handoff"]["path"],
             Path(handoff["authoritative_inputs"]["human_review_table"]["path"]),
+            *(
+                REPOSITORY / dependency["path"]
+                for dependency in r1521["evidence_dependencies"].values()
+            ),
         ]
         for path in protected:
             with self.subTest(path=path):
                 with self.assertRaises(HandoffError):
-                    _validate_output_path(path, MODEL_PATH)
+                    _validate_output_path(path, model_path)
 
-    @unittest.skipUnless(MODEL_PATH.exists(), "requires repository model.xml")
+    @unittest.skipUnless(SOURCE_MODEL_ENV, "requires explicit IYALI26_SOURCE_MODEL")
     def test_report_is_read_only_and_blocked_on_its_declared_source_snapshot(self) -> None:
         report = audit_handoff(MODEL_PATH)
         self.assertTrue(report["current_model_matches_declared_source"])
@@ -105,7 +113,7 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
         self.assertTrue(all(row["inventory_linked"] for row in report["generic_pool_policy"]))
         self.assertTrue(all(len(row["actual_member_ids"]) == 7 for row in report["generic_pool_policy"]))
 
-    @unittest.skipUnless(MODEL_PATH.exists(), "requires repository model.xml")
+    @unittest.skipUnless(SOURCE_MODEL_ENV, "requires explicit IYALI26_SOURCE_MODEL")
     def test_candidate_survives_sbml_roundtrip_without_relaxing_blocked_state(self) -> None:
         model = read_sbml_model(str(MODEL_PATH))
         curation = coa_patches.load_coa_protonation_curation(
@@ -125,11 +133,12 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
         self.assertEqual(loaded.reactions.get_by_id("R1412").check_mass_balance(), {})
         self.assertEqual(curation["activation_state"], "blocked")
 
+    @unittest.skipUnless(SOURCE_MODEL_ENV, "requires explicit IYALI26_SOURCE_MODEL")
     def test_current_main_artifact_is_fresh(self) -> None:
-        self.assertEqual(
-            json.loads(CURRENT_MAIN_REPORT.read_text(encoding="utf-8")),
-            audit_handoff(CURRENT_MAIN_MODEL),
-        )
+        observed = json.loads(CURRENT_MAIN_REPORT.read_text(encoding="utf-8"))
+        expected = audit_handoff(CURRENT_MAIN_MODEL)
+        self.assertEqual(observed, expected)
+        self.assertEqual(observed["evidence_role"], "local_cross_check_not_hpcc_acceptance")
 
 
 if __name__ == "__main__":

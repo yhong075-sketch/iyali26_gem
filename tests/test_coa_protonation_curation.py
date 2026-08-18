@@ -328,6 +328,27 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
             with self.assertRaisesRegex(CoAProtonationCurationError, "R1521 handoff source contract"):
                 coa_patches._validate_r1521_dependency(curation)
 
+    def test_r1521_dependency_opens_declared_evidence_files(self) -> None:
+        curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
+        handoff = json.loads(
+            (REPOSITORY / "data" / "r1521_current_snapshot_handoff.json")
+            .read_text(encoding="utf-8")
+        )
+        dependency = next(iter(handoff["evidence_dependencies"].values()))
+        evidence_path = (REPOSITORY / dependency["path"]).resolve()
+        original = Path.read_text
+
+        def drift_one(path, *args, **kwargs):
+            if path.resolve() == evidence_path:
+                return "{}"
+            return original(path, *args, **kwargs)
+
+        with patch("pathlib.Path.read_text", autospec=True, side_effect=drift_one):
+            with self.assertRaisesRegex(
+                CoAProtonationCurationError, "R1521 evidence dependency drifted"
+            ):
+                coa_patches._validate_r1521_dependency(curation)
+
     def test_core_45_tuples_and_identity_annotation_targets_are_explicit(self) -> None:
         curation = load_coa_protonation_curation()
         observed_copies = 0

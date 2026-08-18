@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "artifact_type": "r1521_kegg_mnx_frontier_source_audit",
+  "accessed_on": "2026-08-18",
+  "scope": {
+    "objective": "Audit the exact reaction identity, direction, stereochemistry, and canonical pH 7.3 H+ coefficient for the named R1521 NAD(H) frontier reactions.",
+    "exclusions": [
+      "No GPR or gene claims",
+      "No optimization or solver use",
+      "No repository or model mutation",
+      "No inference of zero H+ from an empty MetaNetX balance flag or an equation that omits H+"
+    ],
+    "h_coefficient_sign_convention": "Positive means H+ is on the product side in the authoritative model reaction orientation; negative means H+ is on the reactant side; null means identity/pH evidence is insufficient and the reaction is a blocker."
+  },
+  "source_snapshot": {
+    "model_path": "../iyali26_gem/model.xml",
+    "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "metanetx_release": "4.6",
+    "metanetx_release_date": "2026-08-17",
+    "rhea_release": "141",
+    "rhea_release_date": "2026-06-10"
+  },
+  "rows": [
+    {
+      "reaction_id": "R133",
+      "source_equation": "m122[C_cy] + m280[C_cy] + m32[C_cy] --> m123[C_cy] + m281[C_cy]",
+      "official_ids": [
+        "MNXR152951",
+        "KEGG:R00904",
+        "RHEA:30695"
+      ],
+      "verdict": "partially_supported",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "The exact KEGG/Rhea reaction supports two product H+ at pH 7.3 after the NAD(H) tuple migration; do not apply until the m280 acid-base identity is closed across copies.",
+      "evidence_status": "Rhea pH-7.3 reaction directly supports the named chemistry; the annotated MNXR uses MNXM736083/bigg aproa whereas model m280 is MNXM736082/bamppald, so the MNXR crosswalk is not an exact species match.",
+      "limitations": "Same biochemical skeleton but distinct MetaNetX acid-base species; identity closure is required before proton editing.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR152951",
+        "https://www.kegg.jp/entry/R00904",
+        "https://www.rhea-db.org/rhea/30695"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1378",
+      "source_equation": "m122[C_cy] + m173[C_cy] + m32[C_cy] --> m123[C_cy] + m202[C_cy]",
+      "official_ids": [
+        "MNXR190525",
+        "KEGG:R00710",
+        "RHEA:25294"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Withdraw MNXR190525; KEGG R00710/Rhea 25294 are the exact simple acetaldehyde-to-acetate identity and support two product H+ at pH 7.3. Any annotation/H change remains gated.",
+      "evidence_status": "Corrected identity directly supported; current MNXR annotation contradicted.",
+      "limitations": "MNXR190525 is a CoA-acetylating, ethanol/acetyl-CoA, two-NAD reaction and is not the source equation.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR190525",
+        "https://www.kegg.jp/entry/R00710",
+        "https://www.rhea-db.org/rhea/25294"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1885",
+      "source_equation": "m122[C_cy] + m1790[C_cy] + m32[C_cy] --> m1220[C_cy] + m123[C_cy]",
+      "official_ids": [
+        "MNXR131478",
+        "SABIO-RK:12743"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "Identity blocker: withdraw MNXR131478 and obtain an exact decanal-to-decanoate pH-7.3 primary reaction before deciding H+.",
+      "evidence_status": "Current crosswalk contradicted; replacement unverified.",
+      "limitations": "MNXR131478/SABIO 12743 is an alcohol/aldehyde redox record and its product chemical is not model decanoate MNXM1043. No exact pH-7.3 source was opened in this bounded audit.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR131478",
+        "https://sabiork.h-its.org/"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1886",
+      "source_equation": "m122[C_cy] + m1793[C_cy] + m32[C_cy] --> m1221[C_cy] + m123[C_cy]",
+      "official_ids": [
+        "MNXR130469",
+        "ModelSEED:rxn36100"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "Identity blocker: withdraw MNXR130469 and obtain an exact dodecanal-to-laurate pH-7.3 primary reaction before deciding H+.",
+      "evidence_status": "Current crosswalk contradicted; replacement unverified.",
+      "limitations": "MNXR130469/ModelSEED rxn36100 is dodecanal/dodecanol alcohol dehydrogenase chemistry, not oxidation to model laurate MNXM100679.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR130469",
+        "https://modelseed.org/biochem/reactions/rxn36100"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1964",
+      "source_equation": "m1015[C_cy] + m123[C_cy] <=> m122[C_cy] + m1823[C_cy]",
+      "official_ids": [
+        "MNXR154181",
+        "BiGG:ABTD1"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "Stereochemistry blocker: resolve D-xylulose versus the L-xylulose species in ABTD1 before assigning an identifier or H+ coefficient.",
+      "evidence_status": "Contradicted at substrate stereochemistry.",
+      "limitations": "The MNXR/BiGG record uses L-xylulose with D-arabinitol; the model names m1015 D-xylulose and maps it to a different MNXM species.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR154181",
+        "http://bigg.ucsd.edu/universal/reactions/ABTD1"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1970",
+      "source_equation": "m27[C_mi] + m28[C_mi] + m489[C_mi] + m73[C_mi] --> m1830[C_mi] + m30[C_mi] + m44[C_mi]",
+      "official_ids": [
+        "MNXR145676",
+        "BiGG:MOD_3mop",
+        "EC:1.2.4.4"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": -1,
+      "required_change": "Identity blocker: the full NAD/CoA oxidative decarboxylation requires an exact overall-reaction source; do not use the E1/TPP partial reaction to set H+.",
+      "evidence_status": "Current crosswalk contradicted as a partial reaction.",
+      "limitations": "MNXR145676/BiGG MOD_3mop contains thiamine diphosphate and the E1 intermediate, but no NAD, CoA, NADH, or acyl-CoA; it is not the modeled overall complex reaction.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR145676",
+        "http://bigg.ucsd.edu/universal/reactions/MOD_3mop",
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/2/4/4.html"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2062",
+      "source_equation": "m30[C_mi] + m468[C_mi] --> m27[C_mi] + m471[C_mi]",
+      "official_ids": [
+        "MNXR143480",
+        "KEGG:R02163",
+        "RHEA:23152"
+      ],
+      "verdict": "partially_supported",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": 0,
+      "required_change": "Rhea supports one reactant H+ for the generic ubiquinone reaction; exact ubiquinone-9/ubiquinol-9 identity must be accepted before applying that coefficient.",
+      "evidence_status": "Family-level reaction supported; exact tail-length crosswalk unresolved.",
+      "limitations": "KEGG/Rhea use the class 'a ubiquinone/a ubiquinol'; MNXR143480 chemicals are not the model's MNXM1363635/MNXM1094084 ubiquinone-9 pair.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR143480",
+        "https://www.kegg.jp/entry/R02163",
+        "https://www.rhea-db.org/rhea/23152"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2119",
+      "source_equation": "m10[C_cy] + m122[C_cy] + m1976[C_cy] + m69[C_cy] --> m123[C_cy] + m68[C_cy] + m82[C_cy]",
+      "official_ids": [
+        "MNXR101668",
+        "ModelSEED:rxn02424",
+        "EC:1.2.1.27"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": -1,
+      "required_change": "Identity blocker: distinguish malonate semialdehyde-to-acetyl-CoA from methylmalonate semialdehyde-to-propanoyl-CoA before any H+ decision.",
+      "evidence_status": "Current crosswalk contradicted at carbon skeleton/product identity.",
+      "limitations": "MNXR101668/ModelSEED rxn02424 is keyed to R03381 and different substrate/product MNXM species; the model uses C00222 malonate semialdehyde and acetyl-CoA.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR101668",
+        "https://modelseed.org/biochem/reactions/rxn02424",
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/2/1/27.html"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2190",
+      "source_equation": "m122[C_cy] + m1823[C_cy] <=> m123[C_cy] + m454[C_cy]",
+      "official_ids": [
+        "MNXR197981",
+        "KEGG:R07134",
+        "RHEA:17389"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "Identity blocker: R07134 produces D-ribulose, whereas the model produces D-arabinose; do not repair this by adding H+.",
+      "evidence_status": "Directly contradicted at product constitution.",
+      "limitations": "D-ribulose is a ketopentose and D-arabinose an aldopentose; they are not interchangeable protonation states.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR197981",
+        "https://www.kegg.jp/entry/R07134",
+        "https://www.rhea-db.org/rhea/17389"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R254",
+      "source_equation": "m122[C_cy] + m454[C_cy] --> m123[C_cy] + m452[C_cy]",
+      "official_ids": [
+        "MNXR115803",
+        "MetaCyc:D-ARABINOSE-1-DEHYDROGENASE-RXN",
+        "EC:1.1.1.116"
+      ],
+      "verdict": "partially_supported",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "Anomer/tautomer blocker: reconcile generic D-arabinose m454 with the D-arabinofuranose species in the official crosswalk before assigning pH H+.",
+      "evidence_status": "Reaction class supported; exact substrate species unverified.",
+      "limitations": "MNXR115803 is balanced with explicit H+, but it uses a different MNXM substrate; that coefficient cannot be transferred without identity closure.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR115803",
+        "https://metacyc.org/META/NEW-IMAGE?type=REACTION&object=D-ARABINOSE-1-DEHYDROGENASE-RXN",
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/1/1/116.html"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R308",
+      "source_equation": "m122[C_cy] + m34[C_cy] --> m123[C_cy] + m82[C_cy]",
+      "official_ids": [
+        "MNXR143770",
+        "ModelSEED:rxn19717",
+        "EC:1.17.1.9"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "Identity blocker: withdraw the menaquinone-coupled transmembrane crosswalk and locate an exact NAD-linked formate dehydrogenase pH-7.3 reaction.",
+      "evidence_status": "Current crosswalk contradicted; replacement unverified.",
+      "limitations": "MNXR143770 is a compartmentalized formate:menaquinone oxidoreductase/transport reaction and contains neither NAD nor NADH.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR143770",
+        "https://modelseed.org/biochem/reactions/rxn19717",
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/17/1/9.html"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R344",
+      "source_equation": "m122[C_cy] + m35[C_cy] + m536[C_cy] <=> 2 m10[C_cy] + m123[C_cy] + m494[C_cy]",
+      "official_ids": [
+        "MNXR144947",
+        "BiGG:GAPD",
+        "KEGG:R01061",
+        "RHEA:10300"
+      ],
+      "verdict": "supported",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 2,
+      "required_change": "The exact Rhea pH-7.3 equation supports one product H+, not two; remove one product H+ only within an atomic NAD/phosphate tuple closure.",
+      "evidence_status": "Exact identity and pH-7.3 coefficient directly supported.",
+      "limitations": "MetaNetX's normalized equation contains three H+ because of its chosen species mapping; the explicit Rhea major-microspecies equation is controlling for pH 7.3.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR144947",
+        "https://www.kegg.jp/entry/R01061",
+        "https://www.rhea-db.org/rhea/10300"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R348",
+      "source_equation": "2 m10[C_cy] + m123[C_cy] + m456[C_cy] --> m122[C_cy] + m562[C_cy]",
+      "official_ids": [
+        "MNXR157500",
+        "ModelSEED:rxn37440",
+        "KEGG:R00842",
+        "RHEA:11092"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": -2,
+      "required_change": "Withdraw MNXR157500; the exact NAD-linked replacement R00842/Rhea 11092 supports one reactant H+ in the model direction, not two. Apply only after identity/copy closure.",
+      "evidence_status": "Current crosswalk contradicted; corrected identity and pH coefficient directly supported.",
+      "limitations": "MNXR157500 is a quinone/FAD-linked glycerol-3-phosphate oxidation and contains no NAD(H).",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR157500",
+        "https://www.kegg.jp/entry/R00842",
+        "https://www.rhea-db.org/rhea/11092"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R349",
+      "source_equation": "2 m28[C_mi] + m30[C_mi] + m565[C_mi] --> m27[C_mi] + m564[C_mi]",
+      "official_ids": [
+        "MNXR157500",
+        "ModelSEED:rxn37440",
+        "KEGG:R00842",
+        "RHEA:11092"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": -2,
+      "required_change": "Withdraw MNXR157500; the exact NAD-linked replacement R00842/Rhea 11092 supports one reactant H+ in the model direction, not two. Apply only after identity/copy closure.",
+      "evidence_status": "Current crosswalk contradicted; corrected identity and pH coefficient directly supported.",
+      "limitations": "Same conflict as R348 in the mitochondrial compartment; MNXR157500 is quinone/FAD-linked rather than NAD-linked.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR157500",
+        "https://www.kegg.jp/entry/R00842",
+        "https://www.rhea-db.org/rhea/11092"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R361",
+      "source_equation": "m27[C_mi] + m585[C_mi] --> m30[C_mi] + m583[C_mi]",
+      "official_ids": [
+        "MNXR144964",
+        "BiGG:GCCb",
+        "KEGG:R01698",
+        "RHEA:33059"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Withdraw MNXR144964; exact R01698/Rhea 33059 supports one product H+ for (R)-dihydrolipoamide oxidation. Apply only after lipoamide stereochemistry is explicit.",
+      "evidence_status": "Current crosswalk contradicted; corrected identity and pH coefficient directly supported.",
+      "limitations": "MNXR144964/BiGG GCCb is the tetrahydrofolate/ammonium glycine-cleavage subreaction, not dihydrolipoamide dehydrogenase. Model lipoamide lacks an explicit stereochemical annotation.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR144964",
+        "https://www.kegg.jp/entry/R01698",
+        "https://www.rhea-db.org/rhea/33059"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R398",
+      "source_equation": "m27[C_mi] + m624[C_mi] --> 2 m28[C_mi] + m30[C_mi] + m44[C_mi] + m629[C_mi]",
+      "official_ids": [
+        "MNXR100637",
+        "KEGG:R04862",
+        "KEGG:R01934",
+        "RHEA:11900"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 2,
+      "required_change": "Replace the partial-step crosswalk with overall R01934; its exact Rhea pH-7.3 equation has no explicit H+, so the two model product H+ are unsupported.",
+      "evidence_status": "Current crosswalk contradicted as incomplete; corrected overall identity and pH coefficient directly supported.",
+      "limitations": "R04862 ends at oxaloglutarate and KEGG explicitly labels it the first step; model R398 is the two-step overall reaction R01934 to 2-oxoadipate plus CO2.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR100637",
+        "https://www.kegg.jp/entry/R04862",
+        "https://www.kegg.jp/entry/R01934",
+        "https://www.rhea-db.org/rhea/11900"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R513",
+      "source_equation": "m122[C_cy] + m768[C_cy] --> m123[C_cy] + m769[C_cy]",
+      "official_ids": [
+        "MNXR146386",
+        "ModelSEED:rxn09395"
+      ],
+      "verdict": "supported",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "The exact balanced MNXR/ModelSEED reaction supports one product H+ after NAD(H) tuple migration; retain behind the all-copy identity gate.",
+      "evidence_status": "Database-supported exact identity with explicit H+ and a balanced MetaNetX equation.",
+      "limitations": "No independent Rhea record was opened in this bounded batch; evidence is curated-database rather than primary experimental evidence.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR146386",
+        "https://modelseed.org/biochem/reactions/rxn09395"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R573",
+      "source_equation": "m30[C_mi] + m468[C_mi] --> m27[C_mi] + m471[C_mi]",
+      "official_ids": [
+        "MNXR143480",
+        "KEGG:R02163",
+        "RHEA:23152"
+      ],
+      "verdict": "partially_supported",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": 0,
+      "required_change": "Rhea supports one reactant H+ for the generic ubiquinone reaction; exact ubiquinone-9/ubiquinol-9 identity must be accepted before applying that coefficient.",
+      "evidence_status": "Family-level reaction supported; exact tail-length crosswalk unresolved.",
+      "limitations": "Duplicate chemistry of R2062; KEGG/Rhea are generic and MNXR143480 does not use the model's exact ubiquinone-9 MNXM pair.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR143480",
+        "https://www.kegg.jp/entry/R02163",
+        "https://www.rhea-db.org/rhea/23152"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R693",
+      "source_equation": "m27[C_mi] + m6[C_mi] + m73[C_mi] --> m30[C_mi] + m44[C_mi] + m71[C_mi]",
+      "official_ids": [
+        "MNXR103067",
+        "ModelSEED:rxn09167",
+        "KEGG:R00209",
+        "RHEA:28042"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "Withdraw MNXR103067; annotate only the exact overall pyruvate dehydrogenase identity R00209/Rhea 28042. No explicit H+ change is supported at pH 7.3.",
+      "evidence_status": "Current crosswalk contradicted; corrected identity and zero pH coefficient directly supported.",
+      "limitations": "MNXR103067/ModelSEED rxn09167 is a quinone-linked pyruvate oxidase yielding acetate and ubiquinol, not the NAD/CoA pyruvate dehydrogenase complex.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR103067",
+        "https://www.kegg.jp/entry/R00209",
+        "https://www.rhea-db.org/rhea/28042"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R726",
+      "source_equation": "7 m10[C_cy] + m122[C_cy] + m946[C_cy] --> m123[C_cy] + m947[C_cy]",
+      "official_ids": [
+        "MNXR145913",
+        "BiGG:PC2D"
+      ],
+      "verdict": "contradicted",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": -7,
+      "required_change": "Cofactor/identity blocker: resolve NAD versus NADP and precorrin-2/sirohydrochlorin species before any proton decision; seven reactant H+ must not be accepted from formula balancing alone.",
+      "evidence_status": "Current crosswalk contradicted; replacement unverified.",
+      "limitations": "BiGG PC2D uses NADPH/NADP+, while the model uses NAD/NADH. MetaNetX's normalized equation uses different current chemical IDs and does not establish the model's pH-7.3 coefficient.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR145913",
+        "http://bigg.ucsd.edu/universal/reactions/PC2D"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R737",
+      "source_equation": "m387[C_er] + m957[C_er] + m958[C_er] --> m389[C_er] + m959[C_er] + m960[C_er]",
+      "official_ids": [
+        "MNXR104528",
+        "ModelSEED:rxn13399",
+        "EC:1.14.14.17"
+      ],
+      "verdict": "supported",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": 0,
+      "required_change": "The exact balanced MNXR/ModelSEED NADH reaction supports one reactant H+; retain behind the NAD(H) all-copy and enzyme-cofactor evidence gates.",
+      "evidence_status": "Exact database reaction supported with explicit H+ and balanced MetaNetX equation.",
+      "limitations": "The EC-level enzyme description is commonly NADPH-reductase coupled; this record specifically supports the model's database NADH variant, not organism-specific cofactor preference.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR104528",
+        "https://modelseed.org/biochem/reactions/rxn13399",
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/14/14/17.html"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1056",
+      "source_equation": "m182[C_pe] <=> m69[C_cy]",
+      "official_ids": [
+        "MNXR96815",
+        "ModelSEED:rxn10832",
+        "BiGG:COAtp"
+      ],
+      "verdict": "supported",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H+ change; preserve a one-for-one same-species CoA transport only if both compartment copies receive the identical canonical tuple atomically.",
+      "evidence_status": "Exact transport identity supported; zero follows from transport of the same chemical species, not from an omitted MetaNetX proton.",
+      "limitations": "MetaNetX aggregates many compartment-specific CoA transports under one undirected MNXR; direction and organismal transporter evidence are outside this batch.",
+      "source_urls": [
+        "https://www.metanetx.org/equa_info/MNXR96815",
+        "https://modelseed.org/biochem/reactions/rxn10832",
+        "http://bigg.ucsd.edu/universal/reactions/COAtp"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    }
+  ],
+  "coverage": {
+    "total_rows": 22,
+    "authoritative_model_rows_extracted": 22,
+    "unique_metanetx_ids_opened": 20,
+    "metanetx_reac_prop_rows_opened": 20,
+    "metanetx_primary_xref_rows_opened": 20,
+    "verdict_counts": {
+      "supported": 4,
+      "partially_supported": 4,
+      "contradicted": 14,
+      "unverified": 0
+    },
+    "canonical_h_counts": {
+      "non_null": 13,
+      "null_blocker": 9
+    },
+    "audit_summary": "22 total | 22 audited | 4 exact-supported | 4 partial/unresolved | 14 contradicted | 0 unchecked"
+  },
+  "blockers": [
+    "R1885: exact decanal-to-decanoate pH-7.3 reaction not opened",
+    "R1886: exact dodecanal-to-laurate pH-7.3 reaction not opened",
+    "R1964: D-/L-xylulose stereochemistry conflict",
+    "R1970: only an E1/TPP partial reaction is cross-referenced",
+    "R2119: malonate- versus methylmalonate-semialdehyde carbon-skeleton conflict",
+    "R2190: D-arabinose versus D-ribulose product conflict",
+    "R254: generic D-arabinose versus D-arabinofuranose species conflict",
+    "R308: menaquinone-linked crosswalk contradicts the NAD-linked source equation",
+    "R726: NAD versus NADP cofactor conflict and unresolved tetrapyrrole species"
+  ],
+  "provenance": {
+    "metanetx_reac_prop_url": "https://www.metanetx.org/ftp/beta/reac_prop.tsv",
+    "metanetx_reac_xref_url": "https://www.metanetx.org/ftp/beta/reac_xref.tsv",
+    "metanetx_schema_url": "https://www.metanetx.org/mnxdoc/mnxref.html",
+    "kegg_api_url": "https://rest.kegg.jp/",
+    "rhea_api_url": "https://www.rhea-db.org/rhea/",
+    "rhea_pH_rule_url": "https://www.rhea-db.org/help/searching-rhea",
+    "notes": "Rhea equations were used for pH-7.3 major-microspecies coefficients when an exact reaction was available. Explicit balanced MetaNetX equations were used only for exact database identities. Empty balance flags and omitted protons were never interpreted as zero."
+  },
+  "digest": {
+    "algorithm": "sha256(canonical compact JSON of rows, sorted keys)",
+    "rows_sha256": "c15790a04896cd38f1e04e01d89d3ba7a90d719be8da9378dea4e724b1ba3ab8"
+  },
+  "human_gate": {
+    "state": "blocked",
+    "ready_for_activation": false,
+    "production_apply_forbidden": true,
+    "reason": "This is a source-audit handoff only. Contradicted and partial crosswalks plus nine unresolved canonical-H rows require identity closure and human acceptance before any curated-data or production-model change."
+  },
+  "activation_state": "blocked",
+  "ready_for_activation": false,
+  "production_apply_forbidden": true,
+  "isolated_proton_edits_authorized": false
+}

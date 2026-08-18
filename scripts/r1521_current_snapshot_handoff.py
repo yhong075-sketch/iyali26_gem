@@ -7,11 +7,14 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import sys
 import tempfile
+import warnings
 from math import isclose, isfinite
 from pathlib import Path
 
+from cobra.core.formula import elements_and_molecular_weights
 from cobra.io import read_sbml_model
 
 if __package__ in {None, ""}:
@@ -21,13 +24,28 @@ from scripts.gem_annotate.patches import (
     CoAProtonationActivationBlocked,
     _model_snapshot_fingerprint,
     _safe_mass_balance,
+    load_coa_protonation_curation,
 )
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 HANDOFF_PATH = REPOSITORY / "data" / "r1521_current_snapshot_handoff.json"
 ER_EVIDENCE_PATH = REPOSITORY / "data" / "er_vlcfa_3r_stereochemistry.json"
-_TRUSTED_CONTRACT_SHA256 = "2f80ce48c930c948c0c0a0d38151b8a40b49f4af7babae586b4b16e04431b5b0"
+COA_CURATION_PATH = REPOSITORY / "data" / "coa_protonation_curation.json"
+_TRUSTED_CONTRACT_SHA256 = "18d60ef4e583311fd95581dcce2a96f4af6ac6c1d0dc19bc36799c163334d678"
+_BALANCE_EXPECTATION_KEYS = frozenset(
+    {
+        "migrated_metabolite_count", "incident_reaction_count",
+        "evaluable_reaction_count", "unassessable_reaction_count",
+        "changed_residual_count", "newly_unbalanced_count", "repaired_count",
+        "still_unbalanced_changed_count", "balanced_unchanged_count",
+        "unbalanced_unchanged_count", "migrated_metabolite_ids_sha256",
+        "incident_reaction_ids_sha256", "changed_reaction_ids_sha256",
+        "newly_unbalanced_ids_sha256", "repaired_ids_sha256",
+        "still_unbalanced_changed_ids_sha256", "unassessable_ids_sha256",
+        "ledger_sha256", "unassessable_reaction_ids", "repaired_reaction_ids",
+    }
+)
 _IDENTITY_KEYS = frozenset(
     {
         "chebi", "hmdb", "inchi", "inchikey", "lipidmaps", "lipidmapsm",
@@ -37,6 +55,7 @@ _IDENTITY_KEYS = frozenset(
 _R1521_IDENTITY_NAMES = frozenset(
     {"(r)-3-hydroxyhexacosanoyl-coa", "(3r)-3-hydroxyhexacosanoyl-coa"}
 )
+_COMPLETE_FORMULA = re.compile(r"(?:[A-Z][a-z]?\d*)+\Z")
 
 
 class R1521CurrentSnapshotError(RuntimeError):
@@ -88,12 +107,13 @@ def _validate_handoff(handoff: dict) -> None:
         == {
             "schema_version", "curation_id", "activation", "source_model", "source_sha256",
             "source_model_fingerprint", "evidence_dependencies", "legacy_metabolite_contract", "local_counterfactual",
-            "global_nad_migration_gate", "reaction_contracts", "absolute_balance_contract",
-            "blockers", "target_contract_sha256",
+            "global_nad_migration_gate", "reaction_contracts",
+            "partial_known_formula_residual_contract",
+            "frontier_closure_gate", "blockers", "target_contract_sha256",
         },
         "unknown or missing R1521 handoff key",
     )
-    _require(type(handoff["schema_version"]) is int and handoff["schema_version"] == 1, "unsupported R1521 handoff schema")
+    _require(type(handoff["schema_version"]) is int and handoff["schema_version"] == 2, "unsupported R1521 handoff schema")
     _require(handoff["curation_id"] == "iyali26_r1521_current_snapshot_handoff", "R1521 handoff identity drifted")
     _require(
         handoff["activation"]
@@ -117,7 +137,19 @@ def _validate_handoff(handoff: dict) -> None:
             "er_vlcfa_3r_stereochemistry": {
                 "path": "data/er_vlcfa_3r_stereochemistry.json",
                 "canonical_contract_sha256": "1a527ee0bb99b1703f2cc8e18b4af147aa3bde7ca1dcb634d8220d4cb375ab80",
-            }
+            },
+            "r1521_rhea_frontier_source_audit": {
+                "path": "data/r1521_rhea_frontier_source_audit.json",
+                "canonical_contract_sha256": "ab72557b047c50e8c42af9732eadd44cdbf21cacdaeb0c0a7b5aa05e4cafa925",
+            },
+            "r1521_kegg_mnx_frontier_source_audit": {
+                "path": "data/r1521_kegg_mnx_frontier_source_audit.json",
+                "canonical_contract_sha256": "91cb0278234f2a349c4d61d843bf3d0fee440bdb2784bd2796376e43395db17c",
+            },
+            "r1521_unresolved_frontier_source_audit": {
+                "path": "data/r1521_unresolved_frontier_source_audit.json",
+                "canonical_contract_sha256": "1fc387d8f7270e0486058ba8307b279fceb87208525a79a36324f8cc29c959bf",
+            },
         },
         "R1521 evidence dependency contract drifted",
     )
@@ -139,7 +171,15 @@ def _validate_handoff(handoff: dict) -> None:
         "R1521 legacy metabolite contract drifted",
     )
     candidate = handoff["local_counterfactual"]
-    _require(isinstance(candidate, dict) and set(candidate) == {"evidence", "supersedes", "rhea", "target_tuples"}, "invalid R1521 candidate transaction")
+    _require(
+        isinstance(candidate, dict)
+        and set(candidate)
+        == {
+            "evidence", "supersedes", "rhea", "target_tuples", "gpr_evidence",
+            "annotation_conflicts",
+        },
+        "invalid R1521 candidate transaction",
+    )
     _require("MFE2" in candidate["evidence"] and "3R" in candidate["evidence"] and "78635" in candidate["evidence"] and "78638" in candidate["evidence"], "R1521 MFE2/3R evidence drifted")
     _require("er_vlcfa_3r_stereochemistry.json" in candidate["supersedes"] and "3S" in candidate["supersedes"], "R1521 supersession record drifted")
     _require(candidate["rhea"] == {"hydratase_master": "39211", "hydratase_direction": "39213", "dehydrogenase_master": "78635", "dehydrogenase_bidirectional": "78638", "dehydrogenase_written_direction": "78637"}, "R1521 Rhea directionality evidence drifted")
@@ -161,8 +201,48 @@ def _validate_handoff(handoff: dict) -> None:
         _require(entry["legacy_tuple"] == {"formula": entry["legacy_tuple"].get("formula"), "charge": entry["legacy_tuple"].get("charge")}, f"invalid R1521 legacy tuple for {entry['id']}")
     r1521_target = next(entry for entry in targets if entry["id"] == "m1546[C_pe]")
     _require(r1521_target["name"] == "(3R)-3-hydroxyhexacosanoyl-CoA" and r1521_target["annotation_target"] == {"chebi": "CHEBI:76378"}, "R1521 3R target identity drifted")
+    gpr = candidate["gpr_evidence"]
+    _require(
+        isinstance(gpr, dict)
+        and gpr.get("systematic_id") == "YALI1E18441g"
+        and gpr.get("established_name") == "MFE2"
+        and gpr.get("legacy_locus_tag") == "YALI0E15378g"
+        and gpr.get("protein_accessions") == ["Q9P4D9", "F2Z6I5"]
+        and gpr.get("model_gpr") == "YALI1E18441g"
+        and gpr.get("reaction_ids") == ["R1504", "R1521"]
+        and gpr.get("model_gpr_evidence_status", "").startswith(
+            "model/GPR assignment only"
+        )
+        and isinstance(gpr.get("protein_function"), str)
+        and gpr["protein_function"]
+        and gpr.get("evidence_status", {}).get("exact_c26_substrate_turnover")
+        == "unverified"
+        and isinstance(gpr.get("sources"), list)
+        and gpr["sources"],
+        "R1521 MFE2 gene/GPR evidence drifted",
+    )
+    _require(
+        [entry.get("reaction_id") for entry in candidate["annotation_conflicts"]]
+        == ["R1504", "R1521"]
+        and all(
+            "no production annotation edit" in entry.get("decision", "").lower()
+            for entry in candidate["annotation_conflicts"]
+        ),
+        "R1521 stale annotation evidence drifted",
+    )
     global_gate = handoff["global_nad_migration_gate"]
-    _require(isinstance(global_gate, dict) and set(global_gate) == {"baseline", "nad_plus", "nadh", "expected", "production_apply_forbidden"} and global_gate["baseline"] == "source_snapshot_only; no CoA/local transaction pre-applied" and global_gate["production_apply_forbidden"] is True, "invalid global NAD migration gate")
+    _require(
+        isinstance(global_gate, dict)
+        and set(global_gate)
+        == {
+            "baseline", "nad_plus", "nadh", "expected",
+            "historical_partial_formula_baseline", "production_apply_forbidden",
+        }
+        and global_gate["baseline"]
+        == "source_snapshot_only; no CoA/local transaction pre-applied"
+        and global_gate["production_apply_forbidden"] is True,
+        "invalid global NAD migration gate",
+    )
     for label, identity_name, ids, legacy, target in (
         ("nad_plus", "nad_c21h27n7o14p2", ["m27[C_mi]", "m116[C_pe]", "m122[C_cy]", "m817[C_nu]", "m960[C_er]", "m1458[C_em]"], {"formula": "C21H27N7O14P2", "charge": 0}, {"formula": "C21H26N7O14P2", "charge": -1}),
         ("nadh", "nadh_c21h29n7o14p2", ["m30[C_mi]", "m119[C_pe]", "m123[C_cy]", "m957[C_er]", "m1457[C_em]"], {"formula": "C21H29N7O14P2", "charge": 0}, {"formula": "C21H27N7O14P2", "charge": -2}),
@@ -170,10 +250,162 @@ def _validate_handoff(handoff: dict) -> None:
         entry = global_gate[label]
         _require(isinstance(entry, dict) and entry == {"identity_name": entry.get("identity_name"), "ids": entry.get("ids"), "legacy_tuple": entry.get("legacy_tuple"), "target_tuple": entry.get("target_tuple")} and entry["identity_name"] == identity_name and entry["ids"] == ids and entry["legacy_tuple"] == legacy and entry["target_tuple"] == target, f"R1521 global {label} migration drifted")
     expected = global_gate["expected"]
-    _require(isinstance(expected, dict) and set(expected) == {"incident_reaction_count", "changed_residual_count", "newly_unbalanced_count", "repaired_count", "incident_reaction_ids_sha256", "changed_reaction_ids_sha256", "newly_unbalanced_ids_sha256", "representative_newly_unbalanced"}, "invalid global NAD migration expectation")
-    _require((expected["incident_reaction_count"], expected["changed_residual_count"], expected["newly_unbalanced_count"], expected["repaired_count"]) == (121, 114, 73, 2), "global NAD migration counts drifted")
-    _require(all(_is_digest(expected[key]) for key in ("incident_reaction_ids_sha256", "changed_reaction_ids_sha256", "newly_unbalanced_ids_sha256")), "global NAD migration digest drifted")
-    _require(expected["representative_newly_unbalanced"] == ["R1517", "R1518", "R1522", "R1524", "R535", "R564"], "global NAD representative reactions drifted")
+    _require(
+        isinstance(expected, dict) and set(expected) == _BALANCE_EXPECTATION_KEYS,
+        "invalid global NAD migration expectation",
+    )
+    _require(
+        tuple(
+            expected[key]
+            for key in (
+                "migrated_metabolite_count", "incident_reaction_count",
+                "evaluable_reaction_count", "unassessable_reaction_count",
+                "changed_residual_count", "newly_unbalanced_count",
+                "repaired_count", "still_unbalanced_changed_count",
+                "balanced_unchanged_count", "unbalanced_unchanged_count",
+            )
+        )
+        == (11, 121, 89, 32, 83, 73, 2, 8, 6, 0)
+        and len(expected["unassessable_reaction_ids"]) == 32
+        and "R364" in expected["unassessable_reaction_ids"]
+        and expected["repaired_reaction_ids"] == ["R1889", "R570"],
+        "global NAD migration partition drifted",
+    )
+    historical = global_gate["historical_partial_formula_baseline"]
+    _require(
+        historical.get("reproduced_on_current_snapshot") is True
+        and tuple(
+            historical.get(key)
+            for key in (
+                "incident_reaction_count", "changed_residual_count",
+                "newly_unbalanced_count", "repaired_count",
+            )
+        ) == (121, 114, 73, 2)
+        and "not exact frontier-closure evidence" in historical.get("warning", ""),
+        "historical NAD partial-formula baseline drifted",
+    )
+    _require(
+        all(_is_digest(value) for key, value in expected.items() if key.endswith("sha256")),
+        "global NAD migration digest drifted",
+    )
+
+    frontier = handoff["frontier_closure_gate"]
+    _require(
+        isinstance(frontier, dict)
+        and set(frontier)
+        == {
+            "transaction_policy", "balance_ledger_contract", "source_audit_coverage",
+            "local_counterfactual_full_model", "atomic_identity_transaction",
+            "r364_symbolic_contract", "production_apply_forbidden",
+        }
+        and frontier["production_apply_forbidden"] is True
+        and "never as a bulk repair" in frontier["transaction_policy"],
+        "invalid R1521 frontier closure gate",
+    )
+    _require(
+        frontier["balance_ledger_contract"].get("schema_version") == 1
+        and "allow_nan=false"
+        in frontier["balance_ledger_contract"].get("digest_algorithm", ""),
+        "R1521 balance-ledger contract drifted",
+    )
+    coverage = frontier["source_audit_coverage"]
+    _require(
+        coverage.get("batch_reaction_counts")
+        == {"rhea": 53, "kegg_mnx": 22, "unresolved": 21}
+        and coverage.get("audited_regression_reaction_count") == 96
+        and coverage.get("outside_global_incident_count") == 23
+        and coverage.get("global_incident_not_source_audited_count") == 48
+        and coverage.get("atomic_newly_unbalanced_total") == 146
+        and coverage.get("atomic_newly_unbalanced_covered") == 95
+        and coverage.get("atomic_newly_unbalanced_not_audited") == 51
+        and coverage.get("all_atomic_frontier_identities_closed") is False
+        and coverage.get("isolated_proton_edits_authorized") is False
+        and _is_digest(coverage.get("audited_regression_reaction_ids_sha256"))
+        and _is_digest(coverage.get("atomic_newly_unbalanced_not_audited_ids_sha256")),
+        "R1521 frontier source-audit coverage drifted",
+    )
+    global_unaudited = coverage.get("global_incident_not_source_audited_reaction_ids")
+    atomic_unaudited = coverage.get(
+        "atomic_newly_unbalanced_not_audited_reaction_ids"
+    )
+    _require(
+        isinstance(global_unaudited, list)
+        and len(global_unaudited) == 48
+        and global_unaudited == sorted(global_unaudited)
+        and _ids_digest(global_unaudited)
+        == coverage.get("global_incident_not_source_audited_ids_sha256")
+        and isinstance(atomic_unaudited, list)
+        and len(atomic_unaudited) == 51
+        and atomic_unaudited == sorted(atomic_unaudited)
+        and _ids_digest(atomic_unaudited)
+        == coverage.get("atomic_newly_unbalanced_not_audited_ids_sha256")
+        and {"R613", "R2076", "R1708", "R2004"} <= set(atomic_unaudited),
+        "R1521 unaudited frontier ledger drifted",
+    )
+    local_expected = frontier["local_counterfactual_full_model"].get("expected")
+    atomic = frontier["atomic_identity_transaction"]
+    atomic_expected = atomic.get("expected")
+    _require(
+        isinstance(local_expected, dict)
+        and set(local_expected) == _BALANCE_EXPECTATION_KEYS
+        and local_expected["incident_reaction_count"] == 70
+        and local_expected["newly_unbalanced_count"] == 30
+        and local_expected["unassessable_reaction_count"] == 23
+        and local_expected["repaired_count"] == 0
+        and frontier["local_counterfactual_full_model"].get("zero_new_regressions_required") is True,
+        "R1521 local full-model gate drifted",
+    )
+    _require(
+        atomic.get("group_ids")
+        == [
+            "coenzyme_a", "acetyl_coa", "trans_hexacos_2_enoyl_coa",
+            "er_vlcfa_3r_hydroxyhexacosanoyl_coa", "tetracosanoyl_coa",
+            "3_oxohexacosanoyl_coa", "nad_plus", "nadh",
+        ]
+        and atomic.get("expected_group_count") == 8
+        and atomic.get("curation_path") == "data/coa_protonation_curation.json"
+        and isinstance(atomic_expected, dict)
+        and set(atomic_expected) == _BALANCE_EXPECTATION_KEYS
+        and atomic_expected["migrated_metabolite_count"] == 36
+        and atomic_expected["incident_reaction_count"] == 303
+        and atomic_expected["newly_unbalanced_count"] == 146
+        and atomic_expected["unassessable_reaction_count"] == 75
+        and "R364" in atomic_expected["unassessable_reaction_ids"]
+        and atomic_expected["repaired_reaction_ids"] == ["R1889", "R570"]
+        and atomic.get("zero_new_regressions_required") is True
+        and all(
+            _is_digest(value)
+            for expectation in (local_expected, atomic_expected)
+            for key, value in expectation.items()
+            if key.endswith("sha256")
+        ),
+        "R1521 atomic identity transaction drifted",
+    )
+    r364 = frontier["r364_symbolic_contract"]
+    r364_gene = r364.get("gene_evidence", {})
+    _require(
+        r364.get("reaction_id") == "R364"
+        and r364.get("canonical_h_coefficient") == 1
+        and r364.get("model_h_coefficient") == 1
+        and r364.get("h_edit_authorized") is False
+        and r364.get("reaction_identity_evidence_status") == "supported"
+        and r364.get("overall_evidence_status") == "partially_supported"
+        and r364.get("balance_assessment_status")
+        == "unassessable_symbolic_moiety"
+        and r364.get("symbolic_metabolite_identity_status") == "unresolved"
+        and r364_gene.get("systematic_id") == "YALI1D26360g"
+        and r364_gene.get("established_name") == "dihydrolipoyl dehydrogenase"
+        and r364_gene.get("legacy_locus_tag") == "YALI0D20768g"
+        and r364_gene.get("protein_accessions") == ["Q6C8C6"]
+        and r364_gene.get("model_gpr") == "YALI1D26360g"
+        and r364_gene.get("reaction_ids") == ["R364"]
+        and r364_gene.get("model_gpr_evidence_status", "").startswith(
+            "model/GPR assignment only"
+        )
+        and r364_gene.get("evidence_status", {}).get("exact_r364_substrate_context")
+        == "unverified",
+        "R364 symbolic identity/GPR contract drifted",
+    )
 
     contracts = handoff["reaction_contracts"]
     _require(isinstance(contracts, list) and [entry.get("id") for entry in contracts] == ["R1504", "R1521", "R80"], "R1521 adjacent reaction inventory drifted")
@@ -189,20 +421,33 @@ def _validate_handoff(handoff: dict) -> None:
             and all(isinstance(key, str) and key and type(value) in (int, float) and value for key, value in contract["stoichiometry"].items()),
             f"invalid R1521 reaction contract for {contract.get('id')!r}",
         )
-    balances = handoff["absolute_balance_contract"]
+    balances = handoff["partial_known_formula_residual_contract"]
     _require(isinstance(balances, dict) and set(balances) == {"R1504", "R1521", "R80"}, "R1521 balance contract drifted")
-    _require(all(isinstance(value, dict) and all(isinstance(key, str) and type(number) in (int, float) for key, number in value.items()) for value in balances.values()), "invalid R1521 absolute-balance contract")
-    _require(isinstance(handoff["blockers"], list) and len(handoff["blockers"]) == 3 and all(isinstance(value, str) and value for value in handoff["blockers"]) and "stale metadata" in handoff["blockers"][2], "R1521 blockers must be explicit")
+    _require(all(isinstance(value, dict) and all(isinstance(key, str) and type(number) in (int, float) for key, number in value.items()) for value in balances.values()), "invalid R1521 partial-residual contract")
+    _require(
+        isinstance(handoff["blockers"], list)
+        and len(handoff["blockers"]) == 5
+        and all(isinstance(value, str) and value for value in handoff["blockers"])
+        and any("R364" in value for value in handoff["blockers"])
+        and any("51" in value for value in handoff["blockers"])
+        and any(
+            all(reaction_id in value for reaction_id in ("R613", "R2076", "R1708", "R2004"))
+            for value in handoff["blockers"]
+        ),
+        "R1521 blockers must be explicit",
+    )
 
 
 def _validate_runtime_evidence(handoff: dict) -> None:
-    """Require the current ER evidence file for every handoff use."""
+    """Require every locked evidence file for every handoff use."""
 
-    declared_er_digest = handoff["evidence_dependencies"]["er_vlcfa_3r_stereochemistry"]["canonical_contract_sha256"]
-    _require(
-        _canonical_json_file_digest(ER_EVIDENCE_PATH) == declared_er_digest,
-        "R1521 ER stereochemistry evidence dependency drifted",
-    )
+    for name, dependency in handoff["evidence_dependencies"].items():
+        path = REPOSITORY / dependency["path"]
+        declared = dependency["canonical_contract_sha256"]
+        _require(
+            _canonical_json_file_digest(path) == declared,
+            f"R1521 evidence dependency drifted: {name}",
+        )
 
 
 def _validate_runtime_handoff(handoff: dict) -> None:
@@ -325,11 +570,121 @@ def _ids_digest(ids: list[str]) -> str:
     return hashlib.sha256(json.dumps(sorted(ids), separators=(",", ":")).encode()).hexdigest()
 
 
+def _complete_mass_balance(reaction) -> dict | None:
+    """Return exact element/charge balance only when every tuple is parseable."""
+
+    for metabolite in reaction.metabolites:
+        if (
+            metabolite.formula is None
+            or metabolite.charge is None
+            or _COMPLETE_FORMULA.fullmatch(metabolite.formula) is None
+        ):
+            return None
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter("always")
+            elements = metabolite.elements
+        if (
+            caught
+            or not elements
+            or not set(elements) <= set(elements_and_molecular_weights)
+        ):
+            return None
+    balance = _safe_mass_balance(reaction)
+    if balance is None or any(not isfinite(float(value)) for value in balance.values()):
+        return None
+    return {key: float(value) for key, value in sorted(balance.items())}
+
+
+def _balance_ledger(model, candidate, migrated_ids: list[str], expected: dict) -> dict:
+    """Classify every incident reaction, keeping unparseable balances fail-closed."""
+
+    incident = sorted(
+        {
+            reaction.id
+            for metabolite_id in migrated_ids
+            for reaction in model.metabolites.get_by_id(metabolite_id).reactions
+        }
+    )
+    categories = {
+        name: []
+        for name in (
+            "changed", "newly_unbalanced", "repaired", "still_unbalanced_changed",
+            "balanced_unchanged", "unbalanced_unchanged", "unassessable",
+        )
+    }
+    rows = []
+    for reaction_id in incident:
+        before = _complete_mass_balance(model.reactions.get_by_id(reaction_id))
+        after = _complete_mass_balance(candidate.reactions.get_by_id(reaction_id))
+        rows.append({"reaction_id": reaction_id, "before": before, "after": after})
+        if before is None or after is None:
+            categories["unassessable"].append(reaction_id)
+        elif before != after:
+            categories["changed"].append(reaction_id)
+            if before == {}:
+                categories["newly_unbalanced"].append(reaction_id)
+            elif after == {}:
+                categories["repaired"].append(reaction_id)
+            else:
+                categories["still_unbalanced_changed"].append(reaction_id)
+        elif before == {}:
+            categories["balanced_unchanged"].append(reaction_id)
+        else:
+            categories["unbalanced_unchanged"].append(reaction_id)
+    actual = {
+        "migrated_metabolite_count": len(migrated_ids),
+        "incident_reaction_count": len(incident),
+        "evaluable_reaction_count": len(incident) - len(categories["unassessable"]),
+        "unassessable_reaction_count": len(categories["unassessable"]),
+        "changed_residual_count": len(categories["changed"]),
+        "newly_unbalanced_count": len(categories["newly_unbalanced"]),
+        "repaired_count": len(categories["repaired"]),
+        "still_unbalanced_changed_count": len(categories["still_unbalanced_changed"]),
+        "balanced_unchanged_count": len(categories["balanced_unchanged"]),
+        "unbalanced_unchanged_count": len(categories["unbalanced_unchanged"]),
+        "migrated_metabolite_ids_sha256": _ids_digest(migrated_ids),
+        "incident_reaction_ids_sha256": _ids_digest(incident),
+        "changed_reaction_ids_sha256": _ids_digest(categories["changed"]),
+        "newly_unbalanced_ids_sha256": _ids_digest(categories["newly_unbalanced"]),
+        "repaired_ids_sha256": _ids_digest(categories["repaired"]),
+        "still_unbalanced_changed_ids_sha256": _ids_digest(
+            categories["still_unbalanced_changed"]
+        ),
+        "unassessable_ids_sha256": _ids_digest(categories["unassessable"]),
+        "ledger_sha256": hashlib.sha256(
+            json.dumps(
+                rows,
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=True,
+                allow_nan=False,
+            ).encode()
+        ).hexdigest(),
+        "unassessable_reaction_ids": categories["unassessable"],
+        "repaired_reaction_ids": categories["repaired"],
+    }
+    mismatched_fields = [
+        key for key, value in expected.items() if actual[key] != value
+    ]
+    matches_expected = not mismatched_fields
+    return {
+        "actual": actual,
+        "matches_expected": matches_expected,
+        "mismatched_fields": mismatched_fields,
+        "zero_new_regressions": matches_expected
+        and actual["newly_unbalanced_count"] == 0,
+        "frontier_closed": matches_expected
+        and actual["newly_unbalanced_count"] == 0
+        and actual["still_unbalanced_changed_count"] == 0
+        and actual["unbalanced_unchanged_count"] == 0
+        and actual["unassessable_reaction_count"] == 0,
+    }
+
+
 def _global_nad_migration_audit(model, handoff: dict) -> dict:
     """Quantify why all-copy NAD migration is blocked, entirely on a copy."""
 
     gate = handoff["global_nad_migration_gate"]
-    before = {reaction.id: _safe_mass_balance(reaction) for reaction in model.reactions}
     candidate = model.copy()
     migrated_ids: list[str] = []
     for group in ("nad_plus", "nadh"):
@@ -340,32 +695,63 @@ def _global_nad_migration_audit(model, handoff: dict) -> dict:
             _require(actual == gate[group]["legacy_tuple"], f"refusing global {group} third tuple for {metabolite.id}: {actual!r}")
             metabolite.formula, metabolite.charge = target["formula"], target["charge"]
             migrated_ids.append(metabolite_id)
-    after = {reaction.id: _safe_mass_balance(reaction) for reaction in candidate.reactions}
-    incident = sorted({reaction.id for metabolite_id in migrated_ids for reaction in model.metabolites.get_by_id(metabolite_id).reactions})
-    changed = sorted(reaction_id for reaction_id in before if before[reaction_id] != after[reaction_id])
-    newly_unbalanced = sorted(reaction_id for reaction_id in before if before[reaction_id] == {} and after[reaction_id] not in ({}, None))
-    repaired = sorted(reaction_id for reaction_id in before if before[reaction_id] not in ({}, None) and after[reaction_id] == {})
-    actual = {
-        "incident_reaction_count": len(incident),
-        "changed_residual_count": len(changed),
-        "newly_unbalanced_count": len(newly_unbalanced),
-        "repaired_count": len(repaired),
-        "incident_reaction_ids_sha256": _ids_digest(incident),
-        "changed_reaction_ids_sha256": _ids_digest(changed),
-        "newly_unbalanced_ids_sha256": _ids_digest(newly_unbalanced),
-        "representative_newly_unbalanced_present": all(reaction_id in newly_unbalanced for reaction_id in gate["expected"]["representative_newly_unbalanced"]),
-    }
-    expected = gate["expected"]
-    checks = {key: actual[key] == expected[key] for key in expected if key != "representative_newly_unbalanced"}
-    checks["representative_newly_unbalanced"] = actual["representative_newly_unbalanced_present"]
-    return {"actual": actual, "matches_expected": all(checks.values()), "checks": checks}
+    return _balance_ledger(model, candidate, migrated_ids, gate["expected"])
+
+
+def _atomic_identity_frontier_audit(
+    model, handoff: dict, source_model_path: Path
+) -> dict:
+    """Apply the eight existing identity groups on a copy and audit all incidents."""
+
+    gate = handoff["frontier_closure_gate"]["atomic_identity_transaction"]
+    curation = load_coa_protonation_curation(
+        COA_CURATION_PATH, source_model_path=source_model_path
+    )
+    groups = {group["id"]: group for group in curation["groups"]}
+    _require(
+        set(gate["group_ids"]) <= set(groups),
+        "R1521 atomic identity group is absent from CoA curation",
+    )
+    candidate = model.copy()
+    migrated_ids: list[str] = []
+    for group_id in gate["group_ids"]:
+        group = groups[group_id]
+        legacy_by_id = {
+            metabolite_id: {"formula": row["formula"], "charge": row["charge"]}
+            for row in group["legacy_tuples"]
+            for metabolite_id in row["ids"]
+        }
+        _require(
+            set(legacy_by_id) == set(group["expected_ids"]),
+            f"R1521 atomic identity inventory drifted for {group_id}",
+        )
+        for metabolite_id in group["expected_ids"]:
+            source_metabolite = model.metabolites.get_by_id(metabolite_id)
+            actual = {
+                "formula": source_metabolite.formula,
+                "charge": source_metabolite.charge,
+            }
+            _require(
+                actual == legacy_by_id[metabolite_id],
+                f"refusing atomic third tuple for {metabolite_id}: {actual!r}",
+            )
+            metabolite = candidate.metabolites.get_by_id(metabolite_id)
+            target = group["target_tuple"]
+            metabolite.formula, metabolite.charge = target["formula"], target["charge"]
+            migrated_ids.append(metabolite_id)
+    _require(
+        len(migrated_ids) == gate["expected"]["migrated_metabolite_count"],
+        "R1521 atomic identity copy count drifted",
+    )
+    return _balance_ledger(model, candidate, migrated_ids, gate["expected"])
 
 
 def _source_snapshot_report(model_path: Path, model, handoff: dict) -> dict:
     actual_sha = _sha256_file(model_path)
     actual_fingerprint = _model_snapshot_fingerprint(model)
     return {
-        "model_path": handoff["source_model"],
+        "declared_model_locator": handoff["source_model"],
+        "physical_input_locator_recorded_in_execution_metadata": True,
         "declared_sha256": handoff["source_sha256"],
         "actual_sha256": actual_sha,
         "sha256_verified": actual_sha == handoff["source_sha256"],
@@ -375,7 +761,7 @@ def _source_snapshot_report(model_path: Path, model, handoff: dict) -> dict:
     }
 
 
-def _source_path(model_path: Path | None, handoff: dict) -> Path:
+def _source_path(model_path: Path | None) -> Path:
     _require(model_path is not None, "explicit R1521 source model path is required")
     return Path(model_path).resolve()
 
@@ -389,7 +775,11 @@ def _validate_output_path(
         source_path.resolve(),
         (REPOSITORY / handoff["source_model"]).resolve(),
         HANDOFF_PATH.resolve(),
-        ER_EVIDENCE_PATH.resolve(),
+        COA_CURATION_PATH.resolve(),
+        *(
+            (REPOSITORY / dependency["path"]).resolve()
+            for dependency in handoff["evidence_dependencies"].values()
+        ),
     }
     _require(
         output_path.resolve() not in protected,
@@ -402,7 +792,7 @@ def audit_r1521_current_snapshot(model_path: Path | None = None, handoff: dict |
 
     handoff = load_r1521_current_snapshot_handoff() if handoff is None else handoff
     _validate_runtime_handoff(handoff)
-    source = _source_path(model_path, handoff)
+    source = _source_path(model_path)
     _require(source.is_file(), f"R1521 source model is unavailable: {source}")
     model = read_sbml_model(str(source))
     validation = validate_r1521_current_snapshot_model(model, handoff)
@@ -412,20 +802,28 @@ def audit_r1521_current_snapshot(model_path: Path | None = None, handoff: dict |
     balances = {}
     for contract in handoff["reaction_contracts"]:
         reaction = model.reactions.get_by_id(contract["id"])
-        actual = reaction.check_mass_balance()
-        expected = handoff["absolute_balance_contract"][reaction.id]
+        actual = _safe_mass_balance(reaction)
+        expected = handoff["partial_known_formula_residual_contract"][reaction.id]
         balances[reaction.id] = {
-            "actual": actual,
-            "expected": expected,
-            "matches_exactly": actual == expected,
-            "is_balanced": actual == {},
+            "partial_residual": actual,
+            "expected_partial_residual": expected,
+            "matches_contract": actual == expected,
+            "exact_balance_assessable": _complete_mass_balance(reaction) is not None,
         }
     objective_before = model.slim_optimize(error_value=None)
     candidate = _local_counterfactual_on_copy(model, handoff)
     candidate_balances = {
-        contract["id"]: candidate.reactions.get_by_id(contract["id"]).check_mass_balance()
+        contract["id"]: _complete_mass_balance(
+            candidate.reactions.get_by_id(contract["id"])
+        )
         for contract in handoff["reaction_contracts"]
     }
+    local_gate = _balance_ledger(
+        model,
+        candidate,
+        [entry["id"] for entry in handoff["local_counterfactual"]["target_tuples"]],
+        handoff["frontier_closure_gate"]["local_counterfactual_full_model"]["expected"],
+    )
     objective_after = candidate.slim_optimize(error_value=None)
     objective_unchanged = (
         objective_before is not None
@@ -433,26 +831,57 @@ def audit_r1521_current_snapshot(model_path: Path | None = None, handoff: dict |
         and isclose(float(objective_before), float(objective_after), rel_tol=0.0, abs_tol=1e-9)
     )
     global_nad_gate = _global_nad_migration_audit(model, handoff)
-    _require(
-        global_nad_gate["matches_expected"],
-        "R1521 global NAD migration gate drifted from the locked current snapshot",
-    )
+    atomic_gate = _atomic_identity_frontier_audit(model, handoff, source)
+    for label, gate in (
+        ("local counterfactual", local_gate),
+        ("global NAD migration", global_nad_gate),
+        ("atomic identity transaction", atomic_gate),
+    ):
+        _require(
+            gate["matches_expected"],
+            f"R1521 {label} drifted from the locked current snapshot: "
+            f"{gate['mismatched_fields']!r}",
+        )
+    coverage = handoff["frontier_closure_gate"]["source_audit_coverage"]
+    r364 = handoff["frontier_closure_gate"]["r364_symbolic_contract"]
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "artifact_type": "r1521_current_snapshot_handoff_audit",
+        "evidence_role": "local_cross_check_not_hpcc_acceptance",
         "activation": handoff["activation"],
         "handoff_contract_sha256": handoff["target_contract_sha256"],
         "evidence_dependencies": handoff["evidence_dependencies"],
         "source_snapshot": snapshot,
         "validation": validation,
-        "adjacent_absolute_balance": balances,
-        "candidate_adjacent_absolute_balance": candidate_balances,
-        "candidate_closes_adjacent_reactions": all(value == {} for value in candidate_balances.values()),
+        "gpr_evidence": handoff["local_counterfactual"]["gpr_evidence"],
+        "annotation_conflicts": handoff["local_counterfactual"]["annotation_conflicts"],
+        "source_partial_known_formula_residual": balances,
+        "candidate_adjacent_exact_balance": candidate_balances,
+        "candidate_balances_named_adjacent_reactions_exactly": all(
+            value == {} for value in candidate_balances.values()
+        ),
+        "local_counterfactual_full_model_gate": local_gate,
         "global_nad_migration_gate": global_nad_gate,
+        "atomic_identity_frontier_gate": atomic_gate,
+        "frontier_source_audit_coverage": coverage,
+        "r364_symbolic_contract": r364,
+        "runtime_inputs": {
+            "atomic_identity_curation": {
+                "declared_locator": handoff["frontier_closure_gate"]
+                ["atomic_identity_transaction"]["curation_path"],
+                "sha256": _sha256_file(COA_CURATION_PATH),
+            }
+        },
+        "frontier_closed": local_gate["frontier_closed"]
+        and global_nad_gate["frontier_closed"]
+        and atomic_gate["frontier_closed"]
+        and coverage["all_atomic_frontier_identities_closed"]
+        and r364["symbolic_metabolite_identity_status"] == "resolved",
         "objective_before": None if objective_before is None else round(float(objective_before), 12),
         "objective_after": None if objective_after is None else round(float(objective_after), 12),
         "objective_unchanged": objective_unchanged,
         "blockers": handoff["blockers"],
+        "production_gate_passed": False,
         "ready_for_activation": False,
     }
 
@@ -487,7 +916,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     handoff = load_r1521_current_snapshot_handoff()
-    source = _source_path(args.model, handoff)
+    source = _source_path(args.model)
     _validate_output_path(args.output, source, handoff)
     _write_json(args.output, audit_r1521_current_snapshot(source, handoff))
     return 0

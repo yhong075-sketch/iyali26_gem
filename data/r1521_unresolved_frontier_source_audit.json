@@ -1,0 +1,850 @@
+{
+  "schema_version": "1.0",
+  "task": "R1521 no-existing-xref frontier identity audit",
+  "generated_on": "2026-08-18",
+  "governance": {
+    "policy": "govern-agentic-research",
+    "scope": "source research only; no repository edits, no solver run, no production activation",
+    "decision_rule": "An exact official reaction or a cross-linked official pH-7.3 reaction is required. Name similarity and algebraic coupling alone do not authorize an identity or proton edit.",
+    "canonical_h_coefficient_definition": "Signed H+ stoichiometric coefficient in the model-written direction: positive for product, negative for reactant.",
+    "human_gate": "All proposed tuple and H+ changes remain candidates and require atomic all-copy closure plus explicit human approval."
+  },
+  "authoritative_model": {
+    "path": "../iyali26_gem/model.xml",
+    "sha256_recomputed_on_2026_08_18": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "model_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b"
+  },
+  "audit_coverage": {
+    "requested_reactions": 21,
+    "audited_reactions": 21,
+    "official_identity_supported": 18,
+    "unverified_or_contradicted_blockers": 3,
+    "blocker_reaction_ids": [
+      "R1434",
+      "R1435",
+      "R1522"
+    ],
+    "source_families_searched": [
+      "Rhea",
+      "KEGG",
+      "MetaNetX",
+      "IUBMB/ENZYME"
+    ]
+  },
+  "reactions": [
+    {
+      "reaction_id": "R132",
+      "source_equation": "acetaldehyde + NADH <=> ethanol + NAD",
+      "candidate_identity": "acetaldehyde + NADH + H+ => ethanol + NAD+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:25292"
+          ],
+          "kegg": [
+            "R00754"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "1.1.1.1"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": -1,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add one H+ reactant, only in the same atomic transaction that normalizes all NAD+/NADH copies to the Rhea pH-7.3 tuples.",
+      "evidence_status": "supported",
+      "limitations": "The model NAD(H) tuples are legacy neutral species; the H+ edit alone would not be source-closed.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/25292",
+        "https://www.kegg.jp/entry/R00754",
+        "https://enzyme.expasy.org/EC/1.1.1.1"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1434",
+      "source_equation": "palmitoyl-CoA + oxygen + NADH --> 2 H2O + NAD + palmitoleoyl-CoA",
+      "candidate_identity": "putative NADH-lumped delta-9 hexadecanoyl-CoA desaturation",
+      "official_ids": {
+        "exact": {
+          "rhea": [],
+          "kegg": [],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:19721",
+            "RHEA:25416"
+          ],
+          "iubmb_ec": [
+            "1.14.19.1"
+          ]
+        }
+      },
+      "verdict": "unverified_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "None authorized. Resolve both C16 delta-9 substrate specificity and the explicit NADH-to-cytochrome-b5 coupling before assigning a canonical H+ coefficient.",
+      "evidence_status": "unverified",
+      "limitations": "IUBMB EC 1.14.19.1 and RHEA:19721 specify octadecanoyl-CoA with reduced cytochrome b5, not this C16 NADH-lumped equation. Formal coupling would predict one H+ reactant, but that is an inference, not an official same-reaction record.",
+      "source_urls": [
+        "https://enzyme.expasy.org/EC/1.14.19.1",
+        "https://www.rhea-db.org/rhea/19721",
+        "https://www.rhea-db.org/rhea/25416"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1435",
+      "source_equation": "stearoyl-CoA + oxygen + NADH --> 2 H2O + NAD + oleoyl-CoA",
+      "candidate_identity": "putative NADH-lumped stearoyl-CoA 9-desaturation",
+      "official_ids": {
+        "exact": {
+          "rhea": [],
+          "kegg": [],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:19721",
+            "RHEA:25416"
+          ],
+          "kegg": [
+            "R02222"
+          ],
+          "iubmb_ec": [
+            "1.14.19.1"
+          ]
+        }
+      },
+      "verdict": "unverified_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "None authorized. Source-close the cytochrome-b5 reductase coupling as an explicit documented lump or retain the carrier-mediated official chemistry.",
+      "evidence_status": "unverified",
+      "limitations": "The substrate/product pair is supported, but official Rhea/IUBMB chemistry uses 2 reduced cytochrome b5 and 2 H+, not NADH directly. Formal pathway summation predicts one H+ reactant but cannot substitute for a same-reaction source.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/19721",
+        "https://www.kegg.jp/entry/R02222",
+        "https://enzyme.expasy.org/EC/1.14.19.1"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1522",
+      "source_equation": "NAD + (R)-3-hydroxybutanoyl-CoA --> NADH + acetoacetyl-CoA",
+      "candidate_identity": "no official match for the current (3R)+NAD+ cofactor/stereochemistry pairing",
+      "official_ids": {
+        "exact": {
+          "rhea": [],
+          "kegg": [],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:30799",
+            "RHEA:45796"
+          ],
+          "kegg": [
+            "R01975",
+            "R01977"
+          ],
+          "metanetx": [
+            "MNXR189650"
+          ],
+          "iubmb_ec": [
+            "1.1.1.35",
+            "1.1.1.36"
+          ]
+        }
+      },
+      "verdict": "unverified_blocker",
+      "canonical_h_coefficient": null,
+      "model_h_coefficient": 0,
+      "required_change": "None authorized. Choose and evidence either (3S)+NAD+ or (3R)+NADP+; do not repair the current hybrid with H+ alone.",
+      "evidence_status": "contradicted",
+      "limitations": "RHEA:30799/KEGG R01975 pair (3S) with NAD+, while RHEA:45796/KEGG R01977 pair (3R) with NADP+. Both official alternatives produce H+, but neither is the current reaction.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30799",
+        "https://www.kegg.jp/entry/R01975",
+        "https://www.rhea-db.org/rhea/45796",
+        "https://www.kegg.jp/entry/R01977",
+        "https://www.metanetx.org/equa_info/MNXR189650"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1975",
+      "source_equation": "NAD + 2 H+ + 2-oxoadipic acid + CoA --> glutaryl-CoA + NADH + CO2",
+      "candidate_identity": "2-oxoadipate + NAD+ + CoA => glutaryl-CoA + CO2 + NADH",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:30795",
+            "RHEA:30796"
+          ],
+          "kegg": [
+            "R01933"
+          ],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": -2,
+      "required_change": "Candidate: remove both reactant H+ coefficients while atomically normalizing NAD(H), CoA, glutaryl-CoA, and 2-oxoadipate tuples.",
+      "evidence_status": "supported",
+      "limitations": "KEGG R01933 writes one product H+ under its legacy compound convention; Rhea pH-7.3 major microspecies chemistry has no explicit H+ and controls the canonical coefficient here.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/30796",
+        "https://www.kegg.jp/entry/R01933"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2064",
+      "source_equation": "NAD + 4-aminobutyraldehyde + H2O --> NADH + 4-aminobutanoate",
+      "candidate_identity": "4-aminobutanal + NAD+ + H2O <=> 4-aminobutanoate + NADH + 2 H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:19105",
+            "RHEA:19108"
+          ],
+          "kegg": [
+            "R02549"
+          ],
+          "metanetx": [
+            "MNXR95191"
+          ],
+          "iubmb_ec": [
+            "1.2.1.19"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add two product H+ and change 4-aminobutanal to the Rhea cation tuple, together with all NAD(H) copy updates.",
+      "evidence_status": "supported",
+      "limitations": "The model aldehyde is unannotated C4H9NO/charge 0; Rhea uses CHEBI:58264 C4H10NO/charge +1. KEGG's one-H form reflects a different protonation convention.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/19108",
+        "https://www.kegg.jp/entry/R02549",
+        "https://www.metanetx.org/equa_info/MNXR95191",
+        "https://enzyme.expasy.org/EC/1.2.1.19"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R257",
+      "source_equation": "NAD + D-glucitol --> NADH + D-fructose",
+      "candidate_identity": "D-sorbitol + NAD+ <=> keto-D-fructose + NADH + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:33031",
+            "RHEA:33034"
+          ],
+          "kegg": [
+            "R00875"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "1.1.1.14"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add one product H+ with NAD(H) tuple migration and explicitly map model D-fructose to the keto-D-fructose reaction participant.",
+      "evidence_status": "supported",
+      "limitations": "KEGG C00095 supports the broad D-fructose identity; Rhea uses keto-D-fructose CHEBI:48095, whereas the model carries CHEBI:37721, so tautomer scope must be declared.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33034",
+        "https://www.kegg.jp/entry/R00875",
+        "https://enzyme.expasy.org/EC/1.1.1.14"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R501",
+      "source_equation": "H2O + NAD + L-4-hydroxyglutamate semialdehyde <=> NADH + erythro-4-hydroxy-L-glutamic acid",
+      "candidate_identity": "L-4-hydroxyglutamate semialdehyde + NAD+ + H2O <=> (4S)-4-hydroxy-L-glutamate + NADH + 2 H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:31246"
+          ],
+          "kegg": [
+            "R05051"
+          ],
+          "metanetx": [
+            "MNXR95015"
+          ],
+          "iubmb_ec": [
+            "1.2.1.88"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 2,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add two product H+ and atomically migrate product, semialdehyde, and NAD(H) tuples.",
+      "evidence_status": "supported",
+      "limitations": "The model product is neutral C5H9NO5; Rhea uses (4S)-4-hydroxy-L-glutamate C5H8NO5/charge -1. KEGG's reverse equation has one H+ because of its compound convention.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/31246",
+        "https://www.kegg.jp/entry/R05051",
+        "https://www.metanetx.org/equa_info/MNXR95015",
+        "https://enzyme.expasy.org/EC/1.2.1.88"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R534",
+      "source_equation": "NAD + (S)-malate <=> NADH + oxaloacetate",
+      "candidate_identity": "(S)-malate + NAD+ => oxaloacetate + NADH + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:21432",
+            "RHEA:21433"
+          ],
+          "kegg": [
+            "R00342"
+          ],
+          "metanetx": [
+            "MNXR101439"
+          ],
+          "iubmb_ec": [
+            "1.1.1.37"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add one product H+ in the same atomic transaction as malate, oxaloacetate, and NAD(H) pH-7.3 tuple normalization.",
+      "evidence_status": "supported",
+      "limitations": "The model currently uses neutral malic acid/oxaloacetic acid tuples despite anion xrefs.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/21433",
+        "https://www.kegg.jp/entry/R00342",
+        "https://www.metanetx.org/equa_info/MNXR101439",
+        "https://enzyme.expasy.org/EC/1.1.1.37"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R567",
+      "source_equation": "H2O + NAD --> 2 H+ + ADP-ribose + nicotinamide",
+      "candidate_identity": "NAD+ + H2O <=> ADP-D-ribose + nicotinamide + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:16303",
+            "RHEA:16304"
+          ],
+          "kegg": [
+            "R00102"
+          ],
+          "metanetx": [
+            "MNXR145761"
+          ],
+          "iubmb_ec": [
+            "3.2.2.5",
+            "3.2.2.6"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 2,
+      "required_change": "Candidate: reduce the product H+ coefficient from 2 to 1 with NAD+ tuple normalization; retain ADP-D-ribose stereochemical identity.",
+      "evidence_status": "supported",
+      "limitations": "MetaNetX MNXR145763 is deprecated to MNXR145761. KEGG omits H+ under its legacy convention; Rhea pH-7.3 controls the coefficient.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/16304",
+        "https://www.kegg.jp/entry/R00102",
+        "https://www.metanetx.org/equa_info/MNXR145763"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R572",
+      "source_equation": "NADH + ATP --> NADPH + ADP",
+      "candidate_identity": "NADH + ATP <=> ADP + NADPH + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:12263"
+          ],
+          "kegg": [
+            "R00105"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "2.7.1.86"
+          ]
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add one product H+ only with atomic ATP/ADP/NADH/NADPH tuple migration.",
+      "evidence_status": "supported",
+      "limitations": "All four nucleotide/cofactor tuples are legacy neutral species in the model.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/12263",
+        "https://www.kegg.jp/entry/R00105",
+        "https://enzyme.expasy.org/EC/2.7.1.86"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R695",
+      "source_equation": "NADH + 2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone + O2 --> H2O + NAD + 3-demethylubiquinone-9",
+      "candidate_identity": "2-methoxy-5-methyl-6-all-trans-nonaprenyl-1,4-benzoquinone + NADH + O2 => 3-demethylubiquinone-9 + NAD+ + H2O",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:82855",
+            "RHEA:82856"
+          ],
+          "kegg": [
+            "R13408"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "1.14.13.253"
+          ]
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:81211"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate_with_tuple_blocker",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H+ edit. Candidate requires 3-demethylubiquinone-9 as the pH-7.3 anion and NAD(H) normalization; replace stale EC metadata only through curated review.",
+      "evidence_status": "supported",
+      "limitations": "Rhea product is charge -1/C53H79O4, while model m611 is neutral C53H80O4. The model's EC list does not contain the current official EC 1.14.13.253.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/82856",
+        "https://www.rhea-db.org/rhea/81211",
+        "https://www.kegg.jp/entry/R13408",
+        "https://enzyme.expasy.org/EC/1.14.13.253"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1457",
+      "source_equation": "CoA + ATP + palmitoleate --> AMP + PPi + palmitoleoyl-CoA",
+      "candidate_identity": "(9Z)-hexadecenoate + ATP + CoA => (9Z)-hexadecenoyl-CoA + AMP + diphosphate",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:33647",
+            "RHEA:33648"
+          ],
+          "kegg": [
+            "R00390"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "6.2.1.3"
+          ]
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:15422"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H+ edit. Atomically migrate palmitoleate from neutral acid to (9Z)-hexadecenoate charge -1 and normalize CoA, ATP, AMP, diphosphate, and acyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "The model palmitoleate tuple is neutral C16H30O2; the official reaction uses CHEBI:32372 C16H29O2/charge -1.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33648",
+        "https://www.rhea-db.org/rhea/15422",
+        "https://www.kegg.jp/entry/R00390",
+        "https://enzyme.expasy.org/EC/6.2.1.3"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1459",
+      "source_equation": "CoA + ATP + oleate --> AMP + PPi + oleoyl-CoA",
+      "candidate_identity": "(9Z)-octadecenoate + ATP + CoA => (9Z)-octadecenoyl-CoA + AMP + diphosphate",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:33607",
+            "RHEA:33608"
+          ],
+          "kegg": [
+            "R00390"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "6.2.1.3"
+          ]
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:15422"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H+ edit. Atomically migrate oleate to (9Z)-octadecenoate charge -1 and normalize all CoA/nucleotide/acyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "The model oleate tuple is neutral C18H34O2 and oleoyl-CoA lacks a direct ChEBI xref; exact structural xrefs must be closed across copies.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33607",
+        "https://www.rhea-db.org/rhea/15422",
+        "https://www.kegg.jp/entry/R00390",
+        "https://enzyme.expasy.org/EC/6.2.1.3"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1483",
+      "source_equation": "butanoyl-CoA + H2O --> H+ + butyrate + CoA",
+      "candidate_identity": "butanoyl-CoA + H2O => butanoate + CoA + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:40111"
+          ],
+          "kegg": [],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 1,
+      "required_change": "No H+ edit; retain +1 product H+ while atomically normalizing butanoyl-CoA and CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "Model butanoate is already the charge -1 species, but the CoA-family tuples remain legacy neutral species.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40111"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1484",
+      "source_equation": "hexanoyl-CoA + H2O --> H+ + hexanoate + CoA",
+      "candidate_identity": "hexanoyl-CoA + H2O <=> hexanoate + CoA + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:40118"
+          ],
+          "kegg": [],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 1,
+      "required_change": "No H+ edit; retain +1 product H+ while atomically normalizing hexanoyl-CoA and CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "Model hexanoate is already the charge -1 species, but the CoA-family tuples remain legacy neutral species.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40118"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1485",
+      "source_equation": "palmitoleoyl-CoA + H2O --> palmitoleate + CoA",
+      "candidate_identity": "(9Z)-hexadecenoyl-CoA + H2O <=> (9Z)-hexadecenoate + CoA + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:40131",
+            "RHEA:40134"
+          ],
+          "kegg": [],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:16781"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add one product H+ and atomically migrate neutral palmitoleic acid to (9Z)-hexadecenoate plus CoA/acyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "The substrate-specific Rhea record closes the former search gap; no inference from the generic hydrolase alone is needed.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40131",
+        "https://www.rhea-db.org/rhea/40134"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1486",
+      "source_equation": "oleoyl-CoA + H2O --> oleate + CoA",
+      "candidate_identity": "(9Z)-octadecenoyl-CoA + H2O => (9Z)-octadecenoate + CoA + H+",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:40139",
+            "RHEA:40142"
+          ],
+          "kegg": [
+            "R08176"
+          ],
+          "metanetx": [],
+          "iubmb_ec": []
+        },
+        "related_or_counterevidence": {}
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 1,
+      "model_h_coefficient": 0,
+      "required_change": "Candidate: add one product H+ and atomically migrate neutral oleic acid to (9Z)-octadecenoate plus CoA/acyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "KEGG R08176 omits H+ under its compound convention; Rhea pH-7.3 chemistry explicitly produces H+.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/40139",
+        "https://www.kegg.jp/entry/R08176"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R1898",
+      "source_equation": "H+ + butyrate + CoA + ATP --> butanoyl-CoA + AMP + PPi",
+      "candidate_identity": "butanoate + ATP + CoA <=> butanoyl-CoA + AMP + diphosphate",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:46175"
+          ],
+          "kegg": [
+            "R01176"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "6.2.1.2"
+          ]
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:52863"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": -1,
+      "required_change": "Candidate: remove the reactant H+ while atomically normalizing CoA, ATP, AMP, diphosphate, and butanoyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "Butanoate is already charge -1; the extra H+ compensates legacy neutral cofactor/acyl-CoA tuples and must not be removed in isolation.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/46175",
+        "https://www.kegg.jp/entry/R01176",
+        "https://enzyme.expasy.org/EC/6.2.1.2"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R2043",
+      "source_equation": "H+ + hexanoate + CoA + ATP --> hexanoyl-CoA + AMP + PPi",
+      "candidate_identity": "hexanoate + ATP + CoA => hexanoyl-CoA + AMP + diphosphate",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:43740",
+            "RHEA:43741"
+          ],
+          "kegg": [
+            "R00389"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "6.2.1.2"
+          ]
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:48341"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": -1,
+      "required_change": "Candidate: remove the reactant H+ while atomically normalizing CoA, ATP, AMP, diphosphate, and hexanoyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "Hexanoate is already charge -1; the H+ edit is valid only with all shared cofactor and acyl-CoA copies closed.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/43741",
+        "https://www.rhea-db.org/rhea/48341",
+        "https://www.kegg.jp/entry/R00389",
+        "https://enzyme.expasy.org/EC/6.2.1.2"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    },
+    {
+      "reaction_id": "R298",
+      "source_equation": "CoA + ATP + laurate --> lauroyl-CoA + AMP + PPi",
+      "candidate_identity": "dodecanoate + ATP + CoA => dodecanoyl-CoA + AMP + diphosphate",
+      "official_ids": {
+        "exact": {
+          "rhea": [
+            "RHEA:33623",
+            "RHEA:33624"
+          ],
+          "kegg": [
+            "R00389"
+          ],
+          "metanetx": [],
+          "iubmb_ec": [
+            "6.2.1.2"
+          ]
+        },
+        "related_or_counterevidence": {
+          "rhea": [
+            "RHEA:48341"
+          ]
+        }
+      },
+      "verdict": "supported_exact_identity_candidate",
+      "canonical_h_coefficient": 0,
+      "model_h_coefficient": 0,
+      "required_change": "No H+ edit. Atomically migrate neutral lauric acid to dodecanoate charge -1 and normalize CoA/nucleotide/lauroyl-CoA tuples.",
+      "evidence_status": "supported",
+      "limitations": "The model laurate tuple is neutral C12H24O2; official Rhea uses dodecanoate.",
+      "source_urls": [
+        "https://www.rhea-db.org/rhea/33624",
+        "https://www.rhea-db.org/rhea/48341",
+        "https://www.kegg.jp/entry/R00389",
+        "https://enzyme.expasy.org/EC/6.2.1.2"
+      ],
+      "accessed_on": "2026-08-18",
+      "h_edit_authorized": false
+    }
+  ],
+  "r364": {
+    "reaction_id": "R364",
+    "source_equation": "NAD + dihydrolipoylprotein --> H+ + NADH + lipoylprotein",
+    "candidate_identity": "N6-[(R)-dihydrolipoyl]-L-lysyl-[protein] + NAD+ => N6-[(R)-lipoyl]-L-lysyl-[protein] + NADH + H+",
+    "official_ids": {
+      "exact": {
+        "rhea": [
+          "RHEA:15045",
+          "RHEA:15048"
+        ],
+        "kegg": [
+          "R03815"
+        ],
+        "metanetx": [
+          "MNXR144967"
+        ],
+        "iubmb_ec": [
+          "1.8.1.4"
+        ]
+      },
+      "participant_ids": {
+        "rhea_reduced": "RHEA-COMP:10475 / CHEBI:83100",
+        "rhea_oxidized": "RHEA-COMP:10474 / CHEBI:83099",
+        "kegg_reduced": "C02972",
+        "kegg_oxidized": "C02051"
+      }
+    },
+    "verdict": "reaction_identity_supported_but_symbolic_identity_source_close_blocked",
+    "canonical_h_coefficient": 1,
+    "model_h_coefficient": 1,
+    "required_change": "No H+ edit. Do not add m586->C02051 alone. First normalize both m586 and m588 to one explicit conserved-protein-moiety schema, prove identical carrier scope across incident reactions, and then update all copies atomically.",
+    "evidence_status": "partially_supported",
+    "limitations": "Official sources close the reactive lipoyl/dihydrolipoyl residue chemistry, not the model's incompatible full symbolic formulas or all carrier-protein contexts.",
+    "source_urls": [
+      "https://www.rhea-db.org/rhea/15045",
+      "https://www.rhea-db.org/rhea/15048",
+      "https://www.rhea-db.org/help/reaction-participant",
+      "https://www.kegg.jp/entry/R03815",
+      "https://www.kegg.jp/entry/C02051",
+      "https://www.kegg.jp/entry/C02972",
+      "https://enzyme.expasy.org/EC/1.8.1.4"
+    ],
+    "accessed_on": "2026-08-18",
+    "moiety_contract": {
+      "official_contract": {
+        "rhea": "RHEA-COMP:10475 and RHEA-COMP:10474 use an unchanged textual [protein] remainder; reactive residues CHEBI:83100 C14H26N2O2S2 and CHEBI:83099 C14H24N2O2S2 differ only by H2.",
+        "kegg": "C02972 C8H16NOS2R and C02051 C8H14NOS2R are the reduced/oxidized lipoyl-bearing H-protein generic pair and differ only by H2."
+      },
+      "model_contract": {
+        "m588": "dihydrolipoylprotein C8H15OS2R, charge 0, annotated C02972/MNXM731215; formula is missing N and one H relative to KEGG C02972.",
+        "m586": "lipoylprotein C12H18N2O4S2R2(C2H2NOR)n, charge 0, annotated MNXM1093313/BiGG lprot; no current C02051 xref.",
+        "symbolic_remainder_test": "failed: m588 has one R, whereas m586 has R2 plus a polymer repeat term; the same conserved protein remainder is not algebraically asserted."
+      },
+      "m586_to_C02051_assertion_sufficient": false,
+      "audit_result": "blocker",
+      "reason": "A unilateral xref would identify the oxidized endpoint but would neither repair m588's conflicting C02972 formula nor prove that both model species carry the same conserved protein moiety. KEGG C02051/C02972 also explicitly describe the lipoyl-bearing H protein, so global use across other carrier-protein contexts requires incident-reaction evidence.",
+      "minimum_source_close_requirements": [
+        "Choose one symbolic representation family for both endpoints: KEGG generic moiety pair or Rhea reactive-residue pair.",
+        "Use the same declared protein remainder and charge convention on both sides.",
+        "Normalize m586 and m588 together with NAD(H) tuples and verify R364 plus every incident reaction atomically.",
+        "Require zero new balance regressions and retain the human activation gate."
+      ]
+    }
+  },
+  "activation_state": "blocked",
+  "ready_for_activation": false,
+  "production_apply_forbidden": true,
+  "isolated_proton_edits_authorized": false
+}
