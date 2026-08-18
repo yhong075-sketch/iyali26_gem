@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "artifact_type": "hpcc_slurm_validation_batch",
+  "batch_id": "r613_identity_closure",
+  "recorded_at": "2026-08-18",
+  "git": {
+    "remote_branch": "origin/lipid-unlump",
+    "commit": "72185412a0913f7a7df987853e1230eff2100a6c",
+    "hpcc_repository": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014",
+    "tracked_clean_before_after": true
+  },
+  "model": {
+    "logical_source": "../iyali26_gem/model.xml",
+    "hpcc_snapshot": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml",
+    "mode": "0444",
+    "bytes": 14039307,
+    "sha256_before_after": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "fingerprint_before_after": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "dimensions": {
+      "metabolites": 1877,
+      "reactions": 2313,
+      "genes": 1074
+    },
+    "unchanged": true
+  },
+  "software": {
+    "python": "3.11.15",
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "scipy": "1.17.1",
+    "swiglpk": "5.0.13",
+    "glpk": "5.0"
+  },
+  "test_command": "IYALI26_SOURCE_MODEL=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml /rhome/yhong075/iyali26_flow_phase2/.venv/bin/python -m unittest -v tests.test_coa_protonation_curation tests.test_fatty_acyl_coa_handoff tests.test_r1521_current_snapshot_handoff tests.test_lp_sn12_candidate",
+  "jobs": [
+    {
+      "job_id": "27546559",
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "partition": "short",
+      "account": "iwheeldonlab",
+      "node": "x02",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "elapsed": "00:04:52",
+      "batch_max_rss_kb": 930560,
+      "submit_time": "2026-08-18T12:47:50-07:00",
+      "start_time": "2026-08-18T12:47:51-07:00",
+      "end_time": "2026-08-18T12:52:43-07:00",
+      "tests": {
+        "total": 53,
+        "failures": 0,
+        "errors": 0,
+        "runtime_seconds": 241.128,
+        "process_exit": 0,
+        "result": "OK"
+      },
+      "failure": "A brittle post-test grep used the wrong test class and required a same-line ok token; all tests had already passed.",
+      "superseded_scope": "wrapper_only_failure",
+      "stdout": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T194624Z/slurm-27546559.out",
+        "bytes": 31301,
+        "sha256": "5e6654e5b3a238200d834212e84a6e06569ef93f376ae7a0a430527d522712cf"
+      },
+      "stderr": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T194624Z/slurm-27546559.err",
+        "bytes": 180,
+        "sha256": "7003edd3f6e70f5f69bad75028f78a325e8db58145177883b1a828e5ef3c5799"
+      },
+      "unittest_log": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T194624Z/unittest.log",
+        "bytes": 29737,
+        "sha256": "4115148c7a8b3cd7549e89aaaa457904d5f877a222c31eb7b81a55abaf80874f"
+      },
+      "job_script": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T194624Z/job.sh",
+        "bytes": 4843,
+        "sha256": "7fc6ae5e64654b75a8e6ade0cfe44bae3dd22a7d2f25e71b803eaf59514316e9"
+      }
+    },
+    {
+      "job_id": "27546646",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "partition": "short",
+      "account": "iwheeldonlab",
+      "node": "x02",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "elapsed": "00:04:50",
+      "batch_max_rss_kb": 930436,
+      "submit_time": "2026-08-18T12:57:25-07:00",
+      "start_time": "2026-08-18T12:57:26-07:00",
+      "end_time": "2026-08-18T13:02:16-07:00",
+      "wrapper_gate": "unittest PIPESTATUS[0] plus model SHA/fingerprint immutability",
+      "tests": {
+        "total": 53,
+        "failures": 0,
+        "errors": 0,
+        "runtime_seconds": 234.371,
+        "process_exit": 0,
+        "result": "OK"
+      },
+      "stdout": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T195610Z/slurm-27546646.out",
+        "bytes": 31491,
+        "sha256": "1c51a06f410391fe5c8391b97cc7ba81e641ced31db9016f4e998c0b0d17c100"
+      },
+      "stderr": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T195610Z/slurm-27546646.err",
+        "bytes": 180,
+        "sha256": "7003edd3f6e70f5f69bad75028f78a325e8db58145177883b1a828e5ef3c5799"
+      },
+      "unittest_log": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T195610Z/unittest.log",
+        "bytes": 29737,
+        "sha256": "6b6df12c1ed597fd5c6b279fa3dbd7b54404ce79513de7e1d14b0881a100744d"
+      },
+      "job_script": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r613_identity_7218541_20260818T195610Z/job.sh",
+        "bytes": 4073,
+        "sha256": "6075d6bc223ca2965cccc92f0498868f41b463357c4c45ef70c239705a18c183"
+      }
+    }
+  ],
+  "r613_recomputation": {
+    "same_identity_metabolite_ids": [
+      "m853[C_mi]"
+    ],
+    "incident_reaction_ids": [
+      "R613",
+      "R614"
+    ],
+    "required_2_oxoglutarate_copy_ids": [
+      "m51[C_cy]",
+      "m219[C_mi]",
+      "m330[C_pe]",
+      "m625[C_nu]",
+      "m1145[C_ex]"
+    ],
+    "incident_reaction_count": 49,
+    "newly_unbalanced_reaction_ids": [
+      "R1170",
+      "R15",
+      "R2066",
+      "R2120",
+      "R391",
+      "R396",
+      "R491",
+      "R492",
+      "R506",
+      "R507",
+      "R508",
+      "R520",
+      "R521",
+      "R624",
+      "R660",
+      "R770",
+      "R773",
+      "R774",
+      "R796",
+      "R797",
+      "R96"
+    ],
+    "repaired_reaction_ids": [
+      "R161",
+      "R162",
+      "R163",
+      "R613",
+      "R747"
+    ],
+    "r613_additional_proton": false,
+    "r614_reactant_proton_after_full_2_oxoglutarate_migration": true
+  },
+  "acceptance": {
+    "hpcc_reproducibility": "passed",
+    "scientific_identity": "resolved",
+    "frontier_closure": "blocked_by_21_balanced_to_unbalanced_regressions",
+    "candidate_tuple_or_proton_edit_authorized": false,
+    "production_apply_performed": false,
+    "activation_state": "blocked",
+    "ready_for_activation": false
+  }
+}
