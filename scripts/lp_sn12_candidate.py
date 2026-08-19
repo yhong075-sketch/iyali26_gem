@@ -18,6 +18,7 @@ from cobra import Metabolite, Model, Reaction
 REPOSITORY = Path(__file__).resolve().parents[1]
 CURATION_PATH = REPOSITORY / "data" / "lipid_unlump_sn_core_curation.json"
 MARKER = "lipid_unlump_sn_core"
+CARDIOLIPIN_AUDIT_SHA256 = "e16db37d6b19731fa8f608e177c10b8d646343e496b18ad609a2da29f35543d1"
 _FORMULA_ORDER = ("C", "H", "N", "O", "P", "S")
 
 
@@ -70,7 +71,7 @@ def _read_curation(path: Path = CURATION_PATH) -> dict[str, Any]:
         curation = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
         raise ContractError(f"cannot read curation {path}: {error}") from error
-    required = {"schema_version", "source", "chains", "states", "steps", "biomass", "blockers"}
+    required = {"schema_version", "source", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
     if curation.get("schema_version") != 1 or required - curation.keys():
         raise ContractError("invalid lipid-unlump curation manifest")
     if len(curation["chains"]) != 7 or len(curation["steps"]) != 18:
@@ -185,6 +186,139 @@ def _chains(model: Model, curation: dict[str, Any]) -> list[tuple[str, Metabolit
     if not isclose(fsum(weight for _, _, weight in result), 1.0, abs_tol=1e-15):
         raise ContractError("acyl-chain weights do not normalize to one")
     return result
+
+
+def cardiolipin_audit(model: Model) -> dict[str, Any]:
+    """Audit the four-position CL envelope without adding a state or reaction."""
+    curation = _read_curation()
+    contract = curation["cardiolipin_four_chain_audit"]
+    contract_sha256 = sha256(_json(contract).encode()).hexdigest()
+    if contract_sha256 != CARDIOLIPIN_AUDIT_SHA256:
+        raise ContractError("cardiolipin audit contract drifted")
+    genes = contract["gene_identity_ledger"]
+    gene_ids = {row["systematic_id"] for row in genes}
+    template_gprs = {row["gpr"] for row in contract["template_reactions"] if row["gpr"]}
+    if len(gene_ids) != len(genes) or not template_gprs <= gene_ids or any(not row["evidence_status"] for row in genes):
+        raise ContractError("cardiolipin gene identity ledger drifted")
+    sources = contract["evidence_sources"]
+    coverage = contract["evidence_audit_coverage"]
+    conflict = contract["R1742_annotation_conflict"]
+    claim_ids = [claim_id for row in sources for claim_id in row["claim_ids"]] + [conflict["claim_id"]]
+    verdicts = Counter(row["reviewer_verdict"] for row in sources for _ in row["claim_ids"])
+    verdicts[conflict["reviewer_verdict"]] += 1
+    if (
+        len(claim_ids) != len(set(claim_ids))
+        or len(claim_ids) != coverage["total_claims"]
+        or coverage["audited"] != coverage["total_claims"]
+        or coverage["supported"] != verdicts["supported"]
+        or coverage["unresolved"] != verdicts["partially_supported"]
+        or coverage["contradicted"] != verdicts["contradicted"]
+        or coverage["supported"] + coverage["unresolved"] + coverage["contradicted"] != coverage["total_claims"]
+        or coverage["unchecked"] != 0
+        or set(verdicts) - {"supported", "partially_supported", "contradicted"}
+        or conflict["audit_status"] != "audited"
+        or conflict["decision"] not in {"use_as_constraint", "defer", "exclude"}
+        or not conflict["conditions"]
+        or not set(conflict["source_ids"]) <= {row["source_id"] for row in sources}
+        or any(
+            row["audit_status"] != "audited"
+            or row["decision"] not in {"use_as_constraint", "defer", "exclude"}
+            or not row["conditions"]
+            for row in sources
+        )
+    ):
+        raise ContractError("cardiolipin evidence ledger coverage drifted")
+    positions = contract["position_convention"]
+    for row in contract["template_reactions"]:
+        reaction = _reaction(model, row["reaction_id"])
+        actual = {
+            "bounds": list(reaction.bounds),
+            "gpr": reaction.gene_reaction_rule,
+            "compartments": sorted(reaction.compartments),
+            "stoichiometry": {met.id: coefficient for met, coefficient in reaction.metabolites.items()},
+        }
+        if "notes" in row:
+            actual["notes"] = reaction.notes
+        expected = {key: row[key] for key in actual}
+        if actual != expected:
+            raise ContractError(f"cardiolipin template contract drifted: {reaction.id}")
+
+    chains = [row["id"] for row in curation["chains"]]
+    half_labels = [f"sn1={first}|sn2={second}" for first in chains for second in chains]
+    ids_and_symmetry = [
+        (f"ul_cl_mm__proS_sn1__{a}__proS_sn2__{b}__proR_sn1__{c}__proR_sn2__{d}[C_mm]", (a, b) == (c, d))
+        for a in chains for b in chains for c in chains for d in chains
+    ]
+    digest = lambda values: sha256(("\n".join(sorted(values)) + "\n").encode()).hexdigest()  # noqa: E731
+    all_ids = [identifier for identifier, _ in ids_and_symmetry]
+    same_ids = [identifier for identifier, same in ids_and_symmetry if same]
+    different_ids = [identifier for identifier, same in ids_and_symmetry if not same]
+    envelope = {
+        "status": "not_adopted",
+        "all_state_count": len(all_ids),
+        "all_ids_sha256": digest(all_ids),
+        "same_half_state_count": len(same_ids),
+        "same_half_ids_sha256": digest(same_ids),
+        "different_half_state_count": len(different_ids),
+        "different_half_ids_sha256": digest(different_ids),
+    }
+    state_space = contract["state_space"]
+    if len(half_labels) != state_space["ordered_half_pair_count"] or digest(half_labels) != state_space["ordered_half_labels_sha256"] or envelope != state_space["not_adopted_modeling_envelope"]:
+        raise ContractError("cardiolipin structural-envelope contract drifted")
+    forbidden = state_space["forbidden_lossy_half_swap_fold"]
+    if forbidden["state_count"] != len(half_labels) * (len(half_labels) + 1) // 2:
+        raise ContractError("lossy cardiolipin half-swap count drifted")
+
+    positioned = sorted(met.id for met in model.metabolites if met.id.startswith("ul_cl_mm__"))
+    positioned_set = set(positioned)
+    position_reactions = sorted(
+        reaction.id for reaction in model.reactions
+        if any(met.id in positioned_set for met in reaction.metabolites)
+    )
+    current = {
+        "currently_instantiated_network_position_state_count": 0,
+        "evidence_supported_position_state_count": 0,
+        "included_position_metabolite_count": len(positioned),
+        "included_position_reaction_count": len(position_reactions),
+        "reachability_scope": "zero means no position-resolved cardiolipin state is instantiated in the current candidate; it does not prove all 2,401 envelope states biologically unreachable",
+    }
+    if current != state_space["current_strict_model"]:
+        raise ContractError("current strict cardiolipin state must remain empty")
+
+    biomass_contract = contract["biomass_contract"]
+    biomass = _reaction(model, biomass_contract["reaction_id"])
+    generic_cl = biomass_contract["xLIPID_generic_cardiolipin_metabolite_id"]
+    if any(met.id == generic_cl or met.id.startswith("ul_cl_mm__") for met in biomass.metabolites):
+        raise ContractError("cardiolipin biomass activation is forbidden")
+    xlipid = _reaction(model, "xLIPID")
+    if xlipid.metabolites.get(_metabolite(model, generic_cl)) != biomass_contract["xLIPID_generic_cardiolipin_coefficient"]:
+        raise ContractError("generic xLIPID cardiolipin coefficient drifted")
+    evidence = contract["network_evidence"]
+    activation = contract["activation"]
+
+    witness = [
+        f"ul_cl_mm__proS_sn1__{chains[a]}__proS_sn2__{chains[b]}__proR_sn1__{chains[c]}__proR_sn2__{chains[d]}[C_mm]"
+        for a, b, c, d in ((0, 1, 2, 3), (2, 3, 0, 1))
+    ]
+    return {
+        "contract_sha256": contract_sha256,
+        "mode": contract["mode"],
+        "activation": activation,
+        "gates": contract["gates"],
+        "validated_template_reaction_ids": [row["reaction_id"] for row in contract["template_reactions"]],
+        "position_convention": positions,
+        "state_space": {"digest_convention": state_space["digest_convention"], "ordered_half_pair_count": len(half_labels), "ordered_half_labels_sha256": digest(half_labels), "not_adopted_modeling_envelope": envelope, "forbidden_lossy_half_swap_fold": forbidden, "current_strict_model": current},
+        "half_swap_witness": {"original_id": witness[0], "swapped_id": witness[1], "ids_are_distinct": witness[0] != witness[1]},
+        "biomass_contract": {**biomass_contract, "positioned_biomass_term_count": 0},
+        "network_evidence": evidence,
+        "gene_identity_ledger": genes,
+        "R197_gpr_decision_contract": contract["R197_gpr_decision_contract"],
+        "R1742_annotation_conflict": conflict,
+        "evidence_sources": sources,
+        "evidence_audit_coverage": coverage,
+        "curation_path": str(CURATION_PATH.relative_to(REPOSITORY)),
+        "remaining_blockers": contract["blockers"],
+    }
 
 
 def _build_routes(candidate: Model, templates: dict[str, Reaction], curation: dict[str, Any]) -> list[Reaction]:
@@ -322,6 +456,7 @@ def report(source_model: Model, candidate: Model) -> dict[str, Any]:
         "fba_probe": {"source_objective": source_fba, "candidate_objective": candidate_fba, "growth_ratio": candidate_fba / source_fba if source_fba else None},
         "runtime_seconds": runtime,
         "performance_review_required": any(runtime[f"candidate_{kind}_median"] > 2 * runtime[f"source_{kind}_median"] for kind in ("fba", "pfba")),
+        "cardiolipin_four_chain_audit": cardiolipin_audit(candidate),
         "remaining_blockers": curation["blockers"],
         "generic_acyl_coa_ids_remaining": [metabolite_id for metabolite_id in curation["generic_acyl_coa_ids"] if metabolite_id in candidate.metabolites],
         "production_apply_forbidden": True,
