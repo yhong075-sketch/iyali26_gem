@@ -643,6 +643,53 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
         self.assertEqual(hydroxy["expected_ids"], ["m1446[C_em]", "m1546[C_pe]"])
         self.assertIn({"ids": ["m1546[C_pe]"], "formula": None, "charge": 0}, hydroxy["legacy_tuples"])
 
+    @unittest.skipUnless(os.environ.get("IYALI26_SOURCE_MODEL"), "requires explicit IYALI26_SOURCE_MODEL")
+    def test_d_focal_contracts_identity_and_proton_policy_are_locked(self) -> None:
+        curation = load_coa_protonation_curation()
+        contracts = {
+            row["reaction_id"]: row for row in curation["reaction_contracts"]
+        }
+        expected = {
+            "R1708": {
+                "m156[C_mi]": -1.0,
+                "m201[C_mi]": -1.0,
+                "m71[C_mi]": 1.0,
+                "m810[C_mi]": 1.0,
+            },
+            "R2004": {
+                "m200[C_cy]": -1.0,
+                "m4[C_cy]": -1.0,
+                "m68[C_cy]": 1.0,
+                "m328[C_cy]": 1.0,
+            },
+        }
+        for reaction_id, stoichiometry in expected.items():
+            contract = contracts[reaction_id]
+            self.assertEqual(contract["bounds"], [-1000.0, 1000.0])
+            self.assertTrue(contract["reversible"])
+            self.assertEqual(contract["source_stoichiometry"], stoichiometry)
+            self.assertEqual(contract["target_stoichiometry"], stoichiometry)
+        corrections = {
+            row["reaction_id"] for row in curation["reaction_corrections"]
+        }
+        self.assertTrue({"R89", "R1708", "R2004"}.isdisjoint(corrections))
+        identity = next(
+            row for row in curation["reaction_identity_corrections"]
+            if row["reaction_id"] == "R1708"
+        )
+        self.assertEqual(identity["target_name"], "acetate:succinate CoA-transferase")
+        self.assertEqual(identity["annotation_target"], {"ec-code": "2.8.3.18"})
+        self.assertNotIn(
+            "R2004",
+            {row["reaction_id"] for row in curation["reaction_identity_corrections"]},
+        )
+        blockers = {
+            row["reaction_id"]: row["residual_after_curated_tuples"]
+            for row in curation["activation_blockers"]
+        }
+        self.assertEqual(blockers["R1708"], {})
+        self.assertEqual(blockers["R2004"], {})
+
     def test_blocked_curation_is_not_wired_into_the_build_pipeline(self) -> None:
         self.assertNotIn("normalize_coa_protonation", inspect.getsource(apply_all_patches))
         main_source = (REPOSITORY / "scripts" / "gem_annotate" / "main.py").read_text(
@@ -873,6 +920,42 @@ class CoAProtonationGateTests(unittest.TestCase):
             coa_patches._apply_coa_protonation_curation(model, curation),
             {"metabolites": 0, "annotations": 0, "reaction_corrections": 0, "identity_corrections": 0},
         )
+
+    @unittest.skipUnless(os.environ.get("IYALI26_SOURCE_MODEL"), "requires explicit IYALI26_SOURCE_MODEL")
+    def test_d_focal_candidate_is_balanced_without_h_or_gpr_invention(self) -> None:
+        model = read_sbml_model(str(MODEL_PATH))
+        curation = load_coa_protonation_curation()
+        coa_patches._apply_coa_protonation_curation(model, curation)
+
+        r1708 = model.reactions.get_by_id("R1708")
+        self.assertEqual(r1708.check_mass_balance(), {})
+        self.assertEqual(r1708.name, "acetate:succinate CoA-transferase")
+        self.assertEqual(r1708.annotation["ec-code"], "2.8.3.18")
+        self.assertEqual(r1708.annotation["kegg.reaction"], "R10343")
+        self.assertEqual(r1708.annotation["rhea"], ["35711", "35712", "35713", "35714"])
+        self.assertEqual(r1708.gene_reaction_rule, "YALI1E36437g")
+
+        r2004 = model.reactions.get_by_id("R2004")
+        self.assertEqual(r2004.check_mass_balance(), {})
+        self.assertEqual(r2004.gene_reaction_rule, "")
+        self.assertIn(model.metabolites.get_by_id("m200[C_cy]"), r2004.metabolites)
+        self.assertFalse(model.metabolites.has_id("m1855[C_cy]"))
+        for reaction in (r1708, r2004):
+            self.assertFalse(any(metabolite.formula == "H" for metabolite in reaction.metabolites))
+
+        r89 = model.reactions.get_by_id("R89")
+        self.assertNotIn(model.metabolites.get_by_id("m28[C_mi]"), r89.metabolites)
+        report = audit_coa_protonation_curation(
+            read_sbml_model(str(MODEL_PATH)), source_model_path=MODEL_PATH
+        )
+        self.assertEqual(
+            report["target_reactions_unbalanced"],
+            {
+                "R2076": {"H": 4.0, "charge": 4.0},
+                "R613": {"H": -1.0, "charge": -1.0},
+            },
+        )
+        self.assertFalse(report["ready_for_activation"])
 
     @unittest.skipUnless(MODEL_PATH.exists(), "requires repository model.xml")
     def test_candidate_transaction_rolls_back_if_a_prewrite_contract_fails(self) -> None:

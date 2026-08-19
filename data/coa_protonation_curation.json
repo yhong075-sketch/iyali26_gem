@@ -1231,6 +1231,14 @@
           "78641"
         ]
       }
+    },
+    {
+      "reaction_id": "R1708",
+      "legacy_name": "succinyl-CoA:acetate CoA transferase",
+      "target_name": "acetate:succinate CoA-transferase",
+      "annotation_target": {
+        "ec-code": "2.8.3.18"
+      }
     }
   ],
   "reaction_contracts": [
@@ -1343,6 +1351,48 @@
         "m185[C_pe]": 1.0
       },
       "evidence": "YALI1E18441g maps to the peroxisomal multifunctional enzyme type 2 (MFE2/YALI0E15378g), whose hydroxyacyl-CoA dehydrogenase chemistry is 3R. Rhea 39211/39213 gives the enoyl-C26-CoA + H2O -> 3R hydroxy-C26-CoA direction matching R1504; Rhea master 78635 with bidirectional 78638 supports the reversible R1521 chemistry, and 78637 is only the written direction 3R-hydroxy-C26-CoA + NAD+ -> 3-oxo-C26-CoA + NADH + H+."
+    },
+    {
+      "reaction_id": "R1708",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "reversible": true,
+      "source_stoichiometry": {
+        "m156[C_mi]": -1.0,
+        "m201[C_mi]": -1.0,
+        "m71[C_mi]": 1.0,
+        "m810[C_mi]": 1.0
+      },
+      "target_stoichiometry": {
+        "m156[C_mi]": -1.0,
+        "m201[C_mi]": -1.0,
+        "m71[C_mi]": 1.0,
+        "m810[C_mi]": 1.0
+      },
+      "evidence": "RHEA:35711 / KEGG R10343 chemistry is acetate + succinyl-CoA <=> acetyl-CoA + succinate. The source topology, direction, and bounds are retained exactly; no H+ correction is authorized. The candidate identity annotation corrects the conflicting EC 3.1.2.1 to EC 2.8.3.18."
+    },
+    {
+      "reaction_id": "R2004",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "reversible": true,
+      "source_stoichiometry": {
+        "m200[C_cy]": -1.0,
+        "m4[C_cy]": -1.0,
+        "m68[C_cy]": 1.0,
+        "m328[C_cy]": 1.0
+      },
+      "target_stoichiometry": {
+        "m200[C_cy]": -1.0,
+        "m4[C_cy]": -1.0,
+        "m68[C_cy]": 1.0,
+        "m328[C_cy]": 1.0
+      },
+      "evidence": "KEGG R00353 / MNXR106487 / ModelSEED rxn00258 record the current reversible malonyl-CoA + pyruvate <=> acetyl-CoA + oxaloacetate database chemistry. EC 2.1.3.1 instead accepts KEGG R00930/RHEA:20764 with (S)-methylmalonyl-CoA and propionyl-CoA, so it does not validate R2004. The source topology, compartment, direction, and bounds are retained for sensitivity only; no H+ or GPR correction is authorized."
     }
   ],
   "target_balance_reaction_ids": [

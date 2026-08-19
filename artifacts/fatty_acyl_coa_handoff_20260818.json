@@ -422,8 +422,8 @@
     "balanced_count_after": 1274,
     "balanced_count_before": 1350,
     "counts": {
-      "annotations": 24,
-      "identity_corrections": 3,
+      "annotations": 25,
+      "identity_corrections": 4,
       "metabolites": 127,
       "reaction_corrections": 2
     },
@@ -1030,6 +1030,565 @@
   },
   "current_model_matches_declared_source": true,
   "current_snapshot_component_reviews": {
+    "D_R1708_R2004": {
+      "complete_coa_candidate_focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {
+          "H": 4.0,
+          "charge": 4.0
+        },
+        "R613": {
+          "H": -1.0,
+          "charge": -1.0
+        }
+      },
+      "d_only_union_focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {},
+        "R613": {
+          "H": -5.0,
+          "charge": -5.0
+        }
+      },
+      "deterministic_recomputation": true,
+      "frontier_closed": false,
+      "human_gate_required": true,
+      "ledgers": {
+        "r1708": {
+          "actual": {
+            "balanced_unchanged_count": 8,
+            "changed_reaction_ids_sha256": "b36b6ba8abf9826ed130d8fe3c7abb8ce2cca5472dfd98b9777cb68bde1d5435",
+            "changed_residual_count": 76,
+            "evaluable_reaction_count": 84,
+            "incident_reaction_count": 100,
+            "incident_reaction_ids_sha256": "e73c79a2e9818949b9fe329c6ddb455273d5522b2c53b19245389ae8d129bb7a",
+            "ledger_sha256": "076b4c3f9cdcb80d7dc60ed8be54335280ec2c4722d73d805461c1243acc79ed",
+            "migrated_metabolite_count": 15,
+            "migrated_metabolite_ids_sha256": "3b0b5714e9651ae5fd3acf894127f177fbba41c5b716549db4a4a6a8b1cdc98c",
+            "newly_unbalanced_count": 64,
+            "newly_unbalanced_ids_sha256": "2176fcd3221f5edf4e5072144d6e8dd9733452b05d311ab81556d127f11ea97d",
+            "repaired_count": 3,
+            "repaired_ids_sha256": "1aef65832a105199bc456eae58a353168d17badb413a40fed9b689347749716a",
+            "repaired_reaction_ids": [
+              "R2077",
+              "R2269",
+              "R_CYSS_m"
+            ],
+            "still_unbalanced_changed_count": 9,
+            "still_unbalanced_changed_ids_sha256": "af48e680da5f2358586cf467c336d286cafa55501a0400e12a5bc66baa41e72a",
+            "unassessable_ids_sha256": "677af222c329e00f6140f2ad72e59f0ff4fc5ee1993daf0f1bca9bbf70357f4c",
+            "unassessable_reaction_count": 16,
+            "unassessable_reaction_ids": [
+              "R1343",
+              "R1344",
+              "R1538",
+              "R1540",
+              "R1541",
+              "R1542",
+              "R1543",
+              "R1544",
+              "R1545",
+              "R210",
+              "R2135",
+              "R2198",
+              "R2285",
+              "R296",
+              "R371",
+              "R78"
+            ],
+            "unbalanced_unchanged_count": 0
+          },
+          "frontier_closed": false,
+          "matches_expected": true,
+          "mismatched_fields": [],
+          "zero_new_regressions": false
+        },
+        "r2004": {
+          "actual": {
+            "balanced_unchanged_count": 9,
+            "changed_reaction_ids_sha256": "42299eea16b3f3251afa4dba52fa71c254da4923a1ae5e9fdd32614ef6ee9967",
+            "changed_residual_count": 91,
+            "evaluable_reaction_count": 100,
+            "incident_reaction_count": 119,
+            "incident_reaction_ids_sha256": "aef824fd2514621e2c55fa58505c5559efc071dfab87d2f75a9d5f36fec3a6ad",
+            "ledger_sha256": "8c3499d76f0999ce6b98c819ac8e6a7ff1a5329b785c5cef29dff0b8dcdd287a",
+            "migrated_metabolite_count": 14,
+            "migrated_metabolite_ids_sha256": "b33a5d0a0e1bb968d2cde1cf7799f7f93bd96dd2c6df18c07d919fceb6011d84",
+            "newly_unbalanced_count": 78,
+            "newly_unbalanced_ids_sha256": "47a669854af6f23ec76ab93a2b6188a23489a1ee3628da8c185e7a5881c055b1",
+            "repaired_count": 0,
+            "repaired_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "repaired_reaction_ids": [],
+            "still_unbalanced_changed_count": 13,
+            "still_unbalanced_changed_ids_sha256": "66fdd47424a84523cc2161bd3e4f9d7d14b9baf4b5d142f00e86f2732436215b",
+            "unassessable_ids_sha256": "9d96c38dac0f698e5b6fecff0dfb6321a6a8321080d30ec3dad0a7d6d3ea3926",
+            "unassessable_reaction_count": 19,
+            "unassessable_reaction_ids": [
+              "R1343",
+              "R1344",
+              "R1410",
+              "R1538",
+              "R1540",
+              "R1541",
+              "R1542",
+              "R1543",
+              "R1544",
+              "R1545",
+              "R1939",
+              "R1987",
+              "R2135",
+              "R2197",
+              "R2203",
+              "R2285",
+              "R296",
+              "R539",
+              "R78"
+            ],
+            "unbalanced_unchanged_count": 0
+          },
+          "frontier_closed": false,
+          "matches_expected": true,
+          "mismatched_fields": [],
+          "zero_new_regressions": false
+        },
+        "union": {
+          "actual": {
+            "balanced_unchanged_count": 16,
+            "changed_reaction_ids_sha256": "e2ecca207d4611859af2a78d40e9b257f7f645ad1911fa78a95248576ba4c70a",
+            "changed_residual_count": 117,
+            "evaluable_reaction_count": 133,
+            "incident_reaction_count": 155,
+            "incident_reaction_ids_sha256": "304b0bb9aca591934a809a045d1e2dc781d6fec8fd98598682b3ab9fa9254695",
+            "ledger_sha256": "731707e29d8385cdccb8188e77f8778f2435cdd6618da1fd339d94da92e28839",
+            "migrated_metabolite_count": 25,
+            "migrated_metabolite_ids_sha256": "c3c31b2b3ac519abca4cceb688f410aaf5014f42617c5f84a2da9d76ec30a370",
+            "newly_unbalanced_count": 95,
+            "newly_unbalanced_ids_sha256": "0d1972572dec8832dffe4f415dd7add50ad6769f332cde04e094594cd1c69ae6",
+            "repaired_count": 3,
+            "repaired_ids_sha256": "1aef65832a105199bc456eae58a353168d17badb413a40fed9b689347749716a",
+            "repaired_reaction_ids": [
+              "R2077",
+              "R2269",
+              "R_CYSS_m"
+            ],
+            "still_unbalanced_changed_count": 19,
+            "still_unbalanced_changed_ids_sha256": "437f6189e74a496f765d415937d9157d9e58d297c6a9fd0c211f818110021c78",
+            "unassessable_ids_sha256": "26d889e0a9f4660027e6c56cb829994895fcfa6c22d60cef3922c065a41a336d",
+            "unassessable_reaction_count": 22,
+            "unassessable_reaction_ids": [
+              "R1343",
+              "R1344",
+              "R1410",
+              "R1538",
+              "R1540",
+              "R1541",
+              "R1542",
+              "R1543",
+              "R1544",
+              "R1545",
+              "R1939",
+              "R1987",
+              "R210",
+              "R2135",
+              "R2197",
+              "R2198",
+              "R2203",
+              "R2285",
+              "R296",
+              "R371",
+              "R539",
+              "R78"
+            ],
+            "unbalanced_unchanged_count": 0
+          },
+          "frontier_closed": false,
+          "matches_expected": true,
+          "mismatched_fields": [],
+          "zero_new_regressions": false
+        }
+      },
+      "production_apply_performed": false,
+      "production_gate_passed": false,
+      "reaction_reviews": {
+        "R1708": {
+          "candidate_ec": "2.8.3.18",
+          "candidate_reaction_name": "acetate:succinate CoA-transferase",
+          "explicit_proton_coefficient": 0,
+          "gpr_evidence": {
+            "database_conflict": "UniProt Q6C3Z9 calls the protein acetyl-CoA hydrolase with EC 3.1.2.1, but marks protein existence and catalytic details as homology/by-similarity evidence.",
+            "established_name": "ACH1",
+            "evidence_status": "experimentally_supported_function_direct_protein_localization_unverified",
+            "functional_evidence": "Crude-extract activity favored acetate:succinate CoA transfer over hydrolase activity, and Ylach deletion strongly reduced acetate formation; these experiments support the function in the tested engineered Y. lipolytica background.",
+            "legacy_systematic_identifier": "YALI0E30965g",
+            "localization_evidence": "The mitochondrial assignment is pathway-level and condition-specific; no direct protein-localization experiment was verified, so localization remains unverified/conflicting.",
+            "model_gpr": "YALI1E36437g",
+            "protein_function": "acetate:succinate CoA-transferase",
+            "systematic_identifier": "YALI1E36437g",
+            "uniprot_accession": "Q6C3Z9"
+          },
+          "ph_7_3_aggregate_each_side": {
+            "charge": -6,
+            "formula": "C27H38N7O21P3S"
+          },
+          "preserve_database_reaction_ids": {
+            "kegg": "R10343",
+            "rhea": {
+              "bidirectional": "35714",
+              "left_to_right": "35712",
+              "master": "35711",
+              "right_to_left": "35713"
+            }
+          },
+          "production_authorized": false,
+          "production_decision_applied": false,
+          "provenance": {
+            "accessed_on": "2026-08-18",
+            "functional_evidence": {
+              "doi": "10.1016/j.ymben.2017.06.007",
+              "evidence_status": "experimentally_supported_condition_specific",
+              "experimental_context": "engineered_SDH-negative_Yarrowia_lipolytica",
+              "pmid": "28627452",
+              "supports": "YlACH acetate:succinate CoA-transferase function from crude-extract activity and deletion phenotype"
+            },
+            "identifier_mapping": {
+              "evidence_status": "repository_identifier_crosswalk_not_experimental_function",
+              "legacy_identifier": "YALI0E30965g",
+              "model_identifier": "YALI1E36437g",
+              "ncbi_feature_annotation_status": "partial_uncharacterized_protein",
+              "ncbi_gene_id": "2911920",
+              "s2_identifier": "YALI1_E36437g",
+              "sources": [
+                {
+                  "path": "data/yali1_yali0_map/iyli21_genes_vs_S2.csv",
+                  "row": 751
+                },
+                {
+                  "path": "data/yali1_yali0_map/s2_metabolic_genes.csv",
+                  "row": 8674
+                }
+              ]
+            },
+            "proteomics_evidence": {
+              "coverage_percent": 66,
+              "doi": "10.3389/fmicb.2017.02600",
+              "evidence_status": "condition_specific_protein_detection_not_function_or_organelle_localization",
+              "interpretation": "Supports detection in the cytoplasmic/cytosolic fraction under TNT treatment; it does not establish mitochondrial localization or catalytic identity.",
+              "matches": 35,
+              "pmcid": "PMC5744042",
+              "reported_localization": "Cytoplasma",
+              "spot": 5507,
+              "supplementary_table": "Table S2",
+              "uniprot_accession": "Q6C3Z9"
+            },
+            "reaction_identity": {
+              "ec": "2.8.3.18",
+              "evidence_status": "curated_reaction_identity",
+              "kegg": "R10343",
+              "rhea_bidirectional": "35714",
+              "rhea_master": "35711"
+            },
+            "uniprot": {
+              "accession": "Q6C3Z9",
+              "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+              "function_and_localization_status": "by_similarity_not_experimental",
+              "hit_count": 1,
+              "protein_existence": "inferred_from_homology",
+              "query": "organism_name:\"Yarrowia lipolytica\" AND gene:ACH1",
+              "result_gene": "ACH1 YALI0E30965g"
+            }
+          },
+          "r89_adjacent_candidate": {
+            "candidate_product_h_coefficient": 1.0,
+            "metabolite_id": "m28[C_mi]",
+            "production_authorized": false,
+            "production_decision_applied": false,
+            "rhea": "20289",
+            "status": "blocked_not_in_reaction_corrections"
+          },
+          "rejected_legacy_ec": "3.1.2.1",
+          "second_isoenzyme_assignment": null,
+          "source_reaction_name": "succinyl-CoA:acetate CoA transferase",
+          "sources": [
+            "https://pubmed.ncbi.nlm.nih.gov/28627452/",
+            "https://doi.org/10.1016/j.ymben.2017.06.007",
+            "https://doi.org/10.3389/fmicb.2017.02600",
+            "https://www.uniprot.org/uniprotkb/Q6C3Z9/entry",
+            "https://www.rhea-db.org/rhea/35711",
+            "https://www.rhea-db.org/rhea/35714",
+            "https://enzyme.expasy.org/EC/2.8.3.18",
+            "https://www.kegg.jp/entry/R10343"
+          ]
+        },
+        "R2004": {
+          "candidates": [
+            {
+              "decision": "retain_reversible_without_gpr",
+              "production_authorized": false,
+              "status": "allowed_for_sensitivity_only"
+            },
+            {
+              "decision": "remove",
+              "production_authorized": false,
+              "status": "recommended_fail_closed_candidate"
+            },
+            {
+              "decision": "replace_with_R00930",
+              "production_authorized": false,
+              "status": "forbidden_wrong_substrates"
+            }
+          ],
+          "current_malonyl_coa_metabolite_id": "m200[C_cy]",
+          "database_chemistry": {
+            "evidence_status": "database_chemistry_supported_non_organism_specific",
+            "kegg_reaction": "R00353",
+            "metanetx_reaction": "MNXR106487",
+            "modelseed_reaction": "rxn00258"
+          },
+          "ec_scope_limitation": "Accepted EC 2.1.3.1 chemistry is KEGG R00930/RHEA:20764, which uses (S)-methylmalonyl-CoA and propionyl-CoA rather than the R2004 malonyl-CoA and acetyl-CoA pair; it cannot justify replacing R2004 with R00930.",
+          "explicit_proton_coefficient": 0,
+          "forbidden_historical_metabolite_id": "m1855[C_cy]",
+          "gpr_evidence": {
+            "established_name": null,
+            "evidence_status": "unverified_no_direct_yarrowia_evidence",
+            "model_gpr": null,
+            "protein_function": null,
+            "search_interpretation": "Exact UniProt, KEGG, NCBI Protein, PubMed, and Rhea searches found no direct Yarrowia assignment. Zero hits mean no evidence was found by these bounded queries, not that the activity is biologically absent.",
+            "search_provenance": {
+              "accessed_on": "2026-08-18",
+              "positive_controls": [
+                {
+                  "database": "UniProtKB",
+                  "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+                  "hit_count": 2,
+                  "query": "(organism_id:4952 OR organism_id:284591) AND protein_name:\"pyruvate carboxylase\""
+                },
+                {
+                  "database": "KEGG",
+                  "endpoint": "https://rest.kegg.jp/link/yli/K01958",
+                  "hit_count": 1,
+                  "query": "link/yli/K01958"
+                },
+                {
+                  "database": "NCBI Protein",
+                  "database_parameter": "protein",
+                  "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+                  "hit_count": 12,
+                  "query": "Yarrowia lipolytica[Organism] AND pyruvate carboxylase[Protein Name]"
+                },
+                {
+                  "database": "PubMed",
+                  "database_parameter": "pubmed",
+                  "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+                  "hit_count": 9,
+                  "query": "Yarrowia lipolytica AND pyruvate carboxylase"
+                },
+                {
+                  "database": "Rhea",
+                  "endpoint": "https://www.rhea-db.org/rhea",
+                  "hit_count": 1,
+                  "query": "kegg:R00930",
+                  "result": "RHEA:20764; EC 2.1.3.1"
+                }
+              ],
+              "zero_hit_searches": [
+                {
+                  "database": "UniProtKB",
+                  "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+                  "hit_count": 0,
+                  "query": "(organism_id:4952 OR organism_id:284591) AND (ec:2.1.3.1 OR protein_name:\"methylmalonyl-CoA carboxytransferase\" OR protein_name:transcarboxylase)"
+                },
+                {
+                  "database": "UniProtKB",
+                  "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+                  "hit_count": 0,
+                  "query": "(organism_id:4952 OR organism_id:284591) AND cc_catalytic_activity:\"rhea:20764\""
+                },
+                {
+                  "database": "KEGG",
+                  "endpoint": "https://rest.kegg.jp/link/yli/K03416+K17489+K17490",
+                  "hit_count": 0,
+                  "query": "link/yli/K03416+K17489+K17490"
+                },
+                {
+                  "database": "NCBI Protein",
+                  "database_parameter": "protein",
+                  "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+                  "hit_count": 0,
+                  "query": "Yarrowia lipolytica[Organism] AND (\"methylmalonyl-CoA carboxytransferase\"[Protein Name] OR transcarboxylase[Protein Name])"
+                },
+                {
+                  "database": "PubMed",
+                  "database_parameter": "pubmed",
+                  "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+                  "hit_count": 0,
+                  "query": "(Yarrowia lipolytica OR Yarrowia)[Title/Abstract] AND (\"methylmalonyl-CoA carboxytransferase\" OR transcarboxylase)[Title/Abstract]"
+                },
+                {
+                  "database": "Rhea",
+                  "endpoint": "https://www.rhea-db.org/rhea",
+                  "hit_count": 0,
+                  "query": "kegg:R00353"
+                }
+              ]
+            },
+            "source_model_gene_reaction_rule": "",
+            "systematic_identifier": null
+          },
+          "historical_metabolite_status": "merged_absent_do_not_restore",
+          "non_yarrowia_biochemical_evidence": {
+            "evidence_status": "partial_non_yarrowia_not_gpr_evidence",
+            "observation": "A crude extract gave a preliminary reverse-side observation for acetyl-CoA plus oxaloacetate, but the authors did not establish that it was catalysed by the same enzyme.",
+            "organism": "Propionibacterium shermanii",
+            "source": "Swick and Wood (1960), PMCID: PMC285006, page 37"
+          },
+          "ph_7_3_aggregate_each_side": {
+            "charge": -6,
+            "formula": "C27H36N7O22P3S"
+          },
+          "preferred_candidate_decision": "remove",
+          "preserve_compartment": "C_cy",
+          "preserve_reversible_bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "production_authorized": false,
+          "production_decision_applied": false,
+          "source_reaction_name": "malonyl-CoA:pyruvate carboxytransferase",
+          "sources": [
+            "https://www.kegg.jp/entry/R00353",
+            "https://www.metanetx.org/equa_info/MNXR106487",
+            "https://modelseed.org/biochem/reactions/rxn00258",
+            "https://enzyme.expasy.org/EC/2.1.3.1",
+            "https://www.rhea-db.org/rhea/20764",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC285006/"
+          ]
+        }
+      },
+      "ready_for_activation": false,
+      "status": "current_snapshot_candidate_audited_frontier_open",
+      "union_frontier_reaction_ids": {
+        "newly_unbalanced_reaction_ids": [
+          "R1043",
+          "R1095",
+          "R1170",
+          "R128",
+          "R13",
+          "R1324",
+          "R135",
+          "R1378",
+          "R1379",
+          "R1381",
+          "R1406",
+          "R1408",
+          "R1409",
+          "R1411",
+          "R1412",
+          "R148",
+          "R1534",
+          "R1535",
+          "R1536",
+          "R1537",
+          "R1539",
+          "R161",
+          "R162",
+          "R163",
+          "R1894",
+          "R191",
+          "R192",
+          "R193",
+          "R1933",
+          "R1947",
+          "R1974",
+          "R2",
+          "R2003",
+          "R2007",
+          "R2070",
+          "R2086",
+          "R21",
+          "R2119",
+          "R22",
+          "R2268",
+          "R236",
+          "R237",
+          "R246",
+          "R247",
+          "R25",
+          "R316",
+          "R356",
+          "R396",
+          "R401",
+          "R411",
+          "R412",
+          "R49",
+          "R490",
+          "R502",
+          "R533",
+          "R534",
+          "R535",
+          "R536",
+          "R537",
+          "R538",
+          "R552",
+          "R561",
+          "R562",
+          "R604",
+          "R605",
+          "R606",
+          "R61",
+          "R613",
+          "R634",
+          "R690",
+          "R691",
+          "R692",
+          "R693",
+          "R694",
+          "R721",
+          "R740",
+          "R741",
+          "R742",
+          "R747",
+          "R77",
+          "R79",
+          "R80",
+          "R82",
+          "R83",
+          "R84",
+          "R85",
+          "R86",
+          "R87",
+          "R88",
+          "R89",
+          "R90",
+          "R91",
+          "R92",
+          "R_OAADCm",
+          "R_PGAM1_PhosHydro"
+        ],
+        "still_unbalanced_changed_reaction_ids": [
+          "R1",
+          "R1284",
+          "R1310",
+          "R1330",
+          "R134",
+          "R136",
+          "R1374",
+          "R1392",
+          "R1393",
+          "R1407",
+          "R1899",
+          "R2067",
+          "R2121",
+          "R243",
+          "R3",
+          "R511",
+          "R81",
+          "R999",
+          "R_MDHy"
+        ]
+      }
+    },
     "R1521": {
       "activation_state": "blocked",
       "path": "data/r1521_current_snapshot_handoff.json",
@@ -1045,8 +1604,8 @@
   "declared_source_model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
   "evidence_role": "local_cross_check_not_hpcc_acceptance",
   "file_sha256": {
-    "coa_curation": "4d92ca0c05ca58017d5fb663a10565515b58ddb21483078bd37354849c07b46d",
-    "handoff": "945295e3641709251ec5bebf5d02da252cbb23eb80436c90891d690db3604ce8",
+    "coa_curation": "46e2ee5ab51a98b4801a85b9f6401ba84e764f10104fed054df597a460c299e5",
+    "handoff": "a698cd1116788f09f3d8b8323a6da70103875ff540adeb8cc93020bf9b0c84cd",
     "lipid_moiety_ledger": "8274bf4fbba79e9573ff5def4a0713aeb0d5814399567258546f75dbf617b578",
     "r1521_handoff": "dd11bf93605903084b77137b05ae3130a8967fafb6724a6f91d4fa5af4e67ca5",
     "source_model": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
