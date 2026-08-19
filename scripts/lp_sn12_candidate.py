@@ -347,15 +347,22 @@ def _build_routes(candidate: Model, templates: dict[str, Reaction], curation: di
         if step["reaction_id"] in {"R353", "R1846", "R1771"}:
             continue
         template, source_state, target_state = templates[step["reaction_id"]], step["source_state"], states[step["target_state"]]
+        template_source_id, template_target_id = step["template_source_id"], step["template_target_id"]
+        if step.get("construction_direction") == "reverse":
+            source_state, target_state = target_state["id"], states[source_state]
+            template_source_id, template_target_id = template_target_id, template_source_id
         for label1, _, _ in chains:
             for label2, _, _ in chains:
                 pair = (label1, label2)
                 source = made[(source_state, pair if source_state != "lpa_lp" else (label1,))]
-                formula, charge = _derived_product(template, {step["template_source_id"]: source}, step["template_target_id"])
+                formula, charge = _derived_product(template, {template_source_id: source}, template_target_id)
                 target = _candidate_metabolite(target_state, pair, formula, charge)
                 made[(target_state["id"], pair)] = target
                 suffix = f"SN1__{label1}__SN2__{label2}"
-                generated.append(_candidate_reaction(template, f"UL_{template.id}_{suffix}", _replace(template, {step["template_source_id"]: source}, target, step["template_target_id"])))
+                reaction = _candidate_reaction(template, f"UL_{template.id}_{suffix}", _replace(template, {template_source_id: source}, target, template_target_id))
+                if "reaction_classification" in step:
+                    reaction.annotation["reaction_classification"] = step["reaction_classification"]
+                generated.append(reaction)
     tag_template, tag_state = templates["R1771"], states["tag_lp"]
     for label1, _, _ in chains:
         for label2, _, _ in chains:
@@ -421,6 +428,7 @@ def build_candidate(source_model: Model) -> Model:
     curation = _read_curation()
     candidate = source_model.copy()
     templates = _validate_source(candidate, curation)
+    candidate._compartments["C_em"] = "ER membrane"
     _build_routes(candidate, templates, curation)
     _rewrite_biomass(candidate, curation)
     _remove_generic_interfaces(candidate, curation)
@@ -469,16 +477,24 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("model", type=Path, help="read-only SBML source model")
-    parser.add_argument("--report", type=Path, required=True, help="JSON report; SBML output is forbidden")
+    parser.add_argument("--report", type=Path, required=True, help="JSON report")
+    parser.add_argument("--candidate-sbml", type=Path, help="write the non-activatable candidate SBML")
     arguments = parser.parse_args()
     if arguments.report.suffix != ".json":
-        raise SystemExit("--report must be a JSON path; SBML output is forbidden")
+        raise SystemExit("--report must be a JSON path")
+    if arguments.candidate_sbml and arguments.candidate_sbml.suffix not in {".sbml", ".xml"}:
+        raise SystemExit("--candidate-sbml must be an SBML .xml or .sbml path")
+    if arguments.candidate_sbml and arguments.candidate_sbml.resolve() == arguments.model.resolve():
+        raise SystemExit("--candidate-sbml cannot overwrite the frozen source model")
     curation = _read_curation()
     actual_sha = sha256(arguments.model.read_bytes()).hexdigest()
     if actual_sha != curation["source"]["model_sha256"]:
         raise SystemExit("source model SHA drifted; refusing candidate build")
     source = cobra.io.read_sbml_model(str(arguments.model))
-    payload = report(source, build_candidate(source))
+    candidate = build_candidate(source)
+    payload = report(source, candidate)
+    if arguments.candidate_sbml:
+        cobra.io.write_sbml_model(candidate, str(arguments.candidate_sbml))
     arguments.report.write_text(json.dumps(payload, sort_keys=True, indent=2) + "\n", encoding="utf-8")
 
 

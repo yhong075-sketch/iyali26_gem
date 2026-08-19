@@ -24,7 +24,7 @@ if str(REPOSITORY) not in sys.path:
 
 from scripts.lp_sn12_candidate import (  # noqa: E402
     CARDIOLIPIN_AUDIT_SHA256, CURATION_PATH, ContractError, MARKER,
-    build_candidate, cardiolipin_audit, report, source_fingerprint,
+    build_candidate, cardiolipin_audit, main, report, source_fingerprint,
 )
 
 
@@ -65,6 +65,30 @@ class StrictSnCoreTests(unittest.TestCase):
             self.assertEqual(reaction.gene_reaction_rule, template.gene_reaction_rule)
             self.assertTrue(all(reaction.annotation.get(key) == value for key, value in template.annotation.items()))
             self.assertEqual(reaction.check_mass_balance(), {})
+
+    def test_lipid_exchange_metadata_is_explicit_and_gpr_free(self) -> None:
+        exchange_ids = {"R1776", "R1778", "R1786", "R1787", "R1790", "R1792", "R1793"}
+        classification = "composite_or_nonenzymatic_lipid_exchange"
+        steps = {step["reaction_id"]: step for step in self.curation["steps"]}
+        self.assertEqual(self.candidate.compartments["C_em"], "ER membrane")
+        self.assertEqual({reaction_id for reaction_id, step in steps.items() if step.get("reaction_classification") == classification}, exchange_ids)
+        self.assertTrue(all(steps[reaction_id]["gpr"] == "" for reaction_id in exchange_ids))
+        self.assertEqual(
+            {key: steps["R1776"][key] for key in ("source_state", "target_state", "template_source_id", "template_target_id")},
+            {"source_state": "dag_cy", "target_state": "dag_em", "template_source_id": "m1670[C_cy]", "template_target_id": "m1649[C_em]"},
+        )
+        self.assertEqual(steps["R1776"]["construction_direction"], "reverse")
+        for reaction in self.generated:
+            template_id = reaction.annotation["template_reaction"]
+            if template_id in exchange_ids:
+                self.assertEqual(reaction.annotation.get("reaction_classification"), classification)
+
+    def test_cli_refuses_source_overwrite(self) -> None:
+        original_arguments = sys.argv[:]
+        self.addCleanup(setattr, sys, "argv", original_arguments)
+        sys.argv = ["lp_sn12_candidate.py", str(MODEL_PATH), "--report", "candidate.json", "--candidate-sbml", str(MODEL_PATH)]
+        with self.assertRaisesRegex(SystemExit, "cannot overwrite"):
+            main()
 
     def test_tuple_order_and_biomass_weights(self) -> None:
         self.assertIn("UL_R1846_SN1__lauroyl__SN2__myristoyl", self.candidate.reactions)
