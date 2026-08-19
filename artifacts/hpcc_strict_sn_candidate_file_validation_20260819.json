@@ -1,0 +1,1951 @@
+{
+  "artifact_type": "hpcc_strict_sn_candidate_file_validation_handoff_candidate",
+  "draft_status": "independently_reviewed",
+  "generated_at_utc": "2026-08-19T22:09:37.690139+00:00",
+  "governance": {
+    "activation_approval": false,
+    "computational_evidence": true,
+    "human_gate_is_permanent": true,
+    "independent_review": {
+      "evidence_seal": {
+        "canonical_triplets_sha256": "ab2e4972574e9e9d6f15da1d9804f635ff7ac6b8d512276766913f9642df123d",
+        "file_count": 37,
+        "local_bytes_and_sha256_match_manifest": true,
+        "remote_collection_sha256_match_observed_at_review_time": true,
+        "scope_limitation": "review-time SHA-256 comparison of the collected evidence; not a scheduler-signed or job-time cryptographic attestation"
+      },
+      "findings": [
+        {
+          "disposition": "disclosed_in_numerical_limitations",
+          "finding": "The two formally compared full-FVA files each contain 305 identical sub-tolerance minimum-greater-than-maximum inversions; the GLPK interface logged 167 unsupported optimality-tolerance messages; and all three raw in-memory target rows contain sub-tolerance micro-inversions.",
+          "priority": "P2"
+        }
+      ],
+      "reviewer": "independent_read_only_subagent_review",
+      "severity_counts": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1
+      },
+      "status": "passed"
+    },
+    "production_approval": false,
+    "scientific_approval": false
+  },
+  "historical_failed_attempt": {
+    "cause_classification": {
+      "basis": [
+        "The old validator compared raw in-memory expected coefficients to serialized candidate coefficients while allowing 555 tiny biomass_C coefficient differences in the LP contract.",
+        "The old raw-versus-file full FVA crossed the 1e-7 gate only at R1434, R1570, and R1637.",
+        "The corrected validator used an independently built, serialized-and-reloaded expected reference and found exact normalized-reference-versus-file LP and full-FVA equality for the unchanged candidate SHA.",
+        "Fresh three-target corrected-job diagnostics found normalized-reference-versus-file exact equality and raw-versus-normalized differences below the unchanged 1e-7 threshold."
+      ],
+      "candidate_file_change_required": false,
+      "candidate_file_was_changed_between_jobs": false,
+      "classification": "validator_reference_design_failure exposed by SBML decimal serialization and a near-degenerate 100%-optimal FVA face; not evidence of changed R1434/R1570/R1637 chemistry or candidate topology",
+      "reaction_edits_required": [],
+      "status": "evidence_supported_inference"
+    },
+    "evidence_bindings": [
+      {
+        "bytes": 75930,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/metrics.json",
+        "name": "metrics.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "e6db14c7742cd4a4958dda411b20e5fe7f63f4272c2567268fcec8a6a638cc81"
+      },
+      {
+        "bytes": 71404,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/metrics.partial.json",
+        "name": "metrics.partial.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "2128f65b118f9b0b6404e7d70817acec34e1d3f65dad12b210cfd71d9de9c2ca"
+      },
+      {
+        "bytes": 3272,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/wrapper_status.json",
+        "name": "wrapper_status.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "cd268487d5ba9c5415425e3d9852e3a041f621b82d3f7e092900c78f599082c8"
+      },
+      {
+        "bytes": 17854,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/expected_vs_candidate_file.json",
+        "name": "expected_vs_candidate_file.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "9dba4228c7057db62ed663ed2ef1bc2bf8948234253f2a57f10d53f7818931b0"
+      },
+      {
+        "bytes": 8043,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/full_fva_expected_vs_file.json",
+        "name": "full_fva_expected_vs_file.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "b3d7ef2f399291ac434781ecb8fc949be8e752279ba311a9e0a78996ea92598a"
+      },
+      {
+        "bytes": 412453,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/fva_full_expected_build.json",
+        "name": "fva_full_expected_build.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "c244e9cf4c66600b152202787b0f932ac2bfe999609e2db2bd98fa50f018a340"
+      },
+      {
+        "bytes": 412169,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/fva_full_candidate_file.json",
+        "name": "fva_full_candidate_file.json",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "82e4eaca8ebb9dc5f09ed30ab907dd240422cb1fc5ea272e8da105a6d6af36a2"
+      },
+      {
+        "bytes": 503,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/sacct.txt",
+        "name": "sacct.txt",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "8c8f5e181483b67b1ec559c76f544b3cc6d3b58a02f96ae9d1aadc72fd061174"
+      },
+      {
+        "bytes": 64,
+        "local_path": "/private/tmp/g_candidate_file_27560335_raw/scontrol.txt",
+        "name": "scontrol.txt",
+        "origin": "historical_hpcc_job_27560335_collection",
+        "remote_path": null,
+        "sha256": "0d18cdaf459cbfc864aa8780ec97d2653653509a2b92f2a61c2d18f7c7d10ab7"
+      }
+    ],
+    "job_id": "27560335",
+    "observed_failure": {
+      "candidate_file_summary": {
+        "blocked_count": 1954,
+        "fraction_of_optimum": 1.0,
+        "raw_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_ad79e5d_20260819T183506Z_5F500C6C/fva_full_candidate_file.json",
+        "reaction_count": 3415,
+        "results_sha256": "28fe7bda76c71b21edc1f5716c51ce310a317f0c7537776ae318dc155a22742f",
+        "runtime_seconds": 94.9422944909893
+      },
+      "comparison_reference": "raw in-memory expected build versus frozen candidate file at fraction_of_optimum=1.0",
+      "expected_summary": {
+        "blocked_count": 1953,
+        "fraction_of_optimum": 1.0,
+        "raw_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_ad79e5d_20260819T183506Z_5F500C6C/fva_full_expected_build.json",
+        "reaction_count": 3415,
+        "results_sha256": "587cf4bc2352326ac107ae4fb096d6eda612b2e170377b6334dee77d3295357e",
+        "runtime_seconds": 91.36594408983365
+      },
+      "message": "expected/file full FVA differs",
+      "tolerance_mismatch_count": 3,
+      "tolerance_mismatches": [
+        {
+          "absolute_delta": 0.00025356455181208123,
+          "expected": 0.0,
+          "field": "minimum",
+          "observed": 0.00025356455181208123,
+          "reaction_id": "R1434",
+          "relative_delta": 1.0,
+          "within_tolerance": false
+        },
+        {
+          "absolute_delta": 5.891551135075328e-06,
+          "expected": 5.891551135075328e-06,
+          "field": "minimum",
+          "observed": 0.0,
+          "reaction_id": "R1570",
+          "relative_delta": 1.0,
+          "within_tolerance": false
+        },
+        {
+          "absolute_delta": 4.322502497482424e-06,
+          "expected": 4.322691809353809e-06,
+          "field": "maximum",
+          "observed": 1.8931187138454202e-10,
+          "reaction_id": "R1637",
+          "relative_delta": 0.9999562050963302,
+          "within_tolerance": false
+        }
+      ]
+    },
+    "resolution_in_corrected_job": {
+      "formal_full_fva_exact_unequal_count": 0,
+      "formal_full_fva_preserved_under_contract": true,
+      "formal_full_fva_tolerance_mismatch_count": 0,
+      "formal_reference": "independent expected build serialized to temporary SBML and reloaded before formal LP/FBA/pFBA/full-FVA comparison",
+      "job_id": "27562412",
+      "normalization_admissibility_fail_closed": true,
+      "raw_in_memory_fva_role": "diagnostic_only_non_gating"
+    },
+    "run_directory": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_ad79e5d_20260819T183506Z_5F500C6C",
+    "scheduler_outcome": {
+      "last_completed_stage": "full_fva_expected_vs_file_collected",
+      "metrics_failure": {
+        "message": "expected/file full FVA differs",
+        "traceback": "Traceback (most recent call last):\n  File \"/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_ad79e5d_20260819T183506Z_5F500C6C/metrics.py\", line 519, in main\n    require(fva_comparison[\"comparison\"][\"preserved_under_contract\"],\n  File \"/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_ad79e5d_20260819T183506Z_5F500C6C/metrics.py\", line 54, in require\n    raise FileAcceptanceFailure(message)\nFileAcceptanceFailure: expected/file full FVA differs\n",
+        "type": "FileAcceptanceFailure"
+      },
+      "runtime_seconds": 487.78595900535583,
+      "scontrol_capture_status": "scontrol_exit=1\nslurm_load_jobs error: Invalid job id specified",
+      "top_level_sacct_row": {
+        "Account": "iwheeldonlab",
+        "AllocCPUS": "2",
+        "Elapsed": "00:08:46",
+        "ElapsedRaw": "526",
+        "End": "2026-08-19T12:04:29",
+        "ExitCode": "1:0",
+        "JobIDRaw": "27560335",
+        "JobName": "g_candidate_file",
+        "MaxRSS": "",
+        "MaxVMSize": "",
+        "NodeList": "x05",
+        "Partition": "short",
+        "ReqMem": "16G",
+        "Start": "2026-08-19T11:55:43",
+        "State": "FAILED",
+        "Timelimit": "00:30:00"
+      },
+      "wrapper_statuses": {
+        "metrics": 1,
+        "postflight": 0,
+        "preflight": 0
+      }
+    },
+    "structural_evidence": {
+      "candidate_sha256_same_as_corrected_job": true,
+      "groups_and_subsystems_preserved_exact": true,
+      "metadata_preserved_exact": true,
+      "reaction_ids_bounds_objective_and_stoichiometry_keys_exact": true,
+      "serializer_rounding_difference_count": 555,
+      "serializer_rounding_maximum_absolute_delta": 4.912791094074942e-20,
+      "serializer_rounding_maximum_relative_delta": 4.821755164748113e-15,
+      "serializer_rounding_tolerance_mismatch_count": 0
+    }
+  },
+  "hpcc_job": {
+    "account": "iwheeldonlab",
+    "accounting": {
+      "raw_bindings": {
+        "sacct_raw.txt": "7ea77e3598ad8405d6acad812eab6ab2e88a9d2530c2786689922b6f9d602188",
+        "scontrol_raw.txt": "a148d7b05e16110deb0fdcd963d6ac298aca544ec8fb7451a420ebf1eb4961de"
+      },
+      "sacct_columns": [
+        "JobIDRaw",
+        "JobName",
+        "Partition",
+        "Account",
+        "AllocCPUS",
+        "State",
+        "ExitCode",
+        "Elapsed",
+        "Start",
+        "End",
+        "NodeList",
+        "ReqCPUS",
+        "ReqMem",
+        "MaxRSS",
+        "MaxVMSize",
+        "TotalCPU"
+      ],
+      "sacct_rows": [
+        {
+          "Account": "iwheeldonlab",
+          "AllocCPUS": "1",
+          "Elapsed": "00:21:17",
+          "End": "2026-08-19T15:03:01",
+          "ExitCode": "0:0",
+          "JobIDRaw": "27562412",
+          "JobName": "g_candidate_corr",
+          "MaxRSS": "",
+          "MaxVMSize": "",
+          "NodeList": "c18",
+          "Partition": "short",
+          "ReqCPUS": "1",
+          "ReqMem": "16G",
+          "Start": "2026-08-19T14:41:44",
+          "State": "COMPLETED",
+          "TotalCPU": "20:38.509"
+        },
+        {
+          "Account": "iwheeldonlab",
+          "AllocCPUS": "1",
+          "Elapsed": "00:21:17",
+          "End": "2026-08-19T15:03:01",
+          "ExitCode": "0:0",
+          "JobIDRaw": "27562412.batch",
+          "JobName": "batch",
+          "MaxRSS": "1345156K",
+          "MaxVMSize": "1333416K",
+          "NodeList": "c18",
+          "Partition": "",
+          "ReqCPUS": "1",
+          "ReqMem": "",
+          "Start": "2026-08-19T14:41:44",
+          "State": "COMPLETED",
+          "TotalCPU": "20:38.506"
+        },
+        {
+          "Account": "iwheeldonlab",
+          "AllocCPUS": "1",
+          "Elapsed": "00:21:17",
+          "End": "2026-08-19T15:03:01",
+          "ExitCode": "0:0",
+          "JobIDRaw": "27562412.extern",
+          "JobName": "extern",
+          "MaxRSS": "284K",
+          "MaxVMSize": "100K",
+          "NodeList": "c18",
+          "Partition": "",
+          "ReqCPUS": "1",
+          "ReqMem": "",
+          "Start": "2026-08-19T14:41:44",
+          "State": "COMPLETED",
+          "TotalCPU": "00:00.002"
+        }
+      ],
+      "scontrol": {
+        "BatchHost": "c18",
+        "Command": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/job.sh",
+        "EndTime": "2026-08-19T15:03:01",
+        "ExitCode": "0:0",
+        "JobState": "COMPLETED",
+        "NodeList": "c18",
+        "NumCPUs": "1",
+        "NumNodes": "1",
+        "Reason": "None",
+        "Requeue": "1",
+        "Restarts": "0",
+        "RunTime": "00:21:17",
+        "StartTime": "2026-08-19T14:41:44",
+        "StdErr": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/slurm-27562412.err",
+        "StdOut": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/slurm-27562412.out",
+        "TimeLimit": "00:30:00",
+        "WorkDir": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52"
+      }
+    },
+    "command": [
+      "/rhome/yhong075/iyali26_flow_phase2/.venv/bin/python",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics.py",
+      "--repo",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014",
+      "--source",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml",
+      "--candidate",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.xml",
+      "--sidecar",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.json",
+      "--run-dir",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52",
+      "--output",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics.json",
+      "--f-metrics",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/f_metrics_base.py",
+      "--e-metrics",
+      "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/e_metrics_base.py"
+    ],
+    "job_id": "27562412",
+    "job_name": "g_candidate_corr",
+    "metrics_runtime_seconds": 1244.9060039520264,
+    "node": "c18",
+    "partition": "short",
+    "requested_resources": {
+      "account": "iwheeldonlab",
+      "cpus_per_task": 1,
+      "memory_gib": 16,
+      "partition": "short",
+      "walltime": "00:30:00"
+    },
+    "run_directory": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52",
+    "scheduler": "Slurm",
+    "software": {
+      "cobra": "0.30.0",
+      "glpk": "5.0",
+      "libsbml": "5.21.1",
+      "numpy": "2.4.3",
+      "optlang": "1.8.3",
+      "pandas": "2.3.3",
+      "platform": "Linux-4.18.0-553.144.1.el8_10.x86_64-x86_64-with-glibc2.28",
+      "python": "3.11.15",
+      "scipy": "1.17.1",
+      "solver_interface": "optlang.glpk_interface",
+      "swiglpk": "5.0.13"
+    },
+    "software_sha256": "8347141e4136c681345dae317c01dcc0fcbdfa1be5400fbe2c2ee1e55e62ae62",
+    "submit_host": "bluejay",
+    "wrapper_command": {
+      "automatic_resubmit_performed": false,
+      "metrics": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics.py",
+      "production_apply_performed": false,
+      "python": "/rhome/yhong075/iyali26_flow_phase2/.venv/bin/python"
+    },
+    "wrapper_statuses": {
+      "metrics": 0,
+      "postflight": 0,
+      "preflight": 0
+    }
+  },
+  "numerical_limitations": {
+    "formal_full_fva_micro_inversions": {
+      "candidate_file": {
+        "count": 305,
+        "raw_file": "fva_full_candidate_file.json",
+        "worst": {
+          "inversion": 1.2811244155761122e-09,
+          "maximum": -1.2811244155761122e-09,
+          "minimum": 0.0,
+          "reaction_id": "R2062"
+        }
+      },
+      "comparison_relation": "The 3,415 normalized-reference and candidate rows, including all 305 micro-inversions, are exact row-for-row matches.",
+      "normalized_expected": {
+        "count": 305,
+        "raw_file": "fva_full_normalized_expected.json",
+        "worst": {
+          "inversion": 1.2811244155761122e-09,
+          "maximum": -1.2811244155761122e-09,
+          "minimum": 0.0,
+          "reaction_id": "R2062"
+        }
+      }
+    },
+    "gate_effect": "none: every disclosed inversion is below the unchanged 1e-7 absolute FVA comparison threshold, and formal normalized-reference-versus-file full FVA is exact across 3,415 rows",
+    "glpk_optimality_tolerance_messages": {
+      "count": 167,
+      "message": "The current solver interface glpk doesn't support setting the optimality tolerance.",
+      "raw_file": "metrics_driver.log"
+    },
+    "target_in_memory_micro_inversions": {
+      "count": 3,
+      "reaction_count": 3,
+      "raw_file": "fva_targets_fresh_in_memory_third_fraction_1.json",
+      "role": "diagnostic_only_non_gating",
+      "worst": {
+        "inversion": 3.7157557363775586e-12,
+        "maximum": 5.8891306344098615e-06,
+        "minimum": 5.889134350165598e-06,
+        "reaction_id": "R1570"
+      }
+    }
+  },
+  "provenance": {
+    "authoritative_source_model": {
+      "bytes": 14039307,
+      "dimensions": {
+        "genes": 1074,
+        "metabolites": 1877,
+        "reactions": 2313
+      },
+      "logical_id": "model_bc2aac8fecd8f2f5.xml",
+      "mode": "0444",
+      "model_snapshot_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+      "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "source_role": "authoritative bc2 snapshot used to build and validate this candidate",
+      "strict_source_contract_fingerprint": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121"
+    },
+    "before_after_unchanged": {
+      "candidate_sha256_after": "5f500c6cab33fa2fee6666907657ceac860075c27c0b3e216ad0686c66fb4200",
+      "candidate_sha256_before": "5f500c6cab33fa2fee6666907657ceac860075c27c0b3e216ad0686c66fb4200",
+      "sidecar_sha256_after": "088f2c8ea70eeb47d12edd22e099522b3b3259602c782423ccc72c01bdbc98fc",
+      "sidecar_sha256_before": "088f2c8ea70eeb47d12edd22e099522b3b3259602c782423ccc72c01bdbc98fc",
+      "source_sha256_after": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "source_sha256_before": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "validated": true
+    },
+    "candidate_model": {
+      "bytes": 17940939,
+      "dimensions": {
+        "genes": 1074,
+        "metabolites": 3008,
+        "reactions": 3415
+      },
+      "filename": "model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.xml",
+      "generated_route_count": 1134,
+      "generated_route_ids_sha256": "36813e624fa9afc9a53b802a1a342a6638a8f229af596237ae14ee6eaf21eaef",
+      "lp_sha256": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38",
+      "mode": "0444",
+      "model_snapshot_fingerprint": "15d1fa632fa50c148d9471bad7bc2a650efd6cf6a91ff7fab17e8f001017afd5",
+      "objective_reaction_id": "biomass_C",
+      "sha256": "5f500c6cab33fa2fee6666907657ceac860075c27c0b3e216ad0686c66fb4200",
+      "strict_source_contract_fingerprint": "0014b9e72094112f385c9ad41f122be7f254b1285c2148f31291346649e8af2c"
+    },
+    "git": {
+      "head": "ad79e5d7a427d538e5a6f2e73a10640438721148",
+      "origin_lipid_unlump": "ad79e5d7a427d538e5a6f2e73a10640438721148",
+      "tracked_status": "",
+      "tree": "f0b27dec37c68f941b88ab1fa1f1ee7554338251",
+      "untracked_count": 0
+    },
+    "sidecar": {
+      "bytes": 14891,
+      "evidence_role": "local_export_structural_cross_check_not_hpcc_acceptance",
+      "mode": "0444",
+      "sha256": "088f2c8ea70eeb47d12edd22e099522b3b3259602c782423ccc72c01bdbc98fc"
+    },
+    "validator_and_contract_inputs": {
+      "builder_sha256": "32c5d795cb53f66083613fb27ac125e4570eb2ec6e3a2283ed13bc0a11077ae6",
+      "curation_sha256": "917f1ec44e3df3a022be557db8bccaa8869ac45bce31b074f27ae4cd5a75eef3",
+      "e_metrics_sha256": "286342e9bd39cb5be528977e1d1e292408ea8c398e0c1f0ad35eb8d0a1c41766",
+      "f_metrics_sha256": "e8ca83177851fdfba6f93832446fe460ac6bcd7fdc864faea2b21e7449462dd1",
+      "metrics_sha256": "c211de5241a1c8016e947e8b57f8d5020529bbdca64cd439649245f9df4cc8d9",
+      "wrapper_sha256": "4eee463039872f295daa10e847ff289663b5f6dcee47dd027d5198b66e2935b5"
+    }
+  },
+  "raw_evidence_manifest": {
+    "all_files_present": true,
+    "all_json_parse_ok": true,
+    "all_python_ast_parse_ok": true,
+    "canonical_triplets_sha256": "ab2e4972574e9e9d6f15da1d9804f635ff7ac6b8d512276766913f9642df123d",
+    "canonicalization": "SHA-256 of compact ASCII JSON for sorted [{name,bytes,sha256}] with keys sorted and no trailing LF",
+    "directory": "/private/tmp/g_candidate_file_corrected_27562412_raw",
+    "entries": [
+      {
+        "bytes": 27947,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/conservation_and_cardiolipin.json",
+        "name": "conservation_and_cardiolipin.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/conservation_and_cardiolipin.json",
+        "sha256": "86524b67cdaf342518ac35096f74f69831acd709a1073b06a7265011bbc32b48"
+      },
+      {
+        "bytes": 106530,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/current_contract_recomputations.json",
+        "name": "current_contract_recomputations.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/current_contract_recomputations.json",
+        "sha256": "da64e51e82a6112da952f12c72e755fab11339a969e9b34b35c0bb9b0b5b084b"
+      },
+      {
+        "ast_parse_ok": true,
+        "bytes": 47391,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/e_metrics_base.py",
+        "name": "e_metrics_base.py",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/e_metrics_base.py",
+        "sha256": "286342e9bd39cb5be528977e1d1e292408ea8c398e0c1f0ad35eb8d0a1c41766"
+      },
+      {
+        "ast_parse_ok": true,
+        "bytes": 61925,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/f_metrics_base.py",
+        "name": "f_metrics_base.py",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/f_metrics_base.py",
+        "sha256": "e8ca83177851fdfba6f93832446fe460ac6bcd7fdc864faea2b21e7449462dd1"
+      },
+      {
+        "bytes": 2637,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fba_pfba.json",
+        "name": "fba_pfba.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fba_pfba.json",
+        "sha256": "5388d9081aa32568a872d7e1e938bdf38c8a92d70b58874a20af2cd219ca88a2"
+      },
+      {
+        "bytes": 931,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fba_pfba_candidate_file.json",
+        "name": "fba_pfba_candidate_file.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fba_pfba_candidate_file.json",
+        "sha256": "1d8c4ccc7fb90411d9d9767b1c1661e26881a427723c1cd47453783f8a6a8532"
+      },
+      {
+        "bytes": 930,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fba_pfba_normalized_expected.json",
+        "name": "fba_pfba_normalized_expected.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fba_pfba_normalized_expected.json",
+        "sha256": "13aeb7d2f77e881d2708fd3328fd1e44bc479bf4feb22e2a03d235a8d827935a"
+      },
+      {
+        "bytes": 1568,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/full_fva_normalized_expected_vs_file.json",
+        "name": "full_fva_normalized_expected_vs_file.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/full_fva_normalized_expected_vs_file.json",
+        "sha256": "71a97b0f6cb1be33963323dd1aedbdc5dc1b965d8dc9e821ad915c71343013ab"
+      },
+      {
+        "bytes": 412171,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fva_full_candidate_file.json",
+        "name": "fva_full_candidate_file.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_full_candidate_file.json",
+        "sha256": "b2aeab578feaea21518360ec556f697976f23b2aada900bbc5cbce484d322b36"
+      },
+      {
+        "bytes": 412171,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fva_full_normalized_expected.json",
+        "name": "fva_full_normalized_expected.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_full_normalized_expected.json",
+        "sha256": "3c379f886ea65600835ed8c5a5da99dd6b398756299d67e1c8fd0cc35a9fd161"
+      },
+      {
+        "bytes": 578,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fva_targets_fresh_candidate_first_fraction_1.json",
+        "name": "fva_targets_fresh_candidate_first_fraction_1.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_targets_fresh_candidate_first_fraction_1.json",
+        "sha256": "91111c0e9553d96a5f19fc2f01ca72ad2063def3a2e40082a7cbdde6044e859d"
+      },
+      {
+        "bytes": 577,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fva_targets_fresh_in_memory_third_fraction_1.json",
+        "name": "fva_targets_fresh_in_memory_third_fraction_1.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_targets_fresh_in_memory_third_fraction_1.json",
+        "sha256": "dd7c0574864c741a2959bcb68f4b7a260201a20b41a1e7a4936297bf3199f3fe"
+      },
+      {
+        "bytes": 578,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/fva_targets_fresh_normalized_second_fraction_1.json",
+        "name": "fva_targets_fresh_normalized_second_fraction_1.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_targets_fresh_normalized_second_fraction_1.json",
+        "sha256": "13cf6612eb2a1632c33567b28fa35fdc3c8328c93af2153d44e92b68a66a8d13"
+      },
+      {
+        "bytes": 8060,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/job.sh",
+        "name": "job.sh",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/job.sh",
+        "sha256": "4eee463039872f295daa10e847ff289663b5f6dcee47dd027d5198b66e2935b5"
+      },
+      {
+        "bytes": 1047829,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/metrics.json",
+        "name": "metrics.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics.json",
+        "sha256": "701b10bc8b0c0bb27cdd15d4ea49836e967ffca535d9f619eae76d171e7e7d55"
+      },
+      {
+        "bytes": 1043675,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/metrics.partial.json",
+        "name": "metrics.partial.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics.partial.json",
+        "sha256": "0046e923653fd0577d8a89bf4b6ac9e8c395702881c8c24892f259d5324c13e4"
+      },
+      {
+        "ast_parse_ok": true,
+        "bytes": 54588,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/metrics.py",
+        "name": "metrics.py",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics.py",
+        "sha256": "c211de5241a1c8016e947e8b57f8d5020529bbdca64cd439649245f9df4cc8d9"
+      },
+      {
+        "bytes": 86485,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/metrics_driver.log",
+        "name": "metrics_driver.log",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/metrics_driver.log",
+        "sha256": "79a76288c5e14e80d0c5da0b5c1382d44ac1dae8e1c452216ee633f3cfcc701a"
+      },
+      {
+        "bytes": 14891,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.json",
+        "name": "model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.json",
+        "sha256": "088f2c8ea70eeb47d12edd22e099522b3b3259602c782423ccc72c01bdbc98fc"
+      },
+      {
+        "bytes": 17940939,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.xml",
+        "name": "model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.xml",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.xml",
+        "sha256": "5f500c6cab33fa2fee6666907657ceac860075c27c0b3e216ad0686c66fb4200"
+      },
+      {
+        "bytes": 236345,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/normalization_admissibility.json",
+        "name": "normalization_admissibility.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/normalization_admissibility.json",
+        "sha256": "93915da8e4d0fb648fe32ea9203e876049954bb3fb6e245f00f2fb2fa3142951"
+      },
+      {
+        "bytes": 10288,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/normalized_expected_vs_candidate_file.json",
+        "name": "normalized_expected_vs_candidate_file.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/normalized_expected_vs_candidate_file.json",
+        "sha256": "ee45a3a8e7f764e5b735f98f58cd4be5ce2d73efc9495f437cc4a1ead51dd6e4"
+      },
+      {
+        "bytes": 335,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/permanent_gate_contract.json",
+        "name": "permanent_gate_contract.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/permanent_gate_contract.json",
+        "sha256": "1db560bece6af1397191e10ead40f12aed2bb7a7c8d9d2333f35da82464c7cc2"
+      },
+      {
+        "bytes": 524,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/sacct_raw.txt",
+        "name": "sacct_raw.txt",
+        "origin": "post_run_scheduler_capture",
+        "remote_path": null,
+        "sha256": "7ea77e3598ad8405d6acad812eab6ab2e88a9d2530c2786689922b6f9d602188"
+      },
+      {
+        "bytes": 31987,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/sbml_roundtrip_strict_sn.json",
+        "name": "sbml_roundtrip_strict_sn.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/sbml_roundtrip_strict_sn.json",
+        "sha256": "67d0bc1b9724f73c73f6f1617d8339ae517309e851292973a250e2d6539ab66c"
+      },
+      {
+        "bytes": 37501,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/scientific_blocker_reproduction.json",
+        "name": "scientific_blocker_reproduction.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/scientific_blocker_reproduction.json",
+        "sha256": "43e212e51c7f9c40004e46ae9c86482b1890f74d5dcdda85473b833d9e40a2ea"
+      },
+      {
+        "bytes": 1666,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/scontrol_raw.txt",
+        "name": "scontrol_raw.txt",
+        "origin": "post_run_scheduler_capture",
+        "remote_path": null,
+        "sha256": "a148d7b05e16110deb0fdcd963d6ac298aca544ec8fb7451a420ebf1eb4961de"
+      },
+      {
+        "bytes": 4646,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/serializer_sensitivity_target_fva.json",
+        "name": "serializer_sensitivity_target_fva.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/serializer_sensitivity_target_fva.json",
+        "sha256": "38c97d4e6752e18beb61c2779b219390881c0e73db667d0469f98d3117155d59"
+      },
+      {
+        "bytes": 2756,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/sidecar_observation.json",
+        "name": "sidecar_observation.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/sidecar_observation.json",
+        "sha256": "ad34a48c2820a32358b91a8e2cfccf2b58bd59134416c48be3ef36cd88065556"
+      },
+      {
+        "bytes": 0,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/slurm-27562412.err",
+        "name": "slurm-27562412.err",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/slurm-27562412.err",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/slurm-27562412.out",
+        "name": "slurm-27562412.out",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/slurm-27562412.out",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 2910,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/snapshot_after.json",
+        "name": "snapshot_after.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/snapshot_after.json",
+        "sha256": "bf7f25bffba86aa13a39bc9e738a0a89914a0ad2e9336b9e5ff9cca53db6be44"
+      },
+      {
+        "bytes": 2910,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/snapshot_before.json",
+        "name": "snapshot_before.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/snapshot_before.json",
+        "sha256": "bf7f25bffba86aa13a39bc9e738a0a89914a0ad2e9336b9e5ff9cca53db6be44"
+      },
+      {
+        "bytes": 511822,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/strict_candidate_contracts.json",
+        "name": "strict_candidate_contracts.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/strict_candidate_contracts.json",
+        "sha256": "1a6bb3c6b38bddaa049c4c8010298be62d99b20b4df57c3cc925860ca4312c6b"
+      },
+      {
+        "bytes": 402,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/test_summary.json",
+        "name": "test_summary.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/test_summary.json",
+        "sha256": "4759dcb67a0f3368f34bf9eef506d5e9f31095b7fb60e457bbdd0343e67c329e"
+      },
+      {
+        "bytes": 13166,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/unittest.log",
+        "name": "unittest.log",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/unittest.log",
+        "sha256": "9ec2503b04ac7eb936514543697799c67645f6669fc0618e83ae95bbdd86526f"
+      },
+      {
+        "bytes": 3371,
+        "json_parse_ok": true,
+        "local_path": "/private/tmp/g_candidate_file_corrected_27562412_raw/wrapper_status.json",
+        "name": "wrapper_status.json",
+        "origin": "hpcc_run_directory",
+        "remote_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/wrapper_status.json",
+        "sha256": "02b464ed44f0ad8f53389b54c676a28d16dc4672ab631f93d34595ef22cb9c40"
+      }
+    ],
+    "file_count": 37
+  },
+  "schema_version": 1,
+  "scope_and_decision": {
+    "activation": "blocked",
+    "all_scientific_frontiers_closed": false,
+    "candidate_only_not_production_sbml": true,
+    "forbidden_interpretations": [
+      "This artifact does not approve A-D identity-frontier migrations.",
+      "It does not apply the R2076 remove candidate or authorize any new GPR.",
+      "It does not instantiate the 2,401 cardiolipin envelope or the forbidden 1,225-state half-swap fold.",
+      "It does not overwrite or activate a production model."
+    ],
+    "hpcc_computational_validation_passed": true,
+    "human_approval_recorded": false,
+    "human_gate_required": true,
+    "production_apply_performed": false,
+    "production_gate_passed": false,
+    "ready_for_activation": false,
+    "validated_scope": "frozen strict-sn lipid-core candidate file against an independently built, SBML-serialized-and-reloaded expected model in one HPCC Slurm job"
+  },
+  "validation": {
+    "conservation_and_cardiolipin": {
+      "cardiolipin_position_counts": {
+        "position_metabolites": 0,
+        "position_reactions": 0
+      },
+      "generated_metabolite_count": 1134,
+      "generated_metabolite_ids_sha256": "6eaa6dd6879e3db50f22a9346d2aadc3256a4838cd4234c85111df96cb8e81ba",
+      "generated_reaction_count": 1134,
+      "generated_reaction_ids_sha256": "36813e624fa9afc9a53b802a1a342a6638a8f229af596237ae14ee6eaf21eaef",
+      "state_space": {
+        "current_strict_model": {
+          "currently_instantiated_network_position_state_count": 0,
+          "evidence_supported_position_state_count": 0,
+          "included_position_metabolite_count": 0,
+          "included_position_reaction_count": 0,
+          "reachability_scope": "zero means no position-resolved cardiolipin state is instantiated in the current candidate; it does not prove all 2,401 envelope states biologically unreachable"
+        },
+        "forbidden_lossy_half_swap_fold": {
+          "count_formula": "49*50/2",
+          "state_count": 1225,
+          "status": "forbidden"
+        },
+        "not_adopted_modeling_envelope": {
+          "all_ids_sha256": "af34ecde5ef4a2823208c2ff7e81733b42d907034ca816fdafb9f9f1288f0ecb",
+          "all_state_count": 2401,
+          "different_half_ids_sha256": "3db29ba9826a80e5d9e777c98c1b2c635427b6dccf3817402629031601b5fcd9",
+          "different_half_state_count": 2352,
+          "same_half_ids_sha256": "3eb9cba676499fa5daa16077fd36282f22988970aeaa12c2e5f357fec7bb39b6",
+          "same_half_state_count": 49,
+          "status": "not_adopted"
+        }
+      },
+      "unbalanced_generated_reactions": {},
+      "validation_status": "validated"
+    },
+    "current_contract_recomputations": {
+      "evidence_role": "current_snapshot_recomputation_not_historical_artifact",
+      "source_snapshot_recomputed_in_job": true,
+      "validation_status": "validated"
+    },
+    "fba_pfba": {
+      "candidate_file": {
+        "fba": {
+          "error": null,
+          "objective": 1.3861136590908902,
+          "runtime_seconds": 1.0176169206388295,
+          "selected_fluxes": {
+            "R1721": 0.0,
+            "R1722": 0.0,
+            "R1723": 0.0,
+            "R1724": 0.0,
+            "R1742": 0.0,
+            "R1791": 0.0,
+            "R1794": 0.0,
+            "R1836": 0.0,
+            "R197": 0.0,
+            "biomass_C": 1.3861136590908902,
+            "xLIPID": 0.0,
+            "xMAINTENANCE": 7.8625
+          },
+          "status": "optimal"
+        },
+        "pfba": {
+          "biomass_flux": 1.3861136590909013,
+          "error": null,
+          "runtime_seconds": 3.1798783177509904,
+          "selected_fluxes": {
+            "R1721": 0.0,
+            "R1722": 0.0,
+            "R1723": 0.0,
+            "R1724": 0.0,
+            "R1742": 0.0,
+            "R1791": 0.0,
+            "R1794": 0.0,
+            "R1836": 0.0,
+            "R197": 0.0,
+            "biomass_C": 1.3861136590909013,
+            "xLIPID": 0.0,
+            "xMAINTENANCE": 7.8625
+          },
+          "status": "optimal",
+          "total_absolute_flux": 969.3452766491014
+        }
+      },
+      "normalized_expected": {
+        "fba": {
+          "error": null,
+          "objective": 1.3861136590908902,
+          "runtime_seconds": 1.0464308829978108,
+          "selected_fluxes": {
+            "R1721": 0.0,
+            "R1722": 0.0,
+            "R1723": 0.0,
+            "R1724": 0.0,
+            "R1742": 0.0,
+            "R1791": 0.0,
+            "R1794": 0.0,
+            "R1836": 0.0,
+            "R197": 0.0,
+            "biomass_C": 1.3861136590908902,
+            "xLIPID": 0.0,
+            "xMAINTENANCE": 7.8625
+          },
+          "status": "optimal"
+        },
+        "pfba": {
+          "biomass_flux": 1.3861136590909013,
+          "error": null,
+          "runtime_seconds": 3.253008116967976,
+          "selected_fluxes": {
+            "R1721": 0.0,
+            "R1722": 0.0,
+            "R1723": 0.0,
+            "R1724": 0.0,
+            "R1742": 0.0,
+            "R1791": 0.0,
+            "R1794": 0.0,
+            "R1836": 0.0,
+            "R197": 0.0,
+            "biomass_C": 1.3861136590909013,
+            "xLIPID": 0.0,
+            "xMAINTENANCE": 7.8625
+          },
+          "status": "optimal",
+          "total_absolute_flux": 969.3452766491014
+        }
+      },
+      "normalized_expected_vs_file": {
+        "all_expected_vs_file_close": true,
+        "values": {
+          "fba_objective": {
+            "close": true,
+            "expected": 1.3861136590908902,
+            "observed": 1.3861136590908902
+          },
+          "pfba_biomass_flux": {
+            "close": true,
+            "expected": 1.3861136590909013,
+            "observed": 1.3861136590909013
+          },
+          "pfba_total_absolute_flux": {
+            "close": true,
+            "expected": 969.3452766491014,
+            "observed": 969.3452766491014
+          }
+        }
+      },
+      "validation_status": "validated"
+    },
+    "final_acceptance": {
+      "activation": "blocked",
+      "all_scientific_frontiers_closed": false,
+      "candidate_only_not_production_sbml": true,
+      "computational_validation_gate_passed": true,
+      "hpcc_candidate_file_validation_passed": true,
+      "human_approval_recorded": false,
+      "human_gate_required": true,
+      "production_apply_performed": false,
+      "production_gate_passed": false,
+      "ready_for_activation": false
+    },
+    "formal_normalized_expected_vs_candidate_file": {
+      "groups_preserved_exact": true,
+      "lp_exact_sha256_equal": true,
+      "lp_expected_sha256": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38",
+      "lp_observed_sha256": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38",
+      "lp_tolerance_mismatch_count": 0,
+      "metadata_preserved_exact": true,
+      "reaction_subsystems_preserved_exact": true,
+      "reference_semantics": "independent build serialized and reloaded on this HPCC job",
+      "source_unchanged": true,
+      "validation_status": "validated"
+    },
+    "full_fva": {
+      "candidate_file_summary": {
+        "blocked_count": 1954,
+        "fraction_of_optimum": 1.0,
+        "raw_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_full_candidate_file.json",
+        "reaction_count": 3415,
+        "results_sha256": "28fe7bda76c71b21edc1f5716c51ce310a317f0c7537776ae318dc155a22742f",
+        "runtime_seconds": 192.54386834986508
+      },
+      "comparison": {
+        "exact_unequal_count": 0,
+        "expected_rows_sha256": "ea7cfb1fbe6a0ab2b25976fdaf1dd7ed87ecdf17736eb88fa7c76d318f124c81",
+        "maximum_absolute_delta": 0.0,
+        "maximum_relative_delta": 0.0,
+        "missing_reaction_ids": [],
+        "observed_rows_sha256": "ea7cfb1fbe6a0ab2b25976fdaf1dd7ed87ecdf17736eb88fa7c76d318f124c81",
+        "preserved_under_contract": true,
+        "reaction_ids_equal": true,
+        "tolerance": {
+          "absolute": 1e-07,
+          "relative": 1e-09
+        },
+        "tolerance_mismatch_count": 0,
+        "tolerance_mismatches": [],
+        "top_exact_differences": [],
+        "unexpected_reaction_ids": []
+      },
+      "normalized_expected_summary": {
+        "blocked_count": 1954,
+        "fraction_of_optimum": 1.0,
+        "raw_path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/g_candidate_file_corrected_ad79e5d_20260819T213331Z_C211DE52/fva_full_normalized_expected.json",
+        "reaction_count": 3415,
+        "results_sha256": "28fe7bda76c71b21edc1f5716c51ce310a317f0c7537776ae318dc155a22742f",
+        "runtime_seconds": 193.75498702889308
+      },
+      "reference_semantics": "serializer-normalized expected build",
+      "validation_status": "validated"
+    },
+    "normalization_admissibility": {
+      "admissible": true,
+      "all_differences_in_biomass_C": true,
+      "all_finite_nonzero_same_sign": true,
+      "all_within_numeric_limits": true,
+      "biomass_state_weights": {
+        "in_memory_expected": {
+          "pa_lp": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 5.8e-05,
+            "observed_term_count": 49,
+            "observed_total": 5.8e-05
+          },
+          "pc_lp": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 0.000346,
+            "observed_term_count": 49,
+            "observed_total": 0.000346
+          },
+          "pe_lp": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 0.000237,
+            "observed_term_count": 49,
+            "observed_total": 0.000237
+          },
+          "pi_em": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 7.5e-05,
+            "observed_term_count": 49,
+            "observed_total": 7.5e-05
+          },
+          "ps_em": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 3.5e-05,
+            "observed_term_count": 49,
+            "observed_total": 3.5e-05
+          },
+          "tag_lp": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 343,
+            "expected_total": 0.000234,
+            "observed_term_count": 343,
+            "observed_total": 0.000234
+          }
+        },
+        "normalized_expected": {
+          "pa_lp": {
+            "absolute_delta": 1.3552527156068805e-20,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 5.8e-05,
+            "observed_term_count": 49,
+            "observed_total": 5.799999999999999e-05
+          },
+          "pc_lp": {
+            "absolute_delta": 0.0,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 0.000346,
+            "observed_term_count": 49,
+            "observed_total": 0.000346
+          },
+          "pe_lp": {
+            "absolute_delta": 2.710505431213761e-20,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 0.000237,
+            "observed_term_count": 49,
+            "observed_total": 0.00023700000000000001
+          },
+          "pi_em": {
+            "absolute_delta": 2.710505431213761e-20,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 7.5e-05,
+            "observed_term_count": 49,
+            "observed_total": 7.499999999999997e-05
+          },
+          "ps_em": {
+            "absolute_delta": 1.3552527156068805e-20,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 49,
+            "expected_total": 3.5e-05,
+            "observed_term_count": 49,
+            "observed_total": 3.499999999999998e-05
+          },
+          "tag_lp": {
+            "absolute_delta": 5.421010862427522e-20,
+            "all_terms_finite_nonzero_positive": true,
+            "expected_term_count": 343,
+            "expected_total": 0.000234,
+            "observed_term_count": 343,
+            "observed_total": 0.00023400000000000005
+          }
+        }
+      },
+      "difference_count": 555,
+      "difference_paths_sha256": "96a69c71c81f0c9a5590b69cbd7823d6c6945d637abb6fdc73ee72d10f4473ac",
+      "evidence_role": "fail_closed_normalization_admissibility; FVA sensitivity remains diagnostic",
+      "groups_and_subsystems_preserved_exact": true,
+      "groups_preserved_exact": true,
+      "known_555_biomass_pattern_observed": true,
+      "limitation": "fraction_of_optimum=1.0 FVA endpoints can be discontinuous across decimal serialization on a near-degenerate optimal face",
+      "maximum_absolute_delta": 4.912791094074942e-20,
+      "maximum_relative_delta": 4.821755164748113e-15,
+      "metadata_preserved_exact": true,
+      "raw_xml_charge_serialization": {
+        "all_shared_species_charge_differences": [
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R129",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R154",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R157",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R165",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R248",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R336",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R337",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R368",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R392",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R493",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R522",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R531",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R547",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R625",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R673",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R723",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R759",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R771",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R775",
+            "source_charge": null
+          },
+          {
+            "candidate_charge": "0",
+            "sbml_species_id": "M_trna_biomass_residue_R798",
+            "source_charge": null
+          }
+        ],
+        "expected_species_ids": [
+          "M_trna_biomass_residue_R129",
+          "M_trna_biomass_residue_R154",
+          "M_trna_biomass_residue_R157",
+          "M_trna_biomass_residue_R165",
+          "M_trna_biomass_residue_R248",
+          "M_trna_biomass_residue_R336",
+          "M_trna_biomass_residue_R337",
+          "M_trna_biomass_residue_R368",
+          "M_trna_biomass_residue_R392",
+          "M_trna_biomass_residue_R493",
+          "M_trna_biomass_residue_R522",
+          "M_trna_biomass_residue_R531",
+          "M_trna_biomass_residue_R547",
+          "M_trna_biomass_residue_R625",
+          "M_trna_biomass_residue_R673",
+          "M_trna_biomass_residue_R723",
+          "M_trna_biomass_residue_R759",
+          "M_trna_biomass_residue_R771",
+          "M_trna_biomass_residue_R775",
+          "M_trna_biomass_residue_R798"
+        ],
+        "known_serializer_normalization": "unset fbc:charge to explicit zero",
+        "lp_effect": "none; explicit zero equals COBRA's loaded value",
+        "observed_species_ids": [
+          "M_trna_biomass_residue_R129",
+          "M_trna_biomass_residue_R154",
+          "M_trna_biomass_residue_R157",
+          "M_trna_biomass_residue_R165",
+          "M_trna_biomass_residue_R248",
+          "M_trna_biomass_residue_R336",
+          "M_trna_biomass_residue_R337",
+          "M_trna_biomass_residue_R368",
+          "M_trna_biomass_residue_R392",
+          "M_trna_biomass_residue_R493",
+          "M_trna_biomass_residue_R522",
+          "M_trna_biomass_residue_R531",
+          "M_trna_biomass_residue_R547",
+          "M_trna_biomass_residue_R625",
+          "M_trna_biomass_residue_R673",
+          "M_trna_biomass_residue_R723",
+          "M_trna_biomass_residue_R759",
+          "M_trna_biomass_residue_R771",
+          "M_trna_biomass_residue_R775",
+          "M_trna_biomass_residue_R798"
+        ],
+        "only_expected_normalization_observed": true,
+        "raw_source_to_candidate_metadata_exact": false
+      },
+      "reaction_subsystems_preserved_exact": true,
+      "validation_status": "validated"
+    },
+    "permanent_gate_contract": {
+      "activation": "blocked",
+      "all_scientific_frontiers_closed": false,
+      "candidate_only_not_production_sbml": true,
+      "computational_validation_only": true,
+      "human_approval_recorded": false,
+      "human_gate_required": true,
+      "production_apply_performed": false,
+      "production_gate_passed": false,
+      "ready_for_activation": false
+    },
+    "scientific_blockers_and_gpr_summary": {
+      "A_R613": {
+        "frontier_closed": false,
+        "incident_reaction_count": 49,
+        "incremental_newly_unbalanced_count": 21,
+        "incremental_newly_unbalanced_reaction_ids": [
+          "R1170",
+          "R15",
+          "R2066",
+          "R2120",
+          "R391",
+          "R396",
+          "R491",
+          "R492",
+          "R506",
+          "R507",
+          "R508",
+          "R520",
+          "R521",
+          "R624",
+          "R660",
+          "R770",
+          "R773",
+          "R774",
+          "R796",
+          "R797",
+          "R96"
+        ],
+        "ready_for_activation": false
+      },
+      "B_R2076": {
+        "direct_yarrowia_gene_evidence_found": false,
+        "model_gpr": "",
+        "production_authorized": false,
+        "recommendation_status": "candidate_only_human_gate_required",
+        "recommended_decision": "remove",
+        "remove_candidate": {
+          "allowed_for_testing": true,
+          "decision": "remove",
+          "operation": "remove_reaction",
+          "production_authorized": false,
+          "reason": "Preferred candidate while the ATP-free chemistry and Yarrowia assignment remain unsupported; this does not assert biological absence.",
+          "status": "recommended_fail_closed_candidate"
+        }
+      },
+      "C_R1521": {
+        "atomic": {
+          "incident_reaction_count": 303,
+          "ledger_sha256": "c537a70713d027ca776b61b5cb44025cd03080789a4e0255b5684f8fad5d34fc",
+          "migrated_metabolite_count": 36,
+          "newly_unbalanced_count": 146
+        },
+        "frontier_closed": false,
+        "global": {
+          "incident_reaction_count": 121,
+          "ledger_sha256": "30161ae68373cd71bc8bb89da328569963e6660d62caf989611a462abd18fa12",
+          "migrated_metabolite_count": 11,
+          "newly_unbalanced_count": 73
+        },
+        "production_gate_passed": false
+      },
+      "D_connected_component": {
+        "frontier_closed": false,
+        "production_gate_passed": false,
+        "union": {
+          "incident_reaction_count": 155,
+          "ledger_sha256": "731707e29d8385cdccb8188e77f8778f2435cdd6618da1fd339d94da92e28839",
+          "migrated_metabolite_count": 25,
+          "newly_unbalanced_count": 95
+        }
+      },
+      "E_cardiolipin": {
+        "current_strict_model": {
+          "currently_instantiated_network_position_state_count": 0,
+          "evidence_supported_position_state_count": 0,
+          "included_position_metabolite_count": 0,
+          "included_position_reaction_count": 0,
+          "reachability_scope": "zero means no position-resolved cardiolipin state is instantiated in the current candidate; it does not prove all 2,401 envelope states biologically unreachable"
+        },
+        "forbidden_lossy_half_swap_fold": {
+          "count_formula": "49*50/2",
+          "state_count": 1225,
+          "status": "forbidden"
+        },
+        "not_adopted_modeling_envelope": {
+          "all_ids_sha256": "af34ecde5ef4a2823208c2ff7e81733b42d907034ca816fdafb9f9f1288f0ecb",
+          "all_state_count": 2401,
+          "different_half_ids_sha256": "3db29ba9826a80e5d9e777c98c1b2c635427b6dccf3817402629031601b5fcd9",
+          "different_half_state_count": 2352,
+          "same_half_ids_sha256": "3eb9cba676499fa5daa16077fd36282f22988970aeaa12c2e5f357fec7bb39b6",
+          "same_half_state_count": 49,
+          "status": "not_adopted"
+        },
+        "production_gate_passed": false
+      },
+      "evidence_role": "current_snapshot_recomputation_not_historical_artifact",
+      "gpr_summary": {
+        "B_R2076_unassigned": {
+          "established_name": null,
+          "evidence_status": "unverified_no_direct_yarrowia_evidence",
+          "model_gpr": "",
+          "model_role": [
+            "R2076"
+          ],
+          "protein_function": null,
+          "systematic_id": null
+        },
+        "C_MFE2": {
+          "established_name": "MFE2",
+          "evidence_status": {
+            "alternative_gpr": "not_supported_and_not_claimed_absent",
+            "exact_c26_substrate_turnover": "unverified",
+            "gene_role_and_peroxisomal_localization": "experimentally_supported",
+            "protein_domain_and_3r_assignment": "database_and_homology_inference"
+          },
+          "legacy_id": "YALI0E15378g",
+          "model_gpr": "YALI1E18441g",
+          "model_gpr_evidence_status": "model/GPR assignment only; not direct evidence of exact C26 turnover",
+          "model_role": [
+            "R1504",
+            "R1521"
+          ],
+          "protein_accessions": [
+            "Q9P4D9",
+            "F2Z6I5"
+          ],
+          "protein_function": "Peroxisomal multifunctional beta-oxidation enzyme with 2-enoyl-CoA hydratase 2 and (3R)-hydroxyacyl-CoA dehydrogenase activities.",
+          "systematic_id": "YALI1E18441g"
+        },
+        "D_ACH1": {
+          "established_name": "ACH1",
+          "evidence_status": "experimentally_supported_function_direct_protein_localization_unverified",
+          "legacy_id": "YALI0E30965g",
+          "localization_evidence": "The mitochondrial assignment is pathway-level and condition-specific; no direct protein-localization experiment was verified, so localization remains unverified/conflicting.",
+          "model_gpr": "YALI1E36437g",
+          "model_role": [
+            "R1708"
+          ],
+          "protein_accessions": [
+            "Q6C3Z9"
+          ],
+          "protein_function": "acetate:succinate CoA-transferase",
+          "systematic_id": "YALI1E36437g"
+        },
+        "D_R2004_unassigned": {
+          "established_name": null,
+          "evidence_status": "unverified_no_direct_yarrowia_evidence",
+          "model_gpr": null,
+          "model_role": [
+            "R2004"
+          ],
+          "protein_function": null,
+          "systematic_id": null
+        },
+        "E_complete_nine_gene_ledger": [
+          {
+            "candidate_label": "CDS1",
+            "database_ids": [
+              "GeneID:2911514",
+              "UniProt:Q6C5X0"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "curated annotation",
+            "evidence_detail": "sfGFP directly supports ER localization only; catalytic identity is predicted and the mitochondrial R197 role is unverified",
+            "evidence_status": [
+              "experimental_support",
+              "database_inference",
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0E14443g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R197",
+              "status": "source_model_assignment"
+            },
+            "protein_function": "predicted CDP-diacylglycerol synthase",
+            "systematic_id": "YALI1E17431g"
+          },
+          {
+            "candidate_label": "TAM41",
+            "database_ids": [
+              "GeneID:2910122",
+              "UniProt:Q6CC57"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "curated annotation",
+            "evidence_detail": "related-system Tam41 evidence and database inference do not directly verify this Yarrowia protein",
+            "evidence_status": [
+              "database_inference",
+              "unverified"
+            ],
+            "gpr_replacement_action": "forbidden",
+            "legacy_id": "YALI0C12276g",
+            "model_gpr_role": null,
+            "protein_function": "putative mitochondrial CDP-diacylglycerol synthase",
+            "systematic_id": "YALI1C17238g"
+          },
+          {
+            "database_ids": [
+              "GeneID:2911499",
+              "UniProt:Q6C5Y3"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "model/GPR assignment only",
+            "evidence_detail": "no direct Yarrowia biochemical or localization evidence audited",
+            "evidence_status": [
+              "database_inference",
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0E14102g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R1836",
+              "status": "source_model_assignment"
+            },
+            "protein_function": "predicted phosphatidylglycerolphosphate synthase",
+            "systematic_id": "YALI1E17162g"
+          },
+          {
+            "database_ids": [
+              "GeneID:2906466",
+              "UniProt:Q6CH12"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "model/GPR assignment only",
+            "evidence_detail": "no direct Yarrowia biochemical or localization evidence audited",
+            "evidence_status": [
+              "database_inference",
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0A14157g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R1722",
+              "status": "source_model_assignment"
+            },
+            "protein_function": "predicted phosphatidylglycerolphosphate phosphatase",
+            "systematic_id": "YALI1A13994g"
+          },
+          {
+            "database_ids": [
+              "GeneID:2908748",
+              "UniProt:Q6C0K8"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "model/GPR assignment only",
+            "evidence_detail": "no direct Yarrowia biochemical or localization evidence audited",
+            "evidence_status": [
+              "database_inference",
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0F23837g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R1721",
+              "status": "source_model_assignment"
+            },
+            "protein_function": "predicted cardiolipin synthase",
+            "systematic_id": "YALI1F31283g"
+          },
+          {
+            "database_ids": [
+              "GeneID:2911317",
+              "UniProt:Q6C8Q4"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "model/GPR assignment only",
+            "evidence_detail": "no direct Yarrowia biochemical, position-selectivity, or localization evidence audited",
+            "evidence_status": [
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0D17842g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R1723",
+              "status": "source_model_assignment"
+            },
+            "protein_function": "putative cardiolipin phospholipase",
+            "systematic_id": "YALI1D22083g"
+          },
+          {
+            "candidate_label": "tafazzin",
+            "database_ids": [
+              "GeneID:2909726",
+              "UniProt:Q6CBZ7"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "curated annotation",
+            "evidence_detail": "cryo-EM directly supports the protein and inner-mitochondrial-membrane matrix-side placement; Yarrowia catalytic kinetics and position-resolved remodeling remain unverified",
+            "evidence_status": [
+              "experimental_support",
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0C14036g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R1724",
+              "status": "source_model_assignment"
+            },
+            "protein_function": "tafazzin-family phospholipid transacylase",
+            "systematic_id": "YALI1C19814g"
+          },
+          {
+            "candidate_label": "PGC1",
+            "database_ids": [
+              "GeneID:2908510",
+              "UniProt:Q6C2F9"
+            ],
+            "deleted_database_ids": [
+              "UniProt:A0A1D8NMM1"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "uncharacterized",
+            "evidence_detail": "EC annotation conflicts and C_mm localization is unverified",
+            "evidence_status": [
+              "database_inference",
+              "model_assignment",
+              "unverified"
+            ],
+            "legacy_id": "YALI0F08217g",
+            "model_gpr_role": {
+              "compartment": "C_mm",
+              "reaction_id": "R1742",
+              "status": "source_model_assignment"
+            },
+            "old_aliases": [
+              "YALI2_F00162g",
+              "RefSeq:XP_505153.1"
+            ],
+            "protein_function": "putative phosphatidylglycerol-specific phospholipase C/glycerophosphodiester phosphodiesterase",
+            "systematic_id": "YALI1F11605g"
+          },
+          {
+            "candidate_label": "LCLAT1-like",
+            "database_ids": [
+              "GeneID:2907165"
+            ],
+            "established_name": "no established gene name verified",
+            "evidence_category": "uncharacterized",
+            "evidence_detail": "no direct Yarrowia biochemical, localization, or remodeling evidence audited",
+            "evidence_status": [
+              "database_inference",
+              "unverified"
+            ],
+            "gpr_replacement_or_addition_action": "forbidden",
+            "legacy_id": "YALI0B12254g",
+            "model_gpr_role": null,
+            "normalized_aliases": [
+              "YALI2C00842g"
+            ],
+            "old_aliases": [
+              "YALI2_C00842g"
+            ],
+            "protein_function": "lysocardiolipin acyltransferase candidate",
+            "systematic_id": "YALI1B16087g"
+          }
+        ]
+      },
+      "human_gate_required": true,
+      "production_gate_passed": false,
+      "ready_for_activation": false
+    },
+    "serializer_sensitivity_diagnostic": {
+      "evidence_role": "diagnostic_only_non_gating",
+      "failure": null,
+      "fresh_model_order": [
+        "candidate_file",
+        "normalized_expected",
+        "in_memory_expected"
+      ],
+      "in_memory_vs_normalized_expected": {
+        "exact_unequal_count": 5,
+        "expected_rows_sha256": "ef7c3d8c886e31c892b72795a139a012d91c6407753c3b34d3d5442cf96ae6ff",
+        "maximum_absolute_delta": 4.1732078011282676e-12,
+        "maximum_relative_delta": 1.6160273838384394,
+        "missing_reaction_ids": [],
+        "observed_rows_sha256": "0db79c8429ada0e5ceb56f418157df63e8553635f96a9e2bc609c26e8b3ce8e1",
+        "preserved_under_contract": true,
+        "reaction_ids_equal": true,
+        "tolerance": {
+          "absolute": 1e-07,
+          "relative": 1e-09
+        },
+        "tolerance_mismatch_count": 0,
+        "tolerance_mismatches": [],
+        "top_exact_differences": [
+          {
+            "absolute_delta": 4.1732078011282676e-12,
+            "expected": -2.5823868103125407e-12,
+            "field": "maximum",
+            "observed": 1.5908209908157267e-12,
+            "reaction_id": "R1637",
+            "relative_delta": 1.6160273838384394,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.5039126782923165e-12,
+            "expected": 5.8891306344098615e-06,
+            "field": "maximum",
+            "observed": 5.88913313832254e-06,
+            "reaction_id": "R1570",
+            "relative_delta": 4.251750842579067e-07,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.8210361104321307e-12,
+            "expected": 5.889134350165598e-06,
+            "field": "minimum",
+            "observed": 5.8891325291294874e-06,
+            "reaction_id": "R1570",
+            "relative_delta": 3.092196581286899e-07,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 8.357291638241837e-13,
+            "expected": 0.000253564543316885,
+            "field": "maximum",
+            "observed": 0.00025356454415261415,
+            "reaction_id": "R1434",
+            "relative_delta": 3.2959228058366836e-09,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 3.3711694460286656e-13,
+            "expected": 0.0002535645441797924,
+            "field": "minimum",
+            "observed": 0.00025356454384267544,
+            "reaction_id": "R1434",
+            "relative_delta": 1.329511370342971e-09,
+            "within_tolerance": true
+          }
+        ],
+        "unexpected_reaction_ids": []
+      },
+      "limitation": "target-only runs diagnose order and serializer sensitivity; they do not establish scientific equivalence or authorize production activation",
+      "normalized_expected_vs_candidate_file": {
+        "exact_unequal_count": 0,
+        "expected_rows_sha256": "0db79c8429ada0e5ceb56f418157df63e8553635f96a9e2bc609c26e8b3ce8e1",
+        "maximum_absolute_delta": 0.0,
+        "maximum_relative_delta": 0.0,
+        "missing_reaction_ids": [],
+        "observed_rows_sha256": "0db79c8429ada0e5ceb56f418157df63e8553635f96a9e2bc609c26e8b3ce8e1",
+        "preserved_under_contract": true,
+        "reaction_ids_equal": true,
+        "tolerance": {
+          "absolute": 1e-07,
+          "relative": 1e-09
+        },
+        "tolerance_mismatch_count": 0,
+        "tolerance_mismatches": [],
+        "top_exact_differences": [],
+        "unexpected_reaction_ids": []
+      },
+      "numerical_result_gate_effect": "none; collection failure remains fail-closed",
+      "reaction_ids": [
+        "R1434",
+        "R1570",
+        "R1637"
+      ]
+    },
+    "strict_candidate_contract": {
+      "fresh_build_deterministic": true,
+      "frozen_semantic_digests": {
+        "groups_and_subsystems": "24e98557d8b8b717663801e7e1636d283acffab4900da5e915e04772c51a2ca3",
+        "in_memory_expected_lp": "91abd10fc88f346378cc2bd1eec1a39304dd0e14ae8ce41f3e8e83b39a7bfdc6",
+        "metadata": "79053a17631e81159b0a8eb17b198c29d33f817142310863c3085a692865326c",
+        "normalized_expected_and_candidate_lp": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38"
+      },
+      "source_fingerprint_after": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121",
+      "source_fingerprint_before": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121",
+      "source_unchanged": true,
+      "validation_status": "validated"
+    },
+    "temporary_sbml_roundtrip": {
+      "dimensions_after": {
+        "genes": 1074,
+        "metabolites": 3008,
+        "reactions": 3415
+      },
+      "dimensions_before": {
+        "genes": 1074,
+        "metabolites": 3008,
+        "reactions": 3415
+      },
+      "e_metadata_scope_limitation_remediated": true,
+      "error": null,
+      "fba_pfba": {
+        "fba": {
+          "error": null,
+          "objective": 1.3861136590908902,
+          "runtime_seconds": 1.0954476329497993,
+          "selected_fluxes": {
+            "R1721": 0.0,
+            "R1722": 0.0,
+            "R1723": 0.0,
+            "R1724": 0.0,
+            "R1742": 0.0,
+            "R1791": 0.0,
+            "R1794": 0.0,
+            "R1836": 0.0,
+            "R197": 0.0,
+            "biomass_C": 1.3861136590908902,
+            "xLIPID": 0.0,
+            "xMAINTENANCE": 7.8625
+          },
+          "status": "optimal"
+        },
+        "pfba": {
+          "biomass_flux": 1.3861136590909013,
+          "error": null,
+          "runtime_seconds": 3.2426326400600374,
+          "selected_fluxes": {
+            "R1721": 0.0,
+            "R1722": 0.0,
+            "R1723": 0.0,
+            "R1724": 0.0,
+            "R1742": 0.0,
+            "R1791": 0.0,
+            "R1794": 0.0,
+            "R1836": 0.0,
+            "R197": 0.0,
+            "biomass_C": 1.3861136590909013,
+            "xLIPID": 0.0,
+            "xMAINTENANCE": 7.8625
+          },
+          "status": "optimal",
+          "total_absolute_flux": 969.3452766491014
+        }
+      },
+      "file": {
+        "bytes": 17940939,
+        "sha256": "bfa31924b551da66d95440e73cd4f2e742c1d3222f5b12431abccaf21a6ac184"
+      },
+      "generated_route_count": 1134,
+      "listed_metadata": {
+        "e_metadata_scope_limitation_remediated": true,
+        "expected_sha256": "24e98557d8b8b717663801e7e1636d283acffab4900da5e915e04772c51a2ca3",
+        "groups_and_subsystems_preserved_exact": true,
+        "groups_preserved_exact": true,
+        "observed_sha256": "24e98557d8b8b717663801e7e1636d283acffab4900da5e915e04772c51a2ca3",
+        "preserved_exact": true,
+        "reaction_subsystems_preserved_exact": true,
+        "scope": {
+          "groups": [
+            "id",
+            "name",
+            "kind",
+            "member_ids",
+            "annotation",
+            "notes"
+          ],
+          "reactions": [
+            "id",
+            "subsystem"
+          ]
+        }
+      },
+      "lp": {
+        "exact_sha256_equal": true,
+        "expected_sha256": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38",
+        "observed_sha256": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38",
+        "preserved_under_contract": true,
+        "tolerance_mismatch_count": 0
+      },
+      "metadata": {
+        "expected_sha256": "79053a17631e81159b0a8eb17b198c29d33f817142310863c3085a692865326c",
+        "observed_sha256": "79053a17631e81159b0a8eb17b198c29d33f817142310863c3085a692865326c",
+        "preserved_exact": true
+      },
+      "production_sbml": false,
+      "temporary_candidate_only": true,
+      "temporary_deleted_after_validation": true
+    },
+    "tests": {
+      "errors": 0,
+      "expected_failures": 0,
+      "failures": 0,
+      "modules": [
+        "tests.test_coa_protonation_curation",
+        "tests.test_fatty_acyl_coa_handoff",
+        "tests.test_r1521_current_snapshot_handoff",
+        "tests.test_lp_sn12_candidate"
+      ],
+      "passed": 68,
+      "ran": 68,
+      "requested": 68,
+      "runtime_seconds": 540.44694302883,
+      "skipped": 0,
+      "successful": true,
+      "unexpected_successes": 0
+    }
+  }
+}
