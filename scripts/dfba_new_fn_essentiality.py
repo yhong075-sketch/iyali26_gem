@@ -87,7 +87,21 @@ POSITIVE_ONLY_REFERENCE_COLUMNS = (
 )
 POSITIVE_ONLY_REFERENCE_SOURCE = "https://doi.org/10.1038/s42003-023-04996-8"
 POSITIVE_ONLY_REFERENCE_CONFIDENCE = "consensus_essential_in_at_least_2_of_3_screens"
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
+ALGORITHM = "first-order Euler dFBA with parsimonious FBA flux selection"
+RESULT_COLUMNS = (
+    "gene_id",
+    "baseline_ko_biomass_gain_gdw_l",
+    "candidate_ko_biomass_gain_gdw_l",
+    "baseline_ko_to_wt_gain_ratio",
+    "candidate_ko_to_wt_gain_ratio",
+    "baseline_predicted_essential",
+    "candidate_predicted_essential",
+    "new_false_negative",
+    "baseline_reaction_ids",
+    "candidate_reaction_ids",
+    "gpr_evidence_status",
+)
 
 
 def sha256(path: Path) -> str:
@@ -135,6 +149,28 @@ def input_records(args: argparse.Namespace) -> dict:
 def _id_digest(values: list[str]) -> str:
     payload = "".join(f"{value}\n" for value in sorted(values)).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def shard_gene_ids(
+    gene_ids: list[str], *, shard_index: int, shard_count: int
+) -> list[str]:
+    """Return one deterministic, non-empty slice of a unique gene universe."""
+    ordered = sorted(gene_ids)
+    if not ordered or len(ordered) != len(set(ordered)):
+        raise ValueError("gene shard universe must be non-empty and unique")
+    if shard_count < 1 or shard_count > len(ordered):
+        raise ValueError("shard_count must be in [1, number of genes]")
+    if not 0 <= shard_index < shard_count:
+        raise ValueError("shard_index must be in [0, shard_count)")
+    return ordered[shard_index::shard_count]
+
+
+def _strict_bool(value: object, *, field: str) -> bool:
+    if type(value) is bool:
+        return value
+    if type(value) is str and value in {"True", "False"}:
+        return value == "True"
+    raise ValueError(f"{field} must be exactly True or False")
 
 
 def load_experimental_reference(path: Path) -> tuple[list[str], dict]:
@@ -529,22 +565,9 @@ def compare_models(
     if baseline_wt["biomass_gain_gdw_l"] <= 1e-12 or candidate_wt["biomass_gain_gdw_l"] <= 1e-12:
         raise RuntimeError("wild-type dFBA biomass gain must be positive in both models")
 
-    fieldnames = [
-        "gene_id",
-        "baseline_ko_biomass_gain_gdw_l",
-        "candidate_ko_biomass_gain_gdw_l",
-        "baseline_ko_to_wt_gain_ratio",
-        "candidate_ko_to_wt_gain_ratio",
-        "baseline_predicted_essential",
-        "candidate_predicted_essential",
-        "new_false_negative",
-        "baseline_reaction_ids",
-        "candidate_reaction_ids",
-        "gpr_evidence_status",
-    ]
     rows = []
     with output_tsv.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fieldnames, delimiter="\t")
+        writer = csv.DictWriter(stream, fieldnames=RESULT_COLUMNS, delimiter="\t")
         writer.writeheader()
         for index, gene_id in enumerate(sorted(gene_ids), start=1):
             baseline_ko = _knockout_simulation(baseline, gene_id, medium, settings)
@@ -577,7 +600,7 @@ def compare_models(
     return rows, baseline_wt, candidate_wt
 
 
-def run(args: argparse.Namespace) -> dict:
+def _validate_arguments(args: argparse.Namespace) -> None:
     for path in (args.baseline, args.candidate, args.experimental, args.dynamic_medium):
         if not path.is_file():
             raise FileNotFoundError(path)
@@ -589,62 +612,152 @@ def run(args: argparse.Namespace) -> dict:
     if not math.isfinite(args.growth_cutoff) or not 0 < args.growth_cutoff <= 1:
         raise ValueError("growth-cutoff must be finite and in (0, 1]")
 
-    inputs_before = input_records(args)
-    git_head_before = git_head()
-    write_json(args.output_dir / "summary.json", {
-        "schema_version": SCHEMA_VERSION,
-        "status": "running",
-        "created_at_utc": datetime.now(timezone.utc).isoformat(),
-        "git_commit": git_head_before,
-        "inputs": inputs_before,
-        "production_gate_passed": False,
-        "human_review_required": True,
-    })
-    medium = load_dynamic_medium(args.dynamic_medium)
-    medium_contract = _medium_contract(medium)
-    positive_gene_ids, experimental_reference_contract = load_experimental_reference(
-        args.experimental
-    )
 
+def _slurm_record() -> dict:
+    return {
+        "job_id": os.environ.get("SLURM_JOB_ID"),
+        "array_job_id": os.environ.get("SLURM_ARRAY_JOB_ID"),
+        "array_task_id": os.environ.get("SLURM_ARRAY_TASK_ID"),
+        "node_list": os.environ.get("SLURM_JOB_NODELIST"),
+        "partition": os.environ.get("SLURM_JOB_PARTITION"),
+        "account": os.environ.get("SLURM_JOB_ACCOUNT"),
+        "cpus_per_task": os.environ.get("SLURM_CPUS_PER_TASK"),
+        "memory_per_node": os.environ.get("SLURM_MEM_PER_NODE"),
+        "time_limit": os.environ.get("SLURM_TIMELIMIT"),
+    }
+
+
+def _prepare_context(args: argparse.Namespace) -> dict:
+    _validate_arguments(args)
+    inputs = input_records(args)
+    medium = load_dynamic_medium(args.dynamic_medium)
+    positive_gene_ids, reference_contract = load_experimental_reference(args.experimental)
     baseline = read_sbml_model(str(args.baseline))
     candidate = read_sbml_model(str(args.candidate))
     baseline.solver = args.solver
     candidate.solver = args.solver
-    essential_gene_ids, experimental_reference_coverage_contract = (
-        experimental_reference_coverage(positive_gene_ids, baseline, candidate)
+    gene_ids, coverage_contract = experimental_reference_coverage(
+        positive_gene_ids, baseline, candidate
     )
-    model_contracts = {
-        "baseline": _model_contract(baseline, medium),
-        "candidate": _model_contract(candidate, medium),
-    }
-    running = json.loads((args.output_dir / "summary.json").read_text(encoding="utf-8"))
-    running.update({
-        "experimental_reference_contract": experimental_reference_contract,
-        "experimental_reference_coverage": experimental_reference_coverage_contract,
-    })
-    write_json(args.output_dir / "summary.json", running)
     settings = {
         "hours": args.hours,
         "step_hours": args.step_hours,
         "initial_biomass_gdw_l": args.initial_biomass,
+        "growth_cutoff": args.growth_cutoff,
+        "solver": args.solver,
     }
+    return {
+        "git_commit": git_head(),
+        "inputs": inputs,
+        "medium": medium,
+        "positive_gene_ids": positive_gene_ids,
+        "gene_ids": gene_ids,
+        "baseline": baseline,
+        "candidate": candidate,
+        "settings": settings,
+        "model_contracts": {
+            "baseline": _model_contract(baseline, medium),
+            "candidate": _model_contract(candidate, medium),
+        },
+        "dynamic_medium_contract": _medium_contract(medium),
+        "experimental_reference_contract": reference_contract,
+        "experimental_reference_coverage": coverage_contract,
+        "software": {
+            "python": platform.python_version(),
+            "cobra": cobra.__version__,
+            "solver_interface": baseline.solver.interface.__name__,
+        },
+    }
+
+
+def _shared_contract(context: dict) -> dict:
+    return {
+        "git_commit": context["git_commit"],
+        "inputs": context["inputs"],
+        "settings": context["settings"],
+        "software": context["software"],
+        "model_contracts": context["model_contracts"],
+        "dynamic_medium_contract": context["dynamic_medium_contract"],
+        "experimental_reference_contract": context["experimental_reference_contract"],
+        "experimental_reference_coverage": context["experimental_reference_coverage"],
+    }
+
+
+def _assert_context_unchanged(context: dict, args: argparse.Namespace) -> None:
+    if input_records(args) != context["inputs"] or git_head() != context["git_commit"]:
+        raise RuntimeError("repository or input files changed during dFBA evaluation")
+
+
+def _execution_contract(context: dict, args: argparse.Namespace) -> dict:
+    selected = shard_gene_ids(
+        context["gene_ids"],
+        shard_index=args.shard_index,
+        shard_count=args.shard_count,
+    )
+    deferred = args.shard_count > 1
+    return {
+        "mode": "shard" if deferred else "single",
+        "shard_index": args.shard_index,
+        "shard_count": args.shard_count,
+        "evaluated_gene_ids": selected,
+        "evaluated_gene_id_sha256": _id_digest(selected),
+        "universe_gene_count": len(context["gene_ids"]),
+        "universe_gene_id_sha256": _id_digest(context["gene_ids"]),
+        "final_scientific_gate_deferred_to_aggregate": deferred,
+    }
+
+
+def _governance() -> dict:
+    return {
+        "model_mutation_performed": False,
+        "production_gate_passed": False,
+        "human_review_required": True,
+        "positive_only_reference_absence_is_not_nonessential": True,
+        "gene_identity_function_followup_required_for_new_false_negatives": True,
+    }
+
+
+def _write_results(path: Path, rows: list[dict]) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with temporary.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=RESULT_COLUMNS, delimiter="\t")
+        writer.writeheader()
+        writer.writerows(rows)
+    temporary.replace(path)
+
+
+def run(args: argparse.Namespace) -> dict:
+    context = _prepare_context(args)
+    execution = _execution_contract(context, args)
+    running = json.loads((args.output_dir / "summary.json").read_text(encoding="utf-8"))
+    running.update({
+        **_shared_contract(context),
+        "execution": execution,
+        "production_gate_passed": False,
+        "human_review_required": True,
+    })
+    write_json(args.output_dir / "summary.json", running)
+
     output_tsv = args.output_dir / "gene_results.tsv"
     partial_tsv = args.output_dir / "gene_results.partial.tsv"
     rows, baseline_wt, candidate_wt = compare_models(
-        baseline,
-        candidate,
-        essential_gene_ids,
-        medium,
-        settings,
-        args.growth_cutoff,
+        context["baseline"],
+        context["candidate"],
+        execution["evaluated_gene_ids"],
+        context["medium"],
+        {
+            "hours": context["settings"]["hours"],
+            "step_hours": context["settings"]["step_hours"],
+            "initial_biomass_gdw_l": context["settings"]["initial_biomass_gdw_l"],
+        },
+        context["settings"]["growth_cutoff"],
         partial_tsv,
     )
-    inputs_after = input_records(args)
-    git_head_after = git_head()
-    if inputs_after != inputs_before or git_head_after != git_head_before:
-        raise RuntimeError("repository or input files changed during dFBA evaluation")
+    _assert_context_unchanged(context, args)
     partial_tsv.replace(output_tsv)
     new_false_negatives = sorted(row["gene_id"] for row in rows if row["new_false_negative"])
+    local_gate = not new_false_negatives
+    final_gate = local_gate if not execution["final_scientific_gate_deferred_to_aggregate"] else None
     return {
         "schema_version": SCHEMA_VERSION,
         "status": "complete",
@@ -654,45 +767,221 @@ def run(args: argparse.Namespace) -> dict:
             "genes present in both models"
         ),
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
-        "git_commit": git_head_before,
         "command": sys.argv,
-        "inputs": inputs_before,
-        "settings": {**settings, "growth_cutoff": args.growth_cutoff, "solver": args.solver},
-        "algorithm": "first-order Euler dFBA with parsimonious FBA flux selection",
-        "software": {
-            "python": platform.python_version(),
-            "cobra": cobra.__version__,
-            "solver_interface": baseline.solver.interface.__name__,
-        },
-        "slurm": {
-            "job_id": os.environ.get("SLURM_JOB_ID"),
-            "node_list": os.environ.get("SLURM_JOB_NODELIST"),
-            "partition": os.environ.get("SLURM_JOB_PARTITION"),
-            "account": os.environ.get("SLURM_JOB_ACCOUNT"),
-            "cpus_per_task": os.environ.get("SLURM_CPUS_PER_TASK"),
-            "memory_per_node": os.environ.get("SLURM_MEM_PER_NODE"),
-            "time_limit": os.environ.get("SLURM_TIMELIMIT"),
-        },
+        "algorithm": ALGORITHM,
+        **_shared_contract(context),
+        "slurm": _slurm_record(),
         "wild_type": {"baseline": baseline_wt, "candidate": candidate_wt},
-        "model_contracts": model_contracts,
-        "dynamic_medium_contract": medium_contract,
-        "experimental_reference_contract": experimental_reference_contract,
-        "experimental_reference_coverage": experimental_reference_coverage_contract,
+        "execution": execution,
         "production_gate_passed": False,
         "human_review_required": True,
-        "experimental_essential_gene_count": len(positive_gene_ids),
+        "experimental_essential_gene_count": len(context["positive_gene_ids"]),
         "evaluated_gene_count": len(rows),
         "new_false_negative_count": len(new_false_negatives),
         "new_false_negative_gene_ids": new_false_negatives,
-        "no_new_false_negative_gate_passed": not new_false_negatives,
+        "no_new_false_negative_gate_passed": local_gate,
+        "final_scientific_gate_passed": final_gate,
         "gene_results": {"path": str(output_tsv.resolve()), "sha256": sha256(output_tsv)},
-        "governance": {
-            "model_mutation_performed": False,
-            "production_gate_passed": False,
-            "human_review_required": True,
-            "positive_only_reference_absence_is_not_nonessential": True,
-            "gene_identity_function_followup_required_for_new_false_negatives": True,
+        "governance": _governance(),
+    }
+
+
+def _read_shard_results(path: Path, expected_gene_ids: list[str]) -> list[dict]:
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    with path.open(newline="", encoding="utf-8") as stream:
+        reader = csv.DictReader(stream, delimiter="\t")
+        if tuple(reader.fieldnames or []) != RESULT_COLUMNS:
+            raise ValueError(f"unexpected result columns in {path}")
+        rows = []
+        for line_number, row in enumerate(reader, start=2):
+            if None in row or set(row) != set(RESULT_COLUMNS):
+                raise ValueError(f"malformed result row at {path}:{line_number}")
+            for field in (
+                "baseline_predicted_essential",
+                "candidate_predicted_essential",
+                "new_false_negative",
+            ):
+                _strict_bool(row[field], field=f"{path}:{line_number}:{field}")
+            expected_new = (
+                _strict_bool(row["baseline_predicted_essential"], field="baseline_predicted_essential")
+                and not _strict_bool(
+                    row["candidate_predicted_essential"], field="candidate_predicted_essential"
+                )
+            )
+            if _strict_bool(row["new_false_negative"], field="new_false_negative") != expected_new:
+                raise ValueError(f"new-FN classification is inconsistent at {path}:{line_number}")
+            rows.append(row)
+    actual_gene_ids = [row["gene_id"] for row in rows]
+    if actual_gene_ids != expected_gene_ids:
+        raise ValueError(
+            f"result gene IDs do not match the expected shard: {path}"
+        )
+    return rows
+
+
+def _worker_summary(
+    path: Path, expected_execution: dict, context: dict
+) -> tuple[dict, list[dict], dict]:
+    summary_path = path / "summary.json"
+    results_path = path / "gene_results.tsv"
+    partial_path = path / "gene_results.partial.tsv"
+    wrapper_path = path / "wrapper_status.json"
+    if partial_path.exists():
+        raise ValueError(f"partial result remains in shard: {partial_path}")
+    if not summary_path.is_file():
+        raise FileNotFoundError(summary_path)
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"invalid shard summary: {summary_path}") from error
+    if summary.get("status") != "complete":
+        raise ValueError(f"shard is not complete: {path}")
+    if summary.get("schema_version") != SCHEMA_VERSION:
+        raise ValueError(f"shard schema version differs: {path}")
+    if summary.get("execution") != expected_execution:
+        raise ValueError(f"shard execution contract differs: {path}")
+    for key, value in _shared_contract(context).items():
+        if summary.get(key) != value:
+            raise ValueError(f"shard {key} differs: {path}")
+    descriptor = summary.get("gene_results")
+    expected_descriptor = {"path": str(results_path.resolve()), "sha256": sha256(results_path)}
+    if descriptor != expected_descriptor:
+        raise ValueError(f"shard result descriptor differs: {path}")
+    if not wrapper_path.is_file():
+        raise FileNotFoundError(wrapper_path)
+    try:
+        wrapper = json.loads(wrapper_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"invalid shard wrapper status: {wrapper_path}") from error
+    if (
+        wrapper.get("mode") != "shard"
+        or wrapper.get("array_task_id") != str(expected_execution["shard_index"])
+        or wrapper.get("shard_count") != str(expected_execution["shard_count"])
+        or wrapper.get("preflight_exit_code") != 0
+        or wrapper.get("runner_exit_code") != 0
+        or wrapper.get("postflight_exit_code") != 0
+        or wrapper.get("technical_execution_completed") is not True
+        or wrapper.get("final_scientific_gate_deferred_to_aggregate") is not True
+        or wrapper.get("wrapper_gate_passed") is not True
+        or wrapper.get("summary_sha256") != sha256(summary_path)
+        or wrapper.get("gene_results_sha256") != sha256(results_path)
+    ):
+        raise ValueError(f"shard wrapper status is inconsistent: {path}")
+    rows = _read_shard_results(results_path, expected_execution["evaluated_gene_ids"])
+    new_ids = [
+        row["gene_id"]
+        for row in rows
+        if _strict_bool(row["new_false_negative"], field="new_false_negative")
+    ]
+    if (
+        summary.get("evaluated_gene_count") != len(rows)
+        or summary.get("new_false_negative_count") != len(new_ids)
+        or summary.get("new_false_negative_gene_ids") != new_ids
+        or _strict_bool(
+            summary.get("no_new_false_negative_gate_passed"),
+            field="no_new_false_negative_gate_passed",
+        ) != (not new_ids)
+        or summary.get("final_scientific_gate_passed") is not None
+    ):
+        raise ValueError(f"shard result summary is inconsistent: {path}")
+    return summary, rows, wrapper
+
+
+def aggregate_shards(args: argparse.Namespace) -> dict:
+    context = _prepare_context(args)
+    shard_root = args.aggregate_shards.resolve()
+    expected_shard_names = {f"{index:03d}" for index in range(args.shard_count)}
+    observed_shard_names = {path.name for path in shard_root.iterdir()}
+    missing_shard_names = expected_shard_names - observed_shard_names
+    if missing_shard_names:
+        raise FileNotFoundError(
+            f"missing expected shard directories: {sorted(missing_shard_names)}"
+        )
+    if observed_shard_names != expected_shard_names:
+        raise ValueError("shards directory must contain exactly the expected shard directories")
+    all_rows = []
+    manifests = []
+    common_wild_type = None
+    for shard_index in range(args.shard_count):
+        expected_execution = {
+            "mode": "shard",
+            "shard_index": shard_index,
+            "shard_count": args.shard_count,
+            "evaluated_gene_ids": shard_gene_ids(
+                context["gene_ids"], shard_index=shard_index, shard_count=args.shard_count
+            ),
+            "evaluated_gene_id_sha256": _id_digest(shard_gene_ids(
+                context["gene_ids"], shard_index=shard_index, shard_count=args.shard_count
+            )),
+            "universe_gene_count": len(context["gene_ids"]),
+            "universe_gene_id_sha256": _id_digest(context["gene_ids"]),
+            "final_scientific_gate_deferred_to_aggregate": True,
+        }
+        shard_path = shard_root / f"{shard_index:03d}"
+        summary, rows, wrapper = _worker_summary(shard_path, expected_execution, context)
+        if common_wild_type is None:
+            common_wild_type = summary["wild_type"]
+        elif summary.get("wild_type") != common_wild_type:
+            raise ValueError(f"wild-type result differs between shards: {shard_path}")
+        all_rows.extend(rows)
+        manifests.append({
+            "shard_index": shard_index,
+            "summary_path": str((shard_path / "summary.json").resolve()),
+            "summary_sha256": sha256(shard_path / "summary.json"),
+            "wrapper_status_path": str((shard_path / "wrapper_status.json").resolve()),
+            "wrapper_status_sha256": sha256(shard_path / "wrapper_status.json"),
+            "gene_results_path": str((shard_path / "gene_results.tsv").resolve()),
+            "gene_results_sha256": sha256(shard_path / "gene_results.tsv"),
+            "evaluated_gene_id_sha256": expected_execution["evaluated_gene_id_sha256"],
+        })
+    by_gene_id = {row["gene_id"]: row for row in all_rows}
+    if len(by_gene_id) != len(all_rows) or sorted(by_gene_id) != context["gene_ids"]:
+        raise ValueError("shards do not provide one result for every expected gene")
+    ordered_rows = [by_gene_id[gene_id] for gene_id in context["gene_ids"]]
+    output_tsv = args.output_dir / "gene_results.tsv"
+    partial_tsv = args.output_dir / "gene_results.partial.tsv"
+    _write_results(partial_tsv, ordered_rows)
+    _assert_context_unchanged(context, args)
+    partial_tsv.replace(output_tsv)
+    new_false_negatives = [
+        row["gene_id"]
+        for row in ordered_rows
+        if _strict_bool(row["new_false_negative"], field="new_false_negative")
+    ]
+    final_gate = not new_false_negatives
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "status": "complete",
+        "definition": (
+            "new FN = experimentally essential AND baseline dFBA predicts essential "
+            "AND candidate dFBA predicts non-essential, among positive-reference "
+            "genes present in both models"
+        ),
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "command": sys.argv,
+        "algorithm": ALGORITHM,
+        **_shared_contract(context),
+        "slurm": _slurm_record(),
+        "wild_type": common_wild_type,
+        "execution": {
+            "mode": "aggregate",
+            "shard_count": args.shard_count,
+            "shards_root": str(shard_root),
+            "universe_gene_count": len(context["gene_ids"]),
+            "universe_gene_id_sha256": _id_digest(context["gene_ids"]),
         },
+        "shard_manifest": manifests,
+        "production_gate_passed": False,
+        "human_review_required": True,
+        "experimental_essential_gene_count": len(context["positive_gene_ids"]),
+        "evaluated_gene_count": len(ordered_rows),
+        "new_false_negative_count": len(new_false_negatives),
+        "new_false_negative_gene_ids": new_false_negatives,
+        "no_new_false_negative_gate_passed": final_gate,
+        "final_scientific_gate_passed": final_gate,
+        "gene_results": {"path": str(output_tsv.resolve()), "sha256": sha256(output_tsv)},
+        "governance": _governance(),
     }
 
 
@@ -708,14 +997,27 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--initial-biomass", type=float, default=0.05)
     result.add_argument("--growth-cutoff", type=float, default=0.01)
     result.add_argument("--solver", default="glpk")
+    result.add_argument("--shard-index", type=int, default=0)
+    result.add_argument("--shard-count", type=int, default=1)
+    result.add_argument("--aggregate-shards", type=Path)
     return result
 
 
 def main() -> None:
     args = parser().parse_args()
-    if args.output_dir.exists() and any(args.output_dir.iterdir()):
-        raise SystemExit(f"output directory must be empty: {args.output_dir}")
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    if args.aggregate_shards:
+        if args.shard_index != 0:
+            raise SystemExit("aggregate mode requires the default shard index 0")
+        if args.aggregate_shards.resolve() != (args.output_dir / "shards").resolve():
+            raise SystemExit("aggregate shards must be exactly output-dir/shards")
+        if not args.aggregate_shards.is_dir():
+            raise SystemExit(f"missing shards directory: {args.aggregate_shards}")
+        if set(path.name for path in args.output_dir.iterdir()) != {"shards"}:
+            raise SystemExit("aggregate output directory may contain only shards before aggregation")
+    else:
+        if args.output_dir.exists() and any(args.output_dir.iterdir()):
+            raise SystemExit(f"output directory must be empty: {args.output_dir}")
+        args.output_dir.mkdir(parents=True, exist_ok=True)
     write_json(args.output_dir / "summary.json", {
         "schema_version": SCHEMA_VERSION,
         "status": "running",
@@ -724,7 +1026,7 @@ def main() -> None:
         "human_review_required": True,
     })
     try:
-        summary = run(args)
+        summary = aggregate_shards(args) if args.aggregate_shards else run(args)
     except Exception as error:
         summary_path = args.output_dir / "summary.json"
         failure = json.loads(summary_path.read_text())
@@ -736,6 +1038,8 @@ def main() -> None:
             "human_review_required": True,
         })
         write_json(summary_path, failure)
+        if args.aggregate_shards:
+            raise SystemExit(2) from error
         raise
     write_json(args.output_dir / "summary.json", summary)
     print(json.dumps({
@@ -743,7 +1047,7 @@ def main() -> None:
         "no_new_false_negative_gate_passed": summary["no_new_false_negative_gate_passed"],
         "summary": str((args.output_dir / "summary.json").resolve()),
     }, sort_keys=True))
-    if not summary["no_new_false_negative_gate_passed"]:
+    if summary["final_scientific_gate_passed"] is False:
         raise SystemExit(3)
 
 
