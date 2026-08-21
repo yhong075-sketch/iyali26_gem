@@ -88,6 +88,12 @@ def load_experimental(path: Path) -> pd.DataFrame:
 
     df["essential"] = df["essential"].map(parse_bool)
     df["gene_id"]   = df["gene_id"].str.strip()
+    if df["gene_id"].isna().any() or (df["gene_id"] == "").any():
+        raise ValueError("Experimental CSV contains a blank gene_id")
+    conflicting = df.groupby("gene_id")["essential"].nunique()
+    conflicting = conflicting[conflicting > 1].index.tolist()
+    if conflicting:
+        raise ValueError(f"Conflicting duplicate essentiality labels: {conflicting}")
     return df[["gene_id", "essential"]].drop_duplicates("gene_id")
 
 
