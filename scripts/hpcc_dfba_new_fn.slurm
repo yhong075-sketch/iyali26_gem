@@ -18,7 +18,7 @@ BASELINE_MODEL="${BASELINE_MODEL:-/rhome/yhong075/iyali26_gem_lipid_unlump_a014_
 CANDIDATE_MODEL="${CANDIDATE_MODEL:-$REPO/model_lipid_unlump_strict_sn_candidate_bc2aac8f_er_membrane_transport_metadata.xml}"
 EXPECTED_BASELINE_SHA256="${EXPECTED_BASELINE_SHA256:-bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee}"
 EXPECTED_CANDIDATE_SHA256="${EXPECTED_CANDIDATE_SHA256:-3b543b17b47b22a12a11745c3bc4ecf27e246bfa1d0f0d3865330742d1ac23f3}"
-EXPECTED_RUNNER_SHA256="${EXPECTED_RUNNER_SHA256:-352f9f4980ecaf26cfce1eabb3b1c0f5661f4477ccd4c8fc0e9dfd63f0b2e962}"
+EXPECTED_RUNNER_SHA256="${EXPECTED_RUNNER_SHA256:-67eaadcac73fba4d46b32895651c45b7d0f54e5d9b4c5307f96c7a92b7189b51}"
 EXPECTED_LOADER_SHA256="${EXPECTED_LOADER_SHA256:-f80f0195b993d44f6c61cb42b0987bc4491097de71080841e0e5e2662b4ce100}"
 EXPECTED_FINGERPRINT_HELPER_SHA256="${EXPECTED_FINGERPRINT_HELPER_SHA256:-a3402f17eeb45ad14d4eb9e8374a55a4ce0fe41fe6c050d2a6756a60cb2042c3}"
 EXPECTED_DFBA_MEDIUM_SHA256="${EXPECTED_DFBA_MEDIUM_SHA256:-7e189e312ddbae7cea711c5dfabbfbc6d0b10803f82a689e6d589d11b7ec5ec4}"
@@ -51,6 +51,15 @@ prepare_output() {
       OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_new_fn_${JOB_ID}}"
       mkdir -p "$OUTPUT_DIR" || PREPARE_STATUS=2
       STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"
+      ;;
+    wt_diagnostic)
+      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_wt_diagnostic_${JOB_ID}}"
+      if ! mkdir "$OUTPUT_DIR"; then
+        PREPARE_STATUS=2
+        STATUS_PATH="$RUNS_ROOT/dfba_wt_diagnostic_${JOB_ID}.prepare_failed.json"
+      else
+        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"
+      fi
       ;;
     shard)
       if test -z "$RUN_ROOT" || ! is_uint "$TASK_ID" || ! is_uint "$DFBA_SHARD_COUNT"; then
@@ -96,7 +105,7 @@ check_contract() {
   test -n "$EXPECTED_EXPERIMENTAL_SHA256" || status=2
   test -n "$EXPERIMENTAL_CSV" || status=2
   test -n "$DFBA_MEDIUM_CSV" || status=2
-  case "$DFBA_MODE" in single|shard|aggregate) ;; *) status=2 ;; esac
+  case "$DFBA_MODE" in single|wt_diagnostic|shard|aggregate) ;; *) status=2 ;; esac
   test -z "$(git -C "$REPO" status --porcelain 2>/dev/null)" || status=2
   test "$(git -C "$REPO" rev-parse HEAD 2>/dev/null)" = "$EXPECTED_GIT_COMMIT" || status=2
   test -f "$REPO/scripts/dfba_new_fn_essentiality.py" || status=2
@@ -127,12 +136,14 @@ check_contract() {
   if test -f "$EXPERIMENTAL_CSV"; then
     test "$(sha256sum "$EXPERIMENTAL_CSV" | awk '{print $1}')" = "$EXPECTED_EXPERIMENTAL_SHA256" || status=2
   fi
-  if test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then
+  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then
     test "$DFBA_HOURS" = "24" || status=2
     test "$DFBA_STEP_HOURS" = "0.1" || status=2
     test "$DFBA_INITIAL_BIOMASS_GDW_L" = "0.05" || status=2
     test "$DFBA_GROWTH_CUTOFF" = "0.01" || status=2
     test "$DFBA_SOLVER" = "glpk" || status=2
+  fi
+  if test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then
     test "$DFBA_SHARD_COUNT" = "$EXPECTED_SHARD_COUNT" || status=2
     test -n "$RUN_ROOT" || status=2
   fi
@@ -144,6 +155,10 @@ check_contract() {
       test "$SLURM_ARRAY_TASK_COUNT" = "$DFBA_SHARD_COUNT" || status=2
     fi
   fi
+  if test "$DFBA_MODE" = "wt_diagnostic"; then
+    test -z "$TASK_ID" || status=2
+    test -z "${SLURM_ARRAY_JOB_ID:-}" || status=2
+  fi
   if test "$DFBA_MODE" = "aggregate"; then
     test -d "$RUN_ROOT/shards" || status=2
   fi
@@ -153,7 +168,7 @@ check_contract() {
 write_wrapper_status() {
   local preflight_status="$1" runner_status="$2" postflight_status="$3"
   local summary_sha="" results_sha="" experimental_sha="" medium_sha=""
-  local technical=false scientific_finding=false final_gate_deferred=false wrapper_passed=false
+  local technical=false scientific_finding=false final_gate_deferred=false diagnostic_only=false diagnostic_recorded=false wrapper_passed=false
   if test -f "$OUTPUT_DIR/summary.json"; then
     summary_sha="$(sha256sum "$OUTPUT_DIR/summary.json" | awk '{print $1}')"
   fi
@@ -169,6 +184,12 @@ write_wrapper_status() {
   if test "$DFBA_MODE" = "shard"; then
     final_gate_deferred=true
   fi
+  if test "$DFBA_MODE" = "wt_diagnostic"; then
+    diagnostic_only=true
+    if test "$runner_status" -eq 0 && test -n "$summary_sha"; then
+      diagnostic_recorded=true
+    fi
+  fi
   if test "$DFBA_MODE" != "shard" && test "$runner_status" -eq 3; then
     scientific_finding=true
   fi
@@ -179,13 +200,13 @@ write_wrapper_status() {
     wrapper_passed=true
   fi
   mkdir -p "$(dirname "$STATUS_PATH")"
-  printf '{"job_id":"%s","array_job_id":"%s","array_task_id":"%s","mode":"%s","run_root":"%s","shard_count":"%s","git_commit":"%s","job_script_sha256":"%s","partition":"%s","account":"%s","cpus_per_task":"%s","memory_per_node":"%s","time_limit":"%s","experimental_sha256":"%s","dynamic_medium_sha256":"%s","preflight_exit_code":%d,"runner_exit_code":%d,"postflight_exit_code":%d,"technical_execution_completed":%s,"scientific_finding_recorded":%s,"final_scientific_gate_deferred_to_aggregate":%s,"wrapper_gate_passed":%s,"summary_sha256":"%s","gene_results_sha256":"%s","automatic_resubmit":false,"production_apply_performed":false}\n' \
+  printf '{"job_id":"%s","array_job_id":"%s","array_task_id":"%s","mode":"%s","run_root":"%s","shard_count":"%s","git_commit":"%s","job_script_sha256":"%s","partition":"%s","account":"%s","cpus_per_task":"%s","memory_per_node":"%s","time_limit":"%s","experimental_sha256":"%s","dynamic_medium_sha256":"%s","preflight_exit_code":%d,"runner_exit_code":%d,"postflight_exit_code":%d,"technical_execution_completed":%s,"scientific_finding_recorded":%s,"final_scientific_gate_deferred_to_aggregate":%s,"diagnostic_only":%s,"diagnostic_recorded":%s,"wrapper_gate_passed":%s,"summary_sha256":"%s","gene_results_sha256":"%s","automatic_resubmit":false,"production_apply_performed":false}\n' \
     "$JOB_ID" "${SLURM_ARRAY_JOB_ID:-}" "$TASK_ID" "$DFBA_MODE" "$RUN_ROOT" "$DFBA_SHARD_COUNT" \
     "$(git -C "$REPO" rev-parse HEAD 2>/dev/null)" "$(sha256sum "$0" | awk '{print $1}')" \
     "${SLURM_JOB_PARTITION:-batch}" "${SLURM_JOB_ACCOUNT:-iwheeldonlab}" \
     "${SLURM_CPUS_PER_TASK:-1}" "${SLURM_MEM_PER_NODE:-4096}" "${SLURM_TIMELIMIT:-12:00:00}" \
     "$experimental_sha" "$medium_sha" "$preflight_status" "$runner_status" "$postflight_status" \
-    "$technical" "$scientific_finding" "$final_gate_deferred" "$wrapper_passed" \
+    "$technical" "$scientific_finding" "$final_gate_deferred" "$diagnostic_only" "$diagnostic_recorded" "$wrapper_passed" \
     "$summary_sha" "$results_sha" > "$STATUS_PATH"
 }
 
@@ -218,6 +239,8 @@ if test "$DFBA_MODE" = "shard"; then
   RUN_ARGS+=(--shard-index "$TASK_ID" --shard-count "$DFBA_SHARD_COUNT")
 elif test "$DFBA_MODE" = "aggregate"; then
   RUN_ARGS+=(--shard-count "$DFBA_SHARD_COUNT" --aggregate-shards "$RUN_ROOT/shards")
+elif test "$DFBA_MODE" = "wt_diagnostic"; then
+  RUN_ARGS+=(--wt-diagnostic)
 fi
 
 "$PYTHON" "$REPO/scripts/dfba_new_fn_essentiality.py" "${RUN_ARGS[@]}"

@@ -34,6 +34,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import cobra
+from cobra.exceptions import OptimizationError
 from cobra.flux_analysis import pfba
 from cobra.io import read_sbml_model
 from cobra.util.solver import linear_reaction_coefficients
@@ -87,7 +88,7 @@ POSITIVE_ONLY_REFERENCE_COLUMNS = (
 )
 POSITIVE_ONLY_REFERENCE_SOURCE = "https://doi.org/10.1038/s42003-023-04996-8"
 POSITIVE_ONLY_REFERENCE_CONFIDENCE = "consensus_essential_in_at_least_2_of_3_screens"
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 ALGORITHM = "first-order Euler dFBA with parsimonious FBA flux selection"
 RESULT_COLUMNS = (
     "gene_id",
@@ -102,6 +103,17 @@ RESULT_COLUMNS = (
     "candidate_reaction_ids",
     "gpr_evidence_status",
 )
+
+
+class DfbaInfeasibleError(RuntimeError):
+    """A pFBA infeasibility with a snapshot of the exact dynamic state."""
+
+    def __init__(self, diagnostic: dict):
+        self.diagnostic = diagnostic
+        super().__init__(
+            "dFBA pFBA infeasible at "
+            f"t={diagnostic['time_hours']:g} h for {diagnostic['model']['role']}"
+        )
 
 
 def sha256(path: Path) -> str:
@@ -439,6 +451,86 @@ def _model_contract(model, medium: list[dict]) -> dict:
     }
 
 
+def _ordinary_fba_control(model) -> dict:
+    """Record, but never use, a same-bounds FBA control after pFBA fails."""
+    try:
+        objective_value = model.slim_optimize(error_value=math.nan)
+        value = float(objective_value)
+        return {
+            "purpose": "diagnostic_only_not_a_fallback",
+            "solver_status": str(model.solver.status),
+            "objective_value": value if math.isfinite(value) else None,
+            "error_type": None,
+            "error": None,
+        }
+    except Exception as error:
+        return {
+            "purpose": "diagnostic_only_not_a_fallback",
+            "solver_status": str(model.solver.status),
+            "objective_value": None,
+            "error_type": type(error).__name__,
+            "error": str(error),
+        }
+
+
+def _infeasibility_snapshot(
+    *,
+    model,
+    model_identity: dict,
+    exchanges: list[dict],
+    concentrations: dict[str, float],
+    availability_caps: dict[str, float | None],
+    effective_uptake_caps: dict[str, float],
+    time_hours: float,
+    step_hours: float,
+    steps_completed: int,
+    biomass_gdw_l: float,
+    error: OptimizationError,
+) -> dict:
+    """Capture the already-applied dynamic bounds before the model context closes."""
+    finite_or_closed = {
+        item["reaction_id"]: float(concentrations[item["reaction_id"]])
+        for item in exchanges
+        if item["pool_mode"] in {"finite", "closed"}
+    }
+    exchange_bounds = []
+    for item in sorted(exchanges, key=lambda row: row["reaction_id"]):
+        reaction = item["reaction"]
+        exchange_bounds.append({
+            "reaction_id": reaction.id,
+            "compound": item["compound"],
+            "metabolite_id": item["metabolite_id"],
+            "pool_mode": item["pool_mode"],
+            "uptake_evidence_status": item["uptake_evidence_status"],
+            "configured_max_uptake_mmol_gdw_h": float(item["max_uptake_mmol_gdw_h"]),
+            "pool_availability_cap_mmol_gdw_h": availability_caps[reaction.id],
+            "effective_uptake_cap_mmol_gdw_h": effective_uptake_caps[reaction.id],
+            "stoichiometric_coefficient": float(item["coefficient"]),
+            "lower_bound": float(reaction.lower_bound),
+            "upper_bound": float(reaction.upper_bound),
+        })
+    return {
+        "event": "pfba_infeasibility",
+        "time_hours": float(time_hours),
+        "pending_step_hours": float(step_hours),
+        "steps_completed": steps_completed,
+        "biomass_gdw_l": float(biomass_gdw_l),
+        "model": {"model_id": model.id, **model_identity},
+        "finite_or_closed_pool_concentrations_mmol_l": dict(sorted(finite_or_closed.items())),
+        "depleted_finite_or_closed_pool_reaction_ids": sorted(
+            reaction_id
+            for reaction_id, concentration in finite_or_closed.items()
+            if concentration <= 1e-12
+        ),
+        "dynamic_exchange_bounds": exchange_bounds,
+        "pfba_exception": {
+            "type": type(error).__name__,
+            "message": str(error),
+            "solver_status": str(model.solver.status),
+        },
+    }
+
+
 def simulate_dfba(
     model,
     medium: list[dict],
@@ -446,6 +538,7 @@ def simulate_dfba(
     hours: float,
     step_hours: float,
     initial_biomass_gdw_l: float,
+    model_identity: dict | None = None,
 ) -> dict:
     """Run first-order Euler dFBA without mutating the caller's model."""
     if not all(
@@ -471,19 +564,45 @@ def simulate_dfba(
 
         while time_hours < hours - 1e-12:
             step = min(step_hours, hours - time_hours)
+            availability_caps = {}
+            effective_uptake_caps = {}
             for item in exchanges:
                 reaction = item["reaction"]
                 coefficient = item["coefficient"]
                 uptake = item["max_uptake_mmol_gdw_h"]
+                availability = None
                 if reaction.id in concentrations:
-                    available = concentrations[reaction.id] / (biomass * step * abs(coefficient))
-                    uptake = min(uptake, available)
+                    availability = concentrations[reaction.id] / (biomass * step * abs(coefficient))
+                    uptake = min(uptake, availability)
+                availability_caps[reaction.id] = (
+                    float(availability) if availability is not None else None
+                )
+                effective_uptake_caps[reaction.id] = float(uptake)
                 if coefficient < 0:
                     reaction.lower_bound = -uptake
                 else:
                     reaction.upper_bound = uptake
 
-            solution = pfba(model)
+            try:
+                solution = pfba(model)
+            except OptimizationError as error:
+                if str(model.solver.status) != "infeasible":
+                    raise
+                diagnostic = _infeasibility_snapshot(
+                    model=model,
+                    model_identity=model_identity or {"role": "unspecified"},
+                    exchanges=exchanges,
+                    concentrations=concentrations,
+                    availability_caps=availability_caps,
+                    effective_uptake_caps=effective_uptake_caps,
+                    time_hours=time_hours,
+                    step_hours=step,
+                    steps_completed=steps,
+                    biomass_gdw_l=biomass,
+                    error=error,
+                )
+                diagnostic["ordinary_fba_control"] = _ordinary_fba_control(model)
+                raise DfbaInfeasibleError(diagnostic) from error
             if solution.status != "optimal":
                 raise RuntimeError(f"dFBA solve failed at t={time_hours:g} h: {solution.status}")
             growth = float(sum(
@@ -524,10 +643,21 @@ def simulate_dfba(
     }
 
 
-def _knockout_simulation(model, gene_id: str, medium: list[dict], settings: dict) -> dict:
+def _knockout_simulation(
+    model, gene_id: str, medium: list[dict], settings: dict, model_identity: dict | None = None
+) -> dict:
     with model:
         model.genes.get_by_id(gene_id).knock_out()
-        return simulate_dfba(model, medium, **settings)
+        return simulate_dfba(
+            model,
+            medium,
+            **settings,
+            model_identity={
+                **(model_identity or {"role": "unspecified"}),
+                "scenario": "gene_knockout",
+                "gene_id": gene_id,
+            },
+        )
 
 
 def compare_models(
@@ -538,6 +668,7 @@ def compare_models(
     settings: dict,
     growth_cutoff: float,
     output_tsv: Path,
+    model_identities: dict[str, dict] | None = None,
 ) -> tuple[list[dict], dict, dict]:
     if not math.isfinite(growth_cutoff) or not 0 < growth_cutoff <= 1:
         raise ValueError("growth_cutoff must be finite and in (0, 1]")
@@ -560,8 +691,13 @@ def compare_models(
     _growth_objective(baseline)
     _growth_objective(candidate)
 
-    baseline_wt = simulate_dfba(baseline, medium, **settings)
-    candidate_wt = simulate_dfba(candidate, medium, **settings)
+    model_identities = model_identities or {}
+    baseline_wt = simulate_dfba(
+        baseline, medium, **settings, model_identity=model_identities.get("baseline")
+    )
+    candidate_wt = simulate_dfba(
+        candidate, medium, **settings, model_identity=model_identities.get("candidate")
+    )
     if baseline_wt["biomass_gain_gdw_l"] <= 1e-12 or candidate_wt["biomass_gain_gdw_l"] <= 1e-12:
         raise RuntimeError("wild-type dFBA biomass gain must be positive in both models")
 
@@ -570,8 +706,12 @@ def compare_models(
         writer = csv.DictWriter(stream, fieldnames=RESULT_COLUMNS, delimiter="\t")
         writer.writeheader()
         for index, gene_id in enumerate(sorted(gene_ids), start=1):
-            baseline_ko = _knockout_simulation(baseline, gene_id, medium, settings)
-            candidate_ko = _knockout_simulation(candidate, gene_id, medium, settings)
+            baseline_ko = _knockout_simulation(
+                baseline, gene_id, medium, settings, model_identities.get("baseline")
+            )
+            candidate_ko = _knockout_simulation(
+                candidate, gene_id, medium, settings, model_identities.get("candidate")
+            )
             baseline_ratio = baseline_ko["biomass_gain_gdw_l"] / baseline_wt["biomass_gain_gdw_l"]
             candidate_ratio = candidate_ko["biomass_gain_gdw_l"] / candidate_wt["biomass_gain_gdw_l"]
             baseline_essential = baseline_ratio < growth_cutoff
@@ -688,6 +828,17 @@ def _assert_context_unchanged(context: dict, args: argparse.Namespace) -> None:
         raise RuntimeError("repository or input files changed during dFBA evaluation")
 
 
+def _model_identity(context: dict, role: str) -> dict:
+    record = context["inputs"][f"{role}_model"]
+    contract = context["model_contracts"][role]
+    return {
+        "role": role,
+        "input_path": record["path"],
+        "input_sha256": record["sha256"],
+        "semantic_fingerprint": contract["semantic_fingerprint"],
+    }
+
+
 def _execution_contract(context: dict, args: argparse.Namespace) -> dict:
     selected = shard_gene_ids(
         context["gene_ids"],
@@ -752,6 +903,7 @@ def run(args: argparse.Namespace) -> dict:
         },
         context["settings"]["growth_cutoff"],
         partial_tsv,
+        {role: _model_identity(context, role) for role in ("baseline", "candidate")},
     )
     _assert_context_unchanged(context, args)
     partial_tsv.replace(output_tsv)
@@ -782,6 +934,65 @@ def run(args: argparse.Namespace) -> dict:
         "no_new_false_negative_gate_passed": local_gate,
         "final_scientific_gate_passed": final_gate,
         "gene_results": {"path": str(output_tsv.resolve()), "sha256": sha256(output_tsv)},
+        "governance": _governance(),
+    }
+
+
+def run_wt_diagnostic(args: argparse.Namespace) -> dict:
+    """Record the baseline WT state at the first pFBA infeasibility, if any."""
+    context = _prepare_context(args)
+    running = json.loads((args.output_dir / "summary.json").read_text(encoding="utf-8"))
+    running.update({
+        **_shared_contract(context),
+        "execution": {
+            "mode": "wt_diagnostic",
+            "essentiality_screen_performed": False,
+            "candidate_not_run_reason": "baseline_only_diagnostic",
+        },
+        "production_gate_passed": False,
+        "human_review_required": True,
+    })
+    write_json(args.output_dir / "summary.json", running)
+    try:
+        baseline_wt = simulate_dfba(
+            context["baseline"],
+            context["medium"],
+            hours=context["settings"]["hours"],
+            step_hours=context["settings"]["step_hours"],
+            initial_biomass_gdw_l=context["settings"]["initial_biomass_gdw_l"],
+            model_identity=_model_identity(context, "baseline"),
+        )
+        outcome = "no_pfba_infeasibility_observed"
+    except DfbaInfeasibleError as error:
+        baseline_wt = {
+            "status": "infeasible",
+            "infeasibility_diagnostic": error.diagnostic,
+        }
+        outcome = "pfba_infeasibility_observed"
+    _assert_context_unchanged(context, args)
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "status": "complete",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "command": sys.argv,
+        "algorithm": ALGORITHM,
+        **_shared_contract(context),
+        "slurm": _slurm_record(),
+        "execution": {
+            "mode": "wt_diagnostic",
+            "essentiality_screen_performed": False,
+            "candidate_not_run_reason": "baseline_only_diagnostic",
+        },
+        "diagnostic_outcome": outcome,
+        "wild_type": {"baseline": baseline_wt},
+        "experimental_essential_gene_count": len(context["positive_gene_ids"]),
+        "evaluated_gene_count": 0,
+        "new_false_negative_count": None,
+        "new_false_negative_gene_ids": [],
+        "no_new_false_negative_gate_passed": None,
+        "final_scientific_gate_passed": None,
+        "production_gate_passed": False,
+        "human_review_required": True,
         "governance": _governance(),
     }
 
@@ -1000,12 +1211,16 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--shard-index", type=int, default=0)
     result.add_argument("--shard-count", type=int, default=1)
     result.add_argument("--aggregate-shards", type=Path)
+    result.add_argument("--wt-diagnostic", action="store_true")
     return result
 
 
 def main() -> None:
     args = parser().parse_args()
-    if args.aggregate_shards:
+    if args.wt_diagnostic:
+        if args.aggregate_shards or args.shard_index != 0 or args.shard_count != 1:
+            raise SystemExit("WT diagnostic does not accept shard or aggregate arguments")
+    elif args.aggregate_shards:
         if args.shard_index != 0:
             raise SystemExit("aggregate mode requires the default shard index 0")
         if args.aggregate_shards.resolve() != (args.output_dir / "shards").resolve():
@@ -1026,7 +1241,10 @@ def main() -> None:
         "human_review_required": True,
     })
     try:
-        summary = aggregate_shards(args) if args.aggregate_shards else run(args)
+        if args.wt_diagnostic:
+            summary = run_wt_diagnostic(args)
+        else:
+            summary = aggregate_shards(args) if args.aggregate_shards else run(args)
     except Exception as error:
         summary_path = args.output_dir / "summary.json"
         failure = json.loads(summary_path.read_text())
@@ -1037,16 +1255,22 @@ def main() -> None:
             "production_gate_passed": False,
             "human_review_required": True,
         })
+        if isinstance(error, DfbaInfeasibleError):
+            failure["dfba_infeasibility_diagnostic"] = error.diagnostic
         write_json(summary_path, failure)
         if args.aggregate_shards:
             raise SystemExit(2) from error
         raise
     write_json(args.output_dir / "summary.json", summary)
-    print(json.dumps({
-        "new_false_negative_count": summary["new_false_negative_count"],
-        "no_new_false_negative_gate_passed": summary["no_new_false_negative_gate_passed"],
-        "summary": str((args.output_dir / "summary.json").resolve()),
-    }, sort_keys=True))
+    result = {"summary": str((args.output_dir / "summary.json").resolve())}
+    if args.wt_diagnostic:
+        result["diagnostic_outcome"] = summary["diagnostic_outcome"]
+    else:
+        result.update({
+            "new_false_negative_count": summary["new_false_negative_count"],
+            "no_new_false_negative_gate_passed": summary["no_new_false_negative_gate_passed"],
+        })
+    print(json.dumps(result, sort_keys=True))
     if summary["final_scientific_gate_passed"] is False:
         raise SystemExit(3)
 

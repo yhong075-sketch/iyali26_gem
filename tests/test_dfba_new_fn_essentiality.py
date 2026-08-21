@@ -54,7 +54,7 @@ def write_toy_medium(path: Path, *, concentration: str = "10", pool_mode: str = 
     )
 
 
-def toy_model(with_bypass: bool) -> Model:
+def toy_model(with_bypass: bool, *, requires_flux: bool = False) -> Model:
     model = Model("toy")
     external = Metabolite("glc_e", compartment="e")
     internal = Metabolite("glc_c", compartment="c")
@@ -69,6 +69,11 @@ def toy_model(with_bypass: bool) -> Model:
     biomass.add_metabolites({internal: -1})
     biomass.bounds = (0, 1000)
     model.add_reactions([exchange, transport, biomass])
+    if requires_flux:
+        maintenance = Reaction("MAINTENANCE")
+        maintenance.add_metabolites({internal: -1})
+        maintenance.bounds = (1, 1000)
+        model.add_reactions([maintenance])
     if with_bypass:
         bypass = Reaction("BYPASS")
         bypass.add_metabolites({external: -1, internal: 1})
@@ -280,6 +285,74 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
             self.assertIn("consensus_essential_genes.csv", slurm)
             self.assertIn(sha256(REPOSITORY / "scripts/dfba_new_fn_essentiality.py"), slurm)
             self.assertIn("DFBA_MODE", slurm)
+            self.assertIn("wt_diagnostic", slurm)
+            self.assertIn("--wt-diagnostic", slurm)
+
+    def test_wt_diagnostic_records_pfba_infeasibility_without_screening_genes(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            medium_path = root / "medium.csv"
+            write_toy_medium(medium_path, concentration="0")
+            medium = load_dynamic_medium(medium_path)
+            with self.assertRaises(dfba.DfbaInfeasibleError) as caught:
+                simulate_dfba(
+                    toy_model(False, requires_flux=True),
+                    medium,
+                    hours=0.1,
+                    step_hours=0.1,
+                    initial_biomass_gdw_l=0.01,
+                    model_identity={
+                        "role": "baseline",
+                        "input_path": "/baseline.xml",
+                        "input_sha256": "a" * 64,
+                        "semantic_fingerprint": "baseline-fingerprint",
+                    },
+                )
+            diagnostic = caught.exception.diagnostic
+            self.assertEqual(diagnostic["time_hours"], 0.0)
+            self.assertEqual(diagnostic["steps_completed"], 0)
+            self.assertEqual(
+                diagnostic["finite_or_closed_pool_concentrations_mmol_l"], {"EX_glc": 0.0}
+            )
+            self.assertEqual(diagnostic["depleted_finite_or_closed_pool_reaction_ids"], ["EX_glc"])
+            exchange = diagnostic["dynamic_exchange_bounds"][0]
+            self.assertEqual(exchange["pool_availability_cap_mmol_gdw_h"], 0.0)
+            self.assertEqual(exchange["effective_uptake_cap_mmol_gdw_h"], 0.0)
+            self.assertEqual(diagnostic["model"]["semantic_fingerprint"], "baseline-fingerprint")
+            self.assertEqual(
+                diagnostic["ordinary_fba_control"]["purpose"],
+                "diagnostic_only_not_a_fallback",
+            )
+
+            context = array_context([])
+            context.update({
+                "medium": medium,
+                "positive_gene_ids": ["g_transport"],
+                "baseline": toy_model(False, requires_flux=True),
+                "candidate": toy_model(False),
+                "inputs": {
+                    "baseline_model": {"path": "/baseline.xml", "sha256": "a" * 64},
+                    "candidate_model": {"path": "/candidate.xml", "sha256": "b" * 64},
+                },
+                "model_contracts": {
+                    "baseline": {"semantic_fingerprint": "baseline-fingerprint"},
+                    "candidate": {"semantic_fingerprint": "candidate-fingerprint"},
+                },
+            })
+            write_json(root / "summary.json", {"status": "running"})
+            args = argparse.Namespace(output_dir=root)
+            with (
+                mock.patch.object(dfba, "_prepare_context", return_value=context),
+                mock.patch.object(dfba, "_assert_context_unchanged"),
+                mock.patch.object(dfba, "compare_models", side_effect=AssertionError),
+            ):
+                summary = dfba.run_wt_diagnostic(args)
+            self.assertEqual(summary["status"], "complete")
+            self.assertEqual(summary["diagnostic_outcome"], "pfba_infeasibility_observed")
+            self.assertFalse(summary["execution"]["essentiality_screen_performed"])
+            self.assertEqual(summary["evaluated_gene_count"], 0)
+            self.assertIsNone(summary["final_scientific_gate_passed"])
+            self.assertEqual(summary["wild_type"]["baseline"]["status"], "infeasible")
 
     def test_model_and_numeric_contracts_fail_closed(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
