@@ -54,7 +54,9 @@ def write_toy_medium(path: Path, *, concentration: str = "10", pool_mode: str = 
     )
 
 
-def toy_model(with_bypass: bool, *, requires_flux: bool = False) -> Model:
+def toy_model(
+    with_bypass: bool, *, requires_flux: bool = False, include_closed_leucine: bool = False
+) -> Model:
     model = Model("toy")
     external = Metabolite("glc_e", compartment="e")
     internal = Metabolite("glc_c", compartment="c")
@@ -69,6 +71,12 @@ def toy_model(with_bypass: bool, *, requires_flux: bool = False) -> Model:
     biomass.add_metabolites({internal: -1})
     biomass.bounds = (0, 1000)
     model.add_reactions([exchange, transport, biomass])
+    if include_closed_leucine:
+        leucine = Metabolite("leu_e", compartment="e")
+        closed_exchange = Reaction("R1219")
+        closed_exchange.add_metabolites({leucine: -1})
+        closed_exchange.bounds = (-1000, 1000)
+        model.add_reactions([closed_exchange])
     if requires_flux:
         maintenance = Reaction("MAINTENANCE")
         maintenance.add_metabolites({internal: -1})
@@ -80,6 +88,15 @@ def toy_model(with_bypass: bool, *, requires_flux: bool = False) -> Model:
         model.add_reactions([bypass])
     model.objective = biomass
     return model
+
+
+def write_toy_rescue_medium(path: Path) -> None:
+    write_toy_medium(path, concentration="0")
+    with path.open("a", encoding="utf-8") as stream:
+        stream.write(
+            "R1219,L-leucine,0,closed,formulation_absent,0,closed,"
+            "zero_by_formulation,test_fixture,2026-08-20,closed leucine\n"
+        )
 
 
 def array_context(gene_ids: list[str]) -> dict:
@@ -353,6 +370,119 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
             self.assertEqual(summary["evaluated_gene_count"], 0)
             self.assertIsNone(summary["final_scientific_gate_passed"])
             self.assertEqual(summary["wild_type"]["baseline"]["status"], "infeasible")
+
+    def test_rescue_diagnostic_finds_the_minimum_snapshot_bound_relaxation(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            medium_path = root / "medium.csv"
+            write_toy_rescue_medium(medium_path)
+            medium = load_dynamic_medium(medium_path)
+            baseline = toy_model(False, requires_flux=True, include_closed_leucine=True)
+            candidate = toy_model(False, include_closed_leucine=True)
+            baseline_contract = dfba._model_contract(baseline, medium)
+            candidate_contract = dfba._model_contract(candidate, medium)
+            identity = {
+                "role": "baseline",
+                "input_path": "/baseline.xml",
+                "input_sha256": "a" * 64,
+                "semantic_fingerprint": baseline_contract["semantic_fingerprint"],
+            }
+            with self.assertRaises(dfba.DfbaInfeasibleError) as caught:
+                simulate_dfba(
+                    baseline, medium, hours=0.1, step_hours=0.1,
+                    initial_biomass_gdw_l=0.01, model_identity=identity,
+                )
+            diagnostic = {**caught.exception.diagnostic, "time_hours": 4.3}
+            context = array_context([])
+            context.update({
+                "medium": medium,
+                "positive_gene_ids": ["g_transport"],
+                "baseline": baseline,
+                "candidate": candidate,
+                "inputs": {
+                    "baseline_model": {"path": "/baseline.xml", "sha256": "a" * 64},
+                    "candidate_model": {"path": "/candidate.xml", "sha256": "b" * 64},
+                    "dynamic_medium": {"path": str(medium_path), "sha256": sha256(medium_path)},
+                    "experimental": {"path": "/reference.csv", "sha256": "c" * 64},
+                    "runner_script": {"path": "/source-runner.py", "sha256": "d" * 64},
+                    "essentiality_loader": {"path": "/loader.py", "sha256": "e" * 64},
+                    "fingerprint_helper": {"path": "/helper.py", "sha256": "f" * 64},
+                },
+                "model_contracts": {
+                    "baseline": baseline_contract,
+                    "candidate": candidate_contract,
+                },
+                "dynamic_medium_contract": dfba._medium_contract(medium),
+            })
+            source = {
+                "schema_version": 5,
+                "status": "complete",
+                "diagnostic_outcome": "pfba_infeasibility_observed",
+                "execution": {"mode": "wt_diagnostic"},
+                "git_commit": "source-commit",
+                "inputs": {
+                    **context["inputs"],
+                    "runner_script": {
+                        "path": "/old-wt-runner.py", "sha256": "0" * 64
+                    },
+                },
+                "settings": context["settings"],
+                "model_contracts": context["model_contracts"],
+                "dynamic_medium_contract": context["dynamic_medium_contract"],
+                "wild_type": {
+                    "baseline": {
+                        "status": "infeasible",
+                        "infeasibility_diagnostic": diagnostic,
+                    }
+                },
+            }
+            source_path = root / "wt_summary.json"
+            write_json(source_path, source)
+            context["inputs"]["rescue_diagnostic_summary"] = {
+                "path": str(source_path), "sha256": sha256(source_path)
+            }
+            write_json(root / "summary.json", {"status": "running"})
+            args = argparse.Namespace(
+                output_dir=root, rescue_diagnostic_summary=source_path
+            )
+            original_bounds = {reaction.id: reaction.bounds for reaction in baseline.reactions}
+            with (
+                mock.patch.object(dfba, "_prepare_context", return_value=context),
+                mock.patch.object(dfba, "_assert_context_unchanged"),
+            ):
+                summary = dfba.run_rescue_diagnostic(args)
+            self.assertEqual(summary["status"], "complete")
+            self.assertEqual(summary["source_wt_diagnostic"]["source_runner_sha256"], "0" * 64)
+            self.assertEqual(
+                summary["diagnostic_outcome"],
+                "minimum_fba_pfba_feasible_within_depleted_finite_pool_universe_found",
+            )
+            self.assertEqual(
+                summary[
+                    "minimum_fba_pfba_feasible_within_depleted_finite_pool_universe_cardinality"
+                ],
+                1,
+            )
+            self.assertEqual(
+                summary[
+                    "minimum_fba_pfba_feasible_within_depleted_finite_pool_universe_sets"
+                ][0]["rescue_reaction_ids"],
+                ["EX_glc"],
+            )
+            self.assertEqual(
+                summary["snapshot_bound_counterfactual"]["excluded_closed_by_formulation_reaction_ids"],
+                ["R1219"],
+            )
+            self.assertEqual(summary["snapshot_bound_counterfactual"]["no_rescue_control"]["fba"]["status"], "infeasible")
+            self.assertEqual(summary["snapshot_bound_counterfactual"]["no_rescue_control"]["pfba"]["status"], "infeasible")
+            with Path(summary["rescue_results"]["path"]).open(newline="") as stream:
+                rows = list(csv.DictReader(stream, delimiter="\t"))
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["rescue_reaction_ids"], "EX_glc")
+            self.assertEqual(rows[0]["positive_growth_rescue"], "True")
+            self.assertEqual(
+                {reaction.id: reaction.bounds for reaction in baseline.reactions}, original_bounds
+            )
 
     def test_model_and_numeric_contracts_fail_closed(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

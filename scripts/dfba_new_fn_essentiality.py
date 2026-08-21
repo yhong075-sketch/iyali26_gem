@@ -24,8 +24,10 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import itertools
 import json
 import math
+import numbers
 import os
 import platform
 import subprocess
@@ -88,8 +90,10 @@ POSITIVE_ONLY_REFERENCE_COLUMNS = (
 )
 POSITIVE_ONLY_REFERENCE_SOURCE = "https://doi.org/10.1038/s42003-023-04996-8"
 POSITIVE_ONLY_REFERENCE_CONFIDENCE = "consensus_essential_in_at_least_2_of_3_screens"
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 ALGORITHM = "first-order Euler dFBA with parsimonious FBA flux selection"
+RESCUE_GROWTH_FLUX_MINIMUM = 1e-9
+RESCUE_CAP_TOLERANCE = 1e-12
 RESULT_COLUMNS = (
     "gene_id",
     "baseline_ko_biomass_gain_gdw_l",
@@ -102,6 +106,21 @@ RESULT_COLUMNS = (
     "baseline_reaction_ids",
     "candidate_reaction_ids",
     "gpr_evidence_status",
+)
+RESCUE_RESULT_COLUMNS = (
+    "cardinality",
+    "rescue_reaction_ids",
+    "rescue_compounds",
+    "interventions_json",
+    "fba_status",
+    "fba_objective_value",
+    "fba_biomass_flux",
+    "pfba_status",
+    "pfba_objective_value",
+    "pfba_biomass_flux",
+    "pfba_selected_exchange_fluxes_json",
+    "fba_pfba_feasible",
+    "positive_growth_rescue",
 )
 
 
@@ -152,6 +171,9 @@ def input_records(args: argparse.Namespace) -> dict:
         "experimental": args.experimental,
         "dynamic_medium": args.dynamic_medium,
     }
+    rescue_summary = getattr(args, "rescue_diagnostic_summary", None)
+    if rescue_summary is not None:
+        paths["rescue_diagnostic_summary"] = rescue_summary
     return {
         name: {"path": str(path.resolve()), "sha256": sha256(path)}
         for name, path in paths.items()
@@ -741,7 +763,10 @@ def compare_models(
 
 
 def _validate_arguments(args: argparse.Namespace) -> None:
-    for path in (args.baseline, args.candidate, args.experimental, args.dynamic_medium):
+    paths = [args.baseline, args.candidate, args.experimental, args.dynamic_medium]
+    if getattr(args, "rescue_diagnostic_summary", None) is not None:
+        paths.append(args.rescue_diagnostic_summary)
+    for path in paths:
         if not path.is_file():
             raise FileNotFoundError(path)
     if not all(
@@ -997,6 +1022,481 @@ def run_wt_diagnostic(args: argparse.Namespace) -> dict:
     }
 
 
+def _finite_number(value: object, *, field: str) -> float:
+    if not isinstance(value, numbers.Real) or isinstance(value, bool):
+        raise ValueError(f"{field} must be a finite number")
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError(f"{field} must be a finite number")
+    return number
+
+
+def _load_rescue_snapshot(args: argparse.Namespace, context: dict) -> tuple[dict, dict, dict]:
+    """Load only the scientific state shared by the prior WT diagnostic."""
+    path = args.rescue_diagnostic_summary
+    try:
+        source = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"invalid rescue diagnostic summary: {path}") from error
+    if source.get("status") != "complete" or source.get("diagnostic_outcome") != "pfba_infeasibility_observed":
+        raise ValueError("rescue source must be a completed WT pFBA-infeasibility diagnostic")
+    if source.get("execution", {}).get("mode") != "wt_diagnostic":
+        raise ValueError("rescue source must be a WT diagnostic, not a screen result")
+
+    source_inputs = source.get("inputs")
+    if not isinstance(source_inputs, dict):
+        raise ValueError("rescue source is missing input records")
+    for name in ("baseline_model", "dynamic_medium"):
+        if source_inputs.get(name, {}).get("sha256") != context["inputs"][name]["sha256"]:
+            raise ValueError(f"rescue source {name} does not match the current locked input")
+    if source.get("settings") != context["settings"]:
+        raise ValueError("rescue source settings do not match the current fixed dFBA contract")
+    if source.get("dynamic_medium_contract") != context["dynamic_medium_contract"]:
+        raise ValueError("rescue source dynamic-medium contract does not match")
+    if source.get("model_contracts", {}).get("baseline") != context["model_contracts"]["baseline"]:
+        raise ValueError("rescue source baseline semantic contract does not match")
+
+    try:
+        diagnostic = source["wild_type"]["baseline"]["infeasibility_diagnostic"]
+    except (KeyError, TypeError) as error:
+        raise ValueError("rescue source is missing the baseline infeasibility snapshot") from error
+    identity = _model_identity(context, "baseline")
+    if diagnostic.get("model", {}).get("role") != "baseline":
+        raise ValueError("rescue snapshot is not a baseline WT state")
+    for field in ("input_sha256", "semantic_fingerprint"):
+        if diagnostic.get("model", {}).get(field) != identity[field]:
+            raise ValueError(f"rescue snapshot baseline {field} does not match")
+    if diagnostic.get("pfba_exception", {}).get("solver_status") != "infeasible":
+        raise ValueError("rescue source did not record pFBA infeasibility")
+    if diagnostic.get("ordinary_fba_control", {}).get("solver_status") != "infeasible":
+        raise ValueError("rescue source did not record same-bounds FBA infeasibility")
+    if not math.isclose(
+        _finite_number(diagnostic.get("time_hours"), field="snapshot time_hours"),
+        4.3,
+        rel_tol=0.0,
+        abs_tol=1e-9,
+    ):
+        raise ValueError("rescue is approved only for the locked 4.3-hour WT snapshot")
+    if _finite_number(diagnostic.get("pending_step_hours"), field="snapshot pending_step_hours") != context["settings"]["step_hours"]:
+        raise ValueError("snapshot step size does not match the current dFBA contract")
+    if _finite_number(diagnostic.get("biomass_gdw_l"), field="snapshot biomass_gdw_l") <= 0:
+        raise ValueError("snapshot biomass must be positive")
+
+    source_record = {
+        "path": str(path.resolve()),
+        "sha256": context["inputs"]["rescue_diagnostic_summary"]["sha256"],
+        "source_git_commit": source.get("git_commit"),
+        "source_runner_sha256": source_inputs.get("runner_script", {}).get("sha256"),
+        "source_schema_version": source.get("schema_version"),
+    }
+    return source, diagnostic, source_record
+
+
+def _snapshot_bound_ledger(context: dict, diagnostic: dict) -> tuple[dict, dict, list[dict], list[dict]]:
+    """Validate the frozen state and derive the finite-pool rescue universe."""
+    details = {
+        item["reaction_id"]: item
+        for item in _exchange_details(context["baseline"], context["medium"])
+    }
+    concentrations = diagnostic.get("finite_or_closed_pool_concentrations_mmol_l")
+    if not isinstance(concentrations, dict):
+        raise ValueError("rescue snapshot is missing finite/closed concentrations")
+    finite_or_closed = {
+        reaction_id for reaction_id, item in details.items()
+        if item["pool_mode"] in {"finite", "closed"}
+    }
+    if set(concentrations) != finite_or_closed:
+        raise ValueError("rescue snapshot finite/closed concentration IDs do not match")
+    raw_bounds = diagnostic.get("dynamic_exchange_bounds")
+    if not isinstance(raw_bounds, list):
+        raise ValueError("rescue snapshot is missing dynamic exchange bounds")
+    bounds = {}
+    for raw in raw_bounds:
+        reaction_id = raw.get("reaction_id")
+        if reaction_id in bounds or reaction_id not in details:
+            raise ValueError("rescue snapshot dynamic exchange IDs are invalid or duplicated")
+        item = details[reaction_id]
+        for field in ("compound", "metabolite_id", "pool_mode", "uptake_evidence_status"):
+            if raw.get(field) != item[field]:
+                raise ValueError(f"rescue snapshot {reaction_id} {field} does not match")
+        if _finite_number(raw.get("stoichiometric_coefficient"), field=f"{reaction_id} coefficient") != item["coefficient"]:
+            raise ValueError(f"rescue snapshot {reaction_id} coefficient does not match")
+        if _finite_number(raw.get("configured_max_uptake_mmol_gdw_h"), field=f"{reaction_id} configured cap") != item["max_uptake_mmol_gdw_h"]:
+            raise ValueError(f"rescue snapshot {reaction_id} configured cap does not match")
+        effective = _finite_number(raw.get("effective_uptake_cap_mmol_gdw_h"), field=f"{reaction_id} effective cap")
+        configured = item["max_uptake_mmol_gdw_h"]
+        if effective < -RESCUE_CAP_TOLERANCE or effective > configured + RESCUE_CAP_TOLERANCE:
+            raise ValueError(f"rescue snapshot {reaction_id} effective cap is invalid")
+        availability = raw.get("pool_availability_cap_mmol_gdw_h")
+        concentration = concentrations.get(reaction_id)
+        if item["pool_mode"] in {"finite", "closed"}:
+            concentration = _finite_number(concentration, field=f"{reaction_id} snapshot concentration")
+            expected_availability = concentration / (
+                _finite_number(diagnostic.get("biomass_gdw_l"), field="snapshot biomass")
+                * _finite_number(diagnostic.get("pending_step_hours"), field="snapshot step")
+                * abs(item["coefficient"])
+            )
+            if availability is None or not math.isclose(
+                _finite_number(availability, field=f"{reaction_id} availability cap"),
+                expected_availability,
+                rel_tol=1e-12,
+                abs_tol=RESCUE_CAP_TOLERANCE,
+            ):
+                raise ValueError(f"rescue snapshot {reaction_id} availability cap does not match its pool")
+            expected_effective = min(configured, expected_availability)
+        else:
+            if availability is not None:
+                raise ValueError(f"rescue snapshot {reaction_id} unexpectedly has a finite availability cap")
+            expected_effective = configured
+        if not math.isclose(
+            effective, expected_effective, rel_tol=1e-12, abs_tol=RESCUE_CAP_TOLERANCE
+        ):
+            raise ValueError(f"rescue snapshot {reaction_id} effective cap does not match its pool")
+        uptake_bound = -_finite_number(raw.get("lower_bound"), field=f"{reaction_id} lower bound") if item["coefficient"] < 0 else _finite_number(raw.get("upper_bound"), field=f"{reaction_id} upper bound")
+        if not math.isclose(
+            uptake_bound, effective, rel_tol=1e-12, abs_tol=RESCUE_CAP_TOLERANCE
+        ):
+            raise ValueError(f"rescue snapshot {reaction_id} uptake bound does not match effective cap")
+        bounds[reaction_id] = {
+            **raw,
+            "lower_bound": _finite_number(raw.get("lower_bound"), field=f"{reaction_id} lower bound"),
+            "upper_bound": _finite_number(raw.get("upper_bound"), field=f"{reaction_id} upper bound"),
+            "configured_max_uptake_mmol_gdw_h": configured,
+            "effective_uptake_cap_mmol_gdw_h": effective,
+        }
+    if set(bounds) != set(details):
+        raise ValueError("rescue snapshot does not cover exactly the dynamic-medium exchanges")
+
+    depleted_from_concentration = {
+        reaction_id for reaction_id, value in concentrations.items()
+        if _finite_number(value, field=f"{reaction_id} snapshot concentration") <= RESCUE_CAP_TOLERANCE
+    }
+    declared_depleted = diagnostic.get("depleted_finite_or_closed_pool_reaction_ids")
+    if not isinstance(declared_depleted, list) or len(declared_depleted) != len(set(declared_depleted)):
+        raise ValueError("rescue snapshot depleted pool IDs are invalid or duplicated")
+    if set(declared_depleted) != depleted_from_concentration:
+        raise ValueError("rescue snapshot depleted pool IDs do not match concentrations")
+
+    if "R1219" not in details or details["R1219"]["pool_mode"] != "closed":
+        raise ValueError("R1219 must remain the closed CSM-Leu-minus exchange")
+    if details["R1219"]["max_uptake_mmol_gdw_h"] != 0:
+        raise ValueError("R1219 must have zero configured uptake")
+    r1219_bound = bounds["R1219"]
+    r1219_uptake = -r1219_bound["lower_bound"] if details["R1219"]["coefficient"] < 0 else r1219_bound["upper_bound"]
+    if r1219_uptake != 0:
+        raise ValueError("R1219 must remain closed in the frozen snapshot")
+
+    candidates = []
+    exclusions = []
+    for reaction_id in sorted(finite_or_closed):
+        item = details[reaction_id]
+        bound = bounds[reaction_id]
+        if item["pool_mode"] == "closed":
+            reason = "closed_by_formulation"
+        elif reaction_id not in depleted_from_concentration:
+            reason = "not_depleted_in_snapshot"
+        elif bound["configured_max_uptake_mmol_gdw_h"] <= bound["effective_uptake_cap_mmol_gdw_h"] + RESCUE_CAP_TOLERANCE:
+            reason = "no_bound_relaxation_available"
+        else:
+            candidates.append({**item, "snapshot_bound": bound})
+            continue
+        exclusions.append({
+            "reaction_id": reaction_id,
+            "compound": item["compound"],
+            "pool_mode": item["pool_mode"],
+            "reason": reason,
+        })
+    if any(item["reaction_id"] == "R1219" for item in candidates):
+        raise ValueError("R1219 must never be a rescue candidate")
+    return details, bounds, candidates, exclusions
+
+
+def _restore_snapshot_bounds(model, medium: list[dict], bounds: dict) -> dict:
+    """Apply the locked medium first, then the full recorded snapshot bounds."""
+    model.medium = {
+        row["reaction_id"]: row["max_uptake_mmol_gdw_h"] for row in medium
+    }
+    details = {item["reaction_id"]: item for item in _exchange_details(model, medium)}
+    for reaction_id, raw in bounds.items():
+        reaction = details[reaction_id]["reaction"]
+        reaction.bounds = (raw["lower_bound"], raw["upper_bound"])
+    return details
+
+
+def _rescue_solve(model, *, use_pfba: bool, selected_reaction_ids: list[str]) -> dict:
+    try:
+        solution = pfba(model) if use_pfba else model.optimize()
+    except OptimizationError as error:
+        status = str(model.solver.status)
+        if status != "infeasible":
+            raise RuntimeError(f"{'pFBA' if use_pfba else 'FBA'} failed: {status}") from error
+        return {
+            "status": "infeasible",
+            "objective_value": None,
+            "biomass_flux": None,
+            "selected_exchange_fluxes_mmol_gdw_h": {},
+        }
+    status = str(solution.status)
+    if status != "optimal":
+        if status == "infeasible":
+            return {
+                "status": "infeasible",
+                "objective_value": None,
+                "biomass_flux": None,
+                "selected_exchange_fluxes_mmol_gdw_h": {},
+            }
+        raise RuntimeError(f"{'pFBA' if use_pfba else 'FBA'} returned unexpected status: {status}")
+    objective_value = _finite_number(solution.objective_value, field="rescue objective")
+    biomass_flux = _finite_number(solution.fluxes["biomass_C"], field="rescue biomass flux")
+    selected_fluxes = {
+        reaction_id: _finite_number(solution.fluxes[reaction_id], field=f"{reaction_id} flux")
+        for reaction_id in selected_reaction_ids
+    }
+    return {
+        "status": "optimal",
+        "objective_value": objective_value,
+        "biomass_flux": biomass_flux,
+        "selected_exchange_fluxes_mmol_gdw_h": selected_fluxes,
+    }
+
+
+def _evaluate_rescue_set(
+    model,
+    medium: list[dict],
+    bounds: dict,
+    candidates: list[dict],
+    selected_reaction_ids: tuple[str, ...],
+    *,
+    force_pfba: bool = False,
+) -> dict:
+    """Test one local bound-relaxation set without mutating the source model."""
+    candidate_by_id = {item["reaction_id"]: item for item in candidates}
+    if any(reaction_id not in candidate_by_id for reaction_id in selected_reaction_ids):
+        raise ValueError("rescue set contains an ineligible exchange")
+    with model:
+        details = _restore_snapshot_bounds(model, medium, bounds)
+        r1219_bounds = (details["R1219"]["reaction"].lower_bound, details["R1219"]["reaction"].upper_bound)
+        interventions = []
+        for reaction_id in selected_reaction_ids:
+            item = candidate_by_id[reaction_id]
+            reaction = details[reaction_id]["reaction"]
+            before = {"lower_bound": reaction.lower_bound, "upper_bound": reaction.upper_bound}
+            cap = item["snapshot_bound"]["configured_max_uptake_mmol_gdw_h"]
+            if item["coefficient"] < 0:
+                reaction.lower_bound = -cap
+            else:
+                reaction.upper_bound = cap
+            interventions.append({
+                "reaction_id": reaction_id,
+                "compound": item["compound"],
+                "configured_uptake_cap_mmol_gdw_h": cap,
+                "before": before,
+                "after": {"lower_bound": reaction.lower_bound, "upper_bound": reaction.upper_bound},
+            })
+        if (details["R1219"]["reaction"].lower_bound, details["R1219"]["reaction"].upper_bound) != r1219_bounds:
+            raise RuntimeError("R1219 bounds changed during a rescue trial")
+        fba = _rescue_solve(model, use_pfba=False, selected_reaction_ids=list(selected_reaction_ids))
+        if force_pfba or fba["status"] == "optimal":
+            pfba_result = _rescue_solve(model, use_pfba=True, selected_reaction_ids=list(selected_reaction_ids))
+        else:
+            pfba_result = {
+                "status": "not_run_fba_infeasible",
+                "objective_value": None,
+                "biomass_flux": None,
+                "selected_exchange_fluxes_mmol_gdw_h": {},
+            }
+    feasible = fba["status"] == "optimal" and pfba_result["status"] == "optimal"
+    positive_growth = (
+        feasible
+        and pfba_result["biomass_flux"] > RESCUE_GROWTH_FLUX_MINIMUM
+    )
+    return {
+        "cardinality": len(selected_reaction_ids),
+        "rescue_reaction_ids": list(selected_reaction_ids),
+        "rescue_compounds": [candidate_by_id[item]["compound"] for item in selected_reaction_ids],
+        "interventions": interventions,
+        "fba": fba,
+        "pfba": pfba_result,
+        "fba_pfba_feasible": feasible,
+        "positive_growth_rescue": positive_growth,
+    }
+
+
+def _rescue_tsv_row(result: dict) -> dict:
+    return {
+        "cardinality": result["cardinality"],
+        "rescue_reaction_ids": "|".join(result["rescue_reaction_ids"]),
+        "rescue_compounds": "|".join(result["rescue_compounds"]),
+        "interventions_json": json.dumps(result["interventions"], sort_keys=True, separators=(",", ":")),
+        "fba_status": result["fba"]["status"],
+        "fba_objective_value": result["fba"]["objective_value"],
+        "fba_biomass_flux": result["fba"]["biomass_flux"],
+        "pfba_status": result["pfba"]["status"],
+        "pfba_objective_value": result["pfba"]["objective_value"],
+        "pfba_biomass_flux": result["pfba"]["biomass_flux"],
+        "pfba_selected_exchange_fluxes_json": json.dumps(
+            result["pfba"]["selected_exchange_fluxes_mmol_gdw_h"], sort_keys=True, separators=(",", ":")
+        ),
+        "fba_pfba_feasible": result["fba_pfba_feasible"],
+        "positive_growth_rescue": result["positive_growth_rescue"],
+    }
+
+
+def run_rescue_diagnostic(args: argparse.Namespace) -> dict:
+    """Find the minimum feasible set within the depleted finite-pool universe."""
+    context = _prepare_context(args)
+    source, diagnostic, source_record = _load_rescue_snapshot(args, context)
+    _, bounds, candidates, exclusions = _snapshot_bound_ledger(context, diagnostic)
+    running = json.loads((args.output_dir / "summary.json").read_text(encoding="utf-8"))
+    partial_path = args.output_dir / "rescue_results.partial.tsv"
+    output_path = args.output_dir / "rescue_results.tsv"
+    running.update({
+        **_shared_contract(context),
+        "execution": {
+            "mode": "rescue_diagnostic",
+            "essentiality_screen_performed": False,
+            "candidate_not_run_reason": "baseline_snapshot_only_diagnostic",
+        },
+        "source_wt_diagnostic": source_record,
+        "snapshot_bound_counterfactual": {
+            "scope": "local_snapshot_bound_relaxation_not_medium_or_model_mutation",
+            "eligible_universe": "depleted_finite_pools_with_a_bound_relaxation_available",
+            "time_hours": diagnostic["time_hours"],
+            "pending_step_hours": diagnostic["pending_step_hours"],
+            "biomass_gdw_l": diagnostic["biomass_gdw_l"],
+            "eligible_candidates": [
+                {"reaction_id": item["reaction_id"], "compound": item["compound"]}
+                for item in candidates
+            ],
+            "eligible_candidate_count": len(candidates),
+            "total_nonempty_subset_count": (2 ** len(candidates)) - 1,
+            "excluded_finite_or_closed_pools": exclusions,
+            "excluded_closed_by_formulation_reaction_ids": ["R1219"],
+            "positive_growth_biomass_flux_minimum": RESCUE_GROWTH_FLUX_MINIMUM,
+            "search_policy": "stop_after_all_subsets_at_the_first_feasible_cardinality",
+        },
+        "rescue_results": {"partial_path": str(partial_path.resolve())},
+        "production_gate_passed": False,
+        "human_review_required": True,
+    })
+    write_json(args.output_dir / "summary.json", running)
+
+    control = _evaluate_rescue_set(
+        context["baseline"], context["medium"], bounds, candidates, (), force_pfba=True
+    )
+    if control["fba"]["status"] != "infeasible" or control["pfba"]["status"] != "infeasible":
+        raise RuntimeError("rebuilt no-rescue snapshot did not reproduce FBA and pFBA infeasibility")
+
+    evaluated = 0
+    winners = []
+    completed_cardinality = 0
+    subsets_evaluated_by_cardinality = []
+    with partial_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=RESCUE_RESULT_COLUMNS, delimiter="\t")
+        writer.writeheader()
+        stream.flush()
+        for cardinality in range(1, len(candidates) + 1):
+            at_cardinality = []
+            for combination in itertools.combinations(candidates, cardinality):
+                result = _evaluate_rescue_set(
+                    context["baseline"], context["medium"], bounds, candidates,
+                    tuple(item["reaction_id"] for item in combination),
+                )
+                writer.writerow(_rescue_tsv_row(result))
+                stream.flush()
+                evaluated += 1
+                if result["fba_pfba_feasible"]:
+                    at_cardinality.append(result)
+            completed_cardinality = cardinality
+            expected_count = math.comb(len(candidates), cardinality)
+            if len(at_cardinality) > expected_count:
+                raise RuntimeError("rescue cardinality result count is invalid")
+            subsets_evaluated_by_cardinality.append({
+                "cardinality": cardinality,
+                "expected_subset_count": expected_count,
+                "evaluated_subset_count": expected_count,
+                "fba_pfba_feasible_subset_count": len(at_cardinality),
+                "positive_growth_subset_count": sum(
+                    item["positive_growth_rescue"] for item in at_cardinality
+                ),
+            })
+            running["rescue_search_progress"] = {
+                "subsets_evaluated": evaluated,
+                "completed_cardinality": completed_cardinality,
+                "minimum_fba_pfba_feasible_set_found_at_this_cardinality": bool(at_cardinality),
+            }
+            write_json(args.output_dir / "summary.json", running)
+            if at_cardinality:
+                winners = at_cardinality
+                break
+    _assert_context_unchanged(context, args)
+    partial_path.replace(output_path)
+    outcome = (
+        "minimum_fba_pfba_feasible_within_depleted_finite_pool_universe_found"
+        if winners else "no_fba_pfba_feasible_within_depleted_finite_pool_universe"
+    )
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "status": "complete",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "command": sys.argv,
+        "algorithm": ALGORITHM,
+        **_shared_contract(context),
+        "slurm": _slurm_record(),
+        "execution": {
+            "mode": "rescue_diagnostic",
+            "essentiality_screen_performed": False,
+            "candidate_not_run_reason": "baseline_snapshot_only_diagnostic",
+        },
+        "source_wt_diagnostic": source_record,
+        "snapshot_bound_counterfactual": {
+            "scope": "local_snapshot_bound_relaxation_not_medium_or_model_mutation",
+            "eligible_universe": "depleted_finite_pools_with_a_bound_relaxation_available",
+            "interpretation_limit": (
+                "A feasible set is sufficient only for this locked model snapshot; "
+                "it is not evidence of a real nutrient requirement, formulation error, "
+                "or 24-hour dFBA/essentiality rescue."
+            ),
+            "snapshot": diagnostic,
+            "source_runner_sha256": source.get("inputs", {}).get("runner_script", {}).get("sha256"),
+            "eligible_candidates": [
+                {"reaction_id": item["reaction_id"], "compound": item["compound"], "pool_mode": item["pool_mode"], "configured_max_uptake_mmol_gdw_h": item["snapshot_bound"]["configured_max_uptake_mmol_gdw_h"], "snapshot_effective_uptake_cap_mmol_gdw_h": item["snapshot_bound"]["effective_uptake_cap_mmol_gdw_h"]}
+                for item in candidates
+            ],
+            "eligible_candidate_count": len(candidates),
+            "total_nonempty_subset_count": (2 ** len(candidates)) - 1,
+            "excluded_finite_or_closed_pools": exclusions,
+            "excluded_closed_by_formulation_reaction_ids": ["R1219"],
+            "positive_growth_biomass_flux_minimum": RESCUE_GROWTH_FLUX_MINIMUM,
+            "no_rescue_control": control,
+            "minimum_cardinality_search_complete": True,
+            "all_nonempty_subsets_searched": not bool(winners),
+            "higher_cardinality_sets_not_searched_after_first_success_cardinality": bool(winners),
+        },
+        "diagnostic_outcome": outcome,
+        "minimum_fba_pfba_feasible_within_depleted_finite_pool_universe_cardinality": len(winners[0]["rescue_reaction_ids"]) if winners else None,
+        "minimum_fba_pfba_feasible_within_depleted_finite_pool_universe_sets": winners,
+        "subsets_evaluated": evaluated,
+        "subsets_evaluated_by_cardinality": subsets_evaluated_by_cardinality,
+        "completed_cardinality": completed_cardinality,
+        "rescue_results": {"path": str(output_path.resolve()), "sha256": sha256(output_path)},
+        "experimental_essential_gene_count": len(context["positive_gene_ids"]),
+        "evaluated_gene_count": 0,
+        "new_false_negative_count": None,
+        "new_false_negative_gene_ids": [],
+        "no_new_false_negative_gate_passed": None,
+        "final_scientific_gate_passed": None,
+        "production_gate_passed": False,
+        "human_review_required": True,
+        "governance": {
+            **_governance(),
+            "medium_or_model_mutation_performed": False,
+            "r1219_reopened": False,
+            "full_dfba_or_essentiality_rescue_performed": False,
+        },
+    }
+
+
 def _read_shard_results(path: Path, expected_gene_ids: list[str]) -> list[dict]:
     if not path.is_file():
         raise FileNotFoundError(path)
@@ -1212,14 +1712,17 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--shard-count", type=int, default=1)
     result.add_argument("--aggregate-shards", type=Path)
     result.add_argument("--wt-diagnostic", action="store_true")
+    result.add_argument("--rescue-diagnostic-summary", type=Path)
     return result
 
 
 def main() -> None:
     args = parser().parse_args()
-    if args.wt_diagnostic:
+    if args.wt_diagnostic and args.rescue_diagnostic_summary:
+        raise SystemExit("WT and rescue diagnostics are mutually exclusive")
+    if args.wt_diagnostic or args.rescue_diagnostic_summary:
         if args.aggregate_shards or args.shard_index != 0 or args.shard_count != 1:
-            raise SystemExit("WT diagnostic does not accept shard or aggregate arguments")
+            raise SystemExit("diagnostics do not accept shard or aggregate arguments")
     elif args.aggregate_shards:
         if args.shard_index != 0:
             raise SystemExit("aggregate mode requires the default shard index 0")
@@ -1243,6 +1746,8 @@ def main() -> None:
     try:
         if args.wt_diagnostic:
             summary = run_wt_diagnostic(args)
+        elif args.rescue_diagnostic_summary:
+            summary = run_rescue_diagnostic(args)
         else:
             summary = aggregate_shards(args) if args.aggregate_shards else run(args)
     except Exception as error:
@@ -1263,7 +1768,7 @@ def main() -> None:
         raise
     write_json(args.output_dir / "summary.json", summary)
     result = {"summary": str((args.output_dir / "summary.json").resolve())}
-    if args.wt_diagnostic:
+    if args.wt_diagnostic or args.rescue_diagnostic_summary:
         result["diagnostic_outcome"] = summary["diagnostic_outcome"]
     else:
         result.update({
