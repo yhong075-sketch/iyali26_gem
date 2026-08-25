@@ -71,8 +71,8 @@ def _read_curation(path: Path = CURATION_PATH) -> dict[str, Any]:
         curation = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
         raise ContractError(f"cannot read curation {path}: {error}") from error
-    required = {"schema_version", "source", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
-    if curation.get("schema_version") != 1 or required - curation.keys():
+    required = {"schema_version", "source", "R989_gpr_curation", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
+    if curation.get("schema_version") != 2 or required - curation.keys():
         raise ContractError("invalid lipid-unlump curation manifest")
     if len(curation["chains"]) != 7 or len(curation["steps"]) != 18:
         raise ContractError("curation must define seven chains and eighteen templates")
@@ -423,6 +423,62 @@ def _remove_generic_interfaces(candidate: Model, curation: dict[str, Any]) -> No
     candidate.objective = "biomass_C"
 
 
+def _apply_r989_candidate_gpr(candidate: Model, curation: dict[str, Any]) -> None:
+    contract = curation["R989_gpr_curation"]
+    reaction = _reaction(candidate, contract["reaction_id"])
+    gene_id = contract["approved_candidate_gpr"]
+    assignment = contract["model_assignment"]
+    notes = contract["notes"]
+    sources = contract["evidence_sources"]
+    coverage = contract["evidence_audit_coverage"]
+    claims = [claim_id for source in sources for claim_id in source["claim_ids"]]
+    verdicts = Counter(source["reviewer_verdict"] for source in sources for _ in source["claim_ids"])
+    if (
+        reaction.gene_reaction_rule != contract["expected_source_gpr"]
+        or sorted(reaction.compartments) != contract["expected_compartments"]
+        or contract["gene_identity"]["systematic_id"] != gene_id
+        or contract["target_sequence"] != {
+            "accession": "XP_502280.2",
+            "length_aa": 235,
+            "sha256_convention": "uppercase amino-acid sequence only; no FASTA header or whitespace",
+            "sha256": "d8cea1ec65af975fe803163cfaa05eb6fb3961dfce8df5546a4f14e1c0e007f9",
+        }
+        or contract["alphafold"]["scope"] != "fold_and_family_compatibility_only"
+        or contract["alphafold"]["input_length_aa"] != 212
+        or contract["localization_counterevidence"]["prediction"] != "Other"
+        or assignment != {
+            "evidence_category": "model/GPR assignment only",
+            "status": "candidate_only",
+            "human_model_assignment_approved": True,
+            "wet_lab_review_required": True,
+            "wet_lab_review_status": "pending",
+            "mitochondrial_localization_status": "unverified",
+            "production_claim_allowed": False,
+        }
+        or set(notes) != {"curated_gpr_correction", "gpr_evidence_status", "gpr_evidence_limit"}
+        or any(not value for value in notes.values())
+        or any(
+            source["audit_status"] != "audited"
+            or source["decision"] not in {"use_as_constraint", "defer", "exclude"}
+            or not source["conditions"]
+            for source in sources
+        )
+        or len(claims) != len(set(claims))
+        or coverage != {
+            "total_claims": len(claims),
+            "audited": len(claims),
+            "supported": verdicts["supported"],
+            "unresolved": verdicts["partially_supported"],
+            "contradicted": verdicts["contradicted"],
+            "unchecked": 0,
+        }
+        or _reaction(candidate, "R64").gene_reaction_rule != gene_id
+    ):
+        raise ContractError("R989 candidate GPR evidence contract drifted")
+    reaction.gene_reaction_rule = gene_id
+    reaction.notes = {**reaction.notes, **notes}
+
+
 def build_candidate(source_model: Model) -> Model:
     """Build a non-activatable candidate; source input is never modified."""
     curation = _read_curation()
@@ -432,9 +488,25 @@ def build_candidate(source_model: Model) -> Model:
     _build_routes(candidate, templates, curation)
     _rewrite_biomass(candidate, curation)
     _remove_generic_interfaces(candidate, curation)
+    _apply_r989_candidate_gpr(candidate, curation)
     if any(reaction.check_mass_balance() for reaction in candidate.reactions if reaction.annotation.get(MARKER) == "true"):
         raise ContractError("generated reaction is not mass/charge balanced")
     return candidate
+
+
+def write_candidate_sbml(candidate: Model, path: Path) -> None:
+    """Write stable SBML despite COBRApy storing group members in sets."""
+    import cobra
+
+    original_members = [(group, group._members) for group in candidate.groups]
+    try:
+        for group, members in original_members:
+            # ponytail: remove when COBRApy writes Group members in stable ID order.
+            group._members = tuple(sorted(members, key=lambda member: (type(member).__name__, member.id)))
+        cobra.io.write_sbml_model(candidate, str(path))
+    finally:
+        for group, members in original_members:
+            group._members = members
 
 
 def _timed_objective(model: Model, pfba: bool) -> tuple[float, float]:
@@ -465,6 +537,7 @@ def report(source_model: Model, candidate: Model) -> dict[str, Any]:
         "runtime_seconds": runtime,
         "performance_review_required": any(runtime[f"candidate_{kind}_median"] > 2 * runtime[f"source_{kind}_median"] for kind in ("fba", "pfba")),
         "cardiolipin_four_chain_audit": cardiolipin_audit(candidate),
+        "R989_candidate_gpr": curation["R989_gpr_curation"],
         "remaining_blockers": curation["blockers"],
         "generic_acyl_coa_ids_remaining": [metabolite_id for metabolite_id in curation["generic_acyl_coa_ids"] if metabolite_id in candidate.metabolites],
         "production_apply_forbidden": True,
@@ -494,7 +567,7 @@ def main() -> None:
     candidate = build_candidate(source)
     payload = report(source, candidate)
     if arguments.candidate_sbml:
-        cobra.io.write_sbml_model(candidate, str(arguments.candidate_sbml))
+        write_candidate_sbml(candidate, arguments.candidate_sbml)
     arguments.report.write_text(json.dumps(payload, sort_keys=True, indent=2) + "\n", encoding="utf-8")
 
 

@@ -25,6 +25,7 @@ if str(REPOSITORY) not in sys.path:
 from scripts.lp_sn12_candidate import (  # noqa: E402
     CARDIOLIPIN_AUDIT_SHA256, CURATION_PATH, ContractError, MARKER,
     build_candidate, cardiolipin_audit, main, report, source_fingerprint,
+    write_candidate_sbml,
 )
 
 
@@ -82,6 +83,42 @@ class StrictSnCoreTests(unittest.TestCase):
             template_id = reaction.annotation["template_reaction"]
             if template_id in exchange_ids:
                 self.assertEqual(reaction.annotation.get("reaction_classification"), classification)
+
+    def test_r989_candidate_gpr_is_alphafold_limited_and_wet_lab_gated(self) -> None:
+        contract = self.curation["R989_gpr_curation"]
+        source = self.source.reactions.get_by_id("R989")
+        candidate = self.candidate.reactions.get_by_id("R989")
+        self.assertEqual(source.gene_reaction_rule, "")
+        self.assertEqual(candidate.gene_reaction_rule, "YALI1D01489g")
+        self.assertEqual(candidate.notes, contract["notes"])
+        self.assertEqual(candidate.bounds, source.bounds)
+        self.assertEqual(candidate.annotation, source.annotation)
+        self.assertEqual(
+            {metabolite.id: coefficient for metabolite, coefficient in candidate.metabolites.items()},
+            {metabolite.id: coefficient for metabolite, coefficient in source.metabolites.items()},
+        )
+        self.assertEqual(candidate.compartments, {"C_mi"})
+        self.assertEqual(self.candidate.reactions.get_by_id("R64").gene_reaction_rule, "YALI1D01489g")
+        self.assertEqual(
+            {reaction.id for reaction in self.candidate.genes.get_by_id("YALI1D01489g").reactions},
+            {"R64", "R989"},
+        )
+        self.assertEqual((len(self.candidate.reactions), len(self.candidate.genes)), (3415, 1074))
+        self.assertEqual(sum(bool(reaction.gene_reaction_rule) for reaction in self.candidate.reactions), 2245)
+        self.assertEqual(sum(not reaction.gene_reaction_rule for reaction in self.candidate.reactions), 1170)
+        self.assertEqual(contract["gene_identity"]["evidence_category"], "curated annotation")
+        self.assertEqual(contract["model_assignment"]["evidence_category"], "model/GPR assignment only")
+        self.assertEqual(contract["alphafold"]["scope"], "fold_and_family_compatibility_only")
+        self.assertEqual(contract["alphafold"]["input_length_aa"], 212)
+        self.assertEqual(contract["target_sequence"]["length_aa"], 235)
+        self.assertEqual(contract["localization_counterevidence"]["prediction"], "Other")
+        self.assertEqual(contract["model_assignment"]["mitochondrial_localization_status"], "unverified")
+        self.assertTrue(contract["model_assignment"]["wet_lab_review_required"])
+        self.assertFalse(contract["model_assignment"]["production_claim_allowed"])
+        self.assertEqual(
+            contract["evidence_audit_coverage"],
+            {"total_claims": 4, "audited": 4, "supported": 2, "unresolved": 2, "contradicted": 0, "unchecked": 0},
+        )
 
     def test_cli_refuses_source_overwrite(self) -> None:
         original_arguments = sys.argv[:]
@@ -203,16 +240,24 @@ class StrictSnCoreTests(unittest.TestCase):
     def test_sbml_round_trip_and_function(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "candidate.xml"
-            cobra.io.write_sbml_model(self.candidate, str(path))
+            duplicate = Path(directory) / "candidate-duplicate.xml"
+            write_candidate_sbml(self.candidate, path)
+            write_candidate_sbml(build_candidate(self.source), duplicate)
+            self.assertEqual(path.read_bytes(), duplicate.read_bytes())
+            self.assertTrue(all(isinstance(group._members, set) for group in self.candidate.groups))
             reread = cobra.io.read_sbml_model(str(path))
         self.assertEqual(len([reaction for reaction in reread.reactions if reaction.annotation.get(MARKER) == "true"]), 1134)
         tag = reread.reactions.get_by_id("UL_R1771_SN1__lauroyl__SN2__myristoyl__SN3__oleoyl")
         self.assertEqual(tag.gene_reaction_rule, self.source.reactions.get_by_id("R1771").gene_reaction_rule)
         self.assertEqual(tag.bounds, self.source.reactions.get_by_id("R1771").bounds)
+        r989 = reread.reactions.get_by_id("R989")
+        self.assertEqual(r989.gene_reaction_rule, "YALI1D01489g")
+        self.assertEqual(r989.notes, self.curation["R989_gpr_curation"]["notes"])
         self.assertGreater(self.candidate.slim_optimize(error_value=None), 0)
         self.assertGreater(pfba(self.candidate).fluxes["biomass_C"], 0)
         payload = report(self.source, self.candidate)
         self.assertFalse(payload["ready_for_activation"])
+        self.assertEqual(payload["R989_candidate_gpr"], self.curation["R989_gpr_curation"])
         self.assertEqual(payload["cardiolipin_four_chain_audit"]["activation"]["state"], "blocked")
         runtime = payload["runtime_seconds"]
         self.assertEqual(

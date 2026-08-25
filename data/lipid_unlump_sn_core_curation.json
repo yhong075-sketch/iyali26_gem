@@ -1,11 +1,118 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "source": {
     "model_path": "../iyali26_gem/model.xml",
     "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
     "model_fingerprint": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121",
     "tuple_convention": "legacy_source_convention",
     "source": "current model.xml snapshot; reaction IDs and annotations are the direct template source"
+  },
+  "R989_gpr_curation": {
+    "reaction_id": "R989",
+    "expected_source_gpr": "",
+    "expected_compartments": ["C_mi"],
+    "approved_candidate_gpr": "YALI1D01489g",
+    "gene_identity": {
+      "systematic_id": "YALI1D01489g",
+      "source_systematic_id": "YALI1_D01489g",
+      "legacy_id": "YALI0D01309g",
+      "established_name": "no established gene name",
+      "protein_function": "predicted 5-formyltetrahydrofolate cyclo-ligase",
+      "evidence_category": "curated annotation",
+      "gene_id": "2910453",
+      "refseq_protein": "XP_502280.2",
+      "uniprot": "Q6CAN2"
+    },
+    "target_sequence": {
+      "accession": "XP_502280.2",
+      "length_aa": 235,
+      "sha256_convention": "uppercase amino-acid sequence only; no FASTA header or whitespace",
+      "sha256": "d8cea1ec65af975fe803163cfaa05eb6fb3961dfce8df5546a4f14e1c0e007f9"
+    },
+    "alphafold": {
+      "model_id": "AF-Q6CAN2-F1",
+      "version": 6,
+      "prediction_method": "AlphaFold Monomer v2",
+      "model_date": "2022-06-01",
+      "input_accession": "Q6CAN2",
+      "input_length_aa": 212,
+      "input_sequence_sha256": "f0482ab3de313bafe55c4b2d29d446ee6d8ff97b69949eb8096190ad85dd4536",
+      "global_plddt": 89.94,
+      "scope": "fold_and_family_compatibility_only",
+      "limitation": "The AlphaFoldDB model covers the legacy 212-aa Q6CAN2 core, not the current 235-aa XP_502280.2 N-terminal extension, and cannot establish catalytic activity, dual localization, or mitochondrial localization."
+    },
+    "localization_counterevidence": {
+      "method": "TargetP 2.0 non-plant",
+      "job_id": "6A8DF2140014D6282BEC5B97",
+      "prediction": "Other",
+      "other_probability": 0.8307,
+      "mtp_probability": 0.1639,
+      "cleavage_site": "none"
+    },
+    "model_assignment": {
+      "evidence_category": "model/GPR assignment only",
+      "status": "candidate_only",
+      "human_model_assignment_approved": true,
+      "wet_lab_review_required": true,
+      "wet_lab_review_status": "pending",
+      "mitochondrial_localization_status": "unverified",
+      "production_claim_allowed": false
+    },
+    "notes": {
+      "curated_gpr_correction": "Human-approved provisional assignment of YALI1D01489g to mitochondrial R989; the same EC 6.3.3.2 chemistry is already assigned to cytosolic R64.",
+      "gpr_evidence_status": "model_gpr_assignment_only; alphafold_family_compatible; mitochondrial_localization_unverified; wet_lab_review_required",
+      "gpr_evidence_limit": "AlphaFoldDB AF-Q6CAN2-F1 v6 supports MTHFS fold/family compatibility only; it does not establish Yarrowia catalytic activity, dual localization, or mitochondrial localization. TargetP 2.0 predicts Other=0.8307, mTP=0.1639, with no cleavage site."
+    },
+    "evidence_sources": [
+      {
+        "source_id": "NCBI_XP_502280_2",
+        "url": "https://www.ncbi.nlm.nih.gov/protein/XP_502280.2",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Current Yarrowia lipolytica CLIB89/W29 RefSeq protein identity and 235-aa sequence."
+      },
+      {
+        "source_id": "ALPHAFOLDDB_Q6CAN2",
+        "url": "https://alphafold.ebi.ac.uk/entry/Q6CAN2",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C2"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "AF-Q6CAN2-F1 v6 supports compatibility of the legacy 212-aa core with the predicted MTHFS fold only."
+      },
+      {
+        "source_id": "UNIPROT_Q6CAN2",
+        "url": "https://www.uniprot.org/uniprotkb/Q6CAN2/entry",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C3"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Automated family/function and phylogenetic localization annotations; no direct Yarrowia biochemical or localization experiment."
+      },
+      {
+        "source_id": "TARGETP_Q6CAN2_W29",
+        "url": "https://services.healthtech.dtu.dk/services/TargetP-2.0/",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C4"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Independent non-plant prediction on XP_502280.2; Other=0.8307, mTP=0.1639, no cleavage site."
+      }
+    ],
+    "evidence_audit_coverage": {
+      "total_claims": 4,
+      "audited": 4,
+      "supported": 2,
+      "unresolved": 2,
+      "contradicted": 0,
+      "unchecked": 0
+    }
   },
   "chains": [
     {"id": "lauroyl", "lp_acyl_coa_id": "m1480[C_lp]", "legacy_tuple": {"formula": "C33H58N7O17P3S", "charge": 0}, "weight": 0.002892744479495268},
