@@ -120,6 +120,28 @@ class StrictSnCoreTests(unittest.TestCase):
             {"total_claims": 4, "audited": 4, "supported": 2, "unresolved": 2, "contradicted": 0, "unchecked": 0},
         )
 
+    def test_r1521_substrate_formula_is_completed_without_ph_migration(self) -> None:
+        contract = self.curation["R1521_neutral_formula_completion"]
+        source_metabolite = self.source.metabolites.get_by_id("m1546[C_pe]")
+        candidate_metabolite = self.candidate.metabolites.get_by_id("m1546[C_pe]")
+        self.assertEqual((source_metabolite.formula, source_metabolite.charge), (None, 0))
+        self.assertEqual((candidate_metabolite.formula, candidate_metabolite.charge), ("C47H86N7O18P3S", 0))
+        self.assertEqual(candidate_metabolite.name, source_metabolite.name)
+        self.assertEqual(candidate_metabolite.annotation, source_metabolite.annotation)
+        source_reaction = self.source.reactions.get_by_id("R1521")
+        candidate_reaction = self.candidate.reactions.get_by_id("R1521")
+        self.assertEqual(candidate_reaction.bounds, source_reaction.bounds)
+        self.assertEqual(candidate_reaction.gene_reaction_rule, source_reaction.gene_reaction_rule)
+        self.assertEqual(candidate_reaction.annotation, source_reaction.annotation)
+        self.assertEqual(
+            {metabolite.id: coefficient for metabolite, coefficient in candidate_reaction.metabolites.items()},
+            {metabolite.id: coefficient for metabolite, coefficient in source_reaction.metabolites.items()},
+        )
+        self.assertEqual(self.candidate.reactions.get_by_id("R1504").check_mass_balance(), {})
+        self.assertEqual(candidate_reaction.check_mass_balance(), {"H": 1.0, "charge": 1.0})
+        self.assertEqual(contract["biochemical_ph_tuple"]["status"], "blocked_not_applied")
+        self.assertFalse(contract["decision"]["production_apply_allowed"])
+
     def test_cli_refuses_source_overwrite(self) -> None:
         original_arguments = sys.argv[:]
         self.addCleanup(setattr, sys, "argv", original_arguments)
@@ -253,11 +275,14 @@ class StrictSnCoreTests(unittest.TestCase):
         r989 = reread.reactions.get_by_id("R989")
         self.assertEqual(r989.gene_reaction_rule, "YALI1D01489g")
         self.assertEqual(r989.notes, self.curation["R989_gpr_curation"]["notes"])
+        r1521_substrate = reread.metabolites.get_by_id("m1546[C_pe]")
+        self.assertEqual((r1521_substrate.formula, r1521_substrate.charge), ("C47H86N7O18P3S", 0))
         self.assertGreater(self.candidate.slim_optimize(error_value=None), 0)
         self.assertGreater(pfba(self.candidate).fluxes["biomass_C"], 0)
         payload = report(self.source, self.candidate)
         self.assertFalse(payload["ready_for_activation"])
         self.assertEqual(payload["R989_candidate_gpr"], self.curation["R989_gpr_curation"])
+        self.assertEqual(payload["R1521_neutral_formula_completion"], self.curation["R1521_neutral_formula_completion"])
         self.assertEqual(payload["cardiolipin_four_chain_audit"]["activation"]["state"], "blocked")
         runtime = payload["runtime_seconds"]
         self.assertEqual(

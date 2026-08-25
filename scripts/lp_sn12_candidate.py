@@ -71,8 +71,8 @@ def _read_curation(path: Path = CURATION_PATH) -> dict[str, Any]:
         curation = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
         raise ContractError(f"cannot read curation {path}: {error}") from error
-    required = {"schema_version", "source", "R989_gpr_curation", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
-    if curation.get("schema_version") != 2 or required - curation.keys():
+    required = {"schema_version", "source", "R989_gpr_curation", "R1521_neutral_formula_completion", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
+    if curation.get("schema_version") != 3 or required - curation.keys():
         raise ContractError("invalid lipid-unlump curation manifest")
     if len(curation["chains"]) != 7 or len(curation["steps"]) != 18:
         raise ContractError("curation must define seven chains and eighteen templates")
@@ -479,11 +479,49 @@ def _apply_r989_candidate_gpr(candidate: Model, curation: dict[str, Any]) -> Non
     reaction.notes = {**reaction.notes, **notes}
 
 
+def _apply_r1521_neutral_formula(candidate: Model, curation: dict[str, Any]) -> None:
+    contract = curation["R1521_neutral_formula_completion"]
+    metabolite = _metabolite(candidate, contract["metabolite_id"])
+    same_identity = contract["same_identity_source_copy"]
+    source_copy = _metabolite(candidate, same_identity["metabolite_id"])
+    expected = contract["expected_source_tuple"]
+    target = contract["candidate_tuple"]
+    decision = contract["decision"]
+    if (
+        contract["reaction_id"] != "R1521"
+        or contract["metabolite_id"] != "m1546[C_pe]"
+        or metabolite.name != contract["expected_source_name"]
+        or {"formula": metabolite.formula, "charge": metabolite.charge} != expected
+        or {"formula": source_copy.formula, "charge": source_copy.charge} != same_identity["expected_tuple"]
+        or target != {"formula": "C47H86N7O18P3S", "charge": 0}
+        or contract["scope"] != "formula_completion_only_in_legacy_neutral_convention"
+        or contract["biochemical_ph_tuple"] != {
+            "chebi": "CHEBI:76378", "formula": "C47H82N7O18P3S", "charge": -4,
+            "status": "blocked_not_applied",
+        }
+        or decision != {
+            "human_candidate_approved": True,
+            "change_formula": True,
+            "change_charge": False,
+            "change_name_or_annotation": False,
+            "change_reaction_stoichiometry_bounds_or_gpr": False,
+            "production_apply_allowed": False,
+        }
+        or any(source["audit_status"] != "audited" for source in contract["evidence_sources"])
+    ):
+        raise ContractError("R1521 neutral formula contract drifted")
+    metabolite.formula = target["formula"]
+    for reaction_id, expected_balance in contract["incident_reaction_balance_after"].items():
+        if _reaction(candidate, reaction_id).check_mass_balance() != expected_balance:
+            raise ContractError(f"R1521 formula completion balance drifted: {reaction_id}")
+
+
 def build_candidate(source_model: Model) -> Model:
     """Build a non-activatable candidate; source input is never modified."""
     curation = _read_curation()
     candidate = source_model.copy()
     templates = _validate_source(candidate, curation)
+    _apply_r1521_neutral_formula(candidate, curation)
     candidate._compartments["C_em"] = "ER membrane"
     _build_routes(candidate, templates, curation)
     _rewrite_biomass(candidate, curation)
@@ -538,6 +576,7 @@ def report(source_model: Model, candidate: Model) -> dict[str, Any]:
         "performance_review_required": any(runtime[f"candidate_{kind}_median"] > 2 * runtime[f"source_{kind}_median"] for kind in ("fba", "pfba")),
         "cardiolipin_four_chain_audit": cardiolipin_audit(candidate),
         "R989_candidate_gpr": curation["R989_gpr_curation"],
+        "R1521_neutral_formula_completion": curation["R1521_neutral_formula_completion"],
         "remaining_blockers": curation["blockers"],
         "generic_acyl_coa_ids_remaining": [metabolite_id for metabolite_id in curation["generic_acyl_coa_ids"] if metabolite_id in candidate.metabolites],
         "production_apply_forbidden": True,

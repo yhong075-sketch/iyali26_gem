@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "source": {
     "model_path": "../iyali26_gem/model.xml",
     "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
@@ -113,6 +113,60 @@
       "contradicted": 0,
       "unchecked": 0
     }
+  },
+  "R1521_neutral_formula_completion": {
+    "reaction_id": "R1521",
+    "metabolite_id": "m1546[C_pe]",
+    "identity": "(3R)-3-hydroxyhexacosanoyl-CoA",
+    "expected_source_name": "(R)-3-hydroxyhexacosanoyl-CoA_",
+    "expected_source_tuple": {"formula": null, "charge": 0},
+    "candidate_tuple": {"formula": "C47H86N7O18P3S", "charge": 0},
+    "scope": "formula_completion_only_in_legacy_neutral_convention",
+    "same_identity_source_copy": {
+      "metabolite_id": "m1446[C_em]",
+      "expected_tuple": {"formula": "C47H86N7O18P3S", "charge": 0}
+    },
+    "biochemical_ph_tuple": {
+      "chebi": "CHEBI:76378",
+      "formula": "C47H82N7O18P3S",
+      "charge": -4,
+      "status": "blocked_not_applied"
+    },
+    "incident_reaction_balance_after": {
+      "R1504": {},
+      "R1521": {"H": 1.0, "charge": 1.0}
+    },
+    "decision": {
+      "human_candidate_approved": true,
+      "change_formula": true,
+      "change_charge": false,
+      "change_name_or_annotation": false,
+      "change_reaction_stoichiometry_bounds_or_gpr": false,
+      "production_apply_allowed": false
+    },
+    "evidence_sources": [
+      {
+        "source_id": "R1521_CURRENT_SNAPSHOT_HANDOFF",
+        "path": "data/r1521_current_snapshot_handoff.json",
+        "claim": "Peroxisomal MFE2 uses the (3R)-hydroxy-C26-CoA identity; Rhea 78635/78638 supports the reversible dehydrogenase chemistry.",
+        "audit_status": "audited",
+        "decision": "use_as_constraint"
+      },
+      {
+        "source_id": "ER_VLCFA_3R_STEREOCHEMISTRY",
+        "path": "data/er_vlcfa_3r_stereochemistry.json",
+        "claim": "The same (3R)-hydroxy-C26-CoA identity already carries the legacy-neutral C47H86N7O18P3S/0 tuple in the ER copy.",
+        "audit_status": "audited",
+        "decision": "use_as_constraint"
+      },
+      {
+        "source_id": "RHEA_78635",
+        "url": "https://www.rhea-db.org/rhea/78635",
+        "claim": "The biochemical-pH species is C47H82N7O18P3S/charge -4 and is deliberately deferred from this formula-only patch.",
+        "audit_status": "audited",
+        "decision": "defer"
+      }
+    ]
   },
   "chains": [
     {"id": "lauroyl", "lp_acyl_coa_id": "m1480[C_lp]", "legacy_tuple": {"formula": "C33H58N7O17P3S", "charge": 0}, "weight": 0.002892744479495268},
