@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "source": {
     "model_path": "../iyali26_gem/model.xml",
     "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
@@ -109,6 +109,284 @@
       "total_claims": 4,
       "audited": 4,
       "supported": 2,
+      "unresolved": 2,
+      "contradicted": 0,
+      "unchecked": 0
+    }
+  },
+  "coq_R39_R40_curation": {
+    "human_gate": {
+      "approved_on": "2026-08-26",
+      "approved_scope": [
+        "move R39 from the cytosol to the mitochondrial CoQ pathway",
+        "assign provisional R39 GPR YALI1A08781g",
+        "remove redundant R808 and R969 CoQ-intermediate shuttles",
+        "lock the existing R40 GPR YALI1F34625g"
+      ],
+      "candidate_model_change_allowed": true,
+      "native_yarrowia_biochemistry_verified": false,
+      "wet_lab_review_required": true,
+      "production_claim_allowed": false
+    },
+    "R39": {
+      "reaction_id": "R39",
+      "expected_source": {
+        "name": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+        "bounds": [0.0, 1000.0],
+        "gpr": "",
+        "compartments": ["C_cy"],
+        "stoichiometry": {
+          "m108[C_cy]": -1.0,
+          "m109[C_cy]": -0.5,
+          "m110[C_cy]": 1.0,
+          "m10[C_cy]": 1.0
+        }
+      },
+      "expected_source_notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged."
+      },
+      "candidate": {
+        "name": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1A08781g",
+        "compartments": ["C_mi"],
+        "stoichiometry": {
+          "m641[C_mi]": -1.0,
+          "m64[C_mi]": -0.5,
+          "m939[C_mi]": 1.0,
+          "m28[C_mi]": 1.0
+        },
+        "reaction_representation": "mass_and_charge_balanced_redox_lump",
+        "explicit_ferredoxin_electron_transfer": false
+      },
+      "gene_identity": {
+        "systematic_id": "YALI1A08781g",
+        "source_systematic_id": "YALI1_A08781g",
+        "legacy_id": "YALI0A09042g",
+        "old_locus_tag": "YALI2_A00555g",
+        "gene_id": "2906060",
+        "established_name": "COQ6",
+        "protein_function": "ubiquinone-biosynthesis FAD-dependent C5-ring monooxygenase",
+        "evidence_category": "curated annotation",
+        "refseq_transcript": "XM_499891.3",
+        "refseq_protein": "XP_499891.1",
+        "uniprot": "F2Z6J4"
+      },
+      "target_sequences": {
+        "sha256_convention": "uppercase sequence only; no FASTA header or whitespace",
+        "cds": {
+          "accession": "XM_499891.3",
+          "length_nt": 1398,
+          "sha256": "80bd5c0e342f42dd259c17886a0b433d5e541e199d8cbdb3bd4ceb544fdf443e"
+        },
+        "protein": {
+          "accession": "XP_499891.1",
+          "length_aa": 465,
+          "sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee"
+        }
+      },
+      "alphafold": {
+        "model_id": "AF-F2Z6J4-F1",
+        "version": 6,
+        "model_date": "2022-06-01",
+        "input_accession": "F2Z6J4",
+        "input_length_aa": 465,
+        "mean_plddt": 84.28,
+        "percent_residues_plddt_ge_70": 82.6,
+        "scope": "fold_and_family_compatibility_only",
+        "limitation": "AlphaFold confidence cannot establish catalytic activity, mitochondrial localization, substrate specificity, or native Yarrowia biochemistry."
+      },
+      "model_assignment": {
+        "evidence_category": "model/GPR assignment only",
+        "status": "candidate_only",
+        "human_model_assignment_approved": true,
+        "native_yarrowia_biochemistry_status": "unverified",
+        "wet_lab_review_required": true,
+        "production_claim_allowed": false
+      },
+      "notes": {
+        "curated_coq9_chemistry": "The earlier CoQ6-to-CoQ9 chain correction is retained; this candidate additionally changes the R39 compartment and GPR, superseding the earlier statement that those fields were unchanged.",
+        "curated_compartment_topology": "Human-approved replacement of the unsupported cytosol excursion with the mitochondrial R407-R39-R715 CoQ route; redundant R969 and R808 shuttles are removed.",
+        "curated_gpr_correction": "Provisional assignment of YALI1A08781g (COQ6; RefSeq XP_499891.1; UniProt F2Z6J4) to mitochondrial R39.",
+        "gpr_evidence_status": "cross_species_experimental_plus_curated_homology_and_alphafold_family_compatible; native_yarrowia_biochemistry_unverified",
+        "gpr_evidence_limit": "R39 preserves the legacy mass-balanced 0.5 O2 redox lump and does not explicitly model Yah1/Arh1 electron transfer. AlphaFold supports fold compatibility only and cannot verify activity, localization, or substrate specificity."
+      }
+    },
+    "R40": {
+      "reaction_id": "R40",
+      "action": "lock_existing_assignment_without_stoichiometry_change",
+      "expected_source_and_candidate": {
+        "name": "3-nonaprenyl-4-hydroxy-5-methoxybenzoate decarboxylase",
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1F34625g",
+        "compartments": ["C_mi"],
+        "stoichiometry": {
+          "m28[C_mi]": -1.0,
+          "m111[C_mi]": -1.0,
+          "m44[C_mi]": 1.0,
+          "m63[C_mi]": 1.0
+        }
+      },
+      "gene_identity": {
+        "systematic_id": "YALI1F34625g",
+        "source_systematic_id": "YALI1_F34625g",
+        "legacy_id": "YALI0F27247g",
+        "old_locus_tag": "YALI2_E00964g",
+        "gene_id": "2907824",
+        "established_name": "COQ4",
+        "protein_function": "zinc-dependent CoQ-ring C1 decarboxylase and CoQ-synthome organizing protein",
+        "evidence_category": "curated annotation",
+        "refseq_transcript": "XM_505938.3",
+        "refseq_protein": "XP_505938.1",
+        "uniprot": "Q6C074"
+      },
+      "target_sequences": {
+        "sha256_convention": "uppercase sequence only; no FASTA header or whitespace",
+        "cds": {
+          "accession": "XM_505938.3",
+          "length_nt": 789,
+          "sha256": "1ce66dea74c918cc84ae0243eb8d47d3145d41699f26077bba2a87d5bfb77d95"
+        },
+        "protein": {
+          "accession": "XP_505938.1",
+          "length_aa": 262,
+          "sha256": "2d7fc4589ef709501bcba4be7f2baef1d2ba9bb0a4ec51aa720ec9e1b97b5b9b"
+        }
+      },
+      "alphafold": {
+        "model_id": "AF-Q6C074-F1",
+        "version": 6,
+        "model_date": "2025-08-01",
+        "input_accession": "Q6C074",
+        "input_length_aa": 262,
+        "mean_plddt": 91.61,
+        "percent_residues_plddt_ge_70": 92.7,
+        "scope": "fold_and_family_compatibility_only",
+        "limitation": "AlphaFold confidence cannot resolve sequential versus oxidative decarboxylation or verify native Yarrowia biochemistry."
+      },
+      "model_assignment": {
+        "evidence_category": "model/GPR assignment only",
+        "status": "candidate_only",
+        "human_model_assignment_approved": true,
+        "native_yarrowia_biochemistry_status": "unverified",
+        "wet_lab_review_required": true,
+        "production_claim_allowed": false
+      },
+      "expected_notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1F34625g (COQ4; UniProt Q6C074), CoQ-ring C1 decarboxylase/synthome-organising protein. Cross-species experiments support C1 decarboxylation, while oxidative versus sequential decarboxylation/hydroxylation remains unresolved.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified"
+      }
+    },
+    "removed_shuttles": [
+      {
+        "reaction_id": "R808",
+        "expected_source_gpr": "",
+        "expected_source_bounds": [-1000.0, 1000.0],
+        "expected_source_compartments": ["C_cy", "C_mi"],
+        "expected_source_stoichiometry": {"m110[C_cy]": -1.0, "m939[C_mi]": 1.0},
+        "decision": "remove_redundant_unsupported_shuttle"
+      },
+      {
+        "reaction_id": "R969",
+        "expected_source_gpr": "",
+        "expected_source_bounds": [-1000.0, 1000.0],
+        "expected_source_compartments": ["C_cy", "C_mi"],
+        "expected_source_stoichiometry": {"m108[C_cy]": -1.0, "m641[C_mi]": 1.0},
+        "decision": "remove_redundant_unsupported_shuttle"
+      }
+    ],
+    "removed_orphan_metabolites": ["m108[C_cy]", "m110[C_cy]"],
+    "evidence_sources": [
+      {
+        "source_id": "YARROWIA_BIOCYC_R39_R40",
+        "url": "https://biocyc.org/GCF_001761485/organism-summary",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["COQ_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "GCF_001761485Cyc v30.0 Tier 3 returned no exact R39 or R40 record; no hit is not evidence of absence."
+      },
+      {
+        "source_id": "NCBI_R39_SEQUENCE",
+        "url": "https://www.ncbi.nlm.nih.gov/protein/XP_499891.1",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R39_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Current CLIB89/W29 CDS and protein identity, version, length, and sequence hash."
+      },
+      {
+        "source_id": "UNIPROT_ALPHAFOLD_R39",
+        "url": "https://www.uniprot.org/uniprotkb/F2Z6J4/entry",
+        "additional_url": "https://alphafold.ebi.ac.uk/entry/F2Z6J4",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R39_C2"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "UbiH/COQ6 family and fold compatibility only; no native Yarrowia catalytic or localization experiment."
+      },
+      {
+        "source_id": "OZEIR_2011_NICOLL_2024_COQ6",
+        "url": "https://doi.org/10.1016/j.chembiol.2011.07.008",
+        "additional_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7615680/",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R39_C3"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Cross-species genetic/biochemical and reconstructed-system evidence for COQ6 C5 hydroxylation; organism transfer remains explicit."
+      },
+      {
+        "source_id": "NCBI_UNIPROT_R40",
+        "url": "https://www.uniprot.org/uniprotkb/Q6C074/entry",
+        "additional_url": "https://www.ncbi.nlm.nih.gov/protein/XP_505938.1",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R40_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Current Yarrowia sequence identity plus reviewed COQ4 decarboxylase annotation; native Yarrowia biochemistry remains unverified."
+      },
+      {
+        "source_id": "RHEA_81179",
+        "url": "https://www.rhea-db.org/rhea/81179",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R40_C2"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Curated EC 4.1.1.130 reaction identity matches R40; reaction identity alone does not prove the Yarrowia GPR."
+      },
+      {
+        "source_id": "NICOLL_PELOSI_2024_COQ4",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7615680/",
+        "additional_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7616408/",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R40_C3"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Cross-species COQ4 C1 decarboxylation is supported, while sequential versus oxidative mechanism and exact native Yarrowia substrate use remain unresolved."
+      },
+      {
+        "source_id": "FROZEN_MODEL_COQ_TOPOLOGY",
+        "path": "model.xml@sha256:bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["COQ_C2"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "R407 and R715 are mitochondrial; source R39 requires the unsupported reversible R969/R808 cytosol excursion."
+      }
+    ],
+    "evidence_audit_coverage": {
+      "total_claims": 8,
+      "audited": 8,
+      "supported": 6,
       "unresolved": 2,
       "contradicted": 0,
       "unchecked": 0

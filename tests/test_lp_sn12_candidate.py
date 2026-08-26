@@ -103,9 +103,9 @@ class StrictSnCoreTests(unittest.TestCase):
             {reaction.id for reaction in self.candidate.genes.get_by_id("YALI1D01489g").reactions},
             {"R64", "R989"},
         )
-        self.assertEqual((len(self.candidate.reactions), len(self.candidate.genes)), (3415, 1074))
-        self.assertEqual(sum(bool(reaction.gene_reaction_rule) for reaction in self.candidate.reactions), 2245)
-        self.assertEqual(sum(not reaction.gene_reaction_rule for reaction in self.candidate.reactions), 1170)
+        self.assertEqual((len(self.candidate.reactions), len(self.candidate.genes)), (3413, 1074))
+        self.assertEqual(sum(bool(reaction.gene_reaction_rule) for reaction in self.candidate.reactions), 2246)
+        self.assertEqual(sum(not reaction.gene_reaction_rule for reaction in self.candidate.reactions), 1167)
         self.assertEqual(contract["gene_identity"]["evidence_category"], "curated annotation")
         self.assertEqual(contract["model_assignment"]["evidence_category"], "model/GPR assignment only")
         self.assertEqual(contract["alphafold"]["scope"], "fold_and_family_compatibility_only")
@@ -119,6 +119,63 @@ class StrictSnCoreTests(unittest.TestCase):
             contract["evidence_audit_coverage"],
             {"total_claims": 4, "audited": 4, "supported": 2, "unresolved": 2, "contradicted": 0, "unchecked": 0},
         )
+
+    def test_coq_r39_r40_candidate_is_mitochondrial_and_evidence_gated(self) -> None:
+        contract = self.curation["coq_R39_R40_curation"]
+        r39 = self.candidate.reactions.get_by_id("R39")
+        r40 = self.candidate.reactions.get_by_id("R40")
+        self.assertEqual(r39.gene_reaction_rule, "YALI1A08781g")
+        self.assertEqual(r40.gene_reaction_rule, "YALI1F34625g")
+        self.assertEqual(r39.compartments, {"C_mi"})
+        self.assertEqual(r39.check_mass_balance(), {})
+        self.assertEqual(
+            {metabolite.id: coefficient for metabolite, coefficient in r39.metabolites.items()},
+            contract["R39"]["candidate"]["stoichiometry"],
+        )
+        self.assertEqual(
+            r39.notes,
+            {**contract["R39"]["expected_source_notes"], **contract["R39"]["notes"]},
+        )
+        self.assertEqual(r40.notes, contract["R40"]["expected_notes"])
+        for reaction_id in ("R40", "R407", "R715"):
+            source = self.source.reactions.get_by_id(reaction_id)
+            candidate = self.candidate.reactions.get_by_id(reaction_id)
+            self.assertEqual(candidate.bounds, source.bounds)
+            self.assertEqual(candidate.gene_reaction_rule, source.gene_reaction_rule)
+            self.assertEqual(
+                {metabolite.id: coefficient for metabolite, coefficient in candidate.metabolites.items()},
+                {metabolite.id: coefficient for metabolite, coefficient in source.metabolites.items()},
+            )
+        self.assertTrue(all(reaction_id in self.source.reactions and reaction_id not in self.candidate.reactions for reaction_id in ("R808", "R969")))
+        self.assertTrue(all(metabolite_id not in self.candidate.metabolites for metabolite_id in ("m108[C_cy]", "m110[C_cy]")))
+        self.assertEqual({reaction.id for reaction in self.candidate.genes.get_by_id("YALI1A08781g").reactions}, {"R39"})
+        self.assertEqual({reaction.id for reaction in self.candidate.genes.get_by_id("YALI1F34625g").reactions}, {"R40"})
+        for reaction_id, gene_id, name, function in (
+            ("R39", "YALI1A08781g", "COQ6", "ubiquinone-biosynthesis FAD-dependent C5-ring monooxygenase"),
+            ("R40", "YALI1F34625g", "COQ4", "zinc-dependent CoQ-ring C1 decarboxylase and CoQ-synthome organizing protein"),
+        ):
+            row = contract[reaction_id]
+            self.assertEqual((row["gene_identity"]["systematic_id"], row["gene_identity"]["established_name"], row["gene_identity"]["protein_function"]), (gene_id, name, function))
+            self.assertEqual(row["alphafold"]["scope"], "fold_and_family_compatibility_only")
+            self.assertEqual(row["model_assignment"]["native_yarrowia_biochemistry_status"], "unverified")
+            self.assertTrue(row["model_assignment"]["wet_lab_review_required"])
+            self.assertFalse(row["model_assignment"]["production_claim_allowed"])
+        self.assertTrue(contract["human_gate"]["candidate_model_change_allowed"])
+        self.assertFalse(contract["human_gate"]["native_yarrowia_biochemistry_verified"])
+        self.assertEqual(contract["evidence_audit_coverage"], {"total_claims": 8, "audited": 8, "supported": 6, "unresolved": 2, "contradicted": 0, "unchecked": 0})
+
+        with self.candidate:
+            q9_demand = self.candidate.add_boundary(self.candidate.metabolites.get_by_id("m468[C_mi]"), type="demand")
+            self.candidate.objective = q9_demand
+            solution = self.candidate.optimize()
+            self.assertGreater(solution.objective_value, 0)
+            self.assertTrue(all(solution.fluxes[reaction_id] > 0 for reaction_id in ("R407", "R39", "R715", "R40")))
+        for gene_id in ("YALI1A08781g", "YALI1F34625g"):
+            knockout = self.candidate.copy()
+            knockout.genes.get_by_id(gene_id).knock_out()
+            q9_demand = knockout.add_boundary(knockout.metabolites.get_by_id("m468[C_mi]"), type="demand")
+            knockout.objective = q9_demand
+            self.assertEqual(knockout.slim_optimize(error_value=None), 0.0)
 
     def test_r1521_substrate_formula_is_completed_without_ph_migration(self) -> None:
         contract = self.curation["R1521_neutral_formula_completion"]
@@ -275,6 +332,13 @@ class StrictSnCoreTests(unittest.TestCase):
         r989 = reread.reactions.get_by_id("R989")
         self.assertEqual(r989.gene_reaction_rule, "YALI1D01489g")
         self.assertEqual(r989.notes, self.curation["R989_gpr_curation"]["notes"])
+        r39 = reread.reactions.get_by_id("R39")
+        self.assertEqual(r39.gene_reaction_rule, "YALI1A08781g")
+        self.assertEqual(r39.compartments, {"C_mi"})
+        self.assertEqual(r39.check_mass_balance(), {})
+        self.assertEqual(reread.reactions.get_by_id("R40").gene_reaction_rule, "YALI1F34625g")
+        self.assertTrue(all(reaction_id not in reread.reactions for reaction_id in ("R808", "R969")))
+        self.assertTrue(all(metabolite_id not in reread.metabolites for metabolite_id in ("m108[C_cy]", "m110[C_cy]")))
         r1521_substrate = reread.metabolites.get_by_id("m1546[C_pe]")
         self.assertEqual((r1521_substrate.formula, r1521_substrate.charge), ("C47H86N7O18P3S", 0))
         self.assertGreater(self.candidate.slim_optimize(error_value=None), 0)
@@ -282,6 +346,7 @@ class StrictSnCoreTests(unittest.TestCase):
         payload = report(self.source, self.candidate)
         self.assertFalse(payload["ready_for_activation"])
         self.assertEqual(payload["R989_candidate_gpr"], self.curation["R989_gpr_curation"])
+        self.assertEqual(payload["coq_R39_R40_curation"], self.curation["coq_R39_R40_curation"])
         self.assertEqual(payload["R1521_neutral_formula_completion"], self.curation["R1521_neutral_formula_completion"])
         self.assertEqual(payload["cardiolipin_four_chain_audit"]["activation"]["state"], "blocked")
         runtime = payload["runtime_seconds"]

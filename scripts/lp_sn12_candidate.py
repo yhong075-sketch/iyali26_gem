@@ -71,8 +71,8 @@ def _read_curation(path: Path = CURATION_PATH) -> dict[str, Any]:
         curation = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
         raise ContractError(f"cannot read curation {path}: {error}") from error
-    required = {"schema_version", "source", "R989_gpr_curation", "R1521_neutral_formula_completion", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
-    if curation.get("schema_version") != 3 or required - curation.keys():
+    required = {"schema_version", "source", "R989_gpr_curation", "coq_R39_R40_curation", "R1521_neutral_formula_completion", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
+    if curation.get("schema_version") != 4 or required - curation.keys():
         raise ContractError("invalid lipid-unlump curation manifest")
     if len(curation["chains"]) != 7 or len(curation["steps"]) != 18:
         raise ContractError("curation must define seven chains and eighteen templates")
@@ -479,6 +479,123 @@ def _apply_r989_candidate_gpr(candidate: Model, curation: dict[str, Any]) -> Non
     reaction.notes = {**reaction.notes, **notes}
 
 
+def _apply_coq_r39_r40_curation(candidate: Model, curation: dict[str, Any]) -> None:
+    contract = curation["coq_R39_R40_curation"]
+    r39_contract, r40_contract = contract["R39"], contract["R40"]
+    r39 = _reaction(candidate, r39_contract["reaction_id"])
+    r40 = _reaction(candidate, r40_contract["reaction_id"])
+
+    def state(reaction: Reaction) -> dict[str, Any]:
+        return {
+            "name": reaction.name,
+            "bounds": list(reaction.bounds),
+            "gpr": reaction.gene_reaction_rule,
+            "compartments": sorted(reaction.compartments),
+            "stoichiometry": {met.id: coefficient for met, coefficient in reaction.metabolites.items()},
+        }
+
+    sources = contract["evidence_sources"]
+    coverage = contract["evidence_audit_coverage"]
+    claims = [claim_id for source in sources for claim_id in source["claim_ids"]]
+    verdicts = Counter(source["reviewer_verdict"] for source in sources for _ in source["claim_ids"])
+    human_gate = contract["human_gate"]
+    if (
+        state(r39) != r39_contract["expected_source"]
+        or r39.notes != r39_contract["expected_source_notes"]
+        or state(r40) != r40_contract["expected_source_and_candidate"]
+        or r40.notes != r40_contract["expected_notes"]
+        or r39_contract["gene_identity"]["systematic_id"] != r39_contract["candidate"]["gpr"]
+        or r39_contract["target_sequences"]["protein"] != {
+            "accession": "XP_499891.1",
+            "length_aa": 465,
+            "sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee",
+        }
+        or r40_contract["gene_identity"]["systematic_id"] != r40_contract["expected_source_and_candidate"]["gpr"]
+        or r40_contract["target_sequences"]["protein"] != {
+            "accession": "XP_505938.1",
+            "length_aa": 262,
+            "sha256": "2d7fc4589ef709501bcba4be7f2baef1d2ba9bb0a4ec51aa720ec9e1b97b5b9b",
+        }
+        or any(row["alphafold"]["scope"] != "fold_and_family_compatibility_only" for row in (r39_contract, r40_contract))
+        or human_gate != {
+            "approved_on": "2026-08-26",
+            "approved_scope": [
+                "move R39 from the cytosol to the mitochondrial CoQ pathway",
+                "assign provisional R39 GPR YALI1A08781g",
+                "remove redundant R808 and R969 CoQ-intermediate shuttles",
+                "lock the existing R40 GPR YALI1F34625g",
+            ],
+            "candidate_model_change_allowed": True,
+            "native_yarrowia_biochemistry_verified": False,
+            "wet_lab_review_required": True,
+            "production_claim_allowed": False,
+        }
+        or any(
+            source["audit_status"] != "audited"
+            or source["decision"] not in {"use_as_constraint", "defer", "exclude"}
+            or not source["conditions"]
+            for source in sources
+        )
+        or len(claims) != len(set(claims))
+        or coverage != {
+            "total_claims": len(claims),
+            "audited": len(claims),
+            "supported": verdicts["supported"],
+            "unresolved": verdicts["partially_supported"],
+            "contradicted": verdicts["contradicted"],
+            "unchecked": 0,
+        }
+        or any(row["model_assignment"]["production_claim_allowed"] for row in (r39_contract, r40_contract))
+    ):
+        raise ContractError("R39/R40 CoQ evidence contract drifted")
+
+    shuttle_reactions = []
+    for shuttle in contract["removed_shuttles"]:
+        reaction = _reaction(candidate, shuttle["reaction_id"])
+        actual = {
+            "expected_source_gpr": reaction.gene_reaction_rule,
+            "expected_source_bounds": list(reaction.bounds),
+            "expected_source_compartments": sorted(reaction.compartments),
+            "expected_source_stoichiometry": {met.id: coefficient for met, coefficient in reaction.metabolites.items()},
+        }
+        expected = {key: shuttle[key] for key in actual}
+        if actual != expected or shuttle["decision"] != "remove_redundant_unsupported_shuttle":
+            raise ContractError(f"CoQ shuttle contract drifted: {reaction.id}")
+        shuttle_reactions.append(reaction)
+    expected_incidence = {
+        "m108[C_cy]": {"R39", "R969"},
+        "m110[C_cy]": {"R39", "R808"},
+    }
+    if any(
+        {reaction.id for reaction in _metabolite(candidate, metabolite_id).reactions} != reaction_ids
+        for metabolite_id, reaction_ids in expected_incidence.items()
+    ):
+        raise ContractError("CoQ cytosolic-intermediate incidence drifted")
+
+    r39.add_metabolites({metabolite: -coefficient for metabolite, coefficient in tuple(r39.metabolites.items())})
+    r39.add_metabolites({
+        _metabolite(candidate, metabolite_id): coefficient
+        for metabolite_id, coefficient in r39_contract["candidate"]["stoichiometry"].items()
+    })
+    r39.gene_reaction_rule = r39_contract["candidate"]["gpr"]
+    r39.notes = {**r39.notes, **r39_contract["notes"]}
+    candidate.remove_reactions(shuttle_reactions)
+    orphan_metabolites = [_metabolite(candidate, metabolite_id) for metabolite_id in contract["removed_orphan_metabolites"]]
+    if any(metabolite.reactions for metabolite in orphan_metabolites):
+        raise ContractError("removed CoQ cytosolic intermediate is not orphaned")
+    candidate.remove_metabolites(orphan_metabolites, destructive=False)
+    expected_r39 = {
+        key: r39_contract["candidate"][key]
+        for key in ("name", "bounds", "gpr", "compartments", "stoichiometry")
+    }
+    if state(r39) != expected_r39:
+        raise ContractError("R39 mitochondrial candidate drifted after application")
+    if r39.notes != {**r39_contract["expected_source_notes"], **r39_contract["notes"]}:
+        raise ContractError("R39 mitochondrial candidate notes drifted after application")
+    if r39.check_mass_balance():
+        raise ContractError("R39 mitochondrial candidate is not mass/charge balanced")
+
+
 def _apply_r1521_neutral_formula(candidate: Model, curation: dict[str, Any]) -> None:
     contract = curation["R1521_neutral_formula_completion"]
     metabolite = _metabolite(candidate, contract["metabolite_id"])
@@ -527,6 +644,7 @@ def build_candidate(source_model: Model) -> Model:
     _rewrite_biomass(candidate, curation)
     _remove_generic_interfaces(candidate, curation)
     _apply_r989_candidate_gpr(candidate, curation)
+    _apply_coq_r39_r40_curation(candidate, curation)
     if any(reaction.check_mass_balance() for reaction in candidate.reactions if reaction.annotation.get(MARKER) == "true"):
         raise ContractError("generated reaction is not mass/charge balanced")
     return candidate
@@ -576,6 +694,7 @@ def report(source_model: Model, candidate: Model) -> dict[str, Any]:
         "performance_review_required": any(runtime[f"candidate_{kind}_median"] > 2 * runtime[f"source_{kind}_median"] for kind in ("fba", "pfba")),
         "cardiolipin_four_chain_audit": cardiolipin_audit(candidate),
         "R989_candidate_gpr": curation["R989_gpr_curation"],
+        "coq_R39_R40_curation": curation["coq_R39_R40_curation"],
         "R1521_neutral_formula_completion": curation["R1521_neutral_formula_completion"],
         "remaining_blockers": curation["blockers"],
         "generic_acyl_coa_ids_remaining": [metabolite_id for metabolite_id in curation["generic_acyl_coa_ids"] if metabolite_id in candidate.metabolites],

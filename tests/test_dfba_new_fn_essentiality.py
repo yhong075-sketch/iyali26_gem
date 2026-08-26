@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import csv
-import json
 import sys
 import tempfile
 import unittest
@@ -301,7 +300,7 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
             )
             self.assertIn("consensus_essential_genes.csv", slurm)
             self.assertIn(sha256(REPOSITORY / "scripts/dfba_new_fn_essentiality.py"), slurm)
-            candidate = REPOSITORY / "model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_formula_provisional.xml"
+            candidate = REPOSITORY / "model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.xml"
             self.assertIn(candidate.name, slurm)
             self.assertIn(sha256(candidate), slurm)
             self.assertIn(sha256(REPOSITORY / "scripts/lp_sn12_candidate.py"), slurm)
