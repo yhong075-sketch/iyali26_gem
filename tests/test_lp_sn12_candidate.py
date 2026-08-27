@@ -10,6 +10,7 @@ import tempfile
 import unittest
 from math import fsum, isclose
 from pathlib import Path
+from unittest import mock
 
 import cobra
 from cobra.flux_analysis import flux_variability_analysis, pfba
@@ -137,7 +138,7 @@ class StrictSnCoreTests(unittest.TestCase):
             {**contract["R39"]["expected_source_notes"], **contract["R39"]["notes"]},
         )
         self.assertEqual(r40.notes, contract["R40"]["expected_notes"])
-        for reaction_id in ("R40", "R407", "R715"):
+        for reaction_id in ("R40", "R407", "R715", "R18", "R19", "R385", "R695"):
             source = self.source.reactions.get_by_id(reaction_id)
             candidate = self.candidate.reactions.get_by_id(reaction_id)
             self.assertEqual(candidate.bounds, source.bounds)
@@ -150,16 +151,35 @@ class StrictSnCoreTests(unittest.TestCase):
         self.assertTrue(all(metabolite_id not in self.candidate.metabolites for metabolite_id in ("m108[C_cy]", "m110[C_cy]")))
         self.assertEqual({reaction.id for reaction in self.candidate.genes.get_by_id("YALI1A08781g").reactions}, {"R39"})
         self.assertEqual({reaction.id for reaction in self.candidate.genes.get_by_id("YALI1F34625g").reactions}, {"R40"})
-        for reaction_id, gene_id, name, function in (
-            ("R39", "YALI1A08781g", "COQ6", "ubiquinone-biosynthesis FAD-dependent C5-ring monooxygenase"),
-            ("R40", "YALI1F34625g", "COQ4", "zinc-dependent CoQ-ring C1 decarboxylase and CoQ-synthome organizing protein"),
-        ):
+        r39_identity = contract["R39"]["gene_identity"]
+        self.assertEqual(
+            (r39_identity["systematic_id"], r39_identity["established_name"], r39_identity["candidate_label"], r39_identity["protein_function"], r39_identity["evidence_category"]),
+            ("YALI1A08781g", "no established gene name", "COQ6 candidate", "putative FAD-dependent CoQ monooxygenase", "uncharacterized"),
+        )
+        r40_identity = contract["R40"]["gene_identity"]
+        self.assertEqual(
+            (r40_identity["systematic_id"], r40_identity["established_name"], r40_identity["protein_function"]),
+            ("YALI1F34625g", "COQ4", "zinc-dependent CoQ-ring C1 decarboxylase and CoQ-synthome organizing protein"),
+        )
+        for reaction_id in ("R39", "R40"):
             row = contract[reaction_id]
-            self.assertEqual((row["gene_identity"]["systematic_id"], row["gene_identity"]["established_name"], row["gene_identity"]["protein_function"]), (gene_id, name, function))
             self.assertEqual(row["alphafold"]["scope"], "fold_and_family_compatibility_only")
             self.assertEqual(row["model_assignment"]["native_yarrowia_biochemistry_status"], "unverified")
             self.assertTrue(row["model_assignment"]["wet_lab_review_required"])
             self.assertFalse(row["model_assignment"]["production_claim_allowed"])
+        self.assertEqual(contract["R39"]["alphafold"]["evidence_status"], "alphafold_prediction_only")
+        self.assertEqual(contract["R39"]["model_assignment"]["evidence_basis"], "alphafold_prediction_only")
+        self.assertEqual(contract["R39"]["model_assignment"]["verification_status"], "unverified")
+        self.assertTrue(contract["R39"]["model_assignment"]["human_candidate_mapping_approved"])
+        self.assertNotIn("human_model_assignment_approved", contract["R39"]["model_assignment"])
+        self.assertEqual(contract["R39"]["notes"]["gpr_evidence_status"], "model_gpr_assignment_only; alphafold_prediction_only; native_yarrowia_biochemistry_unverified")
+        self.assertEqual(contract["R39"]["notes"]["gpr_mapping_sha256"], contract["R39"]["mapping_sha256"])
+        for gene_id in ("YALI1B20527g", "YALI1F34675g"):
+            self.assertEqual(
+                {reaction.id for reaction in self.candidate.genes.get_by_id(gene_id).reactions},
+                {reaction.id for reaction in self.source.genes.get_by_id(gene_id).reactions},
+            )
+        self.assertEqual(source_fingerprint(self.source), self.source_fingerprint)
         self.assertTrue(contract["human_gate"]["candidate_model_change_allowed"])
         self.assertFalse(contract["human_gate"]["native_yarrowia_biochemistry_verified"])
         self.assertEqual(contract["evidence_audit_coverage"], {"total_claims": 8, "audited": 8, "supported": 6, "unresolved": 2, "contradicted": 0, "unchecked": 0})
@@ -176,6 +196,13 @@ class StrictSnCoreTests(unittest.TestCase):
             q9_demand = knockout.add_boundary(knockout.metabolites.get_by_id("m468[C_mi]"), type="demand")
             knockout.objective = q9_demand
             self.assertEqual(knockout.slim_optimize(error_value=None), 0.0)
+
+    def test_coq_r39_mapping_sha_drift_fails_closed(self) -> None:
+        drifted = json.loads(json.dumps(self.curation))
+        drifted["coq_R39_R40_curation"]["R39"]["mapping_sha256"] = "0" * 64
+        with mock.patch("scripts.lp_sn12_candidate._read_curation", return_value=drifted):
+            with self.assertRaisesRegex(ContractError, "R39/R40 CoQ evidence contract drifted"):
+                build_candidate(self.source)
 
     def test_r1521_substrate_formula_is_completed_without_ph_migration(self) -> None:
         contract = self.curation["R1521_neutral_formula_completion"]

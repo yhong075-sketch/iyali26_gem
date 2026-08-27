@@ -215,6 +215,14 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
             write_toy_medium(medium_path)
             baseline = toy_model(False)
             candidate = toy_model(True)
+            mapping = Reaction("GPR_MAPPING")
+            mapping.bounds = (0, 0)
+            mapping.gene_reaction_rule = "g_transport"
+            mapping.notes["gpr_evidence_status"] = (
+                "model_gpr_assignment_only; alphafold_prediction_only; unverified"
+            )
+            mapping.notes["gpr_mapping_sha256"] = "a" * 64
+            candidate.add_reactions([mapping])
             baseline_bounds = {reaction.id: reaction.bounds for reaction in baseline.reactions}
             candidate_bounds = {reaction.id: reaction.bounds for reaction in candidate.reactions}
             rows, _, _ = compare_models(
@@ -231,6 +239,16 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
             self.assertTrue(rows[0]["baseline_predicted_essential"])
             self.assertFalse(rows[0]["candidate_predicted_essential"])
             self.assertTrue(rows[0]["new_false_negative"])
+            self.assertEqual(
+                rows[0]["gpr_evidence_status"],
+                "model_gpr_assignment_only; alphafold_prediction_only; unverified",
+            )
+            self.assertEqual(
+                dfba._model_contract(candidate, load_dynamic_medium(medium_path))[
+                    "gpr_mapping_sha256_by_reaction"
+                ],
+                {"GPR_MAPPING": "a" * 64},
+            )
             self.assertEqual(
                 {reaction.id: reaction.bounds for reaction in baseline.reactions}, baseline_bounds
             )

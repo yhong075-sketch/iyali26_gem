@@ -90,7 +90,7 @@ POSITIVE_ONLY_REFERENCE_COLUMNS = (
 )
 POSITIVE_ONLY_REFERENCE_SOURCE = "https://doi.org/10.1038/s42003-023-04996-8"
 POSITIVE_ONLY_REFERENCE_CONFIDENCE = "consensus_essential_in_at_least_2_of_3_screens"
-SCHEMA_VERSION = 6
+SCHEMA_VERSION = 7
 ALGORITHM = "first-order Euler dFBA with parsimonious FBA flux selection"
 RESCUE_GROWTH_FLUX_MINIMUM = 1e-9
 RESCUE_CAP_TOLERANCE = 1e-12
@@ -460,12 +460,23 @@ def _growth_objective(model) -> dict:
 
 def _model_contract(model, medium: list[dict]) -> dict:
     _growth_objective(model)
+    mapping_sha256_by_reaction = {
+        reaction.id: str(reaction.notes["gpr_mapping_sha256"])
+        for reaction in model.reactions
+        if reaction.notes.get("gpr_mapping_sha256")
+    }
+    if any(
+        len(value) != 64 or any(character not in "0123456789abcdef" for character in value)
+        for value in mapping_sha256_by_reaction.values()
+    ):
+        raise ValueError("invalid GPR mapping SHA-256 in model reaction notes")
     return {
         "semantic_fingerprint": source_fingerprint(model),
         "metabolite_count": len(model.metabolites),
         "reaction_count": len(model.reactions),
         "gene_count": len(model.genes),
         "objective": "maximize biomass_C",
+        "gpr_mapping_sha256_by_reaction": mapping_sha256_by_reaction,
         "dynamic_medium_signature": [
             {"reaction_id": reaction_id, "metabolite_id": metabolite_id, "coefficient": coefficient}
             for reaction_id, metabolite_id, coefficient in _medium_signature(model, medium)
@@ -738,6 +749,14 @@ def compare_models(
             candidate_ratio = candidate_ko["biomass_gain_gdw_l"] / candidate_wt["biomass_gain_gdw_l"]
             baseline_essential = baseline_ratio < growth_cutoff
             candidate_essential = candidate_ratio < growth_cutoff
+            baseline_gene = baseline.genes.get_by_id(gene_id)
+            candidate_gene = candidate.genes.get_by_id(gene_id)
+            baseline_reaction_ids = {reaction.id for reaction in baseline_gene.reactions}
+            evidence_statuses = sorted({
+                str(reaction.notes["gpr_evidence_status"])
+                for reaction in candidate_gene.reactions
+                if reaction.id not in baseline_reaction_ids and reaction.notes.get("gpr_evidence_status")
+            })
             row = {
                 "gene_id": gene_id,
                 "baseline_ko_biomass_gain_gdw_l": baseline_ko["biomass_gain_gdw_l"],
@@ -747,13 +766,11 @@ def compare_models(
                 "baseline_predicted_essential": baseline_essential,
                 "candidate_predicted_essential": candidate_essential,
                 "new_false_negative": baseline_essential and not candidate_essential,
-                "baseline_reaction_ids": ";".join(sorted(
-                    reaction.id for reaction in baseline.genes.get_by_id(gene_id).reactions
-                )),
+                "baseline_reaction_ids": ";".join(sorted(baseline_reaction_ids)),
                 "candidate_reaction_ids": ";".join(sorted(
-                    reaction.id for reaction in candidate.genes.get_by_id(gene_id).reactions
+                    reaction.id for reaction in candidate_gene.reactions
                 )),
-                "gpr_evidence_status": "model/GPR assignment only",
+                "gpr_evidence_status": ";".join(evidence_statuses) or "model/GPR assignment only",
             }
             writer.writerow(row)
             stream.flush()

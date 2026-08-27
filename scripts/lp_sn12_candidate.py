@@ -510,6 +510,26 @@ def _apply_coq_r39_r40_curation(candidate: Model, curation: dict[str, Any]) -> N
             "length_aa": 465,
             "sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee",
         }
+        or sha256(_json(r39_contract["mapping_contract"]).encode()).hexdigest() != r39_contract["mapping_sha256"]
+        or r39_contract["mapping_contract"] != {
+            "mapping_id": "coq6_r39_alphafold_provisional_v1",
+            "reaction_id": "R39",
+            "gene_id": "YALI1A08781g",
+            "compartment": "C_mi",
+            "native_yarrowia_gpr_evidence_basis": "alphafold_prediction_only",
+            "verification_status": "unverified",
+            "target_protein_sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee",
+        }
+        or r39_contract["model_assignment"] != {
+            "evidence_category": "model/GPR assignment only",
+            "status": "candidate_only",
+            "evidence_basis": "alphafold_prediction_only",
+            "verification_status": "unverified",
+            "human_candidate_mapping_approved": True,
+            "native_yarrowia_biochemistry_status": "unverified",
+            "wet_lab_review_required": True,
+            "production_claim_allowed": False,
+        }
         or r40_contract["gene_identity"]["systematic_id"] != r40_contract["expected_source_and_candidate"]["gpr"]
         or r40_contract["target_sequences"]["protein"] != {
             "accession": "XP_505938.1",
@@ -522,9 +542,11 @@ def _apply_coq_r39_r40_curation(candidate: Model, curation: dict[str, Any]) -> N
             "approved_scope": [
                 "move R39 from the cytosol to the mitochondrial CoQ pathway",
                 "assign provisional R39 GPR YALI1A08781g",
+                "label the R39 mapping as AlphaFold-prediction-only and unverified",
                 "remove redundant R808 and R969 CoQ-intermediate shuttles",
                 "lock the existing R40 GPR YALI1F34625g",
             ],
+            "evidence_label_confirmed_on": "2026-08-27",
             "candidate_model_change_allowed": True,
             "native_yarrowia_biochemistry_verified": False,
             "wet_lab_review_required": True,

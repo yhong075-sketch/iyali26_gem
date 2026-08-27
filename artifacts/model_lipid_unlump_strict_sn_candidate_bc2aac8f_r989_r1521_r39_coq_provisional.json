@@ -855,6 +855,7 @@
   "coq_R39_R40_curation": {
     "R39": {
       "alphafold": {
+        "evidence_status": "alphafold_prediction_only",
         "input_accession": "F2Z6J4",
         "input_length_aa": 465,
         "limitation": "AlphaFold confidence cannot establish catalytic activity, mitochondrial localization, substrate specificity, or native Yarrowia biochemistry.",
@@ -905,32 +906,46 @@
         "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged."
       },
       "gene_identity": {
-        "established_name": "COQ6",
-        "evidence_category": "curated annotation",
+        "candidate_label": "COQ6 candidate",
+        "established_name": "no established gene name",
+        "evidence_category": "uncharacterized",
         "gene_id": "2906060",
         "legacy_id": "YALI0A09042g",
         "old_locus_tag": "YALI2_A00555g",
-        "protein_function": "ubiquinone-biosynthesis FAD-dependent C5-ring monooxygenase",
+        "protein_function": "putative FAD-dependent CoQ monooxygenase",
         "refseq_protein": "XP_499891.1",
         "refseq_transcript": "XM_499891.3",
         "source_systematic_id": "YALI1_A08781g",
         "systematic_id": "YALI1A08781g",
         "uniprot": "F2Z6J4"
       },
+      "mapping_contract": {
+        "compartment": "C_mi",
+        "gene_id": "YALI1A08781g",
+        "mapping_id": "coq6_r39_alphafold_provisional_v1",
+        "native_yarrowia_gpr_evidence_basis": "alphafold_prediction_only",
+        "reaction_id": "R39",
+        "target_protein_sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee",
+        "verification_status": "unverified"
+      },
+      "mapping_sha256": "b5593af023434e7b25d76e987b61dacd1be70471827aafae868a80996c565fb9",
       "model_assignment": {
+        "evidence_basis": "alphafold_prediction_only",
         "evidence_category": "model/GPR assignment only",
-        "human_model_assignment_approved": true,
+        "human_candidate_mapping_approved": true,
         "native_yarrowia_biochemistry_status": "unverified",
         "production_claim_allowed": false,
         "status": "candidate_only",
+        "verification_status": "unverified",
         "wet_lab_review_required": true
       },
       "notes": {
         "curated_compartment_topology": "Human-approved replacement of the unsupported cytosol excursion with the mitochondrial R407-R39-R715 CoQ route; redundant R969 and R808 shuttles are removed.",
         "curated_coq9_chemistry": "The earlier CoQ6-to-CoQ9 chain correction is retained; this candidate additionally changes the R39 compartment and GPR, superseding the earlier statement that those fields were unchanged.",
-        "curated_gpr_correction": "Provisional assignment of YALI1A08781g (COQ6; RefSeq XP_499891.1; UniProt F2Z6J4) to mitochondrial R39.",
-        "gpr_evidence_limit": "R39 preserves the legacy mass-balanced 0.5 O2 redox lump and does not explicitly model Yah1/Arh1 electron transfer. AlphaFold supports fold compatibility only and cannot verify activity, localization, or substrate specificity.",
-        "gpr_evidence_status": "cross_species_experimental_plus_curated_homology_and_alphafold_family_compatible; native_yarrowia_biochemistry_unverified"
+        "curated_gpr_correction": "Provisional AlphaFold-only candidate assignment of YALI1A08781g (COQ6 candidate; RefSeq XP_499891.1; UniProt F2Z6J4) to mitochondrial R39.",
+        "gpr_evidence_limit": "R39 preserves the legacy mass-balanced 0.5 O2 redox lump and does not explicitly model Yah1/Arh1 electron transfer. AlphaFold supports fold and family compatibility only; it cannot verify catalytic activity, mitochondrial localization, substrate specificity, reaction-level dependence, or native Yarrowia biochemistry. Cross-species studies are retained as context, not direct evidence for this Yarrowia GPR.",
+        "gpr_evidence_status": "model_gpr_assignment_only; alphafold_prediction_only; native_yarrowia_biochemistry_unverified",
+        "gpr_mapping_sha256": "b5593af023434e7b25d76e987b61dacd1be70471827aafae868a80996c565fb9"
       },
       "reaction_id": "R39",
       "target_sequences": {
@@ -1133,10 +1148,12 @@
       "approved_scope": [
         "move R39 from the cytosol to the mitochondrial CoQ pathway",
         "assign provisional R39 GPR YALI1A08781g",
+        "label the R39 mapping as AlphaFold-prediction-only and unverified",
         "remove redundant R808 and R969 CoQ-intermediate shuttles",
         "lock the existing R40 GPR YALI1F34625g"
       ],
       "candidate_model_change_allowed": true,
+      "evidence_label_confirmed_on": "2026-08-27",
       "native_yarrowia_biochemistry_verified": false,
       "production_claim_allowed": false,
       "wet_lab_review_required": true
@@ -1198,10 +1215,10 @@
     "production_apply_forbidden_pending_human_approval"
   ],
   "runtime_seconds": {
-    "candidate_fba_median": 0.20543375005945563,
-    "candidate_pfba_median": 0.113582625053823,
-    "source_fba_median": 0.09422133397310972,
-    "source_pfba_median": 0.0795304998755455
+    "candidate_fba_median": 0.07932395907118917,
+    "candidate_pfba_median": 0.04224945791065693,
+    "source_fba_median": 0.03737466689199209,
+    "source_pfba_median": 0.029588625067844987
   },
   "source": {
     "model_fingerprint": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121",

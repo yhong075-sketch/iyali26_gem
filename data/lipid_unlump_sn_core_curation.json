@@ -120,9 +120,11 @@
       "approved_scope": [
         "move R39 from the cytosol to the mitochondrial CoQ pathway",
         "assign provisional R39 GPR YALI1A08781g",
+        "label the R39 mapping as AlphaFold-prediction-only and unverified",
         "remove redundant R808 and R969 CoQ-intermediate shuttles",
         "lock the existing R40 GPR YALI1F34625g"
       ],
+      "evidence_label_confirmed_on": "2026-08-27",
       "candidate_model_change_allowed": true,
       "native_yarrowia_biochemistry_verified": false,
       "wet_lab_review_required": true,
@@ -165,9 +167,10 @@
         "legacy_id": "YALI0A09042g",
         "old_locus_tag": "YALI2_A00555g",
         "gene_id": "2906060",
-        "established_name": "COQ6",
-        "protein_function": "ubiquinone-biosynthesis FAD-dependent C5-ring monooxygenase",
-        "evidence_category": "curated annotation",
+        "established_name": "no established gene name",
+        "candidate_label": "COQ6 candidate",
+        "protein_function": "putative FAD-dependent CoQ monooxygenase",
+        "evidence_category": "uncharacterized",
         "refseq_transcript": "XM_499891.3",
         "refseq_protein": "XP_499891.1",
         "uniprot": "F2Z6J4"
@@ -193,13 +196,26 @@
         "input_length_aa": 465,
         "mean_plddt": 84.28,
         "percent_residues_plddt_ge_70": 82.6,
+        "evidence_status": "alphafold_prediction_only",
         "scope": "fold_and_family_compatibility_only",
         "limitation": "AlphaFold confidence cannot establish catalytic activity, mitochondrial localization, substrate specificity, or native Yarrowia biochemistry."
       },
+      "mapping_contract": {
+        "mapping_id": "coq6_r39_alphafold_provisional_v1",
+        "reaction_id": "R39",
+        "gene_id": "YALI1A08781g",
+        "compartment": "C_mi",
+        "native_yarrowia_gpr_evidence_basis": "alphafold_prediction_only",
+        "verification_status": "unverified",
+        "target_protein_sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee"
+      },
+      "mapping_sha256": "b5593af023434e7b25d76e987b61dacd1be70471827aafae868a80996c565fb9",
       "model_assignment": {
         "evidence_category": "model/GPR assignment only",
         "status": "candidate_only",
-        "human_model_assignment_approved": true,
+        "evidence_basis": "alphafold_prediction_only",
+        "verification_status": "unverified",
+        "human_candidate_mapping_approved": true,
         "native_yarrowia_biochemistry_status": "unverified",
         "wet_lab_review_required": true,
         "production_claim_allowed": false
@@ -207,9 +223,10 @@
       "notes": {
         "curated_coq9_chemistry": "The earlier CoQ6-to-CoQ9 chain correction is retained; this candidate additionally changes the R39 compartment and GPR, superseding the earlier statement that those fields were unchanged.",
         "curated_compartment_topology": "Human-approved replacement of the unsupported cytosol excursion with the mitochondrial R407-R39-R715 CoQ route; redundant R969 and R808 shuttles are removed.",
-        "curated_gpr_correction": "Provisional assignment of YALI1A08781g (COQ6; RefSeq XP_499891.1; UniProt F2Z6J4) to mitochondrial R39.",
-        "gpr_evidence_status": "cross_species_experimental_plus_curated_homology_and_alphafold_family_compatible; native_yarrowia_biochemistry_unverified",
-        "gpr_evidence_limit": "R39 preserves the legacy mass-balanced 0.5 O2 redox lump and does not explicitly model Yah1/Arh1 electron transfer. AlphaFold supports fold compatibility only and cannot verify activity, localization, or substrate specificity."
+        "curated_gpr_correction": "Provisional AlphaFold-only candidate assignment of YALI1A08781g (COQ6 candidate; RefSeq XP_499891.1; UniProt F2Z6J4) to mitochondrial R39.",
+        "gpr_evidence_status": "model_gpr_assignment_only; alphafold_prediction_only; native_yarrowia_biochemistry_unverified",
+        "gpr_mapping_sha256": "b5593af023434e7b25d76e987b61dacd1be70471827aafae868a80996c565fb9",
+        "gpr_evidence_limit": "R39 preserves the legacy mass-balanced 0.5 O2 redox lump and does not explicitly model Yah1/Arh1 electron transfer. AlphaFold supports fold and family compatibility only; it cannot verify catalytic activity, mitochondrial localization, substrate specificity, reaction-level dependence, or native Yarrowia biochemistry. Cross-species studies are retained as context, not direct evidence for this Yarrowia GPR."
       }
     },
     "R40": {
