@@ -1102,19 +1102,36 @@ def _write_report(
         "Q9-source use, and the five-gene theoretical reserve controls as separate TSV tables. These are sensitivity summaries, not calibration targets.", "",
         "## Nine CoQ candidates", "",
         "A binary model association describes the imposed model dependency; it does not by itself verify protein function.", "",
-        "| Gene — name/symbol — function (evidence status) | Mode | KO/WT ratio range | Calls at 1/5/10/15% |",
-        "|---|---:|---:|---:|",
+        "| Gene — name/symbol — function | Evidence status | Evidence class | Mode | KO/WT ratio range | Calls at 1/5/10/15% |",
+        "|---|---|---|---:|---:|---:|",
     ]
     for gene_id in NINE_COQ_CANDIDATES:
         record = meta.loc[gene_id]
-        identity = f"{gene_id} — {record['name_or_symbol']} — {record['function']} ({record['evidence_status']})"
         for mode in MODE_PREFIXES:
             frame = coq[(coq["gene_id"] == gene_id) & (coq["uracil_mode"] == mode)]
             calls = "/".join(str(int(frame[column].sum())) for column in CUTOFF_COLUMNS)
             lines.append(
-                f"| {identity} | {mode} | {frame['dynamic_growth_ratio'].min():.6g}–{frame['dynamic_growth_ratio'].max():.6g} | {calls} of {spec.combinations} |"
+                f"| {gene_id} — {record['name_or_symbol']} — {record['function']} | {record['evidence_status']} | "
+                f"{COQ_EVIDENCE_CATEGORY[gene_id]} | {mode} | {frame['dynamic_growth_ratio'].min():.6g}–"
+                f"{frame['dynamic_growth_ratio'].max():.6g} | {calls} of {spec.combinations} |"
             )
     lines.extend([
+        "", "## Dependency interpretation", "",
+        "YALI1A08781g — no established Yarrowia gene name; COQ6 candidate — FAD-dependent CoQ monooxygenase "
+        "(comparative/fold only), YALI1B20527g — no established Yarrowia gene name; COQ8 candidate — "
+        "ADCK-family synthome accessory (comparative/domain only), and YALI1F34675g — no established Yarrowia "
+        "gene name; COQ9 candidate — lipid-binding/substrate-presenting synthome accessory (comparative/domain only) "
+        "have no canonical reaction association. Their ratio = 1 and zero dynamic calls therefore mean that they are "
+        "not testable as binary dependencies in this model, not that they are biologically dispensable.", "",
+        "For the mapped COQ1/2/3/4/5/7 candidates, the KO operation imposes complete closure of each candidate's "
+        "canonical GPR-associated reaction capability; H-Q9-1 then converts that imposed block into the identical "
+        "finite-reserve response. It does not validate their native functions, GPRs, or biological essentiality.", "",
+        "In `experimental_comparison.tsv`, `essential_at_*` fields are the current H-Q9-1 dynamic runtime calls for "
+        "each recorded condition; `model_essential_*` fields are frozen canonical static-model comparison calls; "
+        "`positive_only_consensus_member` is frozen membership in the positive-only experimental reference; and "
+        "`cas9_paper_call` and `cas12a_paper_call` are separate experimental paper calls. Cas9/Cas12a fitness scores, "
+        "2^FS values, normalized guide percentages, and q-values are frozen experimental comparison metadata, not "
+        "dynamic model calls.",
         "", "## Interpretation limits", "",
         "The grid asks what follows under the imposed growth-coupled net CoQ9-demand and finite-reserve assumptions. "
         "It does not estimate a native CoQ9 pool, turnover rate, degradation half-life, synthome stoichiometry, or respiratory capacity.", "",
@@ -1202,6 +1219,10 @@ def build_bundle(
         "mapping_sha256": sha256_payload(mapping_payload),
     }
     experimental = conditions.rename(columns={"experimental_essential": "positive_only_consensus_member"})
+    experimental = experimental.merge(
+        panel[["gene_id", "name_or_symbol", "function", "evidence_status", "evidence_class"]],
+        on="gene_id", how="left", validate="many_to_one",
+    )
     experimental = experimental.merge(fitness, on="gene_id", how="left", validate="many_to_one")
     experimental["experimental_evidence_scope"] = experimental["cas9_paper_call"].notna().map({
         True: "Cas9/Cas12a evidence matrix plus positive-only consensus membership",

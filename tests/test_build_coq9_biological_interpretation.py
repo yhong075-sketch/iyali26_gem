@@ -258,8 +258,31 @@ def test_small_dual_mode_fixture_builds_complete_bundle(tmp_path):
         key: value for key, value in mapping.items() if key != "mapping_sha256"
     })
     panel = pd.read_csv(output / "selected_gene_panel.tsv", sep="\t")
-    assert panel[["name_or_symbol", "function", "evidence_status"]].notna().all().all()
+    assert panel[["name_or_symbol", "function", "evidence_status", "evidence_class"]].notna().all().all()
     assert "reaction_name" in pd.read_csv(output / "reaction_gene_map.tsv", sep="\t").columns
+    experimental = pd.read_csv(output / "experimental_comparison.tsv", sep="\t")
+    assert {
+        "name_or_symbol", "function", "evidence_status", "evidence_class",
+        *bundle.CUTOFF_COLUMNS, "model_essential_1pct", "model_essential_5pct",
+        "model_essential_10pct", "model_essential_15pct", "cas9_paper_call",
+        "cas12a_paper_call",
+    } <= set(experimental.columns)
+    assert experimental[["name_or_symbol", "function", "evidence_status", "evidence_class"]].notna().all().all()
+    report = (output / "BIOLOGICAL_INTERPRETATION.md").read_text()
+    assert "| Evidence status | Evidence class |" in report
+    assert "| model/GPR assignment only |" in report
+    assert "YALI1A08781g — no established Yarrowia gene name; COQ6 candidate — FAD-dependent CoQ monooxygenase (comparative/fold only)" in report
+    assert "YALI1B20527g — no established Yarrowia gene name; COQ8 candidate — ADCK-family synthome accessory (comparative/domain only)" in report
+    assert "YALI1F34675g — no established Yarrowia gene name; COQ9 candidate — lipid-binding/substrate-presenting synthome accessory (comparative/domain only)" in report
+    assert "not testable as binary dependencies in this model, not that they are biologically dispensable" in report
+    assert "the KO operation imposes complete closure of each candidate's canonical GPR-associated reaction capability" in report
+    assert "H-Q9-1 then converts that imposed block into the identical finite-reserve response" in report
+    assert "does not validate their native functions, GPRs, or biological essentiality" in report
+    assert "`essential_at_*` fields are the current H-Q9-1 dynamic runtime calls" in report
+    assert "`model_essential_*` fields are frozen canonical static-model comparison calls" in report
+    assert "`positive_only_consensus_member` is frozen membership in the positive-only experimental reference" in report
+    assert "`cas9_paper_call` and `cas12a_paper_call` are separate experimental paper calls" in report
+    assert "q-values are frozen experimental comparison metadata, not dynamic model calls" in report
 
 
 def test_merged_calls_require_exact_frozen_serialization(tmp_path):
