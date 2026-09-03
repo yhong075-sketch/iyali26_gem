@@ -438,6 +438,13 @@ def _validate_calls(
         _require(not frame.duplicated(["gene_id", "alpha_mmol_gDW", "pool_multiplier"]).any(), f"{mode} chunk {index}: duplicate calls")
         frames.append(frame)
     calls = pd.concat(frames, ignore_index=True)
+    expected_merged = calls.to_csv(
+        sep="\t", index=False, lineterminator=os.linesep,
+    ).encode("utf-8")
+    _require(
+        (run_dir / "essentiality_dynamic_calls.tsv").read_bytes() == expected_merged,
+        f"{mode}: merged calls differ from manifest-bound chunks",
+    )
     _require(len(calls) == spec.calls_per_mode, f"{mode}: calls row count mismatch")
     _require(set(calls["gene_id"]) == set(spec.panel), f"{mode}: calls panel mismatch")
     _require(set(calls["alpha_mmol_gDW"]) == set(spec.alphas), f"{mode}: calls alpha grid mismatch")
@@ -506,13 +513,6 @@ def _validate_calls(
         expected = five["pool_multiplier"].map(lambda value: math.log2(1.0 + value))
         theory_error = _max_error(five["dynamic_doublings"], expected)
         _require(theory_error <= 1e-6, f"{mode}: five-gene theoretical control failed")
-    merged = pd.read_csv(run_dir / "essentiality_dynamic_calls.tsv", sep="\t")
-    try:
-        pd.testing.assert_frame_equal(
-            merged, pd.concat(frames, ignore_index=True), check_dtype=False, check_exact=True,
-        )
-    except AssertionError as error:
-        raise ValueError(f"{mode}: merged calls differ from manifest-bound chunks") from error
     return calls, {
         "calls_rows": len(calls), "calls_ratio_max_abs_error": ratio_error,
         "q9_source_max_excess_mmol_L": source_excess,

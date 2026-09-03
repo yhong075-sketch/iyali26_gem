@@ -105,7 +105,7 @@ def _make_run(root: Path, mode: str) -> Path:
     run = root / f"fixture_{mode}"
     run.mkdir()
     fingerprints = []
-    merged_calls = []
+    calls_paths = []
     for index, gene_id in enumerate(SPEC.panel):
         calls = pd.DataFrame([
             _call(gene_id, mode, alpha, pool)
@@ -121,7 +121,7 @@ def _make_run(root: Path, mode: str) -> Path:
         trajectory_path = run / f"chunk_{index:03d}_trajectory.tsv"
         calls.to_csv(calls_path, sep="\t", index=False)
         trajectories.to_csv(trajectory_path, sep="\t", index=False)
-        merged_calls.append(calls)
+        calls_paths.append(calls_path)
         manifest = {
             "workflow": "quinone_dfba_essentiality",
             "schema_version": bundle.SCHEMA_VERSION,
@@ -183,7 +183,7 @@ def _make_run(root: Path, mode: str) -> Path:
             json.dumps(manifest), encoding="utf-8",
         )
         fingerprints.append(manifest["fingerprint"])
-    pd.concat(merged_calls, ignore_index=True).to_csv(
+    pd.concat([pd.read_csv(path, sep="\t") for path in calls_paths], ignore_index=True).to_csv(
         run / "essentiality_dynamic_calls.tsv", sep="\t", index=False,
     )
     (run / "merge_manifest.json").write_text(json.dumps({
@@ -260,6 +260,34 @@ def test_small_dual_mode_fixture_builds_complete_bundle(tmp_path):
     panel = pd.read_csv(output / "selected_gene_panel.tsv", sep="\t")
     assert panel[["name_or_symbol", "function", "evidence_status"]].notna().all().all()
     assert "reaction_name" in pd.read_csv(output / "reaction_gene_map.tsv", sep="\t").columns
+
+
+def test_merged_calls_require_exact_frozen_serialization(tmp_path):
+    run = _make_run(tmp_path, "finite_batch")
+    chunk = run / "chunk_000_calls.tsv"
+    frame = pd.read_csv(chunk, sep="\t")
+    frame.loc[0, "initial_growth_h-1"] = 2.1814287324998794e-11
+    frame.to_csv(chunk, sep="\t", index=False)
+    chunks = [
+        pd.read_csv(run / f"chunk_{index:03d}_calls.tsv", sep="\t")
+        for index in range(SPEC.chunk_count)
+    ]
+    merged_path = run / "essentiality_dynamic_calls.tsv"
+    pd.concat(chunks, ignore_index=True).to_csv(merged_path, sep="\t", index=False)
+    reparsed = pd.read_csv(merged_path, sep="\t")
+    assert chunks[0].loc[0, "initial_growth_h-1"] != reparsed.loc[0, "initial_growth_h-1"]
+
+    manifests = [
+        json.loads((run / f"chunk_{index:03d}_manifest.json").read_text())
+        for index in range(SPEC.chunk_count)
+    ]
+    bundle._validate_calls(run, "finite_batch", manifests, SPEC)
+
+    tampered = bytearray(merged_path.read_bytes())
+    tampered[-2] = ord("1") if tampered[-2] != ord("1") else ord("2")
+    merged_path.write_bytes(tampered)
+    with pytest.raises(ValueError, match="merged calls differ"):
+        bundle._validate_calls(run, "finite_batch", manifests, SPEC)
 
 
 def test_valid_hash_cannot_hide_interval_conservation_failure(tmp_path):
