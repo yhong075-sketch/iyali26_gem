@@ -32,7 +32,7 @@ def _formula_mw(formula: str) -> float:
     return mw
 
 
-def fix_biomass_reaction(model) -> None:
+def fix_biomass_reaction(model, *, diagnose: bool = True) -> None:
     """
     Diagnose and partially fix the biomass reaction R1372.
 
@@ -102,37 +102,41 @@ def fix_biomass_reaction(model) -> None:
         logger.warning(f"R1372 mass balance check failed: {e}")
 
     # ── Step 3: blocked-precursor diagnosis ─────────────────────────────────
-    logger.info("R1372: checking which precursors can carry flux …")
-    blocked_precursors = []
+    if diagnose:
+        logger.info("R1372: checking which precursors can carry flux …")
+        blocked_precursors = []
 
-    with model:
-        model.solver = "glpk"
-        # Temporarily open all exchange reactions so precursor availability is
-        # not limited by missing transport — we test the network topology only.
-        for ex in model.exchanges:
-            ex.lower_bound = -1000
-            ex.upper_bound = 1000
+        with model:
+            model.solver = "glpk"
+            # Temporarily open all exchange reactions so precursor availability is
+            # not limited by missing transport — we test the network topology only.
+            for ex in model.exchanges:
+                ex.lower_bound = -1000
+                ex.upper_bound = 1000
 
-        for met, coeff in reactants:
-            # Create a temporary demand reaction for this metabolite
-            with model:
-                demand_id = f"_tmp_demand_{met.id}"
-                demand = model.add_boundary(met, type="demand", reaction_id=demand_id)
-                model.objective = demand
-                sol = model.optimize()
-                flux = sol.objective_value if sol.status == "optimal" else 0.0
-                if flux < 1e-6:
-                    blocked_precursors.append((met.id, met.name))
+            for met, coeff in reactants:
+                # Create a temporary demand reaction for this metabolite
+                with model:
+                    demand_id = f"_tmp_demand_{met.id}"
+                    demand = model.add_boundary(met, type="demand", reaction_id=demand_id)
+                    model.objective = demand
+                    sol = model.optimize()
+                    flux = sol.objective_value if sol.status == "optimal" else 0.0
+                    if flux < 1e-6:
+                        blocked_precursors.append((met.id, met.name))
 
-    if blocked_precursors:
-        logger.warning(
-            f"R1372: {len(blocked_precursors)} precursors cannot carry flux "
-            f"(network gaps — need manual curation):"
-        )
-        for mid, mname in blocked_precursors:
-            logger.warning(f"  BLOCKED: {mid}  ({mname})")
+        if blocked_precursors:
+            logger.warning(
+                f"R1372: {len(blocked_precursors)} precursors cannot carry flux "
+                f"(network gaps — need manual curation):"
+            )
+            for mid, mname in blocked_precursors:
+                logger.warning(f"  BLOCKED: {mid}  ({mname})")
+        else:
+            logger.info("R1372: all precursors can carry flux")
+
     else:
-        logger.info("R1372: all precursors can carry flux")
+        logger.info("R1372: precursor solves skipped; biomass construction retained")
 
     # ── Step 4: GAM (growth-associated maintenance) check ───────────────────
     # GAM term: atp + h2o → adp + pi + h

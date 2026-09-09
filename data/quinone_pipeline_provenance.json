@@ -1,0 +1,136 @@
+{
+  "source": "saved 2026-09-07 Q9 build implementation",
+  "files": {
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/patches.py": "a18c85aec6de7db414c8068498b1abeff725b11b7d84a1f4e1747edb63a014f5",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/metabolites.py": "120e092b4258de1cea1c6da883cc875db65a4ce84454c95d62132608ae6ad3d0",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/microspecies.py": "426398cb14a5c93c41ec9ec217187cc36592a0f78d6f1bf6162813c22089ebc6",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/main.py": "7e54712cac30d2ba24a82a6a927d9f87a27ad48a5a2bec513053fdd2b9cb4b30"
+  },
+  "migrated_patch_lines": [
+    [
+      679,
+      679
+    ],
+    [
+      682,
+      687
+    ],
+    [
+      742,
+      743
+    ],
+    [
+      746,
+      811
+    ],
+    [
+      928,
+      939
+    ],
+    [
+      946,
+      1035
+    ],
+    [
+      1037,
+      1037
+    ],
+    [
+      1038,
+      1038
+    ],
+    [
+      1039,
+      1039
+    ],
+    [
+      1040,
+      1049
+    ],
+    [
+      1052,
+      1204
+    ],
+    [
+      1209,
+      1221
+    ],
+    [
+      1223,
+      1233
+    ],
+    [
+      1238,
+      1238
+    ],
+    [
+      1241,
+      1374
+    ],
+    [
+      1376,
+      1388
+    ],
+    [
+      1390,
+      1395
+    ],
+    [
+      1396,
+      1401
+    ],
+    [
+      1402,
+      1408
+    ],
+    [
+      1409,
+      1414
+    ],
+    [
+      1417,
+      1426
+    ],
+    [
+      1429,
+      1434
+    ],
+    [
+      1437,
+      1450
+    ],
+    [
+      1453,
+      1689
+    ],
+    [
+      1694,
+      1697
+    ],
+    [
+      1698,
+      1705
+    ],
+    [
+      1706,
+      1713
+    ],
+    [
+      1714,
+      1741
+    ],
+    [
+      1744,
+      1820
+    ]
+  ],
+  "scope": "CoQ6-to-Q9 connected chain; external NDH2 duplicate cleanup; rejected quinone branches; reviewed step GPRs. No CI architecture, shared NAD microspecies migration, dynamic demand or fitness work.",
+  "integration_adjustments": [
+    "Atomic MetaNetX formula/charge pairing is restored for participants of the existing Q9 connected chain only; unrelated curation contracts retain their path.",
+    "The prior charge-aware proton gate is scoped to Q9 connected reactions; multi-compartment proton coefficients are retained.",
+    "R570/R2063 legacy GPR preconditions strengthened to parsed logical equality; each existing operation is preflighted on a copy.",
+    "Known erroneous R305 name is excluded from name-based reaction lookup in metadata/qcycle. New curation remains one final step.",
+    "Current unannotated offline EC fields and R570 legacy singleton recorded as explicit local before variants; other differences remain conflicts.",
+    "Full semantic comparison exposed hash-seed-dependent compartment ties in the existing generic balancer. Sort tied compartment IDs to make all modes reproducible; retain the old heuristic outside the guarded Q9 chain."
+  ]
+}

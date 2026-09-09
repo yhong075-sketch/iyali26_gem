@@ -2,6 +2,7 @@
 metabolites.py — metabolite annotation and H+/H2O balancing.
 """
 
+import json
 import logging
 import re
 from collections import defaultdict
@@ -181,6 +182,67 @@ def _normalize_annotation(ann: dict) -> dict:
     return ann
 
 
+_MNXM_CHEMISTRY_CONFLICT_NOTE = "metanetx_formula_charge_conflict"
+
+
+def _valid_mnxm_pair(properties: dict) -> tuple[str, int] | None:
+    """Return a complete MetaNetX formula/charge pair, or ``None``.
+
+    Formula and charge are deliberately inseparable here.  Returning ``None``
+    prevents an incomplete MetaNetX property record from partially mutating a
+    metabolite's chemistry.
+    """
+
+    formula = str(properties.get("formula", "") or "").strip()
+    raw_charge = properties.get("charge")
+    if not formula or not _ELEMENT_RE.search(formula):
+        return None
+    if raw_charge in ("", "NA", None):
+        return None
+    try:
+        charge = int(float(raw_charge))
+    except (ValueError, TypeError):
+        return None
+    return formula, charge
+
+
+def _apply_mnxm_chemistry_atomically(met, mnxm_id: str, properties: dict) -> str:
+    """Apply one complete MetaNetX chemistry pair without creating a hybrid.
+
+    Returns ``applied``, ``matched``, ``conflict`` or ``incomplete``.  When a
+    name-derived/source formula conflicts with MetaNetX, the existing formula
+    *and* charge are preserved and the proposed pair is recorded in a stable
+    JSON note for downstream release audits.
+    """
+
+    pair = _valid_mnxm_pair(properties)
+    if pair is None:
+        return "incomplete"
+    proposed_formula, proposed_charge = pair
+
+    if met.formula and str(met.formula).strip() != proposed_formula:
+        conflict = {
+            "action": "preserved_existing_pair",
+            "existing_charge": met.charge,
+            "existing_formula": met.formula,
+            "mnxm_id": mnxm_id,
+            "proposed_charge": proposed_charge,
+            "proposed_formula": proposed_formula,
+            "source": "MetaNetX",
+        }
+        notes = dict(met.notes or {})
+        notes[_MNXM_CHEMISTRY_CONFLICT_NOTE] = json.dumps(
+            conflict, sort_keys=True, separators=(",", ":")
+        )
+        met.notes = notes
+        return "conflict"
+
+    before = (met.formula, met.charge)
+    met.formula = proposed_formula
+    met.charge = proposed_charge
+    return "matched" if before == (met.formula, met.charge) else "applied"
+
+
 def _apply_mnxm(met, mnxm_id: str, by_mnxid: dict, prop: dict) -> dict:
     """Build annotation dict for a matched MNXM ID and update met formula/charge."""
     new_ann: dict = defaultdict(list)
@@ -194,13 +256,19 @@ def _apply_mnxm(met, mnxm_id: str, by_mnxid: dict, prop: dict) -> dict:
             new_ann["inchi"] = p["inchi"]
         if p["inchikey"]:
             new_ann["inchikey"] = p["inchikey"]
-        if p["formula"] and not met.formula and _ELEMENT_RE.search(p["formula"]):
-            met.formula = p["formula"]
-        if p["charge"] not in ("", "NA"):
-            try:
-                met.charge = int(float(p["charge"]))
-            except (ValueError, TypeError):
-                pass
+        from .quinone import _COQ9_CONNECTED_REACTIONS
+        if any(r.id in _COQ9_CONNECTED_REACTIONS for r in met.reactions):
+            # Restore the existing Q9 prerequisite without migrating unrelated
+            # families or overriding other curation contracts in this checkout.
+            _apply_mnxm_chemistry_atomically(met, mnxm_id, p)
+        else:
+            if p["formula"] and not met.formula and _ELEMENT_RE.search(p["formula"]):
+                met.formula = p["formula"]
+            if p["charge"] not in ("", "NA"):
+                try:
+                    met.charge = int(float(p["charge"]))
+                except (ValueError, TypeError):
+                    pass
     return new_ann
 
 
@@ -557,6 +625,8 @@ def fix_proton_water_balance(model) -> None:
     imbalance is distributed evenly across compartments that have both H+ and
     H2O available; if no compartment qualifies the reaction is skipped.
     """
+    from .quinone import _COQ9_CONNECTED_REACTIONS
+
     comp_index = _build_compartment_met_index(model)
     fixed = 0
     skipped_no_formula = 0
@@ -583,6 +653,15 @@ def fix_proton_water_balance(model) -> None:
         if not elements.issubset({"H", "O", "charge"}):
             continue
 
+        if rxn.id in _COQ9_CONNECTED_REACTIONS | {"R2063"}:
+            # Existing Q9 gate: H - 2 O must equal charge; transports retain
+            # their measured/source proton bookkeeping (including R305).
+            if len({m.compartment for m in rxn.metabolites}) != 1:
+                continue
+            if abs(balance.get("H", 0) - 2 * balance.get("O", 0)
+                   - balance.get("charge", 0)) > 1e-9:
+                continue
+
         h_imb = balance.get("H", 0)
         o_imb = balance.get("O", 0)
         if h_imb == 0 and o_imb == 0:
@@ -603,7 +682,9 @@ def fix_proton_water_balance(model) -> None:
                 return False
             return True
 
-        candidates = [c for c in rxn_comps if has_needed(c)]
+        # Keep the existing majority-compartment heuristic, but make ties
+        # deterministic across independent Python processes/build modes.
+        candidates = sorted(c for c in rxn_comps if has_needed(c))
         if candidates:
             # prefer majority compartment among candidates
             comps_list = [met.compartment for met in rxn.metabolites]
@@ -611,7 +692,7 @@ def fix_proton_water_balance(model) -> None:
         else:
             # fall back to overall majority compartment
             comps_list = [met.compartment for met in rxn.metabolites]
-            target_comp = max(rxn_comps, key=comps_list.count)
+            target_comp = max(sorted(rxn_comps), key=comps_list.count)
 
         ci = comp_index.get(target_comp, {})
 

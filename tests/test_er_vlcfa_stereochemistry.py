@@ -217,7 +217,7 @@ class ERVLCFAStereochemistryTests(unittest.TestCase):
         self.assertEqual(unified.call_count, 2)
 
         final_gate = main_source.index("verify_er_vlcfa_3r_stereochemistry_target(model)")
-        writer = main_source.index("write_sbml_model(model, str(OUTPUT_MODEL_PATH))")
+        writer = main_source.index("write_sbml_model(model, str(output_model_path))")
         self.assertLess(final_gate, writer)
 
     def test_direct_script_entry_resolves_without_running_the_builder(self) -> None:
@@ -241,6 +241,15 @@ class ERVLCFAStereochemistryTests(unittest.TestCase):
             verify_er_vlcfa_3r_stereochemistry_target(self.model)
 
         self.assertEqual(self._target_state(self.model), before)
+
+    def test_mnx_case_aliases_are_normalized_before_authoritative_curation(self) -> None:
+        from scripts.gem_annotate.metabolites import normalize_all_annotations
+        target = self.model.metabolites.get_by_id("m1446[C_em]")
+        target.annotation["ChEBI"] = ["CHEBI:OLD"]
+        normalize_all_annotations(self.model)
+        correct_er_vlcfa_3r_stereochemistry(self.model, self.curation)
+        normalize_all_annotations(self.model)
+        verify_er_vlcfa_3r_stereochemistry_target(self.model)
 
     def test_final_target_gate_rejects_uncurated_live_closure_tuple(self) -> None:
         correct_er_vlcfa_3r_stereochemistry(self.model, self.curation)

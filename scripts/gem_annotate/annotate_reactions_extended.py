@@ -159,6 +159,7 @@ def annotate_remaining_reactions(
     reac_xref: dict,
     reac_prop: dict | None = None,
     mnxm_depr: dict[str, str] | None = None,
+    *, name_exclusions: dict[str, str] | None = None,
 ) -> None:
     """
     Apply supplementary annotation strategies to reactions still unannotated after
@@ -295,6 +296,8 @@ def annotate_remaining_reactions(
     _norm_source_ids = frozenset(_MNXM_NORMALIZE)
 
     for rxn in model.reactions:
+        if (name_exclusions or {}).get(rxn.id) == rxn.name:
+            continue
         if not _is_unannotated(rxn):
             continue
 

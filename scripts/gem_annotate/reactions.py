@@ -10,7 +10,8 @@ from .annotate_reactions_extended import _MNXM_NORMALIZE, _resolve_multi_candida
 logger = logging.getLogger(__name__)
 
 
-def annotate_reactions(model, reac_xref: dict, reac_prop: dict | None = None) -> None:
+def annotate_reactions(model, reac_xref: dict, reac_prop: dict | None = None,
+                       *, name_exclusions: dict[str, str] | None = None) -> None:
     """
     Annotate reactions with MNXR IDs and cross-database identifiers.
 
@@ -64,6 +65,10 @@ def annotate_reactions(model, reac_xref: dict, reac_prop: dict | None = None) ->
         rxn.annotation = merged
 
     for rxn in model.reactions:
+        if (name_exclusions or {}).get(rxn.id) == rxn.name:
+            # A known incorrect identity awaits authoritative curation. Keep
+            # input annotations, but do not add heuristic identity assertions.
+            continue
         mnxr_id = None
         strategy = None
         extra_mnxrs: list[str] | None = None
