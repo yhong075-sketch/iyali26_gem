@@ -72,7 +72,8 @@ def _read_curation(path: Path = CURATION_PATH) -> dict[str, Any]:
     except (OSError, json.JSONDecodeError) as error:
         raise ContractError(f"cannot read curation {path}: {error}") from error
     required = {"schema_version", "source", "R989_gpr_curation", "coq_R39_R40_curation", "R1521_neutral_formula_completion", "chains", "states", "steps", "biomass", "cardiolipin_four_chain_audit", "blockers"}
-    if curation.get("schema_version") != 4 or required - curation.keys():
+    required.add("linoleoyl_neutral_correction")
+    if curation.get("schema_version") != 5 or required - curation.keys():
         raise ContractError("invalid lipid-unlump curation manifest")
     if len(curation["chains"]) != 7 or len(curation["steps"]) != 18:
         raise ContractError("curation must define seven chains and eighteen templates")
@@ -180,7 +181,9 @@ def _chains(model: Model, curation: dict[str, Any]) -> list[tuple[str, Metabolit
     result = []
     for row in curation["chains"]:
         metabolite = _metabolite(model, row["lp_acyl_coa_id"])
-        if _label(metabolite) != row["id"] or metabolite.formula != row["legacy_tuple"]["formula"] or metabolite.charge != row["legacy_tuple"]["charge"]:
+        expected = (curation["linoleoyl_neutral_correction"]["candidate_tuple"]
+                    if row["id"] == "linoleoyl" else row["legacy_tuple"])
+        if _label(metabolite) != row["id"] or metabolite.formula != expected["formula"] or metabolite.charge != expected["charge"]:
             raise ContractError(f"acyl-CoA identity drifted: {row['id']}")
         result.append((row["id"], metabolite, row["weight"]))
     if not isclose(fsum(weight for _, _, weight in result), 1.0, abs_tol=1e-15):
@@ -655,11 +658,33 @@ def _apply_r1521_neutral_formula(candidate: Model, curation: dict[str, Any]) -> 
             raise ContractError(f"R1521 formula completion balance drifted: {reaction_id}")
 
 
+def _apply_linoleoyl_neutral_correction(candidate: Model, curation: dict[str, Any]) -> None:
+    contract = curation["linoleoyl_neutral_correction"]
+    ids = {"m1731[C_em]", "m1735[C_lp]", "m1743[C_mm]", "m1797[C_pe]", "m1798[C_cy]"}
+    if (set(contract["ids"]) != ids or len(contract["ids"]) != len(ids)
+            or contract["expected_source_tuple"] != {"formula": "C39H66N7O17P3S", "charge": -4}
+            or contract["candidate_tuple"] != {"formula": "C39H66N7O17P3S", "charge": 0}
+            or contract["annotation_target"] != {"sbo": "SBO:0000247", "chebi": "CHEBI:15530", "kegg.compound": "C02050"}):
+        raise ContractError("linoleoyl neutral correction contract drifted")
+    if {met.id for met in candidate.metabolites if _label(met) == "linoleoyl"} != ids:
+        raise ContractError("linoleoyl copy inventory drifted")
+    copies = [_metabolite(candidate, mid) for mid in contract["ids"]]
+    if any({"formula": met.formula, "charge": met.charge} != contract["expected_source_tuple"] for met in copies):
+        raise ContractError("linoleoyl source tuple drifted")
+    coa = _metabolite(candidate, "m573[C_lp]")
+    if (coa.formula, coa.charge) != ("C21H36N7O16P3S", 0):
+        raise ContractError("neutral CoA convention drifted")
+    for met in copies:
+        met.charge = contract["candidate_tuple"]["charge"]
+        met.annotation = dict(contract["annotation_target"])
+
+
 def build_candidate(source_model: Model) -> Model:
     """Build a non-activatable candidate; source input is never modified."""
     curation = _read_curation()
     candidate = source_model.copy()
     templates = _validate_source(candidate, curation)
+    _apply_linoleoyl_neutral_correction(candidate, curation)
     _apply_r1521_neutral_formula(candidate, curation)
     candidate._compartments["C_em"] = "ER membrane"
     _build_routes(candidate, templates, curation)
@@ -669,6 +694,9 @@ def build_candidate(source_model: Model) -> Model:
     _apply_coq_r39_r40_curation(candidate, curation)
     if any(reaction.check_mass_balance() for reaction in candidate.reactions if reaction.annotation.get(MARKER) == "true"):
         raise ContractError("generated reaction is not mass/charge balanced")
+    tags = [met for met in candidate.metabolites if met.annotation.get("state") == "tag_lp"]
+    if len(tags) != 343 or any(met.charge != 0 for met in tags):
+        raise ContractError("all 343 generated TAG species must be neutral")
     return candidate
 
 
@@ -718,6 +746,7 @@ def report(source_model: Model, candidate: Model) -> dict[str, Any]:
         "R989_candidate_gpr": curation["R989_gpr_curation"],
         "coq_R39_R40_curation": curation["coq_R39_R40_curation"],
         "R1521_neutral_formula_completion": curation["R1521_neutral_formula_completion"],
+        "linoleoyl_neutral_correction": curation["linoleoyl_neutral_correction"],
         "remaining_blockers": curation["blockers"],
         "generic_acyl_coa_ids_remaining": [metabolite_id for metabolite_id in curation["generic_acyl_coa_ids"] if metabolite_id in candidate.metabolites],
         "production_apply_forbidden": True,

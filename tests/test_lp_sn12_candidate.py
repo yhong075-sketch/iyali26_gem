@@ -8,6 +8,7 @@ import os
 import sys
 import tempfile
 import unittest
+from collections import Counter
 from math import fsum, isclose
 from pathlib import Path
 from unittest import mock
@@ -67,6 +68,34 @@ class StrictSnCoreTests(unittest.TestCase):
             self.assertEqual(reaction.gene_reaction_rule, template.gene_reaction_rule)
             self.assertTrue(all(reaction.annotation.get(key) == value for key, value in template.annotation.items()))
             self.assertEqual(reaction.check_mass_balance(), {})
+
+    def test_linoleoyl_charge_is_corrected_before_all_lipid_routes(self) -> None:
+        for mid in ("m1731[C_em]", "m1735[C_lp]", "m1743[C_mm]", "m1797[C_pe]", "m1798[C_cy]"):
+            old = self.source.metabolites.get_by_id(mid)
+            new = self.candidate.metabolites.get_by_id(mid)
+            self.assertEqual((old.formula, old.charge), ("C39H66N7O17P3S", -4))
+            self.assertEqual((new.formula, new.charge), ("C39H66N7O17P3S", 0))
+            self.assertEqual(new.annotation, {"sbo": "SBO:0000247", "chebi": "CHEBI:15530", "kegg.compound": "C02050"})
+        # Independent chemistry oracle: glycerol + three fatty acids - 3 H2O.
+        chains = {"lauroyl": (12, 0), "myristoyl": (14, 0), "palmitoyl": (16, 0),
+                  "palmitoleoyl": (16, 1), "stearoyl": (18, 0), "oleoyl": (18, 1), "linoleoyl": (18, 2)}
+        counts = Counter()
+        for met in self.candidate.metabolites:
+            if met.annotation.get("state") != "tag_lp":
+                continue
+            labels = met.annotation["sn_tuple"].split("/")
+            carbons = sum(chains[label][0] for label in labels)
+            double_bonds = sum(chains[label][1] for label in labels)
+            self.assertEqual(met.elements, {"C": carbons + 3, "H": 2 * carbons + 2 - 2 * double_bonds, "O": 6})
+            self.assertEqual(met.charge, 0)
+            counts[labels.count("linoleoyl")] += 1
+        self.assertEqual(counts, {0: 216, 1: 108, 2: 18, 3: 1})
+        self.assertEqual(source_fingerprint(self.source), self.source_fingerprint)
+        drifted = json.loads(CURATION_PATH.read_text())
+        drifted["linoleoyl_neutral_correction"]["candidate_tuple"]["charge"] = -4
+        with mock.patch("scripts.lp_sn12_candidate._read_curation", return_value=drifted):
+            with self.assertRaisesRegex(ContractError, "linoleoyl"):
+                build_candidate(self.source)
 
     def test_lipid_exchange_metadata_is_explicit_and_gpr_free(self) -> None:
         exchange_ids = {"R1776", "R1778", "R1786", "R1787", "R1790", "R1792", "R1793"}
