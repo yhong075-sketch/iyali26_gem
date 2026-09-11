@@ -13,6 +13,7 @@ from cobra.core.gene import GPR
 
 from scripts.gem_annotate.coq9 import boolean_key
 from scripts.gem_annotate.metabolites import _apply_mnxm, fix_proton_water_balance
+from scripts.gem_annotate.microspecies import load_curated_microspecies
 from scripts.gem_annotate.quinone import (
     _COQ9_ROUTE_IDS, apply_reviewed_quinone_step_gprs,
     correct_external_ndh2_gpr_and_remove_duplicate, remove_spurious_quinone_branches,
@@ -21,6 +22,18 @@ from scripts.gem_annotate.quinone import (
 from tests.test_coq9_curation import annotations, semantics
 
 FIXTURE = Path(__file__).parent / "fixtures" / "quinone_legacy.json"
+
+
+def add_reference_ions(model):
+    """The restored balancer requires the reference table's complete pinned ion set."""
+    for row in load_curated_microspecies():
+        if row.family_id not in {"proton", "water"}:
+            continue
+        for mid in sorted(row.expected_metabolite_ids):
+            if mid not in model.metabolites:
+                model.add_metabolites([Metabolite(mid, name=row.selector_value,
+                    formula=row.target_formula, charge=row.target_charge,
+                    compartment=mid.split("[")[1][:-1])])
 
 
 def legacy_model():
@@ -39,23 +52,22 @@ def legacy_model():
         reaction.gene_reaction_rule = row["gpr"]
         reaction.annotation, reaction.notes = row["annotation"], row["notes"]
         model.add_reactions([reaction])
+    add_reference_ions(model)
     model.objective = "R305"
     return model, data
 
 
 class QuinonePipelineTests(unittest.TestCase):
-    def test_legacy_balancer_compartment_ties_are_reproducible_across_processes(self):
+    def test_reference_balancer_preserves_membrane_coupling_across_processes(self):
         script = '''
 import json
 from cobra import Model, Metabolite, Reaction
 from scripts.gem_annotate.metabolites import fix_proton_water_balance
+from tests.test_quinone_pipeline import add_reference_ions
 m = Model('tie')
 a = Metabolite('a', formula='CH', charge=0, compartment='C_mi')
 b = Metabolite('b', formula='C', charge=0, compartment='C_cy')
-for comp in ('C_mi', 'C_cy'):
- h = Metabolite('h_'+comp, formula='H', charge=1, compartment=comp)
- h.annotation['bigg.metabolite'] = 'h'
- m.add_metabolites([h])
+add_reference_ions(m)
 r = Reaction('transport'); r.add_metabolites({a:-1,b:1}); m.add_reactions([r])
 fix_proton_water_balance(m)
 print(json.dumps({s.id:v for s,v in r.metabolites.items()},sort_keys=True))
@@ -66,7 +78,7 @@ print(json.dumps({s.id:v for s,v in r.metabolites.items()},sort_keys=True))
                                              env={**os.environ, 'PYTHONHASHSEED': seed}, text=True)
             results.append(json.loads(output.splitlines()[-1]))
         self.assertEqual(results[0], results[1])
-        self.assertEqual(results[0]['h_C_cy'], 1)
+        self.assertEqual(results[0], {'a': -1, 'b': 1})
 
     def test_existing_chain_reproduces_saved_local_mathematics_and_is_idempotent(self):
         model, data = legacy_model()
@@ -120,12 +132,13 @@ print(json.dumps({s.id:v for s,v in r.metabolites.items()},sort_keys=True))
         _apply_mnxm(nad, "MNXM_test", {}, properties)
         self.assertEqual((nad.formula, nad.charge), before)
         self.assertIn("metanetx_formula_charge_conflict", nad.notes)
-        # The existing ER contract expects its old annotation path; Q9 does
-        # not silently migrate that separate source tuple.
+        # The restored reference convention rejects a conflicting formula/charge
+        # pair atomically for other families too; it does not change charge alone.
         partner = Metabolite("m1439[C_em]", formula="C21H29N7O17P3", charge=0)
         properties["MNXM_test"].update(formula="C21H25N7O17P3", charge="-3")
         _apply_mnxm(partner, "MNXM_test", {}, properties)
-        self.assertEqual((partner.formula, partner.charge), ("C21H29N7O17P3", -3))
+        self.assertEqual((partner.formula, partner.charge), ("C21H29N7O17P3", 0))
+        self.assertIn("metanetx_formula_charge_conflict", partner.notes)
 
 
 if __name__ == "__main__":

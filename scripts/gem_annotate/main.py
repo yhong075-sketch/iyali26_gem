@@ -1,8 +1,7 @@
 """
-main.py — orchestration entry point for the iYli21 annotation pipeline.
+main.py — orchestration entry point for the iYali26 annotation pipeline.
 """
 
-import argparse
 import csv
 import hashlib
 import json
@@ -11,75 +10,123 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
-from cobra.io import read_sbml_model, write_sbml_model
+from cobra.io import read_sbml_model
 
-from .biomass import fix_biomass_reaction
-from .config import CACHE_DIR, MNX_DIR, OUTPUT_MODEL_PATH, REPO_ROOT, STARTING_MODEL_PATH
 from .coq9 import CURATION_PATH, GENE_EVIDENCE_PATH, apply_coq9_curation, gene_evidence
+from .biomass import fix_biomass_reaction
+from .config import (
+    CACHE_DIR,
+    REPO_ROOT,
+    PROJECT_PATHS,
+    CURATION_DATA_DIR,
+    MNX_DIR,
+    OUTPUT_MODEL_PATH,
+    STARTING_MODEL_PATH,
+)
 from .exchange import configure_medium, set_exchange_bounds
+from .gap_fill_direction import DEFAULT_GAP_FILL_DIRECTION_TABLE
 from .gaps import DUPLICATE_PAIRS, add_gap_fill_reactions, find_gaps, merge_duplicate_metabolites, report_gaps
 from .annotate_reactions_extended import annotate_remaining_reactions
 from .ec_annotation import enrich_genes_with_ec
-from .genes import annotate_genes
+from .essentiality_evidence import sha256_file
+from .genes import annotate_genes, apply_curated_gene_annotation_overrides
 from .idmapping import _enrich_via_idmapping
 from .io import load_chem_prop, load_chem_xref, load_mnxm_depr, load_reac_prop, load_reac_xref
 from .metabolites import annotate_metabolites, fix_proton_water_balance, normalize_all_annotations
-from .patches import add_isozyme_gprs, annotate_isozyme_genes, apply_all_patches, clean_ec_overload, extend_acyl_pool_c161, fill_neutral_formulas, fix_activex_names, fix_ec_code_format, move_tcdb_out_of_ec
+from .microspecies import apply_curated_microspecies, normalize_hydroxide_reactions
+from .patches import add_direct_enzyme_like_gprs, add_isozyme_gprs, add_r612_ura3_gpr, annotate_isozyme_genes, apply_all_patches, apply_curated_essentiality_patches, apply_reviewed_quinone_step_gprs, clean_ec_overload, correct_external_ndh2_gpr_and_remove_duplicate, extend_acyl_pool_c161, fill_neutral_formulas, fix_activex_names, fix_charge_stage1, fix_charge_stage2, fix_ec_code_format, move_tcdb_out_of_ec, remove_misannotated_gprs, remove_spurious_quinone_branches, remove_spurious_transport_reactions, remove_stale_adp_atp_transporter_ec_codes, replace_coq6_route_with_coq9, split_trna_charging_from_biomass
+from .provisional_capacity import apply_provisional_isozyme_capacities
 from .reactions import annotate_reactions, backfill_reaction_xrefs
-from .quinone import (replace_coq6_route_with_coq9, correct_external_ndh2_gpr_and_remove_duplicate,
-                      remove_spurious_quinone_branches, apply_reviewed_quinone_step_gprs,
-                      run_quinone_step)
-from .vlcfa_stereochemistry import correct_er_vlcfa_3r_stereochemistry, verify_er_vlcfa_3r_stereochemistry_target
+from .sbml import write_deterministic_sbml_model
+from .execution import guarded_execution
+from .r608 import apply_r608_candidate
+from .reaction_selection import SELECTION_PATH, apply_metadata_reaction_selection
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--starting-model", type=Path, default=STARTING_MODEL_PATH)
-    parser.add_argument("--output-model", type=Path, default=OUTPUT_MODEL_PATH)
-    parser.add_argument("--coq9-curation", choices=("off", "metadata", "qcycle"), default="metadata",
-                        help="metadata (default): guarded annotations/Boolean deduplication; qcycle: explicit R305 proton candidate; off: bypass only these new rules")
-    parser.add_argument("--offline", action="store_true", help="Use local data; skip network gene enrichment")
-    parser.add_argument("--no-solve", action="store_true", help="Skip FVA and biomass precursor diagnostics; retain construction steps")
-    parser.add_argument("--mnx-dir", type=Path, default=MNX_DIR)
-    parser.add_argument("--cache-dir", type=Path, default=CACHE_DIR)
-    args = parser.parse_args(argv)
-    return build_model(args)
+def _deterministic_model_sha256(model) -> str:
+    """Hash the exact in-memory canonical-stage model before an overlay."""
+    with TemporaryDirectory(prefix="iyali26-provisional-reference-") as directory:
+        reference_path = Path(directory) / "model.xml"
+        write_deterministic_sbml_model(model, reference_path)
+        return sha256_file(reference_path)
 
 
-def build_model(args):
-    starting_model_path, output_model_path = args.starting_model, args.output_model
-    mnx_dir, cache_dir = args.mnx_dir, args.cache_dir
-    started_at = datetime.now(timezone.utc).isoformat()
-    if starting_model_path.resolve() == output_model_path.resolve():
+@guarded_execution
+def build_reference_chain(
+    provisional_capacity_path: Path | None = None,
+    trna_biomass_mode: str | None = None,
+    output_model_path: Path = OUTPUT_MODEL_PATH,
+    allow_network: bool = True,
+    canonical_copy: bool = False,
+    no_solve: bool = False,
+    r608_curation_path: Path | None = None,
+    starting_model_path: Path = STARTING_MODEL_PATH,
+    coq9_mode: str = "metadata",
+):
+    starting_model_path = Path(starting_model_path)
+    if coq9_mode not in {"off", "metadata", "qcycle"}:
+        raise ValueError(f"Unknown CoQ9 mode: {coq9_mode}")
+    if starting_model_path.resolve() == Path(output_model_path).resolve():
         raise ValueError("Input and output must be separate files")
+    if r608_curation_path is not None:
+        no_solve, allow_network = True, False
+    output_model_path = Path(output_model_path)
+    if canonical_copy and (provisional_capacity_path is not None or trna_biomass_mode is not None):
+        raise ValueError("a canonical copy cannot include experimental overlays")
+    if canonical_copy and (
+        output_model_path.exists()
+        or output_model_path.resolve() in {OUTPUT_MODEL_PATH.resolve(), starting_model_path.resolve()}
+    ):
+        raise FileExistsError("a canonical copy requires a new, separate output path")
+    if provisional_capacity_path is not None:
+        provisional_capacity_path = Path(provisional_capacity_path)
+        if output_model_path.resolve() == OUTPUT_MODEL_PATH.resolve():
+            raise ValueError(
+                "a provisional capacity profile cannot overwrite canonical "
+                "model.xml; provide a separate output_model_path"
+            )
+    if trna_biomass_mode not in {None, "split"}:
+        raise ValueError(f"unsupported tRNA biomass mode: {trna_biomass_mode}")
+    if (
+        trna_biomass_mode is not None
+        and output_model_path.resolve() == OUTPUT_MODEL_PATH.resolve()
+    ):
+        raise ValueError(
+            "an experimental tRNA biomass overlay cannot overwrite canonical "
+            "model.xml; provide a separate output_model_path"
+        )
+
+    if no_solve or r608_curation_path is not None:
+        if output_model_path.exists() or output_model_path.is_symlink() or output_model_path.resolve() in {OUTPUT_MODEL_PATH.resolve(), starting_model_path.resolve()}:
+            raise FileExistsError("no-solve and R608 builds require a new, separate output path")
+    if r608_curation_path is not None and (provisional_capacity_path is not None or trna_biomass_mode is not None):
+        raise ValueError("R608 cannot be combined with experimental overlays")
+
     if not starting_model_path.exists():
-        logger.error(f"Could not find starting model at {starting_model_path}")
-        raise FileNotFoundError(starting_model_path)
+        raise FileNotFoundError(f"Could not find starting model at {starting_model_path}")
 
     logger.info(f"Loading raw model: {starting_model_path.name}")
-    input_sha256 = hashlib.sha256(starting_model_path.read_bytes()).hexdigest()
-    source_sha256 = {str(path.relative_to(REPO_ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-                     for path in sorted(Path(__file__).parent.glob("*.py"))}
     model = read_sbml_model(str(starting_model_path))
 
-    mnx_ok = mnx_dir.exists() and (mnx_dir / "chem_xref.tsv").exists()
+    mnx_ok = MNX_DIR.exists() and (MNX_DIR / "chem_xref.tsv").exists()
 
     if mnx_ok:
         # Load MetaNetX tables once, reuse across functions
-        chem_xref = load_chem_xref(mnx_dir / "chem_xref.tsv")
-        chem_prop_data = load_chem_prop(mnx_dir / "chem_prop.tsv")
-        reac_xref = load_reac_xref(mnx_dir / "reac_xref.tsv")
+        chem_xref = load_chem_xref(MNX_DIR / "chem_xref.tsv")
+        chem_prop_data = load_chem_prop(MNX_DIR / "chem_prop.tsv")
+        reac_xref = load_reac_xref(MNX_DIR / "reac_xref.tsv")
 
-        reac_prop_path = mnx_dir / "reac_prop.tsv"
+        reac_prop_path = MNX_DIR / "reac_prop.tsv"
         reac_prop = load_reac_prop(reac_prop_path) if reac_prop_path.exists() else None
         if reac_prop is None:
             logger.warning("reac_prop.tsv not found — Strategy C (fingerprint) disabled")
 
-        mnxm_depr = load_mnxm_depr(mnx_dir / "chem_depr.tsv")
+        mnxm_depr = load_mnxm_depr(MNX_DIR / "chem_depr.tsv")
         if not mnxm_depr:
             logger.info(
                 "  chem_depr.tsv not found in data/metanetx/ — "
@@ -102,39 +149,48 @@ def build_model(args):
         logger.info("=== Patches: known data-bug fixes ===")
         apply_all_patches(model)
 
-        # Priority 2b
-        logger.info("=== Priority 2b: H+/H2O balance ===")
-        fix_proton_water_balance(model)
-
-        # Priority 4a  (Strategy C needs metabolite annotations from 1+2a above)
-        logger.info("=== Priority 4a: reaction annotation ===")
-        # The supplied R305 name is known to identify the wrong enzyme. Do
-        # not let that label create new MNXR/EC assertions before correction.
-        name_exclusions = {}
-        if args.coq9_curation != "off":
-            name_exclusions["R305"] = json.loads(CURATION_PATH.read_text())["rules"]["R305"]["fields"]["name"]["before"]
-        annotate_reactions(model, reac_xref, reac_prop, name_exclusions=name_exclusions)
     else:
         logger.warning(
-            f"MetaNetX files not found in {mnx_dir}. "
+            f"MetaNetX files not found in {MNX_DIR}. "
             "Download chem_xref.tsv, chem_prop.tsv, reac_xref.tsv from "
             "https://www.metanetx.org/mnxdoc/mnxref.html"
         )
 
-    # Independent of MetaNetX: the raw source's erroneous (S) identity must
-    # not survive an offline rebuild.  Its curated contract fills the exact
-    # neutral source tuple before applying the identity correction.
-    logger.info("=== Curation: ER VLCFA (3R)-3-hydroxyhexacosanoyl-CoA ===")
-    # Resolve case aliases from MetaNetX before authoritative curation removes
-    # old identity keys; otherwise final normalization can resurrect them.
-    normalize_all_annotations(model)
-    n_vlcfa_stereo = correct_er_vlcfa_3r_stereochemistry(model)
+    # Curated chemical identities override raw/name-derived and MetaNetX values.
+    # Formula and charge are applied atomically from the pH 7.3 Rhea/ChEBI table.
+    # Families that still need a connected-component migration remain recorded as
+    # component_review and are never changed by this pipeline stage.
+    logger.info("=== Chemical convention: Rhea/ChEBI pH 7.3 microspecies ===")
+    microspecies_report = apply_curated_microspecies(model)
     logger.info(
-        "  ER VLCFA stereochemistry: metabolites=%d reactions=%d annotations=%d",
-        n_vlcfa_stereo["metabolites"],
-        n_vlcfa_stereo["reactions"],
-        n_vlcfa_stereo["annotations"],
+        "  Microspecies: %d metabolite(s) changed; %d already canonical; "
+        "%d family/families deferred",
+        microspecies_report["changed_metabolites"],
+        microspecies_report["already_canonical"],
+        microspecies_report["deferred_families"],
     )
+
+    # MetaNetX canonicalisation: OH- is represented as H2O - H+.  Only exact,
+    # single-compartment hydroxide reactions are normalised; transport and
+    # boundary cases require explicit curation of ion coupling.
+    hydroxide_report = normalize_hydroxide_reactions(model)
+    logger.info(
+        "  Hydroxide normalisation: %d reaction(s) changed; %d rejected",
+        hydroxide_report["changed_reactions"],
+        hydroxide_report["rejected_reactions"],
+    )
+
+    if mnx_ok:
+        # Priority 2b.  The balancer is charge-aware: it may add H+/H2O only
+        # when mass and charge can be brought to zero simultaneously.
+        logger.info("=== Priority 2b: charge-aware H+/H2O balance ===")
+        fix_proton_water_balance(model)
+
+        # Priority 4a  (Strategy C needs metabolite annotations from 1+2a above)
+        logger.info("=== Priority 4a: reaction annotation ===")
+        name_exclusions = ({"R305": "ferrocytochrome-c:oxygen oxidoreductase"}
+                           if coq9_mode != "off" else {})
+        annotate_reactions(model, reac_xref, reac_prop, name_exclusions=name_exclusions)
 
     # Stoichiometric consistency: merge known duplicate metabolite pairs
     # These pairs were identified by MIS analysis (metabolites appearing in
@@ -152,22 +208,29 @@ def build_model(args):
 
     # Priority 3 (always run — independent of MetaNetX)
     logger.info("=== Priority 3: biomass reaction R1372 ===")
-    fix_biomass_reaction(model, diagnose=not args.no_solve)
+    fix_biomass_reaction(model, no_solve=no_solve)
 
     # Priority 4b — network required, skip if offline
     logger.info("=== Priority 4b: gene annotation via UniProt ===")
-    if not args.offline:
-        annotate_genes(model)
+    annotate_genes(model, allow_network=allow_network)
+
+    # Curated assembly-identity corrections run after broad automatic matching
+    # but before ID-mapping and EC enrichment, so stale accessions cannot seed
+    # downstream annotations. These edits affect metadata only, never GPRs.
+    logger.info("=== Priority 4b+: curated gene identity overrides ===")
+    n_gene_identity_overrides = apply_curated_gene_annotation_overrides(model)
+    logger.info(
+        "  Curated gene identity overrides: %d gene(s) corrected",
+        n_gene_identity_overrides,
+    )
 
     # Priority 4c — ncbigene → UniProt ID-mapping for genes still missing uniprot
     logger.info("=== Priority 4c: UniProt ID-mapping (ncbigene → UniProtKB) ===")
-    if not args.offline:
-        _enrich_via_idmapping(model)
+    _enrich_via_idmapping(model, allow_network=allow_network)
 
     # Priority 4d — enrich genes with EC numbers via UniProt stream API
     logger.info("=== Priority 4d: gene EC number enrichment via UniProt ===")
-    if not args.offline:
-        enrich_genes_with_ec(model)
+    enrich_genes_with_ec(model, allow_network=allow_network)
 
     # Priority 4e — extended reaction annotation (exchange / transport / EC→MNXR)
     # Runs after 4d so gene EC numbers are already populated.
@@ -211,28 +274,36 @@ def build_model(args):
     logger.info("=== Priority 2b (second pass): H+/H2O balance after annotation ===")
     fix_proton_water_balance(model)
 
-    # Existing Q9 chemistry belongs before FVA, independently of the new mode.
-    quinone_steps = [run_quinone_step(model, replace_coq6_route_with_coq9)]
+    # Replace the inherited C30/CoQ6 identities before FVA, so every downstream
+    # diagnostic uses the balanced C45/CoQ9 main chain.  This identity patch adds
+    # no sink, demand, biomass coefficient, bound or GPR.
+    logger.info("=== Curated quinone chemistry: balanced CoQ9 main chain ===")
+    n_coq9_changes = replace_coq6_route_with_coq9(model)
+    logger.info("  CoQ9 identity/chemistry changes: %d object(s)", n_coq9_changes)
 
-    # Priority 5: gap analysis — FVA before gap-fill
-    if not args.no_solve:
+    if not no_solve:
+        # Priority 5: gap analysis — FVA before gap-fill
         logger.info("=== Priority 5: gap analysis (FVA, post-medium) ===")
         gaps = find_gaps(model)
         report_gaps(gaps)
         blocked_before_medium = len(gaps["blocked_reactions"])
         logger.info(f"  Blocked reactions after medium extension: {blocked_before_medium}")
 
+    else:
+        logger.info("Gap FVA diagnostics not run (no-solve mode)")
+
     # Priority 6: gap-fill — insert P0 reactions from gap_fill_prioritized.csv
-    gap_fill_csv = REPO_ROOT / "data" / "gap_fill_prioritized.csv"
+    gap_fill_csv = CURATION_DATA_DIR / "gap_fill_prioritized.csv"
     if gap_fill_csv.exists():
         logger.info("=== Priority 6: gap-fill reaction insertion (P0) ===")
         add_gap_fill_reactions(
             model,
             csv_path=gap_fill_csv,
-            mnx_dir=mnx_dir if mnx_ok else None,
-            cache_dir=cache_dir,
+            mnx_dir=MNX_DIR if mnx_ok else None,
+            cache_dir=CACHE_DIR,
+            direction_curation_path=DEFAULT_GAP_FILL_DIRECTION_TABLE,
         )
-        if not args.no_solve:
+        if not no_solve:
             logger.info("=== Priority 6b: post-gap-fill FVA ===")
             gaps_after = find_gaps(model)
             before = len(gaps["blocked_reactions"])
@@ -346,9 +417,6 @@ def build_model(args):
         f"already_had_sbo={sbo_counts['skip']}"
     )
 
-    ec_check = sum(1 for r in model.reactions if isinstance(r.annotation, dict) and 'ec-code' in r.annotation)
-    logger.info(f"  DEBUG: reactions with ec-code BEFORE normalize: {ec_check}")
-
     logger.info("=== Final pass: normalise all annotation keys/values ===")
     normalize_all_annotations(model)
 
@@ -367,21 +435,72 @@ def build_model(args):
     n_ec_cleaned = clean_ec_overload(model)
     logger.info(f"  EC overload cleanup: removed polluting EC from {n_ec_cleaned} reaction(s)")
 
+    # R815/R816 are transporters; their inherited EC 2.7.4.6 is a kinase code.
+    # This must follow all generic EC backfills.
+    n_adp_atp_ec_cleaned = remove_stale_adp_atp_transporter_ec_codes(model)
+    logger.info(
+        "  ADP/ATP transporter EC cleanup: corrected %d reaction(s)",
+        n_adp_atp_ec_cleaned,
+    )
+
     # Isozyme GPR additions: add curated CLIB89 isozyme genes to existing
     # reactions' GPR via 'or' (safe subset only; see patches.add_isozyme_gprs).
     n_gpr_added = add_isozyme_gprs(model)
     logger.info(f"  Isozyme GPR additions: {n_gpr_added} (reaction, gene) pair(s) added")
 
+    # Remove mis-annotated genes from GPRs (E07744g trehalase wrongly in R765/R766
+    # transketolase; E11370g GatB wrongly in R671 prephenate DH). Safe 'or' cases,
+    # true partner retained -> 0 growth impact. See patches.remove_misannotated_gprs.
+    n_gpr_removed = remove_misannotated_gprs(model)
+    logger.info(f"  Mis-annotation GPR removals: {n_gpr_removed} (reaction, gene) pair(s) removed")
+
+    # Directly reviewed GPR corrections are deliberately separate from the
+    # automated isozyme expansion: R612 receives the verified URA3 gene, while
+    # R570 is corrected to external NDH2 and duplicate R2063 is removed. R1889
+    # remains GPR-less pending a complex-I subunit requiredness review.
+    n_r612_gpr = add_r612_ura3_gpr(model)
+    logger.info("  Reviewed R612 URA3 GPR correction: %d reaction(s) changed", n_r612_gpr)
+    n_ndh2_changes = correct_external_ndh2_gpr_and_remove_duplicate(model)
+    logger.info("  Reviewed external-NDH2 correction: %d change(s)", n_ndh2_changes)
+
+    # Three direct enzyme-like assignments: LIP2 on extracellular triolein
+    # hydrolysis and the existing EC 2.7.1.35 gene on the two remaining B6
+    # vitamer kinase reactions.  See patches.add_direct_enzyme_like_gprs.
+    n_direct_enzyme_like_gprs = add_direct_enzyme_like_gprs(model)
+    logger.info(
+        "  Direct enzyme-like GPR corrections: %d reaction(s) changed",
+        n_direct_enzyme_like_gprs,
+    )
+
+    # Remove two dead, mis-annotated quinone alternatives while preserving the
+    # mitochondrial R407/COQ2 route. This is a topology/identity cleanup, not
+    # an essentiality-recall patch.
+    n_quinone_removed = remove_spurious_quinone_branches(model)
+    logger.info(
+        "  Spurious quinone branch cleanup: %d reaction(s) removed",
+        n_quinone_removed,
+    )
+    n_quinone_gprs = apply_reviewed_quinone_step_gprs(model)
+    logger.info(
+        "  Reviewed step-specific quinone GPR corrections: %d reaction(s) changed",
+        n_quinone_gprs,
+    )
+
+    # R1172 is retained by the user-requested policy; the historical removal
+    # rationale is recorded in the versioned retention data and output notes.
+    n_transport_removed = remove_spurious_transport_reactions(model)
+    logger.info(f"  Spurious transport removals: {n_transport_removed} reaction(s) removed")
+
+    # Evidence-gated essentiality corrections. Schema-v2 rows require a direct
+    # Y. lipolytica evidence dossier, skeptic pass, explicit human approval and
+    # a live target fingerprint. EG-GPR-001 is the only legacy-v1 exception.
+    essentiality_patches = apply_curated_essentiality_patches(model)
+    logger.info(f"  Curated essentiality patches: {len(essentiality_patches)} applied")
+
     # Annotate those newly added genes (they entered after the main gene
     # annotation + SBO steps, so they need sbo / ncbigene / kegg / uniprot here).
-    n_gene_annot = annotate_isozyme_genes(model, network=not args.offline)
+    n_gene_annot = annotate_isozyme_genes(model, network=allow_network)
     logger.info(f"  Isozyme gene annotation: {n_gene_annot} gene(s) annotated")
-
-    # Existing reviewed quinone GPR assembly follows generic annotation so
-    # automated enrichment cannot restore the inherited synthome rule.
-    for operation in (correct_external_ndh2_gpr_and_remove_duplicate,
-                      remove_spurious_quinone_branches, apply_reviewed_quinone_step_gprs):
-        quinone_steps.append(run_quinone_step(model, operation))
 
     # Fill formulas for definite-neutral metabolites (charge=0, unambiguous).
     n_form = fill_neutral_formulas(model)
@@ -392,58 +511,194 @@ def build_model(args):
     n_c161 = extend_acyl_pool_c161(model)
     logger.info(f"  C16:1 acyl-CoA pool extension: {n_c161} pool(s) extended")
 
-    ec_check2 = sum(1 for r in model.reactions if isinstance(r.annotation, dict) and 'ec-code' in r.annotation)
-    logger.info(f"  DEBUG: reactions with ec-code AFTER normalize: {ec_check2}")
+    # Charge fix Stage 1: 4 free anionic metabolites left at charge 0 (formula
+    # already deprotonated) -> -1. Fixes 5 reactions, breaks 0 (verified). Idempotent.
+    n_chg1 = fix_charge_stage1(model)
+    logger.info(f"  Charge Stage 1: {n_chg1} metabolite(s) set to -1")
 
-    logger.info("=== Final gate: ER VLCFA (3R) stereochemistry ===")
-    verify_er_vlcfa_3r_stereochemistry_target(model)
+    # Charge fix Stage 2: 7 anion-stored metabolites (InChI dH < 0) -> their dH charge,
+    # formula unchanged. Fixes 7 reactions, breaks 0 (verified). Idempotent.
+    n_chg2 = fix_charge_stage2(model)
+    logger.info(f"  Charge Stage 2: {n_chg2} metabolite(s) set to InChI-dH charge")
 
-    coq9 = apply_coq9_curation(model, args.coq9_curation)
+    # Final chemistry gate.  Formula fills and curated charge patches above run
+    # after the historical second balance pass, so validate the exact common-ion
+    # target set again and give newly checkable reactions one strict balance pass.
+    # This currently repairs R2065, R2097 and R2274; the simultaneous mass/charge
+    # condition prevents an H+/H2O adjustment from hiding an ion-form mismatch.
+    logger.info("=== Final chemistry gate: microspecies + charge-aware balance ===")
+    final_microspecies_report = apply_curated_microspecies(model)
+    logger.info(
+        "  Final microspecies validation: %d changed; target set %s",
+        final_microspecies_report["changed_metabolites"],
+        final_microspecies_report["target_set_fingerprint"],
+    )
+    final_hydroxide_report = normalize_hydroxide_reactions(model)
+    logger.info(
+        "  Final hydroxide normalisation: %d changed; %d rejected",
+        final_hydroxide_report["changed_reactions"],
+        final_hydroxide_report["rejected_reactions"],
+    )
+    final_balance_report = fix_proton_water_balance(model)
+    logger.info(
+        "  Final H+/H2O balance: %d changed; %d rejected",
+        final_balance_report["changed_reactions"],
+        final_balance_report["rejected_reactions"],
+    )
+    if final_balance_report["changes"]:
+        logger.info(
+            "  Final balanced reactions: %s",
+            ", ".join(
+                change["reaction_id"] for change in final_balance_report["changes"]
+            ),
+        )
+
+    # Optional experimental capacity profile. Apply it after every canonical
+    # structural and chemistry operation so later pipeline steps cannot make a
+    # copied backup branch diverge from its parent. This remains separate from
+    # the evidence-gated patch table and can never target canonical model.xml.
+    if provisional_capacity_path is not None:
+        provisional_reference_sha256 = _deterministic_model_sha256(model)
+        capacity_audit = apply_provisional_isozyme_capacities(
+            model,
+            provisional_capacity_path,
+            reference_model_sha256=provisional_reference_sha256,
+        )
+        logger.warning(
+            "  Applied %d provisional isozyme-capacity split(s); experimental "
+            "profile only",
+            len(capacity_audit),
+        )
+
+    # The experimental biomass requirement remains coupled through all 20 tRNAs.
+    # Final metadata selection checks and preserves this reference representation.
+    canonical_build = canonical_copy or output_model_path.resolve() == OUTPUT_MODEL_PATH.resolve()
+    if canonical_build or trna_biomass_mode == "split":
+        trna_audit = split_trna_charging_from_biomass(model)
+        if canonical_build:
+            model.reactions.get_by_id("biomass_C").notes[
+                "canonical_trna_biomass_mode"
+            ] = "split_v1"
+            logger.info(
+                "  Applied %d fully split tRNA-biomass coupling reactions; "
+                "canonical B-group representation",
+                len(trna_audit),
+            )
+        else:
+            logger.warning(
+                "  Applied %d fully split tRNA-biomass coupling reactions; "
+                "experimental B-group overlay only",
+                len(trna_audit),
+            )
+
+    # R608 is opt-in and follows all annotation, chemistry and tRNA steps.
+    if r608_curation_path is not None:
+        import json
+        model, _ = apply_r608_candidate(
+            model, json.loads(Path(r608_curation_path).read_text()),
+            source_model_sha256=_deterministic_model_sha256(model),
+        )
+
+    selection = apply_metadata_reaction_selection(model)
+    if not selection["complete"]:
+        logger.warning("Metadata reaction selection has local conflicts: inspect the build record")
+    retention = annotate_retained_reactions(model)
+    coq9 = apply_coq9_curation(model, coq9_mode)
     if not coq9["requested_mode_complete"]:
-        logger.warning("CoQ9 mode %s has local conflicts; see build record", args.coq9_curation)
+        logger.warning("CoQ9 local conflicts: inspect the build record")
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
-    write_sbml_model(model, str(output_model_path))
-    evidence_path = output_model_path.with_suffix(".coq9_genes.tsv")
-    evidence = gene_evidence(model)
-    with evidence_path.open("w") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(evidence[0]), delimiter="\t", lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(evidence)
+    # COBRApy stores Group.members as sets, so its stock writer emits pathway
+    # members in hash-random order.  Canonicalise that serialization detail so
+    # the byte-level SHA used by the evidence ledger is reproducible.
+    write_deterministic_sbml_model(model, output_model_path)
+    logger.info("Model build complete.")
+    return model, coq9, retention, selection
+
+
+RETENTION_PATH = REPO_ROOT / "data" / "reference_build" / "retained_reactions.json"
+
+
+def annotate_retained_reactions(model):
+    """Record explicit retention without inventing a carrier or changing GPRs."""
+    policy = json.loads(RETENTION_PATH.read_text())
+    records = []
+    for rid, row in policy["reactions"].items():
+        reaction = model.reactions.get_by_id(rid)
+        target = {"retention_previous_policy": row["previous_policy"],
+                  "retention_current_status": row["current_status"],
+                  "retention_authorization": policy["authorization"]}
+        changed = any(reaction.notes.get(k) != v for k, v in target.items())
+        reaction.notes.update(target)
+        records.append({"item": rid, "status": "applied" if changed else "already_correct",
+                        **row, "stoichiometry": {m.id: c for m, c in reaction.metabolites.items()},
+                        "bounds": list(reaction.bounds), "gpr": reaction.gene_reaction_rule})
+    return records
+
+
+def build_model(args):
+    """Shared CLI/API route for the reference chain and explicit reaction selection."""
     def sha(path):
-        return hashlib.sha256(path.read_bytes()).hexdigest()
+        with Path(path).open("rb") as handle:
+            return hashlib.file_digest(handle, "sha256").hexdigest()
     def git(*arguments):
         result = subprocess.run(["git", "-C", str(REPO_ROOT), *arguments], capture_output=True, text=True)
         return result.stdout.strip() if result.returncode == 0 else None
-    inputs = [starting_model_path, CURATION_PATH, GENE_EVIDENCE_PATH, REPO_ROOT / "data" / "quinone_pipeline_provenance.json"]
-    inputs.extend(REPO_ROOT / "data" / name for name in (
-        "er_vlcfa_3r_stereochemistry.json", "ec_overload_audit.csv", "gpr_isozyme_additions.csv",
-        "missing_formula_fill.csv", "gap_fill_prioritized.csv", "ncbi/clib89_feature_table.txt", "kegg/yli_genes.tsv"))
-    if mnx_ok:
-        inputs.extend(mnx_dir / name for name in ("chem_xref.tsv", "chem_prop.tsv", "reac_xref.tsv", "reac_prop.tsv", "chem_depr.tsv"))
-    inputs.extend(cache_dir / name for name in ("mnxm_to_bigg_metabolite.json", "gene_locus_tag_map.json"))
+    started = datetime.now(timezone.utc).isoformat()
+    input_sha = sha(args.starting_model)
+    source_sha = {str(p.relative_to(REPO_ROOT)): sha(p) for p in sorted(Path(__file__).parent.glob("*.py"))}
+    data_paths = [args.starting_model, CURATION_PATH, GENE_EVIDENCE_PATH, RETENTION_PATH, SELECTION_PATH]
+    data_paths += [p for p in (REPO_ROOT / "data" / "reference_build").rglob("*") if p.is_file()]
+    for folder in (MNX_DIR, CACHE_DIR, PROJECT_PATHS.locus_map,
+                   PROJECT_PATHS.research_root / "reference" / "ncbi",
+                   PROJECT_PATHS.research_root / "reference" / "kegg"):
+        if folder.is_dir():
+            data_paths += [p for p in folder.iterdir() if p.is_file() and not p.name.startswith(".")]
+    data_sha = {str(p.resolve()): sha(p) for p in sorted(set(data_paths))}
+    ordinary = args.provisional_capacity_profile is None and args.trna_biomass_mode is None
+    model, coq9, retention, selection = build_reference_chain(
+        provisional_capacity_path=args.provisional_capacity_profile,
+        trna_biomass_mode=args.trna_biomass_mode,
+        output_model_path=args.output_model,
+        allow_network=not args.offline,
+        canonical_copy=args.canonical_copy or ordinary,
+        no_solve=args.no_solve,
+        r608_curation_path=args.r608_curation,
+        starting_model_path=args.starting_model,
+        coq9_mode=args.coq9_curation,
+    )
+    output = args.output_model
+    evidence = gene_evidence(model)
+    evidence_path = output.with_suffix(".coq9_genes.tsv")
+    with evidence_path.open("w") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(evidence[0]), delimiter="\t", lineterminator="\n")
+        writer.writeheader(); writer.writerows(evidence)
     record = {
-        "started_at_utc": started_at, "completed_at_utc": datetime.now(timezone.utc).isoformat(),
-        "argv": sys.argv, "options": {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()},
-        "input": {"path": str(starting_model_path.resolve()), "sha256": input_sha256},
-        "input_unchanged": sha(starting_model_path) == input_sha256,
-        "output": {"path": str(output_model_path.resolve()), "sha256": sha(output_model_path)},
+        "started_at_utc": started, "completed_at_utc": datetime.now(timezone.utc).isoformat(),
+        "argv": sys.argv, "options": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
         "head": git("rev-parse", "HEAD"), "dirty_status": git("status", "--porcelain=v1"),
-        "source_sha256": source_sha256,
-        "source_unchanged_during_build": all(sha(REPO_ROOT / path) == value for path, value in source_sha256.items()),
-        "data_sha256": {str(path.resolve()): sha(path) for path in inputs if path.is_file()},
-        "runtime_strain_overlay": None, "medium": "existing set_exchange_bounds/configure_medium",
+        "input": {"path": str(args.starting_model.resolve()), "sha256": input_sha},
+        "input_unchanged": sha(args.starting_model) == input_sha,
+        "output": {"path": str(output.resolve()), "sha256": sha(output)},
+        "reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+        "source_sha256": source_sha, "data_sha256": data_sha,
+        "source_unchanged_during_build": all(sha(REPO_ROOT / p) == v for p, v in source_sha.items()),
+        "model_counts": {"reactions": len(model.reactions), "species": len(model.metabolites), "genes": len(model.genes)},
+        "runtime_strain_overlay": None, "medium": dict(model.medium),
         "solver": model.solver.interface.__name__, "python": sys.version,
-        "diagnostic_solves": "skipped by --no-solve" if args.no_solve else "existing diagnostics enabled",
-        "network_gene_enrichment": "skipped by --offline" if args.offline else "enabled",
-        "metanetx_available": mnx_ok, "coq9": coq9,
-        "existing_quinone_chain": quinone_steps,
-        "requested_build_complete": coq9["requested_mode_complete"] and all(s["status"] != "conflict" for s in quinone_steps),
+        "diagnostic_solves": "not run; execution guard enabled" if args.no_solve else "existing diagnostics enabled",
+        "network_gene_enrichment": "cache only; network guard enabled" if args.offline else "enabled",
+        "coq9": coq9, "retained_reactions": retention, "reaction_selection": selection,
+        "requested_build_complete": coq9["requested_mode_complete"] and selection["complete"],
         "gene_evidence": {"path": str(evidence_path.resolve()), "sha256": sha(evidence_path)},
     }
-    output_model_path.with_suffix(".build.json").write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n")
-    logger.info("Model build complete; CoQ9 requested_mode_complete=%s", coq9["requested_mode_complete"])
+    output.with_suffix(".build.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n")
     return record
+
+
+def main(argv=None):
+    from .cli import main as run_cli
+    return run_cli(argv)
 
 
 if __name__ == "__main__":

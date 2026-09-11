@@ -1,0 +1,281 @@
+{
+  "verified_at_utc": "2026-09-10T23:22:25.690699+00:00",
+  "status": "tRNA_coupling_and_mathematical_scope_verified",
+  "input_models": {
+    "reference": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_reference_metadata_r1172_sphpl.xml",
+      "sha256": "649ddfc59a21567e9acdebeb2508a17566335f089906df2fb75b2818fb30fcff"
+    },
+    "rejected": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_reaction_selection.xml",
+      "sha256": "d2ac541d0ce7bf0fe953a1a0323efc02012ed8f2d78e6c52dadeefed3b88cc63"
+    },
+    "updated": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+      "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0"
+    }
+  },
+  "counts": {
+    "reactions": 2315,
+    "species": 1877,
+    "genes": 1074
+  },
+  "field_counts_from_reference": {
+    "stoichiometry": 202,
+    "bounds": 7,
+    "gpr": 9
+  },
+  "changes_from_rejected_output": {
+    "stoichiometry": [
+      "biomass_C"
+    ],
+    "bounds": [],
+    "gpr": []
+  },
+  "all_other_mathematics_and_species_preserved": true,
+  "biomass_and_20_incorporation_reactions_match_reference": true,
+  "trna_requirements": [
+    {
+      "reaction": "TRNA_BIOMASS_R798",
+      "amino_acid": "m1008[C_cy]",
+      "charged_trna": "m1011[C_cy]",
+      "returned_trna": "m1010[C_cy]",
+      "residue": "trna_biomass_residue_R798",
+      "biomass_coefficient": 0.172773,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R129",
+      "amino_acid": "m114[C_cy]",
+      "charged_trna": "m274[C_cy]",
+      "returned_trna": "m273[C_cy]",
+      "residue": "trna_biomass_residue_R129",
+      "biomass_coefficient": 0.567939,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R154",
+      "amino_acid": "m310[C_cy]",
+      "charged_trna": "m315[C_cy]",
+      "returned_trna": "m314[C_cy]",
+      "residue": "trna_biomass_residue_R154",
+      "biomass_coefficient": 0.125563,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R157",
+      "amino_acid": "m319[C_cy]",
+      "charged_trna": "m321[C_cy]",
+      "returned_trna": "m320[C_cy]",
+      "residue": "trna_biomass_residue_R157",
+      "biomass_coefficient": 0.186498,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R165",
+      "amino_acid": "m267[C_cy]",
+      "charged_trna": "m336[C_cy]",
+      "returned_trna": "m335[C_cy]",
+      "residue": "trna_biomass_residue_R165",
+      "biomass_coefficient": 0.186531,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R248",
+      "amino_acid": "m443[C_cy]",
+      "charged_trna": "m448[C_cy]",
+      "returned_trna": "m447[C_cy]",
+      "residue": "trna_biomass_residue_R248",
+      "biomass_coefficient": 0.003632,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R336",
+      "amino_acid": "m130[C_cy]",
+      "charged_trna": "m554[C_cy]",
+      "returned_trna": "m553[C_cy]",
+      "residue": "trna_biomass_residue_R336",
+      "biomass_coefficient": 0.243866,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R337",
+      "amino_acid": "m50[C_cy]",
+      "charged_trna": "m556[C_cy]",
+      "returned_trna": "m555[C_cy]",
+      "residue": "trna_biomass_residue_R337",
+      "biomass_coefficient": 0.243904,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R368",
+      "amino_acid": "m272[C_cy]",
+      "charged_trna": "m591[C_cy]",
+      "returned_trna": "m590[C_cy]",
+      "residue": "trna_biomass_residue_R368",
+      "biomass_coefficient": 0.509943,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R392",
+      "amino_acid": "m615[C_cy]",
+      "charged_trna": "m619[C_cy]",
+      "returned_trna": "m618[C_cy]",
+      "residue": "trna_biomass_residue_R392",
+      "biomass_coefficient": 0.053881,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R493",
+      "amino_acid": "m743[C_cy]",
+      "charged_trna": "m747[C_cy]",
+      "returned_trna": "m746[C_cy]",
+      "residue": "trna_biomass_residue_R493",
+      "biomass_coefficient": 0.090566,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R522",
+      "amino_acid": "m775[C_cy]",
+      "charged_trna": "m778[C_cy]",
+      "returned_trna": "m777[C_cy]",
+      "residue": "trna_biomass_residue_R522",
+      "biomass_coefficient": 0.19455,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R531",
+      "amino_acid": "m793[C_cy]",
+      "charged_trna": "m795[C_cy]",
+      "returned_trna": "m794[C_cy]",
+      "residue": "trna_biomass_residue_R531",
+      "biomass_coefficient": 0.275005,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R547",
+      "amino_acid": "m74[C_cy]",
+      "charged_trna": "m807[C_cy]",
+      "returned_trna": "m806[C_cy]",
+      "residue": "trna_biomass_residue_R547",
+      "biomass_coefficient": 0.044232,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R625",
+      "amino_acid": "m859[C_cy]",
+      "charged_trna": "m862[C_cy]",
+      "returned_trna": "m861[C_cy]",
+      "residue": "trna_biomass_residue_R625",
+      "biomass_coefficient": 0.082571,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R673",
+      "amino_acid": "m765[C_cy]",
+      "charged_trna": "m906[C_cy]",
+      "returned_trna": "m905[C_cy]",
+      "residue": "trna_biomass_residue_R673",
+      "biomass_coefficient": 0.206372,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R723",
+      "amino_acid": "m441[C_cy]",
+      "charged_trna": "m944[C_cy]",
+      "returned_trna": "m943[C_cy]",
+      "residue": "trna_biomass_residue_R723",
+      "biomass_coefficient": 0.284699,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R759",
+      "amino_acid": "m770[C_cy]",
+      "charged_trna": "m979[C_cy]",
+      "returned_trna": "m978[C_cy]",
+      "residue": "trna_biomass_residue_R759",
+      "biomass_coefficient": 0.210543,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R771",
+      "amino_acid": "m772[C_cy]",
+      "charged_trna": "m988[C_cy]",
+      "returned_trna": "m987[C_cy]",
+      "residue": "trna_biomass_residue_R771",
+      "biomass_coefficient": 0.002154,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    },
+    {
+      "reaction": "TRNA_BIOMASS_R775",
+      "amino_acid": "m992[C_cy]",
+      "charged_trna": "m996[C_cy]",
+      "returned_trna": "m995[C_cy]",
+      "residue": "trna_biomass_residue_R775",
+      "biomass_coefficient": 0.041282,
+      "constraint": "v_incorporation = biomass_coefficient * v_biomass",
+      "additional_residue_sources": []
+    }
+  ],
+  "selection_statuses": {
+    "applied": 206,
+    "already_correct": 1
+  },
+  "same_mode_idempotency": true,
+  "CoQ9_modes_checked_on_rebuilt_model": [
+    "off",
+    "metadata",
+    "qcycle"
+  ],
+  "qcycle_only_coefficient_deltas": [
+    [
+      "R305",
+      "m28[C_mi]",
+      -0.5
+    ],
+    [
+      "R305",
+      "m10[C_cy]",
+      2.5
+    ]
+  ],
+  "qcycle_element_charge_residual": {},
+  "real_full_builds_this_turn": {
+    "metadata": 1,
+    "off": 0,
+    "qcycle": 0
+  },
+  "previous_three_mode_full_builds": "artifacts/metadata_reaction_selection_20260909/; historical only",
+  "targeted_unit_tests_passed": 17,
+  "new_optimization_calls": 0,
+  "protected_inputs_unchanged": {
+    "model.xml": "576a284ee86f0b96c802ea2e4445a862da49463022962471bfc841c469fcb5f2",
+    "data/iyali26.xml": "5c8c199e2c5b622e97daf2b3500f763f83519fb598702a11dd153052c6a99f9d",
+    "data/iyli21.xml": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631",
+    "model_metadata_reaction_selection.xml": "d2ac541d0ce7bf0fe953a1a0323efc02012ed8f2d78e6c52dadeefed3b88cc63",
+    "model_reference_metadata_r1172_sphpl.xml": "649ddfc59a21567e9acdebeb2508a17566335f089906df2fb75b2818fb30fcff",
+    "data/lipid_unlump_sn_core_curation.json": "30f326e0f440c2a6a1e71647b851f09f6e699d6ff9dcf1081a481cb82dde85a9",
+    "scripts/lp_sn12_candidate.py": "fe6350b1652f8333e166a742b41c1bc475faca6708f2c955fc8963c4c4bbae44",
+    "tests/test_lp_sn12_candidate.py": "61e53f36812109c104f008dfa5c21f4fa6f3b566dbbefabb6f6ea774977e3b0d"
+  },
+  "limitation": "Structural tRNA coupling requirement restored; no claim that every associated gene is experimentally essential. See separate bounded static checks."
+}

@@ -1565,9 +1565,9 @@ def _load_unified_main():
     """Resolve the one supported builder from package and direct-script entrypoints."""
 
     if __package__:
-        from .gem_annotate.main import main as unified_main
+        from .gem_annotate.cli import main as unified_main
     else:
-        from gem_annotate.main import main as unified_main
+        from gem_annotate.cli import main as unified_main
     return unified_main
 
 

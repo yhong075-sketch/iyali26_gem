@@ -204,21 +204,16 @@ class ERVLCFAStereochemistryTests(unittest.TestCase):
                 with self.assertRaises(ERVLCFAStereochemistryError):
                     correct_er_vlcfa_3r_stereochemistry(model, self.curation)
 
-    def test_main_is_offline_and_legacy_entry_forwards_to_unified_builder(self) -> None:
-        main_source = (REPOSITORY / "scripts" / "gem_annotate" / "main.py").read_text(encoding="utf-8")
-        call = main_source.index("n_vlcfa_stereo = correct_er_vlcfa_3r_stereochemistry(model)")
-        offline_branch = main_source.index("MetaNetX files not found")
-        self.assertGreater(call, offline_branch)
-
+    def test_legacy_entry_forwards_to_reference_builder(self) -> None:
+        # The selected reference pipeline has its own chemical convention.
+        # The raw-iyli21 neutral ER correction remains separately source-guarded.
+        from scripts.gem_annotate.cli import parse_args
+        self.assertEqual(parse_args([]).starting_model.name, "iyali26.xml")
         update_model = importlib.import_module("scripts.update_model")
-        with patch("scripts.gem_annotate.main.main", return_value="unified") as unified:
+        with patch("scripts.gem_annotate.cli.main", return_value="unified") as unified:
             self.assertEqual(update_model.legacy_main(), "unified")
             self.assertEqual(update_model.main(), "unified")
         self.assertEqual(unified.call_count, 2)
-
-        final_gate = main_source.index("verify_er_vlcfa_3r_stereochemistry_target(model)")
-        writer = main_source.index("write_sbml_model(model, str(output_model_path))")
-        self.assertLess(final_gate, writer)
 
     def test_direct_script_entry_resolves_without_running_the_builder(self) -> None:
         completed = subprocess.run(

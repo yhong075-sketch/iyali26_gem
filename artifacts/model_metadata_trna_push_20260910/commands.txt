@@ -1,0 +1,9 @@
+# Executed publication checks; 41 tests passed, rebuilt model SHA identical.
+# Snapshot uses only staged Git content; original working files preserved.
+git checkout-index --all '--prefix=/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/model_metadata_trna_push_20260910/staged-checkout/'
+cd '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/model_metadata_trna_push_20260910/staged-checkout'
+'/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python' -m unittest tests.test_reaction_selection tests.test_coq9_curation tests.test_reference_reactions tests.test_quinone_pipeline tests.test_er_vlcfa_stereochemistry
+'/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python' -m scripts.gem_annotate --research-root '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research' --offline --no-solve --coq9-curation metadata --output-model '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/model_metadata_trna_push_20260910/verification.xml'
+# Rebuild has 0 diagnostic solves; full SHA in verification.json.
+cd '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem'
+git push origin HEAD:refs/heads/codex/r989-gpr-main-worktree

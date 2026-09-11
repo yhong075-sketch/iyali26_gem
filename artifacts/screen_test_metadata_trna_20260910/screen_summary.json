@@ -1,0 +1,77 @@
+{
+  "status": "screen_and_positive_only_experimental_comparison_complete",
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+    "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0"
+  },
+  "WT": 1.8718823069403,
+  "screened_genes": 1074,
+  "solver_status_counts": {
+    "optimal": 1074
+  },
+  "unresolved_results": 0,
+  "primary_cutoff": 0.1,
+  "model_prediction_counts": [
+    {
+      "cutoff": 0.01,
+      "legacy_predicted_essential": 76,
+      "audited_predicted_essential": 76
+    },
+    {
+      "cutoff": 0.05,
+      "legacy_predicted_essential": 93,
+      "audited_predicted_essential": 93
+    },
+    {
+      "cutoff": 0.1,
+      "legacy_predicted_essential": 101,
+      "audited_predicted_essential": 101
+    },
+    {
+      "cutoff": 0.15,
+      "legacy_predicted_essential": 114,
+      "audited_predicted_essential": 114
+    }
+  ],
+  "trna_subset": {
+    "incorporation_reactions": 20,
+    "charging_reactions": 20,
+    "associated_genes": 24,
+    "predicted_essential_at_10pct": 18,
+    "extra_solves": 0,
+    "scope": "Subset of the completed whole-model screen, not independent validation"
+  },
+  "experimental_comparison": {
+    "status": "complete",
+    "source": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+      "original_user_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/raw/assays/42003_2023_4996_MOESM10_ESM.xlsx",
+      "sha256": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+      "sheet": "Sheet1",
+      "range": "A2:B1613",
+      "raw_records": 1612,
+      "label_basis": "User-designated essential gene list; workbook contains IDs and putative functions only",
+      "normalization": "Remove underscore immediately after YALI0/1/2 prefix; no aliases or cross-version mapping"
+    },
+    "coverage": {
+      "experimental_positives": 1612,
+      "in_screen": 322,
+      "outside_screen": 1290,
+      "positive_coverage": 0.19975186104218362,
+      "screened_genes": 1074,
+      "unlabelled_screened_genes": 752
+    },
+    "cutoff": 0.1,
+    "TP": 73,
+    "FN": 249,
+    "FP": null,
+    "TN": null,
+    "recall": 0.2267080745341615,
+    "model_predicted_essential": 101,
+    "predicted_essential_unlabelled": 28,
+    "summary": "essentiality_summary.json",
+    "extra_model_solves": 0
+  },
+  "model_unchanged": true,
+  "known_limitation": "Previously observed closed ATP generation remains unresolved; this screen does not certify biological validity."
+}

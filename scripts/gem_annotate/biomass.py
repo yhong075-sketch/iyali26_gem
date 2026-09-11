@@ -2,6 +2,8 @@
 biomass.py — biomass reaction diagnosis and fixing.
 """
 
+from .execution import guarded_execution
+
 import logging
 import re
 
@@ -32,7 +34,8 @@ def _formula_mw(formula: str) -> float:
     return mw
 
 
-def fix_biomass_reaction(model, *, diagnose: bool = True) -> None:
+@guarded_execution
+def fix_biomass_reaction(model, *, no_solve: bool = False) -> None:
     """
     Diagnose and partially fix the biomass reaction R1372.
 
@@ -102,7 +105,7 @@ def fix_biomass_reaction(model, *, diagnose: bool = True) -> None:
         logger.warning(f"R1372 mass balance check failed: {e}")
 
     # ── Step 3: blocked-precursor diagnosis ─────────────────────────────────
-    if diagnose:
+    if not no_solve:
         logger.info("R1372: checking which precursors can carry flux …")
         blocked_precursors = []
 
@@ -136,7 +139,7 @@ def fix_biomass_reaction(model, *, diagnose: bool = True) -> None:
             logger.info("R1372: all precursors can carry flux")
 
     else:
-        logger.info("R1372: precursor solves skipped; biomass construction retained")
+        logger.info("R1372: precursor flux diagnosis not run (no-solve mode)")
 
     # ── Step 4: GAM (growth-associated maintenance) check ───────────────────
     # GAM term: atp + h2o → adp + pi + h
