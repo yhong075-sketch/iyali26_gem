@@ -43,6 +43,7 @@ from .sbml import write_deterministic_sbml_model
 from .execution import guarded_execution
 from .r608 import apply_r608_candidate
 from .reaction_selection import SELECTION_PATH, apply_metadata_reaction_selection
+from .r1159_direction import apply_r1159_direction
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -606,6 +607,8 @@ def build_reference_chain(
     coq9 = apply_coq9_curation(model, coq9_mode)
     if not coq9["requested_mode_complete"]:
         logger.warning("CoQ9 local conflicts: inspect the build record")
+    selection["post_selection_r1159_direction"] = apply_r1159_direction(model)
+    logger.info("R1159 direction: %s", selection["post_selection_r1159_direction"])
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway

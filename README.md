@@ -124,3 +124,22 @@ Focused checks:
 ---
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+## Conditional R1159 proton leak direction (2026-09-23)
+
+The default build applies `data/reference_build/curation/r1159_direction.json`
+after final field selection. R1159 keeps `H+[cy] -> H+[go]` storage and changes
+bounds from `[-1000,1000]` to `[-1000,0]`, allowing net Golgi-to-cytosol leak.
+This user-authorized condition assumes an acidic Golgi and a membrane potential
+that does not reverse the electrochemical driving force; it is not a W29
+measurement or a claim of permanent irreversibility. The inherited capacity
+1000 is not measured permeability. Evidence, limitations and old bounds are
+preserved in the curation and output notes. No GPR or medium is changed.
+
+Unexpected reaction identity, stoichiometry, proton chemistry/compartments,
+GPR, bounds or conflicting notes stop this step before it mutates the model.
+Use a new output path with the existing `--offline --no-solve` build command;
+previous model files are not replaced. Run
+`python -m unittest tests.test_r1159_direction` for the focused regression.
+The previously saved zero-flux WT witness remains feasible under this bound;
+this direction change alone does not establish essentiality.
