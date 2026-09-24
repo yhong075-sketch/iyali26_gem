@@ -1,0 +1,31 @@
+{
+  "model": "model_metadata_trna_r1159_leak.xml",
+  "model_sha256": "aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f",
+  "media": "artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+  "strain_profile": "artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+  "maintenance": "xMAINTENANCE",
+  "biomass_reactions": [
+    "R1372",
+    "R1387",
+    "R1710",
+    "xBIOMASS",
+    "biomass_C",
+    "newBiom"
+  ],
+  "tolerance": 1e-07,
+  "display_threshold": 1e-07,
+  "fixed_dissipation": 1.0,
+  "limits": {
+    "solves": 150,
+    "solve_wall_seconds": 1800,
+    "per_solve_seconds": 60
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  }
+}

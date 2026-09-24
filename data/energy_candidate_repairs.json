@@ -1,0 +1,490 @@
+{
+  "schema_version": 1,
+  "curation_id": "ATP-CANDIDATE-20260924",
+  "status": "user_authorized_candidate; representation-consistent chemistry; native function/compartment unverified",
+  "source_sha256": "aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f",
+  "reactions": {
+    "R_PGAM1_PhosHydro": {
+      "function_identity": "Phosphoenolpyruvate phosphohydrolase candidate",
+      "before": {
+        "name": "R_PGAM1_PhosHydro",
+        "stoichiometry": {
+          "m4[C_cy]": -1.0,
+          "m35[C_cy]": -1.0,
+          "m107[C_cy]": 1.0,
+          "m32[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E41893g"
+      },
+      "species": {
+        "m107[C_cy]": {
+          "name": "phosphoenolpyruvate_C3H5O6P",
+          "formula": "C3H5O6P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m4[C_cy]": {
+          "name": "pyruvate_C3H4O3",
+          "formula": "C3H4O3",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "sources": [
+        "https://iubmb.qmul.ac.uk/enzyme/EC3/1/3/60.html",
+        "https://www.kegg.jp/entry/R00208"
+      ],
+      "rationale": "Conditional hydrolysis direction supported by enzyme chemistry; no extra reverse capacity added. Chemistry uses the existing neutral nucleotide/Pi and dianionic DHAP representations. No native enzyme/GPR/localization validation is claimed.",
+      "direction_bounds": [
+        -1000,
+        0
+      ]
+    },
+    "R_NTP3pp": {
+      "function_identity": "GTP phosphohydrolase candidate",
+      "before": {
+        "name": "R_NTP3pp",
+        "stoichiometry": {
+          "m268[C_cy]": -1.0,
+          "m35[C_cy]": -1.0,
+          "m10[C_cy]": -1.0,
+          "m266[C_cy]": 1.0,
+          "m32[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E41893g"
+      },
+      "species": {
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m266[C_cy]": {
+          "name": "GTP_C10H16N5O14P3",
+          "formula": "C10H16N5O14P3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m268[C_cy]": {
+          "name": "GDP_C10H15N5O11P2",
+          "formula": "C10H15N5O11P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "sources": [
+        "https://iubmb.qmul.ac.uk/enzyme/EC3/6/1/15.html",
+        "https://www.kegg.jp/entry/R00335"
+      ],
+      "rationale": "Conditional hydrolysis direction supported by enzyme chemistry; no extra reverse capacity added. Chemistry uses the existing neutral nucleotide/Pi and dianionic DHAP representations. No native enzyme/GPR/localization validation is claimed.",
+      "direction_bounds": [
+        -1000,
+        0
+      ],
+      "chemistry_stoichiometry": {
+        "m268[C_cy]": -1.0,
+        "m35[C_cy]": -1.0,
+        "m266[C_cy]": 1.0,
+        "m32[C_cy]": 1.0
+      }
+    },
+    "R_NTP7": {
+      "function_identity": "UTP phosphohydrolase candidate",
+      "before": {
+        "name": "R_NTP7",
+        "stoichiometry": {
+          "m439[C_cy]": -1.0,
+          "m32[C_cy]": -1.0,
+          "m11[C_cy]": 1.0,
+          "m35[C_cy]": 1.0,
+          "m10[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E41893g"
+      },
+      "species": {
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m11[C_cy]": {
+          "name": "UDP_C9H14N2O12P2",
+          "formula": "C9H14N2O12P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m439[C_cy]": {
+          "name": "UTP_C9H15N2O15P3",
+          "formula": "C9H15N2O15P3",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "sources": [
+        "https://iubmb.qmul.ac.uk/enzyme/EC3/6/1/15.html",
+        "https://www.kegg.jp/entry/R00159"
+      ],
+      "rationale": "Conditional hydrolysis direction supported by enzyme chemistry; no extra reverse capacity added. Chemistry uses the existing neutral nucleotide/Pi and dianionic DHAP representations. No native enzyme/GPR/localization validation is claimed.",
+      "direction_bounds": [
+        0,
+        1000
+      ],
+      "chemistry_stoichiometry": {
+        "m439[C_cy]": -1.0,
+        "m32[C_cy]": -1.0,
+        "m11[C_cy]": 1.0,
+        "m35[C_cy]": 1.0
+      }
+    },
+    "r0242": {
+      "function_identity": "Dihydroxyacetone-phosphate phosphohydrolase candidate",
+      "before": {
+        "name": "r0242",
+        "stoichiometry": {
+          "m1881[C_cy]": -1.0,
+          "m35[C_cy]": -1.0,
+          "m456[C_cy]": 1.0,
+          "m32[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E41893g"
+      },
+      "species": {
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m1881[C_cy]": {
+          "name": "Dihydroxy-Acetone",
+          "formula": "C3H6O3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m456[C_cy]": {
+          "name": "dihydroxyacetone phosphate_C3H5O6P",
+          "formula": "C3H5O6P",
+          "charge": -2,
+          "compartment": "C_cy"
+        }
+      },
+      "sources": [
+        "https://www.kegg.jp/entry/R01010",
+        "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57642"
+      ],
+      "rationale": "Conditional hydrolysis direction supported by enzyme chemistry; no extra reverse capacity added. Chemistry uses the existing neutral nucleotide/Pi and dianionic DHAP representations. No native enzyme/GPR/localization validation is claimed.",
+      "chemistry_stoichiometry": {
+        "m1881[C_cy]": -1.0,
+        "m35[C_cy]": -1.0,
+        "m456[C_cy]": 1.0,
+        "m32[C_cy]": 1.0,
+        "m10[C_cy]": 2
+      }
+    },
+    "R_NDP1": {
+      "variants": [
+        "E4",
+        "E5"
+      ],
+      "function_identity": "ADP phosphohydrolase candidate",
+      "before": {
+        "name": "R_NDP1",
+        "stoichiometry": {
+          "m86[C_cy]": -1.0,
+          "m35[C_cy]": -1.0,
+          "m10[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E41893g"
+      },
+      "species": {
+        "m86[C_cy]": {
+          "name": "AMP_C10H14N5O7P",
+          "formula": "C10H14N5O7P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m143[C_cy]": {
+          "name": "ADP_C10H15N5O10P2",
+          "formula": "C10H15N5O10P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "direction_bounds": [
+        -1000,
+        0
+      ],
+      "sources": [
+        "https://www.kegg.jp/entry/R00122",
+        "https://iubmb.qmul.ac.uk/enzyme/EC3/6/1/5.html"
+      ],
+      "rationale": "ADP phosphohydrolase chemistry supports hydrolysis, not uncoupled AMP phosphorylation. Remove source-convention H+ under the stored neutral AMP/ADP/Pi identities.",
+      "chemistry_stoichiometry": {
+        "m86[C_cy]": -1.0,
+        "m35[C_cy]": -1.0,
+        "m143[C_cy]": 1.0,
+        "m32[C_cy]": 1.0
+      }
+    },
+    "R72": {
+      "variants": [
+        "E4",
+        "E5"
+      ],
+      "function_identity": "Diphosphoinositol-polyphosphate phosphohydrolase candidate",
+      "before": {
+        "name": "6PP-IP5 depyrophosphorylation to IP6",
+        "stoichiometry": {
+          "m32[C_cy]": -1.0,
+          "m170[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m140[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1B17927g or YALI1A04817g"
+      },
+      "species": {
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m170[C_cy]": {
+          "name": "6-diphospho-1D-myo-inositol pentakisphosphate_C6H19O27P7",
+          "formula": "C6H19O27P7",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m140[C_cy]": {
+          "name": "myo-inositol hexakisphosphate_C6H18O24P6",
+          "formula": "C6H18O24P6",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "direction_bounds": [
+        0,
+        1000
+      ],
+      "sources": [
+        "https://iubmb.qmul.ac.uk/enzyme/EC3/6/1/52.html",
+        "https://iubmb.qmul.ac.uk/enzyme/EC2/7/4/24.html"
+      ],
+      "rationale": "The encoded IP7 plus water to IP6 plus Pi is diphosphoinositol-polyphosphate hydrolysis. Reverse condensation lacks the ATP/ADP coupling required by the conflicting kinase EC 2.7.4.24 annotation; native function/GPR remain unverified."
+    },
+    "R_CAT2p": {
+      "variants": [
+        "E5"
+      ],
+      "function_identity": "Catalase peroxidatic ethanol oxidation candidate",
+      "before": {
+        "name": "R_CAT2p",
+        "stoichiometry": {
+          "m275[C_cy]": -1.0,
+          "m222[C_pe]": -1.0,
+          "m173[C_cy]": 1.0,
+          "m375[C_pe]": 2.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E40671g"
+      },
+      "species": {
+        "m275[C_cy]": {
+          "name": "ethanol_C2H6O",
+          "formula": "C2H6O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m222[C_pe]": {
+          "name": "hydrogen peroxide_H2O2",
+          "formula": "H2O2",
+          "charge": 0,
+          "compartment": "C_pe"
+        },
+        "m173[C_cy]": {
+          "name": "acetaldehyde_C2H4O",
+          "formula": "C2H4O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m375[C_pe]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_pe"
+        }
+      },
+      "direction_bounds": [
+        0,
+        1000
+      ],
+      "sources": [
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/11/1/6.html"
+      ],
+      "rationale": "Exact stored reaction: cytosolic ethanol + peroxisomal hydrogen peroxide -> cytosolic acetaldehyde + 2 peroxisomal water. Catalase peroxidatic alcohol oxidation supports the forward chemical direction. Reverse acetaldehyde/water reduction would create ethanol/peroxide without the required coupling. This is not the dismutation 2 H2O2 -> O2 + 2 H2O. Existing balanced stoichiometry, compartment assignments and GPR remain unchanged; native activity/transport remain unverified."
+    },
+    "R_OAADCm": {
+      "variants": [
+        "E5"
+      ],
+      "function_identity": "Oxaloacetate decarboxylation reaction candidate",
+      "before": {
+        "name": "R_OAADCm",
+        "stoichiometry": {
+          "m44[C_mi]": -1.0,
+          "m6[C_mi]": -1.0,
+          "m77[C_mi]": 1.0,
+          "m28[C_mi]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E22303g"
+      },
+      "species": {
+        "m44[C_mi]": {
+          "name": "carbon dioxide_CO2",
+          "formula": "CO2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m6[C_mi]": {
+          "name": "pyruvate_C3H4O3",
+          "formula": "C3H4O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m77[C_mi]": {
+          "name": "oxaloacetate_C4H4O5",
+          "formula": "C4H4O5",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi"
+        }
+      },
+      "direction_bounds": [
+        -1000,
+        0
+      ],
+      "sources": [
+        "https://iubmb.qmul.ac.uk/enzyme/EC1/1/1/38.html",
+        "https://www.kegg.jp/entry/R00217"
+      ],
+      "rationale": "The stored forward pyruvate plus CO2 to oxaloacetate is uncoupled carboxylation; the identified decarboxylase chemistry supports its reverse. Remove product H+ to match the existing neutral pyruvate/CO2/oxaloacetate representations; no shared species or native GPR assertion.",
+      "chemistry_stoichiometry": {
+        "m44[C_mi]": -1.0,
+        "m6[C_mi]": -1.0,
+        "m77[C_mi]": 1.0
+      }
+    }
+  }
+}

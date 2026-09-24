@@ -44,6 +44,7 @@ from .execution import guarded_execution
 from .r608 import apply_r608_candidate
 from .reaction_selection import SELECTION_PATH, apply_metadata_reaction_selection
 from .r1159_direction import apply_r1159_direction
+from .energy_candidates import SPEC_PATH as ENERGY_SPEC_PATH, apply_energy_candidate, export_candidate
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -68,10 +69,16 @@ def build_reference_chain(
     r608_curation_path: Path | None = None,
     starting_model_path: Path = STARTING_MODEL_PATH,
     coq9_mode: str = "metadata",
+    energy_candidate: str = "E0",
 ):
     starting_model_path = Path(starting_model_path)
     if coq9_mode not in {"off", "metadata", "qcycle"}:
         raise ValueError(f"Unknown CoQ9 mode: {coq9_mode}")
+    if energy_candidate not in {"E0", "E1", "E2", "E3", "E4", "E5"}:
+        raise ValueError("Unknown energy candidate")
+    if energy_candidate != "E0" and (not no_solve or allow_network or coq9_mode != "metadata"
+            or provisional_capacity_path is not None or r608_curation_path is not None):
+        raise ValueError("Energy candidates require a separate offline/no-solve metadata build")
     if starting_model_path.resolve() == Path(output_model_path).resolve():
         raise ValueError("Input and output must be separate files")
     if r608_curation_path is not None:
@@ -609,12 +616,19 @@ def build_reference_chain(
         logger.warning("CoQ9 local conflicts: inspect the build record")
     selection["post_selection_r1159_direction"] = apply_r1159_direction(model)
     logger.info("R1159 direction: %s", selection["post_selection_r1159_direction"])
+    if energy_candidate != "E0":
+        if not selection["complete"] or not coq9["requested_mode_complete"]:
+            raise ValueError("Cannot apply energy candidate to an incomplete reference build")
+        selection["energy_candidate"] = apply_energy_candidate(model, energy_candidate)
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
     # members in hash-random order.  Canonicalise that serialization detail so
     # the byte-level SHA used by the evidence ledger is reproducible.
-    write_deterministic_sbml_model(model, output_model_path)
+    if energy_candidate == "E0":
+        write_deterministic_sbml_model(model, output_model_path)
+    else:
+        export_candidate(model, output_model_path)
     logger.info("Model build complete.")
     return model, coq9, retention, selection
 
@@ -651,6 +665,8 @@ def build_model(args):
     input_sha = sha(args.starting_model)
     source_sha = {str(p.relative_to(REPO_ROOT)): sha(p) for p in sorted(Path(__file__).parent.glob("*.py"))}
     data_paths = [args.starting_model, CURATION_PATH, GENE_EVIDENCE_PATH, RETENTION_PATH, SELECTION_PATH]
+    if getattr(args, "energy_candidate", "E0") != "E0":
+        data_paths.append(ENERGY_SPEC_PATH)
     data_paths += [p for p in (REPO_ROOT / "data" / "reference_build").rglob("*") if p.is_file()]
     for folder in (MNX_DIR, CACHE_DIR, PROJECT_PATHS.locus_map,
                    PROJECT_PATHS.research_root / "reference" / "ncbi",
@@ -669,6 +685,7 @@ def build_model(args):
         r608_curation_path=args.r608_curation,
         starting_model_path=args.starting_model,
         coq9_mode=args.coq9_curation,
+        energy_candidate=getattr(args, "energy_candidate", "E0"),
     )
     output = args.output_model
     evidence = gene_evidence(model)

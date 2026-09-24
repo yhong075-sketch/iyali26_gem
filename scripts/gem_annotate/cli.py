@@ -21,6 +21,8 @@ def parse_args(argv=None):
     parser.add_argument("--provisional-capacity-profile", type=Path)
     parser.add_argument("--trna-biomass-mode", choices=("split",))
     parser.add_argument("--r608-curation", type=Path, help="Existing explicit R608 candidate; disabled by default")
+    parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
+                        help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
 
 

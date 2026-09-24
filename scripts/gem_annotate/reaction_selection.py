@@ -24,6 +24,10 @@ def _same(field, left, right):
 
 def apply_metadata_reaction_selection(model, spec=None):
     """Set known old/target fields once; preserve each conflicting reaction in full."""
+    # Explicit candidate curation has higher chemistry/direction priority. Validate
+    # every persisted guard before any mutation, including unrelated metadata.
+    from .energy_candidates import protected_definitions
+    protected = protected_definitions(model)
     if spec is None:
         spec = json.loads(SELECTION_PATH.read_text())
     rows = []
@@ -37,6 +41,8 @@ def apply_metadata_reaction_selection(model, spec=None):
         current = reaction_fields(reaction)
         errors = []
         for field, value in current.items():
+            if rid in protected and field in ("stoichiometry", "bounds"):
+                continue
             allowed = [rule["before"][field]]
             if field in rule.get("before_export", {}):
                 allowed.append(rule["before_export"][field])
@@ -60,6 +66,10 @@ def apply_metadata_reaction_selection(model, spec=None):
             continue
 
         for field in rule["fields"]:
+            if rid in protected and field in ("stoichiometry", "bounds"):
+                row["fields"].append({"field": field, "status": "preserved_candidate",
+                                      "curation_id": protected[rid]["curation_id"]})
+                continue
             target = rule["after"][field]
             changed = not _same(field, current[field], target)
             row["fields"].append({"field": field, "status": "applied" if changed else "already_correct"})

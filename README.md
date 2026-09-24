@@ -143,3 +143,11 @@ previous model files are not replaced. Run
 `python -m unittest tests.test_r1159_direction` for the focused regression.
 The previously saved zero-flux WT witness remains feasible under this bound;
 this direction change alone does not establish essentiality.
+
+### Optional ATP energy repair (E5, 2026-09-24)
+
+The [E5 candidate model](artifacts/atp_candidate_repair_20260924/candidates/E5.xml),
+its pinned input, repair data, rebuild command and validation results are available
+in the [candidate delivery notes](artifacts/atp_candidate_repair_20260924/DELIVERY.md).
+Default builds remain E0. This candidate passed the stated closed ATP/GTP/UTP/CTP
+tests; it is not a formal default-model release or validation of native GPRs.

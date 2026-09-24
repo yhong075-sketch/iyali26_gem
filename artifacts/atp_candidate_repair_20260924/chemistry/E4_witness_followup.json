@@ -1,0 +1,4305 @@
+{
+  "scope": "Independent source and stoichiometry audit only, no optimization and no model/source patching. Expected candidate definitions, not generated artifact acceptance.",
+  "verification_date": "2026-09-24",
+  "files": [
+    {
+      "path": "model_metadata_trna_r1159_leak.xml",
+      "sha256": "aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f"
+    },
+    {
+      "path": "data/metadata_reaction_selection.json",
+      "sha256": "abfc4a94a03b4ec8da9e3e2fc3ba2e4f04806ef802b6e93c442274065ca0cb24"
+    },
+    {
+      "path": "data/reference_build/curation/gap_fill_direction_curation.csv",
+      "sha256": "cf9c498c59caee7ac385379a3b8beba849c972b82f4de917ffa62bed1156196d"
+    },
+    {
+      "path": "artifacts/atp_candidate_repair_20260924/E4_validation/E4/witness.json",
+      "sha256": "27d8d608a58794cf7d49f0e5f7240e232040462973e4f43f7d587632f8e5b6d5"
+    },
+    {
+      "path": "artifacts/reference_pipeline_restore_20260909/research/cache/data/uniprot_UP000182444.json",
+      "sha256": "e5b0a04874079b4057ffe25dadcb6b812cba8c96b227f41187187b27715753a3"
+    }
+  ],
+  "actual_fixed_model": {
+    "R_CAT2p": {
+      "id": "R_CAT2p",
+      "name": "R_CAT2p",
+      "stoichiometry": {
+        "m275[C_cy]": -1.0,
+        "m222[C_pe]": -1.0,
+        "m173[C_cy]": 1.0,
+        "m375[C_pe]": 2.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gene_refs": [
+        "YALI1E40671g"
+      ],
+      "annotations": [
+        "https://identifiers.org/bigg.reaction/R_CAT2p",
+        "https://identifiers.org/metanetx.reaction/MNXR96457",
+        "https://identifiers.org/ec-code/1.11.1.6"
+      ],
+      "notes": [
+        "metadata_previous_gap_fill_direction_status: active",
+        "metadata_previous_gap_fill_stoichiometry_action: keep",
+        "metadata_previous_gap_fill_direction_evidence: https://www.metanetx.org/equa_info/MNXR96457",
+        "metadata_previous_gap_fill_direction_rationale: Keep the ethanol-peroxide oxidation equation and disallow its reverse production of hydrogen peroxide and ethanol.",
+        "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields: bounds",
+        "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+      ],
+      "species": {
+        "m275[C_cy]": {
+          "name": "ethanol_C2H6O",
+          "formula": "C2H6O",
+          "charge": 0.0,
+          "compartment": "C_cy",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/etoh",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/9fb1fbdf-101b-4b82-a596-d2f52c870e4f",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/a4a354fd-5003-4b7b-b11b-f54204aea384",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/f5511882-176d-4bcf-984d-f8e1d035126d",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/56e18a05-c059-433a-94f6-0e26c01b010f",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/47531437-84d3-45c8-a1ff-a7cd00056944",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/e7fb1766-db02-47ad-adfe-111570756a28",
+            "https://identifiers.org/hmdb/HMDB00108",
+            "https://identifiers.org/kegg.compound/C00469",
+            "https://identifiers.org/kegg.drug/D00068",
+            "https://identifiers.org/kegg.drug/D06542",
+            "https://identifiers.org/metacyc.compound/ETOH",
+            "https://identifiers.org/reactome/R-ALL-113748",
+            "https://identifiers.org/reactome/R-ALL-30203",
+            "https://identifiers.org/sabiork.compound/56",
+            "https://identifiers.org/seed.compound/cpd00363",
+            "https://identifiers.org/vmhmetabolite/etoh",
+            "https://identifiers.org/metanetx.chemical/MNXM1108092",
+            "https://identifiers.org/inchi/InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3",
+            "https://identifiers.org/inchikey/LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:14222",
+            "https://identifiers.org/chebi/CHEBI:16236",
+            "https://identifiers.org/chebi/CHEBI:193043",
+            "https://identifiers.org/chebi/CHEBI:23978",
+            "https://identifiers.org/chebi/CHEBI:30878",
+            "https://identifiers.org/chebi/CHEBI:30880",
+            "https://identifiers.org/chebi/CHEBI:42377",
+            "https://identifiers.org/chebi/CHEBI:44594",
+            "https://identifiers.org/chebi/CHEBI:4879",
+            "https://identifiers.org/slm/000390046",
+            "https://identifiers.org/biggm/M_etoh",
+            "https://identifiers.org/biggm/etoh",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/9fb1fbdf-101b-4b82-a596-d2f52c870e4f",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/a4a354fd-5003-4b7b-b11b-f54204aea384",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/f5511882-176d-4bcf-984d-f8e1d035126d",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/56e18a05-c059-433a-94f6-0e26c01b010f",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/47531437-84d3-45c8-a1ff-a7cd00056944",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/e7fb1766-db02-47ad-adfe-111570756a28",
+            "https://identifiers.org/keggc/C00469",
+            "https://identifiers.org/keggc/M_C00469",
+            "https://identifiers.org/keggd/D00068",
+            "https://identifiers.org/keggd/D06542",
+            "https://identifiers.org/keggd/M_D00068",
+            "https://identifiers.org/keggd/M_D06542",
+            "https://identifiers.org/metacycm/ETOH",
+            "https://identifiers.org/reactomem/R-ALL-113748",
+            "https://identifiers.org/reactomem/R-ALL-30203",
+            "https://identifiers.org/sabiorkm/56",
+            "https://identifiers.org/seedm/M_cpd00363",
+            "https://identifiers.org/seedm/cpd00363",
+            "https://identifiers.org/vmhm/M_etoh",
+            "https://identifiers.org/vmhm/etoh"
+          ]
+        },
+        "m222[C_pe]": {
+          "name": "hydrogen peroxide_H2O2",
+          "formula": "H2O2",
+          "charge": 0.0,
+          "compartment": "C_pe",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h2o2",
+            "https://identifiers.org/hmdb/HMDB03125",
+            "https://identifiers.org/hmdb/HMDB06491",
+            "https://identifiers.org/kegg.compound/C00027",
+            "https://identifiers.org/kegg.drug/D00008",
+            "https://identifiers.org/metacyc.compound/HYDROGEN-PEROXIDE",
+            "https://identifiers.org/reactome/R-ALL-1132121",
+            "https://identifiers.org/reactome/R-ALL-113575",
+            "https://identifiers.org/reactome/R-ALL-1222719",
+            "https://identifiers.org/reactome/R-ALL-1614617",
+            "https://identifiers.org/reactome/R-ALL-189481",
+            "https://identifiers.org/reactome/R-ALL-29408",
+            "https://identifiers.org/reactome/R-ALL-3341383",
+            "https://identifiers.org/reactome/R-ALL-351629",
+            "https://identifiers.org/sabiork.compound/1909",
+            "https://identifiers.org/seed.compound/cpd00025",
+            "https://identifiers.org/vmhmetabolite/h2o2",
+            "https://identifiers.org/metanetx.chemical/MNXM732620",
+            "https://identifiers.org/inchi/InChI=1S/H2O2/c1-2/h1-2H",
+            "https://identifiers.org/inchikey/MHAJPDPJQMAIIY-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:13354",
+            "https://identifiers.org/chebi/CHEBI:13355",
+            "https://identifiers.org/chebi/CHEBI:16240",
+            "https://identifiers.org/chebi/CHEBI:24637",
+            "https://identifiers.org/chebi/CHEBI:29192",
+            "https://identifiers.org/chebi/CHEBI:44812",
+            "https://identifiers.org/chebi/CHEBI:5586",
+            "https://identifiers.org/biggm/M_h2o2",
+            "https://identifiers.org/biggm/h2o2",
+            "https://identifiers.org/keggc/C00027",
+            "https://identifiers.org/keggc/M_C00027",
+            "https://identifiers.org/keggd/D00008",
+            "https://identifiers.org/keggd/M_D00008",
+            "https://identifiers.org/metacycm/HYDROGEN-PEROXIDE",
+            "https://identifiers.org/reactomem/R-ALL-1132121",
+            "https://identifiers.org/reactomem/R-ALL-113575",
+            "https://identifiers.org/reactomem/R-ALL-1222719",
+            "https://identifiers.org/reactomem/R-ALL-1614617",
+            "https://identifiers.org/reactomem/R-ALL-189481",
+            "https://identifiers.org/reactomem/R-ALL-29408",
+            "https://identifiers.org/reactomem/R-ALL-3341383",
+            "https://identifiers.org/reactomem/R-ALL-351629",
+            "https://identifiers.org/sabiorkm/1909",
+            "https://identifiers.org/seedm/M_cpd00025",
+            "https://identifiers.org/seedm/cpd00025",
+            "https://identifiers.org/vmhm/M_h2o2",
+            "https://identifiers.org/vmhm/h2o2"
+          ]
+        },
+        "m173[C_cy]": {
+          "name": "acetaldehyde_C2H4O",
+          "formula": "C2H4O",
+          "charge": 0.0,
+          "compartment": "C_cy",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/acald",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/78f3645f-408e-4001-9dda-a52ea62a15d4",
+            "https://identifiers.org/envipath/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/9c8865b2-a99d-42e4-a042-c88504f04b51",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/47aa8e53-36ae-4be3-987c-c1cfab66af78",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/8fff64d6-328d-4985-a844-122f016f1597",
+            "https://identifiers.org/hmdb/HMDB00990",
+            "https://identifiers.org/kegg.compound/C00084",
+            "https://identifiers.org/metacyc.compound/ACETALD",
+            "https://identifiers.org/reactome/R-ALL-113532",
+            "https://identifiers.org/reactome/R-ALL-113681",
+            "https://identifiers.org/reactome/R-ALL-113745",
+            "https://identifiers.org/reactome/R-ALL-29510",
+            "https://identifiers.org/sabiork.compound/1292",
+            "https://identifiers.org/seed.compound/cpd00071",
+            "https://identifiers.org/vmhmetabolite/acald",
+            "https://identifiers.org/metanetx.chemical/MNXM75",
+            "https://identifiers.org/inchi/InChI=1S/C2H4O/c1-2-3/h2H,1H3",
+            "https://identifiers.org/inchikey/IKHGUXGNUITLKF-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:13703",
+            "https://identifiers.org/chebi/CHEBI:15343",
+            "https://identifiers.org/chebi/CHEBI:22158",
+            "https://identifiers.org/chebi/CHEBI:2383",
+            "https://identifiers.org/chebi/CHEBI:40533",
+            "https://identifiers.org/slm/000390047",
+            "https://identifiers.org/biggm/M_acald",
+            "https://identifiers.org/biggm/acald",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/78f3645f-408e-4001-9dda-a52ea62a15d4",
+            "https://identifiers.org/envipathm/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/9c8865b2-a99d-42e4-a042-c88504f04b51",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/47aa8e53-36ae-4be3-987c-c1cfab66af78",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/8fff64d6-328d-4985-a844-122f016f1597",
+            "https://identifiers.org/keggc/C00084",
+            "https://identifiers.org/keggc/M_C00084",
+            "https://identifiers.org/metacycm/ACETALD",
+            "https://identifiers.org/reactomem/R-ALL-113532",
+            "https://identifiers.org/reactomem/R-ALL-113681",
+            "https://identifiers.org/reactomem/R-ALL-113745",
+            "https://identifiers.org/reactomem/R-ALL-29510",
+            "https://identifiers.org/sabiorkm/1292",
+            "https://identifiers.org/seedm/M_cpd00071",
+            "https://identifiers.org/seedm/cpd00071",
+            "https://identifiers.org/vmhm/M_acald",
+            "https://identifiers.org/vmhm/acald"
+          ]
+        },
+        "m375[C_pe]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0.0,
+          "compartment": "C_pe",
+          "notes": [
+            "microspecies_convention: water: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15377"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h2o",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/969d0227-3069-4e44-9525-7ae7bad84170",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/799908db-b8c9-4982-86cb-1f225e2ad08c",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/e7f34a8e-cded-4793-b6d5-792335b38636",
+            "https://identifiers.org/envipath/b0c0e9bc-b183-45e9-9f83-8e743ed5dc7b/compound/426cf377-a166-441d-a118-d32682004128",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/27c22ce9-2753-43ba-96bc-ad4164fee4a7",
+            "https://identifiers.org/hmdb/HMDB02111",
+            "https://identifiers.org/kegg.compound/C00001",
+            "https://identifiers.org/kegg.drug/D00001",
+            "https://identifiers.org/kegg.drug/D03703",
+            "https://identifiers.org/kegg.drug/D06249",
+            "https://identifiers.org/kegg.drug/D06322",
+            "https://identifiers.org/metacyc.compound/WATER",
+            "https://identifiers.org/mnx/WATER",
+            "https://identifiers.org/reactome/R-ALL-109276",
+            "https://identifiers.org/reactome/R-ALL-113518",
+            "https://identifiers.org/reactome/R-ALL-113519",
+            "https://identifiers.org/reactome/R-ALL-113521",
+            "https://identifiers.org/reactome/R-ALL-1222475",
+            "https://identifiers.org/reactome/R-ALL-141343",
+            "https://identifiers.org/reactome/R-ALL-1605715",
+            "https://identifiers.org/reactome/R-ALL-189422",
+            "https://identifiers.org/reactome/R-ALL-2022884",
+            "https://identifiers.org/reactome/R-ALL-2429665",
+            "https://identifiers.org/reactome/R-ALL-29356",
+            "https://identifiers.org/reactome/R-ALL-351603",
+            "https://identifiers.org/reactome/R-ALL-5278291",
+            "https://identifiers.org/reactome/R-ALL-5668574",
+            "https://identifiers.org/reactome/R-ALL-5685882",
+            "https://identifiers.org/reactome/R-ALL-5693747",
+            "https://identifiers.org/reactome/R-ALL-6781870",
+            "https://identifiers.org/reactome/R-ALL-8851517",
+            "https://identifiers.org/sabiork.compound/40",
+            "https://identifiers.org/seed.compound/cpd00001",
+            "https://identifiers.org/vmhmetabolite/h2o",
+            "https://identifiers.org/metanetx.chemical/WATER",
+            "https://identifiers.org/inchi/InChI=1S/H2O/h1H2",
+            "https://identifiers.org/inchikey/XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15377",
+            "https://identifiers.org/biggm/M_h2o",
+            "https://identifiers.org/biggm/h2o",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/969d0227-3069-4e44-9525-7ae7bad84170",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/799908db-b8c9-4982-86cb-1f225e2ad08c",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/e7f34a8e-cded-4793-b6d5-792335b38636",
+            "https://identifiers.org/envipathm/b0c0e9bc-b183-45e9-9f83-8e743ed5dc7b/compound/426cf377-a166-441d-a118-d32682004128",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/27c22ce9-2753-43ba-96bc-ad4164fee4a7",
+            "https://identifiers.org/keggc/C00001",
+            "https://identifiers.org/keggc/M_C00001",
+            "https://identifiers.org/keggd/D00001",
+            "https://identifiers.org/keggd/D03703",
+            "https://identifiers.org/keggd/D06249",
+            "https://identifiers.org/keggd/D06322",
+            "https://identifiers.org/keggd/M_D00001",
+            "https://identifiers.org/keggd/M_D03703",
+            "https://identifiers.org/keggd/M_D06249",
+            "https://identifiers.org/keggd/M_D06322",
+            "https://identifiers.org/metacycm/WATER",
+            "https://identifiers.org/reactomem/R-ALL-109276",
+            "https://identifiers.org/reactomem/R-ALL-113518",
+            "https://identifiers.org/reactomem/R-ALL-113519",
+            "https://identifiers.org/reactomem/R-ALL-113521",
+            "https://identifiers.org/reactomem/R-ALL-1222475",
+            "https://identifiers.org/reactomem/R-ALL-141343",
+            "https://identifiers.org/reactomem/R-ALL-1605715",
+            "https://identifiers.org/reactomem/R-ALL-189422",
+            "https://identifiers.org/reactomem/R-ALL-2022884",
+            "https://identifiers.org/reactomem/R-ALL-2429665",
+            "https://identifiers.org/reactomem/R-ALL-29356",
+            "https://identifiers.org/reactomem/R-ALL-351603",
+            "https://identifiers.org/reactomem/R-ALL-5278291",
+            "https://identifiers.org/reactomem/R-ALL-5668574",
+            "https://identifiers.org/reactomem/R-ALL-5685882",
+            "https://identifiers.org/reactomem/R-ALL-5693747",
+            "https://identifiers.org/reactomem/R-ALL-6781870",
+            "https://identifiers.org/reactomem/R-ALL-8851517",
+            "https://identifiers.org/sabiorkm/40",
+            "https://identifiers.org/seedm/M_cpd00001",
+            "https://identifiers.org/seedm/cpd00001",
+            "https://identifiers.org/vmhm/M_h2o",
+            "https://identifiers.org/vmhm/h2o"
+          ]
+        }
+      },
+      "residual": {
+        "elements": {
+          "C": 0.0,
+          "H": 0.0,
+          "O": 0.0
+        },
+        "charge": 0.0,
+        "missing_formula": []
+      }
+    },
+    "R_OAADCm": {
+      "id": "R_OAADCm",
+      "name": "R_OAADCm",
+      "stoichiometry": {
+        "m44[C_mi]": -1.0,
+        "m6[C_mi]": -1.0,
+        "m77[C_mi]": 1.0,
+        "m28[C_mi]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gene_refs": [
+        "YALI1E22303g"
+      ],
+      "annotations": [
+        "https://identifiers.org/bigg.reaction/R_OAADCm",
+        "https://identifiers.org/metanetx.reaction/MNXR102097",
+        "https://identifiers.org/kegg.reaction/R00217",
+        "https://identifiers.org/ec-code/1.1.1.38"
+      ],
+      "notes": [
+        "metadata_previous_gap_fill_direction_status: legacy_unreviewed",
+        "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields: stoichiometry",
+        "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+      ],
+      "species": {
+        "m44[C_mi]": {
+          "name": "carbon dioxide_CO2",
+          "formula": "CO2",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/co2",
+            "https://identifiers.org/hmdb/HMDB01967",
+            "https://identifiers.org/kegg.compound/C00011",
+            "https://identifiers.org/kegg.drug/D00004",
+            "https://identifiers.org/metacyc.compound/CARBON-DIOXIDE",
+            "https://identifiers.org/reactome/R-ALL-1132345",
+            "https://identifiers.org/reactome/R-ALL-113528",
+            "https://identifiers.org/reactome/R-ALL-1237009",
+            "https://identifiers.org/reactome/R-ALL-159751",
+            "https://identifiers.org/reactome/R-ALL-159942",
+            "https://identifiers.org/reactome/R-ALL-189480",
+            "https://identifiers.org/reactome/R-ALL-29376",
+            "https://identifiers.org/reactome/R-ALL-389536",
+            "https://identifiers.org/reactome/R-ALL-5668565",
+            "https://identifiers.org/sabiork.compound/1266",
+            "https://identifiers.org/seed.compound/cpd00011",
+            "https://identifiers.org/vmhmetabolite/co2",
+            "https://identifiers.org/metanetx.chemical/MNXM13",
+            "https://identifiers.org/inchi/InChI=1S/CO2/c2-1-3",
+            "https://identifiers.org/inchikey/CURLTUGMZLYLDI-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:13282",
+            "https://identifiers.org/chebi/CHEBI:13283",
+            "https://identifiers.org/chebi/CHEBI:13284",
+            "https://identifiers.org/chebi/CHEBI:13285",
+            "https://identifiers.org/chebi/CHEBI:139538",
+            "https://identifiers.org/chebi/CHEBI:16526",
+            "https://identifiers.org/chebi/CHEBI:23011",
+            "https://identifiers.org/chebi/CHEBI:3283",
+            "https://identifiers.org/chebi/CHEBI:48829",
+            "https://identifiers.org/biggm/M_co2",
+            "https://identifiers.org/biggm/co2",
+            "https://identifiers.org/keggc/C00011",
+            "https://identifiers.org/keggc/M_C00011",
+            "https://identifiers.org/keggd/D00004",
+            "https://identifiers.org/keggd/M_D00004",
+            "https://identifiers.org/metacycm/CARBON-DIOXIDE",
+            "https://identifiers.org/reactomem/R-ALL-1132345",
+            "https://identifiers.org/reactomem/R-ALL-113528",
+            "https://identifiers.org/reactomem/R-ALL-1237009",
+            "https://identifiers.org/reactomem/R-ALL-159751",
+            "https://identifiers.org/reactomem/R-ALL-159942",
+            "https://identifiers.org/reactomem/R-ALL-189480",
+            "https://identifiers.org/reactomem/R-ALL-29376",
+            "https://identifiers.org/reactomem/R-ALL-389536",
+            "https://identifiers.org/reactomem/R-ALL-5668565",
+            "https://identifiers.org/sabiorkm/1266",
+            "https://identifiers.org/seedm/M_cpd00011",
+            "https://identifiers.org/seedm/cpd00011",
+            "https://identifiers.org/vmhm/M_co2",
+            "https://identifiers.org/vmhm/co2"
+          ]
+        },
+        "m6[C_mi]": {
+          "name": "pyruvate_C3H4O3",
+          "formula": "C3H4O3",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C3H4O3\",\"mnxm_id\":\"MNXM23\",\"proposed_charge\":-1,\"proposed_formula\":\"C3H3O3\",\"source\":\"MetaNetX\"}"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/pyr",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/dc01020e-8c7e-4087-9f56-cf8c962b7437",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/ccc99777-54dc-42d4-a97e-009b780d3905",
+            "https://identifiers.org/hmdb/HMDB00243",
+            "https://identifiers.org/kegg.compound/C00022",
+            "https://identifiers.org/lipidmaps/LMFA01060077",
+            "https://identifiers.org/metacyc.compound/PYRUVATE",
+            "https://identifiers.org/reactome/R-ALL-1130930",
+            "https://identifiers.org/reactome/R-ALL-113557",
+            "https://identifiers.org/reactome/R-ALL-29398",
+            "https://identifiers.org/reactome/R-ALL-389680",
+            "https://identifiers.org/reactome/R-ALL-429750",
+            "https://identifiers.org/reactome/R-ALL-5357717",
+            "https://identifiers.org/reactome/R-ALL-9012375",
+            "https://identifiers.org/sabiork.compound/33",
+            "https://identifiers.org/seed.compound/cpd00020",
+            "https://identifiers.org/vmhmetabolite/pyr",
+            "https://identifiers.org/metanetx.chemical/MNXM23",
+            "https://identifiers.org/inchi/InChI=1S/C3H4O3/c1-2(4)3(5)6/h1H3,(H,5,6)/p-1",
+            "https://identifiers.org/inchikey/LCTONWCANYUPML-UHFFFAOYSA-M",
+            "https://identifiers.org/chebi/CHEBI:14987",
+            "https://identifiers.org/chebi/CHEBI:15361",
+            "https://identifiers.org/chebi/CHEBI:177913",
+            "https://identifiers.org/chebi/CHEBI:26462",
+            "https://identifiers.org/chebi/CHEBI:26466",
+            "https://identifiers.org/chebi/CHEBI:32816",
+            "https://identifiers.org/chebi/CHEBI:45253",
+            "https://identifiers.org/chebi/CHEBI:8685",
+            "https://identifiers.org/slm/000000404",
+            "https://identifiers.org/biggm/M_pyr",
+            "https://identifiers.org/biggm/pyr",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/dc01020e-8c7e-4087-9f56-cf8c962b7437",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/ccc99777-54dc-42d4-a97e-009b780d3905",
+            "https://identifiers.org/keggc/C00022",
+            "https://identifiers.org/keggc/M_C00022",
+            "https://identifiers.org/lipidmapsm/LMFA01060077",
+            "https://identifiers.org/metacycm/PYRUVATE",
+            "https://identifiers.org/reactomem/R-ALL-1130930",
+            "https://identifiers.org/reactomem/R-ALL-113557",
+            "https://identifiers.org/reactomem/R-ALL-29398",
+            "https://identifiers.org/reactomem/R-ALL-389680",
+            "https://identifiers.org/reactomem/R-ALL-429750",
+            "https://identifiers.org/reactomem/R-ALL-5357717",
+            "https://identifiers.org/reactomem/R-ALL-9012375",
+            "https://identifiers.org/sabiorkm/33",
+            "https://identifiers.org/seedm/M_cpd00020",
+            "https://identifiers.org/seedm/cpd00020",
+            "https://identifiers.org/vmhm/M_pyr",
+            "https://identifiers.org/vmhm/pyr"
+          ]
+        },
+        "m77[C_mi]": {
+          "name": "oxaloacetate_C4H4O5",
+          "formula": "C4H4O5",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C4H4O5\",\"mnxm_id\":\"MNXM46\",\"proposed_charge\":-2,\"proposed_formula\":\"C4H2O5\",\"source\":\"MetaNetX\"}"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/oaa",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/be7c543c-40bd-4698-9821-22f2e65c38f3",
+            "https://identifiers.org/envipath/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/133a11f3-81b0-4384-837e-1ccdd0a2a645",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/40afaad4-431a-4e3c-b4c7-020dbe4bdd2a",
+            "https://identifiers.org/hmdb/HMDB00223",
+            "https://identifiers.org/kegg.compound/C00036",
+            "https://identifiers.org/lipidmaps/LMFA01170120",
+            "https://identifiers.org/metacyc.compound/OXALACETIC_ACID",
+            "https://identifiers.org/reactome/R-ALL-113587",
+            "https://identifiers.org/reactome/R-ALL-6810070",
+            "https://identifiers.org/reactome/R-ALL-76213",
+            "https://identifiers.org/sabiork.compound/1915",
+            "https://identifiers.org/seed.compound/cpd00032",
+            "https://identifiers.org/vmhmetabolite/oaa",
+            "https://identifiers.org/metanetx.chemical/MNXM46",
+            "https://identifiers.org/inchi/InChI=1S/C4H4O5/c5-2(4(8)9)1-3(6)7/h1H2,(H,6,7)(H,8,9)/p-2",
+            "https://identifiers.org/inchikey/KHPXUQMNIQBQEV-UHFFFAOYSA-L",
+            "https://identifiers.org/chebi/CHEBI:12820",
+            "https://identifiers.org/chebi/CHEBI:14703",
+            "https://identifiers.org/chebi/CHEBI:16452",
+            "https://identifiers.org/chebi/CHEBI:24958",
+            "https://identifiers.org/chebi/CHEBI:24959",
+            "https://identifiers.org/chebi/CHEBI:25731",
+            "https://identifiers.org/chebi/CHEBI:25734",
+            "https://identifiers.org/chebi/CHEBI:30744",
+            "https://identifiers.org/chebi/CHEBI:7812",
+            "https://identifiers.org/slm/000001047",
+            "https://identifiers.org/biggm/M_oaa",
+            "https://identifiers.org/biggm/oaa",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/be7c543c-40bd-4698-9821-22f2e65c38f3",
+            "https://identifiers.org/envipathm/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/133a11f3-81b0-4384-837e-1ccdd0a2a645",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/40afaad4-431a-4e3c-b4c7-020dbe4bdd2a",
+            "https://identifiers.org/keggc/C00036",
+            "https://identifiers.org/keggc/M_C00036",
+            "https://identifiers.org/lipidmapsm/LMFA01170120",
+            "https://identifiers.org/metacycm/OXALACETIC_ACID",
+            "https://identifiers.org/reactomem/R-ALL-113587",
+            "https://identifiers.org/reactomem/R-ALL-6810070",
+            "https://identifiers.org/reactomem/R-ALL-76213",
+            "https://identifiers.org/sabiorkm/1915",
+            "https://identifiers.org/seedm/M_cpd00032",
+            "https://identifiers.org/seedm/cpd00032",
+            "https://identifiers.org/vmhm/M_oaa",
+            "https://identifiers.org/vmhm/oaa"
+          ]
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_mi",
+          "notes": [
+            "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h",
+            "https://identifiers.org/hmdb/HMDB59597",
+            "https://identifiers.org/kegg.compound/C00080",
+            "https://identifiers.org/metacyc.compound/PROTON",
+            "https://identifiers.org/mnx/PROTON",
+            "https://identifiers.org/reactome/R-ALL-1132304",
+            "https://identifiers.org/reactome/R-ALL-113529",
+            "https://identifiers.org/reactome/R-ALL-1470067",
+            "https://identifiers.org/reactome/R-ALL-156540",
+            "https://identifiers.org/reactome/R-ALL-1614597",
+            "https://identifiers.org/reactome/R-ALL-163953",
+            "https://identifiers.org/reactome/R-ALL-193465",
+            "https://identifiers.org/reactome/R-ALL-194688",
+            "https://identifiers.org/reactome/R-ALL-2000349",
+            "https://identifiers.org/reactome/R-ALL-2429673",
+            "https://identifiers.org/reactome/R-ALL-2872447",
+            "https://identifiers.org/reactome/R-ALL-351626",
+            "https://identifiers.org/reactome/R-ALL-372511",
+            "https://identifiers.org/reactome/R-ALL-374900",
+            "https://identifiers.org/reactome/R-ALL-425969",
+            "https://identifiers.org/reactome/R-ALL-425978",
+            "https://identifiers.org/reactome/R-ALL-425999",
+            "https://identifiers.org/reactome/R-ALL-427899",
+            "https://identifiers.org/reactome/R-ALL-428040",
+            "https://identifiers.org/reactome/R-ALL-428548",
+            "https://identifiers.org/reactome/R-ALL-5228597",
+            "https://identifiers.org/reactome/R-ALL-5244410",
+            "https://identifiers.org/reactome/R-ALL-5668577",
+            "https://identifiers.org/reactome/R-ALL-6783901",
+            "https://identifiers.org/reactome/R-ALL-70106",
+            "https://identifiers.org/reactome/R-ALL-74722",
+            "https://identifiers.org/reactome/R-ALL-9631150",
+            "https://identifiers.org/reactome/R-ALL-9668967",
+            "https://identifiers.org/reactome/R-ALL-9683057",
+            "https://identifiers.org/sabiork.compound/39",
+            "https://identifiers.org/seed.compound/cpd00067",
+            "https://identifiers.org/vmhmetabolite/HC02115",
+            "https://identifiers.org/vmhmetabolite/h",
+            "https://identifiers.org/metanetx.chemical/MNXM1",
+            "https://identifiers.org/inchi/InChI=1S/p+1",
+            "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15378",
+            "https://identifiers.org/biggm/M_h",
+            "https://identifiers.org/biggm/h",
+            "https://identifiers.org/keggc/C00080",
+            "https://identifiers.org/keggc/M_C00080",
+            "https://identifiers.org/metacycm/PROTON",
+            "https://identifiers.org/reactomem/R-ALL-1132304",
+            "https://identifiers.org/reactomem/R-ALL-113529",
+            "https://identifiers.org/reactomem/R-ALL-1470067",
+            "https://identifiers.org/reactomem/R-ALL-156540",
+            "https://identifiers.org/reactomem/R-ALL-1614597",
+            "https://identifiers.org/reactomem/R-ALL-163953",
+            "https://identifiers.org/reactomem/R-ALL-193465",
+            "https://identifiers.org/reactomem/R-ALL-194688",
+            "https://identifiers.org/reactomem/R-ALL-2000349",
+            "https://identifiers.org/reactomem/R-ALL-2429673",
+            "https://identifiers.org/reactomem/R-ALL-2872447",
+            "https://identifiers.org/reactomem/R-ALL-351626",
+            "https://identifiers.org/reactomem/R-ALL-372511",
+            "https://identifiers.org/reactomem/R-ALL-374900",
+            "https://identifiers.org/reactomem/R-ALL-425969",
+            "https://identifiers.org/reactomem/R-ALL-425978",
+            "https://identifiers.org/reactomem/R-ALL-425999",
+            "https://identifiers.org/reactomem/R-ALL-427899",
+            "https://identifiers.org/reactomem/R-ALL-428040",
+            "https://identifiers.org/reactomem/R-ALL-428548",
+            "https://identifiers.org/reactomem/R-ALL-5228597",
+            "https://identifiers.org/reactomem/R-ALL-5244410",
+            "https://identifiers.org/reactomem/R-ALL-5668577",
+            "https://identifiers.org/reactomem/R-ALL-6783901",
+            "https://identifiers.org/reactomem/R-ALL-70106",
+            "https://identifiers.org/reactomem/R-ALL-74722",
+            "https://identifiers.org/reactomem/R-ALL-9631150",
+            "https://identifiers.org/reactomem/R-ALL-9668967",
+            "https://identifiers.org/reactomem/R-ALL-9683057",
+            "https://identifiers.org/sabiorkm/39",
+            "https://identifiers.org/seedm/M_cpd00067",
+            "https://identifiers.org/seedm/cpd00067",
+            "https://identifiers.org/vmhm/HC02115",
+            "https://identifiers.org/vmhm/M_HC02115",
+            "https://identifiers.org/vmhm/M_h",
+            "https://identifiers.org/vmhm/h"
+          ]
+        }
+      },
+      "residual": {
+        "elements": {
+          "C": 0.0,
+          "O": 0.0,
+          "H": 1.0
+        },
+        "charge": 1.0,
+        "missing_formula": []
+      }
+    },
+    "R305": {
+      "id": "R305",
+      "name": "ubiquinol-9:cytochrome-c reductase (complex III)",
+      "stoichiometry": {
+        "m2[C_mi]": -2.0,
+        "m28[C_mi]": -1.5,
+        "m471[C_mi]": -1.0,
+        "m3[C_mi]": 2.0,
+        "m10[C_cy]": 1.5,
+        "m468[C_mi]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gene_refs": [
+        "YALI1M00390g",
+        "YALI1A14736g",
+        "YALI1E40361g",
+        "YALI1A03322g",
+        "YALI1F32010g",
+        "YALI1B02487g",
+        "YALI1C17100g",
+        "YALI1F02758g",
+        "YALI1A17570g",
+        "YALI1F12013g",
+        "YALI1D11769g"
+      ],
+      "annotations": [
+        "https://identifiers.org/ec-code/7.1.1.8"
+      ],
+      "notes": [
+        "PROTEIN_CLASS: 7.1.1.8",
+        "coq9_previous_name: ferrocytochrome-c:oxygen oxidoreductase",
+        "coq9_previous_ec_code: 3.4.24.64; 7.1.1.8",
+        "coq9_previous_PROTEIN_CLASS: 1.10.2.2",
+        "coq9_curation_scope: Current GPR includes a cytochrome-c carrier dependency; native subunit-only AND membership is not certified.",
+        "coq9_proton_state: Original audited proton stoichiometry retained; Q-cycle candidate not applied."
+      ],
+      "species": {
+        "m2[C_mi]": {
+          "name": "ferricytochrome c_",
+          "formula": "C42H52FeN8O6S2",
+          "charge": 1.0,
+          "compartment": "C_mi",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/sabiork.compound/1937",
+            "https://identifiers.org/metanetx.chemical/MNXM1108007",
+            "https://identifiers.org/inchi/InChI=1S/C42H54N8O6S2.Fe/c1-19-25(9-11-37(51)52)33-16-34-26(10-12-38(53)54)20(2)30(48-34)14-35-40(24(6)58-18-28(44)42(56)46-8)22(4)32(50-35)15-36-39(21(3)31(49-36)13-29(19)47-33)23(5)57-17-27(43)41(55)45-7;/h13-16,23-24,27-28H,9-12,17-18,43-44H2,1-8H3,(H6,45,46,47,48,49,50,51,52,53,54,55,56);/q;+3/p-2/b29-13-,30-14-,31-13-,32-15-,33-16-,34-16-,35-14-,36-15-;",
+            "https://identifiers.org/inchikey/LJXGOQXYUKNTOR-VQGVYVAWSA-L",
+            "https://identifiers.org/sabiorkm/1937"
+          ]
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_mi",
+          "notes": [
+            "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h",
+            "https://identifiers.org/hmdb/HMDB59597",
+            "https://identifiers.org/kegg.compound/C00080",
+            "https://identifiers.org/metacyc.compound/PROTON",
+            "https://identifiers.org/mnx/PROTON",
+            "https://identifiers.org/reactome/R-ALL-1132304",
+            "https://identifiers.org/reactome/R-ALL-113529",
+            "https://identifiers.org/reactome/R-ALL-1470067",
+            "https://identifiers.org/reactome/R-ALL-156540",
+            "https://identifiers.org/reactome/R-ALL-1614597",
+            "https://identifiers.org/reactome/R-ALL-163953",
+            "https://identifiers.org/reactome/R-ALL-193465",
+            "https://identifiers.org/reactome/R-ALL-194688",
+            "https://identifiers.org/reactome/R-ALL-2000349",
+            "https://identifiers.org/reactome/R-ALL-2429673",
+            "https://identifiers.org/reactome/R-ALL-2872447",
+            "https://identifiers.org/reactome/R-ALL-351626",
+            "https://identifiers.org/reactome/R-ALL-372511",
+            "https://identifiers.org/reactome/R-ALL-374900",
+            "https://identifiers.org/reactome/R-ALL-425969",
+            "https://identifiers.org/reactome/R-ALL-425978",
+            "https://identifiers.org/reactome/R-ALL-425999",
+            "https://identifiers.org/reactome/R-ALL-427899",
+            "https://identifiers.org/reactome/R-ALL-428040",
+            "https://identifiers.org/reactome/R-ALL-428548",
+            "https://identifiers.org/reactome/R-ALL-5228597",
+            "https://identifiers.org/reactome/R-ALL-5244410",
+            "https://identifiers.org/reactome/R-ALL-5668577",
+            "https://identifiers.org/reactome/R-ALL-6783901",
+            "https://identifiers.org/reactome/R-ALL-70106",
+            "https://identifiers.org/reactome/R-ALL-74722",
+            "https://identifiers.org/reactome/R-ALL-9631150",
+            "https://identifiers.org/reactome/R-ALL-9668967",
+            "https://identifiers.org/reactome/R-ALL-9683057",
+            "https://identifiers.org/sabiork.compound/39",
+            "https://identifiers.org/seed.compound/cpd00067",
+            "https://identifiers.org/vmhmetabolite/HC02115",
+            "https://identifiers.org/vmhmetabolite/h",
+            "https://identifiers.org/metanetx.chemical/MNXM1",
+            "https://identifiers.org/inchi/InChI=1S/p+1",
+            "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15378",
+            "https://identifiers.org/biggm/M_h",
+            "https://identifiers.org/biggm/h",
+            "https://identifiers.org/keggc/C00080",
+            "https://identifiers.org/keggc/M_C00080",
+            "https://identifiers.org/metacycm/PROTON",
+            "https://identifiers.org/reactomem/R-ALL-1132304",
+            "https://identifiers.org/reactomem/R-ALL-113529",
+            "https://identifiers.org/reactomem/R-ALL-1470067",
+            "https://identifiers.org/reactomem/R-ALL-156540",
+            "https://identifiers.org/reactomem/R-ALL-1614597",
+            "https://identifiers.org/reactomem/R-ALL-163953",
+            "https://identifiers.org/reactomem/R-ALL-193465",
+            "https://identifiers.org/reactomem/R-ALL-194688",
+            "https://identifiers.org/reactomem/R-ALL-2000349",
+            "https://identifiers.org/reactomem/R-ALL-2429673",
+            "https://identifiers.org/reactomem/R-ALL-2872447",
+            "https://identifiers.org/reactomem/R-ALL-351626",
+            "https://identifiers.org/reactomem/R-ALL-372511",
+            "https://identifiers.org/reactomem/R-ALL-374900",
+            "https://identifiers.org/reactomem/R-ALL-425969",
+            "https://identifiers.org/reactomem/R-ALL-425978",
+            "https://identifiers.org/reactomem/R-ALL-425999",
+            "https://identifiers.org/reactomem/R-ALL-427899",
+            "https://identifiers.org/reactomem/R-ALL-428040",
+            "https://identifiers.org/reactomem/R-ALL-428548",
+            "https://identifiers.org/reactomem/R-ALL-5228597",
+            "https://identifiers.org/reactomem/R-ALL-5244410",
+            "https://identifiers.org/reactomem/R-ALL-5668577",
+            "https://identifiers.org/reactomem/R-ALL-6783901",
+            "https://identifiers.org/reactomem/R-ALL-70106",
+            "https://identifiers.org/reactomem/R-ALL-74722",
+            "https://identifiers.org/reactomem/R-ALL-9631150",
+            "https://identifiers.org/reactomem/R-ALL-9668967",
+            "https://identifiers.org/reactomem/R-ALL-9683057",
+            "https://identifiers.org/sabiorkm/39",
+            "https://identifiers.org/seedm/M_cpd00067",
+            "https://identifiers.org/seedm/cpd00067",
+            "https://identifiers.org/vmhm/HC02115",
+            "https://identifiers.org/vmhm/M_HC02115",
+            "https://identifiers.org/vmhm/M_h",
+            "https://identifiers.org/vmhm/h"
+          ]
+        },
+        "m471[C_mi]": {
+          "name": "ubiquinol-9_C54H84O4",
+          "formula": "C54H84O4",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/q9h2",
+            "https://identifiers.org/chebi/CHEBI:84424",
+            "https://identifiers.org/metacyc.compound/CPD-9957",
+            "https://identifiers.org/metanetx.chemical/MNXM1094084",
+            "https://identifiers.org/seed.compound/cpd25914"
+          ]
+        },
+        "m3[C_mi]": {
+          "name": "ferrocytochrome c_",
+          "formula": "C42H52FeN8O6S2",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/focytC",
+            "https://identifiers.org/metanetx.chemical/MNXM1108006",
+            "https://identifiers.org/inchi/InChI=1S/C42H54N8O6S2.Fe/c1-19-25(9-11-37(51)52)33-16-34-26(10-12-38(53)54)20(2)30(48-34)14-35-40(24(6)58-18-28(44)42(56)46-8)22(4)32(50-35)15-36-39(21(3)31(49-36)13-29(19)47-33)23(5)57-17-27(43)41(55)45-7;/h13-16,23-24,27-28H,9-12,17-18,43-44H2,1-8H3,(H6,45,46,47,48,49,50,51,52,53,54,55,56);/q;+2/p-2/b29-13-,30-14-,31-13-,32-15-,33-16-,34-16-,35-14-,36-15-;",
+            "https://identifiers.org/inchikey/WFVBWSTZNVJEAY-VQGVYVAWSA-L",
+            "https://identifiers.org/biggm/M_focytC",
+            "https://identifiers.org/biggm/focytC"
+          ]
+        },
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_cy",
+          "notes": [
+            "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h",
+            "https://identifiers.org/hmdb/HMDB59597",
+            "https://identifiers.org/kegg.compound/C00080",
+            "https://identifiers.org/metacyc.compound/PROTON",
+            "https://identifiers.org/mnx/PROTON",
+            "https://identifiers.org/reactome/R-ALL-1132304",
+            "https://identifiers.org/reactome/R-ALL-113529",
+            "https://identifiers.org/reactome/R-ALL-1470067",
+            "https://identifiers.org/reactome/R-ALL-156540",
+            "https://identifiers.org/reactome/R-ALL-1614597",
+            "https://identifiers.org/reactome/R-ALL-163953",
+            "https://identifiers.org/reactome/R-ALL-193465",
+            "https://identifiers.org/reactome/R-ALL-194688",
+            "https://identifiers.org/reactome/R-ALL-2000349",
+            "https://identifiers.org/reactome/R-ALL-2429673",
+            "https://identifiers.org/reactome/R-ALL-2872447",
+            "https://identifiers.org/reactome/R-ALL-351626",
+            "https://identifiers.org/reactome/R-ALL-372511",
+            "https://identifiers.org/reactome/R-ALL-374900",
+            "https://identifiers.org/reactome/R-ALL-425969",
+            "https://identifiers.org/reactome/R-ALL-425978",
+            "https://identifiers.org/reactome/R-ALL-425999",
+            "https://identifiers.org/reactome/R-ALL-427899",
+            "https://identifiers.org/reactome/R-ALL-428040",
+            "https://identifiers.org/reactome/R-ALL-428548",
+            "https://identifiers.org/reactome/R-ALL-5228597",
+            "https://identifiers.org/reactome/R-ALL-5244410",
+            "https://identifiers.org/reactome/R-ALL-5668577",
+            "https://identifiers.org/reactome/R-ALL-6783901",
+            "https://identifiers.org/reactome/R-ALL-70106",
+            "https://identifiers.org/reactome/R-ALL-74722",
+            "https://identifiers.org/reactome/R-ALL-9631150",
+            "https://identifiers.org/reactome/R-ALL-9668967",
+            "https://identifiers.org/reactome/R-ALL-9683057",
+            "https://identifiers.org/sabiork.compound/39",
+            "https://identifiers.org/seed.compound/cpd00067",
+            "https://identifiers.org/vmhmetabolite/HC02115",
+            "https://identifiers.org/vmhmetabolite/h",
+            "https://identifiers.org/metanetx.chemical/MNXM1",
+            "https://identifiers.org/inchi/InChI=1S/p+1",
+            "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15378",
+            "https://identifiers.org/biggm/M_h",
+            "https://identifiers.org/biggm/h",
+            "https://identifiers.org/keggc/C00080",
+            "https://identifiers.org/keggc/M_C00080",
+            "https://identifiers.org/metacycm/PROTON",
+            "https://identifiers.org/reactomem/R-ALL-1132304",
+            "https://identifiers.org/reactomem/R-ALL-113529",
+            "https://identifiers.org/reactomem/R-ALL-1470067",
+            "https://identifiers.org/reactomem/R-ALL-156540",
+            "https://identifiers.org/reactomem/R-ALL-1614597",
+            "https://identifiers.org/reactomem/R-ALL-163953",
+            "https://identifiers.org/reactomem/R-ALL-193465",
+            "https://identifiers.org/reactomem/R-ALL-194688",
+            "https://identifiers.org/reactomem/R-ALL-2000349",
+            "https://identifiers.org/reactomem/R-ALL-2429673",
+            "https://identifiers.org/reactomem/R-ALL-2872447",
+            "https://identifiers.org/reactomem/R-ALL-351626",
+            "https://identifiers.org/reactomem/R-ALL-372511",
+            "https://identifiers.org/reactomem/R-ALL-374900",
+            "https://identifiers.org/reactomem/R-ALL-425969",
+            "https://identifiers.org/reactomem/R-ALL-425978",
+            "https://identifiers.org/reactomem/R-ALL-425999",
+            "https://identifiers.org/reactomem/R-ALL-427899",
+            "https://identifiers.org/reactomem/R-ALL-428040",
+            "https://identifiers.org/reactomem/R-ALL-428548",
+            "https://identifiers.org/reactomem/R-ALL-5228597",
+            "https://identifiers.org/reactomem/R-ALL-5244410",
+            "https://identifiers.org/reactomem/R-ALL-5668577",
+            "https://identifiers.org/reactomem/R-ALL-6783901",
+            "https://identifiers.org/reactomem/R-ALL-70106",
+            "https://identifiers.org/reactomem/R-ALL-74722",
+            "https://identifiers.org/reactomem/R-ALL-9631150",
+            "https://identifiers.org/reactomem/R-ALL-9668967",
+            "https://identifiers.org/reactomem/R-ALL-9683057",
+            "https://identifiers.org/sabiorkm/39",
+            "https://identifiers.org/seedm/M_cpd00067",
+            "https://identifiers.org/seedm/cpd00067",
+            "https://identifiers.org/vmhm/HC02115",
+            "https://identifiers.org/vmhm/M_HC02115",
+            "https://identifiers.org/vmhm/M_h",
+            "https://identifiers.org/vmhm/h"
+          ]
+        },
+        "m468[C_mi]": {
+          "name": "ubiquinone-9_C54H82O4",
+          "formula": "C54H82O4",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/q9",
+            "https://identifiers.org/chebi/CHEBI:18160",
+            "https://identifiers.org/kegg.compound/C01967",
+            "https://identifiers.org/lipidmaps/LMPR02010004",
+            "https://identifiers.org/metacyc.compound/UBIQUINONE-9",
+            "https://identifiers.org/metanetx.chemical/MNXM1363635",
+            "https://identifiers.org/seed.compound/cpd01351"
+          ]
+        }
+      },
+      "residual": {
+        "elements": {
+          "C": 0.0,
+          "H": -2.0,
+          "Fe": 0.0,
+          "N": 0.0,
+          "O": 0.0,
+          "S": 0.0
+        },
+        "charge": -2.0,
+        "missing_formula": []
+      }
+    },
+    "R1889": {
+      "id": "R1889",
+      "name": "NADH dehydrogenase (complex I)",
+      "stoichiometry": {
+        "m28[C_mi]": -5.0,
+        "m30[C_mi]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m10[C_cy]": 4.0,
+        "m27[C_mi]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gene_refs": [],
+      "annotations": [],
+      "notes": [
+        "PROTEIN_CLASS: 1.6.5.3"
+      ],
+      "species": {
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_mi",
+          "notes": [
+            "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h",
+            "https://identifiers.org/hmdb/HMDB59597",
+            "https://identifiers.org/kegg.compound/C00080",
+            "https://identifiers.org/metacyc.compound/PROTON",
+            "https://identifiers.org/mnx/PROTON",
+            "https://identifiers.org/reactome/R-ALL-1132304",
+            "https://identifiers.org/reactome/R-ALL-113529",
+            "https://identifiers.org/reactome/R-ALL-1470067",
+            "https://identifiers.org/reactome/R-ALL-156540",
+            "https://identifiers.org/reactome/R-ALL-1614597",
+            "https://identifiers.org/reactome/R-ALL-163953",
+            "https://identifiers.org/reactome/R-ALL-193465",
+            "https://identifiers.org/reactome/R-ALL-194688",
+            "https://identifiers.org/reactome/R-ALL-2000349",
+            "https://identifiers.org/reactome/R-ALL-2429673",
+            "https://identifiers.org/reactome/R-ALL-2872447",
+            "https://identifiers.org/reactome/R-ALL-351626",
+            "https://identifiers.org/reactome/R-ALL-372511",
+            "https://identifiers.org/reactome/R-ALL-374900",
+            "https://identifiers.org/reactome/R-ALL-425969",
+            "https://identifiers.org/reactome/R-ALL-425978",
+            "https://identifiers.org/reactome/R-ALL-425999",
+            "https://identifiers.org/reactome/R-ALL-427899",
+            "https://identifiers.org/reactome/R-ALL-428040",
+            "https://identifiers.org/reactome/R-ALL-428548",
+            "https://identifiers.org/reactome/R-ALL-5228597",
+            "https://identifiers.org/reactome/R-ALL-5244410",
+            "https://identifiers.org/reactome/R-ALL-5668577",
+            "https://identifiers.org/reactome/R-ALL-6783901",
+            "https://identifiers.org/reactome/R-ALL-70106",
+            "https://identifiers.org/reactome/R-ALL-74722",
+            "https://identifiers.org/reactome/R-ALL-9631150",
+            "https://identifiers.org/reactome/R-ALL-9668967",
+            "https://identifiers.org/reactome/R-ALL-9683057",
+            "https://identifiers.org/sabiork.compound/39",
+            "https://identifiers.org/seed.compound/cpd00067",
+            "https://identifiers.org/vmhmetabolite/HC02115",
+            "https://identifiers.org/vmhmetabolite/h",
+            "https://identifiers.org/metanetx.chemical/MNXM1",
+            "https://identifiers.org/inchi/InChI=1S/p+1",
+            "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15378",
+            "https://identifiers.org/biggm/M_h",
+            "https://identifiers.org/biggm/h",
+            "https://identifiers.org/keggc/C00080",
+            "https://identifiers.org/keggc/M_C00080",
+            "https://identifiers.org/metacycm/PROTON",
+            "https://identifiers.org/reactomem/R-ALL-1132304",
+            "https://identifiers.org/reactomem/R-ALL-113529",
+            "https://identifiers.org/reactomem/R-ALL-1470067",
+            "https://identifiers.org/reactomem/R-ALL-156540",
+            "https://identifiers.org/reactomem/R-ALL-1614597",
+            "https://identifiers.org/reactomem/R-ALL-163953",
+            "https://identifiers.org/reactomem/R-ALL-193465",
+            "https://identifiers.org/reactomem/R-ALL-194688",
+            "https://identifiers.org/reactomem/R-ALL-2000349",
+            "https://identifiers.org/reactomem/R-ALL-2429673",
+            "https://identifiers.org/reactomem/R-ALL-2872447",
+            "https://identifiers.org/reactomem/R-ALL-351626",
+            "https://identifiers.org/reactomem/R-ALL-372511",
+            "https://identifiers.org/reactomem/R-ALL-374900",
+            "https://identifiers.org/reactomem/R-ALL-425969",
+            "https://identifiers.org/reactomem/R-ALL-425978",
+            "https://identifiers.org/reactomem/R-ALL-425999",
+            "https://identifiers.org/reactomem/R-ALL-427899",
+            "https://identifiers.org/reactomem/R-ALL-428040",
+            "https://identifiers.org/reactomem/R-ALL-428548",
+            "https://identifiers.org/reactomem/R-ALL-5228597",
+            "https://identifiers.org/reactomem/R-ALL-5244410",
+            "https://identifiers.org/reactomem/R-ALL-5668577",
+            "https://identifiers.org/reactomem/R-ALL-6783901",
+            "https://identifiers.org/reactomem/R-ALL-70106",
+            "https://identifiers.org/reactomem/R-ALL-74722",
+            "https://identifiers.org/reactomem/R-ALL-9631150",
+            "https://identifiers.org/reactomem/R-ALL-9668967",
+            "https://identifiers.org/reactomem/R-ALL-9683057",
+            "https://identifiers.org/sabiorkm/39",
+            "https://identifiers.org/seedm/M_cpd00067",
+            "https://identifiers.org/seedm/cpd00067",
+            "https://identifiers.org/vmhm/HC02115",
+            "https://identifiers.org/vmhm/M_HC02115",
+            "https://identifiers.org/vmhm/M_h",
+            "https://identifiers.org/vmhm/h"
+          ]
+        },
+        "m30[C_mi]": {
+          "name": "NADH_C21H29N7O14P2",
+          "formula": "C21H29N7O14P2",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C21H29N7O14P2\",\"mnxm_id\":\"MNXM10\",\"proposed_charge\":-2,\"proposed_formula\":\"C21H27N7O14P2\",\"source\":\"MetaNetX\"}"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/nadh",
+            "https://identifiers.org/hmdb/HMDB01487",
+            "https://identifiers.org/kegg.compound/C00004",
+            "https://identifiers.org/metacyc.compound/NADH",
+            "https://identifiers.org/reactome/R-ALL-1130844",
+            "https://identifiers.org/reactome/R-ALL-192305",
+            "https://identifiers.org/reactome/R-ALL-194697",
+            "https://identifiers.org/reactome/R-ALL-29362",
+            "https://identifiers.org/reactome/R-ALL-73473",
+            "https://identifiers.org/sabiork.compound/38",
+            "https://identifiers.org/seed.compound/cpd00004",
+            "https://identifiers.org/vmhmetabolite/nadh",
+            "https://identifiers.org/metanetx.chemical/MNXM10",
+            "https://identifiers.org/inchi/InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1",
+            "https://identifiers.org/inchikey/BOPGDPNILDQYTO-NNYOXOHSSA-L",
+            "https://identifiers.org/chebi/CHEBI:13395",
+            "https://identifiers.org/chebi/CHEBI:13396",
+            "https://identifiers.org/chebi/CHEBI:16908",
+            "https://identifiers.org/chebi/CHEBI:21902",
+            "https://identifiers.org/chebi/CHEBI:44216",
+            "https://identifiers.org/chebi/CHEBI:57945",
+            "https://identifiers.org/chebi/CHEBI:7423",
+            "https://identifiers.org/biggm/M_nadh",
+            "https://identifiers.org/biggm/nadh",
+            "https://identifiers.org/keggc/C00004",
+            "https://identifiers.org/keggc/M_C00004",
+            "https://identifiers.org/metacycm/NADH",
+            "https://identifiers.org/reactomem/R-ALL-1130844",
+            "https://identifiers.org/reactomem/R-ALL-192305",
+            "https://identifiers.org/reactomem/R-ALL-194697",
+            "https://identifiers.org/reactomem/R-ALL-29362",
+            "https://identifiers.org/reactomem/R-ALL-73473",
+            "https://identifiers.org/sabiorkm/38",
+            "https://identifiers.org/seedm/M_cpd00004",
+            "https://identifiers.org/seedm/cpd00004",
+            "https://identifiers.org/vmhm/M_nadh",
+            "https://identifiers.org/vmhm/nadh"
+          ]
+        },
+        "m468[C_mi]": {
+          "name": "ubiquinone-9_C54H82O4",
+          "formula": "C54H82O4",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/q9",
+            "https://identifiers.org/chebi/CHEBI:18160",
+            "https://identifiers.org/kegg.compound/C01967",
+            "https://identifiers.org/lipidmaps/LMPR02010004",
+            "https://identifiers.org/metacyc.compound/UBIQUINONE-9",
+            "https://identifiers.org/metanetx.chemical/MNXM1363635",
+            "https://identifiers.org/seed.compound/cpd01351"
+          ]
+        },
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_cy",
+          "notes": [
+            "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h",
+            "https://identifiers.org/hmdb/HMDB59597",
+            "https://identifiers.org/kegg.compound/C00080",
+            "https://identifiers.org/metacyc.compound/PROTON",
+            "https://identifiers.org/mnx/PROTON",
+            "https://identifiers.org/reactome/R-ALL-1132304",
+            "https://identifiers.org/reactome/R-ALL-113529",
+            "https://identifiers.org/reactome/R-ALL-1470067",
+            "https://identifiers.org/reactome/R-ALL-156540",
+            "https://identifiers.org/reactome/R-ALL-1614597",
+            "https://identifiers.org/reactome/R-ALL-163953",
+            "https://identifiers.org/reactome/R-ALL-193465",
+            "https://identifiers.org/reactome/R-ALL-194688",
+            "https://identifiers.org/reactome/R-ALL-2000349",
+            "https://identifiers.org/reactome/R-ALL-2429673",
+            "https://identifiers.org/reactome/R-ALL-2872447",
+            "https://identifiers.org/reactome/R-ALL-351626",
+            "https://identifiers.org/reactome/R-ALL-372511",
+            "https://identifiers.org/reactome/R-ALL-374900",
+            "https://identifiers.org/reactome/R-ALL-425969",
+            "https://identifiers.org/reactome/R-ALL-425978",
+            "https://identifiers.org/reactome/R-ALL-425999",
+            "https://identifiers.org/reactome/R-ALL-427899",
+            "https://identifiers.org/reactome/R-ALL-428040",
+            "https://identifiers.org/reactome/R-ALL-428548",
+            "https://identifiers.org/reactome/R-ALL-5228597",
+            "https://identifiers.org/reactome/R-ALL-5244410",
+            "https://identifiers.org/reactome/R-ALL-5668577",
+            "https://identifiers.org/reactome/R-ALL-6783901",
+            "https://identifiers.org/reactome/R-ALL-70106",
+            "https://identifiers.org/reactome/R-ALL-74722",
+            "https://identifiers.org/reactome/R-ALL-9631150",
+            "https://identifiers.org/reactome/R-ALL-9668967",
+            "https://identifiers.org/reactome/R-ALL-9683057",
+            "https://identifiers.org/sabiork.compound/39",
+            "https://identifiers.org/seed.compound/cpd00067",
+            "https://identifiers.org/vmhmetabolite/HC02115",
+            "https://identifiers.org/vmhmetabolite/h",
+            "https://identifiers.org/metanetx.chemical/MNXM1",
+            "https://identifiers.org/inchi/InChI=1S/p+1",
+            "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15378",
+            "https://identifiers.org/biggm/M_h",
+            "https://identifiers.org/biggm/h",
+            "https://identifiers.org/keggc/C00080",
+            "https://identifiers.org/keggc/M_C00080",
+            "https://identifiers.org/metacycm/PROTON",
+            "https://identifiers.org/reactomem/R-ALL-1132304",
+            "https://identifiers.org/reactomem/R-ALL-113529",
+            "https://identifiers.org/reactomem/R-ALL-1470067",
+            "https://identifiers.org/reactomem/R-ALL-156540",
+            "https://identifiers.org/reactomem/R-ALL-1614597",
+            "https://identifiers.org/reactomem/R-ALL-163953",
+            "https://identifiers.org/reactomem/R-ALL-193465",
+            "https://identifiers.org/reactomem/R-ALL-194688",
+            "https://identifiers.org/reactomem/R-ALL-2000349",
+            "https://identifiers.org/reactomem/R-ALL-2429673",
+            "https://identifiers.org/reactomem/R-ALL-2872447",
+            "https://identifiers.org/reactomem/R-ALL-351626",
+            "https://identifiers.org/reactomem/R-ALL-372511",
+            "https://identifiers.org/reactomem/R-ALL-374900",
+            "https://identifiers.org/reactomem/R-ALL-425969",
+            "https://identifiers.org/reactomem/R-ALL-425978",
+            "https://identifiers.org/reactomem/R-ALL-425999",
+            "https://identifiers.org/reactomem/R-ALL-427899",
+            "https://identifiers.org/reactomem/R-ALL-428040",
+            "https://identifiers.org/reactomem/R-ALL-428548",
+            "https://identifiers.org/reactomem/R-ALL-5228597",
+            "https://identifiers.org/reactomem/R-ALL-5244410",
+            "https://identifiers.org/reactomem/R-ALL-5668577",
+            "https://identifiers.org/reactomem/R-ALL-6783901",
+            "https://identifiers.org/reactomem/R-ALL-70106",
+            "https://identifiers.org/reactomem/R-ALL-74722",
+            "https://identifiers.org/reactomem/R-ALL-9631150",
+            "https://identifiers.org/reactomem/R-ALL-9668967",
+            "https://identifiers.org/reactomem/R-ALL-9683057",
+            "https://identifiers.org/sabiorkm/39",
+            "https://identifiers.org/seedm/M_cpd00067",
+            "https://identifiers.org/seedm/cpd00067",
+            "https://identifiers.org/vmhm/HC02115",
+            "https://identifiers.org/vmhm/M_HC02115",
+            "https://identifiers.org/vmhm/M_h",
+            "https://identifiers.org/vmhm/h"
+          ]
+        },
+        "m27[C_mi]": {
+          "name": "NAD_C21H27N7O14P2",
+          "formula": "C21H27N7O14P2",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/metanetx.chemical/MNXM64096",
+            "https://identifiers.org/chebi/CHEBI:13389"
+          ]
+        },
+        "m471[C_mi]": {
+          "name": "ubiquinol-9_C54H84O4",
+          "formula": "C54H84O4",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/q9h2",
+            "https://identifiers.org/chebi/CHEBI:84424",
+            "https://identifiers.org/metacyc.compound/CPD-9957",
+            "https://identifiers.org/metanetx.chemical/MNXM1094084",
+            "https://identifiers.org/seed.compound/cpd25914"
+          ]
+        }
+      },
+      "residual": {
+        "elements": {
+          "H": -1.0,
+          "C": 0.0,
+          "N": 0.0,
+          "O": 0.0,
+          "P": 0.0
+        },
+        "charge": -1.0,
+        "missing_formula": []
+      }
+    }
+  },
+  "expected_candidates": {
+    "R_CAT2p": {
+      "id": "R_CAT2p",
+      "name": "R_CAT2p",
+      "stoichiometry": {
+        "m275[C_cy]": -1.0,
+        "m222[C_pe]": -1.0,
+        "m173[C_cy]": 1.0,
+        "m375[C_pe]": 2.0
+      },
+      "bounds": [
+        0,
+        1000.0
+      ],
+      "gene_refs": [
+        "YALI1E40671g"
+      ],
+      "annotations": [
+        "https://identifiers.org/bigg.reaction/R_CAT2p",
+        "https://identifiers.org/metanetx.reaction/MNXR96457",
+        "https://identifiers.org/ec-code/1.11.1.6"
+      ],
+      "notes": [
+        "metadata_previous_gap_fill_direction_status: active",
+        "metadata_previous_gap_fill_stoichiometry_action: keep",
+        "metadata_previous_gap_fill_direction_evidence: https://www.metanetx.org/equa_info/MNXR96457",
+        "metadata_previous_gap_fill_direction_rationale: Keep the ethanol-peroxide oxidation equation and disallow its reverse production of hydrogen peroxide and ethanol.",
+        "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields: bounds",
+        "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+      ],
+      "species": {
+        "m275[C_cy]": {
+          "name": "ethanol_C2H6O",
+          "formula": "C2H6O",
+          "charge": 0.0,
+          "compartment": "C_cy",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/etoh",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/9fb1fbdf-101b-4b82-a596-d2f52c870e4f",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/a4a354fd-5003-4b7b-b11b-f54204aea384",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/f5511882-176d-4bcf-984d-f8e1d035126d",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/56e18a05-c059-433a-94f6-0e26c01b010f",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/47531437-84d3-45c8-a1ff-a7cd00056944",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/e7fb1766-db02-47ad-adfe-111570756a28",
+            "https://identifiers.org/hmdb/HMDB00108",
+            "https://identifiers.org/kegg.compound/C00469",
+            "https://identifiers.org/kegg.drug/D00068",
+            "https://identifiers.org/kegg.drug/D06542",
+            "https://identifiers.org/metacyc.compound/ETOH",
+            "https://identifiers.org/reactome/R-ALL-113748",
+            "https://identifiers.org/reactome/R-ALL-30203",
+            "https://identifiers.org/sabiork.compound/56",
+            "https://identifiers.org/seed.compound/cpd00363",
+            "https://identifiers.org/vmhmetabolite/etoh",
+            "https://identifiers.org/metanetx.chemical/MNXM1108092",
+            "https://identifiers.org/inchi/InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3",
+            "https://identifiers.org/inchikey/LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:14222",
+            "https://identifiers.org/chebi/CHEBI:16236",
+            "https://identifiers.org/chebi/CHEBI:193043",
+            "https://identifiers.org/chebi/CHEBI:23978",
+            "https://identifiers.org/chebi/CHEBI:30878",
+            "https://identifiers.org/chebi/CHEBI:30880",
+            "https://identifiers.org/chebi/CHEBI:42377",
+            "https://identifiers.org/chebi/CHEBI:44594",
+            "https://identifiers.org/chebi/CHEBI:4879",
+            "https://identifiers.org/slm/000390046",
+            "https://identifiers.org/biggm/M_etoh",
+            "https://identifiers.org/biggm/etoh",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/9fb1fbdf-101b-4b82-a596-d2f52c870e4f",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/a4a354fd-5003-4b7b-b11b-f54204aea384",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/f5511882-176d-4bcf-984d-f8e1d035126d",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/56e18a05-c059-433a-94f6-0e26c01b010f",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/47531437-84d3-45c8-a1ff-a7cd00056944",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/e7fb1766-db02-47ad-adfe-111570756a28",
+            "https://identifiers.org/keggc/C00469",
+            "https://identifiers.org/keggc/M_C00469",
+            "https://identifiers.org/keggd/D00068",
+            "https://identifiers.org/keggd/D06542",
+            "https://identifiers.org/keggd/M_D00068",
+            "https://identifiers.org/keggd/M_D06542",
+            "https://identifiers.org/metacycm/ETOH",
+            "https://identifiers.org/reactomem/R-ALL-113748",
+            "https://identifiers.org/reactomem/R-ALL-30203",
+            "https://identifiers.org/sabiorkm/56",
+            "https://identifiers.org/seedm/M_cpd00363",
+            "https://identifiers.org/seedm/cpd00363",
+            "https://identifiers.org/vmhm/M_etoh",
+            "https://identifiers.org/vmhm/etoh"
+          ]
+        },
+        "m222[C_pe]": {
+          "name": "hydrogen peroxide_H2O2",
+          "formula": "H2O2",
+          "charge": 0.0,
+          "compartment": "C_pe",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h2o2",
+            "https://identifiers.org/hmdb/HMDB03125",
+            "https://identifiers.org/hmdb/HMDB06491",
+            "https://identifiers.org/kegg.compound/C00027",
+            "https://identifiers.org/kegg.drug/D00008",
+            "https://identifiers.org/metacyc.compound/HYDROGEN-PEROXIDE",
+            "https://identifiers.org/reactome/R-ALL-1132121",
+            "https://identifiers.org/reactome/R-ALL-113575",
+            "https://identifiers.org/reactome/R-ALL-1222719",
+            "https://identifiers.org/reactome/R-ALL-1614617",
+            "https://identifiers.org/reactome/R-ALL-189481",
+            "https://identifiers.org/reactome/R-ALL-29408",
+            "https://identifiers.org/reactome/R-ALL-3341383",
+            "https://identifiers.org/reactome/R-ALL-351629",
+            "https://identifiers.org/sabiork.compound/1909",
+            "https://identifiers.org/seed.compound/cpd00025",
+            "https://identifiers.org/vmhmetabolite/h2o2",
+            "https://identifiers.org/metanetx.chemical/MNXM732620",
+            "https://identifiers.org/inchi/InChI=1S/H2O2/c1-2/h1-2H",
+            "https://identifiers.org/inchikey/MHAJPDPJQMAIIY-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:13354",
+            "https://identifiers.org/chebi/CHEBI:13355",
+            "https://identifiers.org/chebi/CHEBI:16240",
+            "https://identifiers.org/chebi/CHEBI:24637",
+            "https://identifiers.org/chebi/CHEBI:29192",
+            "https://identifiers.org/chebi/CHEBI:44812",
+            "https://identifiers.org/chebi/CHEBI:5586",
+            "https://identifiers.org/biggm/M_h2o2",
+            "https://identifiers.org/biggm/h2o2",
+            "https://identifiers.org/keggc/C00027",
+            "https://identifiers.org/keggc/M_C00027",
+            "https://identifiers.org/keggd/D00008",
+            "https://identifiers.org/keggd/M_D00008",
+            "https://identifiers.org/metacycm/HYDROGEN-PEROXIDE",
+            "https://identifiers.org/reactomem/R-ALL-1132121",
+            "https://identifiers.org/reactomem/R-ALL-113575",
+            "https://identifiers.org/reactomem/R-ALL-1222719",
+            "https://identifiers.org/reactomem/R-ALL-1614617",
+            "https://identifiers.org/reactomem/R-ALL-189481",
+            "https://identifiers.org/reactomem/R-ALL-29408",
+            "https://identifiers.org/reactomem/R-ALL-3341383",
+            "https://identifiers.org/reactomem/R-ALL-351629",
+            "https://identifiers.org/sabiorkm/1909",
+            "https://identifiers.org/seedm/M_cpd00025",
+            "https://identifiers.org/seedm/cpd00025",
+            "https://identifiers.org/vmhm/M_h2o2",
+            "https://identifiers.org/vmhm/h2o2"
+          ]
+        },
+        "m173[C_cy]": {
+          "name": "acetaldehyde_C2H4O",
+          "formula": "C2H4O",
+          "charge": 0.0,
+          "compartment": "C_cy",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/acald",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/78f3645f-408e-4001-9dda-a52ea62a15d4",
+            "https://identifiers.org/envipath/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/9c8865b2-a99d-42e4-a042-c88504f04b51",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/47aa8e53-36ae-4be3-987c-c1cfab66af78",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/8fff64d6-328d-4985-a844-122f016f1597",
+            "https://identifiers.org/hmdb/HMDB00990",
+            "https://identifiers.org/kegg.compound/C00084",
+            "https://identifiers.org/metacyc.compound/ACETALD",
+            "https://identifiers.org/reactome/R-ALL-113532",
+            "https://identifiers.org/reactome/R-ALL-113681",
+            "https://identifiers.org/reactome/R-ALL-113745",
+            "https://identifiers.org/reactome/R-ALL-29510",
+            "https://identifiers.org/sabiork.compound/1292",
+            "https://identifiers.org/seed.compound/cpd00071",
+            "https://identifiers.org/vmhmetabolite/acald",
+            "https://identifiers.org/metanetx.chemical/MNXM75",
+            "https://identifiers.org/inchi/InChI=1S/C2H4O/c1-2-3/h2H,1H3",
+            "https://identifiers.org/inchikey/IKHGUXGNUITLKF-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:13703",
+            "https://identifiers.org/chebi/CHEBI:15343",
+            "https://identifiers.org/chebi/CHEBI:22158",
+            "https://identifiers.org/chebi/CHEBI:2383",
+            "https://identifiers.org/chebi/CHEBI:40533",
+            "https://identifiers.org/slm/000390047",
+            "https://identifiers.org/biggm/M_acald",
+            "https://identifiers.org/biggm/acald",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/78f3645f-408e-4001-9dda-a52ea62a15d4",
+            "https://identifiers.org/envipathm/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/9c8865b2-a99d-42e4-a042-c88504f04b51",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/47aa8e53-36ae-4be3-987c-c1cfab66af78",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/8fff64d6-328d-4985-a844-122f016f1597",
+            "https://identifiers.org/keggc/C00084",
+            "https://identifiers.org/keggc/M_C00084",
+            "https://identifiers.org/metacycm/ACETALD",
+            "https://identifiers.org/reactomem/R-ALL-113532",
+            "https://identifiers.org/reactomem/R-ALL-113681",
+            "https://identifiers.org/reactomem/R-ALL-113745",
+            "https://identifiers.org/reactomem/R-ALL-29510",
+            "https://identifiers.org/sabiorkm/1292",
+            "https://identifiers.org/seedm/M_cpd00071",
+            "https://identifiers.org/seedm/cpd00071",
+            "https://identifiers.org/vmhm/M_acald",
+            "https://identifiers.org/vmhm/acald"
+          ]
+        },
+        "m375[C_pe]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0.0,
+          "compartment": "C_pe",
+          "notes": [
+            "microspecies_convention: water: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15377"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h2o",
+            "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/969d0227-3069-4e44-9525-7ae7bad84170",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/799908db-b8c9-4982-86cb-1f225e2ad08c",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/e7f34a8e-cded-4793-b6d5-792335b38636",
+            "https://identifiers.org/envipath/b0c0e9bc-b183-45e9-9f83-8e743ed5dc7b/compound/426cf377-a166-441d-a118-d32682004128",
+            "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/27c22ce9-2753-43ba-96bc-ad4164fee4a7",
+            "https://identifiers.org/hmdb/HMDB02111",
+            "https://identifiers.org/kegg.compound/C00001",
+            "https://identifiers.org/kegg.drug/D00001",
+            "https://identifiers.org/kegg.drug/D03703",
+            "https://identifiers.org/kegg.drug/D06249",
+            "https://identifiers.org/kegg.drug/D06322",
+            "https://identifiers.org/metacyc.compound/WATER",
+            "https://identifiers.org/mnx/WATER",
+            "https://identifiers.org/reactome/R-ALL-109276",
+            "https://identifiers.org/reactome/R-ALL-113518",
+            "https://identifiers.org/reactome/R-ALL-113519",
+            "https://identifiers.org/reactome/R-ALL-113521",
+            "https://identifiers.org/reactome/R-ALL-1222475",
+            "https://identifiers.org/reactome/R-ALL-141343",
+            "https://identifiers.org/reactome/R-ALL-1605715",
+            "https://identifiers.org/reactome/R-ALL-189422",
+            "https://identifiers.org/reactome/R-ALL-2022884",
+            "https://identifiers.org/reactome/R-ALL-2429665",
+            "https://identifiers.org/reactome/R-ALL-29356",
+            "https://identifiers.org/reactome/R-ALL-351603",
+            "https://identifiers.org/reactome/R-ALL-5278291",
+            "https://identifiers.org/reactome/R-ALL-5668574",
+            "https://identifiers.org/reactome/R-ALL-5685882",
+            "https://identifiers.org/reactome/R-ALL-5693747",
+            "https://identifiers.org/reactome/R-ALL-6781870",
+            "https://identifiers.org/reactome/R-ALL-8851517",
+            "https://identifiers.org/sabiork.compound/40",
+            "https://identifiers.org/seed.compound/cpd00001",
+            "https://identifiers.org/vmhmetabolite/h2o",
+            "https://identifiers.org/metanetx.chemical/WATER",
+            "https://identifiers.org/inchi/InChI=1S/H2O/h1H2",
+            "https://identifiers.org/inchikey/XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15377",
+            "https://identifiers.org/biggm/M_h2o",
+            "https://identifiers.org/biggm/h2o",
+            "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/969d0227-3069-4e44-9525-7ae7bad84170",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/799908db-b8c9-4982-86cb-1f225e2ad08c",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/e7f34a8e-cded-4793-b6d5-792335b38636",
+            "https://identifiers.org/envipathm/b0c0e9bc-b183-45e9-9f83-8e743ed5dc7b/compound/426cf377-a166-441d-a118-d32682004128",
+            "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/27c22ce9-2753-43ba-96bc-ad4164fee4a7",
+            "https://identifiers.org/keggc/C00001",
+            "https://identifiers.org/keggc/M_C00001",
+            "https://identifiers.org/keggd/D00001",
+            "https://identifiers.org/keggd/D03703",
+            "https://identifiers.org/keggd/D06249",
+            "https://identifiers.org/keggd/D06322",
+            "https://identifiers.org/keggd/M_D00001",
+            "https://identifiers.org/keggd/M_D03703",
+            "https://identifiers.org/keggd/M_D06249",
+            "https://identifiers.org/keggd/M_D06322",
+            "https://identifiers.org/metacycm/WATER",
+            "https://identifiers.org/reactomem/R-ALL-109276",
+            "https://identifiers.org/reactomem/R-ALL-113518",
+            "https://identifiers.org/reactomem/R-ALL-113519",
+            "https://identifiers.org/reactomem/R-ALL-113521",
+            "https://identifiers.org/reactomem/R-ALL-1222475",
+            "https://identifiers.org/reactomem/R-ALL-141343",
+            "https://identifiers.org/reactomem/R-ALL-1605715",
+            "https://identifiers.org/reactomem/R-ALL-189422",
+            "https://identifiers.org/reactomem/R-ALL-2022884",
+            "https://identifiers.org/reactomem/R-ALL-2429665",
+            "https://identifiers.org/reactomem/R-ALL-29356",
+            "https://identifiers.org/reactomem/R-ALL-351603",
+            "https://identifiers.org/reactomem/R-ALL-5278291",
+            "https://identifiers.org/reactomem/R-ALL-5668574",
+            "https://identifiers.org/reactomem/R-ALL-5685882",
+            "https://identifiers.org/reactomem/R-ALL-5693747",
+            "https://identifiers.org/reactomem/R-ALL-6781870",
+            "https://identifiers.org/reactomem/R-ALL-8851517",
+            "https://identifiers.org/sabiorkm/40",
+            "https://identifiers.org/seedm/M_cpd00001",
+            "https://identifiers.org/seedm/cpd00001",
+            "https://identifiers.org/vmhm/M_h2o",
+            "https://identifiers.org/vmhm/h2o"
+          ]
+        }
+      },
+      "residual": {
+        "elements": {
+          "C": 0.0,
+          "H": 0.0,
+          "O": 0.0
+        },
+        "charge": 0.0,
+        "missing_formula": []
+      }
+    },
+    "R_OAADCm": {
+      "id": "R_OAADCm",
+      "name": "R_OAADCm",
+      "stoichiometry": {
+        "m44[C_mi]": -1.0,
+        "m6[C_mi]": -1.0,
+        "m77[C_mi]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        0
+      ],
+      "gene_refs": [
+        "YALI1E22303g"
+      ],
+      "annotations": [
+        "https://identifiers.org/bigg.reaction/R_OAADCm",
+        "https://identifiers.org/metanetx.reaction/MNXR102097",
+        "https://identifiers.org/kegg.reaction/R00217",
+        "https://identifiers.org/ec-code/1.1.1.38"
+      ],
+      "notes": [
+        "metadata_previous_gap_fill_direction_status: legacy_unreviewed",
+        "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields: stoichiometry",
+        "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+      ],
+      "species": {
+        "m44[C_mi]": {
+          "name": "carbon dioxide_CO2",
+          "formula": "CO2",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/co2",
+            "https://identifiers.org/hmdb/HMDB01967",
+            "https://identifiers.org/kegg.compound/C00011",
+            "https://identifiers.org/kegg.drug/D00004",
+            "https://identifiers.org/metacyc.compound/CARBON-DIOXIDE",
+            "https://identifiers.org/reactome/R-ALL-1132345",
+            "https://identifiers.org/reactome/R-ALL-113528",
+            "https://identifiers.org/reactome/R-ALL-1237009",
+            "https://identifiers.org/reactome/R-ALL-159751",
+            "https://identifiers.org/reactome/R-ALL-159942",
+            "https://identifiers.org/reactome/R-ALL-189480",
+            "https://identifiers.org/reactome/R-ALL-29376",
+            "https://identifiers.org/reactome/R-ALL-389536",
+            "https://identifiers.org/reactome/R-ALL-5668565",
+            "https://identifiers.org/sabiork.compound/1266",
+            "https://identifiers.org/seed.compound/cpd00011",
+            "https://identifiers.org/vmhmetabolite/co2",
+            "https://identifiers.org/metanetx.chemical/MNXM13",
+            "https://identifiers.org/inchi/InChI=1S/CO2/c2-1-3",
+            "https://identifiers.org/inchikey/CURLTUGMZLYLDI-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:13282",
+            "https://identifiers.org/chebi/CHEBI:13283",
+            "https://identifiers.org/chebi/CHEBI:13284",
+            "https://identifiers.org/chebi/CHEBI:13285",
+            "https://identifiers.org/chebi/CHEBI:139538",
+            "https://identifiers.org/chebi/CHEBI:16526",
+            "https://identifiers.org/chebi/CHEBI:23011",
+            "https://identifiers.org/chebi/CHEBI:3283",
+            "https://identifiers.org/chebi/CHEBI:48829",
+            "https://identifiers.org/biggm/M_co2",
+            "https://identifiers.org/biggm/co2",
+            "https://identifiers.org/keggc/C00011",
+            "https://identifiers.org/keggc/M_C00011",
+            "https://identifiers.org/keggd/D00004",
+            "https://identifiers.org/keggd/M_D00004",
+            "https://identifiers.org/metacycm/CARBON-DIOXIDE",
+            "https://identifiers.org/reactomem/R-ALL-1132345",
+            "https://identifiers.org/reactomem/R-ALL-113528",
+            "https://identifiers.org/reactomem/R-ALL-1237009",
+            "https://identifiers.org/reactomem/R-ALL-159751",
+            "https://identifiers.org/reactomem/R-ALL-159942",
+            "https://identifiers.org/reactomem/R-ALL-189480",
+            "https://identifiers.org/reactomem/R-ALL-29376",
+            "https://identifiers.org/reactomem/R-ALL-389536",
+            "https://identifiers.org/reactomem/R-ALL-5668565",
+            "https://identifiers.org/sabiorkm/1266",
+            "https://identifiers.org/seedm/M_cpd00011",
+            "https://identifiers.org/seedm/cpd00011",
+            "https://identifiers.org/vmhm/M_co2",
+            "https://identifiers.org/vmhm/co2"
+          ]
+        },
+        "m6[C_mi]": {
+          "name": "pyruvate_C3H4O3",
+          "formula": "C3H4O3",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C3H4O3\",\"mnxm_id\":\"MNXM23\",\"proposed_charge\":-1,\"proposed_formula\":\"C3H3O3\",\"source\":\"MetaNetX\"}"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/pyr",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/dc01020e-8c7e-4087-9f56-cf8c962b7437",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/ccc99777-54dc-42d4-a97e-009b780d3905",
+            "https://identifiers.org/hmdb/HMDB00243",
+            "https://identifiers.org/kegg.compound/C00022",
+            "https://identifiers.org/lipidmaps/LMFA01060077",
+            "https://identifiers.org/metacyc.compound/PYRUVATE",
+            "https://identifiers.org/reactome/R-ALL-1130930",
+            "https://identifiers.org/reactome/R-ALL-113557",
+            "https://identifiers.org/reactome/R-ALL-29398",
+            "https://identifiers.org/reactome/R-ALL-389680",
+            "https://identifiers.org/reactome/R-ALL-429750",
+            "https://identifiers.org/reactome/R-ALL-5357717",
+            "https://identifiers.org/reactome/R-ALL-9012375",
+            "https://identifiers.org/sabiork.compound/33",
+            "https://identifiers.org/seed.compound/cpd00020",
+            "https://identifiers.org/vmhmetabolite/pyr",
+            "https://identifiers.org/metanetx.chemical/MNXM23",
+            "https://identifiers.org/inchi/InChI=1S/C3H4O3/c1-2(4)3(5)6/h1H3,(H,5,6)/p-1",
+            "https://identifiers.org/inchikey/LCTONWCANYUPML-UHFFFAOYSA-M",
+            "https://identifiers.org/chebi/CHEBI:14987",
+            "https://identifiers.org/chebi/CHEBI:15361",
+            "https://identifiers.org/chebi/CHEBI:177913",
+            "https://identifiers.org/chebi/CHEBI:26462",
+            "https://identifiers.org/chebi/CHEBI:26466",
+            "https://identifiers.org/chebi/CHEBI:32816",
+            "https://identifiers.org/chebi/CHEBI:45253",
+            "https://identifiers.org/chebi/CHEBI:8685",
+            "https://identifiers.org/slm/000000404",
+            "https://identifiers.org/biggm/M_pyr",
+            "https://identifiers.org/biggm/pyr",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/dc01020e-8c7e-4087-9f56-cf8c962b7437",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/ccc99777-54dc-42d4-a97e-009b780d3905",
+            "https://identifiers.org/keggc/C00022",
+            "https://identifiers.org/keggc/M_C00022",
+            "https://identifiers.org/lipidmapsm/LMFA01060077",
+            "https://identifiers.org/metacycm/PYRUVATE",
+            "https://identifiers.org/reactomem/R-ALL-1130930",
+            "https://identifiers.org/reactomem/R-ALL-113557",
+            "https://identifiers.org/reactomem/R-ALL-29398",
+            "https://identifiers.org/reactomem/R-ALL-389680",
+            "https://identifiers.org/reactomem/R-ALL-429750",
+            "https://identifiers.org/reactomem/R-ALL-5357717",
+            "https://identifiers.org/reactomem/R-ALL-9012375",
+            "https://identifiers.org/sabiorkm/33",
+            "https://identifiers.org/seedm/M_cpd00020",
+            "https://identifiers.org/seedm/cpd00020",
+            "https://identifiers.org/vmhm/M_pyr",
+            "https://identifiers.org/vmhm/pyr"
+          ]
+        },
+        "m77[C_mi]": {
+          "name": "oxaloacetate_C4H4O5",
+          "formula": "C4H4O5",
+          "charge": 0.0,
+          "compartment": "C_mi",
+          "notes": [
+            "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C4H4O5\",\"mnxm_id\":\"MNXM46\",\"proposed_charge\":-2,\"proposed_formula\":\"C4H2O5\",\"source\":\"MetaNetX\"}"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/oaa",
+            "https://identifiers.org/envipath/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/be7c543c-40bd-4698-9821-22f2e65c38f3",
+            "https://identifiers.org/envipath/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/133a11f3-81b0-4384-837e-1ccdd0a2a645",
+            "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/40afaad4-431a-4e3c-b4c7-020dbe4bdd2a",
+            "https://identifiers.org/hmdb/HMDB00223",
+            "https://identifiers.org/kegg.compound/C00036",
+            "https://identifiers.org/lipidmaps/LMFA01170120",
+            "https://identifiers.org/metacyc.compound/OXALACETIC_ACID",
+            "https://identifiers.org/reactome/R-ALL-113587",
+            "https://identifiers.org/reactome/R-ALL-6810070",
+            "https://identifiers.org/reactome/R-ALL-76213",
+            "https://identifiers.org/sabiork.compound/1915",
+            "https://identifiers.org/seed.compound/cpd00032",
+            "https://identifiers.org/vmhmetabolite/oaa",
+            "https://identifiers.org/metanetx.chemical/MNXM46",
+            "https://identifiers.org/inchi/InChI=1S/C4H4O5/c5-2(4(8)9)1-3(6)7/h1H2,(H,6,7)(H,8,9)/p-2",
+            "https://identifiers.org/inchikey/KHPXUQMNIQBQEV-UHFFFAOYSA-L",
+            "https://identifiers.org/chebi/CHEBI:12820",
+            "https://identifiers.org/chebi/CHEBI:14703",
+            "https://identifiers.org/chebi/CHEBI:16452",
+            "https://identifiers.org/chebi/CHEBI:24958",
+            "https://identifiers.org/chebi/CHEBI:24959",
+            "https://identifiers.org/chebi/CHEBI:25731",
+            "https://identifiers.org/chebi/CHEBI:25734",
+            "https://identifiers.org/chebi/CHEBI:30744",
+            "https://identifiers.org/chebi/CHEBI:7812",
+            "https://identifiers.org/slm/000001047",
+            "https://identifiers.org/biggm/M_oaa",
+            "https://identifiers.org/biggm/oaa",
+            "https://identifiers.org/envipathm/32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/be7c543c-40bd-4698-9821-22f2e65c38f3",
+            "https://identifiers.org/envipathm/4fd7f3e0-dd25-43ac-9453-dda3e52396e4/compound/133a11f3-81b0-4384-837e-1ccdd0a2a645",
+            "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/40afaad4-431a-4e3c-b4c7-020dbe4bdd2a",
+            "https://identifiers.org/keggc/C00036",
+            "https://identifiers.org/keggc/M_C00036",
+            "https://identifiers.org/lipidmapsm/LMFA01170120",
+            "https://identifiers.org/metacycm/OXALACETIC_ACID",
+            "https://identifiers.org/reactomem/R-ALL-113587",
+            "https://identifiers.org/reactomem/R-ALL-6810070",
+            "https://identifiers.org/reactomem/R-ALL-76213",
+            "https://identifiers.org/sabiorkm/1915",
+            "https://identifiers.org/seedm/M_cpd00032",
+            "https://identifiers.org/seedm/cpd00032",
+            "https://identifiers.org/vmhm/M_oaa",
+            "https://identifiers.org/vmhm/oaa"
+          ]
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_mi",
+          "notes": [
+            "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+          ],
+          "annotations": [
+            "https://identifiers.org/bigg.metabolite/h",
+            "https://identifiers.org/hmdb/HMDB59597",
+            "https://identifiers.org/kegg.compound/C00080",
+            "https://identifiers.org/metacyc.compound/PROTON",
+            "https://identifiers.org/mnx/PROTON",
+            "https://identifiers.org/reactome/R-ALL-1132304",
+            "https://identifiers.org/reactome/R-ALL-113529",
+            "https://identifiers.org/reactome/R-ALL-1470067",
+            "https://identifiers.org/reactome/R-ALL-156540",
+            "https://identifiers.org/reactome/R-ALL-1614597",
+            "https://identifiers.org/reactome/R-ALL-163953",
+            "https://identifiers.org/reactome/R-ALL-193465",
+            "https://identifiers.org/reactome/R-ALL-194688",
+            "https://identifiers.org/reactome/R-ALL-2000349",
+            "https://identifiers.org/reactome/R-ALL-2429673",
+            "https://identifiers.org/reactome/R-ALL-2872447",
+            "https://identifiers.org/reactome/R-ALL-351626",
+            "https://identifiers.org/reactome/R-ALL-372511",
+            "https://identifiers.org/reactome/R-ALL-374900",
+            "https://identifiers.org/reactome/R-ALL-425969",
+            "https://identifiers.org/reactome/R-ALL-425978",
+            "https://identifiers.org/reactome/R-ALL-425999",
+            "https://identifiers.org/reactome/R-ALL-427899",
+            "https://identifiers.org/reactome/R-ALL-428040",
+            "https://identifiers.org/reactome/R-ALL-428548",
+            "https://identifiers.org/reactome/R-ALL-5228597",
+            "https://identifiers.org/reactome/R-ALL-5244410",
+            "https://identifiers.org/reactome/R-ALL-5668577",
+            "https://identifiers.org/reactome/R-ALL-6783901",
+            "https://identifiers.org/reactome/R-ALL-70106",
+            "https://identifiers.org/reactome/R-ALL-74722",
+            "https://identifiers.org/reactome/R-ALL-9631150",
+            "https://identifiers.org/reactome/R-ALL-9668967",
+            "https://identifiers.org/reactome/R-ALL-9683057",
+            "https://identifiers.org/sabiork.compound/39",
+            "https://identifiers.org/seed.compound/cpd00067",
+            "https://identifiers.org/vmhmetabolite/HC02115",
+            "https://identifiers.org/vmhmetabolite/h",
+            "https://identifiers.org/metanetx.chemical/MNXM1",
+            "https://identifiers.org/inchi/InChI=1S/p+1",
+            "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+            "https://identifiers.org/chebi/CHEBI:15378",
+            "https://identifiers.org/biggm/M_h",
+            "https://identifiers.org/biggm/h",
+            "https://identifiers.org/keggc/C00080",
+            "https://identifiers.org/keggc/M_C00080",
+            "https://identifiers.org/metacycm/PROTON",
+            "https://identifiers.org/reactomem/R-ALL-1132304",
+            "https://identifiers.org/reactomem/R-ALL-113529",
+            "https://identifiers.org/reactomem/R-ALL-1470067",
+            "https://identifiers.org/reactomem/R-ALL-156540",
+            "https://identifiers.org/reactomem/R-ALL-1614597",
+            "https://identifiers.org/reactomem/R-ALL-163953",
+            "https://identifiers.org/reactomem/R-ALL-193465",
+            "https://identifiers.org/reactomem/R-ALL-194688",
+            "https://identifiers.org/reactomem/R-ALL-2000349",
+            "https://identifiers.org/reactomem/R-ALL-2429673",
+            "https://identifiers.org/reactomem/R-ALL-2872447",
+            "https://identifiers.org/reactomem/R-ALL-351626",
+            "https://identifiers.org/reactomem/R-ALL-372511",
+            "https://identifiers.org/reactomem/R-ALL-374900",
+            "https://identifiers.org/reactomem/R-ALL-425969",
+            "https://identifiers.org/reactomem/R-ALL-425978",
+            "https://identifiers.org/reactomem/R-ALL-425999",
+            "https://identifiers.org/reactomem/R-ALL-427899",
+            "https://identifiers.org/reactomem/R-ALL-428040",
+            "https://identifiers.org/reactomem/R-ALL-428548",
+            "https://identifiers.org/reactomem/R-ALL-5228597",
+            "https://identifiers.org/reactomem/R-ALL-5244410",
+            "https://identifiers.org/reactomem/R-ALL-5668577",
+            "https://identifiers.org/reactomem/R-ALL-6783901",
+            "https://identifiers.org/reactomem/R-ALL-70106",
+            "https://identifiers.org/reactomem/R-ALL-74722",
+            "https://identifiers.org/reactomem/R-ALL-9631150",
+            "https://identifiers.org/reactomem/R-ALL-9668967",
+            "https://identifiers.org/reactomem/R-ALL-9683057",
+            "https://identifiers.org/sabiorkm/39",
+            "https://identifiers.org/seedm/M_cpd00067",
+            "https://identifiers.org/seedm/cpd00067",
+            "https://identifiers.org/vmhm/HC02115",
+            "https://identifiers.org/vmhm/M_HC02115",
+            "https://identifiers.org/vmhm/M_h",
+            "https://identifiers.org/vmhm/h"
+          ]
+        }
+      },
+      "residual": {
+        "elements": {
+          "C": 0.0,
+          "O": 0.0,
+          "H": 0.0
+        },
+        "charge": 0.0,
+        "missing_formula": []
+      }
+    }
+  },
+  "metadata_selection": {
+    "R_CAT2p": {
+      "fields": [
+        "bounds"
+      ],
+      "before": {
+        "stoichiometry": {
+          "m173[C_cy]": 1.0,
+          "m222[C_pe]": -1.0,
+          "m275[C_cy]": -1.0,
+          "m375[C_pe]": 2.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr": "YALI1E40671g"
+      },
+      "after": {
+        "stoichiometry": {
+          "m173[C_cy]": 1.0,
+          "m222[C_pe]": -1.0,
+          "m275[C_cy]": -1.0,
+          "m375[C_pe]": 2.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E40671g"
+      },
+      "species": {
+        "m173[C_cy]": {
+          "formula": "C2H4O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m222[C_pe]": {
+          "formula": "H2O2",
+          "charge": 0,
+          "compartment": "C_pe"
+        },
+        "m275[C_cy]": {
+          "formula": "C2H6O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m375[C_pe]": {
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_pe"
+        }
+      },
+      "superseded_notes": {
+        "gap_fill_direction_status": "active",
+        "gap_fill_stoichiometry_action": "keep",
+        "gap_fill_direction_evidence": "https://www.metanetx.org/equa_info/MNXR96457",
+        "gap_fill_direction_rationale": "Keep the ethanol-peroxide oxidation equation and disallow its reverse production of hydrogen peroxide and ethanol."
+      }
+    },
+    "R_OAADCm": {
+      "fields": [
+        "stoichiometry"
+      ],
+      "before": {
+        "stoichiometry": {
+          "m44[C_mi]": -1.0,
+          "m6[C_mi]": -1.0,
+          "m77[C_mi]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E22303g"
+      },
+      "after": {
+        "stoichiometry": {
+          "m28[C_mi]": 1.0,
+          "m44[C_mi]": -1.0,
+          "m6[C_mi]": -1.0,
+          "m77[C_mi]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E22303g"
+      },
+      "species": {
+        "m28[C_mi]": {
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi"
+        },
+        "m44[C_mi]": {
+          "formula": "CO2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m6[C_mi]": {
+          "formula": "C3H4O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m77[C_mi]": {
+          "formula": "C4H4O5",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "superseded_notes": {
+        "gap_fill_direction_status": "legacy_unreviewed"
+      }
+    }
+  },
+  "early_direction_rows": [
+    {
+      "schema_version": "1",
+      "status": "active",
+      "bigg_reaction": "R_CAT2p",
+      "mnxr_id": "MNXR96457",
+      "stoichiometry_action": "keep",
+      "lower_bound": "0",
+      "upper_bound": "1000",
+      "evidence_url": "https://www.metanetx.org/equa_info/MNXR96457",
+      "rationale": "Keep the ethanol-peroxide oxidation equation and disallow its reverse production of hydrogen peroxide and ethanol."
+    }
+  ],
+  "provided_witness_records": [
+    {
+      "reaction": "R305",
+      "name": "ubiquinol-9:cytochrome-c reductase (complex III)",
+      "equation": "1.5 m28[C_mi] + 2.0 m2[C_mi] + m471[C_mi] --> 1.5 m10[C_cy] + 2.0 m3[C_mi] + m468[C_mi]",
+      "named_equation": "1.5 H+_p+1 + 2.0 ferricytochrome c_ + ubiquinol-9_C54H84O4 --> 1.5 H+_p+1 + 2.0 ferrocytochrome c_ + ubiquinone-9_C54H82O4",
+      "stoichiometry": {
+        "m2[C_mi]": -2.0,
+        "m28[C_mi]": -1.5,
+        "m471[C_mi]": -1.0,
+        "m3[C_mi]": 2.0,
+        "m10[C_cy]": 1.5,
+        "m468[C_mi]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "compartments": [
+        "C_cy",
+        "C_mi"
+      ],
+      "gpr": "YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g",
+      "gpr_evidence": "stored model assignment; not native validation",
+      "annotation": {
+        "sbo": "SBO:0000185",
+        "ec-code": "7.1.1.8"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "7.1.1.8",
+        "coq9_previous_name": "ferrocytochrome-c:oxygen oxidoreductase",
+        "coq9_previous_ec_code": "3.4.24.64; 7.1.1.8",
+        "coq9_previous_PROTEIN_CLASS": "1.10.2.2",
+        "coq9_curation_scope": "Current GPR includes a cytochrome-c carrier dependency; native subunit-only AND membership is not certified.",
+        "coq9_proton_state": "Original audited proton stoichiometry retained; Q-cycle candidate not applied."
+      },
+      "element_status": "imbalanced",
+      "missing_formula": [],
+      "element_residual": {
+        "C": 0.0,
+        "H": -2.0,
+        "Fe": 0.0,
+        "N": 0.0,
+        "O": 0.0,
+        "S": 0.0
+      },
+      "stored_charge_residual": -2.0,
+      "charge_status": "imbalanced",
+      "witness": "E4",
+      "flux": 0.7692307692307692,
+      "actual_direction": "forward"
+    },
+    {
+      "reaction": "R1889",
+      "name": "NADH dehydrogenase (complex I)",
+      "equation": "5.0 m28[C_mi] + m30[C_mi] + m468[C_mi] --> 4.0 m10[C_cy] + m27[C_mi] + m471[C_mi]",
+      "named_equation": "5.0 H+_p+1 + NADH_C21H29N7O14P2 + ubiquinone-9_C54H82O4 --> 4.0 H+_p+1 + NAD_C21H27N7O14P2 + ubiquinol-9_C54H84O4",
+      "stoichiometry": {
+        "m28[C_mi]": -5.0,
+        "m30[C_mi]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m10[C_cy]": 4.0,
+        "m27[C_mi]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "compartments": [
+        "C_cy",
+        "C_mi"
+      ],
+      "gpr": "",
+      "gpr_evidence": "stored model assignment; not native validation",
+      "annotation": {
+        "sbo": "SBO:0000185"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "1.6.5.3"
+      },
+      "element_status": "imbalanced",
+      "missing_formula": [],
+      "element_residual": {
+        "H": -1.0,
+        "C": 0.0,
+        "N": 0.0,
+        "O": 0.0,
+        "P": 0.0
+      },
+      "stored_charge_residual": -1.0,
+      "charge_status": "imbalanced",
+      "witness": "E4",
+      "flux": 0.7692307692307692,
+      "actual_direction": "forward"
+    },
+    {
+      "reaction": "R_OAADCm",
+      "name": "R_OAADCm",
+      "equation": "m44[C_mi] + m6[C_mi] <=> m28[C_mi] + m77[C_mi]",
+      "named_equation": "carbon dioxide_CO2 + pyruvate_C3H4O3 <=> H+_p+1 + oxaloacetate_C4H4O5",
+      "stoichiometry": {
+        "m44[C_mi]": -1.0,
+        "m6[C_mi]": -1.0,
+        "m77[C_mi]": 1.0,
+        "m28[C_mi]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "compartments": [
+        "C_mi"
+      ],
+      "gpr": "YALI1E22303g",
+      "gpr_evidence": "stored model assignment; not native validation",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": "R_OAADCm",
+        "metanetx.reaction": "MNXR102097",
+        "kegg.reaction": "R00217",
+        "ec-code": "1.1.1.38"
+      },
+      "notes": {
+        "metadata_previous_gap_fill_direction_status": "legacy_unreviewed",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "stoichiometry",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "element_status": "imbalanced",
+      "missing_formula": [],
+      "element_residual": {
+        "C": 0.0,
+        "O": 0.0,
+        "H": 1.0
+      },
+      "stored_charge_residual": 1.0,
+      "charge_status": "imbalanced",
+      "witness": "E4",
+      "flux": 2.3076923076923075,
+      "actual_direction": "forward"
+    },
+    {
+      "reaction": "R_CAT2p",
+      "name": "R_CAT2p",
+      "equation": "m222[C_pe] + m275[C_cy] <=> m173[C_cy] + 2.0 m375[C_pe]",
+      "named_equation": "hydrogen peroxide_H2O2 + ethanol_C2H6O <=> acetaldehyde_C2H4O + 2.0 H2O_H2O",
+      "stoichiometry": {
+        "m275[C_cy]": -1.0,
+        "m222[C_pe]": -1.0,
+        "m173[C_cy]": 1.0,
+        "m375[C_pe]": 2.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "compartments": [
+        "C_cy",
+        "C_pe"
+      ],
+      "gpr": "YALI1E40671g",
+      "gpr_evidence": "stored model assignment; not native validation",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": "R_CAT2p",
+        "metanetx.reaction": "MNXR96457",
+        "ec-code": "1.11.1.6"
+      },
+      "notes": {
+        "metadata_previous_gap_fill_direction_status": "active",
+        "metadata_previous_gap_fill_stoichiometry_action": "keep",
+        "metadata_previous_gap_fill_direction_evidence": "https://www.metanetx.org/equa_info/MNXR96457",
+        "metadata_previous_gap_fill_direction_rationale": "Keep the ethanol-peroxide oxidation equation and disallow its reverse production of hydrogen peroxide and ethanol.",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "bounds",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "element_status": "balanced",
+      "missing_formula": [],
+      "element_residual": {
+        "C": 0.0,
+        "H": 0.0,
+        "O": 0.0
+      },
+      "stored_charge_residual": 0.0,
+      "charge_status": "balanced_as_stored",
+      "witness": "E4",
+      "flux": -0.7692307692307692,
+      "actual_direction": "reverse"
+    }
+  ],
+  "cached_gene_records": [
+    {
+      "entryType": "UniProtKB unreviewed (TrEMBL)",
+      "primaryAccession": "A0A1H6QCK5",
+      "uniProtkbId": "A0A1H6QCK5_YARLL",
+      "entryAudit": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 34,
+        "sequenceVersion": 1
+      },
+      "annotationScore": 2.0,
+      "organism": {
+        "scientificName": "Yarrowia lipolytica",
+        "commonName": "Candida lipolytica",
+        "taxonId": 4952,
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "EMBL",
+            "id": "AOW05618.1"
+          },
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "Proteomes",
+            "id": "UP000182444"
+          }
+        ],
+        "lineage": [
+          "Eukaryota",
+          "Fungi",
+          "Dikarya",
+          "Ascomycota",
+          "Saccharomycotina",
+          "Dipodascomycetes",
+          "Dipodascales",
+          "Dipodascales incertae sedis",
+          "Yarrowia"
+        ]
+      },
+      "proteinExistence": "3: Inferred from homology",
+      "proteinDescription": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00013003"
+              }
+            ],
+            "value": "malate dehydrogenase (oxaloacetate-decarboxylating)"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00013003"
+                }
+              ],
+              "value": "1.1.1.38"
+            }
+          ]
+        }
+      },
+      "genes": [
+        {
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW05618.1"
+                }
+              ],
+              "value": "YALI1_E22303g"
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "commentType": "CATALYTIC ACTIVITY",
+          "reaction": {
+            "name": "(S)-malate + NAD(+) = pyruvate + CO2 + NADH",
+            "reactionCrossReferences": [
+              {
+                "database": "Rhea",
+                "id": "RHEA:12653"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:15361"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:15589"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:16526"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:57540"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:57945"
+              }
+            ],
+            "ecNumber": "1.1.1.38",
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00052591"
+              }
+            ]
+          }
+        },
+        {
+          "commentType": "CATALYTIC ACTIVITY",
+          "reaction": {
+            "name": "oxaloacetate + H(+) = pyruvate + CO2",
+            "reactionCrossReferences": [
+              {
+                "database": "Rhea",
+                "id": "RHEA:15641"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:15361"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:15378"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:16452"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:16526"
+              }
+            ],
+            "ecNumber": "1.1.1.38",
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00050168"
+              }
+            ]
+          }
+        },
+        {
+          "commentType": "COFACTOR",
+          "cofactors": [
+            {
+              "name": "Mg(2+)",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR000106-3"
+                }
+              ],
+              "cofactorCrossReference": {
+                "database": "ChEBI",
+                "id": "CHEBI:18420"
+              }
+            },
+            {
+              "name": "Mn(2+)",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR000106-3"
+                }
+              ],
+              "cofactorCrossReference": {
+                "database": "ChEBI",
+                "id": "CHEBI:29035"
+              }
+            }
+          ],
+          "note": {
+            "texts": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "PIRSR",
+                    "id": "PIRSR000106-3"
+                  }
+                ],
+                "value": "Divalent metal cations. Prefers magnesium or manganese."
+              }
+            ]
+          }
+        },
+        {
+          "commentType": "COFACTOR",
+          "cofactors": [
+            {
+              "name": "Mn(2+)",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00001936"
+                }
+              ],
+              "cofactorCrossReference": {
+                "database": "ChEBI",
+                "id": "CHEBI:29035"
+              }
+            }
+          ]
+        },
+        {
+          "texts": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00008785"
+                }
+              ],
+              "value": "Belongs to the malic enzymes family"
+            }
+          ],
+          "commentType": "SIMILARITY"
+        }
+      ],
+      "features": [
+        {
+          "type": "Domain",
+          "location": {
+            "start": {
+              "value": 133,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 314,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Malic enzyme N-terminal",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000259",
+              "source": "SMART",
+              "id": "SM01274"
+            }
+          ]
+        },
+        {
+          "type": "Domain",
+          "location": {
+            "start": {
+              "value": 324,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 578,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Malic enzyme NAD-binding",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000259",
+              "source": "SMART",
+              "id": "SM00919"
+            }
+          ]
+        },
+        {
+          "type": "Active site",
+          "location": {
+            "start": {
+              "value": 156,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 156,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Proton donor",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-1"
+            }
+          ]
+        },
+        {
+          "type": "Active site",
+          "location": {
+            "start": {
+              "value": 228,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 228,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Proton acceptor",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-1"
+            }
+          ]
+        },
+        {
+          "type": "Binding site",
+          "location": {
+            "start": {
+              "value": 299,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 299,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "",
+          "featureCrossReferences": [
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:60240"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-3"
+            }
+          ],
+          "ligand": {
+            "name": "a divalent metal cation",
+            "id": "ChEBI:CHEBI:60240"
+          }
+        },
+        {
+          "type": "Binding site",
+          "location": {
+            "start": {
+              "value": 300,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 300,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "",
+          "featureCrossReferences": [
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:60240"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-3"
+            }
+          ],
+          "ligand": {
+            "name": "a divalent metal cation",
+            "id": "ChEBI:CHEBI:60240"
+          }
+        },
+        {
+          "type": "Binding site",
+          "location": {
+            "start": {
+              "value": 323,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 323,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "",
+          "featureCrossReferences": [
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:60240"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-3"
+            }
+          ],
+          "ligand": {
+            "name": "a divalent metal cation",
+            "id": "ChEBI:CHEBI:60240"
+          }
+        },
+        {
+          "type": "Binding site",
+          "location": {
+            "start": {
+              "value": 469,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 469,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "",
+          "featureCrossReferences": [
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:15589"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-2"
+            }
+          ],
+          "ligand": {
+            "name": "(S)-malate",
+            "id": "ChEBI:CHEBI:15589"
+          }
+        },
+        {
+          "type": "Binding site",
+          "location": {
+            "start": {
+              "value": 509,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 509,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "",
+          "featureCrossReferences": [
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:15589"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-2"
+            }
+          ],
+          "ligand": {
+            "name": "(S)-malate",
+            "id": "ChEBI:CHEBI:15589"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00022723"
+            },
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR000106-3"
+            }
+          ],
+          "id": "KW-0479",
+          "category": "Ligand",
+          "name": "Metal-binding"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00023027"
+            }
+          ],
+          "id": "KW-0520",
+          "category": "Ligand",
+          "name": "NAD"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00023002"
+            }
+          ],
+          "id": "KW-0560",
+          "category": "Molecular function",
+          "name": "Oxidoreductase"
+        }
+      ],
+      "references": [
+        {
+          "referenceNumber": 1,
+          "citation": {
+            "id": "27603307",
+            "citationType": "journal article",
+            "authors": [
+              "Magnan C.",
+              "Yu J.",
+              "Chang I.",
+              "Jahn E.",
+              "Kanomata Y.",
+              "Wu J.",
+              "Zeller M.",
+              "Oakes M.",
+              "Baldi P.",
+              "Sandmeyer S."
+            ],
+            "citationCrossReferences": [
+              {
+                "database": "PubMed",
+                "id": "27603307"
+              }
+            ],
+            "title": "Sequence Assembly of Yarrowia lipolytica Strain W29/CLIB89 Shows Transposable Element Diversity.",
+            "publicationDate": "2016",
+            "journal": "PLoS ONE",
+            "firstPage": "E0162363",
+            "lastPage": "E0162363",
+            "volume": "11"
+          },
+          "referencePositions": [
+            "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+          ],
+          "referenceComments": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "Proteomes",
+                  "id": "UP000182444"
+                }
+              ],
+              "value": "CLIB89(W29)",
+              "type": "STRAIN"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "source": "EMBL",
+              "id": "AOW05618.1"
+            },
+            {
+              "evidenceCode": "ECO:0000313",
+              "source": "Proteomes",
+              "id": "UP000182444"
+            }
+          ]
+        }
+      ],
+      "uniProtKBCrossReferences": [
+        {
+          "database": "EMBL",
+          "id": "CP017557",
+          "properties": [
+            {
+              "key": "ProteinId",
+              "value": "AOW05618.1"
+            },
+            {
+              "key": "Status",
+              "value": "-"
+            },
+            {
+              "key": "MoleculeType",
+              "value": "Genomic_DNA"
+            }
+          ]
+        },
+        {
+          "database": "RefSeq",
+          "id": "XP_504112.3",
+          "properties": [
+            {
+              "key": "NucleotideSequenceId",
+              "value": "XM_504112.3"
+            }
+          ]
+        },
+        {
+          "database": "AlphaFoldDB",
+          "id": "A0A1H6QCK5",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "GeneID",
+          "id": "2911725",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "KEGG",
+          "id": "yli:2911725",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "VEuPathDB",
+          "id": "FungiDB:YALI0_E18634g",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "VEuPathDB",
+          "id": "FungiDB:YALI1_E22303g",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "eggNOG",
+          "id": "KOG1257",
+          "properties": [
+            {
+              "key": "ToxonomicScope",
+              "value": "Eukaryota"
+            }
+          ]
+        },
+        {
+          "database": "Proteomes",
+          "id": "UP000182444",
+          "properties": [
+            {
+              "key": "Component",
+              "value": "Chromosome 1E"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0005829",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "C:cytosol"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0005739",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "C:mitochondrion"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0004471",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "F:malate dehydrogenase (decarboxylating) (NAD+) activity"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0046872",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "F:metal ion binding"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:UniProtKB-KW"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0051287",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "F:NAD binding"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:InterPro"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0006108",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "P:malate metabolic process"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "CDD",
+          "id": "cd05312",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD_bind_1_malic_enz"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "FunFam",
+          "id": "3.40.50.10380:FF:000001",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD-dependent malic enzyme"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "FunFam",
+          "id": "3.40.50.720:FF:000055",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD-dependent malic enzyme"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Gene3D",
+          "id": "3.40.50.10380",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic enzyme, N-terminal domain"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Gene3D",
+          "id": "3.40.50.720",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD(P)-binding Rossmann-like Domain"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR046346",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Aminoacid_DH-like_N_sf"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR012301",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic_N_dom"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR037062",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic_N_dom_sf"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR012302",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic_NAD-bd"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR001891",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic_OxRdtase"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR036291",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD(P)-bd_dom_sf"
+            }
+          ]
+        },
+        {
+          "database": "NCBIfam",
+          "id": "NF010052",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "PRK13529.1"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PANTHER",
+          "id": "PTHR23406",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "MALIC ENZYME-RELATED"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PANTHER",
+          "id": "PTHR23406:SF34",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD-DEPENDENT MALIC ENZYME, MITOCHONDRIAL"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF00390",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "malic"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF03949",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic_M"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PIRSF",
+          "id": "PIRSF000106",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "ME"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PRINTS",
+          "id": "PR00072",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "MALOXRDTASE"
+            }
+          ]
+        },
+        {
+          "database": "SMART",
+          "id": "SM01274",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "malic"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "SMART",
+          "id": "SM00919",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Malic_M"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "SUPFAM",
+          "id": "SSF53223",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Aminoacid dehydrogenase-like, N-terminal domain"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "SUPFAM",
+          "id": "SSF51735",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "NAD(P)-binding Rossmann-fold domains"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "sequence": {
+        "value": "MLRLRTMRPTQTSVRAALGPTAAARNMSSSSPSSFEYSSYVKGTREIGHRKAPTTRLSVEGPIYVGFDGIRLLNLPHLNKGSGFPLNERREFGLSGLLPSAEATLEEQVDRAYQQFKKCGTPLAKNGFCTSLKFQNEVLYYALLLKHVKEVFPIIYTPTQGEAIEQYSRLFRRPEGCFLDITSPYDVEERLGAFGDHDDIDYIVVTDSEGILGIGDQGVGGIGISIAKLALMTLCAGVNPSRVIPVVLDTGTNNQELLHDPLYLGRRMPRVRGKQYDDFIDNFVQSARRLYPKAVIHFEDFGLANAHKILDKYRPEIPCFNDDIQGTGAVTLASITAALKVLGKNITDTRILVYGAGSAGMGIAEQVYDNLVAQGLDDKTARQNIFLMDRPGLLTTALTDEQMSDVQKPFAKDKANYEGVDTKTLEHVVAAVKPHILIGCSTQPGAFNEKVVKEMLKHTPRPIILPLSNPTRLHEAVPADLYKWTDGKALVATGSPFDPVNGKETSENNNCFVFPGIGLGAILSRSKLITNTMIAAAIECLAEQAPILKNHDEGVLPDVALIQIISARVATAVVLQAKAEGLATVEEELKPGTKEHVQIPDNFDECLAWVETQMWRPVYRPLIHVRDYD",
+        "length": 629,
+        "molWeight": 69160,
+        "crc64": "BBB6363D4FC5C830",
+        "md5": "01CD7003DFA73A852B035B38D9C319AA"
+      },
+      "extraAttributes": {
+        "countByCommentType": {
+          "CATALYTIC ACTIVITY": 2,
+          "COFACTOR": 2,
+          "SIMILARITY": 1
+        },
+        "countByFeatureType": {
+          "Domain": 2,
+          "Active site": 2,
+          "Binding site": 5
+        },
+        "uniParcId": "UPI00085D1186"
+      }
+    },
+    {
+      "entryType": "UniProtKB unreviewed (TrEMBL)",
+      "primaryAccession": "A0A1D8NL70",
+      "uniProtkbId": "A0A1D8NL70_YARLL",
+      "entryAudit": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 34,
+        "sequenceVersion": 1
+      },
+      "annotationScore": 2.0,
+      "organism": {
+        "scientificName": "Yarrowia lipolytica",
+        "commonName": "Candida lipolytica",
+        "taxonId": 4952,
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "EMBL",
+            "id": "AOW06378.1"
+          },
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "Proteomes",
+            "id": "UP000182444"
+          }
+        ],
+        "lineage": [
+          "Eukaryota",
+          "Fungi",
+          "Dikarya",
+          "Ascomycota",
+          "Saccharomycotina",
+          "Dipodascomycetes",
+          "Dipodascales",
+          "Dipodascales incertae sedis",
+          "Yarrowia"
+        ]
+      },
+      "proteinExistence": "3: Inferred from homology",
+      "proteinDescription": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00073675"
+              }
+            ],
+            "value": "Catalase T"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00012314"
+                }
+              ],
+              "value": "1.11.1.6"
+            }
+          ]
+        }
+      },
+      "genes": [
+        {
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW27742.1"
+                }
+              ],
+              "value": "B0I71DRAFT_163235"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW06378.1"
+                }
+              ],
+              "value": "YALI1_E40671g"
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "texts": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00003918"
+                }
+              ],
+              "value": "Occurs in almost all aerobically respiring organisms and serves to protect cells from the toxic effects of hydrogen peroxide"
+            }
+          ],
+          "commentType": "FUNCTION"
+        },
+        {
+          "commentType": "COFACTOR",
+          "cofactors": [
+            {
+              "name": "heme",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00001971"
+                },
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR038928-2"
+                }
+              ],
+              "cofactorCrossReference": {
+                "database": "ChEBI",
+                "id": "CHEBI:30413"
+              }
+            }
+          ]
+        },
+        {
+          "commentType": "SUBCELLULAR LOCATION",
+          "subcellularLocations": [
+            {
+              "location": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "ARBA",
+                    "id": "ARBA00004496"
+                  }
+                ],
+                "value": "Cytoplasm",
+                "id": "SL-0086"
+              }
+            }
+          ]
+        },
+        {
+          "texts": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00005329"
+                }
+              ],
+              "value": "Belongs to the catalase family"
+            }
+          ],
+          "commentType": "SIMILARITY"
+        }
+      ],
+      "features": [
+        {
+          "type": "Domain",
+          "location": {
+            "start": {
+              "value": 16,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 411,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "Catalase core",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000259",
+              "source": "SMART",
+              "id": "SM01060"
+            }
+          ]
+        },
+        {
+          "type": "Binding site",
+          "location": {
+            "start": {
+              "value": 350,
+              "modifier": "EXACT"
+            },
+            "end": {
+              "value": 350,
+              "modifier": "EXACT"
+            }
+          },
+          "description": "axial binding residue",
+          "featureCrossReferences": [
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:30413"
+            },
+            {
+              "database": "ChEBI",
+              "id": "CHEBI:18248"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR038928-2"
+            }
+          ],
+          "ligand": {
+            "name": "heme",
+            "id": "ChEBI:CHEBI:30413"
+          },
+          "ligandPart": {
+            "name": "Fe",
+            "id": "ChEBI:CHEBI:18248"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00022490"
+            }
+          ],
+          "id": "KW-0963",
+          "category": "Cellular component",
+          "name": "Cytoplasm"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00022617"
+            },
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR038928-2"
+            }
+          ],
+          "id": "KW-0349",
+          "category": "Ligand",
+          "name": "Heme"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00023324"
+            }
+          ],
+          "id": "KW-0376",
+          "category": "Biological process",
+          "name": "Hydrogen peroxide"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00023004"
+            },
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR038928-2"
+            }
+          ],
+          "id": "KW-0408",
+          "category": "Ligand",
+          "name": "Iron"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00022723"
+            },
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "PIRSR",
+              "id": "PIRSR038928-2"
+            }
+          ],
+          "id": "KW-0479",
+          "category": "Ligand",
+          "name": "Metal-binding"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00023002"
+            }
+          ],
+          "id": "KW-0560",
+          "category": "Molecular function",
+          "name": "Oxidoreductase"
+        },
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "source": "ARBA",
+              "id": "ARBA00022559"
+            }
+          ],
+          "id": "KW-0575",
+          "category": "Molecular function",
+          "name": "Peroxidase"
+        }
+      ],
+      "references": [
+        {
+          "referenceNumber": 1,
+          "citation": {
+            "id": "27603307",
+            "citationType": "journal article",
+            "authors": [
+              "Magnan C.",
+              "Yu J.",
+              "Chang I.",
+              "Jahn E.",
+              "Kanomata Y.",
+              "Wu J.",
+              "Zeller M.",
+              "Oakes M.",
+              "Baldi P.",
+              "Sandmeyer S."
+            ],
+            "citationCrossReferences": [
+              {
+                "database": "PubMed",
+                "id": "27603307"
+              }
+            ],
+            "title": "Sequence Assembly of Yarrowia lipolytica Strain W29/CLIB89 Shows Transposable Element Diversity.",
+            "publicationDate": "2016",
+            "journal": "PLoS ONE",
+            "firstPage": "E0162363",
+            "lastPage": "E0162363",
+            "volume": "11"
+          },
+          "referencePositions": [
+            "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+          ],
+          "referenceComments": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW06378.1"
+                }
+              ],
+              "value": "CLIB89",
+              "type": "STRAIN"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "Proteomes",
+                  "id": "UP000182444"
+                }
+              ],
+              "value": "CLIB89(W29)",
+              "type": "STRAIN"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "source": "EMBL",
+              "id": "AOW06378.1"
+            },
+            {
+              "evidenceCode": "ECO:0000313",
+              "source": "Proteomes",
+              "id": "UP000182444"
+            }
+          ]
+        },
+        {
+          "referenceNumber": 2,
+          "citation": {
+            "id": "CI-5DOEE5N85R9CH",
+            "citationType": "submission",
+            "authoringGroup": [
+              "DOE Joint Genome Institute"
+            ],
+            "authors": [
+              "Walker C.",
+              "Ryu S.",
+              "Na H.",
+              "Zane M.",
+              "LaButti K.",
+              "Lipzen A.",
+              "Haridas S.",
+              "Barry K.",
+              "Grigoriev I.V.",
+              "Quarterman J.",
+              "Slininger P.",
+              "Dien B.",
+              "Trinh C.T."
+            ],
+            "title": "Draft Genome Assemblies for Five Robust Yarrowia lipolytica Strains Exhibiting High Lipid Production and Pentose Sugar Utilization and Sugar Alcohol Secretion from Undetoxified Lignocellulosic Biomass Hydrolysates.",
+            "publicationDate": "JUL-2018",
+            "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+          },
+          "referencePositions": [
+            "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+          ],
+          "referenceComments": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW27742.1"
+                },
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "Proteomes",
+                  "id": "UP000256601"
+                }
+              ],
+              "value": "YB392",
+              "type": "STRAIN"
+            }
+          ],
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "source": "EMBL",
+              "id": "RDW27742.1"
+            },
+            {
+              "evidenceCode": "ECO:0000313",
+              "source": "Proteomes",
+              "id": "UP000256601"
+            }
+          ]
+        }
+      ],
+      "uniProtKBCrossReferences": [
+        {
+          "database": "EMBL",
+          "id": "CP017557",
+          "properties": [
+            {
+              "key": "ProteinId",
+              "value": "AOW06378.1"
+            },
+            {
+              "key": "Status",
+              "value": "-"
+            },
+            {
+              "key": "MoleculeType",
+              "value": "Genomic_DNA"
+            }
+          ]
+        },
+        {
+          "database": "EMBL",
+          "id": "KZ858959",
+          "properties": [
+            {
+              "key": "ProteinId",
+              "value": "RDW27742.1"
+            },
+            {
+              "key": "Status",
+              "value": "-"
+            },
+            {
+              "key": "MoleculeType",
+              "value": "Genomic_DNA"
+            }
+          ]
+        },
+        {
+          "database": "RefSeq",
+          "id": "XP_504765.1",
+          "properties": [
+            {
+              "key": "NucleotideSequenceId",
+              "value": "XM_504765.1"
+            }
+          ]
+        },
+        {
+          "database": "AlphaFoldDB",
+          "id": "A0A1D8NL70",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "SMR",
+          "id": "A0A1D8NL70",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "GeneID",
+          "id": "2912364",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "KEGG",
+          "id": "yli:2912364",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "VEuPathDB",
+          "id": "FungiDB:YALI0_E34265g",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "VEuPathDB",
+          "id": "FungiDB:YALI1_E40671g",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "eggNOG",
+          "id": "KOG0047",
+          "properties": [
+            {
+              "key": "ToxonomicScope",
+              "value": "Eukaryota"
+            }
+          ]
+        },
+        {
+          "database": "OMA",
+          "id": "QERMVWH",
+          "properties": [
+            {
+              "key": "Fingerprint",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "OrthoDB",
+          "id": "6880011at2759",
+          "properties": [
+            {
+              "key": "Description",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "database": "Proteomes",
+          "id": "UP000182444",
+          "properties": [
+            {
+              "key": "Component",
+              "value": "Chromosome 1E"
+            }
+          ]
+        },
+        {
+          "database": "Proteomes",
+          "id": "UP000256601",
+          "properties": [
+            {
+              "key": "Component",
+              "value": "Unassembled WGS sequence"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0005739",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "C:mitochondrion"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0005777",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "C:peroxisome"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0004096",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "F:catalase activity"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:UniProtKB-EC"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0020037",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "F:heme binding"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:InterPro"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0046872",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "F:metal ion binding"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:UniProtKB-KW"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0042744",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "P:hydrogen peroxide catabolic process"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:UniProtKB-KW"
+            }
+          ]
+        },
+        {
+          "database": "GO",
+          "id": "GO:0042542",
+          "properties": [
+            {
+              "key": "GoTerm",
+              "value": "P:response to hydrogen peroxide"
+            },
+            {
+              "key": "GoEvidenceType",
+              "value": "IEA:TreeGrafter"
+            }
+          ]
+        },
+        {
+          "database": "FunFam",
+          "id": "2.40.180.10:FF:000013",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Gene3D",
+          "id": "2.40.180.10",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase core domain"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR018028",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR024708",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase_AS"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR024711",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase_clade1/3"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR011614",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase_core"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR010582",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase_immune_responsive"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR020835",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase_sf"
+            }
+          ]
+        },
+        {
+          "database": "PANTHER",
+          "id": "PTHR11465",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "CATALASE"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PANTHER",
+          "id": "PTHR11465:SF62",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "CATALASE T"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF00199",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF06628",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase-rel"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PIRSF",
+          "id": "PIRSF038928",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase_clade1-3"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PRINTS",
+          "id": "PR00067",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "CATALASE"
+            }
+          ]
+        },
+        {
+          "database": "SMART",
+          "id": "SM01060",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Catalase"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "SUPFAM",
+          "id": "SSF56634",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Heme-dependent catalase-like"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PROSITE",
+          "id": "PS00438",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "CATALASE_2"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "database": "PROSITE",
+          "id": "PS51402",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "CATALASE_3"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "sequence": {
+        "value": "MSKELYANSKDDAVYSYSFGVPYPHHPYSSQRAGPTGPLLLQDTYLIDALAHFDRERIPERVVHANGGGAHGYFEVTDDISDITYAEPFQKIGYKCPTTVRFSTVGGERGSPDTARDPRGFAVKHKTDWGNWDMVGLNSPVFFIRDPVKFIHVNHSQKRDPQTNLTAGDDASNYWNYLVQNPESLHQVVYMFGDRGTPNGWRHMNCFSTHTYKMINKEGKLTYVQFHYKSDQGVKNFTGPEAAEMAGKSPDHDQKDLFFAIDNGDYPSWTVSLQTMTPEQAEEWEYSILDMTKTWPYDKFPLRKVGKLVLNKNAENFFEEIEQAAFSPSNLIHGIEASDDPVLQARLFSYPDTARHRLGPNFNQLPVNQARTFQKGSGCPFMAGNFQRDGNMAIHNQGNRPNYLSTIRPIQSVSVPNEDFKNTHDYCGVVTKEMEDESFKVQAEAAKKHNEKIWESSSYLYLSGFQESDAAQPRDLYERVYDDAAKQRMIDNVVDHASTIKQHGLKEQVAKYFGRISDDLGKKIAEGLGVPY",
+        "length": 532,
+        "molWeight": 60416,
+        "crc64": "7FB6E49DE545467D",
+        "md5": "E8D33492B432446C11EBEE37D6E26283"
+      },
+      "extraAttributes": {
+        "countByCommentType": {
+          "FUNCTION": 1,
+          "COFACTOR": 1,
+          "SUBCELLULAR LOCATION": 1,
+          "SIMILARITY": 1
+        },
+        "countByFeatureType": {
+          "Domain": 1,
+          "Binding site": 1
+        },
+        "uniParcId": "UPI00003BCAEE"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC1/11/1/6.html",
+      "type": "official enzyme nomenclature",
+      "read": "live page 2026-09-24",
+      "supports": "Some catalases have peroxidatic activity with ethanol as H donor; distinguish ethanol oxidation from principal catalase dismutation."
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/4720713/",
+      "type": "original research abstract",
+      "read": "live abstract 2026-09-24",
+      "supports": "Oshino et al 1973 rat liver catalase peroxidatic ethanol oxidation quantified versus H2O2 generation; DOI10.1042/bj1310555. Not a W29 or compartment experiment."
+    },
+    {
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC1/1/1/38.html",
+      "type": "official enzyme nomenclature",
+      "read": "live page 2026-09-24",
+      "supports": "Reaction(2) OAA to pyruvate+CO2 is an explicitly defined side activity; EC1.1.1.38 is not a mismatch merely because NAD is absent from this side reaction."
+    },
+    {
+      "url": "https://www.kegg.jp/entry/R00217",
+      "type": "official reaction database",
+      "read": "live page 2026-09-24",
+      "supports": "Exact OAA/pyruvate/CO2 identity, EC1.1.1.38/40 and4.1.1.112; printed reversible arrow does not establish physiological reverse flux."
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15251467/",
+      "type": "original research abstract",
+      "read": "live abstract 2026-09-24",
+      "supports": "Sender et al 2004 purified L.lactis CitM OAA decarboxylation; no malic activity; supports distinct activity class not native Yarrowia GPR."
+    },
+    {
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC4/1/1/112.html",
+      "type": "official enzyme nomenclature",
+      "read": "live page 2026-09-24",
+      "supports": "Non-Na-coupled OAA decarboxylase definition."
+    },
+    {
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC7/2/4/2.html",
+      "type": "official countermechanism",
+      "read": "live page 2026-09-24",
+      "supports": "Na-coupled OAA decarboxylation has explicit Na transport absent from actual model column."
+    },
+    {
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC6/4/1/1.html",
+      "type": "official countermechanism",
+      "read": "live page 2026-09-24",
+      "supports": "Pyruvate carboxylase couples carboxylation to ATP; this coupling is absent from actual model column."
+    },
+    {
+      "url": "https://www.ebi.ac.uk/chebi/CHEBI:30744",
+      "type": "official species definition",
+      "read": "live page 2026-09-24",
+      "supports": "Neutral oxaloacetic acid C4H4O5,charge0"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/chebi/CHEBI:32816",
+      "type": "official species definition",
+      "read": "live page 2026-09-24",
+      "supports": "Neutral pyruvic acid C3H4O3,charge0"
+    },
+    {
+      "url": "https://www.ebi.ac.uk/chebi/CHEBI:16526",
+      "type": "official species definition",
+      "read": "live page 2026-09-24",
+      "supports": "Carbon dioxide CO2,charge0"
+    }
+  ],
+  "decisions": {
+    "R_CAT2p": "Supported conditional direction candidate LB0 retaining ethanol+H2O2 to acetaldehyde+2H2O. Never describe as reverse oxygen/water peroxide synthesis. Mixed cy/pe compartments and native GPR exact peroxidatic activity remain unresolved.",
+    "R_OAADCm": "Supported exact removal of product H for preserved neutral pyruvate/OAA convention; supported conditional direction UB0 retaining OAA decarboxylation. Existing ionic Rhea/UniProt proton convention cannot be copied unchanged into neutral representation. Physiological concentrations/DeltaG and native precise activity unverified.",
+    "R305_R1889": "Documented current H/charge residuals -2/-2 and -1/-1 only; no chemical correction or CoQ gate override. Lack of a new energy witness would not validate their latent chemistry."
+  }
+}
