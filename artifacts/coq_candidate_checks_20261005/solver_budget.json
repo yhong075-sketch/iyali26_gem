@@ -1,0 +1,210 @@
+{
+  "limits": {
+    "solves": 12,
+    "solve_wall_seconds": 720,
+    "per_solve_seconds": 60
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  },
+  "calls": [
+    {
+      "label": "baseline_WT",
+      "status": "optimal",
+      "objective": 1.429177892279185,
+      "purpose": {
+        "kind": "maximum_growth",
+        "R385_disabled": false,
+        "variant": "baseline"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:10.680297+00:00",
+      "solve_call_seconds": 0.03787845792248845,
+      "max_mass_residual": 5.894763843716788e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "baseline_R385_off",
+      "status": "optimal",
+      "objective": 1.4291778922791902,
+      "purpose": {
+        "kind": "maximum_growth",
+        "R385_disabled": true,
+        "variant": "baseline"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:10.760976+00:00",
+      "solve_call_seconds": 0.007028915919363499,
+      "max_mass_residual": 8.651694811956379e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "baseline_ATP_closed_C_cy",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "maximum_balanced_ATP_dissipation",
+        "compartment": "C_cy",
+        "variant": "baseline"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:11.539029+00:00",
+      "solve_call_seconds": 0.018265291932038963,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "baseline_ATP_closed_C_mi",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "maximum_balanced_ATP_dissipation",
+        "compartment": "C_mi",
+        "variant": "baseline"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:11.601418+00:00",
+      "solve_call_seconds": 0.00905983301345259,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "candidate_WT",
+      "status": "optimal",
+      "objective": 1.4289162960655954,
+      "purpose": {
+        "kind": "maximum_growth",
+        "R385_disabled": false,
+        "variant": "candidate"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:13.748925+00:00",
+      "solve_call_seconds": 0.047611832967959344,
+      "max_mass_residual": 2.2970842350651666e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "candidate_R385_off",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "maximum_growth",
+        "R385_disabled": true,
+        "variant": "candidate"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:13.839738+00:00",
+      "solve_call_seconds": 0.010615292005240917,
+      "max_mass_residual": 1.7027611959319344e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "candidate_ATP_closed_C_cy",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "maximum_balanced_ATP_dissipation",
+        "compartment": "C_cy",
+        "variant": "candidate"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:14.672470+00:00",
+      "solve_call_seconds": 0.018102875095792115,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "candidate_ATP_closed_C_mi",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "maximum_balanced_ATP_dissipation",
+        "compartment": "C_mi",
+        "variant": "candidate"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-10-06T00:56:14.734164+00:00",
+      "solve_call_seconds": 0.008951458032242954,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    }
+  ],
+  "solve_call_seconds": 0.15751395688857883
+}
