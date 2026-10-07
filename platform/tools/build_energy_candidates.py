@@ -6,9 +6,10 @@ import os
 from pathlib import Path
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
-os.environ.setdefault("IYALI26_RESEARCH_ROOT", str(ROOT / "artifacts/reference_pipeline_restore_20260909/research"))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.gem_annotate.model_layout import MODEL
+os.environ.setdefault("IYALI26_RESEARCH_ROOT", str(MODEL.reports / "reference_pipeline_restore_20260909/research"))
 
 from scripts.gem_annotate.energy_candidates import VARIANTS, build_candidate_file
 from scripts.gem_annotate.execution import execution_limits
@@ -16,7 +17,7 @@ from scripts.gem_annotate.execution import execution_limits
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source", type=Path, default=ROOT / "model_metadata_trna_r1159_leak.xml")
+    parser.add_argument("--source", type=Path, default=MODEL.candidate_file("model_metadata_trna_r1159_leak.xml"))
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--variants", nargs="+", choices=VARIANTS, default=["E0", "E1", "E2", "E3"])
     args = parser.parse_args()

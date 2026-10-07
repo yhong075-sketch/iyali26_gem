@@ -8,11 +8,11 @@ from pathlib import Path
 from cobra.io import read_sbml_model
 from cobra.util.solver import linear_reaction_coefficients
 
-from .config import REPO_ROOT
+from .config import MODEL, REPO_ROOT
 from .reaction_selection import reaction_fields
 from .sbml import write_deterministic_sbml_model
 
-SPEC_PATH = REPO_ROOT / "data" / "energy_candidate_repairs.json"
+SPEC_PATH = MODEL.curation_file("energy_candidate_repairs.json")
 LOCK_NOTE = "energy_candidate_protected_definition"
 VARIANTS = ("E0", "E1", "E2", "E3", "E4", "E5")
 

@@ -5,7 +5,7 @@ import unittest
 
 from cobra import Model, Metabolite, Reaction
 
-from scripts.build_coq_biomass_candidate import apply_coq_biomass, pool_balance, Q9, Q9H2
+from tools.build_coq_biomass_candidate import apply_coq_biomass, pool_balance, Q9, Q9H2
 from scripts.gem_annotate.energy_candidates import model_definition
 from scripts.gem_annotate.execution import execution_limits
 

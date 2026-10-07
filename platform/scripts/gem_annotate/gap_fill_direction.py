@@ -13,10 +13,10 @@ import math
 from dataclasses import dataclass
 from pathlib import Path
 
-from .config import CURATION_DATA_DIR
+from .config import MODEL
 
 DEFAULT_GAP_FILL_DIRECTION_TABLE = (
-    CURATION_DATA_DIR / "gap_fill_direction_curation.csv"
+    MODEL.curation_file("gap_fill_direction_curation.csv")
 )
 
 _ALLOWED_STATUSES = {"active", "needs_review"}

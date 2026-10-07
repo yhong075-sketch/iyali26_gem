@@ -14,14 +14,15 @@ from pathlib import Path
 from cobra.io import read_sbml_model
 
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from scripts.gem_annotate.config import resolve_recorded_path
 
 from scripts.gem_annotate.patches import (
     _model_snapshot_fingerprint,
     audit_coa_protonation_curation,
     load_coa_protonation_curation,
 )
-from scripts.r1521_current_snapshot_handoff import (
+from tools.lipid.r1521_current_snapshot_handoff import (
     ER_EVIDENCE_PATH,
     HANDOFF_PATH as R1521_HANDOFF_PATH,
     _BALANCE_EXPECTATION_KEYS,
@@ -32,10 +33,11 @@ from scripts.r1521_current_snapshot_handoff import (
 )
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-HANDOFF_PATH = REPOSITORY / "data" / "fatty_acyl_coa_handoff.json"
-COA_CURATION_PATH = REPOSITORY / "data" / "coa_protonation_curation.json"
-LEDGER_PATH = REPOSITORY / "data" / "lipid_moiety_ledger_spec.json"
+REPOSITORY = Path(__file__).resolve().parents[3]
+from scripts.gem_annotate.model_layout import MODEL
+HANDOFF_PATH = MODEL.curation_file("fatty_acyl_coa_handoff.json")
+COA_CURATION_PATH = MODEL.curation_file("coa_protonation_curation.json")
+LEDGER_PATH = MODEL.curation_file("lipid_moiety_ledger_spec.json")
 _GROUP_IDS = (
     "lauroyl_coa",
     "myristoyl_coa",
@@ -674,7 +676,7 @@ def _write_json(path: Path, value: dict) -> None:
 
 def _declared_input_path(path: str) -> Path:
     candidate = Path(path)
-    return candidate if candidate.is_absolute() else REPOSITORY / candidate
+    return candidate if candidate.is_absolute() else resolve_recorded_path(candidate)
 
 
 def _validate_output_path(
@@ -688,7 +690,7 @@ def _validate_output_path(
         HANDOFF_PATH.resolve(),
         ER_EVIDENCE_PATH.resolve(),
         *(
-            (REPOSITORY / dependency["path"]).resolve()
+            resolve_recorded_path(dependency["path"])
             for dependency in r1521["evidence_dependencies"].values()
         ),
         *(

@@ -32,11 +32,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from .config import CURATION_DATA_DIR
+from .config import MODEL
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MICROSPECIES_TABLE = CURATION_DATA_DIR / "metabolite_microspecies.csv"
+DEFAULT_MICROSPECIES_TABLE = MODEL.curation_file("metabolite_microspecies.csv")
 REFERENCE_PH = 7.3
 
 _ACTIVE_STATUS = "active"

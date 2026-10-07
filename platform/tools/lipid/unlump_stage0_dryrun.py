@@ -27,6 +27,7 @@ back-solve and surface as blocked_multi_unknown.
 
 Output: data/unlump_stage0_plan.csv  +  a stdout summary.
 """
+from pathlib import Path
 import csv
 import os
 import re
@@ -34,8 +35,9 @@ from collections import Counter, defaultdict
 
 import cobra
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL = os.path.join(ROOT, "model.xml")
+ROOT = str(Path(__file__).resolve().parents[3])
+from scripts.gem_annotate.model_layout import MODEL as MODEL_LAYOUT
+MODEL = str(MODEL_LAYOUT.canonical_model)
 OUT_CSV = os.path.join(ROOT, "data", "unlump_stage0_plan.csv")
 
 # pool reaction whose substrates define the chain menu (acyl-CoA side)

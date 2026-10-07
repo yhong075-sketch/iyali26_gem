@@ -13,18 +13,20 @@ Edge cases are left untouched and flagged for manual review:
 
 Output: data/ec_overload_audit.csv
 """
+from pathlib import Path
 import csv
 import os
 import re
 import time
 import urllib.request
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = str(Path(__file__).resolve().parents[2])
 EC_RE = re.compile(r"\d+\.\d+\.\d+\.\d+")
 
 import cobra
 
 
+from scripts.gem_annotate.model_layout import MODEL
 def fetch_kegg_enzyme(kegg_rxn_id):
     """Return set of EC numbers from KEGG reaction ENZYME field, or None on error."""
     url = f"https://rest.kegg.jp/get/rn:{kegg_rxn_id}"
@@ -61,7 +63,7 @@ def kegg_ids(ann):
 
 
 def main():
-    m = cobra.io.read_sbml_model(os.path.join(ROOT, "model.xml"))
+    m = cobra.io.read_sbml_model(str(MODEL.canonical_model))
     overload = [r for r in m.reactions if len(ec_list(r.annotation)) >= 5]
     print(f"reactions with >=5 EC: {len(overload)}")
 
@@ -115,7 +117,7 @@ def main():
             "drop_ec": ";".join(sorted(drop)),
         })
 
-    out = os.path.join(ROOT, "data/ec_overload_audit.csv")
+    out = str(MODEL.curation_file("ec_overload_audit.csv"))
     order = {"clean": 0, "skip_empty_intersection": 1, "skip_fetch_error": 2,
              "skip_no_kegg": 3}
     rows.sort(key=lambda x: (order[x["action"]], x["reaction"]))

@@ -11,12 +11,13 @@ from scripts.gem_annotate.metabolites import normalize_all_annotations
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from tests.test_coq9_curation import semantics
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 class R1025AssignmentTests(unittest.TestCase):
     def test_nuclear_assignment_roundtrip_and_precondition_conflicts(self):
-        model = read_sbml_model(str(ROOT/'model_metadata_trna.xml'))
+        model = read_sbml_model(str(MODEL.candidate_file('model_metadata_trna.xml')))
         apply_r1026_gpr_assignment(model)
         before = semantics(model)
         normalized = model.copy()

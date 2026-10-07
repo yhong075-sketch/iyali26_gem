@@ -11,21 +11,24 @@ from pathlib import Path
 import subprocess
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+from scripts.gem_annotate.config import resolve_recorded_path
 
 from cobra.util.solver import linear_reaction_coefficients
-from scripts.build_coq_biomass_candidate import (
+from tools.build_coq_biomass_candidate import (
     BIOMASS, Q9, SPEC_PATH, apply_coq_biomass, pool_balance,
 )
 from scripts.gem_annotate.energy_candidates import model_definition
 from scripts.gem_annotate.execution import execution_limits
-from scripts.validate_energy_candidates import SolverBudget, load_model, sha, signature, table, write
+from tools.validate_energy_candidates import SolverBudget, load_model, sha, signature, table, write
 
 ALPHAS = [0.0] + [10 ** (-4 + i / 10) for i in range(21)]
 ALPHA_SOURCE = "User-authorized 2026-10-05 sensitivity range, 1e-4 to 1e-2 mmol/gDW; not a measured abundance"
 
 
+from scripts.gem_annotate.model_layout import MODEL
 def plot(rows, output):
     import matplotlib
     matplotlib.use("Agg")
@@ -67,13 +70,13 @@ def run(output, reuse_control=None):
         raise ValueError("Output must remain in the project workspace")
     output.mkdir(parents=True, exist_ok=False)
     spec = json.loads(SPEC_PATH.read_text())
-    prior_config = ROOT / "artifacts/atp_candidate_repair_20260924/config.json"
+    prior_config = MODEL.reports / "atp_candidate_repair_20260924/config.json"
     config = json.loads(prior_config.read_text())
     config.update(model=spec["source_path"], model_sha256=spec["source_sha256"])
     calls = len(ALPHAS) - int(reuse_control is not None)
     config["limits"] = {"solves": calls, "solve_wall_seconds": calls * 60, "per_solve_seconds": 60}
-    assert sha(ROOT / config["model"]) == config["model_sha256"]
-    paths = [ROOT / config[k] for k in ("model", "media", "strain_profile")]
+    assert sha(resolve_recorded_path(config["model"])) == config["model_sha256"]
+    paths = [resolve_recorded_path(config[k]) for k in ("model", "media", "strain_profile")]
     paths += [SPEC_PATH, prior_config, Path(__file__).resolve()]
     if reuse_control is not None:
         reuse_control = (ROOT / reuse_control).resolve()
@@ -81,7 +84,7 @@ def run(output, reuse_control=None):
             raise ValueError("Control must remain in the project workspace")
         paths.append(reuse_control)
     paths += [Path(m.__file__).resolve() for m in list(sys.modules.values())
-              if getattr(m, "__file__", None) and Path(m.__file__).resolve().is_relative_to(ROOT / "scripts")]
+              if getattr(m, "__file__", None) and Path(m.__file__).resolve().is_relative_to(PLATFORM_ROOT)]
     identities = {str(p.relative_to(ROOT)): sha(p) for p in paths}
     manifest = {
         "status": "running", "started_utc": datetime.now(timezone.utc).isoformat(),
@@ -144,7 +147,7 @@ def run(output, reuse_control=None):
                 finally:
                     bio.notes = copy.deepcopy(notes)
             assert model_definition(model) == before
-        assert all(sha(ROOT / p) == h for p, h in identities.items())
+        assert all(sha(resolve_recorded_path(p)) == h for p, h in identities.items())
         assert len(budget.record["calls"]) == calls and len(rows) == len(ALPHAS) == 22
         manifest.update(status="complete", source_and_code_unchanged=True,
                         runtime_restored=True, actual_optimization_calls=calls,

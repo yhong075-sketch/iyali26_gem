@@ -11,12 +11,13 @@ from scripts.gem_annotate.r1159_direction import CURATION_PATH, apply_r1159_dire
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from tests.test_coq9_curation import annotations, semantics
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 class R1159DirectionTests(unittest.TestCase):
     def test_direction_preservation_rejection_and_roundtrip(self):
-        model = read_sbml_model(str(ROOT / "model_metadata_trna.xml"))
+        model = read_sbml_model(str(MODEL.candidate_file("model_metadata_trna.xml")))
         spec = json.loads(CURATION_PATH.read_text())
         for field in ("name", "bounds", "gpr", "stoichiometry", "species", "notes"):
             bad = model.copy()
@@ -38,7 +39,7 @@ class R1159DirectionTests(unittest.TestCase):
                 apply_r1159_direction(bad)
             self.assertEqual((semantics(bad), annotations(bad)), before)
 
-        expected = read_sbml_model(str(ROOT / "model_metadata_trna.xml"))
+        expected = read_sbml_model(str(MODEL.candidate_file("model_metadata_trna.xml")))
         expected.reactions.R1159.bounds = (-1000.0, 0.0)
         expected.reactions.R1159.notes.update(spec["notes"])
         self.assertEqual(apply_r1159_direction(model)["status"], "applied")

@@ -13,7 +13,7 @@ from unittest.mock import patch
 from cobra.io import read_sbml_model, write_sbml_model
 
 import scripts.gem_annotate.patches as coa_patches
-from scripts.fatty_acyl_coa_handoff import (
+from tools.lipid.fatty_acyl_coa_handoff import (
     HANDOFF_PATH,
     HandoffError,
     audit_handoff,
@@ -23,11 +23,13 @@ from scripts.fatty_acyl_coa_handoff import (
 )
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
+from scripts.gem_annotate.config import resolve_recorded_path
+REPOSITORY = Path(__file__).resolve().parents[2]
 SOURCE_MODEL_ENV = os.environ.get("IYALI26_SOURCE_MODEL")
 CURRENT_MAIN_MODEL = Path(SOURCE_MODEL_ENV) if SOURCE_MODEL_ENV else None
 MODEL_PATH = CURRENT_MAIN_MODEL
-CURRENT_MAIN_REPORT = REPOSITORY / "artifacts" / "fatty_acyl_coa_handoff_20260818.json"
+from scripts.gem_annotate.model_layout import MODEL
+CURRENT_MAIN_REPORT = MODEL.reports / "fatty_acyl_coa_handoff_20260818.json"
 
 
 class FattyAcylCoAHandoffTests(unittest.TestCase):
@@ -229,7 +231,7 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
                 ]
                 changed["target_balance_reaction_ids"].remove(reaction_id)
                 with patch(
-                    "scripts.fatty_acyl_coa_handoff.load_coa_protonation_curation",
+                    "tools.lipid.fatty_acyl_coa_handoff.load_coa_protonation_curation",
                     return_value=changed,
                 ):
                     with self.assertRaises(HandoffError):
@@ -240,7 +242,7 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
             if row["reaction_id"] == "R1708"
         ).pop("residual_after_curated_tuples")
         with patch(
-            "scripts.fatty_acyl_coa_handoff.load_coa_protonation_curation",
+            "tools.lipid.fatty_acyl_coa_handoff.load_coa_protonation_curation",
             return_value=missing_residual,
         ):
             with self.assertRaises(HandoffError):
@@ -292,19 +294,19 @@ class FattyAcylCoAHandoffTests(unittest.TestCase):
     def test_report_output_cannot_alias_an_authoritative_input(self) -> None:
         handoff = load_handoff()
         r1521 = json.loads(
-            (REPOSITORY / "data" / "r1521_current_snapshot_handoff.json")
+            (MODEL.curation_file("r1521_current_snapshot_handoff.json"))
             .read_text(encoding="utf-8")
         )
         model_path = CURRENT_MAIN_MODEL or REPOSITORY / "explicit-source-model.xml"
         protected = [
             model_path,
             HANDOFF_PATH,
-            REPOSITORY / handoff["authoritative_inputs"]["coa_protonation_curation"]["path"],
-            REPOSITORY / handoff["authoritative_inputs"]["lipid_moiety_ledger_spec"]["path"],
-            REPOSITORY / handoff["authoritative_inputs"]["r1521_current_snapshot_handoff"]["path"],
+            resolve_recorded_path(handoff["authoritative_inputs"]["coa_protonation_curation"]["path"]),
+            resolve_recorded_path(handoff["authoritative_inputs"]["lipid_moiety_ledger_spec"]["path"]),
+            resolve_recorded_path(handoff["authoritative_inputs"]["r1521_current_snapshot_handoff"]["path"]),
             Path(handoff["authoritative_inputs"]["human_review_table"]["path"]),
             *(
-                REPOSITORY / dependency["path"]
+                resolve_recorded_path(dependency["path"])
                 for dependency in r1521["evidence_dependencies"].values()
             ),
         ]

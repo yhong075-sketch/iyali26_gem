@@ -2,8 +2,8 @@
 import json
 import unittest
 
-from scripts.diagnose_closed_energy import DEFAULT, block_direction, close_model, load_baseline, configure_solver
-from scripts.diagnose_dipeptide_supply import balance, signature
+from tools.diagnose_closed_energy import DEFAULT, block_direction, close_model, load_baseline, configure_solver
+from tools.diagnose_dipeptide_supply import balance, signature
 
 
 class ClosedEnergyTests(unittest.TestCase):

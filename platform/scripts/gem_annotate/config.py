@@ -6,7 +6,8 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+from .model_layout import MODEL, PLATFORM_ROOT, REPO_ROOT
+
 RESEARCH_ROOT_ENV = "IYALI26_RESEARCH_ROOT"
 
 
@@ -20,11 +21,11 @@ class ProjectPaths:
 
     @property
     def starting_model(self) -> Path:
-        return self.repo_root / "data" / "iyali26.xml"
+        return MODEL.start_model
 
     @property
     def output_model(self) -> Path:
-        return self.repo_root / "model.xml"
+        return MODEL.canonical_model
 
     @property
     def metanetx(self) -> Path:
@@ -36,7 +37,7 @@ class ProjectPaths:
 
     @property
     def essentiality(self) -> Path:
-        return self.repo_root / "data" / "reference_build" / "essentiality"
+        return MODEL.curation / "essentiality"
 
     @property
     def media(self) -> Path:
@@ -48,7 +49,7 @@ class ProjectPaths:
 
     @property
     def curation_data(self) -> Path:
-        return self.repo_root / "data" / "reference_build" / "curation"
+        return MODEL.curation
 
     @property
     def locus_map(self) -> Path:
@@ -61,6 +62,11 @@ class ProjectPaths:
     @property
     def results(self) -> Path:
         return self.research_root / "artifacts" / "results"
+
+    @property
+    def task_outputs(self) -> Path:
+        """Large per-task outputs (flux dumps, run folders) kept outside git."""
+        return self.research_root / "artifacts" / "tasks"
 
     @property
     def weekly_briefing(self) -> Path:
@@ -89,9 +95,33 @@ class ProjectPaths:
         if parts[:2] == ("data", "yali1_yali0_map"):
             return (self.locus_map.joinpath(*parts[2:])).resolve()
         if parts == ("data", "iyali26.xml"):
-            return (self.repo_root / candidate).resolve()
+            return MODEL.start_model.resolve()
+        if parts == ("data", "iyli21.xml"):
+            return (MODEL.start_model.parent / "iyli21.xml").resolve()
+        # Former repository layout, before the model/ and platform/ split.
+        if parts[:3] == ("data", "reference_build", "curation") and len(parts) == 4:
+            return MODEL.curation_file(parts[3]).resolve()
+        if parts[:3] == ("data", "reference_build", "essentiality"):
+            return (self.essentiality.joinpath(*parts[3:])).resolve()
+        if parts[:3] == ("data", "reference_build", "media"):
+            return (MODEL.conditions / "media").joinpath(*parts[3:]).resolve()
+        if parts[:2] == ("data", "reference_build") and len(parts) == 3:
+            return MODEL.curation_file(parts[2]).resolve()
+        if parts and parts[0] == "artifacts":
+            return (MODEL.reports.joinpath(*parts[1:])).resolve()
+        if parts == ("model.xml",):
+            return MODEL.canonical_model.resolve()
+        if len(parts) == 1 and parts[0].startswith("model_"):
+            return MODEL.candidate_file(parts[0]).resolve()
+        if parts[:2] == ("scripts", "gem_annotate"):
+            return (PLATFORM_ROOT.joinpath(*parts)).resolve()
+        if parts and parts[0] == "scripts" and len(parts) == 2:
+            tools = [path for path in (PLATFORM_ROOT / "tools").rglob(parts[1]) if path.is_file()]
+            return (tools[0] if len(tools) == 1 else PLATFORM_ROOT / "tools" / parts[1]).resolve()
+        if parts and parts[0] == "tests":
+            return (PLATFORM_ROOT.joinpath(*parts)).resolve()
         if parts and parts[0] == "data" and len(parts) == 2:
-            return (self.curation_data / parts[1]).resolve()
+            return MODEL.curation_file(parts[1]).resolve()
         if parts and parts[0] == "experiments":
             return (self.experiments.joinpath(*parts[1:])).resolve()
         if parts and parts[0] == "results":
@@ -161,6 +191,11 @@ def load_project_paths(
     if required:
         paths.require()
     return paths
+
+
+def resolve_recorded_path(path: str | Path) -> Path:
+    """Resolve a path recorded by an earlier run, which may use the former repository layout."""
+    return load_project_paths().resolve_legacy_path(path)
 
 
 PROJECT_PATHS = load_project_paths()

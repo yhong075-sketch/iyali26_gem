@@ -9,12 +9,13 @@ from scripts.gem_annotate.patches import merge_r153_r2176
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from tests.test_coq9_curation import semantics, annotations
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 class R153MergeTests(unittest.TestCase):
     def test_merge_roundtrip_idempotence_and_conflicts(self):
-        original = read_sbml_model(str(ROOT / 'model_metadata_trna_r153_single_gpr.xml'))
+        original = read_sbml_model(str(MODEL.candidate_file('model_metadata_trna_r153_single_gpr.xml')))
         for conflict in ('bounds', 'gpr', 'stoichiometry', 'notes', 'constraint'):
             bad = original.copy()
             r = bad.reactions.R2176
@@ -41,13 +42,13 @@ class R153MergeTests(unittest.TestCase):
         self.assertEqual(merge_r153_r2176(pre_export)['status'], 'applied')
 
         # Gurobi copy changes bound string forms (0 vs 0.0); compare direct loads.
-        merged = read_sbml_model(str(ROOT / 'model_metadata_trna_r153_single_gpr.xml'))
+        merged = read_sbml_model(str(MODEL.candidate_file('model_metadata_trna_r153_single_gpr.xml')))
         self.assertEqual(merge_r153_r2176(merged)['status'], 'applied')
         self.assertNotIn('R2176', merged.reactions)
         self.assertEqual(merged.reactions.R153.bounds, (-1000, 1000))
         self.assertEqual(merged.reactions.R153.notes['gpr_evidence_label'],
                          original.reactions.R153.notes['gpr_evidence_label'])
-        expected = read_sbml_model(str(ROOT / 'model_metadata_trna_r153_single_gpr.xml'))
+        expected = read_sbml_model(str(MODEL.candidate_file('model_metadata_trna_r153_single_gpr.xml')))
         expected.remove_reactions(['R2176'], remove_orphans=False)
         expected.reactions.R153.notes = copy.deepcopy(merged.reactions.R153.notes)
         self.assertTrue(semantics(merged) == semantics(expected), 'Unexpected mathematical change')

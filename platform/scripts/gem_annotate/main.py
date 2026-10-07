@@ -18,9 +18,9 @@ from .coq9 import CURATION_PATH, GENE_EVIDENCE_PATH, apply_coq9_curation, apply_
 from .biomass import fix_biomass_reaction
 from .config import (
     CACHE_DIR,
+    MODEL,
     REPO_ROOT,
     PROJECT_PATHS,
-    CURATION_DATA_DIR,
     MNX_DIR,
     OUTPUT_MODEL_PATH,
     STARTING_MODEL_PATH,
@@ -327,7 +327,7 @@ def build_reference_chain(
         logger.info("Gap FVA diagnostics not run (no-solve mode)")
 
     # Priority 6: gap-fill — insert P0 reactions from gap_fill_prioritized.csv
-    gap_fill_csv = CURATION_DATA_DIR / "gap_fill_prioritized.csv"
+    gap_fill_csv = MODEL.curation_file("gap_fill_prioritized.csv")
     if gap_fill_csv.exists():
         logger.info("=== Priority 6: gap-fill reaction insertion (P0) ===")
         add_gap_fill_reactions(
@@ -689,7 +689,7 @@ def build_reference_chain(
     return model, coq9, retention, selection
 
 
-RETENTION_PATH = REPO_ROOT / "data" / "reference_build" / "retained_reactions.json"
+RETENTION_PATH = MODEL.curation_file("retained_reactions.json")
 
 
 def annotate_retained_reactions(model):
@@ -723,7 +723,7 @@ def build_model(args):
     data_paths = [args.starting_model, CURATION_PATH, GENE_EVIDENCE_PATH, RETENTION_PATH, SELECTION_PATH]
     if getattr(args, "energy_candidate", "E0") != "E0":
         data_paths.append(ENERGY_SPEC_PATH)
-    data_paths += [p for p in (REPO_ROOT / "data" / "reference_build").rglob("*") if p.is_file()]
+    data_paths += [p for folder in (MODEL.curation, MODEL.conditions) for p in folder.rglob("*") if p.is_file()]
     for folder in (MNX_DIR, CACHE_DIR, PROJECT_PATHS.locus_map,
                    PROJECT_PATHS.research_root / "reference" / "ncbi",
                    PROJECT_PATHS.research_root / "reference" / "kegg"):

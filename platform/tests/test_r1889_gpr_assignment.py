@@ -13,8 +13,9 @@ from scripts.gem_annotate.patches import R1889_ASSIGNMENT_PATH, apply_r1889_gpr_
 from scripts.gem_annotate.energy_candidates import export_candidate
 from tests.test_coq9_curation import annotations, semantics
 
-ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "artifacts/atp_candidate_repair_20260924/candidates/E5.xml"
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+SOURCE = MODEL.reports / "atp_candidate_repair_20260924/candidates/E5.xml"
 
 
 class R1889AssignmentTests(unittest.TestCase):

@@ -22,11 +22,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
-from .config import ESSENTIALITY_DIR, MEDIA_DIR, REPO_ROOT
+from .config import ESSENTIALITY_DIR, MEDIA_DIR, MODEL, REPO_ROOT, load_project_paths
 
 DEFAULT_LEDGER = ESSENTIALITY_DIR / "curation_cases.csv"
 DEFAULT_EVIDENCE_DIR = ESSENTIALITY_DIR / "evidence"
-DEFAULT_MODEL = REPO_ROOT / "model.xml"
+DEFAULT_MODEL = MODEL.canonical_model
 DEFAULT_EXPERIMENTAL = ESSENTIALITY_DIR / "consensus_essential_genes.csv"
 DEFAULT_MEDIA = MEDIA_DIR / "sd_leu.csv"
 
@@ -2361,7 +2361,7 @@ def import_identity_review(
 
 def _resolve_chemistry_audit_path(value: str, evidence_dir: str | Path) -> Path:
     raw = Path(value)
-    candidate = raw if raw.is_absolute() else (REPO_ROOT / raw)
+    candidate = raw if raw.is_absolute() else load_project_paths().resolve_legacy_path(raw)
     candidate = candidate.resolve()
     root = Path(evidence_dir).resolve()
     if root not in (candidate, *candidate.parents):

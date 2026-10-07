@@ -15,7 +15,8 @@ from xml.etree import ElementTree as ET
 import numpy as np
 from scipy.sparse import coo_matrix, csr_matrix
 
-ROOT = Path(__file__).resolve().parents[1]
+from scripts.gem_annotate.config import resolve_recorded_path
+ROOT = Path(__file__).resolve().parents[2]
 CY = 'HYP_GLYPRO_HYD_CY'
 SOURCE = 'DIAG_GLYPRO_SOURCE'
 HYD = {'C_ONLY': CY, 'V_ONLY': 'R2039'}
@@ -272,7 +273,7 @@ def main():
     assert digest(candidate_directory/'manifest.json') == identity['candidate_manifest_sha256']
     xml_checks = check_candidate_xml(Path(identity['source']), candidate_directory)
     for path, expected in config['input_configuration_sha256'].items():
-        assert digest(ROOT/path) == expected
+        assert digest(resolve_recorded_path(path)) == expected
     for path, expected in manifest['source_sha256'].items():
         assert digest(run/'code'/path) == expected
     assert manifest['temporary_edits_restored'] and manifest['closed_template_growth_matches_reference']

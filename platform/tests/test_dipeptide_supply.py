@@ -3,7 +3,7 @@ import unittest
 from cobra import Model, Reaction, Metabolite
 from cobra.flux_analysis import pfba
 
-from scripts.diagnose_dipeptide_supply import (
+from tools.diagnose_dipeptide_supply import (
     MODEL, CONDITIONS, TARGETS, ENDO_REQUIRED, balance, formula_elements,
     scenario, signature, validate_endogenous_spec,
     load_effective_simulation_context, cached_solution,

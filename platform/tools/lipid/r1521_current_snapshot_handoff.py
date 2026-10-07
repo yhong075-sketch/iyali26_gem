@@ -18,7 +18,8 @@ from cobra.core.formula import elements_and_molecular_weights
 from cobra.io import read_sbml_model
 
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from scripts.gem_annotate.config import resolve_recorded_path
 
 from scripts.gem_annotate.patches import (
     CoAProtonationActivationBlocked,
@@ -28,10 +29,11 @@ from scripts.gem_annotate.patches import (
 )
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-HANDOFF_PATH = REPOSITORY / "data" / "r1521_current_snapshot_handoff.json"
-ER_EVIDENCE_PATH = REPOSITORY / "data" / "er_vlcfa_3r_stereochemistry.json"
-COA_CURATION_PATH = REPOSITORY / "data" / "coa_protonation_curation.json"
+REPOSITORY = Path(__file__).resolve().parents[3]
+from scripts.gem_annotate.model_layout import MODEL
+HANDOFF_PATH = MODEL.curation_file("r1521_current_snapshot_handoff.json")
+ER_EVIDENCE_PATH = MODEL.curation_file("er_vlcfa_3r_stereochemistry.json")
+COA_CURATION_PATH = MODEL.curation_file("coa_protonation_curation.json")
 _TRUSTED_CONTRACT_SHA256 = "18d60ef4e583311fd95581dcce2a96f4af6ac6c1d0dc19bc36799c163334d678"
 _BALANCE_EXPECTATION_KEYS = frozenset(
     {
@@ -442,7 +444,7 @@ def _validate_runtime_evidence(handoff: dict) -> None:
     """Require every locked evidence file for every handoff use."""
 
     for name, dependency in handoff["evidence_dependencies"].items():
-        path = REPOSITORY / dependency["path"]
+        path = resolve_recorded_path(dependency["path"])
         declared = dependency["canonical_contract_sha256"]
         _require(
             _canonical_json_file_digest(path) == declared,
@@ -773,11 +775,11 @@ def _validate_output_path(
     _validate_runtime_handoff(handoff)
     protected = {
         source_path.resolve(),
-        (REPOSITORY / handoff["source_model"]).resolve(),
+        resolve_recorded_path(handoff["source_model"]),
         HANDOFF_PATH.resolve(),
         COA_CURATION_PATH.resolve(),
         *(
-            (REPOSITORY / dependency["path"]).resolve()
+            resolve_recorded_path(dependency["path"])
             for dependency in handoff["evidence_dependencies"].values()
         ),
     }

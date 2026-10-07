@@ -10,18 +10,20 @@ from unittest.mock import patch
 
 from cobra import Model, Reaction, Metabolite
 from scripts.gem_annotate.execution import execution_limits
-from scripts.validate_vacuole_supply import (
+from tools.validate_vacuole_supply import (
     ROOT, audit_saved_run, bind_inputs, input_identity, main, math_signature, sha,
 )
 
-TASK = ROOT / 'artifacts/dipeptide_chemistry_routes_20260924'
-PREVIOUS = ROOT / 'artifacts/vacuole_open_supply_20260924'
+from scripts.gem_annotate.config import load_project_paths
+from scripts.gem_annotate.model_layout import SCRATCH_DIR
+# Both saved task folders live in the research workspace, not in git.
+TASK = load_project_paths().task_outputs / 'dipeptide_chemistry_routes_20260924'
+PREVIOUS = load_project_paths().task_outputs / 'vacuole_open_supply_20260924'
 
 
 class ExplicitInputTests(unittest.TestCase):
     def setUp(self):
-        (TASK/'tmp').mkdir(parents=True, exist_ok=True)
-        self.temp = tempfile.TemporaryDirectory(dir=TASK/'tmp')
+        self.temp = tempfile.TemporaryDirectory(dir=SCRATCH_DIR)
         self.addCleanup(self.temp.cleanup)
         self.folder = Path(self.temp.name)
         self.base, self.candidate = self.folder/'base.xml', self.folder/'candidate.xml'
@@ -83,6 +85,8 @@ class ExplicitInputTests(unittest.TestCase):
         model.add_cons_vars(model.problem.Constraint(reaction.flux_expression, ub=0.5, name='extra'))
         self.assertNotEqual(math_signature(model), before)
 
+    @unittest.skipUnless((PREVIOUS / 'run').is_dir() and (TASK / 'previous_source_snapshot').is_dir(),
+                         'saved task folders not found; set IYALI26_RESEARCH_ROOT')
     def test_audit_saved_run_uses_archived_executed_source_without_optimization(self):
         config = json.loads((PREVIOUS/'config.json').read_text())
         identities = bind_inputs(config['model'], config['model_sha256'], config['candidate'],

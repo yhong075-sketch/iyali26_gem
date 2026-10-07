@@ -9,11 +9,11 @@ if [ -f .venv/bin/activate ]; then
 fi
 
 echo "=== Running gem_annotate ==="
-python -m scripts.gem_annotate
+(cd platform && python -m scripts.gem_annotate)
 
 echo "=== Running memote ==="
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 OUTPUT="results/${TIMESTAMP}.html"
-memote report snapshot --solver glpk --ignore-git --filename "$OUTPUT" model.xml
+memote report snapshot --solver glpk --ignore-git --filename "$OUTPUT" model/candidates/legacy/model.xml
 
 echo "=== Done: $OUTPUT ==="

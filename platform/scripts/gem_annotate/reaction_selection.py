@@ -6,9 +6,9 @@ import json
 from cobra.core.gene import GPR
 
 from .coq9 import boolean_key
-from .config import REPO_ROOT
+from .config import MODEL
 
-SELECTION_PATH = REPO_ROOT / "data" / "metadata_reaction_selection.json"
+SELECTION_PATH = MODEL.curation_file("metadata_reaction_selection.json")
 
 
 def reaction_fields(reaction):

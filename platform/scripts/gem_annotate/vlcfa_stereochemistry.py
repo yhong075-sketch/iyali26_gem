@@ -10,10 +10,11 @@ from math import isclose
 from pathlib import Path
 from typing import Any
 
+from .config import MODEL, load_project_paths
+
 
 logger = logging.getLogger(__name__)
-_REPOSITORY = Path(__file__).resolve().parents[2]
-_CURATION_PATH = _REPOSITORY / "data" / "er_vlcfa_3r_stereochemistry.json"
+_CURATION_PATH = MODEL.curation_file("er_vlcfa_3r_stereochemistry.json")
 _TRUSTED_CURATION_SHA256 = "1a527ee0bb99b1703f2cc8e18b4af147aa3bde7ca1dcb634d8220d4cb375ab80"
 _CHEMICAL_IDENTITY_KEYS = frozenset(
     {
@@ -208,7 +209,7 @@ def load_er_vlcfa_stereochemistry_curation(
 
 
 def _validate_source_provenance(curation: dict[str, Any]) -> None:
-    source = _REPOSITORY / curation["source_model"]
+    source = load_project_paths().resolve_legacy_path(curation["source_model"])
     _require(source.is_file(), f"ER VLCFA source model is unavailable: {source}")
     _require(_sha256_file(source) == curation["source_sha256"], "ER VLCFA source model SHA drifted")
 

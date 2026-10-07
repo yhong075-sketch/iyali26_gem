@@ -2,7 +2,7 @@
 
 import unittest
 
-from scripts.moiety_ledger_prototype import build_pa_moiety_ledger_demo, internal_mass_balance_errors, solve_demo
+from tools.lipid.moiety_ledger_prototype import build_pa_moiety_ledger_demo, internal_mass_balance_errors, solve_demo
 
 
 class MoietyLedgerPrototypeTests(unittest.TestCase):

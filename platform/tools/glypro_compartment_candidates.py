@@ -10,7 +10,7 @@ from pathlib import Path
 from cobra import Reaction
 from cobra.io import read_sbml_model
 
-from scripts.diagnose_dipeptide_supply import balance, sha, table, write_json
+from tools.diagnose_dipeptide_supply import balance, sha, table, write_json
 from scripts.gem_annotate.config import REPO_ROOT
 from scripts.gem_annotate.dipeptide_chemistry import protected_chemistry
 from scripts.gem_annotate.energy_candidates import (
@@ -18,6 +18,7 @@ from scripts.gem_annotate.energy_candidates import (
     solver_definition,
 )
 
+from scripts.gem_annotate.config import resolve_recorded_path
 SOURCE_SHA256 = 'a0307b9b00c1ed6e981d605f65ba15a0e313fe95e0e664dc05cfb95ef4291848'
 HYDROLYSIS_ID = 'HYP_GLYPRO_HYD_CY'
 SCENARIOS = ('TEMPLATE', 'V_ONLY', 'C_ONLY', 'NONE')
@@ -38,6 +39,7 @@ CONNECTIONS = {'R1363': (0., .04), 'R795': (0., .04),
                'R871': (0., .01), 'R876': (0., .01)}
 
 
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
 def exact_copy(model):
     """Preserve coefficients and isolate metadata; reapply solver settings later."""
     model.solver.update()
@@ -211,8 +213,8 @@ def build(source, source_sha256, output_dir):
     negative_checks = _negative_checks(baseline, template)
     output_dir.mkdir(parents=True, exist_ok=True)
     implementation = {str(p.relative_to(REPO_ROOT)): sha(p) for p in (
-        Path(__file__).resolve(), REPO_ROOT/'scripts/gem_annotate/energy_candidates.py',
-        REPO_ROOT/'scripts/gem_annotate/dipeptide_chemistry.py', REPO_ROOT/'scripts/gem_annotate/sbml.py')}
+        Path(__file__).resolve(), PLATFORM_ROOT / 'scripts/gem_annotate/energy_candidates.py',
+        PLATFORM_ROOT / 'scripts/gem_annotate/dipeptide_chemistry.py', PLATFORM_ROOT / 'scripts/gem_annotate/sbml.py')}
     manifest = {'created_utc': datetime.now(timezone.utc).isoformat(),
                 'source': str(source), 'source_sha256': source_sha256,
                 'source_build_manifest': str(source_manifest_path), 'source_build_manifest_sha256': sha(source_manifest_path),
@@ -248,7 +250,7 @@ def build(source, source_sha256, output_dir):
                 differences.append({'scenario': scenario, 'reaction_id': rid,
                     'change': 'added_hypothesis_column' if old is None else 'diagnostic_route_isolation_or_capacity',
                     'before': old, 'after': after, 'formal_biological_assignment': False})
-    if sha(source) != source_sha256 or any(sha(REPO_ROOT / p) != value for p, value in implementation.items()):
+    if sha(source) != source_sha256 or any(sha(resolve_recorded_path(p)) != value for p, value in implementation.items()):
         raise ValueError('Input or implementation changed during candidate construction')
     manifest['source_unchanged'] = True
     write_json(output_dir / 'manifest.json', manifest)

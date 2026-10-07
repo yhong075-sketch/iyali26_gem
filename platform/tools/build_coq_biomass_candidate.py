@@ -12,14 +12,16 @@ from pathlib import Path
 import subprocess
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.gem_annotate.config import resolve_recorded_path
 
 from cobra.io import read_sbml_model
 from scripts.gem_annotate.energy_candidates import export_candidate, model_definition
 from scripts.gem_annotate.execution import execution_limits
 
-SPEC_PATH = ROOT / "data/coq_biomass_candidate.json"
+from scripts.gem_annotate.model_layout import MODEL, PLATFORM_ROOT
+SPEC_PATH = MODEL.curation_file("coq_biomass_candidate.json")
 BIOMASS = "biomass_C"
 Q9, Q9H2 = "m468[C_mi]", "m471[C_mi]"
 NOTE = "coq9_growth_dilution_candidate"
@@ -78,10 +80,10 @@ def build_candidate_file(source, output, alpha, alpha_source):
     if input_sha != spec["source_sha256"]:
         raise ValueError("Source SHA differs from the pinned E5 candidate")
     implementation = [Path(__file__), SPEC_PATH,
-                      ROOT / "scripts/gem_annotate/energy_candidates.py",
-                      ROOT / "scripts/gem_annotate/reaction_selection.py",
-                      ROOT / "scripts/gem_annotate/sbml.py",
-                      ROOT / "scripts/gem_annotate/execution.py"]
+                      PLATFORM_ROOT / "scripts/gem_annotate/energy_candidates.py",
+                      PLATFORM_ROOT / "scripts/gem_annotate/reaction_selection.py",
+                      PLATFORM_ROOT / "scripts/gem_annotate/sbml.py",
+                      PLATFORM_ROOT / "scripts/gem_annotate/execution.py"]
     identities = {str(p.relative_to(ROOT)): sha(p) for p in implementation}
     model = read_sbml_model(source)
     before = model_definition(model)
@@ -101,7 +103,7 @@ def build_candidate_file(source, output, alpha, alpha_source):
     loaded_notes[BIOMASS][NOTE] = notes[BIOMASS][NOTE]
     if loaded_notes != notes or pool_balance(loaded) != patch["pool_balance"]:
         raise ValueError("Export changed reaction notes or the combined pool balance")
-    if sha(source) != input_sha or any(sha(ROOT / p) != h for p, h in identities.items()):
+    if sha(source) != input_sha or any(sha(resolve_recorded_path(p)) != h for p, h in identities.items()):
         raise ValueError("Input or implementation changed during the build")
     record = {"created_utc": datetime.now(timezone.utc).isoformat(),
               "candidate": "E5_CoQ9_growth_dilution", "curation_id": spec["curation_id"],
@@ -121,7 +123,7 @@ def build_candidate_file(source, output, alpha, alpha_source):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     spec = json.loads(SPEC_PATH.read_text())
-    parser.add_argument("--source", type=Path, default=ROOT / spec["source_path"])
+    parser.add_argument("--source", type=Path, default=resolve_recorded_path(spec["source_path"]))
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--alpha", type=float, required=True, help="Q9 mmol per gDW of newly formed biomass")
     parser.add_argument("--alpha-source", required=True, help="Measured source or explicit provisional assumption")

@@ -11,12 +11,12 @@ import re
 from cobra import Reaction
 from cobra.io import read_sbml_model
 
-from scripts.diagnose_dipeptide_supply import balance, sha, table, write_json
+from tools.diagnose_dipeptide_supply import balance, sha, table, write_json
 from scripts.gem_annotate.dipeptide_chemistry import protected_chemistry
 from scripts.gem_annotate.energy_candidates import protected_definitions
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_SHA = 'a0307b9b00c1ed6e981d605f65ba15a0e313fe95e0e664dc05cfb95ef4291848'
 TARGETS = {
     'm1864[C_ex]': 'Gly-L-Pro extracellular', 'm1865[C_cy]': 'Gly-L-Pro cytoplasmic',
@@ -31,6 +31,7 @@ CORE = ['R2036', 'R2037', 'R2038', 'R2039', 'R2030', 'R2040', 'R1363', 'R795']
 CY_HYD = {'m1865[C_cy]': -1, 'm32[C_cy]': -1, 'm272[C_cy]': 1, 'm765[C_cy]': 1}
 
 
+from scripts.gem_annotate.model_layout import MODEL
 def workspace(path):
     path = Path(path).resolve()
     if not path.is_relative_to(ROOT):
@@ -158,7 +159,7 @@ def main():
     hyp.add_metabolites({model.metabolites.get_by_id(k): v for k, v in CY_HYD.items()})
     assert balance(hyp)['element_status'] == 'balanced' and balance(hyp)['charge_status'] == 'balanced_as_stored'
 
-    prior = ROOT / 'artifacts/glypro_localization_predictors_20260924'
+    prior = MODEL.reports / 'glypro_localization_predictors_20260924'
     sequence = json.loads((prior / 'sequence_identity.json').read_text())
     evidence = dict(gene_id='YALI1E16433g', established_native_name=None,
         protein_function='M24B/X-Pro peptidase, prolidase-like candidate',

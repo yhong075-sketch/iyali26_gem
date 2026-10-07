@@ -5,11 +5,11 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from scripts.validate_energy_candidates import (
+from tools.validate_energy_candidates import (
     TASK, SolverBudget, energy_verdict, load_model, json_safe,
 )
-from scripts.diagnose_closed_energy import close_model
-from scripts.diagnose_dipeptide_supply import signature
+from tools.diagnose_closed_energy import close_model
+from tools.diagnose_dipeptide_supply import signature
 
 
 class EnergyCandidateBehaviorTests(unittest.TestCase):

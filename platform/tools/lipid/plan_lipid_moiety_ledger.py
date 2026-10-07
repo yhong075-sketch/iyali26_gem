@@ -18,9 +18,10 @@ except ImportError:
     from lipid_moiety_ledger import LedgerError, atomic_write_manifest, compile_dry_run
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 def _json_output_path(value: str) -> Path:
     path = Path(value)
     suffix = path.suffix.lower()
@@ -38,17 +39,17 @@ def build_parser() -> argparse.ArgumentParser:
         description="Compile a read-only in-memory TAG acyl-moiety ledger manifest."
     )
     parser.add_argument(
-        "model_xml", nargs="?", default=str(ROOT / "model.xml"), help="source SBML"
+        "model_xml", nargs="?", default=str(MODEL.canonical_model), help="source SBML"
     )
     parser.add_argument(
         "curation_csv",
         nargs="?",
-        default=str(ROOT / "data" / "lipid_combo_curation.csv"),
+        default=str(MODEL.curation_file("lipid_combo_curation.csv")),
         help="lipid_combo_curation.csv input",
     )
     parser.add_argument(
         "--spec",
-        default=str(ROOT / "data" / "lipid_moiety_ledger_spec.json"),
+        default=str(MODEL.curation_file("lipid_moiety_ledger_spec.json")),
         help="read-only planning contract included in input SHA-256",
     )
     parser.add_argument(

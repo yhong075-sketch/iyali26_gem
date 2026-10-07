@@ -24,9 +24,13 @@ from cobra.io import read_sbml_model, write_sbml_model
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-STARTING_MODEL_PATH = REPO_ROOT / "data" / "iyli21.xml"
-OUTPUT_MODEL_PATH = REPO_ROOT / "model.xml"
+REPO_ROOT = Path(__file__).resolve().parents[2]
+# Import this checkout's platform package even when run as a plain script.
+if str(Path(__file__).resolve().parents[1]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.gem_annotate.model_layout import MODEL
+STARTING_MODEL_PATH = (MODEL.start_model.parent / 'iyli21.xml')
+OUTPUT_MODEL_PATH = MODEL.canonical_model
 MNX_DIR = REPO_ROOT / "data" / "metanetx"
 
 # ─────────────────────────────────────────────
@@ -1564,10 +1568,7 @@ def merge_duplicate_metabolites(
 def _load_unified_main():
     """Resolve the one supported builder from package and direct-script entrypoints."""
 
-    if __package__:
-        from .gem_annotate.cli import main as unified_main
-    else:
-        from gem_annotate.cli import main as unified_main
+    from scripts.gem_annotate.cli import main as unified_main
     return unified_main
 
 

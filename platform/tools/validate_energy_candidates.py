@@ -13,12 +13,14 @@ import time
 
 from cobra import Reaction
 
-from scripts.diagnose_closed_energy import close_model, configure_solver, block_direction, workspace
-from scripts.diagnose_dipeptide_supply import balance, sha, signature, table
+from tools.diagnose_closed_energy import close_model, configure_solver, block_direction, workspace
+from tools.diagnose_dipeptide_supply import balance, sha, signature, table
 from scripts.gem_annotate.essentiality_simulation_context import load_effective_simulation_context
 
-ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT / 'artifacts/atp_candidate_repair_20260924'
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+TASK = MODEL.reports / 'atp_candidate_repair_20260924'
 
 
 def json_safe(value):
@@ -192,7 +194,7 @@ def run(args):
         'script_sha256':sha(__file__), 'started_utc':datetime.now(timezone.utc).isoformat(),
         'software': {'python':sys.version, **{p:metadata.version(p) for p in ('cobra','optlang','gurobipy','memote')}},
         'source_sha256':{str(Path(m.__file__).relative_to(ROOT)):sha(m.__file__) for m in list(sys.modules.values())
-                        if getattr(m,'__file__',None) and Path(m.__file__).is_relative_to(ROOT/'scripts')},
+                        if getattr(m,'__file__',None) and Path(m.__file__).is_relative_to(PLATFORM_ROOT)},
         'variants':{}, 'outcomes':[]}
     energies, growth = [], []
 

@@ -45,17 +45,17 @@ import logging
 import math
 import re
 
-from .config import CURATION_DATA_DIR, ESSENTIALITY_DIR, load_project_paths
+from .config import MODEL, ESSENTIALITY_DIR, load_project_paths
 
 logger = logging.getLogger(__name__)
 
-R1026_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r1026_gpr_assignment.json"
-R1025_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r1025_gpr_assignment.json"
-R153_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r153_gpr_assignment.json"
-R153_MERGE_PATH = CURATION_DATA_DIR / "r153_r2176_merge.json"
-R1931_DIRECTION_PATH = CURATION_DATA_DIR / "r1931_direction.json"
-R539_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r539_gpr_assignment.json"
-R1889_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r1889_gpr_assignment.json"
+R1026_ASSIGNMENT_PATH = MODEL.curation_file("r1026_gpr_assignment.json")
+R1025_ASSIGNMENT_PATH = MODEL.curation_file("r1025_gpr_assignment.json")
+R153_ASSIGNMENT_PATH = MODEL.curation_file("r153_gpr_assignment.json")
+R153_MERGE_PATH = MODEL.curation_file("r153_r2176_merge.json")
+R1931_DIRECTION_PATH = MODEL.curation_file("r1931_direction.json")
+R539_ASSIGNMENT_PATH = MODEL.curation_file("r539_gpr_assignment.json")
+R1889_ASSIGNMENT_PATH = MODEL.curation_file("r1889_gpr_assignment.json")
 
 
 def apply_r1889_gpr_assignment(model, spec=None) -> dict:
@@ -277,7 +277,7 @@ def _apply_gpr_assignment(model, spec, reaction_id) -> dict:
             "gpr": reaction.gene_reaction_rule, "evidence_status": spec["status"]}
 
 
-VATPASE_HYPOTHESIS_PATH = CURATION_DATA_DIR / "vatpase_gpr_hypothesis.json"
+VATPASE_HYPOTHESIS_PATH = MODEL.curation_file("vatpase_gpr_hypothesis.json")
 
 
 def apply_vatpase_gpr_hypothesis(model, spec=None) -> list[dict]:
@@ -3484,11 +3484,7 @@ class CoAProtonationActivationBlocked(CoAProtonationCurationError):
 def _coa_protonation_curation_path(curation_path: str | Path | None = None) -> Path:
     if curation_path is not None:
         return Path(curation_path)
-    return Path(__file__).resolve().parents[2] / _COA_PROTONATION_CURATION
-
-
-def _coa_protonation_repository_root() -> Path:
-    return Path(__file__).resolve().parents[2]
+    return load_project_paths().resolve_legacy_path(_COA_PROTONATION_CURATION)
 
 
 def _sha256_file(path: Path) -> str:
@@ -3512,10 +3508,9 @@ def _validate_curation_source_file(
     source_path = (
         Path(source_model_path).resolve()
         if source_model_path is not None
-        else (
-            _coa_protonation_repository_root()
-            / ("model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"])
-        ).resolve()
+        else load_project_paths().resolve_legacy_path(
+            "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+        )
     )
     if not source_path.is_file():
         raise CoAProtonationCurationError(
@@ -3537,7 +3532,7 @@ def _validate_r1521_dependency(curation: dict) -> None:
         return
     if curation.get("r1521_current_snapshot_contract_sha256") != _R1521_HANDOFF_CONTRACT:
         raise CoAProtonationCurationError("R1521 handoff contract digest drifted")
-    path = _coa_protonation_repository_root() / "data/r1521_current_snapshot_handoff.json"
+    path = load_project_paths().resolve_legacy_path("data/r1521_current_snapshot_handoff.json")
     try:
         handoff = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -3562,11 +3557,11 @@ def _validate_r1521_dependency(curation: dict) -> None:
     dependencies = handoff.get("evidence_dependencies")
     if not isinstance(dependencies, dict):
         raise CoAProtonationCurationError("R1521 evidence dependency contract drifted")
-    root = _coa_protonation_repository_root()
+    paths = load_project_paths()
     for name, dependency in dependencies.items():
         try:
             evidence = json.loads(
-                (root / dependency["path"]).read_text(encoding="utf-8")
+                paths.resolve_legacy_path(dependency["path"]).read_text(encoding="utf-8")
             )
             actual_digest = hashlib.sha256(
                 json.dumps(

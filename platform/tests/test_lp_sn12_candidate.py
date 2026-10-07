@@ -17,14 +17,14 @@ import cobra
 from cobra.flux_analysis import flux_variability_analysis, pfba
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
+REPOSITORY = Path(__file__).resolve().parents[2]
 MODEL_PATH = Path(os.environ.get(
     "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
 ))
-if str(REPOSITORY) not in sys.path:
-    sys.path.insert(0, str(REPOSITORY))
+if str(Path(__file__).resolve().parents[1]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from scripts.lp_sn12_candidate import (  # noqa: E402
+from tools.lipid.lp_sn12_candidate import (  # noqa: E402
     CARDIOLIPIN_AUDIT_SHA256, CURATION_PATH, ContractError, MARKER,
     build_candidate, cardiolipin_audit, main, report, source_fingerprint,
     write_candidate_sbml,
@@ -93,7 +93,7 @@ class StrictSnCoreTests(unittest.TestCase):
         self.assertEqual(source_fingerprint(self.source), self.source_fingerprint)
         drifted = json.loads(CURATION_PATH.read_text())
         drifted["linoleoyl_neutral_correction"]["candidate_tuple"]["charge"] = -4
-        with mock.patch("scripts.lp_sn12_candidate._read_curation", return_value=drifted):
+        with mock.patch("tools.lipid.lp_sn12_candidate._read_curation", return_value=drifted):
             with self.assertRaisesRegex(ContractError, "linoleoyl"):
                 build_candidate(self.source)
 
@@ -229,7 +229,7 @@ class StrictSnCoreTests(unittest.TestCase):
     def test_coq_r39_mapping_sha_drift_fails_closed(self) -> None:
         drifted = json.loads(json.dumps(self.curation))
         drifted["coq_R39_R40_curation"]["R39"]["mapping_sha256"] = "0" * 64
-        with mock.patch("scripts.lp_sn12_candidate._read_curation", return_value=drifted):
+        with mock.patch("tools.lipid.lp_sn12_candidate._read_curation", return_value=drifted):
             with self.assertRaisesRegex(ContractError, "R39/R40 CoQ evidence contract drifted"):
                 build_candidate(self.source)
 

@@ -8,10 +8,11 @@ below as data. Every other candidate row defaults to needs_review with a 'constr
 note (engine-built chain-resolved lipid whose mass balance is already code-verified).
 Touches no model.
 """
+from pathlib import Path
 import csv
 import os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = str(Path(__file__).resolve().parents[3])
 IN_CSV = os.path.join(ROOT, "data", "fill_candidates.csv")
 OUT_CSV = os.path.join(ROOT, "data", "fill_classification.csv")
 

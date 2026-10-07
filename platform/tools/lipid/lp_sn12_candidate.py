@@ -15,8 +15,9 @@ import re
 from cobra import Metabolite, Model, Reaction
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-CURATION_PATH = REPOSITORY / "data" / "lipid_unlump_sn_core_curation.json"
+REPOSITORY = Path(__file__).resolve().parents[3]
+from scripts.gem_annotate.model_layout import MODEL
+CURATION_PATH = MODEL.curation_file("lipid_unlump_sn_core_curation.json")
 MARKER = "lipid_unlump_sn_core"
 CARDIOLIPIN_AUDIT_SHA256 = "e16db37d6b19731fa8f608e177c10b8d646343e496b18ad609a2da29f35543d1"
 _FORMULA_ORDER = ("C", "H", "N", "O", "P", "S")

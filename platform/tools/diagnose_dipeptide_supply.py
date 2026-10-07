@@ -27,9 +27,11 @@ from memote.support import consistency, helpers
 
 from scripts.gem_annotate.essentiality_simulation_context import load_effective_simulation_context
 
-ROOT = Path(__file__).resolve().parents[1]
-MODEL = ROOT / 'model_metadata_trna_r1159_leak.xml'
-CONDITIONS = ROOT / 'artifacts/reference_pipeline_restore_20260909/research/state'
+from scripts.gem_annotate.config import resolve_recorded_path
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL as MODEL_LAYOUT
+MODEL = MODEL_LAYOUT.candidate_file('model_metadata_trna_r1159_leak.xml')
+CONDITIONS = MODEL_LAYOUT.reports / 'reference_pipeline_restore_20260909/research/state'
 TARGETS = {
     'R2021': ('m1871[C_va]', 'Gly-Asp', 6),
     'R2029': ('m1862[C_va]', 'Gly-Glu', 7),
@@ -290,7 +292,7 @@ def main():
             raise ValueError('Only a budget stop can be continued; do not retry scientific/solver failures')
         driver=str(Path(__file__).relative_to(ROOT))
         loader_sources=lambda x:{k:v for k,v in x.items() if k!=driver}
-        archived=ROOT/'artifacts/dipeptide_supply_repair_20260923/diagnose_v1.py'
+        archived=MODEL_LAYOUT.reports / 'dipeptide_supply_repair_20260923/diagnose_v1.py'
         if old['script_sha256'] not in (sha(__file__),sha(archived)):
             raise ValueError('Unreviewed prior diagnostic driver')
         if old['input_sha256']!=record['input_sha256'] or old['solver']!=record['solver'] or loader_sources(old['source_sha256'])!=loader_sources(record['source_sha256']):
@@ -443,7 +445,7 @@ def main():
         # No dipeptide input controls distinguish repair connections from an input source.
         run_case('water_pump_outputs_no_source',(),0.01,water=True,pump=True,outputs=True)
         # Reuse the project's memote closed-boundary ATP protocol, with explicit ATPM control.
-        record['energy_protocol_sha256']=sha(ROOT/'artifacts/trna_biomass_restore_20260910/static_check.py')
+        record['energy_protocol_sha256']=sha(MODEL_LAYOUT.reports / 'trna_biomass_restore_20260910/static_check.py')
         record['memote_energy_function_sha256']=hashlib.sha256(inspect.getsource(consistency.detect_energy_generating_cycles).encode()).hexdigest()
         record['energy_checks']=[]
         for variant in ('baseline','hypothesis_connections'):
@@ -488,7 +490,7 @@ def main():
                             record['closed_local_cycles'].append(row)
         record['baseline_restored']=signature(m)==base
         assert record['baseline_restored']
-        record['inputs_unchanged']=all(sha(ROOT/p)==h for p,h in record['input_sha256'].items())
+        record['inputs_unchanged']=all(sha(resolve_recorded_path(p))==h for p,h in record['input_sha256'].items())
         assert record['inputs_unchanged']
         record.update(status='complete',completed_utc=datetime.now(timezone.utc).isoformat())
     except BaseException as error:

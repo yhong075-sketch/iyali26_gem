@@ -34,8 +34,9 @@ from pathlib import Path
 from cobra.io import read_sbml_model
 from cobra.flux_analysis import find_blocked_reactions
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-OUT_CSV = REPO_ROOT / "data" / "blocked_root_cause.csv"
+REPO_ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+OUT_CSV = MODEL.reports / "diagnostics" / "blocked_root_cause.csv"
 
 # Currency / ubiquitous metabolites are ignored when judging "isolated":
 # their presence as orphan/dead-end is not what blocks a reaction.
@@ -52,7 +53,7 @@ def _is_currency(met) -> bool:
 
 
 def main():
-    model_path = sys.argv[1] if len(sys.argv) > 1 else str(REPO_ROOT / "model.xml")
+    model_path = sys.argv[1] if len(sys.argv) > 1 else str(MODEL.canonical_model)
     print(f"Loading model: {model_path}")
     model = read_sbml_model(model_path)
     model.solver = "glpk"

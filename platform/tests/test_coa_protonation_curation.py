@@ -28,12 +28,15 @@ from scripts.gem_annotate.patches import (
 )
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
+from scripts.gem_annotate.config import resolve_recorded_path
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+REPOSITORY = Path(__file__).resolve().parents[2]
 MODEL_PATH = Path(os.environ.get(
     "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
 ))
-COA_CURATION_PATH = REPOSITORY / "data" / "coa_protonation_curation.json"
-LEDGER_SPEC_PATH = REPOSITORY / "data" / "lipid_moiety_ledger_spec.json"
+from scripts.gem_annotate.model_layout import MODEL
+COA_CURATION_PATH = MODEL.curation_file("coa_protonation_curation.json")
+LEDGER_SPEC_PATH = MODEL.curation_file("lipid_moiety_ledger_spec.json")
 
 
 def load_coa_protonation_curation(curation_path: Path | None = None) -> dict:
@@ -321,7 +324,7 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
     def test_r1521_dependency_recomputes_the_declared_contract_digest(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
         handoff = json.loads(
-            (REPOSITORY / "data" / "r1521_current_snapshot_handoff.json").read_text(encoding="utf-8")
+            (MODEL.curation_file("r1521_current_snapshot_handoff.json")).read_text(encoding="utf-8")
         )
         handoff["activation"]["state"] = "approved"
         with patch("pathlib.Path.read_text", return_value=json.dumps(handoff)):
@@ -331,11 +334,11 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
     def test_r1521_dependency_opens_declared_evidence_files(self) -> None:
         curation = json.loads(COA_CURATION_PATH.read_text(encoding="utf-8"))
         handoff = json.loads(
-            (REPOSITORY / "data" / "r1521_current_snapshot_handoff.json")
+            (MODEL.curation_file("r1521_current_snapshot_handoff.json"))
             .read_text(encoding="utf-8")
         )
         dependency = next(iter(handoff["evidence_dependencies"].values()))
-        evidence_path = (REPOSITORY / dependency["path"]).resolve()
+        evidence_path = resolve_recorded_path(dependency["path"])
         original = Path.read_text
 
         def drift_one(path, *args, **kwargs):
@@ -692,7 +695,7 @@ class CoAProtonationCurationDataTests(unittest.TestCase):
 
     def test_blocked_curation_is_not_wired_into_the_build_pipeline(self) -> None:
         self.assertNotIn("normalize_coa_protonation", inspect.getsource(apply_all_patches))
-        main_source = (REPOSITORY / "scripts" / "gem_annotate" / "main.py").read_text(
+        main_source = (PLATFORM_ROOT / "scripts" / "gem_annotate" / "main.py").read_text(
             encoding="utf-8"
         )
         self.assertNotIn("normalize_coa_protonation", main_source)
@@ -971,7 +974,7 @@ class CoAProtonationGateTests(unittest.TestCase):
     def test_coa_tuple_curation_does_not_mark_ledger_source_normalized(self) -> None:
         """Tuple fixes alone leave the ledger's independent annotation gate open."""
 
-        from scripts.lipid_moiety_ledger import (
+        from tools.lipid.lipid_moiety_ledger import (
             POOL_REACTION_ID,
             _source_chemical_verification,
             _source_pool_bindings,

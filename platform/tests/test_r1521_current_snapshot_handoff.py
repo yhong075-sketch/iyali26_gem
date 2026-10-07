@@ -16,12 +16,12 @@ from unittest.mock import patch
 from cobra import Metabolite, Model, Reaction
 from cobra.io import read_sbml_model, write_sbml_model
 
-import scripts.r1521_current_snapshot_handoff as r1521_handoff
+import tools.lipid.r1521_current_snapshot_handoff as r1521_handoff
 from scripts.gem_annotate.patches import (
     CoAProtonationActivationBlocked,
     _model_snapshot_fingerprint,
 )
-from scripts.r1521_current_snapshot_handoff import (
+from tools.lipid.r1521_current_snapshot_handoff import (
     COA_CURATION_PATH,
     HANDOFF_PATH,
     R1521CurrentSnapshotError,
@@ -35,10 +35,13 @@ from scripts.r1521_current_snapshot_handoff import (
 )
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
+from scripts.gem_annotate.config import resolve_recorded_path
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+REPOSITORY = Path(__file__).resolve().parents[2]
 SOURCE_MODEL_ENV = os.environ.get("IYALI26_SOURCE_MODEL")
 CURRENT_MAIN_MODEL = Path(SOURCE_MODEL_ENV) if SOURCE_MODEL_ENV else None
-CURRENT_MAIN_AUDIT = REPOSITORY / "artifacts" / "r1521_current_snapshot_handoff_20260818.json"
+from scripts.gem_annotate.model_layout import MODEL
+CURRENT_MAIN_AUDIT = MODEL.reports / "r1521_current_snapshot_handoff_20260818.json"
 
 
 class R1521EvidenceContractTests(unittest.TestCase):
@@ -48,15 +51,15 @@ class R1521EvidenceContractTests(unittest.TestCase):
         self.assertEqual(len(dependencies), 4)
         documents = (
             json.loads(
-                (REPOSITORY / dependencies["r1521_rhea_frontier_source_audit"]["path"])
+                resolve_recorded_path(dependencies["r1521_rhea_frontier_source_audit"]["path"])
                 .read_text(encoding="utf-8")
             ),
             json.loads(
-                (REPOSITORY / dependencies["r1521_kegg_mnx_frontier_source_audit"]["path"])
+                resolve_recorded_path(dependencies["r1521_kegg_mnx_frontier_source_audit"]["path"])
                 .read_text(encoding="utf-8")
             ),
             json.loads(
-                (REPOSITORY / dependencies["r1521_unresolved_frontier_source_audit"]["path"])
+                resolve_recorded_path(dependencies["r1521_unresolved_frontier_source_audit"]["path"])
                 .read_text(encoding="utf-8")
             ),
         )
@@ -116,9 +119,9 @@ class R1521EvidenceContractTests(unittest.TestCase):
         handoff = load_r1521_current_snapshot_handoff()
         original = r1521_handoff._canonical_json_file_digest
         for dependency in handoff["evidence_dependencies"].values():
-            bad_path = (REPOSITORY / dependency["path"]).resolve()
+            bad_path = resolve_recorded_path(dependency["path"])
             with self.subTest(path=bad_path), patch(
-                "scripts.r1521_current_snapshot_handoff._canonical_json_file_digest",
+                "tools.lipid.r1521_current_snapshot_handoff._canonical_json_file_digest",
                 side_effect=lambda path, bad=bad_path: (
                     "0" * 64 if path.resolve() == bad else original(path)
                 ),
@@ -153,7 +156,7 @@ class R1521EvidenceContractTests(unittest.TestCase):
             source,
             HANDOFF_PATH,
             COA_CURATION_PATH,
-            *(REPOSITORY / row["path"] for row in handoff["evidence_dependencies"].values()),
+            *(resolve_recorded_path(row["path"]) for row in handoff["evidence_dependencies"].values()),
         ]
         for path in protected:
             with self.subTest(path=path), self.assertRaises(R1521CurrentSnapshotError):
@@ -253,8 +256,8 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
 
     def test_direct_script_entry_resolves_to_the_lipid_worktree(self) -> None:
         completed = subprocess.run(
-            [sys.executable, "scripts/r1521_current_snapshot_handoff.py", "--help"],
-            cwd=REPOSITORY,
+            [sys.executable, "tools/lipid/r1521_current_snapshot_handoff.py", "--help"],
+            cwd=PLATFORM_ROOT,
             text=True,
             capture_output=True,
             check=False,
@@ -265,7 +268,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
 
     def test_output_cannot_alias_any_authoritative_input(self) -> None:
         dependency_paths = [
-            REPOSITORY / entry["path"]
+            resolve_recorded_path(entry["path"])
             for entry in self.handoff["evidence_dependencies"].values()
         ]
         for protected in (CURRENT_MAIN_MODEL, HANDOFF_PATH, COA_CURATION_PATH, *dependency_paths):
@@ -279,7 +282,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
             "mismatched_fields": ["newly_unbalanced_count"],
         }
         with patch(
-            "scripts.r1521_current_snapshot_handoff._global_nad_migration_audit",
+            "tools.lipid.r1521_current_snapshot_handoff._global_nad_migration_audit",
             return_value=drifted,
         ):
             with self.assertRaisesRegex(R1521CurrentSnapshotError, "global NAD"):
@@ -370,7 +373,7 @@ class R1521CurrentSnapshotHandoffTests(unittest.TestCase):
 
     def test_caller_supplied_handoff_cannot_bypass_evidence_checks(self) -> None:
         with patch(
-            "scripts.r1521_current_snapshot_handoff._canonical_json_file_digest",
+            "tools.lipid.r1521_current_snapshot_handoff._canonical_json_file_digest",
             return_value="0" * 64,
         ):
             with self.assertRaisesRegex(R1521CurrentSnapshotError, "evidence dependency"):

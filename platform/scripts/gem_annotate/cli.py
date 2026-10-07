@@ -4,13 +4,15 @@ import argparse
 import os
 from pathlib import Path
 
+from .model_layout import load_model_layout
+
 
 def parse_args(argv=None):
-    root = Path(__file__).resolve().parents[2]
+    model = load_model_layout()
     parser = argparse.ArgumentParser(description="Rebuild iYali26 with the required tRNA-coupled biomass and metadata reaction-field selection (202 stoichiometries, 7 bounds, 9 GPRs)")
     parser.add_argument("--research-root", type=Path, help="Local reference tables and annotation cache")
-    parser.add_argument("--starting-model", type=Path, default=root / "data" / "iyali26.xml")
-    parser.add_argument("--output-model", type=Path, default=root / "model.xml")
+    parser.add_argument("--starting-model", type=Path, default=model.start_model)
+    parser.add_argument("--output-model", type=Path, default=model.canonical_model)
     parser.add_argument("--mnx-dir", type=Path, help="Override the local MetaNetX table directory")
     parser.add_argument("--cache-dir", type=Path, help="Override the annotation cache directory")
     parser.add_argument("--offline", action="store_true", help="Use cached annotations without network requests")

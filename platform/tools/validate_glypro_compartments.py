@@ -9,12 +9,12 @@ import shutil
 from cobra import Reaction
 from cobra.io import read_sbml_model
 
-from scripts.diagnose_closed_energy import close_model, configure_solver, workspace
-from scripts.diagnose_dipeptide_supply import sha, signature, table
+from tools.diagnose_closed_energy import close_model, configure_solver, workspace
+from tools.diagnose_dipeptide_supply import sha, signature, table
 from scripts.gem_annotate.energy_candidates import model_definition
-from scripts.glypro_compartment_candidates import verify_candidate, SOURCE_SHA256, exact_copy
-from scripts.validate_energy_candidates import add_ntp_dissipation, energy_verdict, write
-from scripts.validate_vacuole_supply import Run
+from tools.glypro_compartment_candidates import verify_candidate, SOURCE_SHA256, exact_copy
+from tools.validate_energy_candidates import add_ntp_dissipation, energy_verdict, write
+from tools.validate_vacuole_supply import Run
 
 CY = 'HYP_GLYPRO_HYD_CY'
 HYD = {'V_ONLY': 'R2039', 'C_ONLY': CY}

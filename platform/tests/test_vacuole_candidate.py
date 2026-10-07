@@ -14,8 +14,11 @@ from scripts.gem_annotate.vacuole_candidates import (
     TARGET_BOUNDS, apply_vacuole_candidate, build_candidate_file, load_spec,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT / "artifacts/vacuole_open_supply_20260924"
+from scripts.gem_annotate.config import resolve_recorded_path
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.model_layout import SCRATCH_DIR
+TASK = MODEL.reports / "vacuole_open_supply_20260924"
 
 
 class VacuoleCandidateTests(unittest.TestCase):
@@ -24,7 +27,7 @@ class VacuoleCandidateTests(unittest.TestCase):
         cls.guard = execution_limits(no_solve=True, allow_network=False)
         cls.attempts = cls.guard.__enter__()
         cls.spec = load_spec()
-        cls.source = ROOT / cls.spec["source_path"]
+        cls.source = resolve_recorded_path(cls.spec["source_path"])
 
     @classmethod
     def tearDownClass(cls):
@@ -74,7 +77,7 @@ class VacuoleCandidateTests(unittest.TestCase):
 
     def test_source_identity_export_reload_and_no_overwrite(self):
         before_sha = hashlib.sha256(self.source.read_bytes()).hexdigest()
-        with tempfile.TemporaryDirectory(dir=TASK) as directory:
+        with tempfile.TemporaryDirectory(dir=SCRATCH_DIR) as directory:
             output = Path(directory) / "candidate.xml"
             record = build_candidate_file(self.source, output, enabled=True)
             self.assertEqual(record["source_sha256"], before_sha)

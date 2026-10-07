@@ -18,16 +18,17 @@ from pathlib import Path
 from typing import Any, Mapping
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-SPEC_PATH = REPOSITORY / "data" / "lipid_moiety_ledger_spec.json"
-CURATION_PATH = REPOSITORY / "data" / "lipid_combo_curation.csv"
+REPOSITORY = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL, PLATFORM_ROOT
+SPEC_PATH = MODEL.curation_file("lipid_moiety_ledger_spec.json")
+CURATION_PATH = MODEL.curation_file("lipid_combo_curation.csv")
 DOC_PATH = REPOSITORY / "docs" / "lipid_moiety_ledger.md"
-CORE_PATH = REPOSITORY / "scripts" / "lipid_moiety_ledger.py"
-PLANNER_PATH = REPOSITORY / "scripts" / "plan_lipid_moiety_ledger.py"
-MODEL_PATH = REPOSITORY / "model.xml"
+CORE_PATH = PLATFORM_ROOT / "tools" / "lipid" / "lipid_moiety_ledger.py"
+PLANNER_PATH = PLATFORM_ROOT / "tools" / "lipid" / "plan_lipid_moiety_ledger.py"
+MODEL_PATH = MODEL.canonical_model
 
-if str(REPOSITORY) not in sys.path:
-    sys.path.insert(0, str(REPOSITORY))
+if str(Path(__file__).resolve().parents[1]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 
 EXPECTED_TUPLES = {
@@ -329,7 +330,7 @@ class LipidMoietyLedgerFixtureV2Tests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        cls.core = importlib.import_module("scripts.lipid_moiety_ledger")
+        cls.core = importlib.import_module("tools.lipid.lipid_moiety_ledger")
         cls.source, cls.convention = normalized_source_fixture(cls.core)
         cls.bindings = cls.core._source_pool_bindings(
             cls.source, cls.convention, cls.core.POOL_REACTION_ID
@@ -530,7 +531,7 @@ class LipidMoietyLedgerIntegrationTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        cls.core = importlib.import_module("scripts.lipid_moiety_ledger")
+        cls.core = importlib.import_module("tools.lipid.lipid_moiety_ledger")
         cls.model_sha_before = sha256(MODEL_PATH)
         cls.result = cls.core.compile_dry_run(
             MODEL_PATH, CURATION_PATH, spec_path=SPEC_PATH

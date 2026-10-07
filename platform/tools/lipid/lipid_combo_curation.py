@@ -10,6 +10,7 @@ keep/dead at a probability threshold. Writes data/lipid_combo_curation.csv. Touc
 This is the OBJECTIVE input for the lipid-combo-validator agent, which checks the weights
 and the keep/dead split against the Y. lipolytica literature.
 """
+from pathlib import Path
 import csv
 import itertools
 import os
@@ -17,8 +18,9 @@ from collections import defaultdict
 
 import cobra
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL = os.path.join(ROOT, "model.xml")
+ROOT = str(Path(__file__).resolve().parents[3])
+from scripts.gem_annotate.model_layout import MODEL as MODEL_LAYOUT
+MODEL = str(MODEL_LAYOUT.canonical_model)
 OUT_CSV = os.path.join(ROOT, "data", "lipid_combo_curation.csv")
 MENU_POOL = "xPOOL_AC_EM"
 PROB_THRESHOLD = 1e-3   # keep combinations with physiological probability >= this

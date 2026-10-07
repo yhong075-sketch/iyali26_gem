@@ -7,10 +7,10 @@ from pathlib import Path
 
 from cobra.io import read_sbml_model
 
-from .config import REPO_ROOT
+from .config import MODEL, PLATFORM_ROOT, REPO_ROOT
 from .energy_candidates import export_candidate, model_definition, protected_definitions, signature, solver_definition
 
-SPEC_PATH = REPO_ROOT / 'data/dipeptide_chemistry_patch.json'
+SPEC_PATH = MODEL.curation_file('dipeptide_chemistry_patch.json')
 LOCK_NOTE = 'dipeptide_chemistry_protected_definition'
 FIELDS = ('name', 'formula', 'charge', 'compartment', 'annotation', 'notes')
 
@@ -116,7 +116,7 @@ def build_candidate_file(source, source_sha256, output, enabled=False, spec_path
         raise ValueError('Export/reload did not preserve complete chemistry metadata')
     if hashlib.sha256(source.read_bytes()).hexdigest() != actual_sha:
         raise ValueError('Source changed during candidate build')
-    implementations = [Path(__file__), REPO_ROOT/'scripts/build_dipeptide_chemistry.py',
+    implementations = [Path(__file__), PLATFORM_ROOT/'tools/build_dipeptide_chemistry.py',
         *(Path(__file__).with_name(name+'.py') for name in
           ('energy_candidates', 'metabolites', 'microspecies', 'reaction_selection', 'sbml'))]
     record = {'candidate': 'E5_vacuole_open_chemistry', 'enabled': enabled, 'enabled_by_default': False,

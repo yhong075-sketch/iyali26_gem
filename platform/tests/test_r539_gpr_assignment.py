@@ -10,12 +10,13 @@ from scripts.gem_annotate.patches import apply_r539_gpr_assignment, R539_ASSIGNM
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from tests.test_coq9_curation import semantics, annotations
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 class R539AssignmentTests(unittest.TestCase):
     def test_catalytic_scope_conflicts_and_roundtrip(self):
-        model = read_sbml_model(str(ROOT / 'model_metadata_trna_r1931_forward.xml'))
+        model = read_sbml_model(str(MODEL.candidate_file('model_metadata_trna_r1931_forward.xml')))
         spec = json.loads(R539_ASSIGNMENT_PATH.read_text())
         original = semantics(model)
         old_annotations = annotations(model)

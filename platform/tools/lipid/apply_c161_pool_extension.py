@@ -9,14 +9,16 @@ written; otherwise nothing is saved.
 
 Not wired into the main pipeline (run once, explicitly).
 """
+from pathlib import Path
 import os
 
 import cobra
 
 from scripts.gem_annotate.patches import extend_acyl_pool_c161, _AC_POOLS
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL = os.path.join(ROOT, "model.xml")
+ROOT = str(Path(__file__).resolve().parents[3])
+from scripts.gem_annotate.model_layout import MODEL as MODEL_LAYOUT
+MODEL = str(MODEL_LAYOUT.canonical_model)
 
 
 def pool_sub_sum(rxn):

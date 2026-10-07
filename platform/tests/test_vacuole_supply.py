@@ -9,10 +9,13 @@ import unittest
 from cobra.io import read_sbml_model
 
 from scripts.gem_annotate.execution import execution_limits
-from scripts.validate_vacuole_supply import HYDRO, dipeptides, reaction_diff, signature, supply_case
+from tools.validate_vacuole_supply import HYDRO, dipeptides, reaction_diff, signature, supply_case
 
-ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT / "artifacts/vacuole_open_supply_20260924"
+from scripts.gem_annotate.config import resolve_recorded_path
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.config import load_project_paths
+# The saved run (about 230 MB of flux results) lives in the research workspace, not in git.
+TASK = load_project_paths().task_outputs / "vacuole_open_supply_20260924"
 RUN = TASK / "run"
 
 
@@ -25,6 +28,7 @@ def rows(name):
         return list(csv.DictReader(handle, delimiter="\t"))
 
 
+@unittest.skipUnless((RUN / "manifest.json").exists(), "saved run not found; set IYALI26_RESEARCH_ROOT")
 class VacuoleSupplyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -45,7 +49,7 @@ class VacuoleSupplyTests(unittest.TestCase):
         self.assertEqual(self.manifest["config"], self.config)
         self.assertEqual(self.manifest["config_sha256"], hashlib.sha256((TASK / "config.json").read_bytes()).hexdigest())
         for path, digest in {**self.config["input_configuration_sha256"], **self.manifest["source_sha256"]}.items():
-            self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), digest, path)
+            self.assertEqual(hashlib.sha256(resolve_recorded_path(path).read_bytes()).hexdigest(), digest, path)
         self.assertEqual(hashlib.sha256((ROOT / self.config["candidate"]).read_bytes()).hexdigest(), self.manifest["candidate_sha256"])
         self.assertTrue(self.manifest["all_temporary_changes_removed"])
         self.assertTrue(self.manifest["energy_locks_match_E5"])

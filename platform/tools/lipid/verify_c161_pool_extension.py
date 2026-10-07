@@ -11,14 +11,16 @@ Invariants checked per acyl-CoA pool:
   - the 6 original chains keep their relative ratios
   - idempotent: a second application changes nothing
 """
+from pathlib import Path
 import os
 
 import cobra
 
 from scripts.gem_annotate.patches import extend_acyl_pool_c161
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL = os.path.join(ROOT, "model.xml")
+ROOT = str(Path(__file__).resolve().parents[3])
+from scripts.gem_annotate.model_layout import MODEL as MODEL_LAYOUT
+MODEL = str(MODEL_LAYOUT.canonical_model)
 POOLS = ("xPOOL_AC_EM", "xPOOL_AC_LP", "xPOOL_AC_MM")
 
 

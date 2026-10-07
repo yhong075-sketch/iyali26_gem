@@ -42,12 +42,12 @@ from cobra.io import read_sbml_model
 from cobra.util.solver import linear_reaction_coefficients
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-if str(REPOSITORY) not in sys.path:
-    sys.path.insert(0, str(REPOSITORY))
+REPOSITORY = Path(__file__).resolve().parents[2]
+if str(Path(__file__).resolve().parents[1]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.gem_annotate.validate_essential_genes import load_experimental  # noqa: E402
-from scripts.lp_sn12_candidate import source_fingerprint  # noqa: E402
+from tools.lipid.lp_sn12_candidate import source_fingerprint  # noqa: E402
 
 
 MEDIUM_COLUMNS = (
@@ -124,6 +124,7 @@ RESCUE_RESULT_COLUMNS = (
 )
 
 
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
 class DfbaInfeasibleError(RuntimeError):
     """A pFBA infeasibility with a snapshot of the exact dynamic state."""
 
@@ -164,8 +165,8 @@ def git_head() -> str:
 def input_records(args: argparse.Namespace) -> dict:
     paths = {
         "runner_script": Path(__file__),
-        "essentiality_loader": REPOSITORY / "scripts/gem_annotate/validate_essential_genes.py",
-        "fingerprint_helper": REPOSITORY / "scripts/lp_sn12_candidate.py",
+        "essentiality_loader": PLATFORM_ROOT / "scripts/gem_annotate/validate_essential_genes.py",
+        "fingerprint_helper": PLATFORM_ROOT / "tools/lipid/lp_sn12_candidate.py",
         "baseline_model": args.baseline,
         "candidate_model": args.candidate,
         "experimental": args.experimental,

@@ -6,8 +6,8 @@ import hashlib
 from pathlib import Path
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.gem_annotate.execution import execution_limits
 from scripts.gem_annotate.vacuole_candidates import build_candidate_file

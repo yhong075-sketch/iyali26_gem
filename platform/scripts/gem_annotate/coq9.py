@@ -10,12 +10,12 @@ from html import unescape
 from cobra import Metabolite
 from cobra.core.gene import GPR
 
-from .config import REPO_ROOT
+from .config import MODEL
 
-CURATION_PATH = REPO_ROOT / "data" / "coq9_curation.json"
-GENE_EVIDENCE_PATH = REPO_ROOT / "data" / "coq9_gene_evidence.tsv"
-FUNCTIONAL_GPR_PATH = REPO_ROOT / "data" / "reference_build" / "curation" / "coq9_functional_gpr.json"
-C5_GPR_PATH = REPO_ROOT / "data" / "reference_build" / "curation" / "coq_c5_gpr.json"
+CURATION_PATH = MODEL.curation_file("coq9_curation.json")
+GENE_EVIDENCE_PATH = MODEL.curation_file("coq9_gene_evidence.tsv")
+FUNCTIONAL_GPR_PATH = MODEL.curation_file("coq9_functional_gpr.json")
+C5_GPR_PATH = MODEL.curation_file("coq_c5_gpr.json")
 LITERATURE_PATH = C5_GPR_PATH.with_name("coq_literature_revision.json")
 
 

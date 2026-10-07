@@ -7,12 +7,12 @@ from pathlib import Path
 
 from cobra.io import read_sbml_model
 
-from .config import REPO_ROOT
+from .config import MODEL, PLATFORM_ROOT, REPO_ROOT
 from .energy_candidates import (
     export_candidate, model_definition, protected_definitions, signature,
 )
 
-SPEC_PATH = REPO_ROOT / "data/vacuole_connection_candidates.json"
+SPEC_PATH = MODEL.curation_file("vacuole_connection_candidates.json")
 R795_STOICHIOMETRY = {
     "m141[C_cy]": -1.0, "m32[C_cy]": -1.0, "m10[C_cy]": -2.0,
     "m143[C_cy]": 1.0, "m35[C_cy]": 1.0, "m1007[C_va]": 2.0,
@@ -96,7 +96,7 @@ def build_candidate_file(source, output, enabled=False, spec=None):
         raise ValueError("Vacuole candidate source changed during build")
     implementation = [Path(__file__), Path(__file__).with_name("energy_candidates.py"),
                       Path(__file__).with_name("reaction_selection.py"), Path(__file__).with_name("sbml.py"),
-                      REPO_ROOT / "scripts/build_vacuole_candidate.py"]
+                      PLATFORM_ROOT / "tools/build_vacuole_candidate.py"]
     record = {
         "candidate": "E5_vacuole_open" if enabled else "E5_vacuole_disabled",
         "enabled": enabled, "enabled_by_default": False,

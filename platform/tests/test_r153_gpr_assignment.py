@@ -11,12 +11,13 @@ from scripts.gem_annotate.patches import R153_ASSIGNMENT_PATH, apply_r153_gpr_as
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from tests.test_coq9_curation import annotations, semantics
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 class R153AssignmentTests(unittest.TestCase):
     def test_single_gene_knockout_roundtrip_and_conflict_guards(self):
-        model = read_sbml_model(str(ROOT / 'model_metadata_trna_ntp1_hydrolysis.xml'))
+        model = read_sbml_model(str(MODEL.candidate_file('model_metadata_trna_ntp1_hydrolysis.xml')))
         before, original_notes = semantics(model), annotations(model)
         self.assertEqual(apply_r153_gpr_assignment(model)['status'], 'applied')
         rx = model.reactions.R153

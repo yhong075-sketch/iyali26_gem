@@ -2,9 +2,9 @@
 
 import json
 
-from .config import CURATION_DATA_DIR
+from .config import MODEL
 
-CURATION_PATH = CURATION_DATA_DIR / "r1159_direction.json"
+CURATION_PATH = MODEL.curation_file("r1159_direction.json")
 
 
 def apply_r1159_direction(model, spec=None):

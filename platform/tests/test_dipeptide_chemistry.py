@@ -18,8 +18,10 @@ from scripts.gem_annotate.metabolites import annotate_metabolites
 from scripts.gem_annotate.microspecies import apply_curated_microspecies, balance_protons_and_water
 from scripts.gem_annotate.reaction_selection import apply_metadata_reaction_selection, reaction_fields
 
-ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT/'artifacts/dipeptide_chemistry_routes_20260924'
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.model_layout import SCRATCH_DIR
+TASK = MODEL.reports / 'dipeptide_chemistry_routes_20260924'
 SOURCE = TASK/'E5_vacuole_open_rebuilt.xml'
 
 
@@ -89,7 +91,7 @@ class ChemistryCandidateTests(unittest.TestCase):
         self.assertEqual(protected_chemistry(model), locked)
 
     def test_export_and_explicit_identity_failures(self):
-        with tempfile.TemporaryDirectory(dir=TASK/'tmp') as directory:
+        with tempfile.TemporaryDirectory(dir=SCRATCH_DIR) as directory:
             output = Path(directory)/'candidate.xml'
             with self.assertRaisesRegex(ValueError, 'SHA'):
                 build_candidate_file(SOURCE, '0'*64, output, True)

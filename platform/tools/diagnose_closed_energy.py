@@ -11,11 +11,14 @@ import subprocess
 import sys
 import time
 
-from scripts.diagnose_dipeptide_supply import balance, sha, signature, table, write_json
+from tools.diagnose_dipeptide_supply import balance, sha, signature, table, write_json
 from scripts.gem_annotate.essentiality_simulation_context import load_effective_simulation_context
 
-ROOT = Path(__file__).resolve().parents[1]
-DEFAULT = ROOT / 'artifacts/dipeptide_energy_audit_20260924'
+from scripts.gem_annotate.config import resolve_recorded_path
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+DEFAULT = MODEL.reports / 'dipeptide_energy_audit_20260924'
 
 
 def configure_solver(model, config):
@@ -28,7 +31,7 @@ def configure_solver(model, config):
 
 
 def workspace(path):
-    path = (ROOT / path).resolve()
+    path = resolve_recorded_path(path)
     if not path.is_relative_to(ROOT):
         raise ValueError('Path escapes authorized workspace: ' + str(path))
     return path
@@ -103,7 +106,7 @@ def main():
     sim = load_baseline(config)
     original = sim.model
     protected = signature(original)
-    previous = json.loads((ROOT/'artifacts/dipeptide_supply_repair_20260923/run_complete/run_manifest.json').read_text())
+    previous = json.loads((MODEL.reports / 'dipeptide_supply_repair_20260923/run_complete/run_manifest.json').read_text())
     assert sim.provenance() == previous['simulation_context'], 'Historical/current context differs'
     closed, changes = close_model(original, config)
     dissipation = closed.reactions.get_by_id(config['maintenance'])
@@ -113,7 +116,7 @@ def main():
         'input_sha256': {config[k]: sha(workspace(config[k])) for k in ('model','media','strain_profile')},
         'config': config, 'config_sha256': sha(config_path), 'script_sha256': sha(__file__),
         'source_sha256': {str(Path(m.__file__).relative_to(ROOT)): sha(m.__file__) for m in list(sys.modules.values())
-                          if getattr(m,'__file__',None) and Path(m.__file__).is_relative_to(ROOT/'scripts')},
+                          if getattr(m,'__file__',None) and Path(m.__file__).is_relative_to(PLATFORM_ROOT)},
         'git_head': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'software': {'python':sys.version, **{p:metadata.version(p) for p in ('cobra','optlang','gurobipy','memote')}},
         'simulation_context': sim.provenance(), 'active_medium': sim.active_medium,

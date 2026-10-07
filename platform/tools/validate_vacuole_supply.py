@@ -15,14 +15,16 @@ import time
 
 from cobra import Reaction
 from cobra.io import read_sbml_model
-from scripts.diagnose_closed_energy import close_model, configure_solver, workspace
-from scripts.diagnose_dipeptide_supply import balance, sha, signature, table
+from tools.diagnose_closed_energy import close_model, configure_solver, workspace
+from tools.diagnose_dipeptide_supply import balance, sha, signature, table
 from scripts.gem_annotate.energy_candidates import model_definition, protected_definitions, solver_definition
 from scripts.gem_annotate.execution import execution_limits
-from scripts.validate_energy_candidates import SolverBudget, load_model, write, add_ntp_dissipation, energy_verdict
+from tools.validate_energy_candidates import SolverBudget, load_model, write, add_ntp_dissipation, energy_verdict
 
-ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT / 'artifacts/vacuole_open_supply_20260924'
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+ROOT = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.config import load_project_paths
+TASK = load_project_paths().task_outputs / 'vacuole_open_supply_20260924'
 HYDRO = ('R2021', 'R2029', 'R2034', 'R2039')
 CONNECTIONS = ('R1363', 'R795', 'R871', 'R876')
 NAMES = ('Gly-Asp', 'Gly-Glu', 'Ala-Gly', 'Gly-Pro')
@@ -98,7 +100,7 @@ class Run:
             'software': {'python': sys.version, **{p: metadata.version(p) for p in ('cobra', 'optlang', 'gurobipy', 'memote')}},
             'source_sha256': {str(Path(m.__file__).relative_to(ROOT)): sha(m.__file__)
                 for m in list(sys.modules.values()) if getattr(m, '__file__', None)
-                and Path(m.__file__).is_relative_to(ROOT/'scripts')},
+                and Path(m.__file__).is_relative_to(PLATFORM_ROOT)},
             'loaders': {}, 'outcomes': [], 'stages': [], 'primary_optima': {}}
         self.save()
 

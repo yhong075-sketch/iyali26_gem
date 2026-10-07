@@ -16,15 +16,17 @@ from scripts.gem_annotate.energy_candidates import (
 from scripts.gem_annotate.execution import execution_limits
 from scripts.gem_annotate.reaction_selection import SELECTION_PATH, apply_metadata_reaction_selection
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.model_layout import SCRATCH_DIR
 class EnergyCandidateBuildTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.guard = execution_limits(no_solve=True, allow_network=False)
         cls.attempts = cls.guard.__enter__()
-        cls.base = read_sbml_model(ROOT / 'model_metadata_trna_r1159_leak.xml')
+        cls.base = read_sbml_model(MODEL.candidate_file('model_metadata_trna_r1159_leak.xml'))
         cls.spec = load_spec()
 
     @classmethod
@@ -65,7 +67,7 @@ class EnergyCandidateBuildTests(unittest.TestCase):
     def test_metadata_priority_and_export_reload(self):
         # The actual builder starts from SBML. Gurobi's LP-based model.copy()
         # rounds some tiny coefficients; the strict export guard rejects that drift.
-        model = read_sbml_model(ROOT / 'model_metadata_trna_r1159_leak.xml')
+        model = read_sbml_model(MODEL.candidate_file('model_metadata_trna_r1159_leak.xml'))
         apply_energy_candidate(model, 'E5')
         spec = json.loads(SELECTION_PATH.read_text())
         spec['reactions'] = {rid: row for rid, row in spec['reactions'].items() if rid in self.spec['reactions']}
@@ -74,7 +76,7 @@ class EnergyCandidateBuildTests(unittest.TestCase):
         self.assertTrue(result['complete'])
         self.assertEqual(model_definition(model), before)
         self.assertTrue(any(f['status'] == 'preserved_candidate' for row in result['items'] for f in row['fields']))
-        with tempfile.TemporaryDirectory(dir=ROOT / 'artifacts/atp_candidate_repair_20260924') as directory:
+        with tempfile.TemporaryDirectory(dir=SCRATCH_DIR) as directory:
             path = Path(directory) / 'candidate.xml'
             loaded = export_candidate(model, path)
             self.assertEqual(model_definition(loaded), before)
@@ -108,7 +110,7 @@ class EnergyCandidateBuildTests(unittest.TestCase):
 
     def test_temporary_constraints_and_mass_row_edits_rejected(self):
         model = self.base.copy(); apply_energy_candidate(model, 'E4')
-        with tempfile.TemporaryDirectory(dir=ROOT / 'artifacts/atp_candidate_repair_20260924') as directory:
+        with tempfile.TemporaryDirectory(dir=SCRATCH_DIR) as directory:
             path = Path(directory) / 'invalid.xml'
             model.add_cons_vars(model.problem.Constraint(model.reactions.R72.flux_expression, ub=0, name='diagnostic_only'))
             with self.assertRaisesRegex(ValueError, 'custom constraints'):
@@ -119,7 +121,7 @@ class EnergyCandidateBuildTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'steady-state row bounds'):
                 export_candidate(model, path)
             self.assertFalse(path.exists())
-            model = read_sbml_model(ROOT / 'model_metadata_trna_r1159_leak.xml')
+            model = read_sbml_model(MODEL.candidate_file('model_metadata_trna_r1159_leak.xml'))
             apply_energy_candidate(model, 'E5')
             model.constraints['m170[C_cy]'].set_linear_coefficients({model.reactions.R72.forward_variable: -1.1})
             with self.assertRaisesRegex(ValueError, 'actual solver definition'):

@@ -19,12 +19,13 @@ Reject categories (all deterministic):
   reject_conflict     - same ID solved to >=2 different non-empty formulas
 Everything else -> keep (written to fill_candidates.csv for agent verification).
 """
+from pathlib import Path
 import csv
 import os
 import re
 from collections import defaultdict
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = str(Path(__file__).resolve().parents[3])
 IN_CSV = os.path.join(ROOT, "data", "unlump_stage0_plan.csv")
 OUT_CSV = os.path.join(ROOT, "data", "fill_candidates.csv")
 

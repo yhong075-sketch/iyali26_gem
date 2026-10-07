@@ -10,14 +10,16 @@ Checks:
   - idempotent: a second call adds nothing
 Does NOT write model.xml.
 """
+from pathlib import Path
 import os
 
 import cobra
 
 from scripts.gem_annotate.patches import unlump_stage1, _STAGE1_REACTIONS
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL = os.path.join(ROOT, "model.xml")
+ROOT = str(Path(__file__).resolve().parents[3])
+from scripts.gem_annotate.model_layout import MODEL as MODEL_LAYOUT
+MODEL = str(MODEL_LAYOUT.canonical_model)
 
 
 def main():

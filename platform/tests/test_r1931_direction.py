@@ -9,12 +9,13 @@ from scripts.gem_annotate.patches import apply_r1931_direction, R1931_DIRECTION_
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from tests.test_coq9_curation import semantics, annotations
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
+from scripts.gem_annotate.model_layout import MODEL
 class R1931DirectionTests(unittest.TestCase):
     def test_direction_preservation_conflicts_and_roundtrip(self):
-        path = ROOT / 'model_metadata_trna_r153_merged.xml'
+        path = MODEL.candidate_file('model_metadata_trna_r153_merged.xml')
         model = read_sbml_model(str(path))
         for field in ('bounds', 'gpr', 'stoichiometry', 'species', 'ec', 'notes'):
             bad = model.copy()

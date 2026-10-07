@@ -28,10 +28,12 @@ import urllib.parse
 import urllib.request
 
 import cobra
+from pathlib import Path
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = str(Path(__file__).resolve().parents[2])
 
 
+from scripts.gem_annotate.model_layout import MODEL
 def candidate_names(model):
     """unique name -> (list of met ids, model charge or None)."""
     def cat(x):
@@ -101,7 +103,7 @@ def pubchem_lookup(name):
 
 
 def main():
-    m = cobra.io.read_sbml_model(os.path.join(ROOT, "model.xml"))
+    m = cobra.io.read_sbml_model(str(MODEL.canonical_model))
     cands = candidate_names(m)
     print(f"candidate unique names: {len(cands)}")
 
@@ -131,7 +133,7 @@ def main():
         print(f"  [{status:13}] {nm[:40]:40} -> {formula or '-'} "
               f"(q={pcharge}, model={mcharge})")
 
-    out = os.path.join(ROOT, "data/missing_formula_audit.csv")
+    out = str(MODEL.reports / 'diagnostics' / "missing_formula_audit.csv")
     order = {"ok": 0, "charge_differs": 1, "not_found": 2}
     rows.sort(key=lambda r: (order[r["status"]], r["name"]))
     with open(out, "w", newline="") as f:

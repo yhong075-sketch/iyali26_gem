@@ -13,12 +13,12 @@ from unittest import mock
 from cobra import Metabolite, Model, Reaction
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-if str(REPOSITORY) not in sys.path:
-    sys.path.insert(0, str(REPOSITORY))
+REPOSITORY = Path(__file__).resolve().parents[2]
+if str(Path(__file__).resolve().parents[1]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import scripts.dfba_new_fn_essentiality as dfba  # noqa: E402
-from scripts.dfba_new_fn_essentiality import (  # noqa: E402
+import tools.dfba_new_fn_essentiality as dfba  # noqa: E402
+from tools.dfba_new_fn_essentiality import (  # noqa: E402
     RESULT_COLUMNS,
     _id_digest,
     _shared_contract,
@@ -35,6 +35,7 @@ from scripts.dfba_new_fn_essentiality import (  # noqa: E402
 from scripts.gem_annotate.validate_essential_genes import load_experimental  # noqa: E402
 
 
+from scripts.gem_annotate.model_layout import MODEL, PLATFORM_ROOT
 def write_toy_medium(path: Path, *, concentration: str = "10", pool_mode: str = "finite") -> None:
     initial_status = "nominal_formulation" if concentration else "unresolved"
     uptake_status = "inferred_upper_bound" if concentration else "permissive_upper_bound"
@@ -309,7 +310,7 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
                 coverage["partitions"]["reference_gene_ids_in_neither_model"]["gene_ids"],
                 ["g_outside"],
             )
-            slurm = (REPOSITORY / "scripts/hpcc_dfba_new_fn.slurm").read_text(
+            slurm = (PLATFORM_ROOT / "hpc/hpcc_dfba_new_fn.slurm").read_text(
                 encoding="utf-8"
             )
             self.assertIn(
@@ -317,11 +318,11 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
                 slurm,
             )
             self.assertIn("consensus_essential_genes.csv", slurm)
-            self.assertIn(sha256(REPOSITORY / "scripts/dfba_new_fn_essentiality.py"), slurm)
-            candidate = REPOSITORY / "model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.xml"
+            self.assertIn(sha256(PLATFORM_ROOT / "tools/dfba_new_fn_essentiality.py"), slurm)
+            candidate = MODEL.candidate_file("model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.xml")
             self.assertIn(candidate.name, slurm)
             self.assertIn(sha256(candidate), slurm)
-            self.assertIn(sha256(REPOSITORY / "scripts/lp_sn12_candidate.py"), slurm)
+            self.assertIn(sha256(PLATFORM_ROOT / "tools/lipid/lp_sn12_candidate.py"), slurm)
             self.assertIn("DFBA_MODE", slurm)
             self.assertIn("wt_diagnostic", slurm)
             self.assertIn("--wt-diagnostic", slurm)
@@ -550,7 +551,7 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
 
     def test_po1f_medium_contract_and_nondepleting_pool(self) -> None:
         medium = load_dynamic_medium(
-            REPOSITORY / "data/media/po1f_csm_leu_dfba.csv"
+            MODEL.conditions / 'media' / "po1f_csm_leu_dfba.csv"
         )
         by_id = {row["reaction_id"]: row for row in medium}
         self.assertEqual(len(by_id), 36)
@@ -591,10 +592,10 @@ class DfbaNewFalseNegativeTests(unittest.TestCase):
             for reaction_id in inferred
         ))
         self.assertIsNone(by_id["R1016"]["initial_concentration_mmol_l"])
-        medium_path = REPOSITORY / "data/media/po1f_csm_leu_dfba.csv"
+        medium_path = MODEL.conditions / 'media' / "po1f_csm_leu_dfba.csv"
         self.assertIn(
             sha256(medium_path),
-            (REPOSITORY / "scripts/hpcc_dfba_new_fn.slurm").read_text(encoding="utf-8"),
+            (PLATFORM_ROOT / "hpc/hpcc_dfba_new_fn.slurm").read_text(encoding="utf-8"),
         )
 
         with tempfile.TemporaryDirectory() as directory:

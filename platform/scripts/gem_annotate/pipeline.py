@@ -13,7 +13,7 @@ import cobra
 from cobra.io import read_sbml_model
 from cobra.util.solver import linear_reaction_coefficients
 
-from .config import REPO_ROOT
+from .config import MODEL, REPO_ROOT
 from .essentiality_evidence import sha256_file
 from .microspecies import _reaction_balance_record
 from .sbml import write_deterministic_sbml_model
@@ -116,7 +116,7 @@ def main(argv: list[str] | None = None) -> int:
         manifest["git_commit"] = (subprocess.check_output(
             ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True,
         ).strip() if (REPO_ROOT / ".git").exists() else None)
-        model_path = (args.model or REPO_ROOT / "model.xml").resolve()
+        model_path = (args.model or MODEL.canonical_model).resolve()
         if args.rebuild:
             model_path = out / "baseline.xml"
             command = [sys.executable, "-m", "scripts.gem_annotate", "--offline", "--canonical-copy", "--output-model", str(model_path)]

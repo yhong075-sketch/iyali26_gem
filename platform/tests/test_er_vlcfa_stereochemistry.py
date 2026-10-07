@@ -23,9 +23,11 @@ from scripts.gem_annotate.vlcfa_stereochemistry import (
 from scripts.gem_annotate import vlcfa_stereochemistry
 
 
-REPOSITORY = Path(__file__).resolve().parents[1]
-RAW_MODEL = REPOSITORY / "data" / "iyli21.xml"
-CURATION = REPOSITORY / "data" / "er_vlcfa_3r_stereochemistry.json"
+from scripts.gem_annotate.model_layout import PLATFORM_ROOT
+REPOSITORY = Path(__file__).resolve().parents[2]
+from scripts.gem_annotate.model_layout import MODEL
+RAW_MODEL = (MODEL.start_model.parent / 'iyli21.xml')
+CURATION = MODEL.curation_file("er_vlcfa_3r_stereochemistry.json")
 
 
 @unittest.skipUnless(RAW_MODEL.exists(), "requires source SBML")
@@ -209,7 +211,7 @@ class ERVLCFAStereochemistryTests(unittest.TestCase):
         # The raw-iyli21 neutral ER correction remains separately source-guarded.
         from scripts.gem_annotate.cli import parse_args
         self.assertEqual(parse_args([]).starting_model.name, "iyali26.xml")
-        update_model = importlib.import_module("scripts.update_model")
+        update_model = importlib.import_module("tools.update_model")
         with patch("scripts.gem_annotate.cli.main", return_value="unified") as unified:
             self.assertEqual(update_model.legacy_main(), "unified")
             self.assertEqual(update_model.main(), "unified")
@@ -217,8 +219,8 @@ class ERVLCFAStereochemistryTests(unittest.TestCase):
 
     def test_direct_script_entry_resolves_without_running_the_builder(self) -> None:
         completed = subprocess.run(
-            [sys.executable, "scripts/update_model.py", "--resolve-entry-smoke"],
-            cwd=REPOSITORY,
+            [sys.executable, "tools/update_model.py", "--resolve-entry-smoke"],
+            cwd=PLATFORM_ROOT,
             text=True,
             capture_output=True,
             check=False,

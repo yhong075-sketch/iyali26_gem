@@ -27,6 +27,12 @@ import cobra
 from cobra import Metabolite, Model, Reaction
 from cobra.flux_analysis import pfba
 from cobra.util.solver import linear_reaction_coefficients
+import sys
+
+# Import this checkout's platform package even when run as a plain script.
+if str(Path(__file__).resolve().parents[2]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from scripts.gem_annotate.model_layout import MODEL
 
 POOL_REACTION_ID = "xPOOL_AC_EM"
 EXPECTED_CHAIN_COUNT = 7
@@ -2621,11 +2627,7 @@ def _read_model(path: Path) -> Model:
 
 def _resolve_spec_path(spec_path: str | Path | None) -> Path:
     if spec_path is None:
-        return (
-            Path(__file__).resolve().parents[1]
-            / "data"
-            / "lipid_moiety_ledger_spec.json"
-        )
+        return MODEL.curation_file("lipid_moiety_ledger_spec.json")
     return Path(spec_path)
 
 

@@ -1,0 +1,20 @@
+# Layout of this model folder. The platform (platform/scripts/gem_annotate/config.py)
+# reads this file to find the model's files; paths are relative to this folder.
+
+[model]
+id = "iyali26"
+organism = "Yarrowia lipolytica"
+
+[layout]
+# Immutable pipeline input.
+start_model = "source/iyali26.xml"
+# Previous canonical model (SHA-256 bc2aac8f...). The builder refuses to overwrite it.
+canonical_model = "candidates/legacy/model.xml"
+# Every decision the build applies, as data. Files are looked up by unique name.
+curation = "curation"
+# Media and strain conditions.
+conditions = "conditions"
+# Named candidate models with their .build.json provenance.
+candidates = "candidates"
+# One folder per task: TASK.md, REPORT.md and small tables.
+reports = "reports"

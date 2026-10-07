@@ -18,7 +18,7 @@ from .config import (
     _TIER_B_LIMIT,
     _UNIPROT_SEARCH_URL,
     CACHE_DIR,
-    CURATION_DATA_DIR,
+    MODEL,
     ESSENTIALITY_DIR,
     load_project_paths,
 )
@@ -82,7 +82,7 @@ _GENE_OVERRIDE_REQUIRED_FIELDS = {
 _DEFAULT_GENE_ANNOTATION_OVERRIDES = (
     ESSENTIALITY_DIR / "curated_gene_annotation_overrides.csv"
 )
-GENE_FUNCTION_CURATION_PATH = CURATION_DATA_DIR / "gene_function_annotations.json"
+GENE_FUNCTION_CURATION_PATH = MODEL.curation_file("gene_function_annotations.json")
 
 
 def apply_curated_gene_function_annotations(model, json_path=None) -> int:
