@@ -1,5 +1,17 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
+  "linoleoyl_neutral_correction": {
+    "scope": "Restore the existing neutral CoA convention before lipid expansion; not a global biochemical-pH migration.",
+    "authorization": "User requested fixing the linoleoyl charge bug and integrating it into the pipeline, 2026-09-08.",
+    "ids": ["m1731[C_em]", "m1735[C_lp]", "m1743[C_mm]", "m1797[C_pe]", "m1798[C_cy]"],
+    "expected_source_tuple": {"formula": "C39H66N7O17P3S", "charge": -4},
+    "candidate_tuple": {"formula": "C39H66N7O17P3S", "charge": 0},
+    "annotation_target": {"sbo": "SBO:0000247", "chebi": "CHEBI:15530", "kegg.compound": "C02050"},
+    "annotation_policy": "Replace conflicting stearoyl identities and structure annotations with verified neutral linoleoyl identity; original annotations remain in the frozen source.",
+    "source_url": "https://www.ebi.ac.uk/chebi/CHEBI:15530",
+    "source_fields": {"formula": "C39H66N7O17P3S", "net_charge": 0},
+    "accessed_on": "2026-09-08"
+  },
   "source": {
     "model_path": "../iyali26_gem/model.xml",
     "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",

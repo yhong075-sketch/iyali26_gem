@@ -7,11 +7,11 @@
   "comparison_reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
   "source_metadata_path": "artifacts/coq9_pipeline_integration_20260909/accepted/metadata.xml",
   "field_counts": {
-    "stoichiometry": 202,
-    "bounds": 7,
+    "stoichiometry": 201,
+    "bounds": 6,
     "gpr": 9
   },
-  "scope": "202 reaction stoichiometries, 7 bounds and 9 GPRs from metadata; preserve reference tRNA-coupled biomass, species properties, reaction/gene collections, R1172/SPHPL and CoQ9 modes.",
+  "scope": "201 reaction stoichiometries, 6 bounds and 9 GPRs from metadata; preserve reference tRNA-coupled biomass and the authorized balanced R_NTP1 ATP hydrolysis, species properties, reaction/gene collections, R1172/SPHPL and CoQ9 modes.",
   "biological_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
   "reactions": {
     "R1": {
@@ -12915,10 +12915,7 @@
       }
     },
     "R_NTP1": {
-      "fields": [
-        "bounds",
-        "stoichiometry"
-      ],
+      "fields": [],
       "before": {
         "stoichiometry": {
           "m141[C_cy]": -1.0,
@@ -12934,14 +12931,13 @@
       },
       "after": {
         "stoichiometry": {
-          "m10[C_cy]": -1.0,
-          "m141[C_cy]": 1.0,
-          "m143[C_cy]": -1.0,
-          "m32[C_cy]": 1.0,
-          "m35[C_cy]": -1.0
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0
         },
         "bounds": [
-          -1000.0,
+          0.0,
           1000.0
         ],
         "gpr": "YALI1A09766g or YALI1E41893g"
@@ -12978,6 +12974,17 @@
         "gap_fill_stoichiometry_action": "reverse",
         "gap_fill_direction_evidence": "https://www.kegg.jp/entry/R00086",
         "gap_fill_direction_rationale": "Encode ATP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00086."
+      },
+      "preserve_reason": "User-authorized R_NTP1 chemistry/direction correction on 2026-09-14: retain the upstream balanced four-species ATP hydrolysis and [0,1000] bounds; exclude the prior metadata ATP-synthesis/H+ equation and reversible bounds. GPR is unchanged and native enzyme activity remains unverified.",
+      "preserve_notes": {
+        "ntp1_curation_id": "ntp1_neutral_species_hydrolysis_20260914",
+        "ntp1_curation_authorization": "用户要求：补齐额外 H⁺ 然后并入管线；实施此前审查的移除多余H⁺并限制ATP水解方案。",
+        "ntp1_curation_status": "User-authorized chemistry/direction correction; native GPR activity unverified; growth and essentiality effects not tested.",
+        "ntp1_curation_rationale": "Retain ATP + H2O → ADP + Pi for the declared neutral ATP/ADP/phosphate species. The former H+ reactant gave H=-1 and charge=-1 residuals; uncoupled ATP synthesis lacks established energy/enzymology support.",
+        "ntp1_curation_supersedes": "Prior metadata-selected ADP + Pi + H+ ⇌ ATP + H2O with bounds [-1000,1000]; upstream active hydrolysis curation is retained.",
+        "ntp1_curation_evidence": "https://www.kegg.jp/entry/R00086 ; https://iubmb.qmul.ac.uk/enzyme/EC7/1/2/2.html ; https://iubmb.qmul.ac.uk/thermod2/BiochemThermodynamics.pdf",
+        "ntp1_curation_review": "artifacts/r_ntp1_direction_review_20260914/REPORT.md ; LOCAL_AUDIT.md ; SOURCE_AUDIT.md",
+        "ntp1_curation_previous_selection_sha256": "d994792f374732897c839172917558ace854a347a0a47f4b760b17572530c134"
       }
     },
     "R_NTP3pp": {
@@ -13852,6 +13859,31 @@
       "item": "biomass_C",
       "field": "stoichiometry",
       "reason": "Direct free-amino-acid consumption bypasses the required experimental tRNA biomass coupling. Preserve the reference B-group coupling instead."
+    },
+    {
+      "item": "R_NTP1",
+      "field": "stoichiometry",
+      "reason": "User-authorized R_NTP1 chemistry/direction correction on 2026-09-14: retain the upstream balanced four-species ATP hydrolysis and [0,1000] bounds; exclude the prior metadata ATP-synthesis/H+ equation and reversible bounds. GPR is unchanged and native enzyme activity remains unverified."
+    },
+    {
+      "item": "R_NTP1",
+      "field": "bounds",
+      "reason": "User-authorized R_NTP1 chemistry/direction correction on 2026-09-14: retain the upstream balanced four-species ATP hydrolysis and [0,1000] bounds; exclude the prior metadata ATP-synthesis/H+ equation and reversible bounds. GPR is unchanged and native enzyme activity remains unverified."
+    }
+  ],
+  "amendments": [
+    {
+      "id": "ntp1_neutral_species_hydrolysis_20260914",
+      "authorization": "用户要求：补齐额外 H⁺ 然后并入管线；实施此前审查的移除多余H⁺并限制ATP水解方案。",
+      "scope": "R_NTP1 stoichiometry and bounds only; preserve its GPR and all species properties. Reuse upstream active hydrolysis curation and exclude prior metadata overwrite.",
+      "previous_field_counts": {
+        "stoichiometry": 202,
+        "bounds": 7,
+        "gpr": 9
+      },
+      "previous_selection_sha256": "d994792f374732897c839172917558ace854a347a0a47f4b760b17572530c134",
+      "previous_selection_path": "artifacts/r_ntp1_pipeline_20260914/before/data/metadata_reaction_selection.json",
+      "review_path": "artifacts/r_ntp1_direction_review_20260914/REPORT.md"
     }
   ]
 }

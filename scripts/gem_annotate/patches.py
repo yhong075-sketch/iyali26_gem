@@ -45,9 +45,295 @@ import logging
 import math
 import re
 
-from .config import ESSENTIALITY_DIR, load_project_paths
+from .config import CURATION_DATA_DIR, ESSENTIALITY_DIR, load_project_paths
 
 logger = logging.getLogger(__name__)
+
+R1026_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r1026_gpr_assignment.json"
+R1025_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r1025_gpr_assignment.json"
+R153_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r153_gpr_assignment.json"
+R153_MERGE_PATH = CURATION_DATA_DIR / "r153_r2176_merge.json"
+R1931_DIRECTION_PATH = CURATION_DATA_DIR / "r1931_direction.json"
+R539_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r539_gpr_assignment.json"
+R1889_ASSIGNMENT_PATH = CURATION_DATA_DIR / "r1889_gpr_assignment.json"
+
+
+def apply_r1889_gpr_assignment(model, spec=None) -> dict:
+    """Fill the complex-I blank with a reviewed, explicitly partial dependency map."""
+    from cobra.core.gene import GPR
+    from .coq9 import boolean_key
+
+    if spec is None:
+        spec = json.loads(R1889_ASSIGNMENT_PATH.read_text())
+    if (spec.get("schema_version") != 1
+            or spec.get("assignment_id") != "R1889-PARTIAL-CORE-GPR-20261005"
+            or spec.get("status") != "user_authorized_partial_dependency_assignment"
+            or spec.get("reaction_id") != "R1889"
+            or spec.get("before_gpr") != ""
+            or set(spec.get("genes", {})) != {
+                "YALI1B26679g", "YALI1D07089g", "YALI1F09003g", "YALI1F22993g"}
+            or spec.get("after_gpr") != " and ".join(sorted(spec["genes"]))):
+        raise ValueError("Unexpected R1889 GPR curation scope")
+    reaction = model.reactions.get_by_id("R1889")
+    target = boolean_key(GPR.from_string(spec["after_gpr"]).body)
+    if (boolean_key(reaction.gpr.body) not in (boolean_key(None), target)
+            or reaction.name != spec["reaction_name"]
+            or list(reaction.bounds) != spec["bounds"]
+            or {m.id: c for m, c in reaction.metabolites.items()} != spec["stoichiometry"]
+            or {m.id: {k: getattr(m, k) for k in ("formula", "charge", "compartment")}
+                for m in reaction.metabolites} != spec["species"]):
+        raise ValueError("R1889 reaction precondition differs; no edits applied")
+    # Check all identities and notes before mutating even the target reaction.
+    for gid, row in spec["genes"].items():
+        if gid not in model.genes:
+            raise ValueError(f"Missing reviewed R1889 gene {gid}; no edits applied")
+        gene = model.genes.get_by_id(gid)
+        if any(gene.annotation.get(k) not in (v, [v])
+               for k, v in row["model_identity"].items()):
+            raise ValueError(f"R1889 gene identity differs for {gid}; no edits applied")
+        uniprot = gene.annotation.get("uniprot")
+        if uniprot is not None and uniprot not in (row["uniprot"], [row["uniprot"]]):
+            raise ValueError(f"Conflicting R1889 UniProt identity for {gid}; no edits applied")
+    if any(k in reaction.notes and reaction.notes[k] != v for k, v in spec["notes"].items()):
+        raise ValueError("Conflicting R1889 GPR notes; no edits applied")
+    notes = {**reaction.notes, **spec["notes"]}
+    changed = boolean_key(reaction.gpr.body) != target or notes != reaction.notes
+    reaction.gene_reaction_rule = spec["after_gpr"]
+    reaction.notes = notes
+    return {"item": reaction.id, "assignment_id": spec["assignment_id"],
+            "status": "applied" if changed else "already_correct",
+            "gpr": reaction.gene_reaction_rule, "evidence_status": spec["status"]}
+
+
+def apply_r539_gpr_assignment(model, spec=None) -> dict:
+    """Curate the catalytic MCAT assignment and remove the unrelated reductase EC."""
+    if spec is None:
+        spec = json.loads(R539_ASSIGNMENT_PATH.read_text())
+    reaction = model.reactions.get_by_id("R539")
+    ec = reaction.annotation.get("ec-code", [])
+    ec = sorted(ec if isinstance(ec, list) else [ec])
+    if (spec.get("before_ec") != ["1.3.1.104", "2.3.1.39"]
+            or spec.get("after_ec") != ["2.3.1.39"]
+            or ec not in (spec["before_ec"], spec["after_ec"])
+            or reaction.name != spec["reaction_name"]):
+        raise ValueError("R539 reaction identity/EC precondition differs; no edits applied")
+    result = _apply_gpr_assignment(model, spec, "R539")
+    if ec != spec["after_ec"]:
+        result["status"] = "applied"
+    reaction.annotation["ec-code"] = spec["after_ec"][0]
+    return {**result, "ec_code": reaction.annotation["ec-code"]}
+
+
+def apply_r1931_direction(model, spec=None) -> dict:
+    """Keep the authorized GSA oxidation direction after metadata selection."""
+    if spec is None:
+        spec = json.loads(R1931_DIRECTION_PATH.read_text())
+    if (spec.get("schema_version") != 1 or spec.get("status") != "user_authorized"
+            or spec.get("curation_id") != "R1931-FORWARD-20260915"
+            or spec.get("reaction_id") != "R1931"
+            or spec.get("before_bounds") != [-1000, 1000]
+            or spec.get("after_bounds") != [0, 1000]):
+        raise ValueError("Unexpected R1931 direction curation scope")
+    reaction = model.reactions.get_by_id("R1931")
+    if (list(reaction.bounds) not in (spec["before_bounds"], spec["after_bounds"])
+            or reaction.gene_reaction_rule != spec["gpr"]
+            or reaction.annotation.get("ec-code") not in (spec["ec_code"], [spec["ec_code"]])
+            or {m.id: c for m, c in reaction.metabolites.items()} != spec["stoichiometry"]
+            or {m.id: {k: getattr(m, k) for k in ("formula", "charge", "compartment")}
+                for m in reaction.metabolites} != spec["species"]):
+        raise ValueError("R1931 direction precondition differs; no edits applied")
+    if any(k in reaction.notes and reaction.notes[k] != v for k, v in spec["notes"].items()):
+        raise ValueError("Conflicting R1931 direction notes; no edits applied")
+    notes = {**reaction.notes, **spec["notes"]}
+    changed = list(reaction.bounds) != spec["after_bounds"] or notes != reaction.notes
+    reaction.bounds = tuple(float(v) for v in spec["after_bounds"])
+    reaction.notes = notes
+    return {"item": reaction.id, "curation_id": spec["curation_id"],
+            "status": "applied" if changed else "already_correct",
+            "bounds": list(reaction.bounds)}
+
+
+def merge_r153_r2176(model, spec=None) -> dict:
+    """Merge the authorized duplicate, retaining one explicit ±1000 capacity."""
+    if spec is None:
+        spec = json.loads(R153_MERGE_PATH.read_text())
+    if (spec.get("schema_version") != 1
+            or spec.get("merge_id") != "R153-R2176-MERGE-20260915"
+            or set(spec["before"]) != {"R153", "R2176"}):
+        raise ValueError("Unexpected R153/R2176 merge scope")
+    merged = "R2176" not in model.reactions
+    for rid in ("R153",) if merged else ("R153", "R2176"):
+        reaction = model.reactions.get_by_id(rid)
+        expected = spec["before"][rid]
+        notes = {**expected["notes"], **spec["notes"]} if merged else expected["notes"]
+        actual = {"name": reaction.name, "stoichiometry": {m.id: c for m, c in reaction.metabolites.items()},
+                  "bounds": list(reaction.bounds), "gpr": reaction.gene_reaction_rule,
+                  "annotation": reaction.annotation, "notes": reaction.notes}
+        expected = {**expected, "notes": notes}
+        # SBML collapses single-valued annotation lists to strings on readback.
+        for row in (actual, expected):
+            row["annotation"] = {k: sorted(v if isinstance(v, list) else [v])
+                                 for k, v in row["annotation"].items()}
+        if actual != expected or reaction.objective_coefficient != 0:
+            differences = {k: {"actual": actual[k], "expected": expected[k]}
+                           for k in actual if actual[k] != expected[k]}
+            raise ValueError(f"{rid} merge precondition differs; no edits applied: {differences}")
+        if any({k: getattr(m, k) for k in ("formula", "charge", "compartment")} != spec["species"][m.id]
+               for m in reaction.metabolites):
+            raise ValueError("Merge species identity differs; no edits applied")
+    left, right = (spec["before"][rid] for rid in ("R153", "R2176"))
+    if (left["bounds"] != [-1000, 1000] or any(left[k] != right[k] for k in
+            ("stoichiometry", "bounds", "gpr", "annotation"))):
+        raise ValueError("Reactions are not the authorized same-capacity duplicates")
+    if merged:
+        return {"merge_id": spec["merge_id"], "status": "already_correct"}
+    retained, removed = model.reactions.R153, model.reactions.R2176
+    variables = {removed.forward_variable, removed.reverse_variable}
+    if any(variables.intersection(c.variables) and c.name not in {m.id for m in removed.metabolites}
+           for c in model.constraints):
+        raise ValueError("R2176 has an extra constraint; no edits applied")
+    retained.notes = {**retained.notes, **spec["notes"]}
+    for group in model.groups:
+        if removed in group.members:
+            group.remove_members([removed])
+            group.add_members([retained])
+    model.remove_reactions([removed], remove_orphans=False)
+    return {"merge_id": spec["merge_id"], "status": "applied", "retained": "R153",
+            "removed": "R2176", "bounds": list(retained.bounds)}
+
+
+def apply_r1026_gpr_assignment(model, spec=None) -> dict:
+    """Apply the authorized enzymatic interpretation, retaining unresolved evidence."""
+    if spec is None:
+        spec = json.loads(R1026_ASSIGNMENT_PATH.read_text())
+    return _apply_gpr_assignment(model, spec, "R1026")
+
+
+def apply_r1025_gpr_assignment(model, spec=None) -> dict:
+    """Apply the authorized nuclear candidate with experimental validation pending."""
+    if spec is None:
+        spec = json.loads(R1025_ASSIGNMENT_PATH.read_text())
+    return _apply_gpr_assignment(model, spec, "R1025")
+
+
+def apply_r153_gpr_assignment(model, spec=None) -> dict:
+    """Replace the placeholder as requested, retaining contrary function evidence."""
+    if spec is None:
+        spec = json.loads(R153_ASSIGNMENT_PATH.read_text())
+    return _apply_gpr_assignment(model, spec, "R153")
+
+
+def _apply_gpr_assignment(model, spec, reaction_id) -> dict:
+    before_gpr, after_gpr, gene_id = {
+        "R1026": ("", "YALI1F28274g", "YALI1F28274g"),
+        "R1025": ("", "YALI1F28274g", "YALI1F28274g"),
+        "R153": ("YALIUNK2", "YALI1D17462g", "YALI1D17462g"),
+        "R539": (
+            "(YALI1F38317g and YALI1A20089g and YALI1C26939g and YALI1D18037g) or "
+            "(YALI1D32594g and YALI1F37498g and YALI1E22262g)",
+            "YALI1E22262g", "YALI1E22262g",
+        ),
+    }[reaction_id]
+    if (spec.get("schema_version") != 1
+            or spec.get("status") != "user_authorized_provisional_assignment"
+            or spec.get("reaction_id") != reaction_id
+            or spec.get("before_gpr") != before_gpr
+            or spec.get("after_gpr") != after_gpr):
+        raise ValueError(f"Unexpected {reaction_id} GPR assignment scope/status")
+    reaction = model.reactions.get_by_id(spec["reaction_id"])
+    gene = model.genes.get_by_id(gene_id)
+    if reaction_id == "R1026":
+        counterpart = model.reactions.get_by_id("R2202")
+        if (counterpart.gene_reaction_rule != spec["after_gpr"]
+                or {m.id: -c for m, c in counterpart.metabolites.items()} != spec["stoichiometry"]):
+            raise ValueError("R1026 GPR assignment precondition differs; no edits applied")
+    if (reaction.gene_reaction_rule not in (spec["before_gpr"], spec["after_gpr"])
+            or list(reaction.bounds) != spec["bounds"]
+            or {m.id: c for m, c in reaction.metabolites.items()} != spec["stoichiometry"]
+            or {m.id: {k: getattr(m, k) for k in ("formula", "charge", "compartment")}
+                for m in reaction.metabolites} != spec["species"]
+            or any(gene.annotation.get(k) not in (v, [v])
+                   for k, v in spec["gene_annotation"].items())):
+        raise ValueError(f"{reaction_id} GPR assignment precondition differs; no edits applied")
+    if any(k in reaction.notes and reaction.notes[k] != v for k, v in spec["notes"].items()):
+        raise ValueError(f"Conflicting {reaction_id} GPR assignment notes; no edits applied")
+    placeholder = None
+    if reaction_id == "R153":
+        if spec.get("remove_orphan_gene") != "YALIUNK2":
+            raise ValueError("Unexpected R153 placeholder removal scope; no edits applied")
+        if "YALIUNK2" in model.genes:
+            placeholder = model.genes.get_by_id("YALIUNK2")
+            if placeholder.reactions - {reaction}:
+                raise ValueError("YALIUNK2 has other reaction associations; no edits applied")
+    notes = {**reaction.notes, **spec["notes"]}
+    changed = reaction.gene_reaction_rule != spec["after_gpr"] or notes != reaction.notes or placeholder is not None
+    reaction.gene_reaction_rule = spec["after_gpr"]
+    reaction.notes = notes
+    if placeholder is not None:
+        from cobra.manipulation import remove_genes
+        remove_genes(model, [placeholder.id], remove_reactions=False)
+    return {"item": reaction.id, "assignment_id": spec["assignment_id"],
+            "status": "applied" if changed else "already_correct",
+            "gpr": reaction.gene_reaction_rule, "evidence_status": spec["status"]}
+
+
+VATPASE_HYPOTHESIS_PATH = CURATION_DATA_DIR / "vatpase_gpr_hypothesis.json"
+
+
+def apply_vatpase_gpr_hypothesis(model, spec=None) -> list[dict]:
+    """Opt-in, unvalidated three-gene requirement; never an accepted evidence patch."""
+    from cobra.core.gene import GPR
+    from .coq9 import boolean_key
+
+    if spec is None:
+        spec = json.loads(VATPASE_HYPOTHESIS_PATH.read_text())
+    required = {"YALI1D00581g", "YALI0E16192g", "YALI1F38820g"}
+    if (spec.get("schema_version") != 1
+            or spec.get("status") != "provisional_hypothesis"
+            or set(spec["required_genes"]) != required
+            or set(spec["reactions"]) != {"R794", "R795"}):
+        raise ValueError("Unexpected V-ATPase hypothesis scope/status")
+    pending, rule_changes = [], []
+    for rid, row in spec["reactions"].items():
+        reaction = model.reactions.get_by_id(rid)
+        before, after = GPR.from_string(row["before_gpr"]), GPR.from_string(row["after_gpr"])
+        expected = GPR.from_string(" and ".join(sorted(required)) + " and (" + row["before_gpr"] + ")")
+        if (boolean_key(after.body) != boolean_key(expected.body)
+                or not required <= before.genes
+                or before.genes != after.genes
+                or not after.genes <= {g.id for g in model.genes}):
+            raise ValueError(f"Unexpected V-ATPase hypothesis rule for {rid}")
+        if (boolean_key(reaction.gpr.body) not in (boolean_key(before.body), boolean_key(after.body))
+                or list(reaction.bounds) != row["bounds"]
+                or {m.id: c for m, c in reaction.metabolites.items()} != row["stoichiometry"]
+                or {m.id: {k: getattr(m, k) for k in ("formula", "charge", "compartment")}
+                    for m in reaction.metabolites} != row["species"]):
+            raise ValueError(f"V-ATPase hypothesis precondition differs for {rid}")
+        hypothesis_notes = {
+                 "vatpase_gpr_hypothesis": spec["hypothesis_id"],
+                 "gpr_evidence_status": "provisional_hypothesis",
+                 "gpr_experimental_confirmation": "required",
+                 "vatpase_previous_gpr": row["before_gpr"],
+                 "vatpase_hypothesis_limits": spec["evidence_limits"],
+                 "vatpase_hypothesis_authorization": spec["authorization"],
+                 "vatpase_hypothesis_sources": "; ".join(spec["sources"])}
+        if any(key in reaction.notes and reaction.notes[key] != value
+               for key, value in hypothesis_notes.items()):
+            raise ValueError(f"Conflicting V-ATPase hypothesis notes for {rid}")
+        notes = {**reaction.notes, **hypothesis_notes}
+        rule_changes.append(boolean_key(reaction.gpr.body) != boolean_key(after.body))
+        changed = boolean_key(reaction.gpr.body) != boolean_key(after.body) or reaction.notes != notes
+        pending.append((reaction, row["after_gpr"], notes, changed))
+    if any(rule_changes) and not all(rule_changes):
+        raise ValueError("Mixed V-ATPase hypothesis state; no reactions edited")
+    records = []
+    for reaction, rule, notes, changed in pending:
+        if changed:
+            reaction.gene_reaction_rule = rule
+            reaction.notes = notes
+        records.append({"item": reaction.id, "status": "applied" if changed else "already_correct",
+                        "gpr": reaction.gene_reaction_rule, "evidence_status": "provisional_hypothesis"})
+    return records
 
 
 # ── Patch 1: NADP+ formula fix ────────────────────────────────────────────
@@ -671,9 +957,8 @@ def remove_misannotated_gprs(model) -> int:
 #   overlay, which disables R612 only in that strain context.
 # * R570: YALI1F32476g / NDH2 is the external alternative NADH dehydrogenase.
 #   R2063 is an exact, same-bounds duplicate of R570 and is removed.  The
-#   mitochondrial complex-I reaction R1889 is intentionally *not* assigned an
-#   AND GPR here; its subunit inventory is retained in
-#   docs/curation/complex_i_gpr_evidence.csv pending identity/requiredness review.
+#   mitochondrial complex-I reaction R1889 is curated separately by
+#   apply_r1889_gpr_assignment after final metadata selection.
 
 _R612_URA3_GENE = "YALI1E31685g"
 _R570_NDH2_GENE = "YALI1F32476g"
@@ -747,8 +1032,7 @@ def correct_external_ndh2_gpr_and_remove_duplicate(model) -> int:
     """Correct R570 to the verified external NDH2 and remove duplicate R2063.
 
     The function verifies reaction identity and bounds before deleting R2063.
-    R1889 (complex I) is intentionally untouched because a structurally present
-    subunit is not automatically a required Boolean GPR component.
+    R1889 (complex I) is handled by its separate partial-dependency curation.
     """
     try:
         r570 = model.reactions.get_by_id("R570")
@@ -793,8 +1077,9 @@ def correct_external_ndh2_gpr_and_remove_duplicate(model) -> int:
         "https://pubmed.ncbi.nlm.nih.gov/11719558/"
     )
     notes["complex_i_scope"] = (
-        "R1889 has no GPR by design in this patch; see "
-        "docs/curation/complex_i_gpr_evidence.csv before assigning a complex-I AND rule."
+        "R1889 is curated separately via "
+        "data/reference_build/curation/r1889_gpr_assignment.json; "
+        "structural presence alone does not establish required Boolean membership."
     )
     r570.notes = notes
 

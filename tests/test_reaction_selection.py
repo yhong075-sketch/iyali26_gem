@@ -42,7 +42,7 @@ class ReactionSelectionTests(unittest.TestCase):
         report = apply_metadata_reaction_selection(m)
         self.assertTrue(report["complete"])
         counts = Counter(f["field"] for row in report["items"] for f in row["fields"] if f["status"] == "applied")
-        self.assertEqual(dict(counts), {"stoichiometry": 202, "bounds": 7, "gpr": 9})
+        self.assertEqual(dict(counts), {"stoichiometry": 201, "bounds": 6, "gpr": 9})
         after = semantics(m)
         for field in ("species", "compartments", "genes", "objective"):
             self.assertEqual(before[field], after[field], field)
@@ -53,7 +53,7 @@ class ReactionSelectionTests(unittest.TestCase):
         self.assertEqual(m.reactions.biomass_C.notes["canonical_trna_biomass_mode"], "split_v1")
         self.assertNotIn("metadata_previous_canonical_trna_biomass_mode", m.reactions.biomass_C.notes)
         self.assertNotIn("curated_gpr_correction", m.reactions.R612.notes)
-        self.assertNotIn("gap_fill_direction_status", m.reactions.R_NTP1.notes)
+        self.assertEqual(m.reactions.R_NTP1.notes["gap_fill_direction_status"], "active")
         # SBML cannot carry arbitrary solver constraints; verify that constraint above,
         # then round-trip the representable model without claiming otherwise.
         m.remove_cons_vars(m.constraints.extra_cap)
@@ -93,6 +93,31 @@ class ReactionSelectionTests(unittest.TestCase):
         self.assertFalse(report["complete"])
         self.assertEqual(next(row["status"] for row in report["items"] if row["item"] == r.id), "conflict")
         self.assertEqual(broken, reaction_fields(r))
+
+    def test_ntp1_keeps_balanced_hydrolysis_and_rejects_legacy_synthesis(self):
+        r = self.model.reactions.R_NTP1
+        gpr = r.gene_reaction_rule
+        self.assertTrue(apply_metadata_reaction_selection(self.model)["complete"])
+        self.assertEqual({m.id: c for m, c in r.metabolites.items()}, {
+            "m141[C_cy]": -1, "m32[C_cy]": -1,
+            "m143[C_cy]": 1, "m35[C_cy]": 1,
+        })
+        self.assertEqual(r.bounds, (0, 1000))
+        self.assertEqual(r.check_mass_balance(), {})
+        self.assertEqual(r.gene_reaction_rule, gpr)
+        self.assertEqual(r.notes["gap_fill_stoichiometry_action"], "reverse")
+        self.assertEqual(r.notes["ntp1_curation_id"], "ntp1_neutral_species_hydrolysis_20260914")
+        self.assertIn("native GPR activity unverified", r.notes["ntp1_curation_status"])
+        # An old selected model is not a new authorization to migrate arbitrary inputs.
+        r.add_metabolites({m: -c for m, c in r.metabolites.items()}, combine=False)
+        r.add_metabolites({self.model.metabolites.get_by_id("m10[C_cy]"): -1})
+        r.bounds = (-1000, 1000)
+        before = (reaction_fields(r), dict(r.notes))
+        report = apply_metadata_reaction_selection(self.model)
+        self.assertFalse(report["complete"])
+        row = next(row for row in report["items"] if row["item"] == r.id)
+        self.assertEqual(row["status"], "conflict")
+        self.assertEqual(before, (reaction_fields(r), r.notes))
 
     def test_conflicting_equation_gpr_and_species_are_preserved_locally(self):
         m = self.model

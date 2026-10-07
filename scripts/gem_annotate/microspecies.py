@@ -401,6 +401,8 @@ def apply_curated_microspecies(
     pinned during preflight but are never treated as a mutation candidate.
     """
 
+    from .dipeptide_chemistry import protected_chemistry
+    chemical_locks = protected_chemistry(model)
     rows = load_curated_microspecies(table_path)
     active_rows = [row for row in rows if row.status == _ACTIVE_STATUS]
     deferred_rows = [row for row in rows if row.status == _DEFERRED_STATUS]
@@ -419,6 +421,8 @@ def apply_curated_microspecies(
             matches = []
         resolved[row.family_id] = matches
         for metabolite in matches:
+            if metabolite.id in chemical_locks and row.status == _ACTIVE_STATUS:
+                errors.append(f"{metabolite.id}: explicit chemical candidate requires separate microspecies review")
             current = _metabolite_pair(metabolite)
             if not _is_allowed_current_pair(row, metabolite):
                 errors.append(
@@ -1054,6 +1058,8 @@ def balance_protons_and_water(
     never modified.
     """
 
+    from .dipeptide_chemistry import protected_chemistry, protected_reactions
+    chemical_reactions = protected_reactions(protected_chemistry(model))
     rows = load_curated_microspecies(table_path)
     proton_row = _family_row(rows, "proton")
     water_row = _family_row(rows, "water")
@@ -1085,6 +1091,9 @@ def balance_protons_and_water(
     skipped_missing_formula = 0
     skipped_curated_locks: list[str] = []
     for reaction in reactions:
+        if reaction.id in chemical_reactions:
+            skipped_curated_locks.append(reaction.id)
+            continue
         if len(reaction.metabolites) <= 1:
             continue
         curated_correction = (reaction.notes or {}).get(

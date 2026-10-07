@@ -27,7 +27,9 @@ def apply_metadata_reaction_selection(model, spec=None):
     # Explicit candidate curation has higher chemistry/direction priority. Validate
     # every persisted guard before any mutation, including unrelated metadata.
     from .energy_candidates import protected_definitions
+    from .dipeptide_chemistry import protected_chemistry, protected_reactions
     protected = protected_definitions(model)
+    chemical_reactions = protected_reactions(protected_chemistry(model))
     if spec is None:
         spec = json.loads(SELECTION_PATH.read_text())
     rows = []
@@ -36,6 +38,9 @@ def apply_metadata_reaction_selection(model, spec=None):
         rows.append(row)
         if rid not in model.reactions:
             row["reason"] = "reaction missing"
+            continue
+        if rid in chemical_reactions:
+            row.update(status="preserved_candidate", reason="explicit chemistry candidate preserves adjacent reaction definition")
             continue
         reaction = model.reactions.get_by_id(rid)
         current = reaction_fields(reaction)
@@ -62,6 +67,7 @@ def apply_metadata_reaction_selection(model, spec=None):
             row.update(reason="local precondition differs; current reaction preserved", errors=errors)
             continue
         if not rule["fields"]:
+            reaction.notes.update(rule.get("preserve_notes", {}))
             row.update(status="already_correct", reason=rule["preserve_reason"])
             continue
 

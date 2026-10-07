@@ -5,13 +5,199 @@ import copy
 import csv
 import json
 from fractions import Fraction
+from html import unescape
 
+from cobra import Metabolite
 from cobra.core.gene import GPR
 
 from .config import REPO_ROOT
 
 CURATION_PATH = REPO_ROOT / "data" / "coq9_curation.json"
 GENE_EVIDENCE_PATH = REPO_ROOT / "data" / "coq9_gene_evidence.tsv"
+FUNCTIONAL_GPR_PATH = REPO_ROOT / "data" / "reference_build" / "curation" / "coq9_functional_gpr.json"
+C5_GPR_PATH = REPO_ROOT / "data" / "reference_build" / "curation" / "coq_c5_gpr.json"
+LITERATURE_PATH = C5_GPR_PATH.with_name("coq_literature_revision.json")
+
+
+def apply_coq_literature_revision(model, enabled=False, spec=None):
+    """Correct R19/R18 quinol chemistry; retain the unresolved downstream gap."""
+    if not enabled:
+        return {"status": "disabled"}
+    spec = json.loads(LITERATURE_PATH.read_text()) if spec is None else spec
+    if (spec.get("schema_version") != 1 or spec.get("enabled_by_default") is not False
+            or spec.get("status") != "partial_literature_candidate_redox_gap"
+            or set(spec["reactions"]) != {"R19", "R18"}
+            or set(spec["new_metabolites"]) != {"coq_ddmq9h2[C_mi]", "coq_dmq9h2[C_mi]"}
+            or set(spec["context_guards"]) != {"R39", "R695", "R385"}):
+        raise ValueError("Unexpected CoQ literature revision scope")
+    expected_gprs = {"R19": "YALI1A08781g and YALI1B03314g and YALI1B19490g",
+                     "R18": "YALI1C25352g"}
+    for rid, row in spec["reactions"].items():
+        if (boolean_key(GPR.from_string(row["after"]["gpr"]).body)
+                != boolean_key(GPR.from_string(expected_gprs[rid]).body)
+                or row["after"]["bounds"] != row["before"]["bounds"]):
+            raise ValueError(f"CoQ GPR logic or bounds outside scope: {rid}")
+
+    def matches(reaction, expected):
+        # COBRA collapses singleton annotations and escapes note arrows on SBML read.
+        def annotations(values):
+            return {k: v[0] if isinstance(v, list) and len(v) == 1 else v
+                    for k, v in values.items()}
+
+        def notes(values):
+            return {k: unescape(v) if isinstance(v, str) else v
+                    for k, v in values.items()}
+
+        return (not _identity_errors(reaction, expected, {})
+                and reaction.name == expected["name"]
+                and annotations(reaction.annotation) == annotations(expected["annotation"])
+                and notes(reaction.notes) == notes(expected["notes"]))
+
+    for rid, guard in spec["context_guards"].items():
+        if not matches(model.reactions.get_by_id(rid), guard):
+            raise ValueError(f"CoQ context differs: {rid}; no edits applied")
+    states = [state for state in ("before", "after") if all(
+        matches(model.reactions.get_by_id(rid), row[state])
+        for rid, row in spec["reactions"].items())]
+    if len(states) != 1:
+        raise ValueError("CoQ reactions differ or are partially modified; no edits applied")
+    state = states[0]
+    expected_adjacency = ({"m59[C_mi]": {"R19", "R18"}, "m61[C_mi]": {"R18", "R695"}}
+                          if state == "before" else {
+                              "m59[C_mi]": set(), "m61[C_mi]": {"R695"},
+                              "coq_ddmq9h2[C_mi]": {"R19", "R18"},
+                              "coq_dmq9h2[C_mi]": {"R18"}})
+    for mid, neighbors in expected_adjacency.items():
+        if mid not in model.metabolites or {
+                r.id for r in model.metabolites.get_by_id(mid).reactions} != neighbors:
+            raise ValueError(f"CoQ redox boundary differs: {mid}")
+    note = model.notes.get("coq_literature_revision")
+    if note != (None if state == "before" else spec["model_note"]):
+        raise ValueError("CoQ model status note differs; no edits applied")
+    for gid, identity in spec["genes"].items():
+        if (gid not in model.genes or model.genes.get_by_id(gid).annotation.get("refseq")
+                not in (identity["refseq"], [identity["refseq"]])):
+            raise ValueError(f"CoQ protein identity differs: {gid}")
+
+    metabolites = {met.id: met for met in model.metabolites}
+    for mid, props in spec["new_metabolites"].items():
+        if state == "before":
+            if mid in metabolites:
+                raise ValueError(f"CoQ new metabolite ID collision: {mid}")
+            met = Metabolite(mid)
+            for key, value in props.items():
+                setattr(met, key, copy.deepcopy(value))
+            metabolites[mid] = met
+        elif mid not in metabolites or any(
+                getattr(metabolites[mid], key) != value for key, value in props.items()):
+            raise ValueError(f"CoQ quinol identity differs: {mid}")
+    for rid, row in spec["reactions"].items():
+        after = row["after"]
+        if not set(GPR.from_string(after["gpr"]).genes) <= set(spec["genes"]):
+            raise ValueError(f"Unverified CoQ gene in {rid}")
+        for mid, props in after["species"].items():
+            met = metabolites[mid]
+            if any(getattr(met, key) != props[key] for key in ("formula", "charge", "compartment")):
+                raise ValueError(f"CoQ species identity differs: {mid}")
+        probe = model.reactions.get_by_id(rid).copy()
+        probe.subtract_metabolites(dict(probe.metabolites))
+        probe.add_metabolites({metabolites[mid].copy(): props["coefficient"]
+                               for mid, props in after["species"].items()})
+        if exact_residual(probe):
+            raise ValueError(f"Unbalanced CoQ literature candidate: {rid}")
+    if state == "after":
+        return {"status": "already_correct", "scientific_status": spec["status"]}
+
+    # Check the complete two-reaction patch before the first model mutation.
+    model.add_metabolites([metabolites[mid] for mid in spec["new_metabolites"]])
+    for rid, row in spec["reactions"].items():
+        reaction, after = model.reactions.get_by_id(rid), row["after"]
+        reaction.subtract_metabolites(dict(reaction.metabolites))
+        reaction.add_metabolites({metabolites[mid]: props["coefficient"]
+                                 for mid, props in after["species"].items()})
+        reaction.gene_reaction_rule = after["gpr"]
+        for key in ("name", "annotation", "notes"):
+            setattr(reaction, key, copy.deepcopy(after[key]))
+    model.notes["coq_literature_revision"] = spec["model_note"]
+    return {"status": "applied", "scientific_status": spec["status"]}
+
+
+def apply_coq_c5_gpr(model):
+    """Opt-in, donor-coupled mitochondrial C5 hypothesis; replace the old bypass."""
+    spec = json.loads(C5_GPR_PATH.read_text())
+    target = "YALI1A08781g and YALI1B03314g and YALI1B19490g"
+    if (spec["schema_version"] != 1 or spec["reaction_id"] != "R39"
+            or spec["status"] != "provisional_cross_species_coupled_dependency"
+            or spec["after"]["gpr"] != target
+            or set(spec["genes"]) != set(target.split(" and "))):
+        raise ValueError("Unexpected CoQ C5 hypothesis scope")
+    reaction = model.reactions.get_by_id("R39")
+    if (_identity_errors(reaction, spec["before"], {})
+            and _identity_errors(reaction, spec["after"], {})):
+        raise ValueError("CoQ C5 reaction precondition differs; no edits applied")
+    if reaction.name not in (spec["name_before"], spec["name_after"]):
+        raise ValueError("CoQ C5 reaction name differs")
+    metabolites = {}
+    for mid, expected in spec["after"]["species"].items():
+        met = model.metabolites.get_by_id(mid)
+        if (met.formula, met.charge, met.compartment) != (
+                expected["formula"], expected["charge"], expected["compartment"]):
+            raise ValueError(f"CoQ C5 species identity differs: {mid}")
+        metabolites[met] = expected["coefficient"]
+    for gid, identity in spec["genes"].items():
+        if gid not in model.genes or model.genes.get_by_id(gid).annotation.get("refseq") not in (
+                identity["refseq"], [identity["refseq"]]):
+            raise ValueError(f"CoQ C5 protein identity differs: {gid}")
+    for key, value in spec["notes"].items():
+        if key in reaction.notes and reaction.notes[key] != value:
+            raise ValueError(f"Conflicting CoQ C5 note: {key}")
+    probe = reaction.copy()
+    probe.subtract_metabolites(dict(probe.metabolites))
+    probe.add_metabolites({met.copy(): v for met, v in metabolites.items()})
+    if exact_residual(probe):
+        raise ValueError("CoQ C5 candidate does not conserve atoms and charge")
+    notes = {**reaction.notes, **spec["notes"]}
+    changed = bool(_identity_errors(reaction, spec["after"], {})) or (
+        reaction.name != spec["name_after"] or reaction.notes != notes)
+    reaction.subtract_metabolites(dict(reaction.metabolites))
+    reaction.add_metabolites(metabolites)
+    reaction.gene_reaction_rule = target
+    reaction.name, reaction.notes = spec["name_after"], notes
+    return {"item": reaction.id, "hypothesis_id": spec["hypothesis_id"],
+            "status": "applied" if changed else "already_correct", "gpr": target,
+            "evidence_status": spec["status"]}
+
+
+def apply_coq9_functional_gpr(model):
+    """Opt-in substrate-access dependency; not a native catalytic-complex claim."""
+    spec = json.loads(FUNCTIONAL_GPR_PATH.read_text())
+    target = "YALI1E18269g and YALI1F34675g"
+    if (spec["schema_version"] != 1 or spec["reaction_id"] != "R695"
+            or spec["status"] != "provisional_functional_dependency"
+            or spec["after_gpr"] != target
+            or set(spec["genes"]) != {"YALI1E18269g", "YALI1F34675g"}):
+        raise ValueError("Unexpected CoQ9 functional GPR hypothesis scope")
+    reaction = model.reactions.get_by_id("R695")
+    guard = copy.deepcopy(spec["guard"])
+    if boolean_key(reaction.gpr.body) == boolean_key(GPR.from_string(target).body):
+        guard["gpr"] = target
+    if _identity_errors(reaction, guard, {}) or exact_residual(reaction):
+        raise ValueError("CoQ9 functional GPR precondition differs; no edits applied")
+    for gid, identity in spec["genes"].items():
+        if gid not in model.genes or model.genes.get_by_id(gid).annotation.get("refseq") not in (
+                identity["refseq"], [identity["refseq"]]):
+            raise ValueError(f"CoQ9 functional GPR protein identity differs: {gid}")
+    for key, value in spec["notes"].items():
+        if key in reaction.notes and reaction.notes[key] not in (
+                value, spec["notes_before"].get(key)):
+            raise ValueError(f"Conflicting CoQ9 functional GPR note: {key}")
+    notes = {**reaction.notes, **spec["notes"]}
+    changed = reaction.gene_reaction_rule != target or reaction.notes != notes
+    reaction.gene_reaction_rule = target
+    reaction.notes = notes
+    return {"item": reaction.id, "hypothesis_id": spec["hypothesis_id"],
+            "status": "applied" if changed else "already_correct",
+            "gpr": target, "evidence_status": spec["status"]}
 
 
 def boolean_key(node):

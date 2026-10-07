@@ -18,6 +18,7 @@ from .config import (
     _TIER_B_LIMIT,
     _UNIPROT_SEARCH_URL,
     CACHE_DIR,
+    CURATION_DATA_DIR,
     ESSENTIALITY_DIR,
     load_project_paths,
 )
@@ -81,6 +82,46 @@ _GENE_OVERRIDE_REQUIRED_FIELDS = {
 _DEFAULT_GENE_ANNOTATION_OVERRIDES = (
     ESSENTIALITY_DIR / "curated_gene_annotation_overrides.csv"
 )
+GENE_FUNCTION_CURATION_PATH = CURATION_DATA_DIR / "gene_function_annotations.json"
+
+
+def apply_curated_gene_function_annotations(model, json_path=None) -> int:
+    """Apply approved candidate display names and notes, preserving gene identity.
+
+    Validate every target before editing; no reaction, GPR or localization
+    annotation is assigned by this metadata-only step.
+    """
+    path = Path(json_path) if json_path is not None else GENE_FUNCTION_CURATION_PATH
+    spec = json.loads(path.read_text(encoding="utf-8"))
+    if spec.get("schema_version") != 1:
+        raise ValueError("Unsupported gene function annotation schema")
+    pending = []
+    for gene_id, row in spec["genes"].items():
+        gene = model.genes.get_by_id(gene_id)
+        name, notes = row["display_name"], row["notes"]
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError(f"Missing candidate display name for {gene_id}")
+        if gene.name not in [*row["previous_names"], name]:
+            raise ValueError(f"Unexpected existing gene name for {gene_id}: {gene.name!r}")
+        accessions = gene.annotation.get("uniprot", [])
+        if isinstance(accessions, str):
+            accessions = [accessions]
+        if row["expected_uniprot"] not in accessions:
+            raise ValueError(f"Gene function annotation identity mismatch for {gene_id}")
+        if (not isinstance(notes, dict) or not notes
+                or not all(isinstance(v, str) and v.strip() for v in notes.values())
+                or notes.get("function_candidate_status") != "provisional"
+                or notes.get("function_experimental_confirmation") != "required"):
+            raise ValueError(f"Missing provisional/experimental evidence limits for {gene_id}")
+        updated = dict(gene.notes)
+        updated.setdefault("function_candidate_previous_name", gene.name)
+        updated.update(notes)
+        if gene.name != name or gene.notes != updated:
+            pending.append((gene, name, updated))
+    for gene, name, notes in pending:
+        gene.name, gene.notes = name, notes
+        logger.info("  Candidate gene function: %s -> %s", gene.id, name)
+    return len(pending)
 
 
 def _split_annotation_values(raw: str) -> list[str]:

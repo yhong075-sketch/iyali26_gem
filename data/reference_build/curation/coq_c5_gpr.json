@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "hypothesis_id": "COQ-C5-NADH-20261001",
+  "status": "provisional_cross_species_coupled_dependency",
+  "reaction_id": "R39",
+  "before": {
+    "species": {
+      "m108[C_cy]": {
+        "coefficient": -1.0,
+        "formula": "C52H78O3",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m109[C_cy]": {
+        "coefficient": -0.5,
+        "formula": "O2",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m110[C_cy]": {
+        "coefficient": 1.0,
+        "formula": "C52H77O4",
+        "charge": -1,
+        "compartment": "C_cy"
+      },
+      "m10[C_cy]": {
+        "coefficient": 1.0,
+        "formula": "H",
+        "charge": 1,
+        "compartment": "C_cy"
+      }
+    },
+    "gpr": "",
+    "bounds": [
+      0.0,
+      1000.0
+    ]
+  },
+  "after": {
+    "species": {
+      "m641[C_mi]": {
+        "coefficient": -1,
+        "formula": "C52H78O3",
+        "charge": 0,
+        "compartment": "C_mi"
+      },
+      "m64[C_mi]": {
+        "coefficient": -1,
+        "formula": "O2",
+        "charge": 0,
+        "compartment": "C_mi"
+      },
+      "m30[C_mi]": {
+        "coefficient": -1,
+        "formula": "C21H29N7O14P2",
+        "charge": 0,
+        "compartment": "C_mi"
+      },
+      "m939[C_mi]": {
+        "coefficient": 1,
+        "formula": "C52H77O4",
+        "charge": -1,
+        "compartment": "C_mi"
+      },
+      "m26[C_mi]": {
+        "coefficient": 1,
+        "formula": "H2O",
+        "charge": 0,
+        "compartment": "C_mi"
+      },
+      "m27[C_mi]": {
+        "coefficient": 1,
+        "formula": "C21H27N7O14P2",
+        "charge": 0,
+        "compartment": "C_mi"
+      },
+      "m28[C_mi]": {
+        "coefficient": 1,
+        "formula": "H",
+        "charge": 1,
+        "compartment": "C_mi"
+      }
+    },
+    "gpr": "YALI1A08781g and YALI1B03314g and YALI1B19490g",
+    "bounds": [
+      0.0,
+      1000.0
+    ]
+  },
+  "name_before": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+  "name_after": "nonaprenyl 4-hydroxybenzoate C5 hydroxylation (NADH-coupled hypothesis)",
+  "genes": {
+    "YALI1A08781g": {
+      "refseq": "XP_499891.1"
+    },
+    "YALI1B03314g": {
+      "refseq": "XP_500417.1"
+    },
+    "YALI1B19490g": {
+      "refseq": "XP_500902.3"
+    }
+  },
+  "notes": {
+    "coq_c5_hypothesis": "COQ-C5-NADH-20261001",
+    "coq_c5_evidence": "Yeast genetics and homolog inference; native Yarrowia enzymatic coupling and NADH preference unverified. AND means serial electron transfer, not a stable heterotrimer.",
+    "coq_c5_roles": "YALI1A08781g: COQ6-family C5 hydroxylase; YALI1B03314g: YAH1-like ferredoxin; YALI1B19490g: ARH1-like ferredoxin reductase. Native established symbols unverified.",
+    "coq_c5_previous_representation": "R39: cytosolic m108 + 0.5 m109 to m10 + m110; empty GPR; bounds 0..1000. Replaced in this candidate; no parallel donor-free C5 reaction added.",
+    "coq_c5_cofactor_limit": "NADH is a provisional permitted donor based on yeast ARH1 heterologous-carrier assay; NADPH is also plausible. Existing NADP/NADPH formula-charge mismatch prevents a balanced NADPH variant without wider cofactor curation; no cofactor species changed.",
+    "coq_c5_structure": "基于 AlphaFold 预测的功能候选；复用精确序列已有单体预测，不证明供电子配对或原生定位。",
+    "coq_c5_sources": "PMID 20534343; PMID 21944752; PMID 9727014; DOI 10.1038/s41929-023-01087-z; artifacts/coq_yeast_reference_20261001/REPORT.md",
+    "coq_c5_limits": "Provisional mitochondrial localization; no explicit ferredoxin pool, FAD turnover or Fe-S assembly model. R19 chemistry and COQ8 reaction-level dependence remain unresolved; no growth essentiality validation.",
+    "coq_c5_legacy_note_context": "The preserved curated_coq9_chemistry note describes the earlier C45 identity repair only. This later C5 hypothesis changes R39 stoichiometry, compartment and GPR as stated above; bounds and demand stay unchanged."
+  },
+  "evidence_artifacts": [
+    "artifacts/coq_yeast_reference_20261001/donor_comparison.json",
+    "artifacts/coq_yeast_reference_20261001/source_audit/AUDIT.md",
+    "artifacts/coq_yeast_reference_20261001/targetp/verification.json",
+    "artifacts/coq_gpr_completion_20261001/targetp/verification.json"
+  ]
+}

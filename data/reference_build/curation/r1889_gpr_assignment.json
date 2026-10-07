@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "assignment_id": "R1889-PARTIAL-CORE-GPR-20261005",
+  "status": "user_authorized_partial_dependency_assignment",
+  "authorization": "User: check the R1889 GPR and fix the blank. Targeted evidence-supported GPR correction only; no chemistry, boundary, other reaction GPR or baseline acceptance change.",
+  "reaction_id": "R1889",
+  "reaction_name": "NADH dehydrogenase (complex I)",
+  "before_gpr": "",
+  "after_gpr": "YALI1B26679g and YALI1D07089g and YALI1F09003g and YALI1F22993g",
+  "bounds": [
+    0.0,
+    1000.0
+  ],
+  "stoichiometry": {
+    "m28[C_mi]": -5.0,
+    "m30[C_mi]": -1.0,
+    "m468[C_mi]": -1.0,
+    "m10[C_cy]": 4.0,
+    "m27[C_mi]": 1.0,
+    "m471[C_mi]": 1.0
+  },
+  "species": {
+    "m28[C_mi]": {
+      "formula": "H",
+      "charge": 1,
+      "compartment": "C_mi"
+    },
+    "m30[C_mi]": {
+      "formula": "C21H29N7O14P2",
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "m468[C_mi]": {
+      "formula": "C54H82O4",
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "m10[C_cy]": {
+      "formula": "H",
+      "charge": 1,
+      "compartment": "C_cy"
+    },
+    "m27[C_mi]": {
+      "formula": "C21H27N7O14P2",
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "m471[C_mi]": {
+      "formula": "C54H84O4",
+      "charge": 0,
+      "compartment": "C_mi"
+    }
+  },
+  "genes": {
+    "YALI1D07089g": {
+      "symbol": "NUAM",
+      "function": "75 kDa core iron-sulfur electron-transfer subunit",
+      "uniprot": "Q9UUU3",
+      "w29_protein": "AOW03621.1",
+      "reference_protein": "CAB65519.1",
+      "sequence_sha256": "af32974b08ff6fab827f11b78afb6864de7472e568c3a6594247d57e496f0414",
+      "sequence_length": 728,
+      "evidence": "Y. lipolytica deletion/assembly evidence; exact reference-to-W29 protein sequence identity; not a W29-specific knockout experiment",
+      "model_identity": {
+        "ncbigene": "2910292"
+      }
+    },
+    "YALI1B26679g": {
+      "symbol": "NUBM",
+      "function": "51 kDa FMN-containing NADH-oxidation subunit",
+      "uniprot": "Q9UUU2",
+      "w29_protein": "AOW01975.1",
+      "reference_protein": "CAB65520.1",
+      "sequence_sha256": "cc8c5b11f0935746619d99365c127f8d611951dd611697cd51fd638281a6d21a",
+      "sequence_length": 488,
+      "evidence": "Y. lipolytica deletion/assembly evidence; exact reference-to-W29 protein sequence identity; not a W29-specific knockout experiment",
+      "model_identity": {
+        "ncbigene": "2907626"
+      }
+    },
+    "YALI1F22993g": {
+      "symbol": "NUCM",
+      "function": "49 kDa quinone-reduction module core subunit",
+      "uniprot": "Q9UUU1",
+      "w29_protein": "AOW07306.1",
+      "reference_protein": "CAB65521.1",
+      "sequence_sha256": "9c7a7457d6762864b1da09dc8c7408ef0258608a50a3fbc711a3089d8a7c9018",
+      "sequence_length": 466,
+      "evidence": "Y. lipolytica deletion/assembly evidence; exact reference-to-W29 protein sequence identity; not a W29-specific knockout experiment",
+      "model_identity": {
+        "ncbigene": "2908424"
+      }
+    },
+    "YALI1F09003g": {
+      "symbol": "NUKM",
+      "function": "PSST core subunit associated with the terminal iron-sulfur/quinone site",
+      "uniprot": "Q9UUT7",
+      "w29_protein": "AOW06733.1",
+      "reference_protein": "CAB65525.1",
+      "sequence_sha256": "9cca9ad04eaaa7af53eb9f7143c88e7f417c54b3271425b6ff11a2b5d6a0b2b8",
+      "sequence_length": 210,
+      "evidence": "Y. lipolytica deletion/assembly evidence; exact reference-to-W29 protein sequence identity; not a W29-specific knockout experiment",
+      "model_identity": {
+        "ncbigene": "2908426"
+      }
+    }
+  },
+  "sources": [
+    "https://doi.org/10.1074/jbc.M411488200",
+    "https://doi.org/10.1093/hmg/ddy247"
+  ],
+  "notes": {
+    "gpr_curation_id": "R1889-PARTIAL-CORE-GPR-20261005",
+    "gpr_evidence_status": "partial experimentally supported complex-I dependency map with sequence-verified W29 identities",
+    "gpr_required_subunits": "YALI1D07089g=NUAM; YALI1B26679g=NUBM; YALI1F22993g=NUCM; YALI1F09003g=NUKM",
+    "gpr_evidence_sources": "https://doi.org/10.1074/jbc.M411488200; https://doi.org/10.1093/hmg/ddy247",
+    "gpr_scope_limit": "Four necessary subunits represented; not a complete subunit inventory or sufficient minimal enzyme. Omitted subunits are not established dispensable. Native W29 knockout phenotypes not tested.",
+    "gpr_deferred_identity": "NUHM deletion dependence is supported, but its W29 mapping remains unresolved; legacy YALI1D00766g not assigned as NUHM. NUGM mapping also unresolved.",
+    "gpr_chemistry_scope": "Existing R1889 stoichiometry, bounds and compartment conventions retained. Known H/charge residual not repaired by this GPR assignment.",
+    "gpr_bypass_scope": "R2062 inherited GPR and non-pumping route retained; no essentiality or pathway-closure claim."
+  },
+  "evidence_record": "artifacts/r1889_gpr_20261005/REPORT.md"
+}

@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "curation_id": "COQ-R19-R18-QUINOL-20261002",
+  "status": "partial_literature_candidate_redox_gap",
+  "enabled_by_default": false,
+  "source_path": "artifacts/coq_yeast_reference_20261001/coq_c5_coq9_candidate_v2.xml",
+  "source_sha256": "9e09e96e92a95b6ba9c079b00d9bee670a69f85dea32ab33dbffccb7fa03ccae",
+  "new_metabolites": {
+    "coq_ddmq9h2[C_mi]": {
+      "name": "demethyl-demethoxyubiquinol-9 (DDMQ9H2)",
+      "formula": "C52H80O3",
+      "charge": 0,
+      "compartment": "C_mi",
+      "annotation": {
+        "sbo": "SBO:0000247"
+      },
+      "notes": {
+        "coq_literature_identity": "Nine-isoprene neutral quinol; chemical identity inferred from Nicoll 2024 short-chain substrate. Not a native Yarrowia metabolite measurement.",
+        "coq_literature_source": "DOI 10.1038/s41929-023-01087-z; Fig. 1 and Methods Chemicals"
+      }
+    },
+    "coq_dmq9h2[C_mi]": {
+      "name": "demethoxyubiquinol-9 (DMQ9H2)",
+      "formula": "C53H82O3",
+      "charge": 0,
+      "compartment": "C_mi",
+      "annotation": {
+        "sbo": "SBO:0000247"
+      },
+      "notes": {
+        "coq_literature_identity": "Nine-isoprene neutral quinol; chemical identity inferred from Nicoll 2024 short-chain substrate. Not a native Yarrowia metabolite measurement.",
+        "coq_literature_source": "DOI 10.1038/s41929-023-01087-z; Fig. 1 and Methods Chemicals"
+      }
+    }
+  },
+  "reactions": {
+    "R19": {
+      "before": {
+        "name": "2-methoxy-6-(all-trans-nonaprenyl)phenol monooxygenase",
+        "species": {
+          "m63[C_mi]": {
+            "coefficient": -1.0,
+            "formula": "C52H80O2",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m64[C_mi]": {
+            "coefficient": -1.0,
+            "formula": "O2",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m26[C_mi]": {
+            "coefficient": 1.0,
+            "formula": "H2O",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m59[C_mi]": {
+            "coefficient": 1.0,
+            "formula": "C52H78O3",
+            "charge": 0,
+            "compartment": "C_mi"
+          }
+        },
+        "gpr": "",
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "annotation": {
+          "sbo": "SBO:0000176"
+        },
+        "notes": {
+          "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+          "curated_gpr_correction": "Removed the unsupported inherited seven-gene synthome AND. YALI1A08781g (COQ6 candidate; active UniProt F2Z6J4) remains deferred for this exact reaction; an empty GPR denotes unknown catalyst identity, not a spontaneous reaction.",
+          "gpr_evidence_status": "deferred_reaction_identity_unresolved",
+          "gpr_evidence_limit": "COQ6 family/AlphaFold compatibility is supported, but R19 regioselectivity, product redox state and ferredoxin/reductase electron transfer remain unresolved.",
+          "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+          "coq9_previous_PROTEIN_CLASS": "1.14.13.-",
+          "coq9_curation_scope": "Mixed pathway ECs are historical evidence only. Exact native catalyst and lumped redox chemistry remain unresolved; EC removal does not imply spontaneity.",
+          "coq9_reference_pathway_ec": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130"
+        }
+      },
+      "after": {
+        "name": "2-methoxy-6-nonaprenylphenol C1 hydroxylation to DDMQ9H2 (NADH-coupled candidate)",
+        "species": {
+          "m63[C_mi]": {
+            "coefficient": -1,
+            "formula": "C52H80O2",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m64[C_mi]": {
+            "coefficient": -1,
+            "formula": "O2",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m30[C_mi]": {
+            "coefficient": -1,
+            "formula": "C21H29N7O14P2",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "coq_ddmq9h2[C_mi]": {
+            "coefficient": 1,
+            "formula": "C52H80O3",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m27[C_mi]": {
+            "coefficient": 1,
+            "formula": "C21H27N7O14P2",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m26[C_mi]": {
+            "coefficient": 1,
+            "formula": "H2O",
+            "charge": 0,
+            "compartment": "C_mi"
+          }
+        },
+        "gpr": "YALI1A08781g and YALI1B03314g and YALI1B19490g",
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "annotation": {
+          "sbo": "SBO:0000176",
+          "ec-code": "1.14.15.46"
+        },
+        "notes": {
+          "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+          "curated_gpr_correction": "YALI1A08781g: COQ6-family hydroxylase candidate; YALI1B03314g: YAH1-like ferredoxin candidate; YALI1B19490g: ARH1-like reductase candidate. AND represents a serial donor chain, not a demonstrated native complex.",
+          "gpr_evidence_status": "cross_species_homology_candidate; native C1 activity and donor coupling unverified",
+          "gpr_evidence_limit": "Nicoll 2024 ancestral short-chain substrate hydroxylation supports the C1 candidate. Yeast C1 modification can persist without COQ6; alternative pathways remain unresolved. NADH is a permitted donor hypothesis, not native preference. No quinol oxidation is assigned.",
+          "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+          "coq9_previous_PROTEIN_CLASS": "1.14.13.-",
+          "coq9_curation_scope": "EC 1.14.15.46 describes the ferredoxin-dependent catalytic step; this candidate collapses its donor regeneration into net NADH use. Neutral NAD/NADH model microspecies are retained; NADPH variant is not implemented.",
+          "coq9_reference_pathway_ec": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+          "coq_literature_revision": "COQ-R19-R18-QUINOL-20261002",
+          "coq_literature_status": "partial_literature_candidate_redox_gap",
+          "coq_literature_sources": "DOI 10.1038/s41929-023-01087-z; artifacts/coq_literature_revision_20261002/REPORT.md",
+          "coq_literature_previous_chemistry_context": "The preserved curated_coq9_chemistry note describes an earlier C45 identity correction. This later candidate changes redox species and R19 donor coupling as explicitly curated.",
+          "coq_literature_downstream_limit": "Partial literature correction of R19/R18. DMQ9H2 has no evidenced connection to R695; this structural gap is retained. R385 quinone representation is unchanged and remains under review. Not a flux-validated or accepted model.",
+          "PROTEIN_CLASS": "1.14.15.46",
+          "coq_literature_previous_curated_gpr_correction": "Removed the unsupported inherited seven-gene synthome AND. YALI1A08781g (COQ6 candidate; active UniProt F2Z6J4) remains deferred for this exact reaction; an empty GPR denotes unknown catalyst identity, not a spontaneous reaction.",
+          "coq_literature_previous_gpr_evidence_status": "deferred_reaction_identity_unresolved",
+          "coq_literature_previous_gpr_evidence_limit": "COQ6 family/AlphaFold compatibility is supported, but R19 regioselectivity, product redox state and ferredoxin/reductase electron transfer remain unresolved.",
+          "coq_literature_previous_coq9_curation_scope": "Mixed pathway ECs are historical evidence only. Exact native catalyst and lumped redox chemistry remain unresolved; EC removal does not imply spontaneity.",
+          "coq_literature_structure": "基于 AlphaFold 预测的功能候选；复用此前精确序列的已有预测与同源证据，不是本轮新预测或原生酶活验证。"
+        }
+      }
+    },
+    "R18": {
+      "before": {
+        "name": "2-nonaprenyl-6-methoxy-1,4-benzoquinone methyltransferase",
+        "species": {
+          "m59[C_mi]": {
+            "coefficient": -1.0,
+            "formula": "C52H78O3",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m60[C_mi]": {
+            "coefficient": -1.0,
+            "formula": "C15H22N6O5S",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m61[C_mi]": {
+            "coefficient": 1.0,
+            "formula": "C53H80O3",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m62[C_mi]": {
+            "coefficient": 1.0,
+            "formula": "C14H20N6O5S",
+            "charge": 0,
+            "compartment": "C_mi"
+          }
+        },
+        "gpr": "YALI1C25352g",
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "annotation": {
+          "sbo": "SBO:0000176",
+          "ec-code": "2.1.1.201"
+        },
+        "notes": {
+          "PROTEIN_CLASS": "2.1.1.201",
+          "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+          "curated_gpr_correction": "YALI1C25352g (COQ5 candidate; active UniProt Q6CBJ6), CoQ-ring C-methyltransferase. Cross-species step evidence: S. cerevisiae SAM-bound Coq5 structure 4OBW and reconstructed ancestral COQ5 activity.",
+          "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+          "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+          "coq9_curation_scope": "EC denotes the COQ5 catalytic family. Encoded oxidized quinone is not asserted identical to the accepted quinol substrate."
+        }
+      },
+      "after": {
+        "name": "demethyl-demethoxyubiquinol-9 C-methyltransferase",
+        "species": {
+          "coq_ddmq9h2[C_mi]": {
+            "coefficient": -1,
+            "formula": "C52H80O3",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m60[C_mi]": {
+            "coefficient": -1,
+            "formula": "C15H22N6O5S",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "coq_dmq9h2[C_mi]": {
+            "coefficient": 1,
+            "formula": "C53H82O3",
+            "charge": 0,
+            "compartment": "C_mi"
+          },
+          "m62[C_mi]": {
+            "coefficient": 1,
+            "formula": "C14H20N6O5S",
+            "charge": 0,
+            "compartment": "C_mi"
+          }
+        },
+        "gpr": "YALI1C25352g",
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "annotation": {
+          "sbo": "SBO:0000176",
+          "ec-code": "2.1.1.201"
+        },
+        "notes": {
+          "PROTEIN_CLASS": "2.1.1.201",
+          "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+          "curated_gpr_correction": "YALI1C25352g (COQ5 candidate; active UniProt Q6CBJ6), CoQ-ring C-methyltransferase. Cross-species step evidence: S. cerevisiae SAM-bound Coq5 structure 4OBW and reconstructed ancestral COQ5 activity.",
+          "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+          "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+          "coq9_curation_scope": "EC 2.1.1.201 is represented with DDMQ9H2 substrate and DMQ9H2 product. The existing COQ5-family candidate GPR is retained; native activity remains unverified.",
+          "coq_literature_revision": "COQ-R19-R18-QUINOL-20261002",
+          "coq_literature_status": "partial_literature_candidate_redox_gap",
+          "coq_literature_sources": "DOI 10.1038/s41929-023-01087-z; artifacts/coq_literature_revision_20261002/REPORT.md",
+          "coq_literature_previous_chemistry_context": "The preserved curated_coq9_chemistry note describes an earlier C45 identity correction. This later candidate changes redox species and R19 donor coupling as explicitly curated.",
+          "coq_literature_downstream_limit": "Partial literature correction of R19/R18. DMQ9H2 has no evidenced connection to R695; this structural gap is retained. R385 quinone representation is unchanged and remains under review. Not a flux-validated or accepted model.",
+          "coq_literature_previous_coq9_curation_scope": "EC denotes the COQ5 catalytic family. Encoded oxidized quinone is not asserted identical to the accepted quinol substrate."
+        }
+      }
+    }
+  },
+  "context_guards": {
+    "R39": {
+      "name": "nonaprenyl 4-hydroxybenzoate C5 hydroxylation (NADH-coupled hypothesis)",
+      "species": {
+        "m641[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m64[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m30[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m939[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C52H77O4",
+          "charge": -1,
+          "compartment": "C_mi"
+        },
+        "m26[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m27[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m28[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1A08781g and YALI1B03314g and YALI1B19490g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "annotation": {
+        "sbo": "SBO:0000176"
+      },
+      "notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "coq_c5_hypothesis": "COQ-C5-NADH-20261001",
+        "coq_c5_evidence": "Yeast genetics and homolog inference; native Yarrowia enzymatic coupling and NADH preference unverified. AND means serial electron transfer, not a stable heterotrimer.",
+        "coq_c5_roles": "YALI1A08781g: COQ6-family C5 hydroxylase; YALI1B03314g: YAH1-like ferredoxin; YALI1B19490g: ARH1-like ferredoxin reductase. Native established symbols unverified.",
+        "coq_c5_previous_representation": "R39: cytosolic m108 + 0.5 m109 to m10 + m110; empty GPR; bounds 0..1000. Replaced in this candidate; no parallel donor-free C5 reaction added.",
+        "coq_c5_cofactor_limit": "NADH is a provisional permitted donor based on yeast ARH1 heterologous-carrier assay; NADPH is also plausible. Existing NADP/NADPH formula-charge mismatch prevents a balanced NADPH variant without wider cofactor curation; no cofactor species changed.",
+        "coq_c5_structure": "基于 AlphaFold 预测的功能候选；复用精确序列已有单体预测，不证明供电子配对或原生定位。",
+        "coq_c5_sources": "PMID 20534343; PMID 21944752; PMID 9727014; DOI 10.1038/s41929-023-01087-z; artifacts/coq_yeast_reference_20261001/REPORT.md",
+        "coq_c5_limits": "Provisional mitochondrial localization; no explicit ferredoxin pool, FAD turnover or Fe-S assembly model. R19 chemistry and COQ8 reaction-level dependence remain unresolved; no growth essentiality validation.",
+        "coq_c5_legacy_note_context": "The preserved curated_coq9_chemistry note describes the earlier C45 identity repair only. This later C5 hypothesis changes R39 stoichiometry, compartment and GPR as stated above; bounds and demand stay unchanged."
+      }
+    },
+    "R695": {
+      "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+      "species": {
+        "m30[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m61[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C53H80O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m64[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m26[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m27[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m611[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C53H80O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1E18269g and YALI1F34675g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "1.14.13.253"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "1.14.13.253",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1E18269g (COQ7 candidate; active UniProt Q6C5T9), demethoxyubiquinone hydroxylase. Cross-species step evidence: human COQ7:COQ9 structure 7SSS and reconstructed COQ7 activity.",
+        "gpr_evidence_status": "provisional_functional_dependency; native_yarrowia_requiredness_unverified",
+        "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_previous_PROTEIN_CLASS": "1.14.13.-",
+        "coq9_curation_scope": "EC denotes the COQ7 catalytic family; stored substrate forms and native substrate specificity are not newly validated.",
+        "coq9_functional_hypothesis": "COQ9-R695-FUNCTIONAL-20261001",
+        "coq9_previous_gpr": "YALI1E18269g",
+        "coq9_previous_gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_functional_roles": "YALI1E18269g: COQ7-family demethoxyubiquinone hydroxylase candidate; YALI1F34675g: COQ9-family lipid-binding/substrate-presentation auxiliary candidate. Native established symbols and biochemical localization unverified.",
+        "coq9_functional_assumption": "Conditional model hypothesis: native membrane-embedded long-chain substrate access requires the COQ9-family auxiliary protein for the represented COQ7 step. AND encodes functional dependence, not proof that both proteins catalyse hydroxylation.",
+        "coq9_functional_counterevidence": "Nicoll et al. 2024 Fig. 5b: ancestral COQ7 alone is active with nonprenylated substrate in detergent; COQ9 increases efficiency about 1.5-fold. A universal intrinsic catalytic AND is not supported.",
+        "coq9_functional_limits": "Cross-species inference; native Yarrowia COQ7-COQ9 obligatory pairing, localization and substrate access remain unverified. No growth essentiality claim; unchanged static Q9/Q9H2 pool has no net synthesis demand. COQ8 and COQ6 are not assigned by this hypothesis.",
+        "coq9_functional_structure": "基于 AlphaFold 预测的功能候选；复用与版本化 W29 序列一致的已有 AlphaFold 预测，不是本次预测或原生实验验证。",
+        "coq9_functional_sources": "DOI 10.1073/pnas.1413128111; 10.1016/j.molcel.2018.11.033; 10.1016/j.molcel.2022.10.003; 10.1038/s41929-023-01087-z; artifacts/coq_gpr_completion_20261001/REPORT.md"
+      }
+    },
+    "R385": {
+      "name": "3-demethylubiquinone-9 3-O-methyltransferase",
+      "species": {
+        "m60[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C15H22N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m611[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C53H80O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m468[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C54H82O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m62[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C14H20N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1B20835g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.1.1.64",
+        "kegg.reaction": "R08781"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.1.1.64",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "terminal_redox_convention": "Balanced oxidized convention: SAM + 3-demethylubiquinone-9 -&gt; SAH + ubiquinone-9. Native Yarrowia terminal redox form is unresolved; KEGG R08781 is the closest neutral convention.",
+        "curated_gpr_correction": "YALI1B20835g (COQ3 candidate; active UniProt Q6CEG2), CoQ O-methyltransferase. Cross-species evidence supports the second CoQ O-methylation; the native Yarrowia substrate redox state remains unresolved.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_previous_PROTEIN_CLASS": "2.1.1.114",
+        "coq9_curation_scope": "EC denotes COQ3 terminal O-methylation. The model retains oxidized quinone; the native enzyme substrate oxidation state is unresolved."
+      }
+    }
+  },
+  "genes": {
+    "YALI1A08781g": {
+      "refseq": "XP_499891.1",
+      "symbol_status": "COQ6-family candidate; established native symbol not verified",
+      "protein_function": "FAD-dependent CoQ ring hydroxylase",
+      "evidence_status": "homology and cross-species experimental inference; native activity unverified"
+    },
+    "YALI1B03314g": {
+      "refseq": "XP_500417.1",
+      "symbol_status": "YAH1-like candidate; established native symbol not verified",
+      "protein_function": "2Fe-2S ferredoxin",
+      "evidence_status": "homology and cross-species experimental inference; native activity unverified"
+    },
+    "YALI1B19490g": {
+      "refseq": "XP_500902.3",
+      "symbol_status": "ARH1-like candidate; established native symbol not verified",
+      "protein_function": "ferredoxin reductase",
+      "evidence_status": "homology and cross-species experimental inference; native activity unverified"
+    },
+    "YALI1C25352g": {
+      "refseq": "XP_501966.1",
+      "symbol_status": "COQ5-family candidate; established native symbol not verified",
+      "protein_function": "CoQ intermediate C-methyltransferase",
+      "evidence_status": "homology and cross-species experimental inference; native activity unverified"
+    }
+  },
+  "model_note": "Partial literature correction of R19/R18. DMQ9H2 has no evidenced connection to R695; this structural gap is retained. R385 quinone representation is unchanged and remains under review. Not a flux-validated or accepted model.",
+  "sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7615680/",
+    "https://iubmb.qmul.ac.uk/enzyme/EC1/14/15/46.html",
+    "https://iubmb.qmul.ac.uk/enzyme/EC2/1/1/201.html",
+    "https://iubmb.qmul.ac.uk/enzyme/EC1/14/13/253.html"
+  ],
+  "inherited_evidence": [
+    "artifacts/coq_reaction_first_20261001/reused_identity_structure.json",
+    "artifacts/coq_reaction_first_20261001/reference_comparison.json",
+    "artifacts/coq_yeast_reference_20261001/donor_comparison.json",
+    "artifacts/coq_yeast_reference_20261001/targetp/verification.json",
+    "artifacts/coq_gpr_completion_20261001/targetp/verification.json"
+  ]
+}

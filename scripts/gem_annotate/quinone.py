@@ -35,8 +35,7 @@ def correct_external_ndh2_gpr_and_remove_duplicate(model) -> int:
     """Correct R570 to the verified external NDH2 and remove duplicate R2063.
 
     The function verifies reaction identity and bounds before deleting R2063.
-    R1889 (complex I) is intentionally untouched because a structurally present
-    subunit is not automatically a required Boolean GPR component.
+    R1889 (complex I) is handled by its separate partial-dependency curation.
     """
     try:
         r570 = model.reactions.get_by_id("R570")
@@ -83,8 +82,9 @@ def correct_external_ndh2_gpr_and_remove_duplicate(model) -> int:
         "https://pubmed.ncbi.nlm.nih.gov/11719558/"
     )
     notes["complex_i_scope"] = (
-        "R1889 has no GPR by design in this patch; see "
-        "docs/curation/complex_i_gpr_evidence.csv before assigning a complex-I AND rule."
+        "R1889 is curated separately via "
+        "data/reference_build/curation/r1889_gpr_assignment.json; "
+        "structural presence alone does not establish required Boolean membership."
     )
     r570.notes = notes
 

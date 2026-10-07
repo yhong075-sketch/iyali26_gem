@@ -289,6 +289,8 @@ def annotate_metabolites(model, chem_xref: dict, chem_prop_data: dict) -> None:
       B2b — normalized prefix match (length ≥ 8, within ±3 chars)
       C   — formula + optional charge disambiguation → formula_index
     """
+    from .dipeptide_chemistry import protected_chemistry
+    chemical_locks = protected_chemistry(model)
     by_source = chem_xref["by_source"]
     by_mnxid  = chem_xref["by_mnxid"]
     prop      = chem_prop_data["prop"]
@@ -348,6 +350,8 @@ def annotate_metabolites(model, chem_xref: dict, chem_prop_data: dict) -> None:
     hit_A = hit_B = hit_BD = hit_B0 = hit_B1 = hit_B2a = hit_B2b = hit_C = no_match = 0
 
     for met in model.metabolites:
+        if met.id in chemical_locks:
+            continue
         chem_name, formula_str = _parse_name_formula(met.name or "")
 
         # 2a: set formula from name if not already set; sanitise first

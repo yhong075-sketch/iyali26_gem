@@ -14,7 +14,7 @@ from tempfile import TemporaryDirectory
 
 from cobra.io import read_sbml_model
 
-from .coq9 import CURATION_PATH, GENE_EVIDENCE_PATH, apply_coq9_curation, gene_evidence
+from .coq9 import CURATION_PATH, GENE_EVIDENCE_PATH, apply_coq9_curation, apply_coq9_functional_gpr, apply_coq_c5_gpr, apply_coq_literature_revision, gene_evidence
 from .biomass import fix_biomass_reaction
 from .config import (
     CACHE_DIR,
@@ -31,7 +31,7 @@ from .gaps import DUPLICATE_PAIRS, add_gap_fill_reactions, find_gaps, merge_dupl
 from .annotate_reactions_extended import annotate_remaining_reactions
 from .ec_annotation import enrich_genes_with_ec
 from .essentiality_evidence import sha256_file
-from .genes import annotate_genes, apply_curated_gene_annotation_overrides
+from .genes import annotate_genes, apply_curated_gene_annotation_overrides, apply_curated_gene_function_annotations
 from .idmapping import _enrich_via_idmapping
 from .io import load_chem_prop, load_chem_xref, load_mnxm_depr, load_reac_prop, load_reac_xref
 from .metabolites import annotate_metabolites, fix_proton_water_balance, normalize_all_annotations
@@ -45,6 +45,7 @@ from .r608 import apply_r608_candidate
 from .reaction_selection import SELECTION_PATH, apply_metadata_reaction_selection
 from .r1159_direction import apply_r1159_direction
 from .energy_candidates import SPEC_PATH as ENERGY_SPEC_PATH, apply_energy_candidate, export_candidate
+from .patches import apply_r153_gpr_assignment, apply_r1025_gpr_assignment, apply_r1026_gpr_assignment, apply_vatpase_gpr_hypothesis, merge_r153_r2176, apply_r1931_direction, apply_r539_gpr_assignment, apply_r1889_gpr_assignment
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -69,16 +70,38 @@ def build_reference_chain(
     r608_curation_path: Path | None = None,
     starting_model_path: Path = STARTING_MODEL_PATH,
     coq9_mode: str = "metadata",
+    vatpase_gpr_hypothesis: bool = False,
     energy_candidate: str = "E0",
+    coq9_functional_gpr: bool = False,
+    coq_c5_gpr: bool = False,
+    coq_literature_revision: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
+    # The literature patch is defined on the reviewed C5 + COQ9 context.
+    coq9_functional_gpr = coq9_functional_gpr or coq_literature_revision
+    coq_c5_gpr = coq_c5_gpr or coq_literature_revision
+    canonical_copy = canonical_copy or coq_literature_revision
     if coq9_mode not in {"off", "metadata", "qcycle"}:
         raise ValueError(f"Unknown CoQ9 mode: {coq9_mode}")
     if energy_candidate not in {"E0", "E1", "E2", "E3", "E4", "E5"}:
         raise ValueError("Unknown energy candidate")
+    if (coq9_functional_gpr or coq_c5_gpr) and (
+        not no_solve or allow_network or coq9_mode != "metadata"
+        or energy_candidate != "E0" or vatpase_gpr_hypothesis
+        or provisional_capacity_path is not None or trna_biomass_mode is not None
+        or r608_curation_path is not None
+    ):
+        raise ValueError("CoQ GPR hypotheses require a separate offline/no-solve metadata build")
     if energy_candidate != "E0" and (not no_solve or allow_network or coq9_mode != "metadata"
-            or provisional_capacity_path is not None or r608_curation_path is not None):
+            or vatpase_gpr_hypothesis or provisional_capacity_path is not None
+            or r608_curation_path is not None):
         raise ValueError("Energy candidates require a separate offline/no-solve metadata build")
+    if vatpase_gpr_hypothesis and (
+        not no_solve or allow_network or coq9_mode != "metadata"
+        or provisional_capacity_path is not None or trna_biomass_mode is not None
+        or r608_curation_path is not None
+    ):
+        raise ValueError("V-ATPase hypothesis requires an offline/no-solve metadata build without other experimental overlays")
     if starting_model_path.resolve() == Path(output_model_path).resolve():
         raise ValueError("Input and output must be separate files")
     if r608_curation_path is not None:
@@ -231,10 +254,13 @@ def build_reference_chain(
         "  Curated gene identity overrides: %d gene(s) corrected",
         n_gene_identity_overrides,
     )
-
     # Priority 4c — ncbigene → UniProt ID-mapping for genes still missing uniprot
     logger.info("=== Priority 4c: UniProt ID-mapping (ncbigene → UniProtKB) ===")
     _enrich_via_idmapping(model, allow_network=allow_network)
+
+    # Candidate identity guards require the completed UniProt mapping.
+    logger.info("=== Priority 4c+: curated candidate gene functions ===")
+    apply_curated_gene_function_annotations(model)
 
     # Priority 4d — enrich genes with EC numbers via UniProt stream API
     logger.info("=== Priority 4d: gene EC number enrichment via UniProt ===")
@@ -465,7 +491,7 @@ def build_reference_chain(
     # Directly reviewed GPR corrections are deliberately separate from the
     # automated isozyme expansion: R612 receives the verified URA3 gene, while
     # R570 is corrected to external NDH2 and duplicate R2063 is removed. R1889
-    # remains GPR-less pending a complex-I subunit requiredness review.
+    # receives its separate partial dependency GPR after metadata selection.
     n_r612_gpr = add_r612_ura3_gpr(model)
     logger.info("  Reviewed R612 URA3 GPR correction: %d reaction(s) changed", n_r612_gpr)
     n_ndh2_changes = correct_external_ndh2_gpr_and_remove_duplicate(model)
@@ -580,7 +606,7 @@ def build_reference_chain(
 
     # The experimental biomass requirement remains coupled through all 20 tRNAs.
     # Final metadata selection checks and preserves this reference representation.
-    canonical_build = canonical_copy or output_model_path.resolve() == OUTPUT_MODEL_PATH.resolve()
+    canonical_build = canonical_copy or vatpase_gpr_hypothesis or output_model_path.resolve() == OUTPUT_MODEL_PATH.resolve()
     if canonical_build or trna_biomass_mode == "split":
         trna_audit = split_trna_charging_from_biomass(model)
         if canonical_build:
@@ -614,12 +640,42 @@ def build_reference_chain(
     coq9 = apply_coq9_curation(model, coq9_mode)
     if not coq9["requested_mode_complete"]:
         logger.warning("CoQ9 local conflicts: inspect the build record")
+    # Apply after field selection so the authorized GPR survives the full build.
+    selection["post_selection_gpr_assignment"] = apply_r1026_gpr_assignment(model)
+    logger.info("R1026 GPR assignment: %s", selection["post_selection_gpr_assignment"])
+    selection["post_selection_r1025_gpr_assignment"] = apply_r1025_gpr_assignment(model)
+    logger.info("R1025 GPR assignment: %s", selection["post_selection_r1025_gpr_assignment"])
+    selection["post_selection_r153_gpr_assignment"] = apply_r153_gpr_assignment(model)
+    logger.info("R153 GPR assignment: %s", selection["post_selection_r153_gpr_assignment"])
+    selection["post_selection_r153_merge"] = merge_r153_r2176(model)
+    logger.info("R153/R2176 merge: %s", selection["post_selection_r153_merge"])
+    selection["post_selection_r1931_direction"] = apply_r1931_direction(model)
+    logger.info("R1931 direction: %s", selection["post_selection_r1931_direction"])
+    selection["post_selection_r539_gpr_assignment"] = apply_r539_gpr_assignment(model)
+    logger.info("R539 GPR/EC assignment: %s", selection["post_selection_r539_gpr_assignment"])
+    selection["post_selection_r1889_gpr_assignment"] = apply_r1889_gpr_assignment(model)
+    logger.info("R1889 partial complex-I GPR: %s", selection["post_selection_r1889_gpr_assignment"])
+    if vatpase_gpr_hypothesis:
+        if not selection["complete"] or not coq9["requested_mode_complete"]:
+            raise ValueError("Cannot apply V-ATPase hypothesis to an incomplete reference build")
+        logger.info("V-ATPase GPR hypothesis: %s", apply_vatpase_gpr_hypothesis(model))
     selection["post_selection_r1159_direction"] = apply_r1159_direction(model)
     logger.info("R1159 direction: %s", selection["post_selection_r1159_direction"])
     if energy_candidate != "E0":
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply energy candidate to an incomplete reference build")
         selection["energy_candidate"] = apply_energy_candidate(model, energy_candidate)
+    if coq9_functional_gpr:
+        if not selection["complete"] or not coq9["requested_mode_complete"]:
+            raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
+        selection["coq9_functional_gpr"] = apply_coq9_functional_gpr(model)
+    if coq_c5_gpr:
+        if not selection["complete"] or not coq9["requested_mode_complete"]:
+            raise ValueError("Cannot apply CoQ C5 GPR to an incomplete reference build")
+        selection["coq_c5_gpr"] = apply_coq_c5_gpr(model)
+    if coq_literature_revision:
+        selection["coq_literature_revision"] = apply_coq_literature_revision(model, enabled=True)
+        logger.warning("Applied CoQ R19/R18 literature candidate; downstream redox gap remains unresolved")
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
@@ -674,7 +730,7 @@ def build_model(args):
         if folder.is_dir():
             data_paths += [p for p in folder.iterdir() if p.is_file() and not p.name.startswith(".")]
     data_sha = {str(p.resolve()): sha(p) for p in sorted(set(data_paths))}
-    ordinary = args.provisional_capacity_profile is None and args.trna_biomass_mode is None
+    ordinary = args.provisional_capacity_profile is None and args.trna_biomass_mode is None and not args.vatpase_gpr_hypothesis
     model, coq9, retention, selection = build_reference_chain(
         provisional_capacity_path=args.provisional_capacity_profile,
         trna_biomass_mode=args.trna_biomass_mode,
@@ -685,7 +741,11 @@ def build_model(args):
         r608_curation_path=args.r608_curation,
         starting_model_path=args.starting_model,
         coq9_mode=args.coq9_curation,
+        vatpase_gpr_hypothesis=args.vatpase_gpr_hypothesis,
         energy_candidate=getattr(args, "energy_candidate", "E0"),
+        coq9_functional_gpr=getattr(args, "coq9_functional_gpr", False),
+        coq_c5_gpr=getattr(args, "coq_c5_gpr", False),
+        coq_literature_revision=getattr(args, "coq_literature_revision", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
@@ -709,7 +769,17 @@ def build_model(args):
         "diagnostic_solves": "not run; execution guard enabled" if args.no_solve else "existing diagnostics enabled",
         "network_gene_enrichment": "cache only; network guard enabled" if args.offline else "enabled",
         "coq9": coq9, "retained_reactions": retention, "reaction_selection": selection,
+        "vatpase_gpr_hypothesis": {
+            "enabled": args.vatpase_gpr_hypothesis,
+            "evidence_status": "provisional_hypothesis" if args.vatpase_gpr_hypothesis else "not_applied",
+        },
         "requested_build_complete": coq9["requested_mode_complete"] and selection["complete"],
+        "coq_literature_revision": {
+            "enabled": getattr(args, "coq_literature_revision", False),
+            "scientific_status": selection.get("coq_literature_revision", {}).get("scientific_status", "not_applied"),
+            "effective_dependencies": ["coq9_functional_gpr", "coq_c5_gpr"] if getattr(args, "coq_literature_revision", False) else [],
+            "pathway_closure_validated": False if getattr(args, "coq_literature_revision", False) else None,
+        },
         "gene_evidence": {"path": str(evidence_path.resolve()), "sha256": sha(evidence_path)},
     }
     output.with_suffix(".build.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n")

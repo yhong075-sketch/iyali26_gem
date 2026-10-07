@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "assignment_id": "R539-MCAT-GPR-20260916",
+  "status": "user_authorized_provisional_assignment",
+  "reaction_id": "R539",
+  "reaction_name": "malonyl-CoA-ACP transacylase",
+  "source_model": {
+    "path": "model_metadata_trna_r1931_forward.xml",
+    "sha256": "d417f1de0425bc3336503b45a9498154b8a25a5d90d6f58e68b9d80cfc79297b"
+  },
+  "before_gpr": "(YALI1F38317g and YALI1A20089g and YALI1C26939g and YALI1D18037g) or (YALI1D32594g and YALI1F37498g and YALI1E22262g)",
+  "after_gpr": "YALI1E22262g",
+  "before_ec": [
+    "1.3.1.104",
+    "2.3.1.39"
+  ],
+  "after_ec": [
+    "2.3.1.39"
+  ],
+  "gene_annotation": {
+    "uniprot": "A0A1D8NJ03",
+    "refseq": "XP_504110.3"
+  },
+  "bounds": [
+    -1000.0,
+    1000.0
+  ],
+  "stoichiometry": {
+    "m179[C_mi]": -1.0,
+    "m198[C_mi]": -1.0,
+    "m73[C_mi]": 1.0,
+    "m801[C_mi]": 1.0
+  },
+  "species": {
+    "m179[C_mi]": {
+      "formula": null,
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "m198[C_mi]": {
+      "formula": "C24H38N7O19P3S",
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "m73[C_mi]": {
+      "formula": "C21H36N7O16P3S",
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "m801[C_mi]": {
+      "formula": "C3H3O3SR",
+      "charge": 0,
+      "compartment": "C_mi"
+    }
+  },
+  "sequence_identity": {
+    "verified_at_utc": "2026-09-16T16:36:21.724090+00:00",
+    "target_locus": "YALI1_E22262g",
+    "native_symbol": "unverified",
+    "refseq": "XP_504110.3",
+    "genbank": "AOW05616.1",
+    "target_uniprot": "A0A1D8NJ03",
+    "entry_audit": {
+      "firstPublicDate": "2017-01-18",
+      "lastAnnotationUpdateDate": "2026-01-28",
+      "lastSequenceUpdateDate": "2017-01-18",
+      "entryVersion": 33,
+      "sequenceVersion": 1
+    },
+    "sequence_length": 306,
+    "sequence_sha256": "46da679cce71c1098390e273f0cdaa26b27f8d37d5477dd9275d9c879ca87a55",
+    "refseq_genbank_cached_AF_PDB_exact_match": true,
+    "current_uniprot_status": {
+      "entryType": "Inactive",
+      "primaryAccession": "A0A1D8NJ03",
+      "uniProtkbId": "A0A1D8NJ03_YARLL",
+      "annotationScore": 0.0,
+      "inactiveReason": {
+        "inactiveReasonType": "DELETED",
+        "deletedReason": "Not part of a reference proteome"
+      },
+      "extraAttributes": {
+        "uniParcId": "UPI000870D6E7"
+      }
+    },
+    "current_kegg_is_different_sequence": [
+      {
+        "position": 150,
+        "W29": "T",
+        "current_KEGG_YALI2": "I"
+      },
+      {
+        "position": 280,
+        "W29": "V",
+        "current_KEGG_YALI2": "A"
+      }
+    ],
+    "alphafold": {
+      "modelEntityId": "AF-A0A1D8NJ03-F1",
+      "toolUsed": "AlphaFold Monomer v2.0 pipeline",
+      "modelCreatedDate": "2022-06-01T00:00:00Z",
+      "latestVersion": 6,
+      "globalMetricValue": 91.44
+    },
+    "pdb_mean_plddt": 91.40879084967321,
+    "N_terminal_30_mean_plddt": 91.36733333333333,
+    "pae_mean": 4.908763723354266,
+    "pae_max": 30,
+    "limits": "Reused AlphaFold prediction, no new prediction. pLDDT/PAE assess predicted structure confidence, not enzyme activity, localization, partner requirement, or substrate specificity. No experimental native activity/localization established."
+  },
+  "source_urls": [
+    "https://iubmb.qmul.ac.uk/enzyme/EC2/3/1/39.html",
+    "https://iubmb.qmul.ac.uk/enzyme/EC1/3/1/104.html",
+    "https://www.ncbi.nlm.nih.gov/protein/AOW05616.1",
+    "https://www.ncbi.nlm.nih.gov/protein/XP_504110.3",
+    "https://alphafold.ebi.ac.uk/entry/A0A1D8NJ03",
+    "https://pubmed.ncbi.nlm.nih.gov/1314802/",
+    "https://pubmed.ncbi.nlm.nih.gov/9388293/",
+    "https://pubmed.ncbi.nlm.nih.gov/19766092/",
+    "https://pubmed.ncbi.nlm.nih.gov/28802701/"
+  ],
+  "notes": {
+    "PROTEIN_CLASS": "2.3.1.39",
+    "curated_gpr_assignment": "R539-MCAT-GPR-20260916",
+    "gpr_evidence_status": "user_authorized_provisional_assignment",
+    "gpr_evidence_basis": "Versioned W29 sequence, automatic domain/function annotation, bounded curated-reference BLAST and reused AlphaFold prediction",
+    "gpr_evidence_label": "Alphafold预测， 仍需试验验证",
+    "gpr_experimental_confirmation": "required_not_confirmed",
+    "r539_previous_gpr": "(YALI1F38317g and YALI1A20089g and YALI1C26939g and YALI1D18037g) or (YALI1D32594g and YALI1F37498g and YALI1E22262g)",
+    "r539_previous_ec": "1.3.1.104; 2.3.1.39",
+    "r539_ec_correction": "R539 is ACP + malonyl-CoA = CoA + malonyl-ACP; EC 2.3.1.39 matches. EC 1.3.1.104 describes NADP(H)-dependent enoyl/acyl-ACP redox chemistry absent from this reaction and is removed only from R539.",
+    "r539_gene_function": "YALI1E22262g; native symbol unverified; putative [acyl-carrier-protein] S-malonyltransferase. W29 AOW05616.1/XP_504110.3, 306 aa, sequence SHA256 46da679cce71c1098390e273f0cdaa26b27f8d37d5477dd9275d9c879ca87a55. Model assignment remains provisional; no native catalytic or localization experiment established.",
+    "r539_catalytic_scope": "GPR describes the candidate catalyst given available holo-ACP substrate, which remains explicit in stoichiometry. Other mtFAS steps are not interchangeable catalysts or automatically required enzyme subunits. No new AND/OR partner is established.",
+    "r539_carrier_limit": "This catalytic-only GPR does not assert ACP genes are dispensable and does not encode their protein synthesis, maturation or pool depletion. Existing generic ACP pool and all other GPRs are unchanged. Native ACPM proteins may be nonexchangeable; no gene-specific carrier AND or OR is assigned without identity and mechanistic evidence.",
+    "r539_alphafold_provenance": "Reused sequence-identical AlphaFold prediction AF-A0A1D8NJ03-F1, Monomer v2.0 pipeline, file v6, created 2022-06-01, retrieved 2026-09-16 UTC; API pLDDT 91.44, PDB CA mean 91.41; mean PAE 4.91 A, max 30 A. No new prediction or structural comparison. Confidence does not establish catalysis, partners or mitochondrial localization.",
+    "r539_evidence_limits": "Mitochondrial localization is automatic IEA:TreeGrafter. Reference-panel similarity and conserved S97/H210 support an MCAT candidate, not experimental activity or proof of a unique isozyme. The current KEGG YALI2 sequence differs at two positions and was not substituted for W29. The UniProt W29 entry is inactive because it is not a reference proteome, not because function was disproved.",
+    "r539_authorization": "2026-09-16 user explicitly requested: 核实后修正 R539 注释及 GPR. Scope limited to R539 GPR, EC and evidence notes; no reaction chemistry/bounds/compartment or experimental-label changes.",
+    "r539_evidence_sources": "artifacts/r539_correction_20260916/REPORT.md; artifacts/r539_correction_20260916/SOURCE_AUDIT.md; artifacts/r539_correction_20260916/identity_checks.json; artifacts/r539_correction_20260916/local_blast_results.json; IUBMB EC 2.3.1.39 and EC 1.3.1.104"
+  }
+}
