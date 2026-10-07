@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-09-21T23:02:19.651344+00:00",
+  "inputs": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r539_alphafold_labeled.xml": "cff96f40368b3de3d502956cf33dda246e049becfa43c1bba12fbd8ded6acd9a"
+  },
+  "baseline_sha256": "cff96f40368b3de3d502956cf33dda246e049becfa43c1bba12fbd8ded6acd9a",
+  "candidate_sha256": "0fcc2f6ff05124b91977c6f96f78cbe5906a3ccbf3f936f95990afe02b540353",
+  "curation_sha256": "672bba264f093e2fe87e965efa92749a2ffe47b7d8112fcf371e4e4da1833482",
+  "model_counts": {
+    "reactions": 2314,
+    "metabolites": 1877,
+    "genes": 1073
+  },
+  "only_changes": "R794/R795 GPR and candidate evidence notes; all other model_to_dict fields exact",
+  "gpr_static_checks": "12 common single deletions false; each a single true; a pair false",
+  "applied": {
+    "selection_id": "VATPASE-COMMON12-ALTERNATE-A-TEST-20260921",
+    "source_metadata_sha256": "cff96f40368b3de3d502956cf33dda246e049becfa43c1bba12fbd8ded6acd9a",
+    "field_counts": {
+      "gpr": 2
+    },
+    "items": [
+      {
+        "item": "R794",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R795",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          }
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "new_optimization_solves": 0,
+  "code_sha256": {
+    "artifacts/screen_vatpase_candidate_20260921/build_candidate.py": "5fcf567d7a3d9e0d79a020941bc245bd5a8603f06016d712eaac78b6709c1e92",
+    "scripts/gem_annotate/reaction_selection.py": "1e51bf3a8fbf5afa8d4af3c399b728e0850a3cfbede33231faf51ecba1bf77ec",
+    "scripts/gem_annotate/coq9.py": "b587b3867a488fd992a9a9411a93cac8eec954bb1e59dbc35f9f0cea7e78cab5",
+    "scripts/gem_annotate/config.py": "1affa8f18f6a245e21af88857bfdbdf915a92a349a3fafe2a9c1af6f98731fc3"
+  }
+}

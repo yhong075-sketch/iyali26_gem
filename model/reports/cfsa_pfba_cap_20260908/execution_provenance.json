@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-09-08T18:21:33.581353+00:00",
+  "actual_input": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz",
+    "compressed_sha256": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d",
+    "decompressed_sha256": "c94bd6f212e5d4002c98dce4b97d3d59eb9514a2814227392fcde0e185cc5fec",
+    "role": "Actual loaded model: saved effective producing JSON; original context inherited, not reapplied"
+  },
+  "initial_attempt": {
+    "result": "result.json",
+    "status": "stopped_before_sampling_constraint_attachment_error",
+    "backend_calls": 1
+  },
+  "second_attempt": {
+    "result": "continuation_result.json",
+    "status": "recording_failed_after_warmup_no_samples",
+    "backend_calls": 4490,
+    "diagnosis": "recording_error_diagnosis.json",
+    "note": "Last saved JSON retains running state because nonfinite metadata serialization prevented the final write."
+  },
+  "completed_attempt": {
+    "result": "completed_result.json",
+    "status": "completed",
+    "fresh_backend_calls": 4490,
+    "retained_samples": 500
+  },
+  "backend_calls_total": 8981,
+  "all_logged_statuses": "optimal",
+  "budget_revision": "Initial5000backendcalls increased to9500 for technical warmup recovery; announced before completion attempt;600active seconds unchanged.",
+  "timing_scope": "Final inherited elapsed_seconds72.74371395801427 is not complete end-to-end timing; inherited segment ends at last logged solve before metadata failure.",
+  "scope": "Same single capped producing sensitivity condition; no minimum LP rerun or added phenotype change.",
+  "original_driver_protection": "All historical executed scripts/results preserved, including failed attempts.",
+  "lp_export_scope": "Text export rounds some small stoichiometric coefficients; original JSON plus full-precision recorded cap defines replay.",
+  "analysis_environment": {
+    "python": "3.13.5",
+    "numpy": "2.4.1",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.8"
+  },
+  "visual_qa": {
+    "pdf_rendered": true,
+    "page_count": 1,
+    "page_inches": [
+      7.2,
+      2.8
+    ],
+    "png_pixels": [
+      4320,
+      1680
+    ],
+    "review": "Rendered PDF inspected; no clipping or overlaps; plot assertions cover counts, means, and all phenotype points."
+  },
+  "protected_paths_count": 65,
+  "protected_hashes_unchanged": true,
+  "sample_artifacts": {
+    "samples.npz": "63216776042665e16975f6ba80382bf0a5581751e654a9beacd6016b8d189ec5",
+    "minimum.npz": "bce2187ef113cd3c07da3b1cb3688cfc9f425cd7f9d22e2943646e2696004557",
+    "comparison.json": "a9428c4fe67f8ea31f48d73c1d9b09916a8cab450ae279de8f78917ea01bc857"
+  },
+  "first_start_to_final_finish_seconds": 535.544245,
+  "independent_audit": {
+    "path": "audit.json",
+    "sha256": "3a5f837d4840183c0b405bdccd43b4ec262eaf241c1bdc4a95763982a9c523c2",
+    "total": 9,
+    "audited": 9,
+    "supported": 7,
+    "partially_supported": 2,
+    "contradicted": 0,
+    "unchecked": 0
+  }
+}

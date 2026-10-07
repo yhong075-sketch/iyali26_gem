@@ -1,0 +1,16 @@
+{
+  "optimization_calls": 0,
+  "genome_wide_screens": 0,
+  "new_alphafold_predictions": 0,
+  "reused_exact_sequence_AF_models": 9,
+  "BLAST_candidate_count": 9,
+  "BLAST_reviewed_reference_count": 11,
+  "structure_comparison_count": 4,
+  "software_check_correction": {
+    "first_extraction": "stopped at orphan gene functional flag restoration assertion; original log preserved",
+    "cause": "COBRA orphan genes have no model context for functional restoration",
+    "correction": "explicitly restore original gene.functional after every in-memory KO; all reaction bounds restored and verified",
+    "second_extraction": "passed; no solver optimization in either run"
+  },
+  "environment": "existing project cobra and existing BLAST/USalign tools; no dependency upgrade"
+}

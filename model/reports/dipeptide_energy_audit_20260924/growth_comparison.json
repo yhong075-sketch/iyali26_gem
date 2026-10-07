@@ -1,0 +1,63 @@
+{
+  "script_sha256": "5cf823c247ed53873a17d20394c7a2e1d405b5f4fd8695fc310ac97f654904d5",
+  "config_sha256": "7add8078e00add5daff1bf8bba0671da55e9b30657101a7a32ce90469c9ed993",
+  "interpretation": "Direction-only diagnostic; no claim of a completed energy repair",
+  "rows": [
+    {
+      "case": "original",
+      "blocks": [],
+      "status": "optimal",
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "elapsed_seconds": 0.042205041041597724,
+      "growth": 1.8718823069402888,
+      "maintenance": 7.8625,
+      "native_medium_restored": true,
+      "NGAM_lower_bound": 7.8625,
+      "max_mass_residual": 6.028033974758706e-14,
+      "max_bound_violation": 0,
+      "max_constraint_violation": 0
+    },
+    {
+      "case": "energy_direction_only",
+      "blocks": [
+        [
+          "R_PGAM1_PhosHydro",
+          "forward"
+        ],
+        [
+          "R_NTP3pp",
+          "forward"
+        ],
+        [
+          "R_NTP7",
+          "reverse"
+        ]
+      ],
+      "status": "optimal",
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "elapsed_seconds": 0.03710816602688283,
+      "growth": 1.8718823069402994,
+      "maintenance": 7.8625,
+      "native_medium_restored": true,
+      "NGAM_lower_bound": 7.8625,
+      "max_mass_residual": 2.0036137462695058e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0
+    }
+  ],
+  "original_restored": true
+}

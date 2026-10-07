@@ -1,0 +1,32 @@
+{
+  "status": "ranked proposals; not applied to model",
+  "input": "reaction_identity.json",
+  "candidates": [
+    {
+      "priority": "first_for_standalone_hydroxylation",
+      "gene_id": "YALI1A08781g",
+      "family_candidate": "COQ6",
+      "native_established_symbol": "not independently established; annotation/homology candidate",
+      "protein": "XP_499891.1",
+      "function": "FAD-dependent ubiquinone-ring hydroxylase candidate",
+      "target": "R19 hydroxylation component, phenol to quinol",
+      "proposed_catalytic_gpr": "YALI1A08781g",
+      "evidence": "matched primary reaction; versioned synthetic experimental reference comparison; yeast reference; existing exact-sequence AlphaFold prediction and targeting prediction",
+      "limits": "No direct Yarrowia C1 assay; yeast can carry out C1 modifications without Coq6 activity under tested conditions; quinol oxidation is not assigned."
+    },
+    {
+      "priority": "alternative_for_carboxylated_precursor_route",
+      "gene_id": "YALI1F34625g",
+      "family_candidate": "COQ4",
+      "native_established_symbol": "not independently established; annotation/homology candidate",
+      "protein": "XP_505938.1",
+      "function": "CoQ decarboxylation/oxidative-decarboxylation-related candidate",
+      "target": "carboxylated precursor through combined C1 modification, involving the R40+R19 module",
+      "proposed_catalytic_gpr": "YALI1F34625g only for a separately specified combined mechanism",
+      "evidence": "yeast/human heterologous complementation; 2026 apicomplexan supporting evidence; prior sequence identity; conserved metal-binding motif",
+      "limits": "Not interchangeable with COQ6 on standalone decarboxylated R19 substrate; complete donor/product-state chemistry still unresolved."
+    }
+  ],
+  "do_not_make_OR_from_these_mechanisms": true,
+  "explicitly_unassigned": "quinol-to-quinone oxidation mechanism and its genetic dependence"
+}

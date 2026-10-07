@@ -1,0 +1,567 @@
+{
+  "created_utc": "2026-09-08T20:06:27.668396+00:00",
+  "task": "Task C first-stage static comparison of existing four scenarios",
+  "scope": {
+    "solver_calls": 0,
+    "sampling_calls": 0,
+    "new_literature_searches": 0,
+    "model_changes": 0,
+    "state_changes": 0,
+    "old_artifacts_modified": false,
+    "not_full_reaudit": true,
+    "prior_audits_reused": [
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/audit.json",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/numerical_audit.json",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/audit.json"
+    ]
+  },
+  "input_identity": {
+    "canonical_manifest_entry": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml",
+      "realpath": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml",
+      "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "size_bytes": 14039307,
+      "verified_at_utc": "2026-09-05T18:26:14.662278+00:00",
+      "verification": "file_bytes_checked_no_model_execution",
+      "storage_status": "present_persistent_file",
+      "persistent_storage_verified": true,
+      "moved_or_copied_this_task": false,
+      "historical_path": "/private/tmp/iyali26_canonical_pipeline_worktree/model.xml",
+      "historical_path_present": false
+    },
+    "canonical_current_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "canonical_current_matches_manifest": true,
+    "effective_input_role": "Saved effective scenario JSON after original SD-Leu/PO1f context and disposable demand; not an unmodified canonical XML or independent strain reapplication.",
+    "inherited_context": {
+      "simulation_context_fingerprint_version": "1",
+      "simulation_context_fingerprint": "c243b23e7344e3f1e2b4962be25f0f2a38980990c6fe88ee32d3aa4f7af90e30",
+      "strain_overlay_enabled": true,
+      "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "strain_overlay_effect_fingerprint_version": "1",
+      "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+    },
+    "active_medium_from_original_run": {
+      "R946": 1000.0,
+      "R971": 1000.0,
+      "R1003": 0.00489,
+      "R1016": 1000.0,
+      "R1029": 1000.0,
+      "R1030": 1000.0,
+      "R1070": 10.0,
+      "R1127": 1000.0,
+      "R1164": 1000.0,
+      "R1189": 6.67e-05,
+      "R1202": 0.02586,
+      "R1204": 0.05414,
+      "R1215": 0.00859,
+      "R1217": 0.03434,
+      "R1220": 0.02466,
+      "R1222": 0.01207,
+      "R1223": 0.02727,
+      "R1231": 0.07562,
+      "R1232": 0.02205,
+      "R1233": 0.02486,
+      "R1234": 0.10765,
+      "R1263": 1000.0,
+      "R1268": 1000.0,
+      "R1287": 1000.0,
+      "R1296": 1000.0,
+      "R1298": 1000.0,
+      "R1305": 1000.0,
+      "R1314": 1000.0,
+      "R1323": 1000.0,
+      "R1333": 1000.0,
+      "R1340": 1000.0,
+      "R1354": 1000.0,
+      "R1364": 1000.0,
+      "R2061": 1000.0,
+      "R2270": 1000.0
+    }
+  },
+  "shared_changes_relative_to_effective_model_before_pilot": {
+    "added_demand": {
+      "id": "CFSA_DM_lipids",
+      "stoichiometry": {
+        "m1727[C_cy]": -1.0
+      },
+      "initial_bounds": [
+        0,
+        1000
+      ]
+    },
+    "initial_biomass_floor": 0.14650760568106092,
+    "note": "Final per-scenario biomass/target bounds below supersede these initial values. Existing medium, strain overlay, all remaining reaction bounds and stoichiometry remain in the saved JSON."
+  },
+  "scenarios": [
+    {
+      "id": "scenario_0",
+      "exact_condition_name": "growing (pFBA)",
+      "report_alias": "Growing",
+      "objective_stored": {
+        "direction": "max",
+        "linear_terms": [
+          {
+            "reaction": "biomass_C",
+            "coefficient": 1.0
+          }
+        ]
+      },
+      "sampling_objective": "No biological objective optimized while collecting samples; feasibility region is sampled. OptGP warmup uses individual reaction min/max objectives.",
+      "biomass_C_bounds": [
+        1.3185684511295488,
+        1000.0
+      ],
+      "CFSA_DM_lipids_bounds": [
+        0,
+        1000
+      ],
+      "additional_sampling_constraints": [
+        {
+          "name": "total_flux_sum_bound",
+          "expression": "sum of every reaction forward_variable + reverse_variable",
+          "lower_bound": 0.0,
+          "upper_bound": 1223.3176651109031,
+          "coverage": "all 2314 reactions / 4628 split variables"
+        }
+      ],
+      "no_other_added_custom_constraints_in_reviewed_source": true,
+      "cap_reference": {
+        "method": "Minimize total forward+reverse flux after maximizing biomass within this scenario; objective_fraction=1. The biomass optimum condition is temporary inside pFBA, not an extra sampling equality.",
+        "factor": 1.25,
+        "reference_total_inferred_as_saved_cap_divided_by_factor": 978.6541320887225,
+        "reference_value_status": "algebraic recovery from recorded cap; not an independently rerun optimum"
+      },
+      "sample_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.npz",
+      "sample_sha256": "f40901550ce7c578421a9e073d67f5e3bfb77f2831c4e9599383ec704ff253aa",
+      "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.json.gz",
+      "model_sha256": "03f8d261548bf319e92e0466ac5d0f01b57a62545503592cca88bb88ca66e20e",
+      "custom_constraints_in_json": false,
+      "raw_sample_representation": "net flux only",
+      "saved_n_samples": 500,
+      "seed": 20260908,
+      "thinning": 100,
+      "processes": 1
+    },
+    {
+      "id": "scenario_1",
+      "exact_condition_name": "growing (pFBA, slow)",
+      "report_alias": "Slow growing",
+      "objective_stored": {
+        "direction": "max",
+        "linear_terms": [
+          {
+            "reaction": "biomass_C",
+            "coefficient": 1.0
+          }
+        ]
+      },
+      "sampling_objective": "No biological objective optimized while collecting samples; feasibility region is sampled. OptGP warmup uses individual reaction min/max objectives.",
+      "biomass_C_bounds": [
+        0.14650760568106092,
+        0.301250344647618
+      ],
+      "CFSA_DM_lipids_bounds": [
+        0,
+        1000
+      ],
+      "additional_sampling_constraints": [
+        {
+          "name": "total_flux_sum_bound",
+          "expression": "sum of every reaction forward_variable + reverse_variable",
+          "lower_bound": 0.0,
+          "upper_bound": 310.806297395808,
+          "coverage": "all 2314 reactions / 4628 split variables"
+        }
+      ],
+      "no_other_added_custom_constraints_in_reviewed_source": true,
+      "cap_reference": {
+        "method": "Minimize total forward+reverse flux after maximizing biomass within this scenario; objective_fraction=1. The biomass optimum condition is temporary inside pFBA, not an extra sampling equality.",
+        "factor": 1.25,
+        "reference_total_inferred_as_saved_cap_divided_by_factor": 248.64503791664637,
+        "reference_value_status": "algebraic recovery from recorded cap; not an independently rerun optimum"
+      },
+      "sample_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_1.npz",
+      "sample_sha256": "c58b73326d57db89302660510551c0d02e502abb7c09fb5cf5566d7fb4f47417",
+      "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_1.json.gz",
+      "model_sha256": "e4df41930f4ee33f1a5f3a955e0771fc0bd2f403d0ea00e1d3d41bfcf890a038",
+      "custom_constraints_in_json": false,
+      "raw_sample_representation": "net flux only",
+      "saved_n_samples": 500,
+      "seed": 20260909,
+      "thinning": 100,
+      "processes": 1
+    },
+    {
+      "id": "scenario_2",
+      "exact_condition_name": "producing",
+      "report_alias": "Producing",
+      "objective_stored": {
+        "direction": "max",
+        "linear_terms": [
+          {
+            "reaction": "biomass_C",
+            "coefficient": 1.0
+          }
+        ]
+      },
+      "sampling_objective": "No biological objective optimized while collecting samples; feasibility region is sampled. OptGP warmup uses individual reaction min/max objectives.",
+      "biomass_C_bounds": [
+        0.14650760568106092,
+        1000.0
+      ],
+      "CFSA_DM_lipids_bounds": [
+        23.74006264072655,
+        1000
+      ],
+      "additional_sampling_constraints": [],
+      "no_other_added_custom_constraints_in_reviewed_source": true,
+      "cap_reference": null,
+      "sample_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.npz",
+      "sample_sha256": "074f0ff312dfd9f9a7c9de72da3fae0e1c09a9239bdf2b6d7eaa223b57c9df5d",
+      "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz",
+      "model_sha256": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d",
+      "custom_constraints_in_json": false,
+      "raw_sample_representation": "net flux only",
+      "saved_n_samples": 500,
+      "seed": 20260910,
+      "thinning": 100,
+      "processes": 1
+    },
+    {
+      "id": "producing_capped",
+      "exact_condition_name": "Producing + cap",
+      "name_status": "local comparison.json label; not a fourth upstream CFSA condition",
+      "report_alias": "Producing + cap",
+      "objective_stored": {
+        "direction": "max",
+        "linear_terms": [
+          {
+            "reaction": "biomass_C",
+            "coefficient": 1.0
+          }
+        ]
+      },
+      "sampling_objective": "No biological objective optimized while collecting samples; feasibility region is sampled. OptGP warmup uses individual reaction min/max objectives.",
+      "biomass_C_bounds": [
+        0.14650760568106092,
+        1000.0
+      ],
+      "CFSA_DM_lipids_bounds": [
+        23.74006264072655,
+        1000
+      ],
+      "additional_sampling_constraints": [
+        {
+          "name": "total_flux_sum_bound",
+          "expression": "sum of every reaction forward_variable + reverse_variable",
+          "lower_bound": null,
+          "upper_bound": 2330.701999560738,
+          "lower_bound_note": "No explicit lower bound on this extra constraint; nonnegative split variables already imply sum>=0.",
+          "coverage": "all 2314 reactions / 4628 split variables"
+        }
+      ],
+      "no_other_added_custom_constraints_in_prior_LP_audit": true,
+      "cap_reference": {
+        "method": "Direct minimum total forward+reverse flux in the saved producing phenotype inequalities; no new biomass maximization or biomass-optimum equality.",
+        "factor": 1.25,
+        "minimum_total_flux": 1864.5615996485903,
+        "minimum_status": "existing solver optimal record and previously audited saved feasible point; no new solve in this task",
+        "minimum_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/minimum.npz",
+        "minimum_sha256": "bce2187ef113cd3c07da3b1cb3688cfc9f425cd7f9d22e2943646e2696004557"
+      },
+      "sample_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/samples.npz",
+      "sample_sha256": "63216776042665e16975f6ba80382bf0a5581751e654a9beacd6016b8d189ec5",
+      "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz",
+      "model_sha256": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d",
+      "lp_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/capped_problem.lp",
+      "lp_sha256": "80c44dd4b4eba309598a634790dccc5c190dd50d53c5e8c3516a42808662114c",
+      "lp_precision_limit": "Prior audit found 72 balance coefficients in 36 rows rounded to six significant figures; use full-precision source JSON plus exact cap, not LP text for exact reconstruction.",
+      "raw_sample_representation": "net flux and original split variables; explicit fwd_idx/rev_idx saved",
+      "saved_n_samples": 500,
+      "seed": 20260910,
+      "thinning": 100,
+      "processes": 1
+    }
+  ],
+  "cap_designs": {
+    "actual_existing": "Two growth references use biomass-optimum-conditioned pFBA; capped producing uses minimum total flux over preserved phenotype inequalities. Factor1.25 is shared; reference optimization definitions are not identical.",
+    "phenotype_specific_common_factor": "C_k=alpha*min_{v in P_k}sum(f+r), if P_k and its additional objective requirements are defined consistently. Equal fractional allowance does not mean equal absolute capacity.",
+    "common_absolute_cap": "C_k=C for all scenarios. Distinct design and assumption; not used across the four existing scenarios. May exclude a phenotype if C lies below its feasible minimum.",
+    "forbidden_inference": "Do not silently replace the frozen producing cap by a growing cap or claim all historical scenarios used a common absolute cap."
+  },
+  "lipid_pool": {
+    "reaction_id": "xLIPID",
+    "stored_name": "Lipids pool",
+    "reaction_bounds": [
+      0.0,
+      1000.0
+    ],
+    "composition": [
+      {
+        "metabolite_id": "m1000[C_cy]",
+        "stored_name": "ergosterol_C28H44O",
+        "stored_formula": "C28H44O",
+        "formula_status": "specified_formula_in_model_not_revalidated",
+        "coefficient": -21.176,
+        "role": "reactant",
+        "compartment_id": "C_cy",
+        "compartment_name": "cytoplasm",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1579[C_lp]",
+        "stored_name": "ergosteryl palmitoleate_C44H72O2",
+        "stored_formula": "C44H72O2",
+        "formula_status": "specified_formula_in_model_not_revalidated",
+        "coefficient": -0.1,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1581[C_lp]",
+        "stored_name": "ergosteryl oleate_C46H76O2",
+        "stored_formula": "C46H76O2",
+        "formula_status": "specified_formula_in_model_not_revalidated",
+        "coefficient": -0.305,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1631[C_em]",
+        "stored_name": "phosphatidyl-L-serine_C8H11NO10PR2",
+        "stored_formula": "C8H11NO10PR2",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -1.967,
+        "role": "reactant",
+        "compartment_id": "C_em",
+        "compartment_name": "endosomal membrane",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1640[C_lp]",
+        "stored_name": "triglyceride",
+        "stored_formula": "C6H5O6*3",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -12.51,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1641[C_lp]",
+        "stored_name": "fatty acid_",
+        "stored_formula": "CHO2*",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -3.152,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1648[C_em]",
+        "stored_name": "1-phosphatidyl-1D-myo-inositol",
+        "stored_formula": "C11H17O13P*2",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -3.6,
+        "role": "reactant",
+        "compartment_id": "C_em",
+        "compartment_name": "endosomal membrane",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1651[C_mm]",
+        "stored_name": "cardiolipin",
+        "stored_formula": "C13H18O17P2*4",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -0.842,
+        "role": "reactant",
+        "compartment_id": "C_mm",
+        "compartment_name": "mitochondrial membrane",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1700[C_lp]",
+        "stored_name": "phosphatidylethanolamine_C7H12NO8PR2",
+        "stored_formula": "C7H12NO8PR2",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -10.101,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1701[C_lp]",
+        "stored_name": "phosphatidylcholine_C10H18NO8PR2",
+        "stored_formula": "C10H18NO8PR2",
+        "formula_status": "generic_R_or_wildcard",
+        "coefficient": -14.24,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1705[C_lp]",
+        "stored_name": "phosphatidate",
+        "stored_formula": null,
+        "formula_status": "missing",
+        "coefficient": -3.399,
+        "role": "reactant",
+        "compartment_id": "C_lp",
+        "compartment_name": "lipid particle",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      },
+      {
+        "metabolite_id": "m1727[C_cy]",
+        "stored_name": "lipids_",
+        "stored_formula": null,
+        "formula_status": "missing",
+        "coefficient": 1000.0,
+        "role": "product",
+        "compartment_id": "C_cy",
+        "compartment_name": "cytoplasm",
+        "evidence": "existing saved model annotation, not new chemical/experimental validation"
+      }
+    ],
+    "target_id": "m1727[C_cy]",
+    "target_name": "lipids_",
+    "target_formula": null,
+    "target_molecular_weight": null,
+    "target_molecular_weight_status": "Not established; no assumed MW",
+    "stoichiometric_scale": "xLIPID produces1000 units of the model pseudo-pool per unit reaction flux; these coefficients are not independently established mass percentages.",
+    "steady_state_identity": "1000*v_xLIPID - v_xBIOMASS - v_CFSA_DM_lipids = 0 for this pool in the saved model",
+    "unit_evidence": {
+      "sbml_unit_definitions": [
+        {
+          "id": "mmol_per_gDW_per_hr",
+          "terms": [
+            {
+              "kind": "mole",
+              "exponent": "1",
+              "scale": "-3",
+              "multiplier": "1"
+            },
+            {
+              "kind": "gram",
+              "exponent": "-1",
+              "scale": "0",
+              "multiplier": "1"
+            },
+            {
+              "kind": "second",
+              "exponent": "-1",
+              "scale": "0",
+              "multiplier": "3600"
+            }
+          ]
+        }
+      ],
+      "example_bound_parameter": "R_R1070_lower_bound explicitly uses mmol_per_gDW_per_hr in canonical XML",
+      "saved_json_unit_definitions": null,
+      "pool_specific_substance_units": null,
+      "limitation": "Global mmol/gDW/h convention does not establish moles of a specific lipid or TAG for the pseudo-pool. Some participating formulas contain R/* and phosphatidate/pool formulas are absent. No g/L, g/gDW, MW or TAG conversion is performed."
+    },
+    "evidence_gaps": [
+      "Pool-specific chemical formula and molecular weight not established",
+      "Generic fatty-acyl substitutions and missing formula(s) prevent exact pooled molecular identity",
+      "Coefficient mass-versus-molar normalization and experimental provenance not revalidated in this local static scope",
+      "No TAG-specific output or physiological secretion endpoint established"
+    ]
+  },
+  "freeze_producing_cap": {
+    "status": "static frozen-input specification for controller use; no chains executed by this subtask",
+    "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz",
+    "compressed_sha256": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d",
+    "decompressed_sha256": "c94bd6f212e5d4002c98dce4b97d3d59eb9514a2814227392fcde0e185cc5fec",
+    "biomass_reaction": "biomass_C",
+    "biomass_bounds": [
+      0.14650760568106092,
+      1000.0
+    ],
+    "target_reaction": "CFSA_DM_lipids",
+    "target_metabolite": "m1727[C_cy]",
+    "target_stoichiometry": {
+      "m1727[C_cy]": -1.0
+    },
+    "target_bounds": [
+      23.74006264072655,
+      1000.0
+    ],
+    "cap_name": "total_flux_sum_bound",
+    "cap_expression": "sum of all forward and reverse reaction variables",
+    "cap_lower_bound": null,
+    "cap_upper_bound": 2330.701999560738,
+    "cap_reference_minimum": 1864.5615996485903,
+    "cap_factor": 1.25,
+    "minimum_recomputation_required": false,
+    "biomass_reoptimization_required": false,
+    "scope_of_only_cap_claim": "relative to saved producing phenotype mathematical constraints; resource settings and future chains are separately controlled by parent task"
+  },
+  "sources": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/result.json",
+      "sha256": "ad3109999c9db706a2c8b187480eba9e6fe0ab1b6c4ba38af398dafb3e77e446"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/audit.json",
+      "sha256": "848c705aa5624a64acadb2de5dcf74f80a20bcdbf4165dbfdce00bbe3335795c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/numerical_audit.json",
+      "sha256": "7d50f14db12a33feb1dd7fe1099d0e09af2ef46940575092bfbae96e90304fb7"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/sampling.py",
+      "sha256": "35bb4b1e650c2e32e4b665f2b0581dfa6c726320dc5dd0c13f5a260478ce6450"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/util.py",
+      "sha256": "c54c218fccaf001c4341ccaf65506e724f9a4f5cd854f366f1caca00acb831d0"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/completed_result.json",
+      "sha256": "97816e782a0152cdc42d9513b4d68eab7f60b729297d68b1e95f1c39b50a6ef9"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/audit.json",
+      "sha256": "3a5f837d4840183c0b405bdccd43b4ec262eaf241c1bdc4a95763982a9c523c2"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/comparison.json",
+      "sha256": "a9428c4fe67f8ea31f48d73c1d9b09916a8cab450ae279de8f78917ea01bc857"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/complete_cap.py",
+      "sha256": "3c8b4b38501e1375731555e4001807700f40364929949340a2351d3deb5012db"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/baseline_manifest.json",
+      "sha256": "af952e321d139a0f7a7704dbdcbe631f51e79bea8de24d90a54a95268e4e7e70"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml",
+      "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.json.gz",
+      "sha256": "03f8d261548bf319e92e0466ac5d0f01b57a62545503592cca88bb88ca66e20e"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_1.json.gz",
+      "sha256": "e4df41930f4ee33f1a5f3a955e0771fc0bd2f403d0ea00e1d3d41bfcf890a038"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz",
+      "sha256": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d"
+    }
+  ],
+  "coverage_statement": "Four existing scenario definitions and one pool composition inventory reviewed statically; previous audit denominators remain unchanged; no new sampling-quality or model-wide claims."
+}

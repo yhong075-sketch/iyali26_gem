@@ -1,0 +1,159 @@
+{
+  "candidate": "E5_vacuole_open",
+  "enabled": true,
+  "enabled_by_default": false,
+  "source": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/atp_candidate_repair_20260924/candidates/E5.xml",
+  "source_sha256": "43042d16f874a91d61f12f9f2b65838cbc264821d98bcf6e108300bf787007be",
+  "output": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/vacuole_open_supply_20260924/E5_vacuole_open.xml",
+  "output_sha256": "e4806a1a7fcd69af1b5ec7c2e014890828548dd1e77630db2b3a2a96dbfc9a39",
+  "spec_sha256": "ab21710a33f79c109539f2923b766d58da34fba0a0a8a84fb2be36e295eedb1a",
+  "spec_file_sha256": "62a50345543f84260306647a0e7f988637765b3739f1eb9de11ee3e2b47d0456",
+  "implementation_sha256": {
+    "scripts/gem_annotate/vacuole_candidates.py": "7708af76ca903356e2ced282a6784a034862a065b68fb053000b2cfbdebbb9e3",
+    "scripts/gem_annotate/energy_candidates.py": "b478bc10d878f98836ae2b6bdc2b8a140018c546c1342299d932834db1254949",
+    "scripts/gem_annotate/reaction_selection.py": "f6f24539cad6cde6f993a089dd5ea1a61821733ff98339b8a26cfd107dd06c01",
+    "scripts/gem_annotate/sbml.py": "d59a88d3feb2961b2d2dda5f12a78775764d73b64f1a20f8f9b9f26bc2288d6f",
+    "scripts/build_vacuole_candidate.py": "cd0589ed5fe56a2a0c8b02ed21f1b5582d46c0b54279018b372afbf7354c6532"
+  },
+  "patch": {
+    "status": "complete",
+    "curation_id": "E5_vacuole_connections_20260924",
+    "items": [
+      {
+        "reaction_id": "R1363",
+        "before": {
+          "name": "water diffusion",
+          "stoichiometry": {
+            "m32[C_cy]": -1.0,
+            "m1384[C_va]": 1.0
+          },
+          "bounds": [
+            0.0,
+            0.0
+          ],
+          "gpr": ""
+        },
+        "after": {
+          "name": "water diffusion",
+          "stoichiometry": {
+            "m32[C_cy]": -1.0,
+            "m1384[C_va]": 1.0
+          },
+          "bounds": [
+            0,
+            0.04
+          ],
+          "gpr": ""
+        },
+        "status": "applied"
+      },
+      {
+        "reaction_id": "R795",
+        "before": {
+          "name": "V-ATPase, vacuole",
+          "stoichiometry": {
+            "m10[C_cy]": -2.0,
+            "m32[C_cy]": -1.0,
+            "m141[C_cy]": -1.0,
+            "m35[C_cy]": 1.0,
+            "m143[C_cy]": 1.0,
+            "m1007[C_va]": 2.0
+          },
+          "bounds": [
+            0.0,
+            0.0
+          ],
+          "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)"
+        },
+        "after": {
+          "name": "V-ATPase, vacuole",
+          "stoichiometry": {
+            "m10[C_cy]": -2.0,
+            "m32[C_cy]": -1.0,
+            "m141[C_cy]": -1.0,
+            "m35[C_cy]": 1.0,
+            "m143[C_cy]": 1.0,
+            "m1007[C_va]": 2.0
+          },
+          "bounds": [
+            0,
+            0.04
+          ],
+          "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)"
+        },
+        "status": "applied"
+      },
+      {
+        "reaction_id": "R871",
+        "before": {
+          "name": "L-aspartate transport",
+          "stoichiometry": {
+            "m1007[C_va]": -1.0,
+            "m1067[C_va]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m267[C_cy]": 1.0
+          },
+          "bounds": [
+            0.0,
+            0.0
+          ],
+          "gpr": "YALI1D14670g"
+        },
+        "after": {
+          "name": "L-aspartate transport",
+          "stoichiometry": {
+            "m1007[C_va]": -1.0,
+            "m1067[C_va]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m267[C_cy]": 1.0
+          },
+          "bounds": [
+            0,
+            0.01
+          ],
+          "gpr": "YALI1D14670g"
+        },
+        "status": "applied"
+      },
+      {
+        "reaction_id": "R876",
+        "before": {
+          "name": "L-glutamate transport",
+          "stoichiometry": {
+            "m1007[C_va]": -1.0,
+            "m1071[C_va]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m50[C_cy]": 1.0
+          },
+          "bounds": [
+            0.0,
+            0.0
+          ],
+          "gpr": "YALI1D14670g"
+        },
+        "after": {
+          "name": "L-glutamate transport",
+          "stoichiometry": {
+            "m1007[C_va]": -1.0,
+            "m1071[C_va]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m50[C_cy]": 1.0
+          },
+          "bounds": [
+            0,
+            0.01
+          ],
+          "gpr": "YALI1D14670g"
+        },
+        "status": "applied"
+      }
+    ]
+  },
+  "export_reload_definition_match": true,
+  "undeclared_fields_unchanged": true,
+  "energy_locks_unchanged": true,
+  "reaction_notes_unchanged": true,
+  "source_unchanged": true,
+  "diagnostic_sources_added": false,
+  "scope": "four bounded connections only; candidate, not a default or biological validation"
+}

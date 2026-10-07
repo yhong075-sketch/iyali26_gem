@@ -1,0 +1,173 @@
+{
+  "audit_utc": "2026-09-09T18:19:08.176864+00:00",
+  "audit_code_sha256": "52f3bd9251f893974c02c1abc191efe4429a2172fbea411ddde94d15a9ac834d",
+  "scope": "Read saved inputs and raw draws; independently reconstruct stoichiometry, split-variable identity/bounds, cap/TAG constraints, metrics and lag-1 correlations. No optimization or resampling.",
+  "inputs": {
+    "artifacts/lipid_charge_fix_20260908/model_lipid_unlump_charge_fixed.xml": {
+      "expected": "50f086e5d12d80c09f3c3fc989e7198dbe7e01109f247b46fdeb82cb53974433",
+      "actual": "50f086e5d12d80c09f3c3fc989e7198dbe7e01109f247b46fdeb82cb53974433"
+    },
+    "artifacts/tag_max_growth_20260909/effective_model.json.gz": {
+      "expected": "1597c986a6364a3a74d4b1a9bba1003a5e7b60ab85459fd04ec6e9ca7bace43c",
+      "actual": "1597c986a6364a3a74d4b1a9bba1003a5e7b60ab85459fd04ec6e9ca7bace43c"
+    }
+  },
+  "remote_commit_recorded_in_plan": "68687778eedcce279a1660cb257fde5fd95419a8",
+  "continuation_check": {
+    "endpoint_cap_seed_records_unchanged": true,
+    "initial_result_sha256": "c5a7b837ce16647dc53ce0171f3f272c9589594bfa0388e6ad27324192dec254",
+    "continuation_code_sha256": "cad30b6d86c1a67f339591b5ee55ed4318056ef21f0dc998aa183690a2a4efa3"
+  },
+  "acceptance_tolerance": 1e-07,
+  "scenarios": [
+    {
+      "index": 0,
+      "label": "Growing",
+      "status": "pass",
+      "n": 500,
+      "valid": 500,
+      "input_hashes": {
+        "scenario_0.json.gz": "941698bc9f6af2cbbec67769042aa9ab71fdbc71e89902b164dedfec20af2d5d",
+        "scenario_0.solver.json.gz": "b23dfaaea9e073f17cc06e3a3200f166dc3b6c26c2869c84952c36e53054caab",
+        "scenario_0.npz": "96d44b07ad4ce40077ac8ed60991d1cc3a700ccab0bd7dbb6ea2f701be4b92bf"
+      },
+      "max_residuals": {
+        "mass_balance": 2.4115154317883025e-12,
+        "net_bounds": 0.0,
+        "split_bounds": 9.088476936068284e-10,
+        "net_split_identity": 0.0,
+        "total_flux_sum_bound": 0.0
+      },
+      "worst_mass_balance_fsum": {
+        "sample_index": 250,
+        "metabolite": "m10[C_cy]",
+        "residual": 2.408687534366863e-12
+      },
+      "stored_stat_max_abs_difference": {
+        "tag_mass": 4.163336342344337e-17,
+        "growth": 0.0,
+        "net_l1": 1.2505552149377763e-11
+      },
+      "all_draw_statistics": {
+        "tag_mass": {
+          "mean": 0.030950130063222173,
+          "min": 0.015473003802118574,
+          "max": 0.0624074772935736
+        },
+        "growth": {
+          "mean": 1.3174213334028733,
+          "min": 1.3171617270896647,
+          "max": 1.3187316133377849
+        },
+        "net_l1": {
+          "mean": 1029.942149746386,
+          "min": 939.3498139592107,
+          "max": 1067.5524247417989
+        }
+      },
+      "varying_reactions": 2224,
+      "finite_lag1_reactions": 2224,
+      "lag1_median": 0.9331565374646767
+    },
+    {
+      "index": 1,
+      "label": "Slow growth",
+      "status": "pass",
+      "n": 500,
+      "valid": 500,
+      "input_hashes": {
+        "scenario_1.json.gz": "225336af63ef1727a65d85566f12fb11930cb3a3b7a9dbc8bc8ddf0cf6b687ea",
+        "scenario_1.solver.json.gz": "e6a6e8f045c3e54dd85d145a2d3df495dc1194411cf2e37d72ce663894409406",
+        "scenario_1.npz": "ab3402c7f3ac098ce9e2634cff0fd329899e263f360e8620484829a3d9b5c3c3"
+      },
+      "max_residuals": {
+        "mass_balance": 5.944763344783999e-12,
+        "net_bounds": 0.0,
+        "split_bounds": 6.90624592325701e-10,
+        "net_split_identity": 0.0,
+        "total_flux_sum_bound": 0.0
+      },
+      "worst_mass_balance_fsum": {
+        "sample_index": 374,
+        "metabolite": "ul_dag_lp__sn1__lauroyl__sn2__lauroyl[C_lp]",
+        "residual": 5.944763409158503e-12
+      },
+      "stored_stat_max_abs_difference": {
+        "tag_mass": 1.3877787807814457e-16,
+        "growth": 0.0,
+        "net_l1": 3.296918293926865e-12
+      },
+      "all_draw_statistics": {
+        "tag_mass": {
+          "mean": 0.09160206430629775,
+          "min": 0.02107147697080346,
+          "max": 0.16381113620070956
+        },
+        "growth": {
+          "mean": 0.14806818590430737,
+          "min": 0.14650770419242026,
+          "max": 0.16353096902891004
+        },
+        "net_l1": {
+          "mean": 289.28993919159495,
+          "min": 285.0989384085212,
+          "max": 300.4098688177679
+        }
+      },
+      "varying_reactions": 2366,
+      "finite_lag1_reactions": 2366,
+      "lag1_median": 0.9438191065483046
+    },
+    {
+      "index": 2,
+      "label": "Producing",
+      "status": "pass",
+      "n": 500,
+      "valid": 500,
+      "input_hashes": {
+        "scenario_2.json.gz": "bd47c23b0bd17eaccd87f0342ba6d3e3fee4a54c6a969385a4bc6b4371cc837e",
+        "scenario_2.solver.json.gz": "6d022ef84d0b15d8f1924dfc6a49996a1415a97cba166b931e08d156cc52893e",
+        "scenario_2.npz": "f2698d2224d29527515a8481440c2996a9c9584334357b25a2b69e6068a43a1c"
+      },
+      "max_residuals": {
+        "mass_balance": 4.695266397902742e-11,
+        "net_bounds": 8.842829143151609e-12,
+        "split_bounds": 3.1760062662015127e-10,
+        "net_split_identity": 0.0,
+        "tag_lower": 0.0
+      },
+      "worst_mass_balance_fsum": {
+        "sample_index": 282,
+        "metabolite": "m143[C_cy]",
+        "residual": 4.7191814475308624e-11
+      },
+      "stored_stat_max_abs_difference": {
+        "tag_mass": 4.440892098500626e-16,
+        "growth": 0.0,
+        "net_l1": 5.529727786779404e-10
+      },
+      "all_draw_statistics": {
+        "tag_mass": {
+          "mean": 0.5462744000555947,
+          "min": 0.546062389215847,
+          "max": 0.5588475772320375
+        },
+        "growth": {
+          "mean": 0.14689353434688537,
+          "min": 0.146507661349089,
+          "max": 0.14926896996208494
+        },
+        "net_l1": {
+          "mean": 38432.726569459286,
+          "min": 29475.604114948335,
+          "max": 71570.60243708403
+        }
+      },
+      "varying_reactions": 1726,
+      "finite_lag1_reactions": 1726,
+      "lag1_median": 0.9411069211919793
+    }
+  ],
+  "status": "pass",
+  "limitation": "One chain per scenario. Feasibility is not independent convergence certification or biological validation."
+}

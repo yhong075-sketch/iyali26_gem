@@ -1,0 +1,269 @@
+{
+  "audited_utc": "2026-09-18T18:38:32.612415+00:00",
+  "reviewer": "/root/audit_coq_mechanisms",
+  "scope": "A–G bounded local/source audit; no mutation of model/pipeline; no optimization, new BLAST or structure comparison",
+  "model_sha256": "cff96f40368b3de3d502956cf33dda246e049becfa43c1bba12fbd8ded6acd9a",
+  "coverage": {
+    "claims": 7,
+    "audited": 7,
+    "supported": 7,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "id": "A",
+      "verdict": "supported",
+      "result": "9/9 locus/strain/versioned sequences match cached records and original cache. COQ3 AOW01767.1, eight provisional RefSeq records.",
+      "limits": "Sequence match is not experimental function. COQ3 bridge does not independently validate model XP_500950.3 annotation."
+    },
+    {
+      "id": "B",
+      "verdict": "supported",
+      "result": "9/9 AF metadata and PDB CA residue sequences exactly match. Confidence/PAE means recomputed.",
+      "limits": "Existing AlphaFold Monomer v2.0 predictions, AFDB file release v6. pLDDT/PAE do not establish function, substrate, compartment or complex dependence."
+    },
+    {
+      "id": "C",
+      "verdict": "supported",
+      "result": "9 queries, 11 reviewed S288c references, 10 HSPs checked directly. COQ9 identity 23.985%, query coverage 96.899%, reference coverage 98.846%.",
+      "limits": "Saved limited-panel results checked, not rerun. Not an exhaustive paralog search; does not rule out isoenzymes. E-values are conditional on the small panel."
+    },
+    {
+      "id": "D",
+      "verdict": "supported",
+      "result": "All nine direct SBML FBC-tree evaluations match saved static KO transmission. COQ6/8/9 have gene products but no GPR; six others disable recorded reactions, including both R715/R385 for COQ3.",
+      "limits": "No new growth/essentiality inference."
+    },
+    {
+      "id": "E",
+      "verdict": "supported",
+      "result": "All 2314 columns re-extracted using exact decimals: sum of active Q9/Q9H2 mass-balance rows is R385:+1 only, hence S v=0 implies v_R385=0.",
+      "limits": "Pure stored SBML steady-state identity only; no optimization and no extension to dynamic dilution/turnover overlays or native biology."
+    },
+    {
+      "id": "F",
+      "verdict": "supported",
+      "result": "11 targets compared to all 2314 columns: no exact same-species or sign-reversed stoichiometric duplicate.",
+      "limits": "Does not exclude proportional duplicates, equivalent species under other IDs, or multi-step alternative routes."
+    },
+    {
+      "id": "G",
+      "verdict": "supported",
+      "result": "Saeed2024 names XP_501989.1, replaces N-terminal 60 Yarrowia residues by 56 S. cerevisiae residues containing MIS, and detects Q9 in engineered S. cerevisiae.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11237637/",
+      "doi": "10.1128/mbio.00342-24",
+      "locator": "Construction of plasmids; Heterologous biosynthesis of CoQ9; Fig.5",
+      "limits": "Supports retargeted Yarrowia-derived catalytic core, not native localization or exact four-IPP lump. Paper gives 1119 bp fragment after omitting 180 nt, whereas current accession is 452 aa; historical construct was not reconstructed or fully sequence-matched."
+    }
+  ],
+  "candidate_checks": [
+    {
+      "gene_id": "YALI1C26017g",
+      "family_candidate": "COQ1",
+      "accession": "XP_501989.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "725725e5bdb2d5d52361b6158a3d32c14dd5cbf852b66f601baf615699c3c092",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 76.58776548672566,
+      "best_reference": "P18900",
+      "pident": 54.066,
+      "query_coverage": 0.8938053097345132,
+      "reference_coverage": 0.9492600422832981,
+      "SBML_gene_present": true,
+      "associated_reactions": [
+        "R763"
+      ],
+      "Boolean_KO_closes": [
+        "R763"
+      ]
+    },
+    {
+      "gene_id": "YALI1F08349g",
+      "family_candidate": "COQ2",
+      "accession": "XP_505040.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "36364db3c45f9e00e430b1d656003e4b3432046d198d2b43cbdc168cff258b0c",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 83.27420654911839,
+      "best_reference": "P32378",
+      "pident": 55.385,
+      "query_coverage": 0.8136020151133502,
+      "reference_coverage": 0.8655913978494624,
+      "SBML_gene_present": true,
+      "associated_reactions": [
+        "R407"
+      ],
+      "Boolean_KO_closes": [
+        "R407"
+      ]
+    },
+    {
+      "gene_id": "YALI1B20835g",
+      "family_candidate": "COQ3",
+      "accession": "AOW01767.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "6e968848ccfdf9ebad65969d75001a0cdd0ffb0665403c7232e05ccc2209c051",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 67.82716621253405,
+      "best_reference": "P27680",
+      "pident": 47.143,
+      "query_coverage": 0.7302452316076294,
+      "reference_coverage": 0.8910256410256411,
+      "SBML_gene_present": true,
+      "associated_reactions": [
+        "R385",
+        "R715"
+      ],
+      "Boolean_KO_closes": [
+        "R385",
+        "R715"
+      ]
+    },
+    {
+      "gene_id": "YALI1F34625g",
+      "family_candidate": "COQ4",
+      "accession": "XP_505938.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "2d7fc4589ef709501bcba4be7f2baef1d2ba9bb0a4ec51aa720ec9e1b97b5b9b",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 90.14179389312977,
+      "best_reference": "O13525",
+      "pident": 51.293,
+      "query_coverage": 0.8854961832061069,
+      "reference_coverage": 0.6925373134328359,
+      "SBML_gene_present": true,
+      "associated_reactions": [
+        "R40"
+      ],
+      "Boolean_KO_closes": [
+        "R40"
+      ]
+    },
+    {
+      "gene_id": "YALI1C25352g",
+      "family_candidate": "COQ5",
+      "accession": "XP_501966.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "3ec67f1e73f40d903b4c071516bca2f6e5cb54e4042063899a5263b110732dcf",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 83.09488294314382,
+      "best_reference": "P49017",
+      "pident": 56.507,
+      "query_coverage": 0.9565217391304348,
+      "reference_coverage": 0.9413680781758957,
+      "SBML_gene_present": true,
+      "associated_reactions": [
+        "R18"
+      ],
+      "Boolean_KO_closes": [
+        "R18"
+      ]
+    },
+    {
+      "gene_id": "YALI1A08781g",
+      "family_candidate": "COQ6",
+      "accession": "XP_499891.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 84.14436559139784,
+      "best_reference": "P53318",
+      "pident": 41.722,
+      "query_coverage": 0.9161290322580645,
+      "reference_coverage": 0.9248434237995825,
+      "SBML_gene_present": true,
+      "associated_reactions": [],
+      "Boolean_KO_closes": []
+    },
+    {
+      "gene_id": "YALI1E18269g",
+      "family_candidate": "COQ7",
+      "accession": "XP_503973.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "432a36d195604bd597ec025baa8b33c0c54dedf53c8d7c52f6b8bac5a9abb412",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 93.44036458333333,
+      "best_reference": "P41735",
+      "pident": 58.421,
+      "query_coverage": 0.9739583333333334,
+      "reference_coverage": 0.8154506437768241,
+      "SBML_gene_present": true,
+      "associated_reactions": [
+        "R695"
+      ],
+      "Boolean_KO_closes": [
+        "R695"
+      ]
+    },
+    {
+      "gene_id": "YALI1B20527g",
+      "family_candidate": "COQ8",
+      "accession": "XP_500941.1",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "2dc4c3320d02e520ed722f30ff44332ba31219f9412e3861feb0089216f10b1c",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 69.39126903553299,
+      "best_reference": "P27697",
+      "pident": 56.306,
+      "query_coverage": 0.7478849407783418,
+      "reference_coverage": 0.8802395209580839,
+      "SBML_gene_present": true,
+      "associated_reactions": [],
+      "Boolean_KO_closes": []
+    },
+    {
+      "gene_id": "YALI1F34675g",
+      "family_candidate": "COQ9",
+      "accession": "XP_505941.3",
+      "source_sequence_and_cache_match": true,
+      "sequence_sha256": "df1b6ff58d1b47dbf8d401993e17ec70ac930625ddf05d004e1c6b47033c459b",
+      "AF_metadata_and_PDB_sequence_match": true,
+      "AF_algorithm": "AlphaFold Monomer v2.0 pipeline",
+      "AFDB_file_release": 6,
+      "mean_pLDDT": 77.30829457364341,
+      "best_reference": "Q05779",
+      "pident": 23.985,
+      "query_coverage": 0.9689922480620154,
+      "reference_coverage": 0.9884615384615385,
+      "SBML_gene_present": true,
+      "associated_reactions": [],
+      "Boolean_KO_closes": []
+    }
+  ],
+  "source_sha256": {
+    "current_model_extract.json": "82a31f2618fb287f22124ec9691fd86ce8ec511d2b8d9557bdef4e7df01fe28e",
+    "identity_comparison.json": "71caa5abfb2960a64dfdcdd73b3f615ab5a7216cf3cffaa327585a3d8018021d",
+    "native_cached_records.json": "5515ca6dd1402df6a862d3db17b1b95baae1a10f4c80cddebf13c44e82f5e2c9",
+    "sources/Sc_COQ_references.json": "0bca3e0a5a42fdd0a4d1d3b1d682cd2ac26dc3388aa49ab9e8c818c85484f07b",
+    "native_vs_reviewed.blast.tsv": "a4306469bd988d2922eae365faae04612d74554acea06302de06a5ecb8f944de"
+  },
+  "required_data_corrections": [],
+  "interpretation_limits": [
+    "AFDB file release v6 is not AlphaFold algorithm version 6.",
+    "COQ3 AOW01767.1 verification does not verify the separate XP_500950.3 model cross-reference.",
+    "Reviewed small panel does not prove native function or exclude alternatives.",
+    "Saeed2024 historical construct length discrepancy remains unresolved."
+  ],
+  "audit_attempt_note": "First audit assertion used organism name without its actual S288c suffix; corrected to exact recorded strain taxon 559292. This was an auditor predicate error, not a source discrepancy.",
+  "metadata_label_refresh": {
+    "checked_utc": "2026-09-18T18:40:37.526693+00:00",
+    "change": "alphafold_prediction.version renamed to afdb_file_release; algorithm copied from original AF toolUsed for all nine records. Original-source agreement rechecked; scientific numeric results unchanged.",
+    "current_sha256": "71caa5abfb2960a64dfdcdd73b3f615ab5a7216cf3cffaa327585a3d8018021d"
+  }
+}

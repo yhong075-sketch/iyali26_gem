@@ -32,9 +32,11 @@ CY_HYD = {'m1865[C_cy]': -1, 'm32[C_cy]': -1, 'm272[C_cy]': 1, 'm765[C_cy]': 1}
 
 
 from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.config import load_project_paths
 def workspace(path):
     path = Path(path).resolve()
-    if not path.is_relative_to(ROOT):
+    # Authorized: the repository and the research workspace's task outputs.
+    if not any(path.is_relative_to(root) for root in (ROOT, load_project_paths().task_outputs)):
         raise ValueError('All audit paths must be inside the authorized project')
     return path
 

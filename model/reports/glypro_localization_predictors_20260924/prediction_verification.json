@@ -1,0 +1,110 @@
+{
+  "query_sha256": "d7a158663b2c1d752f1b14bec8cdf30f135470992eb8478b26521964cb159b59",
+  "verified_at": "2026-09-25T01:39:56.284672+00:00",
+  "deeploc": {
+    "version": "2.1",
+    "job_id": "6AB5CD1E00184CB90257F738",
+    "status": "completed_verified",
+    "mode": "High-quality (Slow), ProtT5; long output",
+    "localizations": [
+      "Cytoplasm",
+      "Nucleus"
+    ],
+    "membrane_types": [
+      "Soluble"
+    ],
+    "signals": [
+      "Nuclear localization signal",
+      "Nuclear export signal"
+    ],
+    "scores_csv": {
+      "Cytoplasm": 0.7815999984741211,
+      "Nucleus": 0.5656999945640564,
+      "Extracellular": 0.030799999833106995,
+      "Cell membrane": 0.08259999752044678,
+      "Mitochondrion": 0.2037999927997589,
+      "Plastid": 0.016899999231100082,
+      "Endoplasmic reticulum": 0.11649999767541885,
+      "Lysosome/Vacuole": 0.09889999777078629,
+      "Golgi apparatus": 0.0697999969124794,
+      "Peroxisome": 0.012400000356137753,
+      "Peripheral": 0.32429999113082886,
+      "Transmembrane": 0.0763000026345253,
+      "Lipid anchor": 0.06390000134706497,
+      "Soluble": 0.8600000143051147
+    },
+    "thresholds": {
+      "Cytoplasm": 0.4761,
+      "Nucleus": 0.5014,
+      "Extracellular": 0.6173,
+      "Cell membrane": 0.5646,
+      "Mitochondrion": 0.622,
+      "Plastid": 0.6395,
+      "Endoplasmic reticulum": 0.609,
+      "Lysosome/Vacuole": 0.5848,
+      "Golgi apparatus": 0.6494,
+      "Peroxisome": 0.7364,
+      "Peripheral": 0.6,
+      "Transmembrane": 0.51,
+      "Lipid anchor": 0.82,
+      "Soluble": 0.5
+    },
+    "threshold_source": "Official results.json loaded by the job page; archived after browser resource inventory discovery; thresholds parsed directly",
+    "returned_sequence_prefix_length_verified": 454
+  },
+  "signalp": {
+    "version": "6.0",
+    "job_id": "6AB5CD3500184CEE6E75D672",
+    "status": "completed_verified",
+    "organism": "eukarya",
+    "mode": "slow-sequential",
+    "prediction": "OTHER",
+    "scores": {
+      "OTHER": 1.0,
+      "SP(Sec/SPI)": 0.0
+    },
+    "cleavage_site": null,
+    "returned_sequence_prefix_length_verified": 70,
+    "full_input_length": 454,
+    "limitation": "Input was full pinned sequence; downloadable per-residue output covers the stated N-terminal prefix, not full sequence."
+  },
+  "targetp": {
+    "version": "2.0",
+    "job_id": "6AB5CD4100184D1721C360D1",
+    "status": "completed_verified",
+    "organism": "Non-Plant",
+    "mode": null,
+    "prediction": "OTHER",
+    "scores": {
+      "OTHER": 0.999588,
+      "SP": 0.000214,
+      "mTP": 0.000198
+    },
+    "cleavage_site": null,
+    "returned_sequence_prefix_length_verified": 200,
+    "full_input_length": 454,
+    "limitation": "Input was full pinned sequence; downloadable per-residue output covers the stated N-terminal prefix, not full sequence."
+  },
+  "deeptmhmm": {
+    "version": "1.0.57",
+    "job_id": "1736a09d-6406-41fc-8c79-695754acd5a5",
+    "status": "completed_verified",
+    "prediction": "GLOB",
+    "predicted_transmembrane_regions": 0,
+    "topology": "I at residues 1-454",
+    "returned_sequence_prefix_length_verified": 454,
+    "input_file_full_sequence_verified": true,
+    "official_metadata": {
+      "exit_code": 0,
+      "arguments": [
+        "--fasta",
+        "input_tf3nsrg_sample.fasta"
+      ],
+      "app_uri": "DTU/DeepTMHMM:1.0.57",
+      "ended_at": "2026-09-25T01:33:22.630770Z",
+      "job_uuid": "1736a09d-6406-41fc-8c79-695754acd5a5",
+      "started_at": "2026-09-25T01:25:27.319945Z"
+    },
+    "limitation": "GLOB/inside is a topology classification; not direct evidence of native cytoplasm vs nucleus, organelle residency, or catalytic orientation."
+  }
+}

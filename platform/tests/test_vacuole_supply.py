@@ -50,7 +50,7 @@ class VacuoleSupplyTests(unittest.TestCase):
         self.assertEqual(self.manifest["config_sha256"], hashlib.sha256((TASK / "config.json").read_bytes()).hexdigest())
         for path, digest in {**self.config["input_configuration_sha256"], **self.manifest["source_sha256"]}.items():
             self.assertEqual(hashlib.sha256(resolve_recorded_path(path).read_bytes()).hexdigest(), digest, path)
-        self.assertEqual(hashlib.sha256((ROOT / self.config["candidate"]).read_bytes()).hexdigest(), self.manifest["candidate_sha256"])
+        self.assertEqual(hashlib.sha256(resolve_recorded_path(self.config["candidate"]).read_bytes()).hexdigest(), self.manifest["candidate_sha256"])
         self.assertTrue(self.manifest["all_temporary_changes_removed"])
         self.assertTrue(self.manifest["energy_locks_match_E5"])
         budget = read_json(TASK / "budget.json")
@@ -197,8 +197,8 @@ class VacuoleSupplyTests(unittest.TestCase):
                 self.assertEqual(row["chemistry_status"], "unverifiable_missing_formula")
 
     def test_xml_only_four_bounds_and_real_context_rollback_without_solve(self):
-        base = read_sbml_model(ROOT / self.config["model"])
-        model = read_sbml_model(ROOT / self.config["candidate"])
+        base = read_sbml_model(resolve_recorded_path(self.config["model"]))
+        model = read_sbml_model(resolve_recorded_path(self.config["candidate"]))
         actual = reaction_diff(base, model)
         expected = [{"reaction": rid, "field": "bounds", "before": [0., 0.], "after": bounds}
                     for rid, bounds in self.config["connection_bounds"].items()]

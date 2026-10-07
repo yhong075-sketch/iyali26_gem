@@ -1,0 +1,218 @@
+{
+  "audited_at_utc": "2026-09-15T22:19:21.681958+00:00",
+  "scope": "Exactly four bounded claims; independent XML/GPR/arithmetic and exact prior-row audit. No new optimization or biological research.",
+  "counts": {
+    "total_claims": 4,
+    "audited": 4,
+    "supported": 4,
+    "unresolved": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "Latest declared merged-model, build validation, actual code and SD-Leu/PO1f input identities match.",
+      "sources": [
+        "TASK.md",
+        "run_manifest.json",
+        "build_validation.json",
+        "actual input/code files"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "Runner invokes gene.knock_out in separate restoring contexts; independent complete XML Boolean-GPR evaluation yields only the assigned R607/R152 false set and recorded bounds change for each target.",
+      "sources": [
+        "run_ko.py",
+        "cobra/core/gene.py:knock_out",
+        "original XML GPR trees",
+        "run_manifest.json#/results"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "All 6942 saved fluxes are complete/finite and feasible against independently reconstructed XML/effective bounds; objective values, unrounded ratios and strict cutoffs match.",
+      "sources": [
+        "actual merged XML/SD-Leu/profile",
+        "run_manifest.json#/results"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "Exact old TSV rows have saved ratios about11.0024%, original10%FN and already-derived15%true; the current15% classification is not newly acquired after merger.",
+      "sources": [
+        "screen_test_vph1like_20260911/essentiality_per_gene.tsv:1068,1222",
+        "prior_screen_comparison.json"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    }
+  ],
+  "gene_identities": {
+    "YALI1D18130g": {
+      "verified_native_symbol": null,
+      "function": "putative ornithine carbamoyltransferase",
+      "model_reaction": "R607",
+      "evidence_status": "model/GPR assignment only; prior source putative annotation, not newly verified"
+    },
+    "YALI1D34865g": {
+      "verified_native_symbol": null,
+      "function": "putative argininosuccinate lyase",
+      "model_reaction": "R152",
+      "evidence_status": "model/GPR assignment only; prior source putative annotation, not newly verified"
+    }
+  },
+  "conditions": {
+    "WT": {
+      "flux_count": 2314,
+      "all_finite": true,
+      "independent_XML_GPR_false_set": [],
+      "nonfunctional_gene_record": [],
+      "changed_bounds": {},
+      "max_mass_residual_fsum": 2.943400189379941e-14,
+      "max_mass_residual_original_order": 1.4210854715202004e-14,
+      "max_bound_violation": 0.0,
+      "objective_from_flux": 1.8718823069402954,
+      "raw_KO_WT_ratio": 1.0,
+      "raw_status_recorded": "optimal"
+    },
+    "KO_YALI1D18130g": {
+      "flux_count": 2314,
+      "all_finite": true,
+      "independent_XML_GPR_false_set": [
+        "R607"
+      ],
+      "nonfunctional_gene_record": [
+        "YALI1D18130g"
+      ],
+      "changed_bounds": {
+        "R607": [
+          0,
+          0
+        ]
+      },
+      "max_mass_residual_fsum": 7.35926957936596e-15,
+      "max_mass_residual_original_order": 1.0658141036401503e-14,
+      "max_bound_violation": 0.0,
+      "objective_from_flux": 0.20595239043348756,
+      "raw_KO_WT_ratio": 0.11002421982935945,
+      "raw_status_recorded": "optimal"
+    },
+    "KO_YALI1D34865g": {
+      "flux_count": 2314,
+      "all_finite": true,
+      "independent_XML_GPR_false_set": [
+        "R152"
+      ],
+      "nonfunctional_gene_record": [
+        "YALI1D34865g"
+      ],
+      "changed_bounds": {
+        "R152": [
+          0,
+          0
+        ]
+      },
+      "max_mass_residual_fsum": 1.1651900418910982e-14,
+      "max_mass_residual_original_order": 8.881784197001252e-15,
+      "max_bound_violation": 0.0,
+      "objective_from_flux": 0.20595239043348756,
+      "raw_KO_WT_ratio": 0.11002421982935945,
+      "raw_status_recorded": "optimal"
+    }
+  },
+  "all_finite_flux_count": 6942,
+  "independent_complete_GPR_reaction_count_per_condition": 2314,
+  "prior_screen_checks": {
+    "YALI1D18130g": {
+      "tsv_line": 1068,
+      "original_row": {
+        "gene_id": "YALI1D18130g",
+        "source_gene_id": "YALI1_D18130g",
+        "source_sheet": "Sheet1",
+        "source_row": "1115",
+        "source_putative_function": "  similar to uniprot|P05150 Saccharomyces cerevisiae YJL088w ARG3 ornithine carbamoyltransferase,similar to Saccharomyces cerevisiae ARG3 (YJL088W)%3B ancestral locus Anc_1.279",
+        "function_evidence": "Source putative annotation; not newly verified",
+        "verified_symbol": "not verified in this analysis",
+        "model_associated_reactions": "R607: ornithine carbamoyltransferase",
+        "experimental_label": "essential",
+        "in_screen": "True",
+        "ko_growth_ratio": "0.11002421982935918",
+        "classification_at_10pct": "FN",
+        "exclusion_reason": ""
+      },
+      "saved_ratio_string": "0.11002421982935918",
+      "derived_at_15pct": true,
+      "original_10pct_label_unchanged": "FN",
+      "new_minus_saved_ratio": 2.636779683484747e-16
+    },
+    "YALI1D34865g": {
+      "tsv_line": 1222,
+      "original_row": {
+        "gene_id": "YALI1D34865g",
+        "source_gene_id": "YALI1_D34865g",
+        "source_sheet": "Sheet1",
+        "source_row": "319",
+        "source_putative_function": "similar to Saccharomyces cerevisiae ARG4 (YHR018C)%3B ancestral locus Anc_1.354,  highly similar to uniprot|P04076 Saccharomyces cerevisiae YHR018c ARG4 arginosuccinate lyase",
+        "function_evidence": "Source putative annotation; not newly verified",
+        "verified_symbol": "not verified in this analysis",
+        "model_associated_reactions": "R152: argininosuccinate lyase",
+        "experimental_label": "essential",
+        "in_screen": "True",
+        "ko_growth_ratio": "0.11002421982935918",
+        "classification_at_10pct": "FN",
+        "exclusion_reason": ""
+      },
+      "saved_ratio_string": "0.11002421982935918",
+      "derived_at_15pct": true,
+      "original_10pct_label_unchanged": "FN",
+      "new_minus_saved_ratio": 2.636779683484747e-16
+    }
+  },
+  "method": {
+    "XML_parser": "stdlib ElementTree",
+    "GPR_method": "Recursively evaluate original FBC and/or/geneProductRef trees, including declared runtime GPR overlay",
+    "arithmetic": "math.fsum and original XML-order float summation; strict unrounded ratios",
+    "feasibility_threshold": 1e-07,
+    "reviewer_solver_calls": 0
+  },
+  "sources_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r153_merged.xml": "10a3baa1da5eb8afb80f93c4cf8a43c3613af7ebb92c8e3385dcda44b91695d0",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "artifacts/r153_r2176_merge_20260915/build_validation.json": "ac0e86a152eb587b0468e32847952c4f430e23191711eb92aa9c70cfea72c885",
+    "artifacts/arginine_two_gene_screen_20260915/TASK.md": "59098f90cda9c0210ef31d0a8677c30f83a2726b210f6fbdb14c459147ffbdaf",
+    "artifacts/arginine_two_gene_screen_20260915/gene_identity.json": "73825ea16d7b2baca8b8a25200ace9d369979a20f30c8ce62cd6767dd2fd1c0a",
+    "artifacts/arginine_two_gene_screen_20260915/run_ko.py": "26ab439c2beab7dd8fbd55b2ef54017368db2c067710ab736e77d43c6a4813ff",
+    "artifacts/arginine_two_gene_screen_20260915/run_manifest.json": "f377b9b4206ce7ea6a98e0f31aadc1b237c3c3e92ccb59ad81048ceaa944d3fa",
+    "artifacts/arginine_two_gene_screen_20260915/execution.json": "50d751ac5abdc7aaf4d0b2bb237230f20aa3f87ebec40c2c895b18c89e28dcba",
+    "artifacts/arginine_two_gene_screen_20260915/prior_screen_comparison.json": "37ff35dfd97be09b987861ff149a5783831242099eea4ff7aa488f8c70743502",
+    "artifacts/screen_test_vph1like_20260911/essentiality_per_gene.tsv": "7232721349df674c100f24195b7039d714217cce8a2d66cf52d33110c0a9f54a",
+    ".venv/lib/python3.13/site-packages/cobra/core/gene.py": "dabee4bd840dcafc8ef7396ea4b1b5033788b7c271570f426654554a7155402a",
+    "artifacts/arginine_two_gene_screen_20260915/REPORT.md": "e4fa1183a586997275a3f04bf2a1e2d9960dfcc4b49f949b65705dce40a88735",
+    "artifacts/arginine_two_gene_screen_20260915/comparison.json": "4579bca32b6c07a268eb9599a8c7b282819871c6de4d28f0cd9efc1e5ae78ee8"
+  },
+  "project_code_sha256": {
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+    "artifacts/arginine_two_gene_screen_20260915/run_ko.py": "26ab439c2beab7dd8fbd55b2ef54017368db2c067710ab736e77d43c6a4813ff"
+  },
+  "limits": [
+    "Solver optimal statuses are reported execution evidence; saved-primal feasibility is independently checked, not an independent global-optimality certificate.",
+    "Successful source assertions and recorded functional/false-GPR/changed-bound sets support independent gene contexts; auditor did not replay knockout calls or optimization.",
+    "Old10%FN labels remain unchanged; old15% classification is freshly derived from saved old ratios, not claimed as an original15%screen.",
+    "Comparison demonstrates no new15%classification for these two saved rows; it is not a controlled causal proof that the merger has no effect under all conditions.",
+    "Native gene names and biochemical functions are not experimentally established by these model/GPR assignments or this screen."
+  ],
+  "comparison_json_fields_match": true,
+  "final_report_four_scoped_claims_match": true,
+  "completed_at_utc": "2026-09-15T22:20:01.282333+00:00"
+}

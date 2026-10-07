@@ -1,0 +1,1249 @@
+{
+  "scope": "Independent static XML audit only; no model mutation, build, FBA, prediction or native-mechanism validation",
+  "verified_at_utc": "2026-10-02T23:28:19.239692+00:00",
+  "model": {
+    "path": "artifacts/coq_literature_pipeline_20261002/coq_literature_pipeline.xml",
+    "sha256": "b83d7e7645c62cab5fc55c3b3e97bc7d6282dcdbf9eff4ad5aa2d2d24d38ce3e",
+    "xml_model": {
+      "metaid": "meta_M_iYali26",
+      "id": "M_iYali26",
+      "name": "Genome-scale model of Yarrowia lipolytica W29",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}strict": "true"
+    },
+    "species_count": 1879,
+    "reaction_count": 2314
+  },
+  "code_identity": {
+    "git_head": "5a3c09483bd3a7611f4bad56f3d022d3e474bdf7",
+    "execution": "Python standard-library XML parsing, all-species scan, all-reaction incidence scan and exact integer-valued atom/charge checks; no solver"
+  },
+  "search": {
+    "formula_set": [
+      "C53H80O3",
+      "C53H80O4",
+      "C53H82O3",
+      "C53H82O4",
+      "C54H82O4",
+      "C54H84O4"
+    ],
+    "text_regex": "(ubi[qp]|ubiquin|DMQ9|DMeQ9|q9h2|UBIQUINONE-9)",
+    "scope": "all species attributes/annotations/notes; all reactions for incidence; formulas identify candidates, identity interpreted with names/compartments/annotations",
+    "note": "DDMQ9H2 is included by ubiquinol search; not the R385 substrate"
+  },
+  "species": [
+    {
+      "id": "m61[C_mi]",
+      "xml_id": "M_m61__91__C_mi__93__",
+      "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone_C53H80O3",
+      "formula": "C53H80O3",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/chebi/CHEBI:183116",
+        "https://identifiers.org/metanetx.chemical/MNXM9870",
+        "https://identifiers.org/metacyc.compound/CPD-11662",
+        "https://identifiers.org/seed.compound/cpd16764"
+      ],
+      "notes": [
+        "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+      ],
+      "connections": [
+        {
+          "reaction": "R695",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m468[C_mi]",
+      "xml_id": "M_m468__91__C_mi__93__",
+      "name": "ubiquinone-9_C54H82O4",
+      "formula": "C54H82O4",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/q9",
+        "https://identifiers.org/chebi/CHEBI:18160",
+        "https://identifiers.org/kegg.compound/C01967",
+        "https://identifiers.org/lipidmaps/LMPR02010004",
+        "https://identifiers.org/metacyc.compound/UBIQUINONE-9",
+        "https://identifiers.org/metanetx.chemical/MNXM1363635",
+        "https://identifiers.org/seed.compound/cpd01351"
+      ],
+      "notes": [
+        "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+      ],
+      "connections": [
+        {
+          "reaction": "R262",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R305",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R385",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R570",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R573",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            0.0
+          ],
+          "allowed_direction_roles": []
+        },
+        {
+          "reaction": "R740",
+          "coefficient": -1.0,
+          "bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            },
+            {
+              "direction": "reverse",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R1889",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R1977",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R2062",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m471[C_mi]",
+      "xml_id": "M_m471__91__C_mi__93__",
+      "name": "ubiquinol-9_C54H84O4",
+      "formula": "C54H84O4",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/q9h2",
+        "https://identifiers.org/chebi/CHEBI:84424",
+        "https://identifiers.org/metacyc.compound/CPD-9957",
+        "https://identifiers.org/metanetx.chemical/MNXM1094084",
+        "https://identifiers.org/seed.compound/cpd25914"
+      ],
+      "notes": [
+        "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+      ],
+      "connections": [
+        {
+          "reaction": "R262",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R305",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R570",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R573",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            0.0
+          ],
+          "allowed_direction_roles": []
+        },
+        {
+          "reaction": "R740",
+          "coefficient": 1.0,
+          "bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            },
+            {
+              "direction": "reverse",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R1889",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R1977",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        },
+        {
+          "reaction": "R2062",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m611[C_mi]",
+      "xml_id": "M_m611__91__C_mi__93__",
+      "name": "3-demethylubiquinone-9_C53H80O4",
+      "formula": "C53H80O4",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/chebi/CHEBI:18238",
+        "https://identifiers.org/kegg.compound/C03226",
+        "https://identifiers.org/metanetx.chemical/MNXM1370748"
+      ],
+      "notes": [
+        "curated_coq9_identity: Q9 chain identity supported in Yarrowia; exact intermediate formula assigned by the homologous +C15H24 series."
+      ],
+      "connections": [
+        {
+          "reaction": "R385",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R695",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coq_ddmq9h2[C_mi]",
+      "xml_id": "M_coq_ddmq9h2__91__C_mi__93__",
+      "name": "demethyl-demethoxyubiquinol-9 (DDMQ9H2)",
+      "formula": "C52H80O3",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [],
+      "notes": [
+        "coq_literature_identity: Nine-isoprene neutral quinol; chemical identity inferred from Nicoll 2024 short-chain substrate. Not a native Yarrowia metabolite measurement.",
+        "coq_literature_source: DOI 10.1038/s41929-023-01087-z; Fig. 1 and Methods Chemicals"
+      ],
+      "connections": [
+        {
+          "reaction": "R18",
+          "coefficient": -1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "consumption"
+            }
+          ]
+        },
+        {
+          "reaction": "R19",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coq_dmq9h2[C_mi]",
+      "xml_id": "M_coq_dmq9h2__91__C_mi__93__",
+      "name": "demethoxyubiquinol-9 (DMQ9H2)",
+      "formula": "C53H82O3",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [],
+      "notes": [
+        "coq_literature_identity: Nine-isoprene neutral quinol; chemical identity inferred from Nicoll 2024 short-chain substrate. Not a native Yarrowia metabolite measurement.",
+        "coq_literature_source: DOI 10.1038/s41929-023-01087-z; Fig. 1 and Methods Chemicals"
+      ],
+      "connections": [
+        {
+          "reaction": "R18",
+          "coefficient": 1.0,
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "allowed_direction_roles": [
+            {
+              "direction": "forward",
+              "role": "production"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reactions": {
+    "R18": {
+      "id": "R18",
+      "name": "demethyl-demethoxyubiquinol-9 C-methyltransferase",
+      "stoichiometry": {
+        "coq_ddmq9h2[C_mi]": -1.0,
+        "m60[C_mi]": -1.0,
+        "coq_dmq9h2[C_mi]": 1.0,
+        "m62[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_coq_ddmq9h2__91__C_mi__93__": -1.0,
+        "M_m60__91__C_mi__93__": -1.0,
+        "M_coq_dmq9h2__91__C_mi__93__": 1.0,
+        "M_m62__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1C25352g",
+      "notes": [
+        "PROTEIN_CLASS: 2.1.1.201",
+        "curated_coq9_chemistry: Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction: YALI1C25352g (COQ5 candidate; active UniProt Q6CBJ6), CoQ-ring C-methyltransferase. Cross-species step evidence: S. cerevisiae SAM-bound Coq5 structure 4OBW and reconstructed ancestral COQ5 activity.",
+        "gpr_evidence_status: cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_previous_ec_code: 1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_curation_scope: EC 2.1.1.201 is represented with DDMQ9H2 substrate and DMQ9H2 product. The existing COQ5-family candidate GPR is retained; native activity remains unverified.",
+        "coq_literature_revision: COQ-R19-R18-QUINOL-20261002",
+        "coq_literature_status: partial_literature_candidate_redox_gap",
+        "coq_literature_sources: DOI 10.1038/s41929-023-01087-z; artifacts/coq_literature_revision_20261002/REPORT.md",
+        "coq_literature_previous_chemistry_context: The preserved curated_coq9_chemistry note describes an earlier C45 identity correction. This later candidate changes redox species and R19 donor coupling as explicitly curated.",
+        "coq_literature_downstream_limit: Partial literature correction of R19/R18. DMQ9H2 has no evidenced connection to R695; this structural gap is retained. R385 quinone representation is unchanged and remains under review. Not a flux-validated or accepted model.",
+        "coq_literature_previous_coq9_curation_scope: EC denotes the COQ5 catalytic family. Encoded oxidized quinone is not asserted identical to the accepted quinol substrate."
+      ]
+    },
+    "R19": {
+      "id": "R19",
+      "name": "2-methoxy-6-nonaprenylphenol C1 hydroxylation to DDMQ9H2 (NADH-coupled candidate)",
+      "stoichiometry": {
+        "m63[C_mi]": -1.0,
+        "m64[C_mi]": -1.0,
+        "m30[C_mi]": -1.0,
+        "coq_ddmq9h2[C_mi]": 1.0,
+        "m27[C_mi]": 1.0,
+        "m26[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m63__91__C_mi__93__": -1.0,
+        "M_m64__91__C_mi__93__": -1.0,
+        "M_m30__91__C_mi__93__": -1.0,
+        "M_coq_ddmq9h2__91__C_mi__93__": 1.0,
+        "M_m27__91__C_mi__93__": 1.0,
+        "M_m26__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "(YALI1A08781g and YALI1B03314g and YALI1B19490g)",
+      "notes": [
+        "curated_coq9_chemistry: Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction: YALI1A08781g: COQ6-family hydroxylase candidate; YALI1B03314g: YAH1-like ferredoxin candidate; YALI1B19490g: ARH1-like reductase candidate. AND represents a serial donor chain, not a demonstrated native complex.",
+        "gpr_evidence_status: cross_species_homology_candidate; native C1 activity and donor coupling unverified",
+        "gpr_evidence_limit: Nicoll 2024 ancestral short-chain substrate hydroxylation supports the C1 candidate. Yeast C1 modification can persist without COQ6; alternative pathways remain unresolved. NADH is a permitted donor hypothesis, not native preference. No quinol oxidation is assigned.",
+        "coq9_previous_ec_code: 1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_previous_PROTEIN_CLASS: 1.14.13.-",
+        "coq9_curation_scope: EC 1.14.15.46 describes the ferredoxin-dependent catalytic step; this candidate collapses its donor regeneration into net NADH use. Neutral NAD/NADH model microspecies are retained; NADPH variant is not implemented.",
+        "coq9_reference_pathway_ec: 1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq_literature_revision: COQ-R19-R18-QUINOL-20261002",
+        "coq_literature_status: partial_literature_candidate_redox_gap",
+        "coq_literature_sources: DOI 10.1038/s41929-023-01087-z; artifacts/coq_literature_revision_20261002/REPORT.md",
+        "coq_literature_previous_chemistry_context: The preserved curated_coq9_chemistry note describes an earlier C45 identity correction. This later candidate changes redox species and R19 donor coupling as explicitly curated.",
+        "coq_literature_downstream_limit: Partial literature correction of R19/R18. DMQ9H2 has no evidenced connection to R695; this structural gap is retained. R385 quinone representation is unchanged and remains under review. Not a flux-validated or accepted model.",
+        "PROTEIN_CLASS: 1.14.15.46",
+        "coq_literature_previous_curated_gpr_correction: Removed the unsupported inherited seven-gene synthome AND. YALI1A08781g (COQ6 candidate; active UniProt F2Z6J4) remains deferred for this exact reaction; an empty GPR denotes unknown catalyst identity, not a spontaneous reaction.",
+        "coq_literature_previous_gpr_evidence_status: deferred_reaction_identity_unresolved",
+        "coq_literature_previous_gpr_evidence_limit: COQ6 family/AlphaFold compatibility is supported, but R19 regioselectivity, product redox state and ferredoxin/reductase electron transfer remain unresolved.",
+        "coq_literature_previous_coq9_curation_scope: Mixed pathway ECs are historical evidence only. Exact native catalyst and lumped redox chemistry remain unresolved; EC removal does not imply spontaneity.",
+        "coq_literature_structure: 基于 AlphaFold 预测的功能候选；复用此前精确序列的已有预测与同源证据，不是本轮新预测或原生酶活验证。"
+      ]
+    },
+    "R262": {
+      "id": "R262",
+      "name": "deoxyhypusine synthase, cytosolic/mitochondrial",
+      "stoichiometry": {
+        "m32[C_cy]": -1.0,
+        "m467[C_cy]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m469[C_cy]": 1.0,
+        "m470[C_cy]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m32__91__C_cy__93__": -1.0,
+        "M_m467__91__C_cy__93__": -1.0,
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m469__91__C_cy__93__": 1.0,
+        "M_m470__91__C_cy__93__": 1.0,
+        "M_m471__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1B01084g",
+      "notes": [
+        "PROTEIN_CLASS: 1.5.99.6",
+        "coq9_identity_update: Uses the curated mitochondrial ubiquinone-9/ubiquinol-9 pair; reaction chemistry, bounds and GPR are otherwise unchanged."
+      ]
+    },
+    "R305": {
+      "id": "R305",
+      "name": "ubiquinol-9:cytochrome-c reductase (complex III)",
+      "stoichiometry": {
+        "m2[C_mi]": -2.0,
+        "m28[C_mi]": -1.5,
+        "m471[C_mi]": -1.0,
+        "m3[C_mi]": 2.0,
+        "m10[C_cy]": 1.5,
+        "m468[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m2__91__C_mi__93__": -2.0,
+        "M_m28__91__C_mi__93__": -1.5,
+        "M_m471__91__C_mi__93__": -1.0,
+        "M_m3__91__C_mi__93__": 2.0,
+        "M_m10__91__C_cy__93__": 1.5,
+        "M_m468__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "(YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g)",
+      "notes": [
+        "PROTEIN_CLASS: 7.1.1.8",
+        "coq9_previous_name: ferrocytochrome-c:oxygen oxidoreductase",
+        "coq9_previous_ec_code: 3.4.24.64; 7.1.1.8",
+        "coq9_previous_PROTEIN_CLASS: 1.10.2.2",
+        "coq9_curation_scope: Current GPR includes a cytochrome-c carrier dependency; native subunit-only AND membership is not certified.",
+        "coq9_proton_state: Original audited proton stoichiometry retained; Q-cycle candidate not applied."
+      ]
+    },
+    "R385": {
+      "id": "R385",
+      "name": "3-demethylubiquinone-9 3-O-methyltransferase",
+      "stoichiometry": {
+        "m60[C_mi]": -1.0,
+        "m611[C_mi]": -1.0,
+        "m468[C_mi]": 1.0,
+        "m62[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m60__91__C_mi__93__": -1.0,
+        "M_m611__91__C_mi__93__": -1.0,
+        "M_m468__91__C_mi__93__": 1.0,
+        "M_m62__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1B20835g",
+      "notes": [
+        "PROTEIN_CLASS: 2.1.1.64",
+        "curated_coq9_chemistry: Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "terminal_redox_convention: Balanced oxidized convention: SAM + 3-demethylubiquinone-9 -> SAH + ubiquinone-9. Native Yarrowia terminal redox form is unresolved; KEGG R08781 is the closest neutral convention.",
+        "curated_gpr_correction: YALI1B20835g (COQ3 candidate; active UniProt Q6CEG2), CoQ O-methyltransferase. Cross-species evidence supports the second CoQ O-methylation; the native Yarrowia substrate redox state remains unresolved.",
+        "gpr_evidence_status: cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_previous_PROTEIN_CLASS: 2.1.1.114",
+        "coq9_curation_scope: EC denotes COQ3 terminal O-methylation. The model retains oxidized quinone; the native enzyme substrate oxidation state is unresolved."
+      ]
+    },
+    "R570": {
+      "id": "R570",
+      "name": "NADH dehydrogenase, cytosolic/mitochondrial",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m123[C_cy]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m122[C_cy]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m10__91__C_cy__93__": -1.0,
+        "M_m123__91__C_cy__93__": -1.0,
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m122__91__C_cy__93__": 1.0,
+        "M_m471__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1F32476g",
+      "notes": [
+        "PROTEIN_CLASS: 1.6.5.9",
+        "coq9_identity_update: Uses the curated mitochondrial ubiquinone-9/ubiquinol-9 pair; reaction chemistry, bounds and GPR are otherwise unchanged.",
+        "curated_gpr_correction: YALI1F32476g (NDH2), external alternative NADH:ubiquinone oxidoreductase; experimentally verified in Yarrowia lipolytica: https://pubmed.ncbi.nlm.nih.gov/11719558/",
+        "complex_i_scope: R1889 has no GPR by design in this patch; see docs/curation/complex_i_gpr_evidence.csv before assigning a complex-I AND rule.",
+        "coq9_previous_ec_code: 1.6.5.9; 1.6.99.3; 7.1.1.2",
+        "coq9_curation_scope: External NDH2 assignment retained only when the curated local identity matches; no proton bookkeeping changes."
+      ]
+    },
+    "R573": {
+      "id": "R573",
+      "name": "NADH:ubiquinone oxidoreductase",
+      "stoichiometry": {
+        "m30[C_mi]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m27[C_mi]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m30__91__C_mi__93__": -1.0,
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m27__91__C_mi__93__": 1.0,
+        "M_m471__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "YALI1F32476g",
+      "notes": [
+        "PROTEIN_CLASS: 1.6.5.9"
+      ]
+    },
+    "R695": {
+      "id": "R695",
+      "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+      "stoichiometry": {
+        "m30[C_mi]": -1.0,
+        "m61[C_mi]": -1.0,
+        "m64[C_mi]": -1.0,
+        "m26[C_mi]": 1.0,
+        "m27[C_mi]": 1.0,
+        "m611[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m30__91__C_mi__93__": -1.0,
+        "M_m61__91__C_mi__93__": -1.0,
+        "M_m64__91__C_mi__93__": -1.0,
+        "M_m26__91__C_mi__93__": 1.0,
+        "M_m27__91__C_mi__93__": 1.0,
+        "M_m611__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "(YALI1E18269g and YALI1F34675g)",
+      "notes": [
+        "PROTEIN_CLASS: 1.14.13.253",
+        "curated_coq9_chemistry: Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction: YALI1E18269g (COQ7 candidate; active UniProt Q6C5T9), demethoxyubiquinone hydroxylase. Cross-species step evidence: human COQ7:COQ9 structure 7SSS and reconstructed COQ7 activity.",
+        "gpr_evidence_status: provisional_functional_dependency; native_yarrowia_requiredness_unverified",
+        "coq9_previous_ec_code: 1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_previous_PROTEIN_CLASS: 1.14.13.-",
+        "coq9_curation_scope: EC denotes the COQ7 catalytic family; stored substrate forms and native substrate specificity are not newly validated.",
+        "coq9_functional_hypothesis: COQ9-R695-FUNCTIONAL-20261001",
+        "coq9_previous_gpr: YALI1E18269g",
+        "coq9_previous_gpr_evidence_status: cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_functional_roles: YALI1E18269g: COQ7-family demethoxyubiquinone hydroxylase candidate; YALI1F34675g: COQ9-family lipid-binding/substrate-presentation auxiliary candidate. Native established symbols and biochemical localization unverified.",
+        "coq9_functional_assumption: Conditional model hypothesis: native membrane-embedded long-chain substrate access requires the COQ9-family auxiliary protein for the represented COQ7 step. AND encodes functional dependence, not proof that both proteins catalyse hydroxylation.",
+        "coq9_functional_counterevidence: Nicoll et al. 2024 Fig. 5b: ancestral COQ7 alone is active with nonprenylated substrate in detergent; COQ9 increases efficiency about 1.5-fold. A universal intrinsic catalytic AND is not supported.",
+        "coq9_functional_limits: Cross-species inference; native Yarrowia COQ7-COQ9 obligatory pairing, localization and substrate access remain unverified. No growth essentiality claim; unchanged static Q9/Q9H2 pool has no net synthesis demand. COQ8 and COQ6 are not assigned by this hypothesis.",
+        "coq9_functional_structure: 基于 AlphaFold 预测的功能候选；复用与版本化 W29 序列一致的已有 AlphaFold 预测，不是本次预测或原生实验验证。",
+        "coq9_functional_sources: DOI 10.1073/pnas.1413128111; 10.1016/j.molcel.2018.11.033; 10.1016/j.molcel.2022.10.003; 10.1038/s41929-023-01087-z; artifacts/coq_gpr_completion_20261001/REPORT.md"
+      ]
+    },
+    "R740": {
+      "id": "R740",
+      "name": "succinate dehydrogenase (ubiquinone-9)",
+      "stoichiometry": {
+        "m468[C_mi]": -1.0,
+        "m810[C_mi]": -1.0,
+        "m471[C_mi]": 1.0,
+        "m537[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m810__91__C_mi__93__": -1.0,
+        "M_m471__91__C_mi__93__": 1.0,
+        "M_m537__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "(YALI1A14721g and YALI1D14260g and YALI1E35082g and YALI1D30256g)",
+      "notes": [
+        "PROTEIN_CLASS: 1.3.5.1",
+        "coq9_identity_update: Uses the curated mitochondrial ubiquinone-9/ubiquinol-9 pair; reaction chemistry, bounds and GPR are otherwise unchanged."
+      ]
+    },
+    "R1889": {
+      "id": "R1889",
+      "name": "NADH dehydrogenase (complex I)",
+      "stoichiometry": {
+        "m28[C_mi]": -5.0,
+        "m30[C_mi]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m10[C_cy]": 4.0,
+        "m27[C_mi]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m28__91__C_mi__93__": -5.0,
+        "M_m30__91__C_mi__93__": -1.0,
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m10__91__C_cy__93__": 4.0,
+        "M_m27__91__C_mi__93__": 1.0,
+        "M_m471__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "notes": [
+        "PROTEIN_CLASS: 1.6.5.3"
+      ]
+    },
+    "R1977": {
+      "id": "R1977",
+      "name": "FAD:ubiquinone oxidoreductase",
+      "stoichiometry": {
+        "m468[C_mi]": -1.0,
+        "m566[C_mi]": -1.0,
+        "m471[C_mi]": 1.0,
+        "m563[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m566__91__C_mi__93__": -1.0,
+        "M_m471__91__C_mi__93__": 1.0,
+        "M_m563__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1F31153g",
+      "notes": [
+        "PROTEIN_CLASS: 1.3.8.6"
+      ]
+    },
+    "R2062": {
+      "id": "R2062",
+      "name": "NADH:ubiquinone oxidoreductase",
+      "stoichiometry": {
+        "m30[C_mi]": -1.0,
+        "m468[C_mi]": -1.0,
+        "m27[C_mi]": 1.0,
+        "m471[C_mi]": 1.0
+      },
+      "stoichiometry_xml": {
+        "M_m30__91__C_mi__93__": -1.0,
+        "M_m468__91__C_mi__93__": -1.0,
+        "M_m27__91__C_mi__93__": 1.0,
+        "M_m471__91__C_mi__93__": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "(YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 and YALI1E06573g and YALI1F32476g)",
+      "notes": [
+        "coq9_curation_scope: Logical deduplication only; this does not validate the biological 28-gene complex-I rule."
+      ]
+    }
+  },
+  "cofactor_species": {
+    "m60[C_mi]": {
+      "id": "m60[C_mi]",
+      "xml_id": "M_m60__91__C_mi__93__",
+      "name": "S-adenosyl-L-methionine_C15H22N6O5S",
+      "formula": "C15H22N6O5S",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/amet",
+        "https://identifiers.org/hmdb/HMDB01185",
+        "https://identifiers.org/hmdb/HMDB62709",
+        "https://identifiers.org/kegg.compound/C00019",
+        "https://identifiers.org/metacyc.compound/S-ADENOSYLMETHIONINE",
+        "https://identifiers.org/reactome/R-ALL-2162265",
+        "https://identifiers.org/reactome/R-ALL-5279190",
+        "https://identifiers.org/reactome/R-ALL-71284",
+        "https://identifiers.org/reactome/R-ALL-77087",
+        "https://identifiers.org/reactome/R-ALL-9639461",
+        "https://identifiers.org/reactome/R-ALL-9854319",
+        "https://identifiers.org/seed.compound/cpd00017",
+        "https://identifiers.org/vmhmetabolite/amet",
+        "https://identifiers.org/metanetx.chemical/MNXM1363767",
+        "https://identifiers.org/inchi/InChI=1S/C15H22N6O5S/c1-27(3-2-7(16)15(24)25)4-8-10(22)11(23)14(26-8)21-6-20-9-12(17)18-5-19-13(9)21/h5-8,10-11,14,22-23H,2-4,16H2,1H3,(H2-,17,18,19,24,25)/p+1/t7-,8+,10+,11+,14+,27?/m0/s1",
+        "https://identifiers.org/inchikey/MEFKEPWMEQBLKI-AIRLBKTGSA-O",
+        "https://identifiers.org/chebi/CHEBI:10786",
+        "https://identifiers.org/chebi/CHEBI:10833",
+        "https://identifiers.org/chebi/CHEBI:12742",
+        "https://identifiers.org/chebi/CHEBI:12757",
+        "https://identifiers.org/chebi/CHEBI:12760",
+        "https://identifiers.org/chebi/CHEBI:15414",
+        "https://identifiers.org/chebi/CHEBI:22036",
+        "https://identifiers.org/chebi/CHEBI:45607",
+        "https://identifiers.org/chebi/CHEBI:527887",
+        "https://identifiers.org/chebi/CHEBI:59789",
+        "https://identifiers.org/chebi/CHEBI:67040",
+        "https://identifiers.org/chebi/CHEBI:8946",
+        "https://identifiers.org/biggm/M_amet",
+        "https://identifiers.org/biggm/amet",
+        "https://identifiers.org/keggc/C00019",
+        "https://identifiers.org/keggc/M_C00019",
+        "https://identifiers.org/metacycm/S-ADENOSYLMETHIONINE",
+        "https://identifiers.org/reactomem/R-ALL-2162265",
+        "https://identifiers.org/reactomem/R-ALL-5279190",
+        "https://identifiers.org/reactomem/R-ALL-71284",
+        "https://identifiers.org/reactomem/R-ALL-77087",
+        "https://identifiers.org/reactomem/R-ALL-9639461",
+        "https://identifiers.org/reactomem/R-ALL-9854319",
+        "https://identifiers.org/seedm/M_cpd00017",
+        "https://identifiers.org/seedm/cpd00017",
+        "https://identifiers.org/vmhm/M_amet",
+        "https://identifiers.org/vmhm/amet"
+      ],
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C15H22N6O5S\",\"mnxm_id\":\"MNXM1363767\",\"proposed_charge\":1,\"proposed_formula\":\"C15H23N6O5S\",\"source\":\"MetaNetX\"}"
+      ]
+    },
+    "m62[C_mi]": {
+      "id": "m62[C_mi]",
+      "xml_id": "M_m62__91__C_mi__93__",
+      "name": "S-adenosyl-L-homocysteine_C14H20N6O5S",
+      "formula": "C14H20N6O5S",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/ahcys",
+        "https://identifiers.org/hmdb/HMDB00939",
+        "https://identifiers.org/kegg.compound/C00021",
+        "https://identifiers.org/metacyc.compound/ADENOSYL-HOMO-CYS",
+        "https://identifiers.org/reactome/R-ALL-2162252",
+        "https://identifiers.org/reactome/R-ALL-5278409",
+        "https://identifiers.org/reactome/R-ALL-71285",
+        "https://identifiers.org/reactome/R-ALL-77502",
+        "https://identifiers.org/reactome/R-ALL-9639443",
+        "https://identifiers.org/reactome/R-ALL-9854312",
+        "https://identifiers.org/sabiork.compound/1274",
+        "https://identifiers.org/seed.compound/cpd00019",
+        "https://identifiers.org/vmhmetabolite/ahcys",
+        "https://identifiers.org/metanetx.chemical/MNXM1102167",
+        "https://identifiers.org/inchi/InChI=1S/C14H20N6O5S/c15-6(14(23)24)1-2-26-3-7-9(21)10(22)13(25-7)20-5-19-8-11(16)17-4-18-12(8)20/h4-7,9-10,13,21-22H,1-3,15H2,(H,23,24)(H2,16,17,18)/t6-,7+,9+,10+,13+/m0/s1",
+        "https://identifiers.org/inchikey/ZJUKTBDSGOFHSH-WFMPWKQPSA-N",
+        "https://identifiers.org/chebi/CHEBI:12741",
+        "https://identifiers.org/chebi/CHEBI:12759",
+        "https://identifiers.org/chebi/CHEBI:12761",
+        "https://identifiers.org/chebi/CHEBI:16680",
+        "https://identifiers.org/chebi/CHEBI:22034",
+        "https://identifiers.org/chebi/CHEBI:45495",
+        "https://identifiers.org/chebi/CHEBI:57856",
+        "https://identifiers.org/chebi/CHEBI:67009",
+        "https://identifiers.org/chebi/CHEBI:8945",
+        "https://identifiers.org/biggm/M_ahcys",
+        "https://identifiers.org/biggm/ahcys",
+        "https://identifiers.org/keggc/C00021",
+        "https://identifiers.org/keggc/M_C00021",
+        "https://identifiers.org/metacycm/ADENOSYL-HOMO-CYS",
+        "https://identifiers.org/reactomem/R-ALL-2162252",
+        "https://identifiers.org/reactomem/R-ALL-5278409",
+        "https://identifiers.org/reactomem/R-ALL-71285",
+        "https://identifiers.org/reactomem/R-ALL-77502",
+        "https://identifiers.org/reactomem/R-ALL-9639443",
+        "https://identifiers.org/reactomem/R-ALL-9854312",
+        "https://identifiers.org/sabiorkm/1274",
+        "https://identifiers.org/seedm/M_cpd00019",
+        "https://identifiers.org/seedm/cpd00019",
+        "https://identifiers.org/vmhm/M_ahcys",
+        "https://identifiers.org/vmhm/ahcys"
+      ],
+      "notes": []
+    },
+    "m30[C_mi]": {
+      "id": "m30[C_mi]",
+      "xml_id": "M_m30__91__C_mi__93__",
+      "name": "NADH_C21H29N7O14P2",
+      "formula": "C21H29N7O14P2",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/nadh",
+        "https://identifiers.org/hmdb/HMDB01487",
+        "https://identifiers.org/kegg.compound/C00004",
+        "https://identifiers.org/metacyc.compound/NADH",
+        "https://identifiers.org/reactome/R-ALL-1130844",
+        "https://identifiers.org/reactome/R-ALL-192305",
+        "https://identifiers.org/reactome/R-ALL-194697",
+        "https://identifiers.org/reactome/R-ALL-29362",
+        "https://identifiers.org/reactome/R-ALL-73473",
+        "https://identifiers.org/sabiork.compound/38",
+        "https://identifiers.org/seed.compound/cpd00004",
+        "https://identifiers.org/vmhmetabolite/nadh",
+        "https://identifiers.org/metanetx.chemical/MNXM10",
+        "https://identifiers.org/inchi/InChI=1S/C21H29N7O14P2/c22-17-12-19(25-7-24-17)28(8-26-12)21-16(32)14(30)11(41-21)6-39-44(36,37)42-43(34,35)38-5-10-13(29)15(31)20(40-10)27-3-1-2-9(4-27)18(23)33/h1,3-4,7-8,10-11,13-16,20-21,29-32H,2,5-6H2,(H2,23,33)(H,34,35)(H,36,37)(H2,22,24,25)/p-2/t10-,11-,13-,14-,15-,16-,20-,21-/m1/s1",
+        "https://identifiers.org/inchikey/BOPGDPNILDQYTO-NNYOXOHSSA-L",
+        "https://identifiers.org/chebi/CHEBI:13395",
+        "https://identifiers.org/chebi/CHEBI:13396",
+        "https://identifiers.org/chebi/CHEBI:16908",
+        "https://identifiers.org/chebi/CHEBI:21902",
+        "https://identifiers.org/chebi/CHEBI:44216",
+        "https://identifiers.org/chebi/CHEBI:57945",
+        "https://identifiers.org/chebi/CHEBI:7423",
+        "https://identifiers.org/biggm/M_nadh",
+        "https://identifiers.org/biggm/nadh",
+        "https://identifiers.org/keggc/C00004",
+        "https://identifiers.org/keggc/M_C00004",
+        "https://identifiers.org/metacycm/NADH",
+        "https://identifiers.org/reactomem/R-ALL-1130844",
+        "https://identifiers.org/reactomem/R-ALL-192305",
+        "https://identifiers.org/reactomem/R-ALL-194697",
+        "https://identifiers.org/reactomem/R-ALL-29362",
+        "https://identifiers.org/reactomem/R-ALL-73473",
+        "https://identifiers.org/sabiorkm/38",
+        "https://identifiers.org/seedm/M_cpd00004",
+        "https://identifiers.org/seedm/cpd00004",
+        "https://identifiers.org/vmhm/M_nadh",
+        "https://identifiers.org/vmhm/nadh"
+      ],
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C21H29N7O14P2\",\"mnxm_id\":\"MNXM10\",\"proposed_charge\":-2,\"proposed_formula\":\"C21H27N7O14P2\",\"source\":\"MetaNetX\"}"
+      ]
+    },
+    "m27[C_mi]": {
+      "id": "m27[C_mi]",
+      "xml_id": "M_m27__91__C_mi__93__",
+      "name": "NAD_C21H27N7O14P2",
+      "formula": "C21H27N7O14P2",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/metanetx.chemical/MNXM64096",
+        "https://identifiers.org/chebi/CHEBI:13389"
+      ],
+      "notes": []
+    },
+    "m26[C_mi]": {
+      "id": "m26[C_mi]",
+      "xml_id": "M_m26__91__C_mi__93__",
+      "name": "H2O_H2O",
+      "formula": "H2O",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/h2o",
+        "https://identifiers.org/envipath/5882df9c-dae1-4d80-a40e-db4724271456/compound/969d0227-3069-4e44-9525-7ae7bad84170",
+        "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/799908db-b8c9-4982-86cb-1f225e2ad08c",
+        "https://identifiers.org/envipath/650babc9-9d68-4b73-9332-11972ca26f7b/compound/e7f34a8e-cded-4793-b6d5-792335b38636",
+        "https://identifiers.org/envipath/b0c0e9bc-b183-45e9-9f83-8e743ed5dc7b/compound/426cf377-a166-441d-a118-d32682004128",
+        "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/27c22ce9-2753-43ba-96bc-ad4164fee4a7",
+        "https://identifiers.org/hmdb/HMDB02111",
+        "https://identifiers.org/kegg.compound/C00001",
+        "https://identifiers.org/kegg.drug/D00001",
+        "https://identifiers.org/kegg.drug/D03703",
+        "https://identifiers.org/kegg.drug/D06249",
+        "https://identifiers.org/kegg.drug/D06322",
+        "https://identifiers.org/metacyc.compound/WATER",
+        "https://identifiers.org/mnx/WATER",
+        "https://identifiers.org/reactome/R-ALL-109276",
+        "https://identifiers.org/reactome/R-ALL-113518",
+        "https://identifiers.org/reactome/R-ALL-113519",
+        "https://identifiers.org/reactome/R-ALL-113521",
+        "https://identifiers.org/reactome/R-ALL-1222475",
+        "https://identifiers.org/reactome/R-ALL-141343",
+        "https://identifiers.org/reactome/R-ALL-1605715",
+        "https://identifiers.org/reactome/R-ALL-189422",
+        "https://identifiers.org/reactome/R-ALL-2022884",
+        "https://identifiers.org/reactome/R-ALL-2429665",
+        "https://identifiers.org/reactome/R-ALL-29356",
+        "https://identifiers.org/reactome/R-ALL-351603",
+        "https://identifiers.org/reactome/R-ALL-5278291",
+        "https://identifiers.org/reactome/R-ALL-5668574",
+        "https://identifiers.org/reactome/R-ALL-5685882",
+        "https://identifiers.org/reactome/R-ALL-5693747",
+        "https://identifiers.org/reactome/R-ALL-6781870",
+        "https://identifiers.org/reactome/R-ALL-8851517",
+        "https://identifiers.org/sabiork.compound/40",
+        "https://identifiers.org/seed.compound/cpd00001",
+        "https://identifiers.org/vmhmetabolite/h2o",
+        "https://identifiers.org/metanetx.chemical/WATER",
+        "https://identifiers.org/inchi/InChI=1S/H2O/h1H2",
+        "https://identifiers.org/inchikey/XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+        "https://identifiers.org/chebi/CHEBI:15377",
+        "https://identifiers.org/biggm/M_h2o",
+        "https://identifiers.org/biggm/h2o",
+        "https://identifiers.org/envipathm/5882df9c-dae1-4d80-a40e-db4724271456/compound/969d0227-3069-4e44-9525-7ae7bad84170",
+        "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/799908db-b8c9-4982-86cb-1f225e2ad08c",
+        "https://identifiers.org/envipathm/650babc9-9d68-4b73-9332-11972ca26f7b/compound/e7f34a8e-cded-4793-b6d5-792335b38636",
+        "https://identifiers.org/envipathm/b0c0e9bc-b183-45e9-9f83-8e743ed5dc7b/compound/426cf377-a166-441d-a118-d32682004128",
+        "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/27c22ce9-2753-43ba-96bc-ad4164fee4a7",
+        "https://identifiers.org/keggc/C00001",
+        "https://identifiers.org/keggc/M_C00001",
+        "https://identifiers.org/keggd/D00001",
+        "https://identifiers.org/keggd/D03703",
+        "https://identifiers.org/keggd/D06249",
+        "https://identifiers.org/keggd/D06322",
+        "https://identifiers.org/keggd/M_D00001",
+        "https://identifiers.org/keggd/M_D03703",
+        "https://identifiers.org/keggd/M_D06249",
+        "https://identifiers.org/keggd/M_D06322",
+        "https://identifiers.org/metacycm/WATER",
+        "https://identifiers.org/reactomem/R-ALL-109276",
+        "https://identifiers.org/reactomem/R-ALL-113518",
+        "https://identifiers.org/reactomem/R-ALL-113519",
+        "https://identifiers.org/reactomem/R-ALL-113521",
+        "https://identifiers.org/reactomem/R-ALL-1222475",
+        "https://identifiers.org/reactomem/R-ALL-141343",
+        "https://identifiers.org/reactomem/R-ALL-1605715",
+        "https://identifiers.org/reactomem/R-ALL-189422",
+        "https://identifiers.org/reactomem/R-ALL-2022884",
+        "https://identifiers.org/reactomem/R-ALL-2429665",
+        "https://identifiers.org/reactomem/R-ALL-29356",
+        "https://identifiers.org/reactomem/R-ALL-351603",
+        "https://identifiers.org/reactomem/R-ALL-5278291",
+        "https://identifiers.org/reactomem/R-ALL-5668574",
+        "https://identifiers.org/reactomem/R-ALL-5685882",
+        "https://identifiers.org/reactomem/R-ALL-5693747",
+        "https://identifiers.org/reactomem/R-ALL-6781870",
+        "https://identifiers.org/reactomem/R-ALL-8851517",
+        "https://identifiers.org/sabiorkm/40",
+        "https://identifiers.org/seedm/M_cpd00001",
+        "https://identifiers.org/seedm/cpd00001",
+        "https://identifiers.org/vmhm/M_h2o",
+        "https://identifiers.org/vmhm/h2o"
+      ],
+      "notes": [
+        "microspecies_convention: water: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15377"
+      ]
+    },
+    "m64[C_mi]": {
+      "id": "m64[C_mi]",
+      "xml_id": "M_m64__91__C_mi__93__",
+      "name": "oxygen_O2",
+      "formula": "O2",
+      "charge": 0,
+      "compartment": "C_mi",
+      "boundary_condition": "false",
+      "annotations": [
+        "https://identifiers.org/bigg.metabolite/o2",
+        "https://identifiers.org/envipath/d817c31c-d879-44c8-913d-2963d42f8203/compound/d0a80c13-93c9-453c-b154-05dfbeb20cc1",
+        "https://identifiers.org/hmdb/HMDB01377",
+        "https://identifiers.org/kegg.compound/C00007",
+        "https://identifiers.org/kegg.drug/D00003",
+        "https://identifiers.org/metacyc.compound/OXYGEN-MOLECULE",
+        "https://identifiers.org/reactome/R-ALL-1131511",
+        "https://identifiers.org/reactome/R-ALL-113533",
+        "https://identifiers.org/reactome/R-ALL-113534",
+        "https://identifiers.org/reactome/R-ALL-113535",
+        "https://identifiers.org/reactome/R-ALL-113685",
+        "https://identifiers.org/reactome/R-ALL-1222561",
+        "https://identifiers.org/reactome/R-ALL-1236709",
+        "https://identifiers.org/reactome/R-ALL-189461",
+        "https://identifiers.org/reactome/R-ALL-2230955",
+        "https://identifiers.org/reactome/R-ALL-29368",
+        "https://identifiers.org/reactome/R-ALL-351593",
+        "https://identifiers.org/reactome/R-ALL-352327",
+        "https://identifiers.org/reactome/R-ALL-5668566",
+        "https://identifiers.org/sabiork.compound/1264",
+        "https://identifiers.org/seed.compound/cpd00007",
+        "https://identifiers.org/vmhmetabolite/o2",
+        "https://identifiers.org/metanetx.chemical/MNXM735438",
+        "https://identifiers.org/inchi/InChI=1S/O2/c1-2",
+        "https://identifiers.org/inchikey/MYMOFIZGZYHOMD-UHFFFAOYSA-N",
+        "https://identifiers.org/chebi/CHEBI:10745",
+        "https://identifiers.org/chebi/CHEBI:13416",
+        "https://identifiers.org/chebi/CHEBI:15379",
+        "https://identifiers.org/chebi/CHEBI:23833",
+        "https://identifiers.org/chebi/CHEBI:25366",
+        "https://identifiers.org/chebi/CHEBI:26689",
+        "https://identifiers.org/chebi/CHEBI:29793",
+        "https://identifiers.org/chebi/CHEBI:30491",
+        "https://identifiers.org/chebi/CHEBI:44742",
+        "https://identifiers.org/chebi/CHEBI:7860",
+        "https://identifiers.org/biggm/M_o2",
+        "https://identifiers.org/biggm/o2",
+        "https://identifiers.org/envipathm/d817c31c-d879-44c8-913d-2963d42f8203/compound/d0a80c13-93c9-453c-b154-05dfbeb20cc1",
+        "https://identifiers.org/keggc/C00007",
+        "https://identifiers.org/keggc/M_C00007",
+        "https://identifiers.org/keggd/D00003",
+        "https://identifiers.org/keggd/M_D00003",
+        "https://identifiers.org/metacycm/OXYGEN-MOLECULE",
+        "https://identifiers.org/reactomem/R-ALL-1131511",
+        "https://identifiers.org/reactomem/R-ALL-113533",
+        "https://identifiers.org/reactomem/R-ALL-113534",
+        "https://identifiers.org/reactomem/R-ALL-113535",
+        "https://identifiers.org/reactomem/R-ALL-113685",
+        "https://identifiers.org/reactomem/R-ALL-1222561",
+        "https://identifiers.org/reactomem/R-ALL-1236709",
+        "https://identifiers.org/reactomem/R-ALL-189461",
+        "https://identifiers.org/reactomem/R-ALL-2230955",
+        "https://identifiers.org/reactomem/R-ALL-29368",
+        "https://identifiers.org/reactomem/R-ALL-351593",
+        "https://identifiers.org/reactomem/R-ALL-352327",
+        "https://identifiers.org/reactomem/R-ALL-5668566",
+        "https://identifiers.org/sabiorkm/1264",
+        "https://identifiers.org/seedm/M_cpd00007",
+        "https://identifiers.org/seedm/cpd00007",
+        "https://identifiers.org/vmhm/M_o2",
+        "https://identifiers.org/vmhm/o2"
+      ],
+      "notes": []
+    }
+  },
+  "atom_charge_residuals": {
+    "R385": {
+      "C": 0.0,
+      "H": 0.0,
+      "N": 0.0,
+      "O": 0.0,
+      "S": 0.0,
+      "charge": 0.0
+    },
+    "R695": {
+      "C": 0.0,
+      "H": 0.0,
+      "N": 0.0,
+      "O": 0.0,
+      "P": 0.0,
+      "charge": 0.0
+    },
+    "proposed_R385_quinol": {
+      "C": 0.0,
+      "H": 0.0,
+      "O": 0.0,
+      "charge": 0.0,
+      "N": 0.0,
+      "S": 0.0
+    }
+  },
+  "proposal": {
+    "status": "proposal_only_not_applied",
+    "new_species": {
+      "id": "proposal_only_unassigned_DMeQ9H2_C_mi",
+      "name": "3-demethylubiquinol-9",
+      "formula": "C53H82O4",
+      "charge": 0,
+      "compartment": "C_mi"
+    },
+    "new_species_id": "unassigned; candidate chemistry only",
+    "replace_R385_reactant": "m611[C_mi] -> new 3-demethylubiquinol-9[C_mi]",
+    "replace_R385_product": "m468[C_mi] -> existing m471[C_mi]",
+    "retain": {
+      "SAM": "m60[C_mi] coefficient -1",
+      "SAH": "m62[C_mi] coefficient +1",
+      "bounds": [
+        0,
+        1000
+      ],
+      "gpr": "YALI1B20835g; identity/function validation independent of chemistry",
+      "compartment": "C_mi"
+    },
+    "additional_reaction": "none; DMeQ9 reduction donor, stoichiometry and GPR unassigned",
+    "gap": "R695 produces quinone m611; proposed R385 consumes an absent reduced species; a connection would be needed in the representation but no independent native reductase/route established",
+    "mature_Q9H2_to_Q9": "Existing R305 consumes m471 and produces m468; R740 can do so in its allowed reverse direction. Bounds admit these directions but no feasible-flux claim is made.",
+    "upstream_distinct_gap": "R18-produced DMQ9H2 has no encoded consumer; R695 substrate m61 has no encoded producer; this older gap remains outside R385-only chemistry."
+  },
+  "external_definition": {
+    "url": "https://iubmb.qmul.ac.uk/enzyme/EC2/1/1/64.html",
+    "accessed_utc": "2026-10-02T23:28:19.250693+00:00",
+    "tool": "web.open",
+    "location": "lines 3-5 reaction definition; line23 modified2011",
+    "content_used": "EC2.1.1.64 methylates 3-demethylubiquinol to ubiquinol using SAM and producing SAH",
+    "type": "authoritative enzyme definition; not native W29 assay"
+  }
+}

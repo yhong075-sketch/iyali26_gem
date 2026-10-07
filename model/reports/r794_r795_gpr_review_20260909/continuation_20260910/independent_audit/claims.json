@@ -1,0 +1,996 @@
+{
+  "reviewer": "independent subagent /root/audit_gpr",
+  "review_completed_utc": "2026-09-10T23:25:23.445446+00:00",
+  "scope": "Only 2026-09-10 continuation; prior 23 claims excluded and unchanged. Every reported number read from raw outputs; no GEM/model/GPR/label/Git changes.",
+  "coverage": {
+    "total": 25,
+    "audited": 25,
+    "supported": 22,
+    "unresolved": 3,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "coverage_note": "Counts are explicit audit units, not independent experiments or statistical validation samples. The 3 unresolved units are stronger propositions explicitly not established by the report, not fabricated positive claims.",
+  "reviewed_main_report": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/REPORT.md",
+    "sha256": "cf51a29eced1f39c9c28c4b34249adc2d26fa4a463332e20a78708134dadf239",
+    "note": "Root closing check confirms this SHA matches the final main report including its coverage paragraph. Earlier before-insertion wording was a timing-label error; scientific content and all 25 verdicts are unchanged."
+  },
+  "claims": [
+    {
+      "id": "B01",
+      "claim": "BLAST结果对应前轮固定5条查询；已逐HSP验证实际比对的查询残基，未改变序列输入。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/blast_queries.fasta",
+          "locator": "all 5 FASTA records"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/blast_request.json",
+          "locator": "submitted parameters and QUERY"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+          "locator": "5 query, all HSP, reference and mapping checks"
+        }
+      ],
+      "limitations": "HSP不覆盖的查询位置不是由该HSP核验；整条固定序列身份由FASTA及前轮身份材料限定。"
+    },
+    {
+      "id": "B02",
+      "claim": "同一旧RID的两次响应格式不同；第二次ZIP内5份完整Report与第一次Report语义一致。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response_retrieval_check.zip",
+          "locator": "A3SS5A1X014_1.xml through _5.xml, every Report node"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_retrieval.json",
+          "locator": "URL, start/end UTC, response paths/SHA"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+          "locator": "5 query, all HSP, reference and mapping checks"
+        }
+      ],
+      "limitations": "第一次仅有文件mtime；正式网络时间来自第二次记录。ZIP XInclude索引存在namespace间缺少空格的格式瑕疵，索引原文已读且不是搜索报告；未修补原始数据。"
+    },
+    {
+      "id": "B03",
+      "claim": "返回blastp 2.17.0+、swissprot及数据库487492条/185956103残基；回显matrix/expect/gap/filter/cbs与记录一致。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/blast_request.json",
+          "locator": "submitted parameters and QUERY"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+          "locator": "5 query, all HSP, reference and mapping checks"
+        }
+      ],
+      "limitations": "数据库release未知。WORD_SIZE、HITLIST_SIZE、SHORT_QUERY_ADJUST仅为提交参数，未被此XML回显；未重新估计E-value。"
+    },
+    {
+      "id": "B04",
+      "claim": "5查询共202hits、212HSP、10个多HSP hit；所有identity以含gap比对列为分母，覆盖为实际残基区间并集。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+          "locator": "queries, experimental_references, residue_mappings"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+          "locator": "5 query, all HSP, reference and mapping checks"
+        }
+      ],
+      "limitations": "保留原始mask大小写，只在残基身份比较时忽略大小写；未把E-value=0解释为零错误概率。"
+    },
+    {
+      "id": "B05",
+      "claim": "12个预选酿酒酵母参照hit的14个HSP全部与5份当前有版本参照序列逐残基一致。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P25515_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32842_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+          "locator": "5 query, all HSP, reference and mapping checks"
+        }
+      ],
+      "limitations": "未校验其余190个hit的完整subject记录；现代参照序列匹配不重建历史实验菌株/载体。"
+    },
+    {
+      "id": "B06",
+      "claim": "两个a候选YALI1F38820g与YALI1E12482g最高hit都是P32563/Vph1，且各自也匹配P37296/Stv1。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+          "locator": "queries, experimental_references, residue_mappings"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        }
+      ],
+      "limitations": "序列排名支持a亚基候选，不能在此数据中唯一划分两个原生区室。"
+    },
+    {
+      "id": "B07",
+      "claim": "YALI1F13017g对c″参照77.40% identity高于c/c′的30.66%/32.84%；其余两proteolipid查询分别偏向c和c′参照。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+          "locator": "queries, experimental_references, residue_mappings"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P25515_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32842_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        }
+      ],
+      "limitations": "这是有限参照比较，不能把所有同家族蛋白视为功能互换；YALI1E37063g仅覆盖c′参照约83.54%。"
+    },
+    {
+      "id": "B08",
+      "claim": "15条指定BLAST残基对应复核正确：F38820 R710、E12482 R734对应Vph1 R735；F13017 E93对应Vma16 E108；两a对Stv1 WKY83–85均为比对gap。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+          "locator": "queries, experimental_references, residue_mappings"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+          "locator": "5 query, all HSP, reference and mapping checks"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        }
+      ],
+      "limitations": "gap不是原生定位信号缺失证据；同源位置不是原生功能实验。"
+    },
+    {
+      "id": "S01",
+      "claim": "两份既有AF预测和5条实验参照共7链按完整可用CA提取；源PDB、提取结果、实体序列和每个坐标残基一致。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/chain_manifest.json",
+          "locator": "7 chain entries, source identities, auth chain, coordinate/native entity lengths"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P25515_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32842_reference.json",
+          "locator": "primaryAccession, genes, sequence, entryAudit"
+        }
+      ],
+      "limitations": "a参考实体862/912含22aa标签，天然蛋白840/890；实际输入CA734/713。实验缺失坐标保留为缺失；AF为预测、非本轮新预测。"
+    },
+    {
+      "id": "S02",
+      "claim": "记录的5组US-align整链单体刚体计算在范围内，固定官方源码提交与二进制SHA一致，未按低置信度裁剪或分域择优。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+          "locator": "binary identity only; no independent recompile or rerun"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign-ee333657.tar.gz",
+          "locator": "fixed official source archive"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign_commit.json",
+          "locator": "sha"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign-ee333657ae554886dd7141db16e345566a777976/TMalign.h",
+          "locator": "lines 3852–3920 and 3965–4008: final pair selection, Kabsch RMSD, separate TM optimizations"
+        }
+      ],
+      "limitations": "本审计未重新编译或重新运行US-align；检查现有输出、输入及源码含义，不把字节身份等同完整环境重建。"
+    },
+    {
+      "id": "S03",
+      "claim": "全部5行对齐长度、三个覆盖分母和两种长度归一TM-score正确抄录；参考归一TM由原始坐标及导出变换独立重算吻合。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/geometry_recalculated.json",
+          "locator": "all 5 original-source coordinate recalculations"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign-ee333657ae554886dd7141db16e345566a777976/TMalign.h",
+          "locator": "lines 3852–3920 and 3965–4008: final pair selection, Kabsch RMSD, separate TM optimizations"
+        }
+      ],
+      "limitations": "两个TM共享残基配对，但不同长度/d0各自优化变换；不是反向另跑两次。查询归一TM经原始输出核验，未额外重跑优化；分数不是功能概率。"
+    },
+    {
+      "id": "S04",
+      "claim": "全部1919对CA的编号/残基/导出变换距离吻合；5套最小二乘Kabsch RMSD独立重算后与工具打印四舍五入一致。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/geometry_recalculated.json",
+          "locator": "all 5 original-source coordinate recalculations"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign-ee333657ae554886dd7141db16e345566a777976/TMalign.h",
+          "locator": "lines 3852–3920 and 3965–4008: final pair selection, Kabsch RMSD, separate TM optimizations"
+        }
+      ],
+      "limitations": "工具导出TM优化变换的RMSD与打印Kabsch RMSD不同，均保留；初始混用差异已解释且最终QA修正。"
+    },
+    {
+      "id": "S05",
+      "claim": "a候选对两种a参考都高相似；查询归一与参考坐标长度归一的排名反转。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "locator": "Figure3B; Similarities Between Vph1p and Stv1p; Differences Between Vph1p and Stv1p"
+        }
+      ],
+      "limitations": "不由小分差推断原生Golgi/液泡定位或严格正交关系；单链比较未测试原生装配。"
+    },
+    {
+      "id": "S06",
+      "claim": "c″候选与c″参考对齐193/196，查询归一TM0.94892；c/c′控制仅151/196与150/196，全面匹配更支持c″候选。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        }
+      ],
+      "limitations": "控制参考更短且共享蛋白脂折叠；高参考归一TM不意味着c″可替代c/c′或单独泵功能。"
+    },
+    {
+      "id": "S07",
+      "claim": "7条结构残基对应的原始配对、原子距离与目标pLDDT准确；同亚基R710/R735、E93/E108和BLAST一致。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/residue_structural_mapping.json",
+          "locator": "all 7 target/reference residue rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.txt",
+          "locator": "header, aligned sequences, all -do residue-distance rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.matrix.txt",
+          "locator": "3-by-4 rotation/translation coefficients"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/geometry_recalculated.json",
+          "locator": "all 5 original-source coordinate recalculations"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        }
+      ],
+      "limitations": "c/c′控制的E137/E145全局配到S175，不是已验证功能同位点，更不是目标缺少催化Glu的证据。"
+    },
+    {
+      "id": "R01",
+      "claim": "参考残基采用完整编码序列坐标；P32563成熟Chain2–840不改变R735标号，P23968 E108与P37296 WKY83–85/R795字母正确。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC60065_residue.html",
+          "locator": "Results and Figures 3-4; Experimental Procedures; Abstract"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pubmed_9030535_25546637_8385405.xml",
+          "locator": "PubmedArticle/MedlineCitation/PMID=9030535, Abstract"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3365986_residue.html",
+          "locator": "Methods constructs; Results Forward Genetic Screen and Targeted Alanine Scanning; Figures3-4 and6; Discussion"
+        }
+      ],
+      "limitations": "现代数据库核实坐标，不宣称重建原文全部历史蛋白或成熟链实验。"
+    },
+    {
+      "id": "R02",
+      "claim": "2001实验区分R735转运作用与ATP水解：R735K无可检测转运但保留24%±7% ATPase；R799K仍有非零活性；R762所测替换接近WT。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC60065_residue.html",
+          "locator": "Results and Figures 3-4; Experimental Procedures; Abstract"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3186431_residue.html",
+          "locator": "Identification of Subunit a Residues Important for Proton Transport"
+        }
+      ],
+      "limitations": "S.cerevisiae MM112实验；不能直接外推Yarrowia essential。2001 TM8与2011 TM7属拓扑编号更新，不是残基变化。"
+    },
+    {
+      "id": "R03",
+      "claim": "1997原始摘要直接支持Vma16 E108、Vma11 E145所测替换对酶活性的作用；Asp可保留功能但不足以宣称完全WT恢复。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pubmed_9030535_25546637_8385405.xml",
+          "locator": "PubmedArticle/MedlineCitation/PMID=9030535, Abstract"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "locator": "Figure3B; Similarities Between Vph1p and Stv1p; Differences Between Vph1p and Stv1p"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_residue.json",
+          "locator": "sequence coordinates, processing and mutagenesis features"
+        }
+      ],
+      "limitations": "1997全文未获取；E108D现代注释为partial inactivation。Vma3 E137仅本摘要明确坐标与既往预测角色，未核此前直接突变论文。"
+    },
+    {
+      "id": "R04",
+      "claim": "Vph1 1–406与Stv1 1–455为有文献构建来源的N端分析范围。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC2679431_residue.html",
+          "locator": "Experimental Procedures construct design; Figure5"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3365986_residue.html",
+          "locator": "Methods constructs; Results Forward Genetic Screen and Targeted Alanine Scanning; Figures3-4 and6; Discussion"
+        }
+      ],
+      "limitations": "构建终点不等于唯一原子域边界；Stv1定位充分性上游2001嵌合体全文本轮未读；未按这些区间新裁剪评分。"
+    },
+    {
+      "id": "R05",
+      "claim": "2012原始实验支持Stv1 WKY83–85及上下文参与定位，存在替换容忍度、装配混杂与可饱和保留。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3365986_residue.html",
+          "locator": "Methods constructs; Results Forward Genetic Screen and Targeted Alanine Scanning; Figures3-4 and6; Discussion"
+        }
+      ],
+      "limitations": "Fig4计200cells/strain、triplicate为作者报告，本审计未复算图像；不能以精确WKY有无作通用跨物种定位分类器。"
+    },
+    {
+      "id": "R06",
+      "claim": "2019实验Stv1结构H78–L111未观察到密度，该区间包含WKY。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "source-and-output audit",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "locator": "Figure3B; Similarities Between Vph1p and Stv1p; Differences Between Vph1p and Stv1p"
+        }
+      ],
+      "limitations": "实验缺少密度不等于缺失序列或定位信号；没有该环的实验几何证据。"
+    },
+    {
+      "id": "R07",
+      "claim": "在本题现有证据范围内，最高BLAST名称不足以独立确定原生Golgi或液泡定位。",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "evidence_type": "bounded inference",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3365986_residue.html",
+          "locator": "Methods constructs; Results Forward Genetic Screen and Targeted Alanine Scanning; Figures3-4 and6; Discussion"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "locator": "Figure3B; Similarities Between Vph1p and Stv1p; Differences Between Vph1p and Stv1p"
+        }
+      ],
+      "limitations": "证据适用范围推断，不是已测试某个定位分类器，也不声称BLAST永远不能贡献定位证据。"
+    },
+    {
+      "id": "X01",
+      "claim": "这三条核心Yarrowia候选的原生泵功能、装配互补及essential性已经得到独立实验验证。",
+      "audit_status": "audited",
+      "verdict": "unresolved",
+      "evidence_type": "stronger claim explicitly not established",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC60065_residue.html",
+          "locator": "Results and Figures 3-4; Experimental Procedures; Abstract"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pubmed_9030535_25546637_8385405.xml",
+          "locator": "PubmedArticle/MedlineCitation/PMID=9030535, Abstract"
+        }
+      ],
+      "limitations": "尚无本任务原生功能实验或GEM生长求解；相似性/保守残基不能完成此声明。"
+    },
+    {
+      "id": "X02",
+      "claim": "两条Yarrowia a候选可唯一分别指派为Golgi型和液泡型。",
+      "audit_status": "audited",
+      "verdict": "unresolved",
+      "evidence_type": "stronger claim explicitly not established",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+          "locator": "BlastXML2/BlastOutput2/report/Report; all 5 Reports, Search/Hit/Hsp"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3365986_residue.html",
+          "locator": "Methods constructs; Results Forward Genetic Screen and Targeted Alanine Scanning; Figures3-4 and6; Discussion"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "locator": "Figure3B; Similarities Between Vph1p and Stv1p; Differences Between Vph1p and Stv1p"
+        }
+      ],
+      "limitations": "两个a都top Vph1；结构两亚型皆匹配，关键定位区未有充分证据。"
+    },
+    {
+      "id": "X03",
+      "claim": "已有充分证据给出唯一完整新GPR并保证修改后这些基因成为essential。",
+      "audit_status": "audited",
+      "verdict": "unresolved",
+      "evidence_type": "stronger claim explicitly not established",
+      "sources": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "locator": "all 5 rows, method, software/commit/hash"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+          "locator": "queries, experimental_references, residue_mappings"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pubmed_9030535_25546637_8385405.xml",
+          "locator": "PubmedArticle/MedlineCitation/PMID=9030535, Abstract"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "locator": "Figure3B; Similarities Between Vph1p and Stv1p; Differences Between Vph1p and Stv1p"
+        }
+      ],
+      "limitations": "本轮增强亚基层级修订理由；原生区室、其余共同组件、旁路及生长耦合仍未知。无模型变更。"
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response.xml",
+      "sha256": "ec0b8f34d2f68f51b327a1481227e46b4c803a8f67c0b54a3b1288bba77977d7"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/blast_queries.fasta",
+      "sha256": "f5a88b2f3032a251320523d905a41697b17ae60ff42731b3b375f85a2974c1d4"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/blast_request.json",
+      "sha256": "6b4e9a4a0f0ae609c82945cf6afea0131b3ea1ae2a38029c5c8b53ed88ea6941"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+      "sha256": "332c1eafbd42c4e4e548d855164c2990522e86d8218f477694d9ef1acbe313be"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/old_rid_response_retrieval_check.zip",
+      "sha256": "0f9b663eeed3b77dcdcd2cd4a23628cd8e9c35c87f445d15e176debc7f61c80a"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_retrieval.json",
+      "sha256": "186cdd6a1e94c1630e78eb11866f000719662c637ec36d958f64161b64eb5ae3"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_reference.json",
+      "sha256": "8910c94e73e111bca534b08d4e033c84cd35db804ebc6cf5a87dcc3e421a814c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_reference.json",
+      "sha256": "a6ea9ade173307a11c082d7e8310079920fa710be81bc4fbd1c3dfba4111b767"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_reference.json",
+      "sha256": "1884e6134e9c72973ddfdff1fa5d9a6ea020b3fc4c114a23ddee409fa70d554c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P25515_reference.json",
+      "sha256": "1280e76f1466f316438866787883e09a8e4750305f96f3157e182e76ffd626a2"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32842_reference.json",
+      "sha256": "1feeda478b343363be1760c909b6eb628f2b927805f9cf184fb0c860843c51dd"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/chain_manifest.json",
+      "sha256": "9660811fdfa2a606409754fd7bd93253ad1b4c892acf2b246c10e1f72975d19d"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+      "sha256": "9f1509f9ad1cc292787cbfc2f599836ef1dc20b6a29424488f20d39335649058"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.txt",
+      "sha256": "afec9318d57137964e48311458644a049282eba785b11dc9dac8339ff83f2bd9"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7t_a.matrix.txt",
+      "sha256": "ebbd578f578f27a391025e5c43e32ae413edcfdb6f268b06cf4b83da5fa865fd"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.txt",
+      "sha256": "0ead9d9b97508b06feec3fef60e9746e59df3c66eb942849eccec33d961ff8bc"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_a__6o7u_a.matrix.txt",
+      "sha256": "8619ca7831b62b78f48f18c8b0f9f191cb9287beb7b329a0fe595682f9a3c234"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.txt",
+      "sha256": "cadaa2c10d25af098f8d3ff3d3c6b37dbafe503e298fb60eef87e6a9fd0c95ae"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cdoubleprime.matrix.txt",
+      "sha256": "3ad4a86e6b55290be56b638adc11973e0129444db9dc40f99e37d869a0a1dd6b"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.txt",
+      "sha256": "dc034e2927075e986fda19e85784b4b7d89066b6757e8a582230c9f27fecb4d5"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_c.matrix.txt",
+      "sha256": "ba0dae15f7cba6ae0f2c5824841e426ef26e66afcbf80cef06786fce10099a52"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.txt",
+      "sha256": "d64b63ad8ea1765ab67b5cc4b5179a26765c6ae173687ea5da31f5d92c775122"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/results/target_cdoubleprime__6o7t_cprime.matrix.txt",
+      "sha256": "ea4646d0715818dbe6fba08127aa8c3cd5da06831550af929d3c2da88a6d8cae"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_AF_v6_model.pdb",
+      "sha256": "460c11ab152cab9f7c115764dce62dd5c9e2afc94074a5b8264f8cd77b632e9c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_AF_v6_model.pdb",
+      "sha256": "f89d6f7393b458c40ffcf8a6e997dd1cef38dd72fa573011cd9931af8d9c2f39"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb6o7t.pdb",
+      "sha256": "eb7a7e3bcf5b5d6681f1b7948ddcfc5ac8333d6e5458af29d55452eb1e69bda2"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb6o7t_entity1.json",
+      "sha256": "b9adfaf182f58d8fab14cfc35feed284091fa4a512af5d81bdb9ce932d47a703"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb6o7t_entity3.json",
+      "sha256": "32c6765b08fb8e47bede5ca1029bcfc0a62845d62db3ad12d4f7084d03e0d54d"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/sources/6o7t_entity6.json",
+      "sha256": "5d3cc5bf83b4c7961b07a4ab075dd51986b7c18347a83107323cbb3b8aa24b1f"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/sources/6o7t_entity7.json",
+      "sha256": "ca5b332bc01a474e53d8e71800046debf7f0ad9322cbaf4e926ffbc016fd7ff5"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/sources/6o7u.pdb",
+      "sha256": "469779cddd58a1a90d8a99147ee4de11a4ef2b8af440fb0bc740fc9347fcf3de"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/sources/6o7u_entity1.json",
+      "sha256": "f037475cde595f37a3a5b22bd56d17a31a50b83742870b96269b83e9ba0f2ab2"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+      "sha256": "a25ca7594582a7e68210f651907e2e38964ef2004efe738e62e8a4625a2527f8"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign-ee333657.tar.gz",
+      "sha256": "6e1f2c29dfbd6770d88adb7b9e251feccde332cbe7e9431d895ea9da7eaf3324"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign_commit.json",
+      "sha256": "16486c8325fe552f2fbc97b5ae8ac7715230bb478ebaf6eadb20d0cf1c4faafe"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign-ee333657ae554886dd7141db16e345566a777976/TMalign.h",
+      "sha256": "3252883d7830909e4310821f0d3f6d39f322dc6bcfabd01153ed9239acc66e5b"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/residue_structural_mapping.json",
+      "sha256": "347c6c428cd2d25c89c68515cc4b592a318f66f5023b81b6f258c1a69e6d4dea"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/geometry_recalculated.json",
+      "sha256": "38cee30e32a06271f703cdd66ec4a9c42f8dacbe1a4e1817be2d12c780a9d97b"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/independent_audit/blast_recalculated.json",
+      "sha256": "f1e25923e0b142e2e2d9df302b60f5c0cc578ba6a37eaa7b53a2a56cdf7a5d8e"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC60065_residue.html",
+      "sha256": "5750598251040e9681506e032181a8868fab8f25fd8714ef72363d306df08619"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3186431_residue.html",
+      "sha256": "cc5e8dc6c37a4c24c1ed4a254293b66ad7f0f71e1375c6183713559c0cdf1e56"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC3365986_residue.html",
+      "sha256": "e47e0373d98a6e8c846cbf1421b24ecb16bb7d61ae62fa24455ea0eea5303f94"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/PMC2679431_residue.html",
+      "sha256": "d0d5710af7134ba1e367bb19cae538a2fbeed7ead000dc74394f3f8c4331ccef"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pubmed_9030535_25546637_8385405.xml",
+      "sha256": "ac37914432b828606e76b0c351271db94f38ee94d65b24fd169303762dcef5ac"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+      "sha256": "bc670498ba7be831a46b5b7db3ed6e307f1c7dbec09aff6f55ba9d6eacd55f3d"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P32563_residue.json",
+      "sha256": "8910c94e73e111bca534b08d4e033c84cd35db804ebc6cf5a87dcc3e421a814c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P23968_residue.json",
+      "sha256": "1884e6134e9c72973ddfdff1fa5d9a6ea020b3fc4c114a23ddee409fa70d554c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/sources/P37296_residue.json",
+      "sha256": "a6ea9ade173307a11c082d7e8310079920fa710be81bc4fbd1c3dfba4111b767"
+    }
+  ],
+  "not_done": [
+    "No new BLAST submission or significance recalculation by reviewer",
+    "No US-align rerun or independent build by reviewer",
+    "No independent laboratory replication",
+    "No scoring of unpublished domains or alternative models",
+    "No original Yarrowia localization or essentiality validation"
+  ]
+}

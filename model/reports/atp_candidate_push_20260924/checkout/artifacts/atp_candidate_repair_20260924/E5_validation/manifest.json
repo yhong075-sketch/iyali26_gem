@@ -1,0 +1,3258 @@
+{
+  "status": "complete",
+  "config": {
+    "model": "model_metadata_trna_r1159_leak.xml",
+    "model_sha256": "aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f",
+    "media": "artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+    "strain_profile": "artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+    "maintenance": "xMAINTENANCE",
+    "biomass_reactions": [
+      "R1372",
+      "R1387",
+      "R1710",
+      "xBIOMASS",
+      "biomass_C",
+      "newBiom"
+    ],
+    "tolerance": 1e-07,
+    "display_threshold": 1e-07,
+    "fixed_dissipation": 1.0,
+    "limits": {
+      "solves": 150,
+      "solve_wall_seconds": 1800,
+      "per_solve_seconds": 60
+    },
+    "solver": {
+      "Threads": 1,
+      "TimeLimit": 60,
+      "Presolve": 0,
+      "FeasibilityTol": 1e-07,
+      "OptimalityTol": 1e-07,
+      "IntFeasTol": 1e-07
+    }
+  },
+  "config_sha256": "91661dfd68a4d35961763a83334dbfc4ccd28f8c96b4a2b23c923b4ae69af58d",
+  "script_sha256": "f2ad2c1ce3caea399b65342610961d633f247d120ba3d9f0ac20f8255aed667e",
+  "started_utc": "2026-09-24T21:48:46.241851+00:00",
+  "software": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]",
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "gurobipy": "13.0.1",
+    "memote": "0.17.0"
+  },
+  "source_sha256": {
+    "scripts/validate_energy_candidates.py": "f2ad2c1ce3caea399b65342610961d633f247d120ba3d9f0ac20f8255aed667e",
+    "scripts/gem_annotate/__init__.py": "f1ad9494aa26830ad22cf1f51045d8e5c72813259f6af33bd154e93719817991",
+    "scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+    "scripts/diagnose_dipeptide_supply.py": "4ed23a426cfa2e45145604541d4ef555decc36b58c611dcf5b673e0b0598d9bd",
+    "scripts/diagnose_closed_energy.py": "efcd0e37b56f660005f73dc3407a935d3822406a01613f017db40ebde492e63f"
+  },
+  "variants": {
+    "E5": {
+      "path": "artifacts/atp_candidate_repair_20260924/candidates/E5.xml",
+      "sha256": "43042d16f874a91d61f12f9f2b65838cbc264821d98bcf6e108300bf787007be",
+      "simulation_context": {
+        "simulation_context_fingerprint_version": "1",
+        "simulation_context_fingerprint": "105509ed14070c6e0b29a67109b00b87476090b029a3a45ceea258dc65a7ef1c",
+        "strain_overlay_enabled": true,
+        "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+        "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+        "strain_overlay_effect_fingerprint_version": "1",
+        "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+      },
+      "active_medium": {
+        "R946": 1000.0,
+        "R971": 1000.0,
+        "R1003": 0.00489,
+        "R1016": 1000.0,
+        "R1029": 1000.0,
+        "R1030": 1000.0,
+        "R1070": 10.0,
+        "R1127": 1000.0,
+        "R1164": 1000.0,
+        "R1189": 6.67e-05,
+        "R1202": 0.02586,
+        "R1204": 0.05414,
+        "R1215": 0.00859,
+        "R1217": 0.03434,
+        "R1220": 0.02466,
+        "R1222": 0.01207,
+        "R1223": 0.02727,
+        "R1231": 0.07562,
+        "R1232": 0.02205,
+        "R1233": 0.02486,
+        "R1234": 0.10765,
+        "R1263": 1000.0,
+        "R1268": 1000.0,
+        "R1287": 1000.0,
+        "R1296": 1000.0,
+        "R1298": 1000.0,
+        "R1305": 1000.0,
+        "R1314": 1000.0,
+        "R1323": 1000.0,
+        "R1333": 1000.0,
+        "R1340": 1000.0,
+        "R1354": 1000.0,
+        "R1364": 1000.0,
+        "R2061": 1000.0,
+        "R2270": 1000.0
+      },
+      "strain_overlay": {
+        "schema_version": "1.0",
+        "workflow": "po1f_runtime_strain_overlay",
+        "profile_id": "po1f_sd_leu_accrispr_v1",
+        "strain": {
+          "name": "PO1f",
+          "reference_background": "W29/CLIB89",
+          "genotype": "MatA, leu2-270, ura3-302, xpr2-322, axp-2",
+          "assay_background": "Cas9/Cas12a fitness screen with intact NHEJ; LEU2-marked sgRNA plasmid selected in SD-Leu"
+        },
+        "operations": [
+          {
+            "type": "disable_reaction",
+            "reaction_id": "R612",
+            "locus": "URA3",
+            "gene_id": "YALI1E31685g",
+            "legacy_gene_id": "YALI0E26741g",
+            "allele": "ura3-302",
+            "protein_function": "orotidine-5'-phosphate decarboxylase; de novo UMP biosynthesis",
+            "evidence_status": "PO1f genotype is directly reported; enzyme identity is curated; current GEM lacks this gene and R612 has no GPR",
+            "before": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0
+            },
+            "changed": true
+          },
+          {
+            "type": "plasmid_complement",
+            "reaction_id": "R45",
+            "locus": "LEU2",
+            "gene_id": "YALI1C00464g",
+            "legacy_gene_id": "YALI0C00407g",
+            "allele": "leu2-270",
+            "complement_source": "pCas9yl-GW/pLbCas12ayl-GW library plasmid backbone carrying the LEU2 selectable marker",
+            "protein_function": "3-isopropylmalate dehydrogenase; leucine biosynthesis",
+            "evidence_status": "PO1f genotype, pCRISPRyl LEU2 marker, derivative library-vector construction, and SD-Leu selection are directly reported",
+            "pseudo_gene": "PO1f_plasmid_LEU2",
+            "before": {
+              "gene_reaction_rule": "YALI1C00464g"
+            },
+            "after": {
+              "gene_reaction_rule": "PO1f_plasmid_LEU2"
+            },
+            "changed": true
+          }
+        ],
+        "medium": {
+          "assertions_checked": {
+            "R1219": 0.0,
+            "R1354": 0.01607
+          },
+          "runtime_uptake_overrides": {
+            "R1354": 1000.0
+          },
+          "active_medium_before": {
+            "R1003": 0.00489,
+            "R1016": 1000.0,
+            "R1029": 1000.0,
+            "R1030": 1000.0,
+            "R1070": 10.0,
+            "R1127": 1000.0,
+            "R1164": 1000.0,
+            "R1189": 6.67e-05,
+            "R1202": 0.02586,
+            "R1204": 0.05414,
+            "R1215": 0.00859,
+            "R1217": 0.03434,
+            "R1219": 0.0,
+            "R1220": 0.02466,
+            "R1222": 0.01207,
+            "R1223": 0.02727,
+            "R1231": 0.07562,
+            "R1232": 0.02205,
+            "R1233": 0.02486,
+            "R1234": 0.10765,
+            "R1263": 1000.0,
+            "R1268": 1000.0,
+            "R1287": 1000.0,
+            "R1296": 1000.0,
+            "R1298": 1000.0,
+            "R1305": 1000.0,
+            "R1314": 1000.0,
+            "R1323": 1000.0,
+            "R1333": 1000.0,
+            "R1340": 1000.0,
+            "R1354": 0.01607,
+            "R1364": 1000.0,
+            "R2061": 1000.0,
+            "R2270": 1000.0,
+            "R946": 1000.0,
+            "R971": 1000.0
+          },
+          "active_medium": {
+            "R1003": 0.00489,
+            "R1016": 1000.0,
+            "R1029": 1000.0,
+            "R1030": 1000.0,
+            "R1070": 10.0,
+            "R1127": 1000.0,
+            "R1164": 1000.0,
+            "R1189": 6.67e-05,
+            "R1202": 0.02586,
+            "R1204": 0.05414,
+            "R1215": 0.00859,
+            "R1217": 0.03434,
+            "R1219": 0.0,
+            "R1220": 0.02466,
+            "R1222": 0.01207,
+            "R1223": 0.02727,
+            "R1231": 0.07562,
+            "R1232": 0.02205,
+            "R1233": 0.02486,
+            "R1234": 0.10765,
+            "R1263": 1000.0,
+            "R1268": 1000.0,
+            "R1287": 1000.0,
+            "R1296": 1000.0,
+            "R1298": 1000.0,
+            "R1305": 1000.0,
+            "R1314": 1000.0,
+            "R1323": 1000.0,
+            "R1333": 1000.0,
+            "R1340": 1000.0,
+            "R1354": 1000.0,
+            "R1364": 1000.0,
+            "R2061": 1000.0,
+            "R2270": 1000.0,
+            "R946": 1000.0,
+            "R971": 1000.0
+          },
+          "formulation": {
+            "uracil_mg_per_l": 20.0,
+            "uracil_millimolar": 0.1784280489,
+            "uracil_molecular_weight_g_per_mol": 112.09,
+            "glucose_g_per_l": 20.0,
+            "glucose_molecular_weight_g_per_mol": 180.156,
+            "glucose_uptake": 10.0,
+            "supply_ratio_surrogate_uptake": 0.0160724418,
+            "supply_ratio_surrogate_status": "concentration_ratio_surrogate_not_measured_vmax",
+            "runtime_override_status": "static_fba_nonlimiting_not_measured_vmax"
+          }
+        },
+        "active_medium": {
+          "R1003": 0.00489,
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1127": 1000.0,
+          "R1164": 1000.0,
+          "R1189": 6.67e-05,
+          "R1202": 0.02586,
+          "R1204": 0.05414,
+          "R1215": 0.00859,
+          "R1217": 0.03434,
+          "R1219": 0.0,
+          "R1220": 0.02466,
+          "R1222": 0.01207,
+          "R1223": 0.02727,
+          "R1231": 0.07562,
+          "R1232": 0.02205,
+          "R1233": 0.02486,
+          "R1234": 0.10765,
+          "R1263": 1000.0,
+          "R1268": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1314": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1354": 1000.0,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0,
+          "R946": 1000.0,
+          "R971": 1000.0
+        },
+        "assay_confounded_loci": [
+          "URA3",
+          "LEU2"
+        ],
+        "provenance_only_variants": [
+          "xpr2-322 and axp-2 are recorded but have no current small-molecule GEM reaction",
+          "Cas9/Cas12a expression cassettes integrated at A08 are assay provenance only",
+          "KU70 is intact in the fitness screen; delta-KU70 strains were used only for guide cutting-score calibration"
+        ],
+        "sources": [
+          "https://www.nature.com/articles/s42003-023-04996-8",
+          "https://sunrisescience.com/shop/growth-media/amino-acid-supplement-mixtures/csm-formulations/csm-leu-powder-10-grams/",
+          "https://www.addgene.org/70007/"
+        ],
+        "overlay_already_applied": false,
+        "model_layer_modified_in_memory": true,
+        "canonical_sbml_written": false
+      },
+      "closure": [
+        {
+          "reaction": "R941",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R943",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R944",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R945",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R946",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R947",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R948",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R949",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R950",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R951",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R954",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R955",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R956",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R957",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R960",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R964",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R971",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R987",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R991",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R992",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R994",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R995",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R996",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R999",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1003",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.00489,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1005",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1007",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1011",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1012",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1013",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1014",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1016",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1023",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1029",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1030",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1041",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1045",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1058",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1061",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1062",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1065",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1066",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1067",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1068",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1070",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -10.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1071",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1072",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1074",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1083",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1086",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1102",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1106",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1108",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1112",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1115",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1124",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1126",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1127",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1128",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1133",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1134",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1139",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1140",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1141",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1143",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1147",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1148",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1151",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1153",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1164",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1166",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1173",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1176",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1189",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -6.67e-05,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1190",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1193",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1196",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1198",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1201",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1202",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.02586,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1203",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1204",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.05414,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1206",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1209",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1211",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1213",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1215",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.00859,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1216",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1217",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.03434,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1219",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1220",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.02466,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1222",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.01207,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1223",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.02727,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1224",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1226",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1229",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1231",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.07562,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1232",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.02205,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1233",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.02486,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1234",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.10765,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1235",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1236",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1249",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1263",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1268",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1269",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1281",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1282",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1284",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1287",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1288",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1289",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1294",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1296",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1298",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1301",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1305",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1310",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1314",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1319",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1320",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1322",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1323",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1325",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1326",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1329",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1330",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1332",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1333",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1334",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1335",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1339",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1340",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1341",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1346",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1354",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1355",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1356",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1364",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1366",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1368",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1369",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1372",
+          "reasons": [
+            "biomass_synthesis"
+          ],
+          "before": [
+            0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1373",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1387",
+          "reasons": [
+            "biomass_synthesis"
+          ],
+          "before": [
+            0.0,
+            0.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1388",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1390",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1438",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1439",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1440",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1444",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1710",
+          "reasons": [
+            "biomass_synthesis"
+          ],
+          "before": [
+            0.0,
+            0.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1712",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1713",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "xBIOMASS",
+          "reasons": [
+            "biomass_synthesis"
+          ],
+          "before": [
+            0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "xMAINTENANCE",
+          "reasons": [
+            "release_forced_maintenance"
+          ],
+          "before": [
+            7.8625,
+            1000.0
+          ],
+          "after": [
+            0,
+            1000.0
+          ]
+        },
+        {
+          "reaction": "R1900",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1966",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1967",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1981",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1983",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1984",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1986",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1990",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1992",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1994",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R1998",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2001",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2005",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2008",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2011",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2014",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2016",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2018",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2022",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2026",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2031",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2036",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2061",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2208",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2211",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2214",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2270",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -1000.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2272",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2273",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2275",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2278",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "R2280",
+          "reasons": [
+            "single_sided_source_sink_exchange"
+          ],
+          "before": [
+            -0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "newBiom",
+          "reasons": [
+            "biomass_synthesis"
+          ],
+          "before": [
+            0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        },
+        {
+          "reaction": "biomass_C",
+          "reasons": [
+            "biomass_synthesis"
+          ],
+          "before": [
+            0.0,
+            1000.0
+          ],
+          "after": [
+            0,
+            0
+          ]
+        }
+      ],
+      "maintenance": {
+        "reaction": "xMAINTENANCE",
+        "name": "Non-growth associated maintenance (NGAM)",
+        "equation": "m141[C_cy] + m32[C_cy] --> m143[C_cy] + m35[C_cy]",
+        "named_equation": "ATP_C10H16N5O13P3 + H2O_H2O --> ADP_C10H15N5O10P2 + phosphate_H3O4P",
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m143[C_cy]": 1.0
+        },
+        "bounds": [
+          0,
+          1000.0
+        ],
+        "compartments": [
+          "C_cy"
+        ],
+        "gpr": "",
+        "gpr_evidence": "stored model assignment; not native validation",
+        "annotation": {
+          "sbo": "SBO:0000630"
+        },
+        "notes": {},
+        "element_status": "balanced",
+        "missing_formula": [],
+        "element_residual": {
+          "C": 0.0,
+          "H": 0.0,
+          "N": 0.0,
+          "O": 0.0,
+          "P": 0.0
+        },
+        "stored_charge_residual": 0.0,
+        "charge_status": "balanced_as_stored"
+      },
+      "energy_test_chemistry": {
+        "GTP": {
+          "reaction": "DIAG_D_GTP",
+          "name": "Diagnostic balanced GTP dissipation",
+          "equation": "m266[C_cy] + m32[C_cy] --> m268[C_cy] + m35[C_cy]",
+          "named_equation": "GTP_C10H16N5O14P3 + H2O_H2O --> GDP_C10H15N5O11P2 + phosphate_H3O4P",
+          "stoichiometry": {
+            "m266[C_cy]": -1,
+            "m32[C_cy]": -1,
+            "m268[C_cy]": 1,
+            "m35[C_cy]": 1
+          },
+          "bounds": [
+            0,
+            1000
+          ],
+          "compartments": [
+            "C_cy"
+          ],
+          "gpr": "",
+          "gpr_evidence": "stored model assignment; not native validation",
+          "annotation": {},
+          "notes": {},
+          "element_status": "balanced",
+          "missing_formula": [],
+          "element_residual": {
+            "C": 0,
+            "H": 0,
+            "N": 0,
+            "O": 0,
+            "P": 0
+          },
+          "stored_charge_residual": 0,
+          "charge_status": "balanced_as_stored"
+        },
+        "UTP": {
+          "reaction": "DIAG_D_UTP",
+          "name": "Diagnostic balanced UTP dissipation",
+          "equation": "m32[C_cy] + m439[C_cy] --> m11[C_cy] + m35[C_cy]",
+          "named_equation": "H2O_H2O + UTP_C9H15N2O15P3 --> UDP_C9H14N2O12P2 + phosphate_H3O4P",
+          "stoichiometry": {
+            "m439[C_cy]": -1,
+            "m32[C_cy]": -1,
+            "m11[C_cy]": 1,
+            "m35[C_cy]": 1
+          },
+          "bounds": [
+            0,
+            1000
+          ],
+          "compartments": [
+            "C_cy"
+          ],
+          "gpr": "",
+          "gpr_evidence": "stored model assignment; not native validation",
+          "annotation": {},
+          "notes": {},
+          "element_status": "balanced",
+          "missing_formula": [],
+          "element_residual": {
+            "C": 0,
+            "H": 0,
+            "N": 0,
+            "O": 0,
+            "P": 0
+          },
+          "stored_charge_residual": 0,
+          "charge_status": "balanced_as_stored"
+        },
+        "CTP": {
+          "reaction": "DIAG_D_CTP",
+          "name": "Diagnostic balanced CTP dissipation",
+          "equation": "m32[C_cy] + m406[C_cy] --> m35[C_cy] + m500[C_cy]",
+          "named_equation": "H2O_H2O + CTP_C9H16N3O14P3 --> phosphate_H3O4P + CDP_C9H15N3O11P2",
+          "stoichiometry": {
+            "m406[C_cy]": -1,
+            "m32[C_cy]": -1,
+            "m500[C_cy]": 1,
+            "m35[C_cy]": 1
+          },
+          "bounds": [
+            0,
+            1000
+          ],
+          "compartments": [
+            "C_cy"
+          ],
+          "gpr": "",
+          "gpr_evidence": "stored model assignment; not native validation",
+          "annotation": {},
+          "notes": {},
+          "element_status": "balanced",
+          "missing_formula": [],
+          "element_residual": {
+            "C": 0,
+            "H": 0,
+            "N": 0,
+            "O": 0,
+            "P": 0
+          },
+          "stored_charge_residual": 0,
+          "charge_status": "balanced_as_stored"
+        }
+      },
+      "original_restored": true
+    }
+  },
+  "outcomes": [
+    {
+      "label": "E5_validation/E5_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E5"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.285789+00:00",
+      "solve_call_seconds": 0.008003458962775767,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_ATP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.366943+00:00",
+      "solve_call_seconds": 0.026041958015412092,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_GTP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "GTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.441638+00:00",
+      "solve_call_seconds": 0.008087374968454242,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_UTP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "UTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.498576+00:00",
+      "solve_call_seconds": 0.025306791998445988,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_CTP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "CTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.572078+00:00",
+      "solve_call_seconds": 0.02007629198487848,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_growth",
+      "status": "optimal",
+      "objective": 1.429177892279185,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E5"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.638254+00:00",
+      "solve_call_seconds": 0.03857783298008144,
+      "max_mass_residual": 5.894763843716788e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    }
+  ],
+  "wall_seconds": 3.482505959109403
+}

@@ -49,7 +49,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 按用户图片指令，针对固定历史 E5 实现独立构建入口：仅在 `biomass_C` 加入 `m468[C_mi]: -α`，保留既有生物量系数及 R385 边界，不新增固定需求反应。沿用现有候选导出／重载与能量保护检查，α（mmol/gDW）及其来源必须显式提供；[整理定义](curation/candidates/coq_biomass_candidate.json)中 α 保持 null，旧 `1e-4` 仅为未校准敏感性参数，不自动沿用。
 
-[构建入口](scripts/build_coq_biomass_candidate.py)的合成模型软件检查通过：总池行变为 `v_R385−α·v_biomass_C=0`，原有系数与边界保持，重复应用不叠加，非法值／冲突被拒绝；无优化或网络调用。有限独立源码核对完成，不等于 E5 实际导出验收。**目前未生成新的 E5 XML，等待用户给出 α；未进行生长、KO 或能量复测。** 本次不合并其他工作线候选，不改变默认模型或正式接受状态。
+[构建入口](../platform/tools/build_coq_biomass_candidate.py)的合成模型软件检查通过：总池行变为 `v_R385−α·v_biomass_C=0`，原有系数与边界保持，重复应用不叠加，非法值／冲突被拒绝；无优化或网络调用。有限独立源码核对完成，不等于 E5 实际导出验收。**目前未生成新的 E5 XML，等待用户给出 α；未进行生长、KO 或能量复测。** 本次不合并其他工作线候选，不改变默认模型或正式接受状态。
 
 ## 2026-10-05：补齐 R1889 的四成员部分 GPR
 

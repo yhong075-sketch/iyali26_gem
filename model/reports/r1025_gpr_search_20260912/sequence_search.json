@@ -1,0 +1,349 @@
+{
+  "started_at_utc": "2026-09-13T01:00:25.097730+00:00",
+  "status": "complete",
+  "script_sha256": "7684324e6fc0632079dd0af8782a7bd8d91f939bec6269a2248fa529a300780c",
+  "blast_binary": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+  "blast_binary_sha256": "753f0695a39ba19b2d351b0bb851b6051169b8b9e22c095fd634cc2a93cddf55",
+  "blast_version": "blastp: 2.17.0+\n Package: blast 2.17.0, build Jul  1 2025 08:59:26",
+  "target": {
+    "systematic_id": "YALI1F28274g",
+    "source_id": "YALI1_F28274g",
+    "established_name": null,
+    "accession": "A0A1H6PNW2",
+    "entry_version": 32,
+    "sequence_version": 1,
+    "sequence_date": "2017-01-18",
+    "entry_date": "2026-01-28",
+    "strain": "CLIB89/W29",
+    "length": 222,
+    "sequence_sha256": "61eeba8a4906133208f71371cc8334cc79404bb12bfe8253ed1c09a07829b454",
+    "current_status": {
+      "entryType": "Inactive",
+      "primaryAccession": "A0A1H6PNW2",
+      "uniProtkbId": "A0A1H6PNW2_YARLL",
+      "annotationScore": 0.0,
+      "inactiveReason": {
+        "inactiveReasonType": "DELETED",
+        "deletedReason": "Not part of a reference proteome"
+      },
+      "extraAttributes": {
+        "uniParcId": "UPI00003BCE8E"
+      }
+    }
+  },
+  "reference": {
+    "accession": "P53615",
+    "gene": "YNL036W / NCE103",
+    "function_evidence": "experimentally characterized carbonic anhydrase; PMID15813743; nuclear localization is a separate question",
+    "entryAudit": {
+      "firstPublicDate": "1996-10-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-10-01",
+      "entryVersion": 169,
+      "sequenceVersion": 1
+    },
+    "source_sha256": "bba282dad5a834b385f6dcc9af8b98780b61e51491ff44d1be8e45916f3364fd",
+    "sequence_sha256": "2b7ff0a6645ef5a34bdc19d57ee0e721ec5db28ef5f6c5711bae9b5acc704cf4"
+  },
+  "jobs": [
+    {
+      "name": "target_to_curated_reference",
+      "command": [
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+        "-task",
+        "blastp",
+        "-query",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_search_20260912/target.fasta",
+        "-subject",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_search_20260912/curated_reference.fasta",
+        "-evalue",
+        "1e-5",
+        "-matrix",
+        "BLOSUM62",
+        "-seg",
+        "yes",
+        "-soft_masking",
+        "false",
+        "-comp_based_stats",
+        "2",
+        "-gapopen",
+        "11",
+        "-gapextend",
+        "1",
+        "-word_size",
+        "3",
+        "-num_threads",
+        "1",
+        "-max_target_seqs",
+        "100",
+        "-outfmt",
+        "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen qseq sseq",
+        "-out",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_search_20260912/target_to_curated_reference.tsv"
+      ],
+      "query_sha256": "0347f06d7771543fe1596574f26d8da4c0292e4ac549f824906090d6fe07e456",
+      "subject_sha256": "e951593c2c7f995b5276d2935dcaf9f38007c154a12d48797d5b80d748d62797",
+      "timeout_seconds": 60,
+      "returncode": 0,
+      "elapsed_seconds": 0.023864249989856035,
+      "stderr": "",
+      "rows": [
+        {
+          "qseqid": "YALI1_F28274g_A0A1H6PNW2_entry32_seq1",
+          "sseqid": "P53615_NCE103_Scerevisiae_entry169_seq1",
+          "pident": "34.314",
+          "length": "204",
+          "mismatch": "126",
+          "gapopen": "3",
+          "qstart": "6",
+          "qend": "201",
+          "sstart": "9",
+          "send": "212",
+          "evalue": "1.43e-45",
+          "bitscore": "138",
+          "qlen": "222",
+          "slen": "221",
+          "qseq": "LFRFGATDSLATLLERNEKWANRVSSVRPSLFPT-NAQGQAPKILWIGCSDSRAGEGCLDLLPGEVFVHRNIANLLPDSDFSSLSVIQFAVQVLKVRHIIVCGHYDCGGVWSSLTSKKLGI----IDHWLRPIRDTKVRH---KAMLDAIEDPKDKCARLVELNVCAQVNNLKRNTVIIEAQGERDLQIHGVVYDPGSGLLKEI",
+          "sseq": "IFTLSHNSNLQDILAANAKWASQMNNIQPTLFPDHNAKGQSPHTLFIGCSDSRYNENCLGVLPGEVFTWKNVANICHSEDLTLKATLEFAIICLKVNKVIICGHTDCGGIKTCLTNQREALPKVNCSHLYKYLDDIDTMYHEESQNLIHLKTQREKSHYLSHCNVKRQFNRIIENPTVQTAVQNGELQVYGLLYNVEDGLLQTV",
+          "query_span_coverage_percent": 88.28828828828829,
+          "subject_span_coverage_percent": 92.3076923076923
+        }
+      ],
+      "output_sha256": "25115c96e22253a2c6faab0929e1ffa683f38d2eb13c4ab4f984818162232486"
+    },
+    {
+      "name": "curated_reference_to_proteomes",
+      "command": [
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+        "-task",
+        "blastp",
+        "-query",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_search_20260912/curated_reference.fasta",
+        "-subject",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_search_20260912/two_cached_proteomes.fasta",
+        "-evalue",
+        "1e-5",
+        "-matrix",
+        "BLOSUM62",
+        "-seg",
+        "yes",
+        "-soft_masking",
+        "false",
+        "-comp_based_stats",
+        "2",
+        "-gapopen",
+        "11",
+        "-gapextend",
+        "1",
+        "-word_size",
+        "3",
+        "-num_threads",
+        "1",
+        "-max_target_seqs",
+        "100",
+        "-outfmt",
+        "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen qseq sseq",
+        "-out",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_search_20260912/curated_reference_to_proteomes.tsv"
+      ],
+      "query_sha256": "e951593c2c7f995b5276d2935dcaf9f38007c154a12d48797d5b80d748d62797",
+      "subject_sha256": "705e0a580f1a3f172614bec6a37b4116e642b9da82fe4285f9f399ffee0ce1e5",
+      "timeout_seconds": 60,
+      "returncode": 0,
+      "elapsed_seconds": 0.2978486660285853,
+      "stderr": "",
+      "rows": [
+        {
+          "qseqid": "P53615_NCE103_Scerevisiae_entry169_seq1",
+          "sseqid": "UP000001300__Q6C0V4",
+          "pident": "34.314",
+          "length": "204",
+          "mismatch": "126",
+          "gapopen": "3",
+          "qstart": "9",
+          "qend": "212",
+          "sstart": "6",
+          "send": "201",
+          "evalue": "4.15e-41",
+          "bitscore": "138",
+          "qlen": "221",
+          "slen": "222",
+          "qseq": "IFTLSHNSNLQDILAANAKWASQMNNIQPTLFPDHNAKGQSPHTLFIGCSDSRYNENCLGVLPGEVFTWKNVANICHSEDLTLKATLEFAIICLKVNKVIICGHTDCGGIKTCLTNQREALPKVNCSHLYKYLDDIDTMYHEESQNLIHLKTQREKSHYLSHCNVKRQFNRIIENPTVQTAVQNGELQVYGLLYNVEDGLLQTV",
+          "sseq": "LFRFGATDSLATLLERNEKWANRVSSVRPSLFPT-NAQGQAPKILWIGCSDSRAGEGCLDLLPGEVFVHRNIANLLPDSDFSSLSVIQFAVQVLKVRHIIVCGHYDCGGVWSSLTSKKLGI----IDHWLRPIRDTKVRH---KAMLDAIEDPKDKCARLVELNVCAQVNNLKRNTVIIEAQGERDLQIHGVVYDPGSGLLKEI",
+          "query_span_coverage_percent": 92.3076923076923,
+          "subject_span_coverage_percent": 88.28828828828829
+        },
+        {
+          "qseqid": "P53615_NCE103_Scerevisiae_entry169_seq1",
+          "sseqid": "UP000182444__A0A1H6PNW2",
+          "pident": "34.314",
+          "length": "204",
+          "mismatch": "126",
+          "gapopen": "3",
+          "qstart": "9",
+          "qend": "212",
+          "sstart": "6",
+          "send": "201",
+          "evalue": "4.15e-41",
+          "bitscore": "138",
+          "qlen": "221",
+          "slen": "222",
+          "qseq": "IFTLSHNSNLQDILAANAKWASQMNNIQPTLFPDHNAKGQSPHTLFIGCSDSRYNENCLGVLPGEVFTWKNVANICHSEDLTLKATLEFAIICLKVNKVIICGHTDCGGIKTCLTNQREALPKVNCSHLYKYLDDIDTMYHEESQNLIHLKTQREKSHYLSHCNVKRQFNRIIENPTVQTAVQNGELQVYGLLYNVEDGLLQTV",
+          "sseq": "LFRFGATDSLATLLERNEKWANRVSSVRPSLFPT-NAQGQAPKILWIGCSDSRAGEGCLDLLPGEVFVHRNIANLLPDSDFSSLSVIQFAVQVLKVRHIIVCGHYDCGGVWSSLTSKKLGI----IDHWLRPIRDTKVRH---KAMLDAIEDPKDKCARLVELNVCAQVNNLKRNTVIIEAQGERDLQIHGVVYDPGSGLLKEI",
+          "query_span_coverage_percent": 92.3076923076923,
+          "subject_span_coverage_percent": 88.28828828828829
+        }
+      ],
+      "output_sha256": "9f34a8b373e366f2236152cc8227c7c8400e3303ebc2e308529566032649e28d"
+    }
+  ],
+  "new_LP_solves": 0,
+  "new_structure_predictions": 0,
+  "model_edits": false,
+  "subject_databases": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/uniprot_UP000182444.json",
+      "sha256": "e5b0a04874079b4057ffe25dadcb6b812cba8c96b227f41187187b27715753a3",
+      "proteome": "UP000182444",
+      "entries": 7894,
+      "database_release": "historical cache; global release/date not recorded; per-entry versions retained for hits"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/uniprot_UP000001300.json",
+      "sha256": "89f2dc9c77ff1aa5f1b4c245567285e5e98bebc0916ab94ed25b43e6210a3a4b",
+      "proteome": "UP000001300",
+      "entries": 6454,
+      "database_release": "historical cache; global release/date not recorded; per-entry versions retained for hits"
+    }
+  ],
+  "subject_sequence_count": 14348,
+  "matched_subject_identity": {
+    "UP000001300__Q6C0V4": {
+      "accession": "Q6C0V4",
+      "genes": [
+        {
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "CAG78517.1"
+                }
+              ],
+              "value": "YALI0_F21406g"
+            }
+          ]
+        }
+      ],
+      "organism": {
+        "scientificName": "Yarrowia lipolytica (strain CLIB 122 / E 150)",
+        "commonName": "Yeast",
+        "synonyms": [
+          "Candida lipolytica"
+        ],
+        "taxonId": 284591,
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "EMBL",
+            "id": "CAG78517.1"
+          },
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "Proteomes",
+            "id": "UP000001300"
+          }
+        ],
+        "lineage": [
+          "Eukaryota",
+          "Fungi",
+          "Dikarya",
+          "Ascomycota",
+          "Saccharomycotina",
+          "Dipodascomycetes",
+          "Dipodascales",
+          "Dipodascales incertae sedis",
+          "Yarrowia"
+        ]
+      },
+      "entryAudit": {
+        "firstPublicDate": "2004-08-16",
+        "lastAnnotationUpdateDate": "2025-10-08",
+        "lastSequenceUpdateDate": "2004-08-16",
+        "entryVersion": 115,
+        "sequenceVersion": 1
+      },
+      "sequence_sha256": "61eeba8a4906133208f71371cc8334cc79404bb12bfe8253ed1c09a07829b454",
+      "length": 222
+    },
+    "UP000182444__A0A1H6PNW2": {
+      "accession": "A0A1H6PNW2",
+      "genes": [
+        {
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW28286.1"
+                }
+              ],
+              "value": "B0I71DRAFT_1078"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW07516.1"
+                }
+              ],
+              "value": "YALI1_F28274g"
+            }
+          ]
+        }
+      ],
+      "organism": {
+        "scientificName": "Yarrowia lipolytica",
+        "commonName": "Candida lipolytica",
+        "taxonId": 4952,
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "EMBL",
+            "id": "AOW07516.1"
+          },
+          {
+            "evidenceCode": "ECO:0000313",
+            "source": "Proteomes",
+            "id": "UP000182444"
+          }
+        ],
+        "lineage": [
+          "Eukaryota",
+          "Fungi",
+          "Dikarya",
+          "Ascomycota",
+          "Saccharomycotina",
+          "Dipodascomycetes",
+          "Dipodascales",
+          "Dipodascales incertae sedis",
+          "Yarrowia"
+        ]
+      },
+      "entryAudit": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 32,
+        "sequenceVersion": 1
+      },
+      "sequence_sha256": "61eeba8a4906133208f71371cc8334cc79404bb12bfe8253ed1c09a07829b454",
+      "length": 222
+    }
+  },
+  "limits": "One curated experimental beta-CA reference; no alpha/gamma-family or unannotated genomic ORF exhaustiveness claim; homology does not establish nuclear localization",
+  "completed_at_utc": "2026-09-13T01:00:26.640906+00:00"
+}

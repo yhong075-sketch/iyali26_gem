@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-09-18T22:02:58.371816+00:00",
+  "tool": "AlphaFold 3",
+  "module": "alphafold/3.0.2",
+  "version": "3.0.2",
+  "model_seeds": [
+    0
+  ],
+  "diffusion_samples_per_seed": 5,
+  "recycles": 10,
+  "max_template_date": "2026-09-18",
+  "run_data_pipeline": true,
+  "run_inference": true,
+  "jackhmmer_n_cpu": 4,
+  "nhmmer_n_cpu": 4,
+  "protein_copies": "one per specified gene product",
+  "fusion_linkers": false,
+  "explicit_ligands": [],
+  "membrane_environment_modeled": false,
+  "comparison_status": "pending new predictions",
+  "jobs": {
+    "A": {
+      "chains": 12,
+      "residues": 4106,
+      "gpu": "a100:1",
+      "cpus": 16,
+      "memory_GiB": 256,
+      "walltime_hours": 24
+    },
+    "B": {
+      "chains": 2,
+      "residues": 1000,
+      "gpu": "a100:1",
+      "cpus": 16,
+      "memory_GiB": 128,
+      "walltime_hours": 8
+    }
+  },
+  "database_identity_limit": "Path, byte size, mtime and nominal release identifiers recorded; huge sequence databases were not fully SHA256 hashed.",
+  "files": {
+    "branch_A.json": "98d097943026e982001bb23ca40e446d8c910bc76ec40ee6215eca5e35bb77b2",
+    "branch_B.json": "fb37d0518bd673fbb092570ba17771a5f48ed371b8e637819dd47b77f9497549",
+    "run_branch.sbatch": "21dcae0b22335cd47f63473919775db8c06c2da149148d97e2a53ee39eff25b0",
+    "engine.sha256": "253691f42c4d11405051f85b49d7f1b39ea09c3d8403879edbceb22d3ded5e48",
+    "sequence_manifest.json": "e0b82204f30d60c64b19ba2724134c371114e3780adfbff2c316f2445a760118",
+    "TASK.md": "2842e69458b1cb5b07f41611ee4550710898f49bb0bfd678ea2301057d3bebb8"
+  }
+}

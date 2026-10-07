@@ -1,0 +1,31 @@
+{
+  "no_optimization_calls": true,
+  "failures_before_success": [
+    {
+      "attempt": 1,
+      "stage": "template static validation; no output file written",
+      "error": "Removing the declared overlay does not restore the actual solver definition",
+      "cause": "Ordinary COBRA/Gurobi copy rounds small R1372 stoichiometric coefficients through LP text serialization",
+      "resolution": "Use optlang JSON clone and require exact solver-definition equality; measured row differences retained in manifest.json"
+    },
+    {
+      "attempt": 2,
+      "stage": "first scenario static validation; no XML exported",
+      "error": "m1865[C_cy]: protected dipeptide chemistry or adjacency changed",
+      "cause": "Ordinary COBRA copy aliases notes; negative test mutated an in-memory original notes dict",
+      "resolution": "Deep-copy model and all collection notes/annotations; explicit original metadata isolation check now passes"
+    }
+  ],
+  "final_guard_checks": {
+    "reject_wrong_source_sha": {
+      "passed": true,
+      "reason": "Explicit source SHA differs from the audited chemical candidate"
+    },
+    "refuse_existing_candidate_outputs": {
+      "passed": true,
+      "reason": "Refusing to overwrite candidates or hypothesis/difference records"
+    }
+  },
+  "measured_exact_copy_seconds": 2.433620750089176,
+  "source_and_historical_xml_unchanged": true
+}

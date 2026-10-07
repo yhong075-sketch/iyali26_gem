@@ -1,0 +1,153 @@
+{
+  "checked_utc": "2026-09-16T00:22:51.846484+00:00",
+  "scope": "Three reviewed S. cerevisiae reference proteins, not a full database or proteome search. E-values apply only to this targeted panel.",
+  "program_version": "BLASTP 2.17.0+",
+  "command": [
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+    "-task",
+    "blastp",
+    "-query",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r610_gpr_review_20260915/target.fasta",
+    "-subject",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r610_gpr_review_20260915/reference_panel.fasta",
+    "-evalue",
+    "1e-5",
+    "-matrix",
+    "BLOSUM62",
+    "-seg",
+    "yes",
+    "-soft_masking",
+    "false",
+    "-comp_based_stats",
+    "2",
+    "-gapopen",
+    "11",
+    "-gapextend",
+    "1",
+    "-word_size",
+    "3",
+    "-num_threads",
+    "1",
+    "-outfmt",
+    "16",
+    "-out",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r610_gpr_review_20260915/local_blast.xml"
+  ],
+  "tool_sha256": "753f0695a39ba19b2d351b0bb851b6051169b8b9e22c095fd634cc2a93cddf55",
+  "script_sha256": "79590db387226d3d941b6530f1806bcad517f0ff6eb060f346297f7a5b10d0d3",
+  "query_sha256": "c6ef322598821deab85efb9a14b0c50f77bdd8465e7bd4397db6d7aa4c07f1a0",
+  "panel_sha256": "d28b8fb9062a38bc917ac778eedc56c324eb270ead8a7cdc396758c3a4ac22c9",
+  "raw_xml_sha256": "eed4b424af175d59819f3a58193f3744814d7cc03a1b1a8b6f879d638c0f8a42",
+  "reference_versions": {
+    "P07991": {
+      "firstPublicDate": "1988-08-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-10-01",
+      "entryVersion": 214,
+      "sequenceVersion": 2
+    },
+    "P17649": {
+      "firstPublicDate": "1990-08-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-10-01",
+      "entryVersion": 204,
+      "sequenceVersion": 2
+    },
+    "P18544": {
+      "firstPublicDate": "1990-11-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1990-11-01",
+      "entryVersion": 202,
+      "sequenceVersion": 1
+    }
+  },
+  "rows": [
+    {
+      "reference": "P07991",
+      "query_length": 432,
+      "reference_length": 424,
+      "query_union_coverage": 0.9722222222222222,
+      "reference_union_coverage": 0.9764150943396226,
+      "best_hsp_identity": 0.5933806146572104,
+      "best_hsp_evalue": 0.0,
+      "best_hsp_bitscore": 523.087,
+      "hsps": [
+        {
+          "num": "1",
+          "bit-score": "523.087",
+          "score": "1346",
+          "evalue": "0",
+          "identity": "251",
+          "positive": "323",
+          "query-from": "2",
+          "query-to": "421",
+          "hit-from": "8",
+          "hit-to": "421",
+          "align-len": "423",
+          "gaps": "12",
+          "qseq": "STAAIERENKHSAHNYHPLPVVFTKALGAKVWDPEGKEYLDFLSAYSAVNQGHCHPKIVKALCDQAQKLTLSSRAFHAEIFGEFAEYITNYFGFDKVLPMNTGAEAVETGIKIARKWGYLKKGIPAGEALVLAATENFHGRTLAIVSMSTDNEATDNYGPYLEGVGPFIPDSNGKIDPKTAKPLRYNNIGDVEEAFNN-AGSKIAAFLVEPIQGEAGIIVPDKEYLQQVRKLCDKHNVLLICDEIQTGIARTGKLLCFEH--SEIRPDMVLLGKAISGGVTPVSAVLADNAVMDVITPGTHGSTYGGNPLACAVAMAALDVVKDEQLVERADRLGNEFRAALEPLIKESNGIVTTVRGKGLLNAIVIDSSKANGRSAWDLCVLMSNKGLLAKPTHENIIRLAPPLVITDEDMKKGLEIIRESV",
+          "hseq": "SKQTIEWENKYSAHNYHPLPVVFHKAKGAHVWDPEGKLYLDFLSAYSAVNQGHCHPHIIKALTEQAQTLTLSSRAFHNDVYAQFAKFVTEFFGFETVLPMNTGAEAVETALKLARRWGYMKKNIPQDKAIILGAEGNFHGRTFGAISLSTDYEDSKLH------FGPFVPNVASG---HSVHKIRYGHAEDFVPILESPEGKNVAAIILEPIQGEAGIVVPPADYFPKVSALCRKHNVLLIVDEIQTGIGRTGELLCYDHYKAEAKPDIVLLGKALSGGVLPVSCVLSSHDIMSCFTPGSHGSTFGGNPLASRVAIAALEVIRDEKLCQRAAQLGSSFIAQLKALQAKSNGIISEVRGMGLLTAIVIDPSKANGKTAWDLCLLMKDHGLLAKPTHDHIIRLAPPLVISEEDLQTGVETIAKCI",
+          "midline": "S   IE ENK+SAHNYHPLPVVF KA GA VWDPEGK YLDFLSAYSAVNQGHCHP I+KAL +QAQ LTLSSRAFH +++ +FA+++T +FGF+ VLPMNTGAEAVET +K+AR+WGY+KK IP  +A++L A  NFHGRT   +S+STD E +  +       GPF+P+        +   +RY +  D      +  G  +AA ++EPIQGEAGI+VP  +Y  +V  LC KHNVLLI DEIQTGI RTG+LLC++H  +E +PD+VLLGKA+SGGV PVS VL+ + +M   TPG+HGST+GGNPLA  VA+AAL+V++DE+L +RA +LG+ F A L+ L  +SNGI++ VRG GLL AIVID SKANG++AWDLC+LM + GLLAKPTH++IIRLAPPLVI++ED++ G+E I + +"
+        }
+      ]
+    },
+    {
+      "reference": "P18544",
+      "query_length": 432,
+      "reference_length": 423,
+      "query_union_coverage": 0.9328703703703703,
+      "reference_union_coverage": 0.91725768321513,
+      "best_hsp_identity": 0.2966507177033493,
+      "best_hsp_evalue": 2.53126e-56,
+      "best_hsp_bitscore": 181.03,
+      "hsps": [
+        {
+          "num": "1",
+          "bit-score": "181.03",
+          "score": "458",
+          "evalue": "2.53126e-56",
+          "identity": "124",
+          "positive": "213",
+          "query-from": "19",
+          "query-to": "421",
+          "hit-from": "31",
+          "hit-to": "418",
+          "align-len": "418",
+          "gaps": "45",
+          "qseq": "PLPVVFTKALGAKVWDP-EGKEYLDFLSAYSAVNQGHCHPKIVKALCDQAQKLTLSSRAFHAEIFGEFAEYI---TNYFG----FDKVLPMNTGAEAVETGIKIARKWGYLKKGIPAGEALVLAATENFHGRTLAIVSMSTDNEATDNYGPYLEGVGPFIPDSNGKIDPKTAKPLRYNNIGD----VEEAFNNAGSKIAAFLVEPIQGEAGIIVPDKEYLQQVRKLCDKHNVLLICDEIQTGIARTGKLLCFEH--SEIRPDMVLLGKAISGGVTPVSAVLADNAVMDVITPGTHGSTYGGNPLACAVAMAALDVVKDEQLVERADRLGNEFRAALEPLIKESNGIVTTVRGKGL-LNAIVIDSSKANGRSAWDLCVLMSNKGLLAKPTHENIIRLAPPLVITDEDMKKGLEIIRESV",
+          "hseq": "PEDLCITRGKNAKLYDDVNGKEYIDFTAGIAVTALGHANPKVAEILHHQANKLVHSSNLYFTKECLDLSEKIVEKTKQFGGQHDASRVFLCNSGTEANEAALKFAKKHGIMKN--PSKQGIV-AFENSFHGRTMGALSVTWNSK-------YRTPFGDLVPH------------VSFLNLNDEMTKLQSYIETKKDEIAGLIVEPIQGEGGVFPVEVEKLTGLKKICQDNDVIVIHDEIQCGLGRSGKLWAHAYLPSEAHPDIFTSAKALGNGF-PIAATIVNEKVNNALRVGDHGTTYGGNPLACSVSNYVLDTIADEAFLKQVSKKSDILQKRLREIQAKYPNQIKTIRGKGLMLGAEFVEPPTEVIKKARELGLLIITAG-------KSTVRFVPALTIEDELIEEGMDAFEKAI",
+          "midline": "P  +  T+   AK++D   GKEY+DF +  +    GH +PK+ + L  QA KL  SS  +  +   + +E I   T  FG      +V   N+G EA E  +K A+K G +K   P+ + +V A   +FHGRT+  +S++ +++       Y    G  +P             + + N+ D    ++        +IA  +VEPIQGE G+   + E L  ++K+C  ++V++I DEIQ G+ R+GKL    +  SE  PD+    KA+  G  P++A + +  V + +  G HG+TYGGNPLAC+V+   LD + DE  +++  +  +  +  L  +  +    + T+RGKGL L A  ++      + A +L +L+   G       ++ +R  P L I DE +++G++   +++"
+        }
+      ]
+    },
+    {
+      "reference": "P17649",
+      "query_length": 432,
+      "reference_length": 471,
+      "query_union_coverage": 0.9282407407407407,
+      "reference_union_coverage": 0.8980891719745223,
+      "best_hsp_identity": 0.25754060324825984,
+      "best_hsp_evalue": 4.72026e-28,
+      "best_hsp_bitscore": 103.99,
+      "hsps": [
+        {
+          "num": "1",
+          "bit-score": "103.99",
+          "score": "258",
+          "evalue": "4.72026e-28",
+          "identity": "111",
+          "positive": "176",
+          "query-from": "24",
+          "query-to": "424",
+          "hit-from": "49",
+          "hit-to": "471",
+          "align-len": "431",
+          "gaps": "38",
+          "qseq": "FTKALGAKVWDPEGKEYLDFLSAYSAVNQGHCHPKIVKALCDQAQKLTLSSRA----FHAEIFGEFAEYITNYF--GFDKVLPMNTGAEAVETGIKIA------RKWGY------------LKKGIPAGEAL-VLAATENFHGRTLAIVSMSTDNEATDNYGPYLEGVGPFIPDSNGKIDPKTAKPLRYNN--IGDVEEAFNNAGSKIAAFLVEPIQGEAGIIVPDKEYLQQVRKLCDKHNVLLICDEIQTGIARTGKLLCFEHSEIRP--DMVLLGKAI-SGGVTPVSAVLADNAVMDVITPGTHGSTYGGNPLACAVAMAALDVVKDEQLVERADRLGNEFRAALEPLIKESNGIVTTVRGKGLLNAIVIDSSKANGRSAWDLCVLMSNKGLLAKPTHENIIRLAPPLVITDEDMKKGLEIIRESVLEL",
+          "hseq": "YEKSLGNYITDVDGNTYLDLYAQISSIALGYNNPALIKAAQSPEMIRALVDRPALGNFPSKDLDKILKQILKSAPKGQDHVWSGLSGADANELAFKAAFIYYRAKQRGYDADFSEKENLSVMDNDAPGAPHLAVLSFKRAFHGRLFASGSTTCSKPIHKLDFPAFHWPHAEYPSYQYPLDENSDANRKEDDHCLAIVEELIKTWSIPVAALIIEPIQSEGGDNHASKYFLQKLRDITLKYNVVYIIDEVQTGVGATGKLWCHEYADIQPPVDLVTFSKKFQSAGYFFHDPKFIPN------KPYRQFNTWCGEPARMIIAGAIGQEISDKKLTEQCSRVGDYLFKKLEGLQKKYPENFQNLRGKGRGTFIAWDLPTGEKRDLLLKKLKLNGCNVGGCAVH--AVRLRPSLTFEEKHADIFIEALAKSVNEL",
+          "midline": "+ K+LG  + D +G  YLD  +  S++  G+ +P ++KA         L  R     F ++   +  + I      G D V    +GA+A E   K A      ++ GY            +    P    L VL+    FHGR  A  S +          P         P     +D  +    + ++  +  VEE        +AA ++EPIQ E G     K +LQ++R +  K+NV+ I DE+QTG+  TGKL C E+++I+P  D+V   K   S G          N       P    +T+ G P    +A A    + D++L E+  R+G+     LE L K+       +RGKG    I  D      R      + ++   +     H   +RL P L   ++     +E + +SV EL"
+        }
+      ]
+    }
+  ]
+}

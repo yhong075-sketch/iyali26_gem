@@ -1,0 +1,360 @@
+{
+  "checked_utc": "2026-09-14T18:35:14.424335+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "openpyxl": "3.1.5",
+  "script_sha256": "0381bc1f4d323b9e10af1eb30310e8dbaab4388c89daee82b79c59fb8a398ff8",
+  "new_LP_solves": 0,
+  "scientific_mutations": 0,
+  "targets": [
+    "YALI0E16192g",
+    "YALI1D00581g",
+    "YALI1E19360g",
+    "YALI1F38820g"
+  ],
+  "sources": {
+    "assay_source_workbook": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/cas9_cas12a_screen_raw.xlsx",
+      "sha256": "ba1eca8f0c0c31b500388a796fb7e6de51769e7086f8864cb2c7b40da7c6c0c5",
+      "matching_rows": [
+        {
+          "sheet": "Cas9",
+          "row": 2242,
+          "values": [
+            "YALI1_D00581g",
+            -2.62728401307139,
+            0.0488135489057504,
+            0.171028417093779,
+            "Non-essential"
+          ]
+        },
+        {
+          "sheet": "Cas9",
+          "row": 4168,
+          "values": [
+            "YALI1_F38820g",
+            -1.74867415475292,
+            0.558012311238163,
+            1,
+            "Non-essential"
+          ]
+        },
+        {
+          "sheet": "Cas12a",
+          "row": 1525,
+          "values": [
+            "YALI1_D00581g",
+            -1.78397035253357,
+            0.0154803057135094,
+            0.079179122727563,
+            "Non-essential"
+          ]
+        },
+        {
+          "sheet": "Cas12a",
+          "row": 2251,
+          "values": [
+            "YALI1_F38820g",
+            -1.51569878949371,
+            0.0902039895359398,
+            0.312506710414511,
+            "Non-essential"
+          ]
+        }
+      ],
+      "counts": {
+        "Cas9": {
+          "including_header": 7855,
+          "max_column": 5
+        },
+        "Cas12a": {
+          "including_header": 7796,
+          "max_column": 5
+        }
+      },
+      "headers": {
+        "Cas9": [
+          "Gene ID",
+          "FS",
+          "Raw p-value",
+          "Corrected p-value",
+          "Essentiality"
+        ],
+        "Cas12a": [
+          "Gene ID",
+          "FS",
+          "Raw p-value",
+          "Corrected p-value",
+          "Essentiality"
+        ]
+      }
+    },
+    "assay_fitness": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/cas9_cas12a_fitness.csv",
+      "sha256": "97ef559651cd99ce63144ffe08ae64e983ecaec60d568f859da8926c14c7d9ff",
+      "matching_rows": [
+        {
+          "line": 2242,
+          "values": {
+            "gene_id": "YALI1D00581g",
+            "source_gene_id": "YALI1_D00581g",
+            "assay": "Cas9",
+            "fitness_score": "-2.6272840130713901",
+            "raw_p_value": "0.048813548905750397",
+            "q_value": "0.171028417093779",
+            "experimental_call": "nonessential",
+            "source_sheet": "Cas9",
+            "source_row": "2242",
+            "source_sha256": "ba1eca8f0c0c31b500388a796fb7e6de51769e7086f8864cb2c7b40da7c6c0c5"
+          }
+        },
+        {
+          "line": 4168,
+          "values": {
+            "gene_id": "YALI1F38820g",
+            "source_gene_id": "YALI1_F38820g",
+            "assay": "Cas9",
+            "fitness_score": "-1.7486741547529201",
+            "raw_p_value": "0.55801231123816297",
+            "q_value": "1",
+            "experimental_call": "nonessential",
+            "source_sheet": "Cas9",
+            "source_row": "4168",
+            "source_sha256": "ba1eca8f0c0c31b500388a796fb7e6de51769e7086f8864cb2c7b40da7c6c0c5"
+          }
+        },
+        {
+          "line": 9379,
+          "values": {
+            "gene_id": "YALI1D00581g",
+            "source_gene_id": "YALI1_D00581g",
+            "assay": "Cas12a",
+            "fitness_score": "-1.7839703525335699",
+            "raw_p_value": "0.015480305713509401",
+            "q_value": "0.079179122727563001",
+            "experimental_call": "nonessential",
+            "source_sheet": "Cas12a",
+            "source_row": "1525",
+            "source_sha256": "ba1eca8f0c0c31b500388a796fb7e6de51769e7086f8864cb2c7b40da7c6c0c5"
+          }
+        },
+        {
+          "line": 10105,
+          "values": {
+            "gene_id": "YALI1F38820g",
+            "source_gene_id": "YALI1_F38820g",
+            "assay": "Cas12a",
+            "fitness_score": "-1.51569878949371",
+            "raw_p_value": "0.090203989535939805",
+            "q_value": "0.312506710414511",
+            "experimental_call": "nonessential",
+            "source_sheet": "Cas12a",
+            "source_row": "2251",
+            "source_sha256": "ba1eca8f0c0c31b500388a796fb7e6de51769e7086f8864cb2c7b40da7c6c0c5"
+          }
+        }
+      ],
+      "counts": {
+        "data_rows": 15649
+      },
+      "headers": [
+        "gene_id",
+        "source_gene_id",
+        "assay",
+        "fitness_score",
+        "raw_p_value",
+        "q_value",
+        "experimental_call",
+        "source_sheet",
+        "source_row",
+        "source_sha256"
+      ]
+    },
+    "locus_mapping_source": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/locus_map/S2_table_YALI1_YALI0_map.xlsx",
+      "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+      "matching_rows": [
+        {
+          "sheet": "YALI1 Genes",
+          "row": 3747,
+          "values": [
+            "YALI0D00583g",
+            "YALI1_D00581g",
+            "mRNA",
+            "YALI1D",
+            58282,
+            59041,
+            "+",
+            "similar to Saccharomyces cerevisiae VMA8 (YEL051W)%3B ancestral locus Anc_5.518,  highly similar to uniprot|P32610 Saccharomyces cerevisiae YEL051w VMA8 H+-ATPsynthase V1 domain 32 KD subunit vacuolar"
+          ]
+        },
+        {
+          "sheet": "YALI1 Genes",
+          "row": 6015,
+          "values": [
+            "YALI0E16192g",
+            "YALI1_E19360g",
+            "Pseudo mRNA",
+            "YALI1E",
+            1935676,
+            1936023,
+            "-",
+            "  highly similar to uniprot|Q9Y756 Neurospora crassa Vacuolar ATP synthase subunit F (EC 3.6.3.14) (V-ATPase F subunit) (Vacuolar proton pump F subunit) (V-ATPase 14 kDa subunit,similar to Saccharomyces cerevisiae VMA7 (YGR020C)%3B ancestral locus Anc_4.157"
+          ]
+        },
+        {
+          "sheet": "YALI1 Genes",
+          "row": 8659,
+          "values": [
+            "YALI0F31119g",
+            "YALI1_F38820g",
+            "mRNA",
+            "YALI1F",
+            3882165,
+            3884531,
+            "+",
+            "  similar to uniprot|P32563 Saccharomyces cerevisiae YOR270c VPH1 H+-ATPase V0 domain 95K subunit"
+          ]
+        },
+        {
+          "sheet": "YALI0 only mRNA",
+          "row": 94,
+          "values": [
+            "YALI0E16192g",
+            "YALI0E",
+            "mRNA",
+            1923298,
+            1923722,
+            "-",
+            null
+          ]
+        },
+        {
+          "sheet": "YALI0 only CDS",
+          "row": 110,
+          "values": [
+            "YALI0E16192g",
+            "YALI0E",
+            "CDS",
+            1923298,
+            1923664,
+            "-",
+            "highly similar to uniprot|Q9Y756 Neurospora crassa Vacuolar ATP synthase subunit F (EC 3.6.3.14) (V-ATPase F subunit) (Vacuolar proton pump F subunit) (V-ATPase 14 kDa subunit"
+          ]
+        },
+        {
+          "sheet": "YALI0 only CDS",
+          "row": 111,
+          "values": [
+            "YALI0E16192g",
+            "YALI0E",
+            "CDS",
+            1923721,
+            1923722,
+            "-",
+            "highly similar to uniprot|Q9Y756 Neurospora crassa Vacuolar ATP synthase subunit F (EC 3.6.3.14) (V-ATPase F subunit) (Vacuolar proton pump F subunit) (V-ATPase 14 kDa subunit"
+          ]
+        }
+      ],
+      "counts": {
+        "YALI1 Genes": {
+          "including_header": 8766,
+          "max_column": 8
+        },
+        "YALI0 only mRNA": {
+          "including_header": 125,
+          "max_column": 7
+        },
+        "YALI0 only CDS": {
+          "including_header": 152,
+          "max_column": 7
+        },
+        "YALI0 only tRNA": {
+          "including_header": 9,
+          "max_column": 7
+        },
+        "YALI0 only rRNA": {
+          "including_header": 10,
+          "max_column": 7
+        },
+        "Mito Table": {
+          "including_header": 57,
+          "max_column": 8
+        }
+      },
+      "headers": {
+        "YALI1 Genes": [
+          "YALI0 locus ID",
+          "YALI1 Locus ID",
+          "Gene Type",
+          "Chromosome",
+          "Start Base",
+          "End Base",
+          "Strand",
+          "Annotation"
+        ],
+        "YALI0 only mRNA": [
+          "YALI0 locus ID",
+          "Chromosome",
+          "mRNA Type",
+          "Start Base",
+          "End Base",
+          "Strand",
+          "For Annotation see \"YALI0 only CDS\""
+        ],
+        "YALI0 only CDS": [
+          "YALI0 locus ID",
+          "Chromosome",
+          "Gene Type",
+          "Start Base",
+          "End Base",
+          "Strand",
+          "Annotation"
+        ],
+        "YALI0 only tRNA": [
+          "YALI0 locus ID",
+          "Chromosome",
+          "Gene Type",
+          "Start Base",
+          "End Base",
+          "Strand",
+          "Annotation"
+        ],
+        "YALI0 only rRNA": [
+          "YALI0 locus ID",
+          "Chromosome",
+          "Gene Type",
+          "Start Base",
+          "End Base",
+          "Strand",
+          "Annotation"
+        ],
+        "Mito Table": [
+          "YALI0 locus ID",
+          "YALI1 Locus ID",
+          "Gene Type",
+          "Chromosome",
+          "Start Base",
+          "End Base",
+          "Strand",
+          "Annotation"
+        ]
+      }
+    },
+    "experimental_positive": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+      "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+      "matching_rows": [],
+      "counts": {
+        "data_rows": 1612
+      },
+      "headers": [
+        "gene_id",
+        "source_gene_id",
+        "function",
+        "source",
+        "confidence"
+      ]
+    }
+  },
+  "source_hashes_unchanged": true
+}

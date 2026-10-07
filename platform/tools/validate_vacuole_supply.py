@@ -146,7 +146,7 @@ class Run:
         assert 'R1219' not in sim.active_medium
         for rid in CONNECTIONS:
             assert sim.model.reactions.get_by_id(rid).bounds == raw.reactions.get_by_id(rid).bounds
-        self.manifest['loaders'][key] = {'path': str(path.relative_to(ROOT)), 'sha256': sha(path),
+        self.manifest['loaders'][key] = {'path': str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path), 'sha256': sha(path),
             'provenance': sim.provenance(), 'active_medium': sim.active_medium,
             'strain_overlay': sim.strain_overlay_audit, 'file_to_loaded_diff': reaction_diff(raw, sim.model),
             'energy_locks_preserved': True}

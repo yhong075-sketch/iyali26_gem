@@ -1,0 +1,162 @@
+{
+  "status": "complete",
+  "checked_at_utc": "2026-10-02T00:11:07.509921+00:00",
+  "new_model_solves": 0,
+  "scope": "Independent read-only source/model/result audit; only this AUDIT.json written; no assay-specific labels used.",
+  "methods": [
+    "Original consensus XLSX parsed from ZIP/XML",
+    "Original SBML stoichiometry and GPR trees parsed independently without simulation loader or optimizer",
+    "Every saved full flux vector recomputed against effective media/overlay and single-KO GPR bounds",
+    "Every call recomputed from raw KO/same-model WT, strict<0.15"
+  ],
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyli21.xml",
+    "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631"
+  },
+  "source": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+    "original_user_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/raw/assays/42003_2023_4996_MOESM10_ESM.xlsx",
+    "sha256": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+    "sheet": "Sheet1",
+    "range": "A2:B1613",
+    "raw_records": 1612,
+    "label_basis": "User-designated essential gene list; workbook contains IDs and putative functions only",
+    "normalization": "Remove underscore immediately after YALI0/1/2 prefix; no aliases or cross-version mapping"
+  },
+  "counts": {
+    "model_genes": 1058,
+    "reactions": 2285,
+    "species": 1868,
+    "raw_rows": 1059,
+    "WT": 1.4021214047133883,
+    "source_list_genes": 1612,
+    "list_members": 320,
+    "list_nonmembers": 738,
+    "list_members_outside_model": 1292,
+    "TP": 61,
+    "FN": 259,
+    "FP": 28,
+    "TN": 710,
+    "model_predicted_essential": 89
+  },
+  "metrics": {
+    "recall": 0.190625,
+    "precision": 0.6853932584269663,
+    "specificity": 0.962059620596206,
+    "accuracy": 0.7287334593572778,
+    "F1": 0.2982885085574572,
+    "MCC": 0.25266295580421577
+  },
+  "numerics": {
+    "vectors": 1059,
+    "flux_values": 2419815,
+    "maximum_mass_residual": 1.3777867735598193e-12,
+    "maximum_bound_violation": 0.0,
+    "maximum_objective_disagreement": 0.0,
+    "maximum_residual_record_difference": 7.105427357601002e-14
+  },
+  "conditions": {
+    "same_medium_profile_and_parameters_as_E5": true,
+    "NGAM_bounds": [
+      7.8625,
+      1000.0
+    ],
+    "actual_gurobi_parameters": {
+      "Threads": 1,
+      "TimeLimit": 60.0,
+      "Presolve": 0,
+      "FeasibilityTol": 1e-07,
+      "OptimalityTol": 1e-07,
+      "IntFeasTol": 1e-07
+    }
+  },
+  "protected_files_verified": 13,
+  "claims": [
+    {
+      "id": "I1",
+      "claim": "Frozen original iYali21 XML matches declared SHA and contains1058 native genes/2285 reactions/1868 species",
+      "verdict": "supported",
+      "source": "data/iyli21.xml;run_manifest.json:model/gene_ids"
+    },
+    {
+      "id": "I2",
+      "claim": "Runtime SD-Leu/PO1f medium and overlay, objective and solver settings match E5; original NGAM lower bound7.8625 remains",
+      "verdict": "supported",
+      "source": "run_manifest.json;E5/run_manifest.json;data/iyli21.xml"
+    },
+    {
+      "id": "I3",
+      "claim": "WT plus1058 independent KO rows are complete, unique, optimal, finite, nonnegative and within budget",
+      "verdict": "supported",
+      "source": "raw_deletions.jsonl;run_manifest.json;execution.json"
+    },
+    {
+      "id": "I4",
+      "claim": "Strict unrounded ratios and user-defined consensus membership classes reproduce the four matrix cells and metrics",
+      "verdict": "supported",
+      "source": "original consensus workbook;screen_predictions.json"
+    },
+    {
+      "id": "I5",
+      "claim": "All1059 saved full flux vectors satisfy independently parsed stoichiometry, Boolean GPR knockout bounds and objective within1e-7",
+      "verdict": "supported",
+      "source": "data/iyli21.xml;fluxes.jsonl.gz;raw_deletions.jsonl"
+    },
+    {
+      "id": "I6",
+      "claim": "All13 protected file hashes and3 result hashes match saved identities",
+      "verdict": "supported",
+      "source": "run_manifest.json:protected_sha256/output_sha256"
+    },
+    {
+      "id": "I7",
+      "claim": "Final summary and all1058 detail rows agree with independent counts and preserve original source IDs/rows/functions and labels",
+      "verdict": "supported",
+      "source": "summary.json;reference_gene_comparison.tsv;original consensus workbook"
+    },
+    {
+      "id": "I8",
+      "claim": "Final figure correctly displays61/259/28/710,320/738 denominators, metrics and explicit list-membership limitation without clipping",
+      "verdict": "supported",
+      "source": "confusion_matrix_15pct.svg and visually inspected PNG"
+    },
+    {
+      "id": "I9",
+      "claim": "Final source/output hashes and original13 protected input/code hashes match",
+      "verdict": "supported",
+      "source": "summary.json:source_sha256/output_sha256;run_manifest.json:protected_sha256"
+    }
+  ],
+  "audit_coverage": {
+    "total_claims": 9,
+    "audited": 9,
+    "supported": 9,
+    "unresolved": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "limitations": [
+    "Negative reference means absent from consensus list under explicit user definition, not independently verified experimental nonessentiality.",
+    "Solver reports optimal; independent feasibility verification does not prove optimality.",
+    "Development/reference comparison; independent model validation and full experimental lineage not established.",
+    "Protected file hashes do not establish preservation/reconstruction of complete historical dirty environment.",
+    "Different model native gene universes may differ; model-specific matrix comparison is not automatically a matched-gene performance comparison."
+  ],
+  "audited_file_sha256": {
+    "run_screen.py": "c94370c71f65b58c414e5196a685799fb37c32ab8eb0c29d5c0c4efceb107b0d",
+    "run_manifest.json": "09f6cfa11e494ce89a5bce9967fa0b581ab361cee0be5aeb7cc54ac9a3c3d238",
+    "execution.json": "cf7abd00a01bbf02cfadd1967b8462771b1da5a7d36e7074f3e4b876b68f7c7b",
+    "raw_deletions.jsonl": "67d6922884d546a54a7a209eb2c16c1402f6784a764e7a3854db5b29ca625b36",
+    "screen_predictions.json": "cfbdcd0d2ec042306cceab67e69d02cfc33a2aaf1676eb05af4a23b62205bb57",
+    "fluxes.jsonl.gz": "823a65d4f1f0068f9e9d35e1bfe680e58ec0d0aaacb87369bdd323853e66e6d3",
+    "build_matrix.py": "5860036dcab8deeb4000794008019e64cb2482e575ee1260c7750ebfb68241b0",
+    "summary.json": "c3268e67a5dd35f5939a4ec2cb29b0cb5b1682f6a0bf6b5fc029cb7ac9855ddb",
+    "reference_gene_comparison.tsv": "f53b00faa047037a0adbb89e9e3ae12046c7ea15b5af55b6a37c8b5f832e6c51",
+    "confusion_matrix_15pct.pdf": "b33a65f0ea6cd1dd97421df84e44ab021fa218d8c1cd1430484a737a5ce86a54",
+    "confusion_matrix_15pct.svg": "9eed10d0b7838b6ed6e3d68dfa3902ada65d9109dc894383064df7b6fc2d18ba",
+    "confusion_matrix_15pct.png": "a4609e590766bb744c9f281c7a5c247330703d7662801029efbf9fb0b66cfdaa"
+  },
+  "detail_rows_verified": 1058,
+  "original_source_rows_and_labels_preserved": true,
+  "final_visual_review": "PNG visible without clipping; TP61/FN259/FP28/TN710, reference denominators320/738, percentages, metrics and explicit list-membership footnote consistent."
+}

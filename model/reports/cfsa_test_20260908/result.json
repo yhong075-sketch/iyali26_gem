@@ -1,0 +1,269 @@
+{
+  "started_utc": "2026-09-08T07:06:08.429136+00:00",
+  "status": "pilot_completed",
+  "plan": {
+    "purpose": "CFSA technical pilot, not independent model validation or engineering target acceptance",
+    "model_artifact": "canonical_model",
+    "baseline_manifest": "docs/baseline_manifest.json",
+    "medium_artifact": "medium",
+    "strain_artifact": "strain_profile",
+    "scope_basis": "User requested CFSA test; mixed-lipid direction is a stated default assumption, not an explicit user product choice",
+    "biomass": "biomass_C",
+    "target_metabolite": "m1727[C_cy]",
+    "target_reaction": "CFSA_DM_lipids",
+    "target_definition": "Disposable in-memory m1727[C_cy] -> ; mixed lipid pseudo-pool, not pure TAG or physiological secretion",
+    "growth_floor_fraction": 0.1,
+    "n_samples": 500,
+    "thinning": 100,
+    "processes": 1,
+    "optimality": 0.9,
+    "objective_fraction": 1,
+    "flux_fraction": 1.25,
+    "cutoff_tolerance": false,
+    "seeds": [
+      20260908,
+      20260909,
+      20260910
+    ],
+    "wall_seconds": 1200,
+    "max_backend_calls": 14000,
+    "solver_threads": 1,
+    "per_solve_time_limit_seconds": 120,
+    "stop_conditions": [
+      "input SHA mismatch",
+      "nonoptimal solver status or exception; no solver retry",
+      "time or call budget exceeded",
+      "raw numerical failure recorded; do not infer biological death"
+    ],
+    "outputs": [
+      "result.json",
+      "scenario_*.npz",
+      "scenario models JSON.gz",
+      "samples.npz",
+      "convergence.npz",
+      "REPORT.md"
+    ],
+    "excluded": [
+      "formal model/GPR/media edits",
+      "C7 or lipid-unlump candidate activation",
+      "gene essentiality screening",
+      "parameter grid",
+      "HPCC",
+      "engineering target endorsement"
+    ],
+    "upstream_semantics": "pFBA total flux cap only on growing and slow-growing, NOT producing; kept unchanged"
+  },
+  "backend_calls": 13480,
+  "scenarios": [
+    {
+      "index": 0,
+      "seed": 20260908,
+      "status": "sampled",
+      "bounds": {
+        "biomass_C": [
+          1.3185684511295488,
+          1000.0
+        ],
+        "CFSA_DM_lipids": [
+          0,
+          1000
+        ]
+      },
+      "total_flux_cap": 1223.3176651109031,
+      "warmup_points": 1408,
+      "generated": 500,
+      "valid": 500,
+      "finite": true,
+      "sampler_retries": 1
+    },
+    {
+      "index": 1,
+      "seed": 20260909,
+      "status": "sampled",
+      "bounds": {
+        "biomass_C": [
+          0.14650760568106092,
+          0.301250344647618
+        ],
+        "CFSA_DM_lipids": [
+          0,
+          1000
+        ]
+      },
+      "total_flux_cap": 310.806297395808,
+      "warmup_points": 1405,
+      "generated": 500,
+      "valid": 500,
+      "finite": true,
+      "sampler_retries": 0
+    },
+    {
+      "index": 2,
+      "seed": 20260910,
+      "status": "sampled",
+      "bounds": {
+        "biomass_C": [
+          0.14650760568106092,
+          1000.0
+        ],
+        "CFSA_DM_lipids": [
+          23.74006264072655,
+          1000
+        ]
+      },
+      "total_flux_cap": null,
+      "warmup_points": 1352,
+      "generated": 500,
+      "valid": 500,
+      "finite": true,
+      "sampler_retries": 6
+    }
+  ],
+  "protected_inputs": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/baseline_manifest.json": "af952e321d139a0f7a7704dbdcbe631f51e79bea8de24d90a54a95268e4e7e70",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/plan.json": "36c7d950ef3387423751c10b7b14a20533b4ba9c353ec876a9ea620d1a383c6b",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/run_cfsa.py": "de150d38ce5836ee4b47b9b81a365f1c3925435e7c4d1aebbae2f68fcf268f3e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+    "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/__init__.py": "90a19069199527e1d233f5715636389c696c1ed94bfee119ce3d29882fff4f58",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/multilevelpool.py": "0ab7e4862627f72a691079288113b6f0bef31ed2769889d95985dffb8f1e2b8c",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/sampling.py": "35bb4b1e650c2e32e4b665f2b0581dfa6c726320dc5dd0c13f5a260478ce6450",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/util.py": "c54c218fccaf001c4341ccaf65506e724f9a4f5cd854f366f1caca00acb831d0",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/__init__.py": "90a19069199527e1d233f5715636389c696c1ed94bfee119ce3d29882fff4f58",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/multilevelpool.py": "0ab7e4862627f72a691079288113b6f0bef31ed2769889d95985dffb8f1e2b8c",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/sampling.py": "4be17353e443068a9b5a915aa812e2fdba4ab8e59f692d16d1bbfaff00249cb0",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/util.py": "e8b0b581b9befe16b7c110033b3477d17e3f834a666b14f77c02fd854c6a98ac"
+  },
+  "software": {
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "gurobipy": "13.0.1",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.0",
+    "python": "3.13.5",
+    "executable": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python"
+  },
+  "git_head": "994b09bf5f0e86b548094ff7bbb94296d37c4536",
+  "git_status_before": "?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/c7_revision1_independent_followup_20260907/\n?? artifacts/cfsa_test_20260908/\n?? artifacts/coq9_dt_pair_local_20260907T175236Z/\n?? artifacts/coq9_dt_quarter_wt_20260907/\n?? artifacts/coq9_supply_mechanism_20260908/\n?? artifacts/coq9_wp2_proposal_only_20260905T2000Z/\n?? artifacts/coq9_wp2_proposal_v2_20260905/\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip.sha256\n?? artifacts/coq9_wp2_proposals_for_review_20260905.zip\n?? artifacts/figures/\n?? artifacts/identity_construct_followup_20260907/\n?? artifacts/iyali26_vs_iyali21_slide_20260907/\n?? artifacts/methylcitrate_evidence_followup_20260907/\n?? artifacts/next_evidence_independent_audit_20260908/\n?? artifacts/polyamine_chemistry_wp2_20260907/\n?? artifacts/polyamine_transport_evidence_20260907/\n?? artifacts/polyamine_transport_evidence_revision1_20260908/\n?? artifacts/r608_c7_ablation_20260908/\n?? artifacts/r608_c7_model_test_20260907/\n?? artifacts/r608_engineering_20260907/\n?? artifacts/r608_engineering_wp2_20260907/\n?? artifacts/static_mini_replay_20260905T190318Z/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? identity_support_next_20260906.md\n?? results\n?? ~$09012026.pptx\n",
+  "compatibility_self_check": "passed; constant chain stays NaN, not convergence",
+  "numpy_legacy_NaN_available": false,
+  "context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "c243b23e7344e3f1e2b4962be25f0f2a38980990c6fe88ee32d3aa4f7af90e30",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+  },
+  "active_medium": {
+    "R946": 1000.0,
+    "R971": 1000.0,
+    "R1003": 0.00489,
+    "R1016": 1000.0,
+    "R1029": 1000.0,
+    "R1030": 1000.0,
+    "R1070": 10.0,
+    "R1127": 1000.0,
+    "R1164": 1000.0,
+    "R1189": 6.67e-05,
+    "R1202": 0.02586,
+    "R1204": 0.05414,
+    "R1215": 0.00859,
+    "R1217": 0.03434,
+    "R1220": 0.02466,
+    "R1222": 0.01207,
+    "R1223": 0.02727,
+    "R1231": 0.07562,
+    "R1232": 0.02205,
+    "R1233": 0.02486,
+    "R1234": 0.10765,
+    "R1263": 1000.0,
+    "R1268": 1000.0,
+    "R1287": 1000.0,
+    "R1296": 1000.0,
+    "R1298": 1000.0,
+    "R1305": 1000.0,
+    "R1314": 1000.0,
+    "R1323": 1000.0,
+    "R1333": 1000.0,
+    "R1340": 1000.0,
+    "R1354": 1000.0,
+    "R1364": 1000.0,
+    "R2061": 1000.0,
+    "R2270": 1000.0
+  },
+  "solver_parameters": {
+    "Threads": 1,
+    "Method": 0,
+    "Presolve": 0,
+    "Seed": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "TimeLimit": 120,
+    "OutputFlag": 0
+  },
+  "cobra_tolerance": 1e-07,
+  "model_counts": {
+    "reactions": 2313,
+    "metabolites": 1877,
+    "genes": 1075
+  },
+  "baseline_wt_growth": 1.4650760568106092,
+  "target_original_neighbors": [
+    {
+      "id": "xBIOMASS",
+      "name": "xBIOMASS",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "0.4415 m1123[C_cy] + 0.1104 m1324[C_cy] + 86.7881 m141[C_cy] + 0.0623 m149[C_cy] + m1726[C_cy] + m1727[C_cy] + 0.0032 m294[C_cy] + 86.7881 m32[C_cy] + 0.4068 m401[C_cy] + 0.0377 m459[C_cy] + 0.0377 m465[C_cy] + 0.0383 m505[C_cy] + 0.0757 m86[C_cy] + 0.0383 m89[C_cy] + 0.093 m93[C_cy] + 0.0578 m95[C_cy] --> 86.7881 m10[C_cy] + m1401[C_cy] + 86.7881 m143[C_cy] + 86.7881 m35[C_cy]"
+    },
+    {
+      "id": "xLIPID",
+      "name": "Lipids pool",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "21.176 m1000[C_cy] + 0.1 m1579[C_lp] + 0.305 m1581[C_lp] + 1.967 m1631[C_em] + 12.51 m1640[C_lp] + 3.152 m1641[C_lp] + 3.6 m1648[C_em] + 0.842 m1651[C_mm] + 10.101 m1700[C_lp] + 14.24 m1701[C_lp] + 3.399 m1705[C_lp] --> 1000.0 m1727[C_cy]"
+    }
+  ],
+  "memory_changes": {
+    "added_reaction": "m1727[C_cy] --> ",
+    "added_id": "CFSA_DM_lipids",
+    "bounds": [
+      0,
+      1000
+    ],
+    "biomass_lower_bound": 0.14650760568106092
+  },
+  "elapsed_seconds": 113.00301899999613,
+  "condition_summary": "{\"('biomass_C', 'count')\":{\"growing (pFBA)\":500,\"growing (pFBA, slow)\":500,\"producing\":500},\"('biomass_C', 'mean')\":{\"growing (pFBA)\":1.320024071,\"growing (pFBA, slow)\":0.1473805487,\"producing\":0.1469620911},\"('biomass_C', 'min')\":{\"growing (pFBA)\":1.3185692486,\"growing (pFBA, slow)\":0.1465080542,\"producing\":0.146508385},\"('biomass_C', 'max')\":{\"growing (pFBA)\":1.3427830686,\"growing (pFBA, slow)\":0.1533691763,\"producing\":0.150870515},\"('CFSA_DM_lipids', 'count')\":{\"growing (pFBA)\":500,\"growing (pFBA, slow)\":500,\"producing\":500},\"('CFSA_DM_lipids', 'mean')\":{\"growing (pFBA)\":0.0261625091,\"growing (pFBA, slow)\":0.047052063,\"producing\":23.7491218217},\"('CFSA_DM_lipids', 'min')\":{\"growing (pFBA)\":0.0000276814,\"growing (pFBA, slow)\":0.0004214642,\"producing\":23.7401188811},\"('CFSA_DM_lipids', 'max')\":{\"growing (pFBA)\":0.0800536161,\"growing (pFBA, slow)\":0.1276565297,\"producing\":23.7877100522}}",
+  "all_generated_samples_valid": true,
+  "interpretation": "Technical pilot only; mixing/convergence and engineering targets not established",
+  "input_hashes_unchanged": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/baseline_manifest.json": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/plan.json": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/run_cfsa.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json": true,
+    "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/essentiality_simulation_context.py": true,
+    "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/strain_overlay.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/__init__.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/multilevelpool.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/sampling.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/util.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/__init__.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/multilevelpool.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/sampling.py": true,
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/util.py": true
+  },
+  "finished_utc": "2026-09-08T07:08:01.432302+00:00"
+}

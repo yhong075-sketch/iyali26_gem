@@ -1,0 +1,1861 @@
+{
+  "checked_utc": "2026-10-02T05:01:59.717095+00:00",
+  "command": [
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+    "-task",
+    "blastp",
+    "-query",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_reaction_first_20261001/reaction_references.fasta",
+    "-subject",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_yeast_reference_20261001/native_proteome.fasta",
+    "-evalue",
+    "1e-5",
+    "-matrix",
+    "BLOSUM62",
+    "-seg",
+    "yes",
+    "-soft_masking",
+    "false",
+    "-comp_based_stats",
+    "2",
+    "-gapopen",
+    "11",
+    "-gapextend",
+    "1",
+    "-word_size",
+    "3",
+    "-num_threads",
+    "1",
+    "-max_target_seqs",
+    "10000",
+    "-outfmt",
+    "6 qseqid sseqid pident nident length qstart qend sstart send evalue bitscore qlen slen qseq sseq",
+    "-out",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_reaction_first_20261001/reference_vs_native.tsv"
+  ],
+  "script_sha256": "798bd253e9492b0de544e49e5bd4ef3b4041d5489dcb930414bc6a8becd9975e",
+  "program_version": "blastp: 2.17.0+\n Package: blast 2.17.0, build Jul  1 2025 08:59:26\n",
+  "program_sha256": "753f0695a39ba19b2d351b0bb851b6051169b8b9e22c095fd634cc2a93cddf55",
+  "query_sha256": "372a3ad248edd634e62e90ac7927a37f7ab4c1aeeb5e850237096c96eca4383a",
+  "subject_sha256": "a0bacab595622864c5845411675bfb27881a4206f27572c7f0ae3abc8978e266",
+  "cached_proteome_sha256": "e5b0a04874079b4057ffe25dadcb6b812cba8c96b227f41187187b27715753a3",
+  "query_count": 8,
+  "native_record_count": 7894,
+  "reference_versions": {
+    "P25534": {
+      "firstPublicDate": "1992-05-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2003-08-29",
+      "entryVersion": 182,
+      "sequenceVersion": 2
+    },
+    "P25535": {
+      "firstPublicDate": "1992-05-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2003-08-29",
+      "entryVersion": 174,
+      "sequenceVersion": 2
+    },
+    "P75728": {
+      "firstPublicDate": "1998-07-15",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1997-02-01",
+      "entryVersion": 172,
+      "sequenceVersion": 1
+    },
+    "P27697": {
+      "firstPublicDate": "1992-08-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1992-08-01",
+      "entryVersion": 188,
+      "sequenceVersion": 1
+    },
+    "O13525": {
+      "firstPublicDate": "1998-07-15",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2002-10-19",
+      "entryVersion": 162,
+      "sequenceVersion": 2
+    },
+    "P53318": {
+      "firstPublicDate": "1996-10-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-10-01",
+      "entryVersion": 207,
+      "sequenceVersion": 1
+    },
+    "P41735": {
+      "firstPublicDate": "1995-11-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2005-11-22",
+      "entryVersion": 197,
+      "sequenceVersion": 2
+    }
+  },
+  "synthetic_reference": {
+    "nucleotide": "OQ859713.1",
+    "protein": "WLG15894.1",
+    "length": 440,
+    "sequence_sha256": "8ad36444882fc6c01a83d2c92d9b8726c806a8ca932df7fe8114ef16ead65b49",
+    "scope": "Deposited N-terminally truncated synthetic ancestral construct. Paper also tested additional C-terminal truncation; not equated to every assayed construct or to a natural extant protein."
+  },
+  "all_hits": [
+    {
+      "qseqid": "P25534",
+      "sseqid": "Q6H9P2",
+      "pident": 29.243,
+      "nident": 112,
+      "length": 383,
+      "qstart": 45,
+      "qend": 382,
+      "sstart": 85,
+      "send": 460,
+      "evalue": 9.78e-34,
+      "bitscore": 129.0,
+      "qlen": 392,
+      "slen": 465,
+      "qseq": "FDGRAIALAAGTCQQLARIGVWQSLA-DCATAITTVHVSDRGHAG----FVT--LAAEDYQLAALGQVVELHNVGQRLFALLRKAPGVTLHCPDRVANVART-QSHVE--VTLESGETLTGRVLVAADGTHSALATACGVDWQQEPYEQLAVIANVATSVAHEGR-AFERFTQHGPLAMLPMSDGRCSLVWCHPLERREEVLSWSDEKFCRELQSAFG---------------------WRLGK------------ITHAGKRSAYPLALTHAARSITHRTVLVGNAAQTLHPIAGQGFNLGMRDVMSLAETLTQAQERGEDMGDYGVLCRYQQRRQSDREATIGVTDSLVHLFANRWAPLVVG-RNIGLMTMELFTPARDVL",
+      "sseq": "FENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWD-GVSGSKVQFNTTQLMGEGRDIAYMTENFNLQN---GLLKQLANKPNLTILDKTKVEGVERTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATV--RLANEQQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTR-NPLVVGLRSLGLDAVNSVKPVKDFL",
+      "reference_coverage": 0.8622448979591837,
+      "native_coverage": 0.8086021505376344,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000313",
+                "source": "EMBL",
+                "id": "CAE02706.1"
+              }
+            ],
+            "value": "coq6"
+          },
+          "synonyms": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "COQ6"
+            }
+          ],
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW23349.1"
+                }
+              ],
+              "value": "B0I71DRAFT_136091"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW00424.1"
+                }
+              ],
+              "value": "YALI1_A08781g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03193"
+              }
+            ],
+            "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "1.14.15.45"
+            }
+          ]
+        },
+        "alternativeNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.46"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "qseqid": "P25535",
+      "sseqid": "Q6H9P2",
+      "pident": 29.93,
+      "nident": 129,
+      "length": 431,
+      "qstart": 5,
+      "qend": 389,
+      "sstart": 36,
+      "send": 464,
+      "evalue": 3.58e-51,
+      "bitscore": 176.0,
+      "qlen": 400,
+      "slen": 465,
+      "qseq": "DVAIVGGGMVGLAVACGL----QGSGLRVAVLEQRVQEPLAANAPP----QLRVSAINAASEKLLTRLGVWQDILSRRASCYHGMEVWDKDSFGHISFDD-QSMGYSH-LGHIVENSVIHYALWNKAHQSSDITLLAPAELQQV---AWGENETFLTLKDGSMLTARLVIGADGANSWLRNKADIPLTFWDYQHHALVATIRTEEPHDAVARQVFHGEGILAFLPLSDPHLCSIVWSLSPEEAQRMQQASEDEFNRALNIAFD-----------------------------NRLGLCKV----ESARQVFPLTGRYARQFASHRLALVGDAAHTIHPLAGQGVNLGFMDAAELIAELKRLHRQGKDIGQYIYLRRYERSRKHSAALMLAGMQGFRDLFSGTNPAKKLLRDIGLKLADTLPGVKPQLIRQA",
+      "sseq": "DIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSLDNLKTWGPDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLANKPNLTILDKTKVEGVERTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANEQQS-AWQRFLPTGPIALLPLPN-RFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLMSQA",
+      "reference_coverage": 0.9625,
+      "native_coverage": 0.9225806451612903,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000313",
+                "source": "EMBL",
+                "id": "CAE02706.1"
+              }
+            ],
+            "value": "coq6"
+          },
+          "synonyms": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "COQ6"
+            }
+          ],
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW23349.1"
+                }
+              ],
+              "value": "B0I71DRAFT_136091"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW00424.1"
+                }
+              ],
+              "value": "YALI1_A08781g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03193"
+              }
+            ],
+            "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "1.14.15.45"
+            }
+          ]
+        },
+        "alternativeNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.46"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "qseqid": "P75728",
+      "sseqid": "Q6H9P2",
+      "pident": 30.939,
+      "nident": 112,
+      "length": 362,
+      "qstart": 60,
+      "qend": 381,
+      "sstart": 97,
+      "send": 457,
+      "evalue": 9.58e-43,
+      "bitscore": 153.0,
+      "qlen": 391,
+      "slen": 465,
+      "qseq": "VSLLKGLGVWDAVQAMRCHPYRRLETWEWET-AHVVFDAAEL--KLPLLGYMVENTVLQQALWQALEAHPKVTLRVPGSLIALHRHDDLQE---LELKGGEVIRAKLVIGADGANSQVRQMAGIGVHAWQYAQSCMLISVQCENDPGDSTWQQFTPDGPRAFLPLFDNWASLVWYDSPARIRQLQNMNMAQL---------------------QAEIAKHFPSRLGYVT-------PLAA------GAFPLTRRHALQYVQPGLALVGDAAHTIHPLAGQGVNLGYRDVDALIDVLVNARSYGEAWASYPVLKRYQMRRMADNFIMQSGMDLFYAGFSNNLPPLRFMRNLGLMAAERAGVLK",
+      "sseq": "VEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLANKPNLTILDKTKVEGVERTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANE-QQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVK",
+      "reference_coverage": 0.8235294117647058,
+      "native_coverage": 0.7763440860215054,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000313",
+                "source": "EMBL",
+                "id": "CAE02706.1"
+              }
+            ],
+            "value": "coq6"
+          },
+          "synonyms": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "COQ6"
+            }
+          ],
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW23349.1"
+                }
+              ],
+              "value": "B0I71DRAFT_136091"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW00424.1"
+                }
+              ],
+              "value": "YALI1_A08781g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03193"
+              }
+            ],
+            "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "1.14.15.45"
+            }
+          ]
+        },
+        "alternativeNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.46"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "qseqid": "P27697",
+      "sseqid": "A0A1D8N7Z5",
+      "pident": 56.948,
+      "nident": 250,
+      "length": 439,
+      "qstart": 63,
+      "qend": 498,
+      "sstart": 150,
+      "send": 586,
+      "evalue": 7.81e-165,
+      "bitscore": 477.0,
+      "qlen": 501,
+      "slen": 591,
+      "qseq": "DTLKSSSVPTSRISRLFHYGSLAAGVGMNAAAKGISEVAKGNSPTWKSLILSDSNIDRITNKFSKMRGVALKIGQLLSFQDEKVLPKELYEILSRVQNSANHMPQRQLEKVMAKELGANWKTKF-SKFDKIPMAAASIGQVHAAEL-PSGQRVVVKIQYPGVKESIDSDLNSLLMLLTASSLLPKGLFLDKTIANARTELKWECDYNREARALQKFEALLKDDPAFEVPHVFPEYTTDNIITMTRMEGTEIMKLPKASQETKNFISENIMRLCLEEIATFKYMQTDPNWANFLYNGRTKKIELLDFGASRPFAEDFILKYRKLLTYATLRDRKGAYEMSVQLGYLTGLESQSMKDAHVDSVLTLGEPFRGDVDKS-FDFKDQTVSDRIRGNIGLMLNERLCPPPEETYSLHRKFSGIFLLCARMGASVHCAKLFKEIFA",
+      "sseq": "EEMMSSAVPSGRFERLFHYGTLATGLGVGALGEGFRRLTGDNSHA-GSLVLTPGNVERLVKSLSQMRGAALKIGQQLSFQDSRVFPPEIQQIFSRVQNSANYMPAEQLHKVLTKELGQGWRNEFFSSFEDKPIAAASIGQVNTAVLRDSYEPVAIKIQYPGVADSIDSDLNNLMILMTASSMLPEGLFLDKTVANARVELKWECDYIREAQNLERFQELLADYPDYVVPKVYHEASTDKVLTMQRLRGQDIVKGP-WDQDTKNWIATRIMELCLLEIAKFKFMQTDPNWANFLYNPKTHKLELLDFGASRGYSDQFINDYLNCLRAAVRKDRASCEKYSLELGYLTGLESKAMLNAHIDSMITLGEPFNGENGGGDFNFANQTVTDRVRENIGVMLKERLTPPPEETYGLHRKLSGAFLLCAKLNAEVPCQKLFEDIVG",
+      "reference_coverage": 0.8702594810379242,
+      "native_coverage": 0.739424703891709,
+      "native_gene_annotations": [
+        {
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW01756.1"
+                }
+              ],
+              "value": "YALI1_B20527g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000259",
+                "source": "Pfam",
+                "id": "PF03109"
+              }
+            ],
+            "value": "ABC1 atypical kinase-like domain-containing protein"
+          }
+        }
+      }
+    },
+    {
+      "qseqid": "P27697",
+      "sseqid": "A0A1D8N629",
+      "pident": 23.81,
+      "nident": 55,
+      "length": 231,
+      "qstart": 127,
+      "qend": 337,
+      "sstart": 188,
+      "send": 395,
+      "evalue": 1.66e-09,
+      "bitscore": 58.2,
+      "qlen": 501,
+      "slen": 624,
+      "qseq": "KMRGVALKIGQLLSFQDEKVLPKELYEILSRVQNSANHMPQRQLEKVMAKELGANWKTKFSKFDKIPMAAASIGQVHAAELPSGQRVVVKIQYPGVKESIDSDLNSLLMLLTASSLLPKGLFLDKTIANARTE------LKW-----------ECDYNREARALQKFEALLKD---DPAFEVPHVFPEYTTDNIITMTRMEGTEIMKLPKASQETKNFISENIMRLCLEEI",
+      "sseq": "KNSGVYIKLGQHIA-ALTYIFPPEWTETMIPLQDQCPESSMESIRAMIRKDTGKNLDDLFLEFNEVPMGVASLAQVHKAVTIDGREVAVKVQHPSLAE-----------------FVPLDVYMTRTIFTIVDHFFPDYPLSWLSDEMQRSIFTELDFTEEANNAVKTREYFKDTYKTTALRIPEVY--WSKRRILVMEFVGGSRLDNRPYLED---NNISPDEVSACLSHI",
+      "reference_coverage": 0.42115768463073855,
+      "native_coverage": 0.3333333333333333,
+      "native_gene_annotations": [
+        {
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW01086.1"
+                }
+              ],
+              "value": "YALI1_B02642g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000259",
+                "source": "Pfam",
+                "id": "PF03109"
+              }
+            ],
+            "value": "ABC1 atypical kinase-like domain-containing protein"
+          }
+        }
+      }
+    },
+    {
+      "qseqid": "O13525",
+      "sseqid": "A0A1H6PN93",
+      "pident": 51.293,
+      "nident": 119,
+      "length": 232,
+      "qstart": 84,
+      "qend": 315,
+      "sstart": 28,
+      "send": 259,
+      "evalue": 2.04e-85,
+      "bitscore": 256.0,
+      "qlen": 335,
+      "slen": 262,
+      "qseq": "YNGHVPLHRYEKLLLFAISGWNSFFHPEDGYNIVQLGEATALPVFLENLKQTMLSDSSGRRILKEQPNITTEILHMDKLAKLPHNTFGYVYYQWLKRENVSPDTRAPVKFIDDPMHAYIFKRYRQCHDFYHAITNMPIIIEGEITIKALEGANLGVPMAILGGILAPLRLKKVQRKRLYNIYLPWAVRTGLSCKPLINVYWEEMLEKDVTALRKELKITLPPDLRTMRKERA",
+      "sseq": "YPEHVPLTCLGRAVLAVGSGFGTFFDSRRGDLVATLGEATAQPYFIYKLREQMLKDPTGRRLLREQPRMTSKSLDLDKLRNMKVGSIGRTYVEWLDKEGVSPDTRAQVRYIDDPECAYVMQRYRESHDFYHALTGLPIIMEGELALKAFEWANTGLPMSGLGMVLTPLKFKPKQRKRYFDVYLPWALYNGFRSKPVINVYWEEVLEKDAEELRRDLGIEQPPDLRQMKKDMA",
+      "reference_coverage": 0.6925373134328359,
+      "native_coverage": 0.8854961832061069,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03111"
+              }
+            ],
+            "value": "COQ4"
+          },
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW27624.1"
+                }
+              ],
+              "value": "B0I71DRAFT_128880"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW07772.1"
+                }
+              ],
+              "value": "YALI1_F34625g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00081568"
+              }
+            ],
+            "value": "4-hydroxy-3-methoxy-5-polyprenylbenzoate decarboxylase"
+          }
+        }
+      }
+    },
+    {
+      "qseqid": "P53318",
+      "sseqid": "Q6H9P2",
+      "pident": 41.595,
+      "nident": 193,
+      "length": 464,
+      "qstart": 22,
+      "qend": 471,
+      "sstart": 25,
+      "send": 461,
+      "evalue": 6.05e-101,
+      "bitscore": 308.0,
+      "qlen": 479,
+      "slen": 465,
+      "qseq": "SSAPK----LTDVLIVGGGPAGLTLAASIKNSPQLKDLKTTLVDMVDLKDKLSDFYNSPPDY--FTNRIVSVTPRSIHFLEN-NAGATLMHDRIQSYDGLYVTDGCSKATLDLARDSMLC-------MIEIINIQASLYNRISQYDSKKDSIDIIDNTKVVNIKHSDPNDPLSWPLVTLSNGEVYKTRLLVGADGFNSPTRRFSQIPSRGWMYNAYGVVASMKLEYPPFKLRGWQRFLPTGPIAHLPMPENNATLVWSSSERLSRLLLSLPPESFTALINAAFVLEDADMNYYYRTLEDGSMDTDKLIEDIKFRTEEIYATLKDESDIDEIYPPRVVSIIDKTRARFPLKLTHADRYCTDRVALVGDAAHTTHPLAGQGLNMGQTDVHGLVYALEKAMERGLDIGSSLSLEPFWAERYPSNNVLLGMADKLFKLYHTNFPPVVALRTFGLNLTNKIGPVKNMII",
+      "sseq": "TSAPKPSTTHSDIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSL-DNLKTWG---PDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLAN----KPNLTILDKTKVEGVERTPESH--NKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANE--QQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVE-------HPDEIMTDAPYR-------LSQRSSNPDV-PCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLM",
+      "reference_coverage": 0.9394572025052192,
+      "native_coverage": 0.9397849462365592,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000313",
+                "source": "EMBL",
+                "id": "CAE02706.1"
+              }
+            ],
+            "value": "coq6"
+          },
+          "synonyms": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "COQ6"
+            }
+          ],
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW23349.1"
+                }
+              ],
+              "value": "B0I71DRAFT_136091"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW00424.1"
+                }
+              ],
+              "value": "YALI1_A08781g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03193"
+              }
+            ],
+            "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "1.14.15.45"
+            }
+          ]
+        },
+        "alternativeNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.46"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "qseqid": "P41735",
+      "sseqid": "A0A1H6Q2E8",
+      "pident": 58.421,
+      "nident": 111,
+      "length": 190,
+      "qstart": 44,
+      "qend": 233,
+      "sstart": 6,
+      "send": 192,
+      "evalue": 5.83e-78,
+      "bitscore": 231.0,
+      "qlen": 233,
+      "slen": 192,
+      "qseq": "LSDAQAAFLDRVIRVDQAGELGADYIYAGQYFVLAHRYPHLKPVLKHIWDQEIHHHNTFNNLQLKRRVRPSLLTPLWKAGAFAMGAGTALISPEAAMACTEAVETVIGGHYNGQLRNLANQFNLERTDGTKGPSEEIKSLTSTIQQFRDDELEHLDTAIKHDSYMAVPYTVITEGIKTICRVAIWSAERI",
+      "sseq": "LSKAEASFITKLIRVDQAGELGADLIYRGQYMVLSRTKPEIEPLIKHMWEQEQHHRRTFNELQQKYRVRPSLLTPIWKVAATGLGCATALLGQEGAMACTEAVETVIGGHYNTQLRWLHENFPPKE---ERSKDEEITSLKSIVKQFRDEELEHLEIAVENDSHEARPYWLLTETIKAGCRGAIWVAERV",
+      "reference_coverage": 0.8154506437768241,
+      "native_coverage": 0.9739583333333334,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03194"
+              }
+            ],
+            "value": "COQ7"
+          },
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW28695.1"
+                }
+              ],
+              "value": "B0I71DRAFT_126860"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW05447.1"
+                }
+              ],
+              "value": "YALI1_E18269g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03194"
+              }
+            ],
+            "value": "5-demethoxyubiquinone hydroxylase, mitochondrial"
+          },
+          "shortNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03194"
+                }
+              ],
+              "value": "DMQ hydroxylase"
+            }
+          ],
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03194"
+                }
+              ],
+              "value": "1.14.99.60"
+            }
+          ]
+        },
+        "alternativeNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03194"
+                }
+              ],
+              "value": "Ubiquinone biosynthesis monooxygenase COQ7"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "qseqid": "WLG15894.1",
+      "sseqid": "Q6H9P2",
+      "pident": 38.584,
+      "nident": 169,
+      "length": 438,
+      "qstart": 9,
+      "qend": 439,
+      "sstart": 36,
+      "send": 465,
+      "evalue": 5.18e-92,
+      "bitscore": 284.0,
+      "qlen": 440,
+      "slen": 465,
+      "qseq": "DVVISGGGMVGTAMACALGYDPHFQDKKILLLEAG---HKKVFDQLPESYSNRVSSITPGSATLLSSFGAWDHICNMRFKPFRRMQVWDACSDAMITFDKENL----EDMGYIVENDVIMAALTKQLEAVSDRVEVLYRSRAVGYTWPLPYHTAEANPWVQIELADGRRLQTKLLIGADGQNSMVRKAAGIQNVQWNYDQSAVVATLHLSEATDNNVAWQRFLPTGPIALLPLSDTVSSLVWSTSHEHAAELLSMDEESFVDAINSAFWSNENHSEFIDTAGSMFRSALSLLMPSGTSARQLPPSVARVDPKSRAMFPLGLGHATEYVRHRVALIGDAAHRVHPLAGQGVNMGFGDVACLTHHLSQAAFNGKDLGSTRHLLEYETERQRHNLPLMAAIDLLKRLYSTKVAPFVLLRTLGLQATNALSPVKEQIMAFAS",
+      "sseq": "DIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSLDNLKTWGPDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQL-ANKPNLTILDKTKVEGVE-----RTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRL--ANEQQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLMSQAS",
+      "reference_coverage": 0.9795454545454545,
+      "native_coverage": 0.9247311827956989,
+      "native_gene_annotations": [
+        {
+          "geneName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000313",
+                "source": "EMBL",
+                "id": "CAE02706.1"
+              }
+            ],
+            "value": "coq6"
+          },
+          "synonyms": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "COQ6"
+            }
+          ],
+          "orfNames": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW23349.1"
+                }
+              ],
+              "value": "B0I71DRAFT_136091"
+            },
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW00424.1"
+                }
+              ],
+              "value": "YALI1_A08781g"
+            }
+          ]
+        }
+      ],
+      "native_name_annotation": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "HAMAP-Rule",
+                "id": "MF_03193"
+              }
+            ],
+            "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "1.14.15.45"
+            }
+          ]
+        },
+        "alternativeNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.46"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "ranked_hits": {
+    "P25534": [
+      {
+        "qseqid": "P25534",
+        "sseqid": "Q6H9P2",
+        "pident": 29.243,
+        "nident": 112,
+        "length": 383,
+        "qstart": 45,
+        "qend": 382,
+        "sstart": 85,
+        "send": 460,
+        "evalue": 9.78e-34,
+        "bitscore": 129.0,
+        "qlen": 392,
+        "slen": 465,
+        "qseq": "FDGRAIALAAGTCQQLARIGVWQSLA-DCATAITTVHVSDRGHAG----FVT--LAAEDYQLAALGQVVELHNVGQRLFALLRKAPGVTLHCPDRVANVART-QSHVE--VTLESGETLTGRVLVAADGTHSALATACGVDWQQEPYEQLAVIANVATSVAHEGR-AFERFTQHGPLAMLPMSDGRCSLVWCHPLERREEVLSWSDEKFCRELQSAFG---------------------WRLGK------------ITHAGKRSAYPLALTHAARSITHRTVLVGNAAQTLHPIAGQGFNLGMRDVMSLAETLTQAQERGEDMGDYGVLCRYQQRRQSDREATIGVTDSLVHLFANRWAPLVVG-RNIGLMTMELFTPARDVL",
+        "sseq": "FENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWD-GVSGSKVQFNTTQLMGEGRDIAYMTENFNLQN---GLLKQLANKPNLTILDKTKVEGVERTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATV--RLANEQQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTR-NPLVVGLRSLGLDAVNSVKPVKDFL",
+        "reference_coverage": 0.8622448979591837,
+        "native_coverage": 0.8086021505376344,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "CAE02706.1"
+                }
+              ],
+              "value": "coq6"
+            },
+            "synonyms": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "COQ6"
+              }
+            ],
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW23349.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_136091"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW00424.1"
+                  }
+                ],
+                "value": "YALI1_A08781g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.45"
+              }
+            ]
+          },
+          "alternativeNames": [
+            {
+              "fullName": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+              },
+              "ecNumbers": [
+                {
+                  "evidences": [
+                    {
+                      "evidenceCode": "ECO:0000256",
+                      "source": "HAMAP-Rule",
+                      "id": "MF_03193"
+                    }
+                  ],
+                  "value": "1.14.15.46"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "P25535": [
+      {
+        "qseqid": "P25535",
+        "sseqid": "Q6H9P2",
+        "pident": 29.93,
+        "nident": 129,
+        "length": 431,
+        "qstart": 5,
+        "qend": 389,
+        "sstart": 36,
+        "send": 464,
+        "evalue": 3.58e-51,
+        "bitscore": 176.0,
+        "qlen": 400,
+        "slen": 465,
+        "qseq": "DVAIVGGGMVGLAVACGL----QGSGLRVAVLEQRVQEPLAANAPP----QLRVSAINAASEKLLTRLGVWQDILSRRASCYHGMEVWDKDSFGHISFDD-QSMGYSH-LGHIVENSVIHYALWNKAHQSSDITLLAPAELQQV---AWGENETFLTLKDGSMLTARLVIGADGANSWLRNKADIPLTFWDYQHHALVATIRTEEPHDAVARQVFHGEGILAFLPLSDPHLCSIVWSLSPEEAQRMQQASEDEFNRALNIAFD-----------------------------NRLGLCKV----ESARQVFPLTGRYARQFASHRLALVGDAAHTIHPLAGQGVNLGFMDAAELIAELKRLHRQGKDIGQYIYLRRYERSRKHSAALMLAGMQGFRDLFSGTNPAKKLLRDIGLKLADTLPGVKPQLIRQA",
+        "sseq": "DIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSLDNLKTWGPDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLANKPNLTILDKTKVEGVERTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANEQQS-AWQRFLPTGPIALLPLPN-RFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLMSQA",
+        "reference_coverage": 0.9625,
+        "native_coverage": 0.9225806451612903,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "CAE02706.1"
+                }
+              ],
+              "value": "coq6"
+            },
+            "synonyms": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "COQ6"
+              }
+            ],
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW23349.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_136091"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW00424.1"
+                  }
+                ],
+                "value": "YALI1_A08781g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.45"
+              }
+            ]
+          },
+          "alternativeNames": [
+            {
+              "fullName": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+              },
+              "ecNumbers": [
+                {
+                  "evidences": [
+                    {
+                      "evidenceCode": "ECO:0000256",
+                      "source": "HAMAP-Rule",
+                      "id": "MF_03193"
+                    }
+                  ],
+                  "value": "1.14.15.46"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "P75728": [
+      {
+        "qseqid": "P75728",
+        "sseqid": "Q6H9P2",
+        "pident": 30.939,
+        "nident": 112,
+        "length": 362,
+        "qstart": 60,
+        "qend": 381,
+        "sstart": 97,
+        "send": 457,
+        "evalue": 9.58e-43,
+        "bitscore": 153.0,
+        "qlen": 391,
+        "slen": 465,
+        "qseq": "VSLLKGLGVWDAVQAMRCHPYRRLETWEWET-AHVVFDAAEL--KLPLLGYMVENTVLQQALWQALEAHPKVTLRVPGSLIALHRHDDLQE---LELKGGEVIRAKLVIGADGANSQVRQMAGIGVHAWQYAQSCMLISVQCENDPGDSTWQQFTPDGPRAFLPLFDNWASLVWYDSPARIRQLQNMNMAQL---------------------QAEIAKHFPSRLGYVT-------PLAA------GAFPLTRRHALQYVQPGLALVGDAAHTIHPLAGQGVNLGYRDVDALIDVLVNARSYGEAWASYPVLKRYQMRRMADNFIMQSGMDLFYAGFSNNLPPLRFMRNLGLMAAERAGVLK",
+        "sseq": "VEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLANKPNLTILDKTKVEGVERTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANE-QQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVK",
+        "reference_coverage": 0.8235294117647058,
+        "native_coverage": 0.7763440860215054,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "CAE02706.1"
+                }
+              ],
+              "value": "coq6"
+            },
+            "synonyms": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "COQ6"
+              }
+            ],
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW23349.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_136091"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW00424.1"
+                  }
+                ],
+                "value": "YALI1_A08781g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.45"
+              }
+            ]
+          },
+          "alternativeNames": [
+            {
+              "fullName": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+              },
+              "ecNumbers": [
+                {
+                  "evidences": [
+                    {
+                      "evidenceCode": "ECO:0000256",
+                      "source": "HAMAP-Rule",
+                      "id": "MF_03193"
+                    }
+                  ],
+                  "value": "1.14.15.46"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "P27697": [
+      {
+        "qseqid": "P27697",
+        "sseqid": "A0A1D8N7Z5",
+        "pident": 56.948,
+        "nident": 250,
+        "length": 439,
+        "qstart": 63,
+        "qend": 498,
+        "sstart": 150,
+        "send": 586,
+        "evalue": 7.81e-165,
+        "bitscore": 477.0,
+        "qlen": 501,
+        "slen": 591,
+        "qseq": "DTLKSSSVPTSRISRLFHYGSLAAGVGMNAAAKGISEVAKGNSPTWKSLILSDSNIDRITNKFSKMRGVALKIGQLLSFQDEKVLPKELYEILSRVQNSANHMPQRQLEKVMAKELGANWKTKF-SKFDKIPMAAASIGQVHAAEL-PSGQRVVVKIQYPGVKESIDSDLNSLLMLLTASSLLPKGLFLDKTIANARTELKWECDYNREARALQKFEALLKDDPAFEVPHVFPEYTTDNIITMTRMEGTEIMKLPKASQETKNFISENIMRLCLEEIATFKYMQTDPNWANFLYNGRTKKIELLDFGASRPFAEDFILKYRKLLTYATLRDRKGAYEMSVQLGYLTGLESQSMKDAHVDSVLTLGEPFRGDVDKS-FDFKDQTVSDRIRGNIGLMLNERLCPPPEETYSLHRKFSGIFLLCARMGASVHCAKLFKEIFA",
+        "sseq": "EEMMSSAVPSGRFERLFHYGTLATGLGVGALGEGFRRLTGDNSHA-GSLVLTPGNVERLVKSLSQMRGAALKIGQQLSFQDSRVFPPEIQQIFSRVQNSANYMPAEQLHKVLTKELGQGWRNEFFSSFEDKPIAAASIGQVNTAVLRDSYEPVAIKIQYPGVADSIDSDLNNLMILMTASSMLPEGLFLDKTVANARVELKWECDYIREAQNLERFQELLADYPDYVVPKVYHEASTDKVLTMQRLRGQDIVKGP-WDQDTKNWIATRIMELCLLEIAKFKFMQTDPNWANFLYNPKTHKLELLDFGASRGYSDQFINDYLNCLRAAVRKDRASCEKYSLELGYLTGLESKAMLNAHIDSMITLGEPFNGENGGGDFNFANQTVTDRVRENIGVMLKERLTPPPEETYGLHRKLSGAFLLCAKLNAEVPCQKLFEDIVG",
+        "reference_coverage": 0.8702594810379242,
+        "native_coverage": 0.739424703891709,
+        "native_gene_annotations": [
+          {
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW01756.1"
+                  }
+                ],
+                "value": "YALI1_B20527g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000259",
+                  "source": "Pfam",
+                  "id": "PF03109"
+                }
+              ],
+              "value": "ABC1 atypical kinase-like domain-containing protein"
+            }
+          }
+        }
+      },
+      {
+        "qseqid": "P27697",
+        "sseqid": "A0A1D8N629",
+        "pident": 23.81,
+        "nident": 55,
+        "length": 231,
+        "qstart": 127,
+        "qend": 337,
+        "sstart": 188,
+        "send": 395,
+        "evalue": 1.66e-09,
+        "bitscore": 58.2,
+        "qlen": 501,
+        "slen": 624,
+        "qseq": "KMRGVALKIGQLLSFQDEKVLPKELYEILSRVQNSANHMPQRQLEKVMAKELGANWKTKFSKFDKIPMAAASIGQVHAAELPSGQRVVVKIQYPGVKESIDSDLNSLLMLLTASSLLPKGLFLDKTIANARTE------LKW-----------ECDYNREARALQKFEALLKD---DPAFEVPHVFPEYTTDNIITMTRMEGTEIMKLPKASQETKNFISENIMRLCLEEI",
+        "sseq": "KNSGVYIKLGQHIA-ALTYIFPPEWTETMIPLQDQCPESSMESIRAMIRKDTGKNLDDLFLEFNEVPMGVASLAQVHKAVTIDGREVAVKVQHPSLAE-----------------FVPLDVYMTRTIFTIVDHFFPDYPLSWLSDEMQRSIFTELDFTEEANNAVKTREYFKDTYKTTALRIPEVY--WSKRRILVMEFVGGSRLDNRPYLED---NNISPDEVSACLSHI",
+        "reference_coverage": 0.42115768463073855,
+        "native_coverage": 0.3333333333333333,
+        "native_gene_annotations": [
+          {
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW01086.1"
+                  }
+                ],
+                "value": "YALI1_B02642g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000259",
+                  "source": "Pfam",
+                  "id": "PF03109"
+                }
+              ],
+              "value": "ABC1 atypical kinase-like domain-containing protein"
+            }
+          }
+        }
+      }
+    ],
+    "O13525": [
+      {
+        "qseqid": "O13525",
+        "sseqid": "A0A1H6PN93",
+        "pident": 51.293,
+        "nident": 119,
+        "length": 232,
+        "qstart": 84,
+        "qend": 315,
+        "sstart": 28,
+        "send": 259,
+        "evalue": 2.04e-85,
+        "bitscore": 256.0,
+        "qlen": 335,
+        "slen": 262,
+        "qseq": "YNGHVPLHRYEKLLLFAISGWNSFFHPEDGYNIVQLGEATALPVFLENLKQTMLSDSSGRRILKEQPNITTEILHMDKLAKLPHNTFGYVYYQWLKRENVSPDTRAPVKFIDDPMHAYIFKRYRQCHDFYHAITNMPIIIEGEITIKALEGANLGVPMAILGGILAPLRLKKVQRKRLYNIYLPWAVRTGLSCKPLINVYWEEMLEKDVTALRKELKITLPPDLRTMRKERA",
+        "sseq": "YPEHVPLTCLGRAVLAVGSGFGTFFDSRRGDLVATLGEATAQPYFIYKLREQMLKDPTGRRLLREQPRMTSKSLDLDKLRNMKVGSIGRTYVEWLDKEGVSPDTRAQVRYIDDPECAYVMQRYRESHDFYHALTGLPIIMEGELALKAFEWANTGLPMSGLGMVLTPLKFKPKQRKRYFDVYLPWALYNGFRSKPVINVYWEEVLEKDAEELRRDLGIEQPPDLRQMKKDMA",
+        "reference_coverage": 0.6925373134328359,
+        "native_coverage": 0.8854961832061069,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03111"
+                }
+              ],
+              "value": "COQ4"
+            },
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW27624.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_128880"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW07772.1"
+                  }
+                ],
+                "value": "YALI1_F34625g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00081568"
+                }
+              ],
+              "value": "4-hydroxy-3-methoxy-5-polyprenylbenzoate decarboxylase"
+            }
+          }
+        }
+      }
+    ],
+    "P53318": [
+      {
+        "qseqid": "P53318",
+        "sseqid": "Q6H9P2",
+        "pident": 41.595,
+        "nident": 193,
+        "length": 464,
+        "qstart": 22,
+        "qend": 471,
+        "sstart": 25,
+        "send": 461,
+        "evalue": 6.05e-101,
+        "bitscore": 308.0,
+        "qlen": 479,
+        "slen": 465,
+        "qseq": "SSAPK----LTDVLIVGGGPAGLTLAASIKNSPQLKDLKTTLVDMVDLKDKLSDFYNSPPDY--FTNRIVSVTPRSIHFLEN-NAGATLMHDRIQSYDGLYVTDGCSKATLDLARDSMLC-------MIEIINIQASLYNRISQYDSKKDSIDIIDNTKVVNIKHSDPNDPLSWPLVTLSNGEVYKTRLLVGADGFNSPTRRFSQIPSRGWMYNAYGVVASMKLEYPPFKLRGWQRFLPTGPIAHLPMPENNATLVWSSSERLSRLLLSLPPESFTALINAAFVLEDADMNYYYRTLEDGSMDTDKLIEDIKFRTEEIYATLKDESDIDEIYPPRVVSIIDKTRARFPLKLTHADRYCTDRVALVGDAAHTTHPLAGQGLNMGQTDVHGLVYALEKAMERGLDIGSSLSLEPFWAERYPSNNVLLGMADKLFKLYHTNFPPVVALRTFGLNLTNKIGPVKNMII",
+        "sseq": "TSAPKPSTTHSDIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSL-DNLKTWG---PDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLAN----KPNLTILDKTKVEGVERTPESH--NKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANE--QQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVE-------HPDEIMTDAPYR-------LSQRSSNPDV-PCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLM",
+        "reference_coverage": 0.9394572025052192,
+        "native_coverage": 0.9397849462365592,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "CAE02706.1"
+                }
+              ],
+              "value": "coq6"
+            },
+            "synonyms": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "COQ6"
+              }
+            ],
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW23349.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_136091"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW00424.1"
+                  }
+                ],
+                "value": "YALI1_A08781g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.45"
+              }
+            ]
+          },
+          "alternativeNames": [
+            {
+              "fullName": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+              },
+              "ecNumbers": [
+                {
+                  "evidences": [
+                    {
+                      "evidenceCode": "ECO:0000256",
+                      "source": "HAMAP-Rule",
+                      "id": "MF_03193"
+                    }
+                  ],
+                  "value": "1.14.15.46"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "P41735": [
+      {
+        "qseqid": "P41735",
+        "sseqid": "A0A1H6Q2E8",
+        "pident": 58.421,
+        "nident": 111,
+        "length": 190,
+        "qstart": 44,
+        "qend": 233,
+        "sstart": 6,
+        "send": 192,
+        "evalue": 5.83e-78,
+        "bitscore": 231.0,
+        "qlen": 233,
+        "slen": 192,
+        "qseq": "LSDAQAAFLDRVIRVDQAGELGADYIYAGQYFVLAHRYPHLKPVLKHIWDQEIHHHNTFNNLQLKRRVRPSLLTPLWKAGAFAMGAGTALISPEAAMACTEAVETVIGGHYNGQLRNLANQFNLERTDGTKGPSEEIKSLTSTIQQFRDDELEHLDTAIKHDSYMAVPYTVITEGIKTICRVAIWSAERI",
+        "sseq": "LSKAEASFITKLIRVDQAGELGADLIYRGQYMVLSRTKPEIEPLIKHMWEQEQHHRRTFNELQQKYRVRPSLLTPIWKVAATGLGCATALLGQEGAMACTEAVETVIGGHYNTQLRWLHENFPPKE---ERSKDEEITSLKSIVKQFRDEELEHLEIAVENDSHEARPYWLLTETIKAGCRGAIWVAERV",
+        "reference_coverage": 0.8154506437768241,
+        "native_coverage": 0.9739583333333334,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03194"
+                }
+              ],
+              "value": "COQ7"
+            },
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW28695.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_126860"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW05447.1"
+                  }
+                ],
+                "value": "YALI1_E18269g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03194"
+                }
+              ],
+              "value": "5-demethoxyubiquinone hydroxylase, mitochondrial"
+            },
+            "shortNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03194"
+                  }
+                ],
+                "value": "DMQ hydroxylase"
+              }
+            ],
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03194"
+                  }
+                ],
+                "value": "1.14.99.60"
+              }
+            ]
+          },
+          "alternativeNames": [
+            {
+              "fullName": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03194"
+                  }
+                ],
+                "value": "Ubiquinone biosynthesis monooxygenase COQ7"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "WLG15894.1": [
+      {
+        "qseqid": "WLG15894.1",
+        "sseqid": "Q6H9P2",
+        "pident": 38.584,
+        "nident": 169,
+        "length": 438,
+        "qstart": 9,
+        "qend": 439,
+        "sstart": 36,
+        "send": 465,
+        "evalue": 5.18e-92,
+        "bitscore": 284.0,
+        "qlen": 440,
+        "slen": 465,
+        "qseq": "DVVISGGGMVGTAMACALGYDPHFQDKKILLLEAG---HKKVFDQLPESYSNRVSSITPGSATLLSSFGAWDHICNMRFKPFRRMQVWDACSDAMITFDKENL----EDMGYIVENDVIMAALTKQLEAVSDRVEVLYRSRAVGYTWPLPYHTAEANPWVQIELADGRRLQTKLLIGADGQNSMVRKAAGIQNVQWNYDQSAVVATLHLSEATDNNVAWQRFLPTGPIALLPLSDTVSSLVWSTSHEHAAELLSMDEESFVDAINSAFWSNENHSEFIDTAGSMFRSALSLLMPSGTSARQLPPSVARVDPKSRAMFPLGLGHATEYVRHRVALIGDAAHRVHPLAGQGVNMGFGDVACLTHHLSQAAFNGKDLGSTRHLLEYETERQRHNLPLMAAIDLLKRLYSTKVAPFVLLRTLGLQATNALSPVKEQIMAFAS",
+        "sseq": "DIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSLDNLKTWGPDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQL-ANKPNLTILDKTKVEGVE-----RTPESHNKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRL--ANEQQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVEHPDEIMTDAPYRLSQRSSNPDVPCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLMSQAS",
+        "reference_coverage": 0.9795454545454545,
+        "native_coverage": 0.9247311827956989,
+        "native_gene_annotations": [
+          {
+            "geneName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "CAE02706.1"
+                }
+              ],
+              "value": "coq6"
+            },
+            "synonyms": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "COQ6"
+              }
+            ],
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "RDW23349.1"
+                  }
+                ],
+                "value": "B0I71DRAFT_136091"
+              },
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "AOW00424.1"
+                  }
+                ],
+                "value": "YALI1_A08781g"
+              }
+            ]
+          }
+        ],
+        "native_name_annotation": {
+          "recommendedName": {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "HAMAP-Rule",
+                  "id": "MF_03193"
+                }
+              ],
+              "value": "Ubiquinone biosynthesis monooxygenase COQ6, mitochondrial"
+            },
+            "ecNumbers": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "1.14.15.45"
+              }
+            ]
+          },
+          "alternativeNames": [
+            {
+              "fullName": {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000256",
+                    "source": "HAMAP-Rule",
+                    "id": "MF_03193"
+                  }
+                ],
+                "value": "2-methoxy-6-polyprenolphenol 4-hydroxylase"
+              },
+              "ecNumbers": [
+                {
+                  "evidences": [
+                    {
+                      "evidenceCode": "ECO:0000256",
+                      "source": "HAMAP-Rule",
+                      "id": "MF_03193"
+                    }
+                  ],
+                  "value": "1.14.15.46"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "limits": "HSP rankings only within fixed cached proteome. No new phylogeny, localization, structural superposition or direct substrate-specific enzyme assay. Different positional monooxygenases may share sequence similarity."
+}

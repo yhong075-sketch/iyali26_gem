@@ -1,0 +1,1233 @@
+{
+  "auditor": "/root/audit_gpr",
+  "created_utc": "2026-09-11T00:20:47.964543+00:00",
+  "scope": "This target-three task only: IM8+final DF claims+ROOT18. Prior23/prior25 not merged. Counts are author claim units, not independent experiments or unique evidence sources.",
+  "coverage": {
+    "total": 33,
+    "audited": 33,
+    "supported": 30,
+    "unresolved": 3,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "reviewed_root_report": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/REPORT.md",
+    "sha256": "11f33576d2ee0c14d858641a93a5a48b39785bfa90d0c983bec62ad1173ea2d2",
+    "locator": "scientific content reviewed; final coverage/link-only edit may follow"
+  },
+  "audit_code_sha256": "32500e32430ab41bf459449441111f73cb18a718a3e62644763680d496609d28",
+  "claims": [
+    {
+      "id": "IM01",
+      "claim": "PLOS出版商S2原件与仓内S2表字节一致；YALI1 Genes行6015把YALI0E16192g对应YALI1_E19360g，类型Pseudo mRNA。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM01"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/published_S2_table.xlsx",
+          "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+          "locator": "YALI1 Genes!A6015:H6015"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/yali1_yali0_map/S2_table_YALI1_YALI0_map.xlsx",
+          "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+          "locator": "whole-file byte comparison"
+        }
+      ],
+      "independent_check": "Independent read-only openpyxl read and full SHA comparison: published/local byte-identical; old F maps to E19360, Pseudo mRNA.",
+      "limitations": "Locus/database correspondence only; no native activity experiment.",
+      "checked_utc": "2026-09-11T00:20:47.897037+00:00"
+    },
+    {
+      "id": "IM02",
+      "claim": "NCBI Gene2911580和NC_090774.1目标feature注释YALI1_E19360g为pseudo，并明确nonfunctional due to frameshift；菌株CLIB89(W29)。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM02"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_gene_2911580.xml",
+          "sha256": "c158ea6d1b9d493179bc0222639f23a63bae35f84a8913126e4e03dfaab72abb",
+          "locator": "Entrezgene_type, Gene-ref_locus-tag, Gene-commentary_text"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+          "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+          "locator": "source strain and gene FEATURES"
+        }
+      ],
+      "independent_check": "Direct XML and GenBank read: pseudo and frameshift/nonfunctional annotation, CLIB89(W29).",
+      "limitations": "Provisional propagated annotation may share S2 source; not an independent functional experiment.",
+      "checked_utc": "2026-09-11T00:20:47.897244+00:00"
+    },
+    {
+      "id": "IM03",
+      "claim": "Q6C5Q2 v1固定目标是CLIB122/E150蛋白122aa，完整序列SHA已与上轮固定值核对。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM03"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6C5Q2_snapshot.json",
+          "sha256": "364cce381ba2bae6595b330d6b72b2ea607bf4f24988673a9929de62af10928c",
+          "locator": "entryAudit/organism/sequence"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+          "locator": "CAG79603.1 ORIGIN/source"
+        }
+      ],
+      "independent_check": "Frozen old F length122 and exact sequence SHA independently recalculated; exact GenPept sequence independently compared.",
+      "limitations": "CLIB122/E150 record, not native W29 active protein.",
+      "checked_utc": "2026-09-11T00:20:47.897387+00:00"
+    },
+    {
+      "id": "IM04",
+      "claim": "W29目标feature跨348nt，无CDS、protein_id或translation；目前未建立与旧122aa蛋白的完整序列等价。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM04"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+          "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+          "locator": "gene complement(101..448); absence of CDS/protein_id/translation within target feature"
+        }
+      ],
+      "independent_check": "Direct feature span 348nt checked; no target translated protein supplied.",
+      "limitations": "Not a genome-wide search; no ORF repair or proof all F activity is absent.",
+      "checked_utc": "2026-09-11T00:20:47.897499+00:00"
+    },
+    {
+      "id": "IM05",
+      "claim": "原始S2行3747对应D00581→旧D00583，行8659对应F38820→旧F31119。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM05"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/published_S2_table.xlsx",
+          "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+          "locator": "YALI1 Genes!A3747:H3747 and A8659:H8659"
+        }
+      ],
+      "independent_check": "Direct cells verify D00583→D00581 and F31119→F38820.",
+      "limitations": "Mapping does not establish protein/phenotype equivalence.",
+      "checked_utc": "2026-09-11T00:20:47.897890+00:00"
+    },
+    {
+      "id": "IM06",
+      "claim": "仓内本次可直接读取的1612正例工作簿没有三个指定靶点，也没有YALI1_E19360g；只做下划线格式归一。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM06"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+          "sha256": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+          "locator": "Sheet1!A2:B1613"
+        }
+      ],
+      "independent_check": "Read all1612 positive IDs and normalize only ID underscore format; three targets and E19360 absent.",
+      "limitations": "Publisher byte identity not reverified this round; positive-only absence is not nonessential; original per-assay calls not restored.",
+      "checked_utc": "2026-09-11T00:20:47.898032+00:00"
+    },
+    {
+      "id": "IM07",
+      "claim": "已有essentiality_per_gene.tsv中三个靶点都是experimental_label=unlabelled。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM07"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/essentiality_per_gene.tsv",
+          "sha256": "fcad4295baf2d1837a1ee4bc22b2a6b24ea90b75029308b37123f73245eb76a8",
+          "locator": "three target gene_id records"
+        }
+      ],
+      "independent_check": "Independent TSV read confirms experimental_label unlabelled.",
+      "limitations": "Existing derived calls only; no new KO run or raw-assay validation.",
+      "checked_utc": "2026-09-11T00:20:47.898452+00:00"
+    },
+    {
+      "id": "IM08",
+      "claim": "旧到新位点对应不能作为W29活性F蛋白等价替换；旧F序列/结构本身不足以将新位点作为共同AND，必须保留身份冲突。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/evidence.json",
+        "sha256": "6da99d0c94370a73cc78595b5a29643048924fb68f498af5786963bfe090bbff",
+        "locator": "claim IM08"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/published_S2_table.xlsx",
+          "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+          "locator": "F mapping row6015"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_gene_2911580.xml",
+          "sha256": "c158ea6d1b9d493179bc0222639f23a63bae35f84a8913126e4e03dfaab72abb",
+          "locator": "pseudo annotation"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+          "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+          "locator": "target feature"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+          "locator": "CLIB122 F ORIGIN"
+        }
+      ],
+      "independent_check": "Review of identity-gate inference: old full F sequence cannot resolve target-strain annotation conflict.",
+      "limitations": "Does not deny F component mechanism or prove target strain has no F function.",
+      "checked_utc": "2026-09-11T00:20:47.898918+00:00"
+    },
+    {
+      "id": "DF1",
+      "claim": "D257aa和旧CLIB122F122aa各自固定序列SHA、原UniProt快照、精确版本GenPept（AOW03384.1/CAG79603.1）原始ORIGIN及现有AF v6元数据/PDB CA序列完全匹配。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF1"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/target_sequences.json",
+          "sha256": "e3540f8bf9c264b303f11701ef7cdb2c481da9a6e1c777acc86518c9d861ad0a",
+          "locator": "two frozen full sequences"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+          "locator": "both accession-version ORIGIN and strain"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NCM2_snapshot.json",
+          "sha256": "f62a78131e6bd479c33c3af829825a8881dcca1b256bc2a65ae8284060fa1bdb",
+          "locator": "sequence/source"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6C5Q2_snapshot.json",
+          "sha256": "364cce381ba2bae6595b330d6b72b2ea607bf4f24988673a9929de62af10928c",
+          "locator": "sequence/source"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/A0A1D8NCM2_af.json",
+          "sha256": "cca2559eadd2b14bf7d8f8a578deaaf125625e772d3ecf1071259430aa1876f5",
+          "locator": "UniProt sequence, existing model version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/A0A1D8NCM2_AF_v6.pdb",
+          "sha256": "378f4a80fce063d7e6a7de7a7cefb9e9ee6489b677e8489e01922ffaeb1ec0d2",
+          "locator": "all target CA sequence/B factors"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/A0A1D8NCM2_AF_v6_pae.json",
+          "sha256": "954ade76ae0887a939d96596ec62eea4c015bd5b8d5246c1a512eef35d20a3c1",
+          "locator": "entire matrix"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/Q6C5Q2_af.json",
+          "sha256": "cdd91126af724b2b023aa0f4278db2a8ac7c277427937aa6af73bd26964442e2",
+          "locator": "UniProt sequence, existing model version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/Q6C5Q2_AF_v6.pdb",
+          "sha256": "65ae6401bbeb07ea12e899bf0c7fa7a9969d0b8d28d7ddff44d8888798cfd41a",
+          "locator": "all target CA sequence/B factors"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/Q6C5Q2_AF_v6_pae.json",
+          "sha256": "1fd601dbe4a61ce62d4961ed956dd8ede302bebc7dda22b7f8b38e4bfbdca788",
+          "locator": "entire matrix"
+        }
+      ],
+      "independent_check": "Independent residue equality for frozen sequence/AF API/PDB and exact GenPept; confidence statistics recomputed from all CA/PAE entries.",
+      "limitations": "Existing AlphaFold v6 model, not newly predicted or experimental; low-confidence regions retained.",
+      "checked_utc": "2026-09-11T00:20:47.899602+00:00"
+    },
+    {
+      "id": "DF2",
+      "claim": "D目标整链对实验V1-D显著优于V0-d及V1-F：TMq .74470/.24051/.12851；支持V1大D组件候选而非小d自动别名判定。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF2"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb",
+          "sha256": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+          "locator": "source chains M/N/Q"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/chain_manifest.json",
+          "sha256": "5433b0009cb252ce24f05865e38bb726512d8cfae84e94a80c181f2341555cf9",
+          "locator": "residue/coordinate provenance"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/structure_recalculated.json",
+          "sha256": "566852ab91198572437052ea27a108deda7af4087150b3f17eaa9157e620b324",
+          "locator": "independent numerical recalculation"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32610_reference.json",
+          "sha256": "6d161a5364e1d1fa8272175a4395768e1e8ea8b23625b68d8144b70b001c4428",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P39111_reference.json",
+          "sha256": "04fd9a7c96989b28c496c8a6708dee1efbe61a0440c73d48811e652c76986a13",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32366_reference.json",
+          "sha256": "cc007e171555a581ef3774a882f60b0479b098c5bd92a6818725ba8819b01958",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/structure_results.json",
+          "sha256": "65e7df2b61eeaec8fb5774630db612e8fcbc86d7c3aab3815f0770fd9163d9d3",
+          "locator": "all six original comparisons"
+        }
+      ],
+      "independent_check": "Read original alignment outputs; independently mapped all aligned residues to source chains and recomputed geometry. D TMq .74470/.24051/.12851; F .86663/.24834/.38417 by corresponding reference.",
+      "limitations": "Component-class candidates only; not a calibrated probability, native activity, or target genome uniqueness.",
+      "checked_utc": "2026-09-11T00:20:47.901916+00:00"
+    },
+    {
+      "id": "DF3",
+      "claim": "旧CLIB122 F目标对实验V1-F获得TMq .86663和114/122覆盖，明显优于另外两个参考；支持旧蛋白的V1F类别。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF3"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb",
+          "sha256": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+          "locator": "source chains M/N/Q"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/chain_manifest.json",
+          "sha256": "5433b0009cb252ce24f05865e38bb726512d8cfae84e94a80c181f2341555cf9",
+          "locator": "residue/coordinate provenance"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/structure_recalculated.json",
+          "sha256": "566852ab91198572437052ea27a108deda7af4087150b3f17eaa9157e620b324",
+          "locator": "independent numerical recalculation"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32610_reference.json",
+          "sha256": "6d161a5364e1d1fa8272175a4395768e1e8ea8b23625b68d8144b70b001c4428",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P39111_reference.json",
+          "sha256": "04fd9a7c96989b28c496c8a6708dee1efbe61a0440c73d48811e652c76986a13",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32366_reference.json",
+          "sha256": "cc007e171555a581ef3774a882f60b0479b098c5bd92a6818725ba8819b01958",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/structure_results.json",
+          "sha256": "65e7df2b61eeaec8fb5774630db612e8fcbc86d7c3aab3815f0770fd9163d9d3",
+          "locator": "all six original comparisons"
+        }
+      ],
+      "independent_check": "Read original alignment outputs; independently mapped all aligned residues to source chains and recomputed geometry. D TMq .74470/.24051/.12851; F .86663/.24834/.38417 by corresponding reference.",
+      "limitations": "Component-class candidates only; not a calibrated probability, native activity, or target genome uniqueness.",
+      "checked_utc": "2026-09-11T00:20:47.904098+00:00"
+    },
+    {
+      "id": "DF4",
+      "claim": "3J9T为6.9Å实验密度中的链模型；D参考仅210/256残基有CA，F115/118，小d345/345；每个CA残基匹配SEQRES与实体/UniProt。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF4"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb",
+          "sha256": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+          "locator": "source chains M/N/Q"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/chain_manifest.json",
+          "sha256": "5433b0009cb252ce24f05865e38bb726512d8cfae84e94a80c181f2341555cf9",
+          "locator": "residue/coordinate provenance"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/structure_recalculated.json",
+          "sha256": "566852ab91198572437052ea27a108deda7af4087150b3f17eaa9157e620b324",
+          "locator": "independent numerical recalculation"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32610_reference.json",
+          "sha256": "6d161a5364e1d1fa8272175a4395768e1e8ea8b23625b68d8144b70b001c4428",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P39111_reference.json",
+          "sha256": "04fd9a7c96989b28c496c8a6708dee1efbe61a0440c73d48811e652c76986a13",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32366_reference.json",
+          "sha256": "cc007e171555a581ef3774a882f60b0479b098c5bd92a6818725ba8819b01958",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entry.json",
+          "sha256": "bad5ac50e82640b08c5fc0fb7e17392fdebf0a977f272d726ee00d1e14d82636",
+          "locator": "experimental resolution6.9Å"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity1.json",
+          "sha256": "56f367cad1bf2eb113bc516a41ba5365601e26184d7c0c5565ed18c0fc5f3b84",
+          "locator": "V1 D entity sequence"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity2.json",
+          "sha256": "47bc505b5130a38db8bff918dcc27d4faa777fd411923928eab87c7a6f8d1b70",
+          "locator": "V1 F entity sequence"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity5.json",
+          "sha256": "7f824c39cb6a67365d4e5914169ec051de242f0a916b7bd263c1368cf1024584",
+          "locator": "V0 d entity sequence"
+        }
+      ],
+      "independent_check": "All available CA residues independently checked against SEQRES/entity/UniProt; 210/256,115/118,345/345.",
+      "limitations": "D model lacks46 residues; low-resolution cryoEM chain model is not high-resolution side-chain confirmation.",
+      "checked_utc": "2026-09-11T00:20:47.906304+00:00"
+    },
+    {
+      "id": "DF5",
+      "claim": "六组全部CA对应、导出变换距离和独立最小二乘RMSD核查通过；输出矩阵TM-RMSD与Kabsch打印RMSD分别保存。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF5"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb",
+          "sha256": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+          "locator": "source chains M/N/Q"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/chain_manifest.json",
+          "sha256": "5433b0009cb252ce24f05865e38bb726512d8cfae84e94a80c181f2341555cf9",
+          "locator": "residue/coordinate provenance"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/structure_recalculated.json",
+          "sha256": "566852ab91198572437052ea27a108deda7af4087150b3f17eaa9157e620b324",
+          "locator": "independent numerical recalculation"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32610_reference.json",
+          "sha256": "6d161a5364e1d1fa8272175a4395768e1e8ea8b23625b68d8144b70b001c4428",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P39111_reference.json",
+          "sha256": "04fd9a7c96989b28c496c8a6708dee1efbe61a0440c73d48811e652c76986a13",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32366_reference.json",
+          "sha256": "cc007e171555a581ef3774a882f60b0479b098c5bd92a6818725ba8819b01958",
+          "locator": "sequence, gene, version"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/structure_results.json",
+          "sha256": "65e7df2b61eeaec8fb5774630db612e8fcbc86d7c3aab3815f0770fd9163d9d3",
+          "locator": "six rows"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/verify_structure.py",
+          "sha256": "cd06fb3683913227a041b859d04759da0cc15410639fc3e57db234643c8caa40",
+          "locator": "verification method"
+        }
+      ],
+      "independent_check": "599 aligned CA pairs independently checked; exported matrix distances and Kabsch RMSD recomputed. Reference-normalized TM score independently recomputed under exported transform.",
+      "limitations": "TM-optimized transform RMSD and Kabsch RMSD differ and are preserved. Query-normalized optimization not independently re-run; raw score read from US-align output.",
+      "checked_utc": "2026-09-11T00:20:47.908302+00:00"
+    },
+    {
+      "id": "DF6",
+      "claim": "这些结果是组件候选的间接证据，不能证明原生功能唯一性、生长essential或将完整CLIB122 F转移为W29活性蛋白。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF6"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/target_sequences.json",
+          "sha256": "e3540f8bf9c264b303f11701ef7cdb2c481da9a6e1c777acc86518c9d861ad0a",
+          "locator": "strain-specific sequence identity"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb",
+          "sha256": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+          "locator": "reference experimental chains"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+          "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+          "locator": "W29 target feature"
+        }
+      ],
+      "independent_check": "Inference boundary reviewed against actual sequence/structure/strain evidence.",
+      "limitations": "Indirect class evidence does not establish native uniqueness, essentiality, or cross-strain active allele identity.",
+      "checked_utc": "2026-09-11T00:20:47.910034+00:00"
+    },
+    {
+      "id": "DF7",
+      "claim": "标准BLASTP2.17.0+固定三实验参照面板：D对V1-D/P32610 identity186/255、query覆盖255/257；旧CLIB122F对V1-F/P39111 identity71/114、query覆盖114/122。两目标其他参照在E≤1e-5未报hit，E-value仅此3序列检索空间，不是完整Swiss-Prot或原生唯一性证据。远程唯一请求15分钟后仍WAITING，未报告为完成。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/df_claims.json",
+        "sha256": "7e232de98076ebd7edf06400edcf4d7944e37b197ca259aba504261d14dd47d5",
+        "locator": "claim DF7"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/target_sequences.json",
+          "sha256": "e3540f8bf9c264b303f11701ef7cdb2c481da9a6e1c777acc86518c9d861ad0a",
+          "locator": "fixed query sequence"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/experimental_reference_panel.fasta",
+          "sha256": "47221efb5b299cdf8d14787e4c08910cbf2f745ebb3cf4f77a6c39d497c3a527",
+          "locator": "three exact experimental reference proteins"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/local_blast.xml",
+          "sha256": "5d70ba2de23263bb33b7620bca21efc5a5b81821d3d6ac57febd1843e4353e13",
+          "locator": "all completed HSPs"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/blast_results.json",
+          "sha256": "600986a3ee06e79e403be528d06c054904c2038056a1b104e942ac507cc40a07",
+          "locator": "parameters and bounded scope"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/blast_recalculated.json",
+          "sha256": "8ade029bc27ec745081512528ca4927519dd1e91e77c5bd3f409664996db74ae",
+          "locator": "independent HSP/identity/coverage audit"
+        }
+      ],
+      "independent_check": "See independently recalculated original BLAST HSPs, fixed FASTA residue equality, identity denominators, coverage unions and parameter audit.",
+      "limitations": "Two-query three-reference local comparison is not a Swiss-Prot completed search; E values belong to the small reference search space, not the remote database.",
+      "checked_utc": "2026-09-11T00:20:47.910281+00:00"
+    },
+    {
+      "id": "ML1",
+      "claim": "两模型目标GPR相同、三目标仅关联R794/R795；R794[0,1000]，R795[0,0]。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim ML1"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_c7_model_test_20260907/inputs/reference.xml",
+          "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+          "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json",
+          "sha256": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+          "locator": "independent XML/AST audit"
+        }
+      ],
+      "independent_check": "Independent XML GPR evaluation:1471/1468 explicit GPRs, each target only R794/R795; each single KO disables none. Bounds[0,1000]/[0,0].",
+      "limitations": "Target-rule/bound equality only; not whole-model or optimization-problem equivalence; no solver.",
+      "checked_utc": "2026-09-11T00:20:47.921739+00:00"
+    },
+    {
+      "id": "ML2",
+      "claim": "两固定模型三目标任一单敲均不关闭完整GPR；由全部关联静态解析得到，不是新GEM求解。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim ML2"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_c7_model_test_20260907/inputs/reference.xml",
+          "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+          "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json",
+          "sha256": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+          "locator": "independent XML/AST audit"
+        }
+      ],
+      "independent_check": "Independent XML GPR evaluation:1471/1468 explicit GPRs, each target only R794/R795; each single KO disables none. Bounds[0,1000]/[0,0].",
+      "limitations": "Target-rule/bound equality only; not whole-model or optimization-problem equivalence; no solver.",
+      "checked_utc": "2026-09-11T00:20:47.932348+00:00"
+    },
+    {
+      "id": "ML3",
+      "claim": "八候选全16384状态布尔检查通过；只加三个全局AND仍有仅D/F/a/c″存在的反例。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim ML3"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_c7_model_test_20260907/inputs/reference.xml",
+          "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+          "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json",
+          "sha256": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+          "locator": "independent XML/AST audit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/model_logic.py",
+          "sha256": "c5b596f32bcba400ea736e977e5a66af83e1848871fd4d353ab8b7bd80e6a873",
+          "locator": "eight candidate definitions and exhaustive truth tables"
+        }
+      ],
+      "independent_check": "Independent AST enumeration of all16384 states per candidate; counts4099,2051,1027,1025,3,2,2,1 and D/F/a2/c″ counterexample reproduced.",
+      "limitations": "Boolean assignments are not growth observations; full component template not full biological curation.",
+      "checked_utc": "2026-09-11T00:20:47.942982+00:00"
+    },
+    {
+      "id": "ML4",
+      "claim": "既有三目标敲除表生长比约1，本轮只读取原始已执行表，未重复求解。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim ML4"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv",
+          "sha256": "f1249e4cf5170ab04542bdeda0be69b8f756aed40b3dbcf43bbd7cbfb5c76086",
+          "locator": "three target records"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json",
+          "sha256": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+          "locator": "existing-row verification"
+        }
+      ],
+      "independent_check": "Read stored optimal target rows: ratios approximately1; no model solving in this audit.",
+      "limitations": "Historical/current stored observation, not this-round KO reproduction or reconstructed historical runtime.",
+      "checked_utc": "2026-09-11T00:20:47.943167+00:00"
+    },
+    {
+      "id": "BIO1",
+      "claim": "原始D论文摘要报告参照VMA8缺失无膜V-ATPase活性和装配缺陷；这是跨物种组件机制证据。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO1"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/pubmed_D_F_originals.xml",
+          "sha256": "cc8122f39cb6a65cfee55753b95c8c9fba334e7c2de6e0c4717ed8762bfc736e",
+          "locator": "PubMedArticle PMID7797485 Abstract"
+        }
+      ],
+      "independent_check": "Original-author abstract directly read: VMA8 deletion loses vacuolar-membrane ATPase and V1 association.",
+      "limitations": "S.cerevisiae experiment; abstract-level review; not target Yarrowia deletion or unconditional growth essentiality.",
+      "checked_utc": "2026-09-11T00:20:47.943330+00:00"
+    },
+    {
+      "id": "BIO2",
+      "claim": "两篇原始F论文摘要报告参照VMA7缺失的膜泵活性/酸化和装配缺陷；不等于Yarrowia原生敲除。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO2"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/pubmed_D_F_originals.xml",
+          "sha256": "cc8122f39cb6a65cfee55753b95c8c9fba334e7c2de6e0c4717ed8762bfc736e",
+          "locator": "PubMedArticle PMID7929071 and7929308 Abstract"
+        }
+      ],
+      "independent_check": "Both original-author abstracts directly read: VMA7 deletion acidification/ATPase/assembly defects.",
+      "limitations": "Different phenotypic endpoints; no precise permissive-pH claim absent from original abstract; not target-species deletion.",
+      "checked_utc": "2026-09-11T00:20:47.943500+00:00"
+    },
+    {
+      "id": "BIO3",
+      "claim": "Thermus不含F的游离A3B3D可水解旋转；缺F膜重构的ATP合成和DCCD敏感ATPase终点有限定，不能泛化为原生所有泵通量。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO3"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/pubmed_14963028_ThermusF.xml",
+          "sha256": "6fa2b3775c87b8871e73cc30f1456610efa839481d3895f4329db4d19c26079d",
+          "locator": "original abstract A3B3D rotation/ATPase"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3397886_Thermus_reconstitution.html",
+          "sha256": "495ee3910fb2cc72d4cb10a6eff28737c72fdb1ee8e2d65f8206478847ff570f",
+          "locator": "Results F-deficient reconstitution; ATP synthesis/DCCD sensitivity"
+        }
+      ],
+      "independent_check": "Original endpoints independently read: soluble no-F complex retains ATPase/rotation; assembled F-deficient membrane complex lacks measured synthesis/DCCD-sensitive ATPase.",
+      "limitations": "Thermus endpoints do not directly assay all modeled proton transport or establish yeast gene essentiality.",
+      "checked_utc": "2026-09-11T00:20:47.943789+00:00"
+    },
+    {
+      "id": "BIO4",
+      "claim": "祖先a在现生酵母重构可服务两区室，反对一蛋白必然一定位；不赋Yarrowia两个a实际可替代OR。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO4"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3164464_ancestral_a.html",
+          "sha256": "79dddbf1f4b5fd2950821d902a11369c8f16365b02ab8356a1792d65b3ba383e",
+          "locator": "Abstract, ancestral reconstruction in extant yeast, dual-compartment acidification"
+        }
+      ],
+      "independent_check": "Direct original text confirms one reconstructed ancestral a can support both locations in engineered S.cerevisiae.",
+      "limitations": "Not a native Yarrowia two-locus localization/complementation experiment; cannot assign their OR.",
+      "checked_utc": "2026-09-11T00:20:47.943999+00:00"
+    },
+    {
+      "id": "BIO5",
+      "claim": "CompaCt作者表中D/F/a旧蛋白分别关联V1/V1/V0；该方法结合共迁移与同源，不等于原生泵功能或定位实验。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO5"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_s003.xlsx",
+          "sha256": "a2eb6b9a955da461122886f077368a3df150fa57d8cc400ee280745c9594ffc2",
+          "locator": "45_selected_clusters!A1299:I1299,A1302:I1302,A907:I907"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC10434966_complexome.html",
+          "sha256": "43f9e8b3cb069124d7760080efec22543e74e457b88405f046cdaf7b574fad49",
+          "locator": "CompaCt method/FrC definition/Fig8"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_fig8.jpg",
+          "sha256": "99e48627e100d4b3fb2009dbd8b3ebf08a135688aeb934bd1b5de896464147e9",
+          "locator": "YARLI row a column"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_s001.pdf",
+          "sha256": "6d9eca47a634c41af3cf49643aa0ee31433fb0070ea2f7e538cee36a60324581",
+          "locator": "p10 TableC,p11 TableD"
+        }
+      ],
+      "independent_check": "Original cells, figure and relevant source text directly inspected. V1/V1/V0 associations; FrC1/1/.75. Source PDF pages visually verified.",
+      "limitations": "Clustering uses co-migration and homology; FrC is dataset fraction, not essential probability or cell fraction. TableD is sequence-homology proteome. Missing a isoform in a selected cluster is not absence proof.",
+      "checked_utc": "2026-09-11T00:20:47.944813+00:00"
+    },
+    {
+      "id": "BIO6",
+      "claim": "CEDAR CRX40为研究编号，实际样品GB20、CRS197–200为线粒体膜；本轮未确立GB20与目标W29/PO1f等位关系。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO6"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/cedar_browser_observations.json",
+          "sha256": "511c8f45e7e27837ebea5c92fbbab3f4f6b6aed8ce21411fa21e28006ed69d3f",
+          "locator": "independent live public DOM source observation"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_s001.pdf",
+          "sha256": "6d9eca47a634c41af3cf49643aa0ee31433fb0070ea2f7e538cee36a60324581",
+          "locator": "p10 TableC"
+        }
+      ],
+      "independent_check": "Independent CEDAR experiment page read (not root excerpt) confirms GB20,CRX40,CRS197–200 and mitochondrial preparations; search method checked.",
+      "limitations": "Web observation record hash is not full page HTML hash; target-strain lineage/alleles not established; preparation is not native organelle-localization proof.",
+      "checked_utc": "2026-09-11T00:20:47.945276+00:00"
+    },
+    {
+      "id": "BIO7",
+      "claim": "作者处理的GB20蛋白表D/F/a报告unique peptides26/17/50、coverage74.3/86.9/53.1；本轮未重搜谱图。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO7"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/cedar_GB20_proteinGroups.txt",
+          "sha256": "7892fb25d594cb2744d38263f26ec8bac37f16d627bede99fed4d4ee2cdc22fd",
+          "locator": "two headers; rows3323,3327,2408 columns1–4"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/additional_source_checks.json",
+          "sha256": "2fb190e526183f1c5a062637e762c3063a653e9a7c4710eff1009c834eb7f6dd",
+          "locator": "independent direct row read"
+        }
+      ],
+      "independent_check": "Direct author table read verifies D/F/a26/17/50 unique peptides and74.3/86.9/53.1 coverage.",
+      "limitations": "Processed protein-group evidence; no raw spectra search, peptide assignment, or allele identity verification.",
+      "checked_utc": "2026-09-11T00:20:47.946635+00:00"
+    },
+    {
+      "id": "BIO8",
+      "claim": "两Yarrowia a序列/结构候选相似不能确定各区室唯一性；本轮限定原生文献检查未取得定位互补直接证据，不宣称普遍无此类来源。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim BIO8"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json",
+          "sha256": "332c1eafbd42c4e4e548d855164c2990522e86d8218f477694d9ef1acbe313be",
+          "locator": "two a candidates and experimental references; bounded reuse of already source-audited records"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "sha256": "9f1509f9ad1cc292787cbfc2f599836ef1dc20b6a29424488f20d39335649058",
+          "locator": "two a reference comparisons"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "sha256": "bc670498ba7be831a46b5b7db3ed6e307f1c7dbec09aff6f55ba9d6eacd55f3d",
+          "locator": "experimental a isoforms and compartment-specific complexes"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/biosearch_yali1.txt",
+          "sha256": "b1f553661d014f8de3b05a49abde97c64eded1fba13d18ddb13be6bcc32d4dea",
+          "locator": "retrieved candidate list and target-ID passages"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/biosearch_yali2_counter.txt",
+          "sha256": "a401285712973c0f17a073d7b464532310ee12a6f6ed394fd39333b73dff058c",
+          "locator": "retrieved candidate list"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/biosearch_yali3.txt",
+          "sha256": "9bc3fe6639385f0dad0de44fc9f4aebe7370ceae72442ef5e3c0e9c897f5d2ac",
+          "locator": "retrieved candidate list"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3164464_ancestral_a.html",
+          "sha256": "79dddbf1f4b5fd2950821d902a11369c8f16365b02ab8356a1792d65b3ba383e",
+          "locator": "original ancestral-a experiment"
+        }
+      ],
+      "independent_check": "Limited old-source reuse and direct primary comparison support identity/localization distinction; retrieved primary sources do not establish target a localization/unique function. Search logs used only as provenance, not scientific evidence.",
+      "limitations": "Not a systematic completeness claim or proof no such experiment exists elsewhere; no old23/25 claims re-counted.",
+      "checked_utc": "2026-09-11T00:20:47.947327+00:00"
+    },
+    {
+      "id": "DEC1",
+      "claim": "在本轮同源及参照机制证据下，D共享AND可列整理候选；不是已经确认原生唯一性或模型正式采纳。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim DEC1"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+          "locator": "W29 D target sequence identity"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb",
+          "sha256": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+          "locator": "experimental reference identity"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/pubmed_D_F_originals.xml",
+          "sha256": "cc8122f39cb6a65cfee55753b95c8c9fba334e7c2de6e0c4717ed8762bfc736e",
+          "locator": "PMID7797485 deletion mechanism"
+        }
+      ],
+      "independent_check": "Reasoned proposal supported by target D homology plus experimental component mechanism.",
+      "limitations": "Candidate curation decision only; no all-genome alternative-source exclusion or formal model adoption.",
+      "checked_utc": "2026-09-11T00:20:47.949418+00:00"
+    },
+    {
+      "id": "DEC2",
+      "claim": "旧完整F虽获同源支持，W29对应pseudo注释冲突尚未解除；不直接采用旧ID为W29共同AND。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim DEC2"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+          "locator": "CLIB122 F target sequence"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/published_S2_table.xlsx",
+          "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+          "locator": "F locus mapping"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+          "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+          "locator": "W29 pseudo feature"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/cedar_GB20_proteinGroups.txt",
+          "sha256": "7892fb25d594cb2744d38263f26ec8bac37f16d627bede99fed4d4ee2cdc22fd",
+          "locator": "F detection in GB20"
+        }
+      ],
+      "independent_check": "Holding direct old-ID W29 AND adoption is supported by unresolved strain identity conflict; GB20 detection does not resolve exact W29 allele.",
+      "limitations": "Database annotation is not biological proof F absent; active encoding identity remains open.",
+      "checked_utc": "2026-09-11T00:20:47.951067+00:00"
+    },
+    {
+      "id": "DEC3",
+      "claim": "目前不支持将a候选F38820无条件设为两反应共同AND，或把两个a自动设成区室通用OR。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim DEC3"
+      },
+      "audit_status": "audited",
+      "verdict": "supported",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html",
+          "sha256": "bc670498ba7be831a46b5b7db3ed6e307f1c7dbec09aff6f55ba9d6eacd55f3d",
+          "locator": "two a isoforms"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3164464_ancestral_a.html",
+          "sha256": "79dddbf1f4b5fd2950821d902a11369c8f16365b02ab8356a1792d65b3ba383e",
+          "locator": "ancestral-a experimental scope"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "sha256": "9f1509f9ad1cc292787cbfc2f599836ef1dc20b6a29424488f20d39335649058",
+          "locator": "a candidate comparisons"
+        }
+      ],
+      "independent_check": "No evidence supports unconditionally forcing F38820 into both compartment rules or unqualified isoform interchangeability.",
+      "limitations": "Insufficiency for proposed adoption, not proof target nonessential or proof the isoforms cannot substitute.",
+      "checked_utc": "2026-09-11T00:20:47.951387+00:00"
+    },
+    {
+      "id": "OPEN1",
+      "claim": "目标W29/PO1f具体哪个完整活性位点编码F，以及伪基因注释与实际等位/转录本关系。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim OPEN1"
+      },
+      "audit_status": "audited",
+      "verdict": "unresolved",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+          "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+          "locator": "pseudo feature"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+          "locator": "old CLIB122 F sequence"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/cedar_GB20_proteinGroups.txt",
+          "sha256": "7892fb25d594cb2744d38263f26ec8bac37f16d627bede99fed4d4ee2cdc22fd",
+          "locator": "GB20 F record"
+        }
+      ],
+      "independent_check": "Question reviewed against all current conflicting identities.",
+      "limitations": "Need target-strain complete active F locus/allele evidence; remains biologically unresolved.",
+      "checked_utc": "2026-09-11T00:20:47.952642+00:00"
+    },
+    {
+      "id": "OPEN2",
+      "claim": "F38820与另一个a候选在Golgi和液泡的可用性、互补范围与各自是否不可替代。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim OPEN2"
+      },
+      "audit_status": "audited",
+      "verdict": "unresolved",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json",
+          "sha256": "9f1509f9ad1cc292787cbfc2f599836ef1dc20b6a29424488f20d39335649058",
+          "locator": "a structural matches"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3164464_ancestral_a.html",
+          "sha256": "79dddbf1f4b5fd2950821d902a11369c8f16365b02ab8356a1792d65b3ba383e",
+          "locator": "scope of reference experiment"
+        }
+      ],
+      "independent_check": "Question reviewed; candidate homology is insufficient for target compartment/unique-source assignment.",
+      "limitations": "Target localization and functional complementation evidence needed; remains unresolved.",
+      "checked_utc": "2026-09-11T00:20:47.952851+00:00"
+    },
+    {
+      "id": "OPEN3",
+      "claim": "候选GPR正式采纳后，在明确培养条件中的三个目标生长essentiality。",
+      "author_ledger": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/root_claims.json",
+        "sha256": "2a3bc9efc4e4a870b2dfce3506a8a802b7090593f5fb65d49266107a976d3abd",
+        "locator": "claim OPEN3"
+      },
+      "audit_status": "audited",
+      "verdict": "unresolved",
+      "direct_source_locators": [
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_c7_model_test_20260907/inputs/reference.xml",
+          "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+          "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+          "locator": "all explicit GPRs; target bounds"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json",
+          "sha256": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+          "locator": "independent XML/AST audit"
+        },
+        {
+          "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv",
+          "sha256": "f1249e4cf5170ab04542bdeda0be69b8f756aed40b3dbcf43bbd7cbfb5c76086",
+          "locator": "existing original-GPR results"
+        }
+      ],
+      "independent_check": "Question reviewed; static GPR changes do not demonstrate growth effect.",
+      "limitations": "No candidate adopted or GEM solved; essentiality requires specified-condition testing after justified curation.",
+      "checked_utc": "2026-09-11T00:20:47.963636+00:00"
+    }
+  ],
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/published_S2_table.xlsx": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/yali1_yali0_map/S2_table_YALI1_YALI0_map.xlsx": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_gene_2911580.xml": "c158ea6d1b9d493179bc0222639f23a63bae35f84a8913126e4e03dfaab72abb",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6C5Q2_snapshot.json": "364cce381ba2bae6595b330d6b72b2ea607bf4f24988673a9929de62af10928c",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/essentiality_per_gene.tsv": "fcad4295baf2d1837a1ee4bc22b2a6b24ea90b75029308b37123f73245eb76a8",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/target_sequences.json": "e3540f8bf9c264b303f11701ef7cdb2c481da9a6e1c777acc86518c9d861ad0a",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NCM2_snapshot.json": "f62a78131e6bd479c33c3af829825a8881dcca1b256bc2a65ae8284060fa1bdb",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/A0A1D8NCM2_af.json": "cca2559eadd2b14bf7d8f8a578deaaf125625e772d3ecf1071259430aa1876f5",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/A0A1D8NCM2_AF_v6.pdb": "378f4a80fce063d7e6a7de7a7cefb9e9ee6489b677e8489e01922ffaeb1ec0d2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/A0A1D8NCM2_AF_v6_pae.json": "954ade76ae0887a939d96596ec62eea4c015bd5b8d5246c1a512eef35d20a3c1",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/Q6C5Q2_af.json": "cdd91126af724b2b023aa0f4278db2a8ac7c277427937aa6af73bd26964442e2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/Q6C5Q2_AF_v6.pdb": "65ae6401bbeb07ea12e899bf0c7fa7a9969d0b8d28d7ddff44d8888798cfd41a",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/Q6C5Q2_AF_v6_pae.json": "1fd601dbe4a61ce62d4961ed956dd8ede302bebc7dda22b7f8b38e4bfbdca788",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/3j9t.pdb": "88fdec5af70093fff297334f29201a5f6e913b64e7069fe32066834263c9fe1f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/chain_manifest.json": "5433b0009cb252ce24f05865e38bb726512d8cfae84e94a80c181f2341555cf9",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/structure_recalculated.json": "566852ab91198572437052ea27a108deda7af4087150b3f17eaa9157e620b324",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32610_reference.json": "6d161a5364e1d1fa8272175a4395768e1e8ea8b23625b68d8144b70b001c4428",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P39111_reference.json": "04fd9a7c96989b28c496c8a6708dee1efbe61a0440c73d48811e652c76986a13",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/P32366_reference.json": "cc007e171555a581ef3774a882f60b0479b098c5bd92a6818725ba8819b01958",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/structure_results.json": "65e7df2b61eeaec8fb5774630db612e8fcbc86d7c3aab3815f0770fd9163d9d3",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entry.json": "bad5ac50e82640b08c5fc0fb7e17392fdebf0a977f272d726ee00d1e14d82636",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity1.json": "56f367cad1bf2eb113bc516a41ba5365601e26184d7c0c5565ed18c0fc5f3b84",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity2.json": "47bc505b5130a38db8bff918dcc27d4faa777fd411923928eab87c7a6f8d1b70",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity5.json": "7f824c39cb6a67365d4e5914169ec051de242f0a916b7bd263c1368cf1024584",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/verify_structure.py": "cd06fb3683913227a041b859d04759da0cc15410639fc3e57db234643c8caa40",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/experimental_reference_panel.fasta": "47221efb5b299cdf8d14787e4c08910cbf2f745ebb3cf4f77a6c39d497c3a527",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/local_blast.xml": "5d70ba2de23263bb33b7620bca21efc5a5b81821d3d6ac57febd1843e4353e13",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/blast_results.json": "600986a3ee06e79e403be528d06c054904c2038056a1b104e942ac507cc40a07",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/blast_recalculated.json": "8ade029bc27ec745081512528ca4927519dd1e91e77c5bd3f409664996db74ae",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_c7_model_test_20260907/inputs/reference.xml": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/model_logic.py": "c5b596f32bcba400ea736e977e5a66af83e1848871fd4d353ab8b7bd80e6a873",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv": "f1249e4cf5170ab04542bdeda0be69b8f756aed40b3dbcf43bbd7cbfb5c76086",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/pubmed_D_F_originals.xml": "cc8122f39cb6a65cfee55753b95c8c9fba334e7c2de6e0c4717ed8762bfc736e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/pubmed_14963028_ThermusF.xml": "6fa2b3775c87b8871e73cc30f1456610efa839481d3895f4329db4d19c26079d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3397886_Thermus_reconstitution.html": "495ee3910fb2cc72d4cb10a6eff28737c72fdb1ee8e2d65f8206478847ff570f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC3164464_ancestral_a.html": "79dddbf1f4b5fd2950821d902a11369c8f16365b02ab8356a1792d65b3ba383e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_s003.xlsx": "a2eb6b9a955da461122886f077368a3df150fa57d8cc400ee280745c9594ffc2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/PMC10434966_complexome.html": "43f9e8b3cb069124d7760080efec22543e74e457b88405f046cdaf7b574fad49",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_fig8.jpg": "99e48627e100d4b3fb2009dbd8b3ebf08a135688aeb934bd1b5de896464147e9",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/complexome_s001.pdf": "6d9eca47a634c41af3cf49643aa0ee31433fb0070ea2f7e538cee36a60324581",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/cedar_browser_observations.json": "511c8f45e7e27837ebea5c92fbbab3f4f6b6aed8ce21411fa21e28006ed69d3f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/cedar_GB20_proteinGroups.txt": "7892fb25d594cb2744d38263f26ec8bac37f16d627bede99fed4d4ee2cdc22fd",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/additional_source_checks.json": "2fb190e526183f1c5a062637e762c3063a653e9a7c4710eff1009c834eb7f6dd",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/blast_results.json": "332c1eafbd42c4e4e548d855164c2990522e86d8218f477694d9ef1acbe313be",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/structure_results.json": "9f1509f9ad1cc292787cbfc2f599836ef1dc20b6a29424488f20d39335649058",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html": "bc670498ba7be831a46b5b7db3ed6e307f1c7dbec09aff6f55ba9d6eacd55f3d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/biosearch_yali1.txt": "b1f553661d014f8de3b05a49abde97c64eded1fba13d18ddb13be6bcc32d4dea",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/biosearch_yali2_counter.txt": "a401285712973c0f17a073d7b464532310ee12a6f6ed394fd39333b73dff058c",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/biosearch_yali3.txt": "9bc3fe6639385f0dad0de44fc9f4aebe7370ceae72442ef5e3c0e9c897f5d2ac",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V1D.txt": "f94d5b5f6edf66ad62a250692b0a02d0fe5ed17338fab1e9d97ffa3f90ac768e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V1F.matrix.txt": "f5e5109ae7915114eed958704770f5554dee6606d7bcbd95a7af03630ed66736",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V1F.txt": "2129cac47869bc92942b5126487631a887ad6a05408675e5329f5bc1e01a59cc",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V1F.matrix.txt": "3cfd57b56cb080925dfdefc65e6175af3ace8924cb9b3daff5a8ffd63a6e25b2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V0d.txt": "5c3e9604ac861c7f28a68af48ec78760bef7c994a9a79de744e1c97dd20623cf",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V0d.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V1D.matrix.txt": "98676767e92774b3afe41d515747299364ebb8cc052b8719caa2595964232f2f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V1D.matrix.txt": "d4cb96aa7f75070f2fbb5fc307189b4cf61ea395d7d40ebd03a6d1aad86bb1aa",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V0d.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V1F.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V1F.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V0d.txt": "144104c6e9d288a808cb0b74b8fea239c7e0e204f044cdb6259c11f73f71d8fb",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V1D.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V0d.matrix.txt": "c82ca08981d56b82b58d8d75172eac80bd4e4d5860d295c083a16dce36316a60",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V1F.txt": "751e9d930beda923d74b03a88d4845d2985e55b212458563240722cb87e0e7a0",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V0d.matrix.txt": "da5c9f058f2d46ca8b16835c53dff3c0475b47ed3a6511d6c62efc6bdc189245",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1D__3j9t_V1D.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/results/target_V1F_CLIB122__3j9t_V1D.txt": "66f99b28c78075e913a6e89abd152d7a58511a8cd2535ae8832792e8a330b41e"
+  },
+  "independent_verification_outputs": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/logic_recalculated.json",
+      "sha256": "66be17af6d383996f7382f1cd72ec1f2160e40ae7401a94df66e796af4d00b69",
+      "locator": "full relevant record"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/structure_recalculated.json",
+      "sha256": "566852ab91198572437052ea27a108deda7af4087150b3f17eaa9157e620b324",
+      "locator": "full relevant record"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/table_checks.json",
+      "sha256": "18b950cea6c21e7a6271247653ad38f20615a38a5ee339288276f24ab885499d",
+      "locator": "full relevant record"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/additional_source_checks.json",
+      "sha256": "2fb190e526183f1c5a062637e762c3063a653e9a7c4710eff1009c834eb7f6dd",
+      "locator": "full relevant record"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/cedar_browser_observations.json",
+      "sha256": "511c8f45e7e27837ebea5c92fbbab3f4f6b6aed8ce21411fa21e28006ed69d3f",
+      "locator": "full relevant record"
+    }
+  ],
+  "scope_limits": [
+    "No GEM solve, model/GPR/data/labels/Git modification by auditor",
+    "No raw mass-spectra reanalysis or peptide-level verification",
+    "No independent structure prediction or US-align search re-run; original coordinate/residue/transform checks were independently recomputed",
+    "Only source-specific original abstracts/full texts read as recorded; search snippets not promoted to scientific findings",
+    "No systematic-literature completeness or target strain full-genome uniqueness claim",
+    "All open questions audited but not scientifically resolved"
+  ]
+}

@@ -1,0 +1,825 @@
+{
+  "started_at_utc": "2026-09-11T01:10:38.743428+00:00",
+  "input": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_vatpase_and_hypothesis.xml",
+    "sha256": "b00a9ea20c21712b428f159f9050727053cf373ae89c6cfe161e7a77e0b2eb64"
+  },
+  "medium": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+    "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "active_medium": {
+      "R946": 1000.0,
+      "R971": 1000.0,
+      "R1003": 0.00489,
+      "R1016": 1000.0,
+      "R1029": 1000.0,
+      "R1030": 1000.0,
+      "R1070": 10.0,
+      "R1127": 1000.0,
+      "R1164": 1000.0,
+      "R1189": 6.67e-05,
+      "R1202": 0.02586,
+      "R1204": 0.05414,
+      "R1215": 0.00859,
+      "R1217": 0.03434,
+      "R1220": 0.02466,
+      "R1222": 0.01207,
+      "R1223": 0.02727,
+      "R1231": 0.07562,
+      "R1232": 0.02205,
+      "R1233": 0.02486,
+      "R1234": 0.10765,
+      "R1263": 1000.0,
+      "R1268": 1000.0,
+      "R1287": 1000.0,
+      "R1296": 1000.0,
+      "R1298": 1000.0,
+      "R1305": 1000.0,
+      "R1314": 1000.0,
+      "R1323": 1000.0,
+      "R1333": 1000.0,
+      "R1340": 1000.0,
+      "R1354": 1000.0,
+      "R1364": 1000.0,
+      "R2061": 1000.0,
+      "R2270": 1000.0
+    }
+  },
+  "strain_profile": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+    "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "audit": {
+      "schema_version": "1.0",
+      "workflow": "po1f_runtime_strain_overlay",
+      "profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain": {
+        "name": "PO1f",
+        "reference_background": "W29/CLIB89",
+        "genotype": "MatA, leu2-270, ura3-302, xpr2-322, axp-2",
+        "assay_background": "Cas9/Cas12a fitness screen with intact NHEJ; LEU2-marked sgRNA plasmid selected in SD-Leu"
+      },
+      "operations": [
+        {
+          "type": "disable_reaction",
+          "reaction_id": "R612",
+          "locus": "URA3",
+          "gene_id": "YALI1E31685g",
+          "legacy_gene_id": "YALI0E26741g",
+          "allele": "ura3-302",
+          "protein_function": "orotidine-5'-phosphate decarboxylase; de novo UMP biosynthesis",
+          "evidence_status": "PO1f genotype is directly reported; enzyme identity is curated; current GEM lacks this gene and R612 has no GPR",
+          "before": {
+            "lower_bound": 0.0,
+            "upper_bound": 1000.0
+          },
+          "after": {
+            "lower_bound": 0.0,
+            "upper_bound": 0.0
+          },
+          "changed": true
+        },
+        {
+          "type": "plasmid_complement",
+          "reaction_id": "R45",
+          "locus": "LEU2",
+          "gene_id": "YALI1C00464g",
+          "legacy_gene_id": "YALI0C00407g",
+          "allele": "leu2-270",
+          "complement_source": "pCas9yl-GW/pLbCas12ayl-GW library plasmid backbone carrying the LEU2 selectable marker",
+          "protein_function": "3-isopropylmalate dehydrogenase; leucine biosynthesis",
+          "evidence_status": "PO1f genotype, pCRISPRyl LEU2 marker, derivative library-vector construction, and SD-Leu selection are directly reported",
+          "pseudo_gene": "PO1f_plasmid_LEU2",
+          "before": {
+            "gene_reaction_rule": "YALI1C00464g"
+          },
+          "after": {
+            "gene_reaction_rule": "PO1f_plasmid_LEU2"
+          },
+          "changed": true
+        }
+      ],
+      "medium": {
+        "assertions_checked": {
+          "R1219": 0.0,
+          "R1354": 0.01607
+        },
+        "runtime_uptake_overrides": {
+          "R1354": 1000.0
+        },
+        "active_medium_before": {
+          "R1003": 0.00489,
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1127": 1000.0,
+          "R1164": 1000.0,
+          "R1189": 6.67e-05,
+          "R1202": 0.02586,
+          "R1204": 0.05414,
+          "R1215": 0.00859,
+          "R1217": 0.03434,
+          "R1219": 0.0,
+          "R1220": 0.02466,
+          "R1222": 0.01207,
+          "R1223": 0.02727,
+          "R1231": 0.07562,
+          "R1232": 0.02205,
+          "R1233": 0.02486,
+          "R1234": 0.10765,
+          "R1263": 1000.0,
+          "R1268": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1314": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1354": 0.01607,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0,
+          "R946": 1000.0,
+          "R971": 1000.0
+        },
+        "active_medium": {
+          "R1003": 0.00489,
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1127": 1000.0,
+          "R1164": 1000.0,
+          "R1189": 6.67e-05,
+          "R1202": 0.02586,
+          "R1204": 0.05414,
+          "R1215": 0.00859,
+          "R1217": 0.03434,
+          "R1219": 0.0,
+          "R1220": 0.02466,
+          "R1222": 0.01207,
+          "R1223": 0.02727,
+          "R1231": 0.07562,
+          "R1232": 0.02205,
+          "R1233": 0.02486,
+          "R1234": 0.10765,
+          "R1263": 1000.0,
+          "R1268": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1314": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1354": 1000.0,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0,
+          "R946": 1000.0,
+          "R971": 1000.0
+        },
+        "formulation": {
+          "uracil_mg_per_l": 20.0,
+          "uracil_millimolar": 0.1784280489,
+          "uracil_molecular_weight_g_per_mol": 112.09,
+          "glucose_g_per_l": 20.0,
+          "glucose_molecular_weight_g_per_mol": 180.156,
+          "glucose_uptake": 10.0,
+          "supply_ratio_surrogate_uptake": 0.0160724418,
+          "supply_ratio_surrogate_status": "concentration_ratio_surrogate_not_measured_vmax",
+          "runtime_override_status": "static_fba_nonlimiting_not_measured_vmax"
+        }
+      },
+      "active_medium": {
+        "R1003": 0.00489,
+        "R1016": 1000.0,
+        "R1029": 1000.0,
+        "R1030": 1000.0,
+        "R1070": 10.0,
+        "R1127": 1000.0,
+        "R1164": 1000.0,
+        "R1189": 6.67e-05,
+        "R1202": 0.02586,
+        "R1204": 0.05414,
+        "R1215": 0.00859,
+        "R1217": 0.03434,
+        "R1219": 0.0,
+        "R1220": 0.02466,
+        "R1222": 0.01207,
+        "R1223": 0.02727,
+        "R1231": 0.07562,
+        "R1232": 0.02205,
+        "R1233": 0.02486,
+        "R1234": 0.10765,
+        "R1263": 1000.0,
+        "R1268": 1000.0,
+        "R1287": 1000.0,
+        "R1296": 1000.0,
+        "R1298": 1000.0,
+        "R1305": 1000.0,
+        "R1314": 1000.0,
+        "R1323": 1000.0,
+        "R1333": 1000.0,
+        "R1340": 1000.0,
+        "R1354": 1000.0,
+        "R1364": 1000.0,
+        "R2061": 1000.0,
+        "R2270": 1000.0,
+        "R946": 1000.0,
+        "R971": 1000.0
+      },
+      "assay_confounded_loci": [
+        "URA3",
+        "LEU2"
+      ],
+      "provenance_only_variants": [
+        "xpr2-322 and axp-2 are recorded but have no current small-molecule GEM reaction",
+        "Cas9/Cas12a expression cassettes integrated at A08 are assay provenance only",
+        "KU70 is intact in the fitness screen; delta-KU70 strains were used only for guide cutting-score calibration"
+      ],
+      "sources": [
+        "https://www.nature.com/articles/s42003-023-04996-8",
+        "https://sunrisescience.com/shop/growth-media/amino-acid-supplement-mixtures/csm-formulations/csm-leu-powder-10-grams/",
+        "https://www.addgene.org/70007/"
+      ],
+      "overlay_already_applied": false,
+      "model_layer_modified_in_memory": true,
+      "canonical_sbml_written": false
+    }
+  },
+  "solver": {
+    "interface": "optlang.gurobi_interface",
+    "presolve": false,
+    "tolerances": {
+      "feasibility": 1e-07,
+      "optimality": 1e-07,
+      "integrality": 1e-07
+    }
+  },
+  "extra_solver_time_limit_seconds": 60,
+  "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "e01a393e2e4af87ecfab7dcec162ab16948b00444599ac1297b1a0ccd8b29093",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+  },
+  "primary_solves": 3,
+  "runs": {
+    "WT": {
+      "disabled": [],
+      "raw_status": "optimal",
+      "raw_objective": 1.8718823069403,
+      "proton_fluxes": {
+        "m293[C_go]": [
+          {
+            "id": "R1159",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R141",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2048",
+            "flux": 0.0,
+            "coefficient": -2.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R794",
+            "flux": 0.0,
+            "coefficient": 2.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R_NDP7g",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          }
+        ],
+        "m1007[C_va]": [
+          {
+            "id": "R1163",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2020",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2028",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2030",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2038",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2040",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R795",
+            "flux": 0.0,
+            "coefficient": 2.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R869",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R870",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R871",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R876",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R878",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R879",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R882",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R883",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R887",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R888",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R897",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R898",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R918",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R925",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R927",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          }
+        ]
+      },
+      "max_mass_balance_residual": 8.058630802595945e-15,
+      "max_bound_violation": 0.0
+    },
+    "pumps_closed": {
+      "disabled": [
+        "R794",
+        "R795"
+      ],
+      "raw_status": "optimal",
+      "raw_objective": 1.8718823069402994,
+      "proton_fluxes": {
+        "m293[C_go]": [
+          {
+            "id": "R1159",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R141",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2048",
+            "flux": 0.0,
+            "coefficient": -2.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R794",
+            "flux": 0.0,
+            "coefficient": 2.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R_NDP7g",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          }
+        ],
+        "m1007[C_va]": [
+          {
+            "id": "R1163",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2020",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2028",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2030",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2038",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2040",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R795",
+            "flux": 0.0,
+            "coefficient": 2.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R869",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R870",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R871",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R876",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R878",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R879",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R882",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R883",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R887",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R888",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R897",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R898",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R918",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R925",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R927",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          }
+        ]
+      },
+      "max_mass_balance_residual": 6.534689781477476e-14,
+      "max_bound_violation": 0.0
+    },
+    "pumps_and_R1159_closed": {
+      "disabled": [
+        "R1159",
+        "R794",
+        "R795"
+      ],
+      "raw_status": "optimal",
+      "raw_objective": 1.8718823069402994,
+      "proton_fluxes": {
+        "m293[C_go]": [
+          {
+            "id": "R1159",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R141",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2048",
+            "flux": 0.0,
+            "coefficient": -2.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R794",
+            "flux": 0.0,
+            "coefficient": 2.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R_NDP7g",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          }
+        ],
+        "m1007[C_va]": [
+          {
+            "id": "R1163",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2020",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2028",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2030",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2038",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R2040",
+            "flux": 0.0,
+            "coefficient": 1.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R795",
+            "flux": 0.0,
+            "coefficient": 2.0,
+            "net_proton_rate": 0.0
+          },
+          {
+            "id": "R869",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R870",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R871",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R876",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R878",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R879",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R882",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R883",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R887",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R888",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R897",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R898",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R918",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R925",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          },
+          {
+            "id": "R927",
+            "flux": 0.0,
+            "coefficient": -1.0,
+            "net_proton_rate": -0.0
+          }
+        ]
+      },
+      "max_mass_balance_residual": 6.534689781477476e-14,
+      "max_bound_violation": 0.0
+    }
+  },
+  "source_sha256": {
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b"
+  },
+  "script_sha256": "bc70bc0e128610b487d503315a2ecdd26a3f9554bcf421141647cfa575607904",
+  "elapsed_seconds": 0.1502265419694595,
+  "input_unchanged": true,
+  "status": "complete",
+  "solver_record_origin": "solver field copied from the preceding screen manifest for reference. This diagnostic explicitly selected gurobi, Threads=1 and TimeLimit=60 and asserted presolve=False; tolerance values were not separately captured in this run.",
+  "postprocessing_recorded_at_utc": "2026-09-11T01:12:31.521862+00:00",
+  "witness_summary": {
+    "all_go_va_proton_reactions_exactly_zero_in_each_saved_solution": true,
+    "WT_to_pumps_closed_objective_difference": -4.440892098500626e-16,
+    "R1159_additional_closure_objective_difference": 0.0,
+    "interpretation": "An optimal WT solution already satisfies zero flux for both pumps and every go/va proton-associated reaction. R1159 is structurally an alternative proton transport, but it is unused in these witnesses and closing it does not explain an essentiality change."
+  }
+}

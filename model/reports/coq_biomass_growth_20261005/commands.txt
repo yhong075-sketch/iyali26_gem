@@ -1,0 +1,13 @@
+# Run from project root. Existing output directories are never overwritten.
+# 1. Initial preflight: missing matplotlib metadata, zero solves.
+.venv/bin/python -B scripts/test_coq_biomass_growth.py --output artifacts/coq_biomass_growth_20261005
+# 2. Baseline succeeded, then COBRA context exception before first positive-alpha solve.
+.venv/bin/python -B scripts/test_coq_biomass_growth.py --output artifacts/coq_biomass_growth_20261005/results
+# 3. After fixing delta addition; synthetic check uses zero solves.
+.venv/bin/python -B -m unittest tests.test_coq_biomass_candidate
+# 4. Successful run: exact-problem-matched cached control + 21 new solves.
+.venv/bin/python -B scripts/test_coq_biomass_growth.py --output artifacts/coq_biomass_growth_20261005/sweep --reuse-control artifacts/coq_biomass_growth_20261005/results/point_00.json
+# 5. First plot-only attempt without project PYTHONPATH failed importing memote, zero solves.
+MPLCONFIGDIR=/tmp/coq_growth_mpl_20261005 /opt/miniconda3/bin/python -B scripts/test_coq_biomass_growth.py --output artifacts/coq_biomass_growth_20261005/sweep --plot-only
+# 6. Successful plot-only render; existing installed runtimes, no optimization.
+PYTHONPATH='/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/lib/python3.13/site-packages' MPLCONFIGDIR=/tmp/coq_growth_mpl_20261005 /opt/miniconda3/bin/python -B scripts/test_coq_biomass_growth.py --output artifacts/coq_biomass_growth_20261005/sweep --plot-only

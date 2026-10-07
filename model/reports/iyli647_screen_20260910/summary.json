@@ -1,0 +1,272 @@
+{
+  "checked_utc": "2026-09-11T05:00:59.056750+00:00",
+  "status": "two_screens_and_frozen_positive_comparison_complete",
+  "new_model_solves": 1298,
+  "extra_scoring_solves": 0,
+  "mapping_summary": {
+    "external_gene_records": 648,
+    "external_gpr_referenced_gene_ids": 644,
+    "external_gene_mapping_categories": {
+      "one_to_one_crosswalk": 633,
+      "protein_suffix_no_explicit_crosswalk": 10,
+      "explicit_identity_exclusion": 1,
+      "nonstandard_gene_id_no_correction": 4
+    },
+    "experimental_positive_count": 1612,
+    "positive_mapping_categories": {
+      "mapped_counterpart_not_in_external": 1356,
+      "eligible": 235,
+      "no_crosswalk_counterpart": 13,
+      "ambiguous_crosswalk": 8
+    },
+    "external_covered_positives": 235,
+    "external_positive_coverage": 0.14578163771712158,
+    "iyali26_saved_covered_positives": 322,
+    "common_evaluable_positives": 235,
+    "external_only_evaluable_positives": 0,
+    "iyali26_only_covered_positives": 87,
+    "iyali26_on_common_saved_10pct": {
+      "TP": 70,
+      "FN": 165
+    },
+    "iyali26_covered_but_external_excluded_categories": {
+      "mapped_counterpart_not_in_external": 87
+    }
+  },
+  "scenarios": {
+    "native": {
+      "wt": {
+        "status": "optimal",
+        "raw_objective": "1.1537351153250899",
+        "growth": 1.1537351153250899
+      },
+      "raw_status_counts": {
+        "optimal": 648
+      },
+      "unresolved_rows": 0,
+      "primary_solves": 649,
+      "active_medium": {
+        "EX_glc(e)": 10.0,
+        "EX_h2o(e)": 1000.0,
+        "EX_h(e)": 1000.0,
+        "EX_nh4(e)": 1000.0,
+        "EX_o2(e)": 1000.0,
+        "EX_pi(e)": 1000.0,
+        "EX_so4(e)": 1000.0,
+        "trehalose_c_tp": 1000.0
+      },
+      "source_unchanged": true
+    },
+    "mapped28_po1f": {
+      "wt": {
+        "status": "optimal",
+        "raw_objective": "1.2171871273706656",
+        "growth": 1.2171871273706656
+      },
+      "raw_status_counts": {
+        "optimal": 648
+      },
+      "unresolved_rows": 0,
+      "primary_solves": 649,
+      "active_medium": {
+        "EX_ade(e)": 0.00489,
+        "EX_arg_L(e)": 0.02586,
+        "EX_asp_L(e)": 0.05414,
+        "EX_btn(e)": 1000.0,
+        "EX_co2(e)": 1000.0,
+        "EX_glc(e)": 10.0,
+        "EX_h2o(e)": 1000.0,
+        "EX_h(e)": 1000.0,
+        "EX_his_L(e)": 0.00859,
+        "EX_ile_L(e)": 0.03434,
+        "EX_inost(e)": 1000.0,
+        "EX_k(e)": 1000.0,
+        "EX_lys_L(e)": 0.02466,
+        "EX_met_L(e)": 0.01207,
+        "EX_na1(e)": 1000.0,
+        "EX_nh4(e)": 1000.0,
+        "EX_o2(e)": 1000.0,
+        "EX_phe_L(e)": 0.02727,
+        "EX_pi(e)": 1000.0,
+        "EX_pnto_R(e)": 1000.0,
+        "EX_ribflv(e)": 1000.0,
+        "EX_so4(e)": 1000.0,
+        "EX_thm(e)": 1000.0,
+        "EX_thr_L(e)": 0.07562,
+        "EX_trp_L(e)": 0.02205,
+        "EX_tyr_L(e)": 0.02486,
+        "EX_ura(e)": 1000.0,
+        "EX_val_L(e)": 0.10765
+      },
+      "source_unchanged": true
+    }
+  },
+  "cutoff_curve": [
+    {
+      "scenario": "native",
+      "cutoff": 0.01,
+      "screened_gene_records": 648,
+      "predicted_essential": 127,
+      "predicted_nonessential": 521,
+      "positive_denominator": 235,
+      "TP": 80,
+      "FN": 155,
+      "recall": 0.3404255319148936,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 47,
+      "iyali26_TP_same_235": 52,
+      "iyali26_FN_same_235": 183,
+      "both_TP": 36,
+      "external_only_TP": 44,
+      "iyali26_only_TP": 16
+    },
+    {
+      "scenario": "native",
+      "cutoff": 0.05,
+      "screened_gene_records": 648,
+      "predicted_essential": 127,
+      "predicted_nonessential": 521,
+      "positive_denominator": 235,
+      "TP": 80,
+      "FN": 155,
+      "recall": 0.3404255319148936,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 47,
+      "iyali26_TP_same_235": 62,
+      "iyali26_FN_same_235": 173,
+      "both_TP": 46,
+      "external_only_TP": 34,
+      "iyali26_only_TP": 16
+    },
+    {
+      "scenario": "native",
+      "cutoff": 0.1,
+      "screened_gene_records": 648,
+      "predicted_essential": 127,
+      "predicted_nonessential": 521,
+      "positive_denominator": 235,
+      "TP": 80,
+      "FN": 155,
+      "recall": 0.3404255319148936,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 47,
+      "iyali26_TP_same_235": 70,
+      "iyali26_FN_same_235": 165,
+      "both_TP": 54,
+      "external_only_TP": 26,
+      "iyali26_only_TP": 16
+    },
+    {
+      "scenario": "native",
+      "cutoff": 0.15,
+      "screened_gene_records": 648,
+      "predicted_essential": 127,
+      "predicted_nonessential": 521,
+      "positive_denominator": 235,
+      "TP": 80,
+      "FN": 155,
+      "recall": 0.3404255319148936,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 47,
+      "iyali26_TP_same_235": 76,
+      "iyali26_FN_same_235": 159,
+      "both_TP": 60,
+      "external_only_TP": 20,
+      "iyali26_only_TP": 16
+    },
+    {
+      "scenario": "mapped28_po1f",
+      "cutoff": 0.01,
+      "screened_gene_records": 648,
+      "predicted_essential": 69,
+      "predicted_nonessential": 579,
+      "positive_denominator": 235,
+      "TP": 47,
+      "FN": 188,
+      "recall": 0.2,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 22,
+      "iyali26_TP_same_235": 52,
+      "iyali26_FN_same_235": 183,
+      "both_TP": 37,
+      "external_only_TP": 10,
+      "iyali26_only_TP": 15
+    },
+    {
+      "scenario": "mapped28_po1f",
+      "cutoff": 0.05,
+      "screened_gene_records": 648,
+      "predicted_essential": 79,
+      "predicted_nonessential": 569,
+      "positive_denominator": 235,
+      "TP": 54,
+      "FN": 181,
+      "recall": 0.2297872340425532,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 25,
+      "iyali26_TP_same_235": 62,
+      "iyali26_FN_same_235": 173,
+      "both_TP": 43,
+      "external_only_TP": 11,
+      "iyali26_only_TP": 19
+    },
+    {
+      "scenario": "mapped28_po1f",
+      "cutoff": 0.1,
+      "screened_gene_records": 648,
+      "predicted_essential": 88,
+      "predicted_nonessential": 560,
+      "positive_denominator": 235,
+      "TP": 59,
+      "FN": 176,
+      "recall": 0.251063829787234,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 29,
+      "iyali26_TP_same_235": 70,
+      "iyali26_FN_same_235": 165,
+      "both_TP": 48,
+      "external_only_TP": 11,
+      "iyali26_only_TP": 22
+    },
+    {
+      "scenario": "mapped28_po1f",
+      "cutoff": 0.15,
+      "screened_gene_records": 648,
+      "predicted_essential": 95,
+      "predicted_nonessential": 553,
+      "positive_denominator": 235,
+      "TP": 66,
+      "FN": 169,
+      "recall": 0.28085106382978725,
+      "FP": null,
+      "TN": null,
+      "predicted_essential_unlabelled_or_unmapped": 29,
+      "iyali26_TP_same_235": 76,
+      "iyali26_FN_same_235": 159,
+      "both_TP": 55,
+      "external_only_TP": 11,
+      "iyali26_only_TP": 21
+    }
+  ],
+  "iyali26_comparison": "Saved d274bad3 model screen only; no new iYali26 solves",
+  "limitations": [
+    "Partial medium correspondence: 28 of 35 supplies; no seven missing exchanges added.",
+    "Native model defaults are not the paper's runtime 13C-MFA-constrained conditions.",
+    "Both external scenarios retain stored biomass_C; biomass differs from iYali26.",
+    "648 original gene records include four orphan genes; no native biological inference from inert KOs.",
+    "Positive-only development reference: no accuracy, precision, FP, TN, or independent-validation claim."
+  ],
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/score.py": "773cb50bcb72a2dcaa684bf5b763297366824b883cb126bd69416d359575d07f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/inputs/locus_audit.json": "77f241c06800719bb6c8cb26a10d6c33c678ffff7cc4486327c5fe01476ac408",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv": "f1249e4cf5170ab04542bdeda0be69b8f756aed40b3dbcf43bbd7cbfb5c76086",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/run_manifest.json": "1693c1d119ce58732e32be3f1596961eeca8ee05f581cf85eab0204f826bad10"
+  }
+}

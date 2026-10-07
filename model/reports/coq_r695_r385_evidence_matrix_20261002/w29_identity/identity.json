@@ -1,0 +1,799 @@
+{
+  "checked_utc": "2026-10-02T23:10:56.292950+00:00",
+  "scope": "Existing-artifact identity audit only for W29 COQ7/COQ9/COQ3 candidates and current R695/R385 GPRs. No new remote retrieval, BLAST, structure prediction, alignment, model build/edit or solve. Hashing, XML/sequence parsing and arithmetic verify saved results only.",
+  "git_HEAD_observed": "5a3c09483bd3a7611f4bad56f3d022d3e474bdf7",
+  "dirty_scope": "No checkout restoration or clean-state claim; hashes bind actual inspected files; pre-existing dirty state retained.",
+  "checks_summary": {
+    "total": 23,
+    "passed": 23,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "gene": "YALI1E18269g",
+      "check": "versioned_GenBank_locus_strain_length",
+      "pass": true
+    },
+    {
+      "gene": "YALI1E18269g",
+      "check": "GenBank_FASTA_cached_UniProt_sequences_equal",
+      "pass": true
+    },
+    {
+      "gene": "YALI1E18269g",
+      "check": "sequence_and_GenBank_hashes_match_saved_identity",
+      "pass": true
+    },
+    {
+      "gene": "YALI1E18269g",
+      "check": "AF_metadata_PDB_CA_sequence_exact",
+      "pass": true
+    },
+    {
+      "gene": "YALI1E18269g",
+      "check": "AF_PDB_hash_matches_saved_identity",
+      "pass": true
+    },
+    {
+      "gene": "YALI1E18269g",
+      "check": "saved_BLAST_alignment_slices_and_identity_count",
+      "pass": true
+    },
+    {
+      "gene": "YALI1E18269g",
+      "check": "BLAST_PAE_dimensions_and_saved_summary",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "versioned_GenBank_locus_strain_length",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "GenBank_FASTA_cached_UniProt_sequences_equal",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "sequence_and_GenBank_hashes_match_saved_identity",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "AF_metadata_PDB_CA_sequence_exact",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "AF_PDB_hash_matches_saved_identity",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "saved_BLAST_alignment_slices_and_identity_count",
+      "pass": true
+    },
+    {
+      "gene": "YALI1F34675g",
+      "check": "BLAST_PAE_dimensions_and_saved_summary",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "versioned_GenBank_locus_strain_length",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "GenBank_FASTA_cached_UniProt_sequences_equal",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "sequence_and_GenBank_hashes_match_saved_identity",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "AF_metadata_PDB_CA_sequence_exact",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "AF_PDB_hash_matches_saved_identity",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "saved_BLAST_alignment_slices_and_identity_count",
+      "pass": true
+    },
+    {
+      "gene": "YALI1B20835g",
+      "check": "BLAST_PAE_dimensions_and_saved_summary",
+      "pass": true
+    },
+    {
+      "reaction": "R695",
+      "check": "current_XML_GPR",
+      "pass": true
+    },
+    {
+      "reaction": "R385",
+      "check": "current_XML_GPR",
+      "pass": true
+    }
+  ],
+  "candidate_model": {
+    "path": "artifacts/coq_literature_pipeline_20261002/coq_literature_pipeline.xml",
+    "sha256": "b83d7e7645c62cab5fc55c3b3e97bc7d6282dcdbf9eff4ad5aa2d2d24d38ce3e",
+    "status": "partial literature candidate; not accepted or pathway-closure-validated",
+    "reactions": {
+      "R695": {
+        "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+        "gpr": "YALI1E18269g and YALI1F34675g",
+        "notes": [
+          "PROTEIN_CLASS: 1.14.13.253",
+          "curated_coq9_chemistry: Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+          "curated_gpr_correction: YALI1E18269g (COQ7 candidate; active UniProt Q6C5T9), demethoxyubiquinone hydroxylase. Cross-species step evidence: human COQ7:COQ9 structure 7SSS and reconstructed COQ7 activity.",
+          "gpr_evidence_status: provisional_functional_dependency; native_yarrowia_requiredness_unverified",
+          "coq9_previous_ec_code: 1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+          "coq9_previous_PROTEIN_CLASS: 1.14.13.-",
+          "coq9_curation_scope: EC denotes the COQ7 catalytic family; stored substrate forms and native substrate specificity are not newly validated.",
+          "coq9_functional_hypothesis: COQ9-R695-FUNCTIONAL-20261001",
+          "coq9_previous_gpr: YALI1E18269g",
+          "coq9_previous_gpr_evidence_status: cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+          "coq9_functional_roles: YALI1E18269g: COQ7-family demethoxyubiquinone hydroxylase candidate; YALI1F34675g: COQ9-family lipid-binding/substrate-presentation auxiliary candidate. Native established symbols and biochemical localization unverified.",
+          "coq9_functional_assumption: Conditional model hypothesis: native membrane-embedded long-chain substrate access requires the COQ9-family auxiliary protein for the represented COQ7 step. AND encodes functional dependence, not proof that both proteins catalyse hydroxylation.",
+          "coq9_functional_counterevidence: Nicoll et al. 2024 Fig. 5b: ancestral COQ7 alone is active with nonprenylated substrate in detergent; COQ9 increases efficiency about 1.5-fold. A universal intrinsic catalytic AND is not supported.",
+          "coq9_functional_limits: Cross-species inference; native Yarrowia COQ7-COQ9 obligatory pairing, localization and substrate access remain unverified. No growth essentiality claim; unchanged static Q9/Q9H2 pool has no net synthesis demand. COQ8 and COQ6 are not assigned by this hypothesis.",
+          "coq9_functional_structure: 基于 AlphaFold 预测的功能候选；复用与版本化 W29 序列一致的已有 AlphaFold 预测，不是本次预测或原生实验验证。",
+          "coq9_functional_sources: DOI 10.1073/pnas.1413128111; 10.1016/j.molcel.2018.11.033; 10.1016/j.molcel.2022.10.003; 10.1038/s41929-023-01087-z; artifacts/coq_gpr_completion_20261001/REPORT.md"
+        ]
+      },
+      "R385": {
+        "name": "3-demethylubiquinone-9 3-O-methyltransferase",
+        "gpr": "YALI1B20835g",
+        "notes": [
+          "PROTEIN_CLASS: 2.1.1.64",
+          "curated_coq9_chemistry: Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+          "terminal_redox_convention: Balanced oxidized convention: SAM + 3-demethylubiquinone-9 -> SAH + ubiquinone-9. Native Yarrowia terminal redox form is unresolved; KEGG R08781 is the closest neutral convention.",
+          "curated_gpr_correction: YALI1B20835g (COQ3 candidate; active UniProt Q6CEG2), CoQ O-methyltransferase. Cross-species evidence supports the second CoQ O-methylation; the native Yarrowia substrate redox state remains unresolved.",
+          "gpr_evidence_status: cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+          "coq9_previous_PROTEIN_CLASS: 2.1.1.114",
+          "coq9_curation_scope: EC denotes COQ3 terminal O-methylation. The model retains oxidized quinone; the native enzyme substrate oxidation state is unresolved."
+        ]
+      }
+    }
+  },
+  "historical_blast_context": {
+    "checked_utc": "2026-09-18T18:35:14.637222+00:00",
+    "scope": "9 fixed candidates vs 9 yeast COQ family references plus ERG20/BTS1 alternative prenyltransferase controls. Not a whole-proteome or exhaustive paralog search; E-values are for this small panel.",
+    "program_version": "blastp: 2.17.0+\n Package: blast 2.17.0, build Jul  1 2025 08:59:26",
+    "command": [
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+      "-task",
+      "blastp",
+      "-query",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/native_sequences.fasta",
+      "-subject",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/reference_panel.fasta",
+      "-evalue",
+      "1e-5",
+      "-matrix",
+      "BLOSUM62",
+      "-seg",
+      "yes",
+      "-soft_masking",
+      "false",
+      "-comp_based_stats",
+      "2",
+      "-gapopen",
+      "11",
+      "-gapextend",
+      "1",
+      "-word_size",
+      "3",
+      "-num_threads",
+      "1",
+      "-outfmt",
+      "6 qseqid sseqid pident nident length qstart qend sstart send evalue bitscore qlen slen qseq sseq",
+      "-out",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/native_vs_reviewed.blast.tsv"
+    ],
+    "tool_sha256": "753f0695a39ba19b2d351b0bb851b6051169b8b9e22c095fd634cc2a93cddf55",
+    "query_sha256": "1cf36461c5216a25a695e6601465d970c95244565d1dac67b023479a85172d57",
+    "panel_sha256": "5fb1aa03f6fcdfea7b78f661001efb31f3d9f2cdc00db2f296b05ecc571745d5"
+  },
+  "blast_coverage_definition": "100*(end-start+1)/full sequence length for this single HSP; not alignment length/full length. Pident denominator is alignment length including gaps.",
+  "records": [
+    {
+      "gene_id": "YALI1E18269g",
+      "established_native_symbol": null,
+      "family_candidate_label": "COQ7",
+      "protein_function_candidate": "去甲氧基泛醌羟化酶候选",
+      "evidence_status": "curated annotation (project evidence category); underlying W29 UniProt record is unreviewed computational annotation, not native experimentally verified",
+      "native_accession": "XP_503973.1",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89(W29)",
+      "locus_tag": [
+        "YALI1_E18269g"
+      ],
+      "source_record_product": "uncharacterized protein",
+      "source_record_date": "10-SEP-2024",
+      "sequence_length": 192,
+      "sequence_sha256": "432a36d195604bd597ec025baa8b33c0c54dedf53c8d7c52f6b8bac5a9abb412",
+      "GenBank_source": "artifacts/coq_system_gpr_review_20260918/sources/XP_503973.1.gb",
+      "GenBank_sha256": "8587b4cb0b0def89a3c4962244abe174f8af27245afe09f738ef8e9252f8aabc",
+      "source_retrieval": {
+        "name": "XP_503973.1.gb",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=XP_503973.1&rettype=gb&retmode=text",
+        "started_utc": "2026-09-18T18:32:40.787055+00:00",
+        "status": 200,
+        "bytes": 3334,
+        "sha256": "8587b4cb0b0def89a3c4962244abe174f8af27245afe09f738ef8e9252f8aabc"
+      },
+      "sequence_retrieval_limit": null,
+      "cached_UniProt": {
+        "accession": "A0A1H6Q2E8",
+        "entry_type": "UniProtKB unreviewed (TrEMBL)",
+        "version": {
+          "firstPublicDate": "2017-01-18",
+          "lastAnnotationUpdateDate": "2026-01-28",
+          "lastSequenceUpdateDate": "2017-01-18",
+          "entryVersion": 36,
+          "sequenceVersion": 1
+        },
+        "protein_existence": "3: Inferred from homology",
+        "domains": [
+          {
+            "database": "InterPro",
+            "id": "IPR009078",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "Ferritin-like_SF"
+              }
+            ]
+          },
+          {
+            "database": "InterPro",
+            "id": "IPR011566",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "Ubq_synth_Coq7"
+              }
+            ]
+          },
+          {
+            "database": "Pfam",
+            "id": "PF03232",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "COQ7"
+              },
+              {
+                "key": "MatchStatus",
+                "value": "1"
+              }
+            ]
+          }
+        ],
+        "status_at_20260918": {
+          "entryType": "Inactive",
+          "primaryAccession": "A0A1H6Q2E8",
+          "uniProtkbId": "A0A1H6Q2E8_YARLL",
+          "annotationScore": 0.0,
+          "inactiveReason": {
+            "inactiveReasonType": "DELETED",
+            "deletedReason": "Not part of a reference proteome"
+          },
+          "extraAttributes": {
+            "uniParcId": "UPI00003BC7E4"
+          }
+        }
+      },
+      "historical_blast": {
+        "qseqid": "YALI1E18269g",
+        "sseqid": "P41735",
+        "pident": 58.421,
+        "nident": 111,
+        "length": 190,
+        "qstart": 6,
+        "qend": 192,
+        "sstart": 44,
+        "send": 233,
+        "evalue": 2.44e-75,
+        "bitscore": 217.0,
+        "qlen": 192,
+        "slen": 233,
+        "query_coverage_percent": 97.39583333333333,
+        "reference_coverage_percent": 81.54506437768241,
+        "reference_gene": "CAT5",
+        "reference_organism": "Saccharomyces cerevisiae (strain ATCC 204508 / S288c)",
+        "reference_entry_type": "UniProtKB reviewed (Swiss-Prot)",
+        "reference_version": {
+          "firstPublicDate": "1995-11-01",
+          "lastAnnotationUpdateDate": "2026-09-02",
+          "lastSequenceUpdateDate": "2005-11-22",
+          "entryVersion": 197,
+          "sequenceVersion": 2
+        }
+      },
+      "AlphaFold_prediction": {
+        "entry": "AF-A0A1H6Q2E8-F1",
+        "algorithm": "AlphaFold Monomer v2.0 pipeline",
+        "AFDB_file_release": 6,
+        "model_created_date": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "original_metadata_source": "artifacts/coq_system_gpr_review_20260918/sources/A0A1H6Q2E8_af.json",
+        "exact_sequence_match_rechecked": true,
+        "pdb_source": "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1H6Q2E8-F1-model_v6.pdb",
+        "pdb_sha256": "ed81237197ecf414ad406f98e891b503a2fe3946375a741bcecb9db53b34a384",
+        "PAE_source": "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1H6Q2E8-F1-predicted_aligned_error_v6.json",
+        "mean_pLDDT_rechecked": 93.44036458333333,
+        "fraction_pLDDT_below50_rechecked": 0.010416666666666666,
+        "mean_PAE_A_rechecked": 3.8458658854166665,
+        "AFDB_global_metric_original": 93.44,
+        "historical_USalign_comparisons": [
+          {
+            "gene": "YALI1E18269g",
+            "experimental_reference": "7SSS chain A",
+            "reference_family": "COQ9",
+            "TMscore_query_normalized": 0.32057,
+            "TMscore_reference_normalized": 0.33518,
+            "aligned_length": 92,
+            "RMSD_A": 4.65,
+            "command": [
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1H6Q2E8-F1-model_v6.pdb",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/7SSS_A.pdb",
+              "-mol",
+              "prot",
+              "-mm",
+              "0"
+            ]
+          },
+          {
+            "gene": "YALI1E18269g",
+            "experimental_reference": "7SSS chain E",
+            "reference_family": "COQ7",
+            "TMscore_query_normalized": 0.82825,
+            "TMscore_reference_normalized": 0.91435,
+            "aligned_length": 172,
+            "RMSD_A": 2.07,
+            "command": [
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1H6Q2E8-F1-model_v6.pdb",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/7SSS_E.pdb",
+              "-mol",
+              "prot",
+              "-mm",
+              "0"
+            ]
+          }
+        ],
+        "scope": "Existing AlphaFold prediction; no new prediction or alignment. Family/fold candidate only; no native localization, ligand specificity, obligatory complex, or catalytic activity validation."
+      },
+      "candidate_model_gene_name": "COBRAProtein28",
+      "candidate_model_crossreferences": [
+        "https://identifiers.org/ncbigene/2911989",
+        "https://identifiers.org/uniprot/A0A1H6Q2E8",
+        "https://identifiers.org/kegg.genes/yli:2911989",
+        "https://identifiers.org/refseq/XP_503973.1",
+        "https://identifiers.org/ec-code/1.14.99.60"
+      ],
+      "checks": {
+        "versioned_GenBank_locus_strain_length": true,
+        "GenBank_FASTA_cached_UniProt_sequences_equal": true,
+        "sequence_and_GenBank_hashes_match_saved_identity": true,
+        "AF_metadata_PDB_CA_sequence_exact": true,
+        "AF_PDB_hash_matches_saved_identity": true,
+        "saved_BLAST_alignment_slices_and_identity_count": true,
+        "BLAST_PAE_dimensions_and_saved_summary": true
+      },
+      "model_role": "R695 catalytic member in conditional functional AND",
+      "unresolved_identity": "No native PO1f sequence or localization certification; current additional/active UniProt mappings are not substituted for the verified W29 record."
+    },
+    {
+      "gene_id": "YALI1F34675g",
+      "established_native_symbol": null,
+      "family_candidate_label": "COQ9",
+      "protein_function_candidate": "脂质结合/底物呈递辅助蛋白候选",
+      "evidence_status": "curated annotation (project evidence category); underlying W29 UniProt record is unreviewed computational annotation, not native experimentally verified",
+      "native_accession": "XP_505941.3",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89(W29)",
+      "locus_tag": [
+        "YALI1_F34675g"
+      ],
+      "source_record_product": "uncharacterized protein",
+      "source_record_date": "10-SEP-2024",
+      "sequence_length": 258,
+      "sequence_sha256": "df1b6ff58d1b47dbf8d401993e17ec70ac930625ddf05d004e1c6b47033c459b",
+      "GenBank_source": "artifacts/coq_system_gpr_review_20260918/sources/XP_505941.3.gb",
+      "GenBank_sha256": "7f3ecd3aa230b32c94595ab60158dfc86f9a080d11c04e26821532a6f4bc714d",
+      "source_retrieval": {
+        "name": "XP_505941.3.gb",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=XP_505941.3&rettype=gb&retmode=text",
+        "started_utc": "2026-09-18T18:32:41.843636+00:00",
+        "status": 200,
+        "bytes": 3476,
+        "sha256": "7f3ecd3aa230b32c94595ab60158dfc86f9a080d11c04e26821532a6f4bc714d"
+      },
+      "sequence_retrieval_limit": null,
+      "cached_UniProt": {
+        "accession": "A0A1D8NQ60",
+        "entry_type": "UniProtKB unreviewed (TrEMBL)",
+        "version": {
+          "firstPublicDate": "2017-01-18",
+          "lastAnnotationUpdateDate": "2026-01-28",
+          "lastSequenceUpdateDate": "2017-01-18",
+          "entryVersion": 33,
+          "sequenceVersion": 1
+        },
+        "protein_existence": "3: Inferred from homology",
+        "domains": [
+          {
+            "database": "InterPro",
+            "id": "IPR013718",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "COQ9_C"
+              }
+            ]
+          },
+          {
+            "database": "InterPro",
+            "id": "IPR012762",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "Ubiq_biosynth_COQ9"
+              }
+            ]
+          },
+          {
+            "database": "Pfam",
+            "id": "PF08511",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "COQ9"
+              },
+              {
+                "key": "MatchStatus",
+                "value": "1"
+              }
+            ]
+          }
+        ],
+        "status_at_20260918": {
+          "entryType": "Inactive",
+          "primaryAccession": "A0A1D8NQ60",
+          "uniProtkbId": "A0A1D8NQ60_YARLL",
+          "annotationScore": 0.0,
+          "inactiveReason": {
+            "inactiveReasonType": "DELETED",
+            "deletedReason": "Not part of a reference proteome"
+          },
+          "extraAttributes": {
+            "uniParcId": "UPI00003BCF70"
+          }
+        }
+      },
+      "historical_blast": {
+        "qseqid": "YALI1F34675g",
+        "sseqid": "Q05779",
+        "pident": 23.985,
+        "nident": 65,
+        "length": 271,
+        "qstart": 8,
+        "qend": 257,
+        "sstart": 3,
+        "send": 259,
+        "evalue": 9.46e-21,
+        "bitscore": 78.6,
+        "qlen": 258,
+        "slen": 260,
+        "query_coverage_percent": 96.89922480620154,
+        "reference_coverage_percent": 98.84615384615384,
+        "reference_gene": "COQ9",
+        "reference_organism": "Saccharomyces cerevisiae (strain ATCC 204508 / S288c)",
+        "reference_entry_type": "UniProtKB reviewed (Swiss-Prot)",
+        "reference_version": {
+          "firstPublicDate": "2006-03-21",
+          "lastAnnotationUpdateDate": "2026-09-02",
+          "lastSequenceUpdateDate": "1996-11-01",
+          "entryVersion": 165,
+          "sequenceVersion": 1
+        }
+      },
+      "AlphaFold_prediction": {
+        "entry": "AF-A0A1D8NQ60-F1",
+        "algorithm": "AlphaFold Monomer v2.0 pipeline",
+        "AFDB_file_release": 6,
+        "model_created_date": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "original_metadata_source": "artifacts/coq_system_gpr_review_20260918/sources/A0A1D8NQ60_af.json",
+        "exact_sequence_match_rechecked": true,
+        "pdb_source": "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8NQ60-F1-model_v6.pdb",
+        "pdb_sha256": "057c73f718b455c2418a5520663a3e46f4b8fe131d932a969bb64c06c14f30c3",
+        "PAE_source": "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8NQ60-F1-predicted_aligned_error_v6.json",
+        "mean_pLDDT_rechecked": 77.30829457364341,
+        "fraction_pLDDT_below50_rechecked": 0.16666666666666666,
+        "mean_PAE_A_rechecked": 11.76859864190854,
+        "AFDB_global_metric_original": 77.31,
+        "historical_USalign_comparisons": [
+          {
+            "gene": "YALI1F34675g",
+            "experimental_reference": "7SSS chain A",
+            "reference_family": "COQ9",
+            "TMscore_query_normalized": 0.6439,
+            "TMscore_reference_normalized": 0.90159,
+            "aligned_length": 178,
+            "RMSD_A": 2.08,
+            "command": [
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8NQ60-F1-model_v6.pdb",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/7SSS_A.pdb",
+              "-mol",
+              "prot",
+              "-mm",
+              "0"
+            ]
+          },
+          {
+            "gene": "YALI1F34675g",
+            "experimental_reference": "7SSS chain E",
+            "reference_family": "COQ7",
+            "TMscore_query_normalized": 0.2568,
+            "TMscore_reference_normalized": 0.34069,
+            "aligned_length": 103,
+            "RMSD_A": 5.24,
+            "command": [
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8NQ60-F1-model_v6.pdb",
+              "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/7SSS_E.pdb",
+              "-mol",
+              "prot",
+              "-mm",
+              "0"
+            ]
+          }
+        ],
+        "scope": "Existing AlphaFold prediction; no new prediction or alignment. Family/fold candidate only; no native localization, ligand specificity, obligatory complex, or catalytic activity validation."
+      },
+      "candidate_model_gene_name": "COBRAProtein30",
+      "candidate_model_crossreferences": [
+        "https://identifiers.org/ncbigene/2907842",
+        "https://identifiers.org/uniprot/A0A1D8NQ60",
+        "https://identifiers.org/kegg.genes/yli:2907842",
+        "https://identifiers.org/refseq/XP_505941.3"
+      ],
+      "checks": {
+        "versioned_GenBank_locus_strain_length": true,
+        "GenBank_FASTA_cached_UniProt_sequences_equal": true,
+        "sequence_and_GenBank_hashes_match_saved_identity": true,
+        "AF_metadata_PDB_CA_sequence_exact": true,
+        "AF_PDB_hash_matches_saved_identity": true,
+        "saved_BLAST_alignment_slices_and_identity_count": true,
+        "BLAST_PAE_dimensions_and_saved_summary": true
+      },
+      "model_role": "R695 auxiliary functional-dependency candidate; not oxygen-insertion catalyst",
+      "unresolved_identity": "No native PO1f sequence or localization certification; current additional/active UniProt mappings are not substituted for the verified W29 record."
+    },
+    {
+      "gene_id": "YALI1B20835g",
+      "established_native_symbol": null,
+      "family_candidate_label": "COQ3",
+      "protein_function_candidate": "CoQ 环两次 O-甲基转移酶候选",
+      "evidence_status": "curated annotation (project evidence category); underlying W29 UniProt record is unreviewed computational annotation, not native experimentally verified",
+      "native_accession": "AOW01767.1",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89(W29)",
+      "locus_tag": [
+        "YALI1_B20835g"
+      ],
+      "source_record_product": "hypothetical protein",
+      "source_record_date": "25-OCT-2016",
+      "sequence_length": 367,
+      "sequence_sha256": "6e968848ccfdf9ebad65969d75001a0cdd0ffb0665403c7232e05ccc2209c051",
+      "GenBank_source": "artifacts/coq_system_gpr_review_20260918/sources/AOW01767.1.gb",
+      "GenBank_sha256": "6e11c3fa0fc03139f5d2b01ebac405646b9dfaaa5ec4aa61fab09c7242b57843",
+      "source_retrieval": {
+        "name": "AOW01767.1.gb",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=AOW01767.1&rettype=gb&retmode=text",
+        "started_utc": "2026-09-18T18:34:14.455764+00:00",
+        "status": 200,
+        "bytes": 3885,
+        "sha256": "6e11c3fa0fc03139f5d2b01ebac405646b9dfaaa5ec4aa61fab09c7242b57843"
+      },
+      "sequence_retrieval_limit": null,
+      "cached_UniProt": {
+        "accession": "A0A1D8N802",
+        "entry_type": "UniProtKB unreviewed (TrEMBL)",
+        "version": {
+          "firstPublicDate": "2017-01-18",
+          "lastAnnotationUpdateDate": "2026-01-28",
+          "lastSequenceUpdateDate": "2017-01-18",
+          "entryVersion": 33,
+          "sequenceVersion": 1
+        },
+        "protein_existence": "3: Inferred from homology",
+        "domains": [
+          {
+            "database": "InterPro",
+            "id": "IPR029063",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "SAM-dependent_MTases_sf"
+              }
+            ]
+          },
+          {
+            "database": "InterPro",
+            "id": "IPR010233",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "UbiG_MeTrfase"
+              }
+            ]
+          },
+          {
+            "database": "Pfam",
+            "id": "PF13489",
+            "properties": [
+              {
+                "key": "EntryName",
+                "value": "Methyltransf_23"
+              },
+              {
+                "key": "MatchStatus",
+                "value": "1"
+              }
+            ]
+          }
+        ],
+        "status_at_20260918": {
+          "entryType": "Inactive",
+          "primaryAccession": "A0A1D8N802",
+          "uniProtkbId": "A0A1D8N802_YARLL",
+          "annotationScore": 0.0,
+          "inactiveReason": {
+            "inactiveReasonType": "DELETED",
+            "deletedReason": "Not part of a reference proteome"
+          },
+          "extraAttributes": {
+            "uniParcId": "UPI00003BBC4A"
+          }
+        }
+      },
+      "historical_blast": {
+        "qseqid": "YALI1B20835g",
+        "sseqid": "P27680",
+        "pident": 47.143,
+        "nident": 132,
+        "length": 280,
+        "qstart": 98,
+        "qend": 365,
+        "sstart": 33,
+        "send": 310,
+        "evalue": 1.46e-82,
+        "bitscore": 244.0,
+        "qlen": 367,
+        "slen": 312,
+        "query_coverage_percent": 73.02452316076294,
+        "reference_coverage_percent": 89.1025641025641,
+        "reference_gene": "COQ3",
+        "reference_organism": "Saccharomyces cerevisiae (strain ATCC 204508 / S288c)",
+        "reference_entry_type": "UniProtKB reviewed (Swiss-Prot)",
+        "reference_version": {
+          "firstPublicDate": "1992-08-01",
+          "lastAnnotationUpdateDate": "2026-09-02",
+          "lastSequenceUpdateDate": "2006-04-04",
+          "entryVersion": 187,
+          "sequenceVersion": 2
+        }
+      },
+      "AlphaFold_prediction": {
+        "entry": "AF-A0A1D8N802-F1",
+        "algorithm": "AlphaFold Monomer v2.0 pipeline",
+        "AFDB_file_release": 6,
+        "model_created_date": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "original_metadata_source": "artifacts/coq_system_gpr_review_20260918/sources/A0A1D8N802_af.json",
+        "exact_sequence_match_rechecked": true,
+        "pdb_source": "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8N802-F1-model_v6.pdb",
+        "pdb_sha256": "11b6cc4cba44cea815d25f8469802c91e859bdfddbe006ff3d9bd30dad07aa26",
+        "PAE_source": "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8N802-F1-predicted_aligned_error_v6.json",
+        "mean_pLDDT_rechecked": 67.82716621253405,
+        "fraction_pLDDT_below50_rechecked": 0.3133514986376022,
+        "mean_PAE_A_rechecked": 16.043715522425735,
+        "AFDB_global_metric_original": 67.81,
+        "historical_USalign_comparisons": [],
+        "scope": "Existing AlphaFold prediction; no new prediction or alignment. Family/fold candidate only; no native localization, ligand specificity, obligatory complex, or catalytic activity validation."
+      },
+      "candidate_model_gene_name": "COQ3",
+      "candidate_model_crossreferences": [
+        "https://identifiers.org/ncbigene/2907025",
+        "https://identifiers.org/uniprot/A0A1D8N802",
+        "https://identifiers.org/uniprot/Q6CEG2",
+        "https://identifiers.org/kegg.genes/yli:2907025",
+        "https://identifiers.org/ec-code/2.1.1.64",
+        "https://identifiers.org/ec-code/2.1.1.114",
+        "https://identifiers.org/refseq/XP_500950.3"
+      ],
+      "checks": {
+        "versioned_GenBank_locus_strain_length": true,
+        "GenBank_FASTA_cached_UniProt_sequences_equal": true,
+        "sequence_and_GenBank_hashes_match_saved_identity": true,
+        "AF_metadata_PDB_CA_sequence_exact": true,
+        "AF_PDB_hash_matches_saved_identity": true,
+        "saved_BLAST_alignment_slices_and_identity_count": true,
+        "BLAST_PAE_dimensions_and_saved_summary": true
+      },
+      "model_role": "R385 and R715 retained single-gene catalytic-family candidate",
+      "unresolved_identity": "AOW01767.1 is verified; XP_500950.3 is present only as current model/data cross-reference in inspected sources and is NOT sequence-certified by this evidence. Q6CEG2 is not certified as the same W29 sequence here."
+    }
+  ],
+  "shared_limits": [
+    "Preselected 11-reference panel, not whole-proteome/exhaustive paralog search; small-panel E-values cannot be represented as database-wide evidence.",
+    "Native established names, exact Q9 substrate redox specificity, electron-donor preference, mitochondrial localization and obligatory COQ7–COQ9 pairing are not experimentally certified.",
+    "Existing monomer AlphaFold predictions support family/fold candidates, not reaction-specific activity or native complexes. File release 6 is not algorithm version 6.",
+    "COQ9 universal intrinsic catalytic necessity is countered in archived Nicoll2024 evidence by ancestral COQ7 activity alone with nonprenylated substrate/0.05% DDM; ~1.5x efficiency enhancement by COQ9 does not test native W29 Q9 membrane dependency. Original paper audit not repeated by this identity subtask."
+  ],
+  "source_sha256": {
+    "artifacts/coq_gpr_completion_20261001/coq89_audit/REPORT_zh.md": "30055720db6233313cc9d334b771051b1cee816dd4a0677979f9e45cd757eb77",
+    "artifacts/coq_gpr_completion_20261001/coq89_audit/native_identity_reuse.json": "12c5929c53c735eb76f611eb44a344887a6c0a2a190692601d9e6a889b86ba92",
+    "artifacts/coq_gpr_completion_20261001/coq89_audit/source_claim_audit.json": "5d2db21c19afd10a528db0885c019cdc688a6bb5f7940d2aaf990e59d8afeef2",
+    "artifacts/coq_gpr_completion_20261001/gene_decisions.tsv": "5bd1032f09029ec0f0164cfbde8662df873b174dcf192b0e43fbdafd1d1b6005",
+    "artifacts/coq_literature_pipeline_20261002/coq_literature_pipeline.xml": "b83d7e7645c62cab5fc55c3b3e97bc7d6282dcdbf9eff4ad5aa2d2d24d38ce3e",
+    "artifacts/coq_system_gpr_review_20260918/MANIFEST.json": "831581b1dd6dddc49dfbda70215de0742e6d1441099ebe98e5cef2c9d2f565a8",
+    "artifacts/coq_system_gpr_review_20260918/YALI1E18269g_vs_7SSS_A.txt": "5e6da5bf68bedfbd576cc401c40290cb12478bc14b21f6fa4df8614550447e9c",
+    "artifacts/coq_system_gpr_review_20260918/YALI1E18269g_vs_7SSS_E.txt": "7197a6fd76c7aa109c9ce14e1e33cc9c6de3b0977c5dc8237452036127fc96f2",
+    "artifacts/coq_system_gpr_review_20260918/YALI1F34675g_vs_7SSS_A.txt": "d8b29c524d1c65c767769555e0a5653bc561814adcd63a4ff3ed12beffa858b1",
+    "artifacts/coq_system_gpr_review_20260918/YALI1F34675g_vs_7SSS_E.txt": "d1bfc5a896735a8d456531cb62792645c7fb5773a999f460721ce416caea2e1f",
+    "artifacts/coq_system_gpr_review_20260918/compare_identity.py": "bf0be23d87316b3b6fe2e94a18e1471954b35948a21f08cbd0ca8ce8ba1d48bd",
+    "artifacts/coq_system_gpr_review_20260918/coq79_structure_comparison.json": "a6b4904a218f6e4bec7f133dc1d4426486aad427654745d6ae6d0fa1fc103d7d",
+    "artifacts/coq_system_gpr_review_20260918/identity_comparison.json": "71caa5abfb2960a64dfdcdd73b3f615ab5a7216cf3cffaa327585a3d8018021d",
+    "artifacts/coq_system_gpr_review_20260918/identity_retrieval.json": "834999881920231576a39e0083c74fa72336086b41b3731c0810ebf8eff37c48",
+    "artifacts/coq_system_gpr_review_20260918/local_identity_audit.json": "3c8cbba2cda55de74ffc080d479922c870a771f548a53db1682841bca3e2112b",
+    "artifacts/coq_system_gpr_review_20260918/native_cached_records.json": "5515ca6dd1402df6a862d3db17b1b95baae1a10f4c80cddebf13c44e82f5e2c9",
+    "artifacts/coq_system_gpr_review_20260918/native_sequences.fasta": "1cf36461c5216a25a695e6601465d970c95244565d1dac67b023479a85172d57",
+    "artifacts/coq_system_gpr_review_20260918/native_vs_reviewed.blast.tsv": "a4306469bd988d2922eae365faae04612d74554acea06302de06a5ecb8f944de",
+    "artifacts/coq_system_gpr_review_20260918/reference_panel.fasta": "5fb1aa03f6fcdfea7b78f661001efb31f3d9f2cdc00db2f296b05ecc571745d5",
+    "artifacts/coq_system_gpr_review_20260918/sources/A0A1D8N802_af.json": "46940c7aa0141e00560dfe6d4693be2a35dae246c639ff8eb0837398fb934b1b",
+    "artifacts/coq_system_gpr_review_20260918/sources/A0A1D8N802_current.json": "257886b76d2ae3c983588b9e8cd2d3eb5daf757be1b9000b835e004ebf2f1a5b",
+    "artifacts/coq_system_gpr_review_20260918/sources/A0A1D8NQ60_af.json": "8aa11991200f157c161ae8ea4f665b9bc4ae6a3e090e73e1410f43c87cb8f0e3",
+    "artifacts/coq_system_gpr_review_20260918/sources/A0A1D8NQ60_current.json": "0359505f95156564d14a1fbb90e35faf60aa05524bcdd8ed0382116b03606073",
+    "artifacts/coq_system_gpr_review_20260918/sources/A0A1H6Q2E8_af.json": "117670b37b2f57e366ae86f0b4f9ce4c181c0d8dae54716d8082950eb6107baa",
+    "artifacts/coq_system_gpr_review_20260918/sources/A0A1H6Q2E8_current.json": "577555af1ead7253115480d4138826547644984c6dd996387ddc3b38e14c0fd8",
+    "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8N802-F1-model_v6.pdb": "11b6cc4cba44cea815d25f8469802c91e859bdfddbe006ff3d9bd30dad07aa26",
+    "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8N802-F1-predicted_aligned_error_v6.json": "713ac609f417f519310b2a769370a9e9d6d2acf2aa774e8d97e85eb1b53ecc67",
+    "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8NQ60-F1-model_v6.pdb": "057c73f718b455c2418a5520663a3e46f4b8fe131d932a969bb64c06c14f30c3",
+    "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1D8NQ60-F1-predicted_aligned_error_v6.json": "c726ebbb1d71626e06e6da22fe01870e5ddb53089c11b5feb5f3dcdf251636c1",
+    "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1H6Q2E8-F1-model_v6.pdb": "ed81237197ecf414ad406f98e891b503a2fe3946375a741bcecb9db53b34a384",
+    "artifacts/coq_system_gpr_review_20260918/sources/AF-A0A1H6Q2E8-F1-predicted_aligned_error_v6.json": "71225d5389d33a5c2baa0e7287434a7de4bdc1c77d0866000b5ba587cfa36a30",
+    "artifacts/coq_system_gpr_review_20260918/sources/AOW01767.1.gb": "6e11c3fa0fc03139f5d2b01ebac405646b9dfaaa5ec4aa61fab09c7242b57843",
+    "artifacts/coq_system_gpr_review_20260918/sources/Sc_COQ_references.json": "0bca3e0a5a42fdd0a4d1d3b1d682cd2ac26dc3388aa49ab9e8c818c85484f07b",
+    "artifacts/coq_system_gpr_review_20260918/sources/XP_503973.1.gb": "8587b4cb0b0def89a3c4962244abe174f8af27245afe09f738ef8e9252f8aabc",
+    "artifacts/coq_system_gpr_review_20260918/sources/XP_505941.3.gb": "7f3ecd3aa230b32c94595ab60158dfc86f9a080d11c04e26821532a6f4bc714d",
+    "artifacts/coq_system_gpr_review_20260918/structure_audit.json": "0ee73492ee4ebe5d6298e0dc73f20ff91323ccbe1c44d410fbe77fb80431882e",
+    "artifacts/coq_system_gpr_review_20260918/structure_retrieval.json": "41a7025a2ebe86f9adb437571061d685d6038e0d74c66a3b4f2352f2b2a3d48f",
+    "data/coq9_gene_evidence.tsv": "2edacc114c24689a0913d531b498a3c9a4fe31823abf06fca1f0bfe8f3fee566"
+  },
+  "additional_saved_source_checks": {
+    "AOW01767_manifest_hash_matches": true,
+    "four_USalign_original_logs_match_saved_comparison": true,
+    "USalign_rerun": false,
+    "original_structure_audit_path": "artifacts/coq_system_gpr_review_20260918/structure_audit.json",
+    "structure_audit_scope": "Historical independent audit; logs reread here but no superposition refit. 7SSS coordinates: COQ9 author chain A length 181 unique residues; COQ7 author chain E length 173, not full native human proteins."
+  }
+}

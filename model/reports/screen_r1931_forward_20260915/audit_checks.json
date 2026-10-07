@@ -1,0 +1,240 @@
+{
+  "checked_at_utc": "2026-09-16T00:07:03.139545+00:00",
+  "status": "passed",
+  "model_sha256": "d417f1de0425bc3336503b45a9498154b8a25a5d90d6f58e68b9d80cfc79297b",
+  "runner_sha256": "e0300e18de9dc957b57c3183f2aacd85e7621f1078cf1064363aa3c58ad3578a",
+  "protected_files_checked": 27,
+  "loader_code_files_checked": 3,
+  "complete_unique_rows": 1073,
+  "GPR_KO_sets_independently_checked": 1073,
+  "effective_bounds_independently_reconstructed": 2314,
+  "exchange_rows_static_C_ex_check": 182,
+  "simulation_context_fingerprint_recomputed": "23ecc7974b84b8f0584fde90050099edd395c82f9592c36e0ab680a1a014fa09",
+  "all_saved_flux_values_checked": 6942,
+  "WT": 1.8718823069402997,
+  "old_WT": 1.8718823069402954,
+  "strict_cutoff_counts": {
+    "1": 76,
+    "5": 93,
+    "10": 101,
+    "15": 116
+  },
+  "old_strict15_count": 116,
+  "new_strict15_count": 116,
+  "newly_essential15": [],
+  "no_longer_essential15": [],
+  "growth_ratio_changes_gt_1e_9": [
+    {
+      "gene_id": "YALI1A20176g",
+      "old_ratio": 0.9999999999999983,
+      "new_ratio": 0.999750249232021,
+      "old_essential15": false,
+      "new_essential15": false,
+      "experimental_positive": true
+    },
+    {
+      "gene_id": "YALI1E35815g",
+      "old_ratio": 0.9999999999999949,
+      "new_ratio": 0.9997502492320293,
+      "old_essential15": false,
+      "new_essential15": false,
+      "experimental_positive": true
+    }
+  ],
+  "witnesses": {
+    "WT": {
+      "flux_values": 2314,
+      "growth": 1.8718823069402997,
+      "ratio": 1.0,
+      "max_mass_residual_independent_fsum": 5.423737630891323e-14,
+      "max_bound_violation": 0.0,
+      "disabled_gprs": [],
+      "R1931_flux": 0.0,
+      "selected_fluxes": {
+        "R327": 1.51978672930316,
+        "R332": 1.51978672930316,
+        "R1931": 0.0,
+        "R610": 0.0,
+        "R1210": 1.51978672930316,
+        "R689": 1.51978672930316,
+        "R1225": 1.1334826338552766,
+        "R909": 0.20917915810634485,
+        "R607": 0.20917915810634485
+      },
+      "cytosolic_ornithine_all_active_rows": [
+        {
+          "reaction": "R607",
+          "coefficient": -1.0,
+          "flux": 0.20917915810634485
+        },
+        {
+          "reaction": "R909",
+          "coefficient": 1.0,
+          "flux": 0.20917915810634485
+        }
+      ]
+    },
+    "YALI1A20176g": {
+      "flux_values": 2314,
+      "growth": 1.8714148028965751,
+      "ratio": 0.999750249232021,
+      "max_mass_residual_independent_fsum": 9.228479525696942e-14,
+      "max_bound_violation": 0.0,
+      "disabled_gprs": [
+        "R327"
+      ],
+      "R1931_flux": 0.0,
+      "selected_fluxes": {
+        "R327": 0.0,
+        "R332": 0.0,
+        "R1931": 0.0,
+        "R610": 0.38620761570337203,
+        "R1210": 0.38620761570337203,
+        "R689": 0.38620761570337203,
+        "R1225": 0.0,
+        "R909": 0.5953280725994746,
+        "R607": 0.20912045689610267
+      },
+      "cytosolic_ornithine_all_active_rows": [
+        {
+          "reaction": "R607",
+          "coefficient": -1.0,
+          "flux": 0.20912045689610267
+        },
+        {
+          "reaction": "R610",
+          "coefficient": -1.0,
+          "flux": 0.38620761570337203
+        },
+        {
+          "reaction": "R909",
+          "coefficient": 1.0,
+          "flux": 0.5953280725994746
+        }
+      ]
+    },
+    "YALI1E35815g": {
+      "flux_values": 2314,
+      "growth": 1.8714148028965905,
+      "ratio": 0.9997502492320293,
+      "max_mass_residual_independent_fsum": 9.72659995081282e-14,
+      "max_bound_violation": 0.0,
+      "disabled_gprs": [
+        "R332"
+      ],
+      "R1931_flux": 0.0,
+      "selected_fluxes": {
+        "R327": 0.0,
+        "R332": 0.0,
+        "R1931": 0.0,
+        "R610": 0.38620761570337514,
+        "R1210": 0.38620761570337514,
+        "R689": 0.38620761570337514,
+        "R1225": 0.0,
+        "R909": 0.5953280725994797,
+        "R607": 0.2091204568961046
+      },
+      "cytosolic_ornithine_all_active_rows": [
+        {
+          "reaction": "R607",
+          "coefficient": -1.0,
+          "flux": 0.2091204568961046
+        },
+        {
+          "reaction": "R610",
+          "coefficient": -1.0,
+          "flux": 0.38620761570337514
+        },
+        {
+          "reaction": "R909",
+          "coefficient": 1.0,
+          "flux": 0.5953280725994797
+        }
+      ]
+    }
+  },
+  "positive_source": {
+    "path": "artifacts/vatpase_gpr_hypothesis_20260911/screen/essentiality_per_gene.tsv",
+    "sha256": "fe29c50c9d33ace8e73c123233df00aedf039eb7709f06560c4b48f8fb575036",
+    "positive_rows": 1612,
+    "model_intersection": 322,
+    "unlabelled_model_entries": 751,
+    "old_overlap": 80,
+    "new_overlap": 80
+  },
+  "reported_all_KO_max_residual": 3.1814550993658486e-12,
+  "reported_all_KO_max_bound_violation": 9.596767824859853e-13,
+  "execution": {
+    "started_at_utc": "2026-09-16T00:05:28.350630+00:00",
+    "status": "completed",
+    "timeout_seconds": 600,
+    "authorization": "Explicit --execute-authorized invocation; permission is supplied outside this script",
+    "command": [
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_r1931_forward_20260915/run_screen.py",
+      "--worker"
+    ],
+    "preflight_sha256": "383cee69da6bfc20c7067b9dc50df415833d33f1da90d4d0e8446838ba0d2e15",
+    "returncode": 0,
+    "timed_out": false,
+    "completed_at_utc": "2026-09-16T00:05:54.796012+00:00",
+    "wall_seconds": 26.4447345410008
+  },
+  "limits": [
+    "No optimization rerun.",
+    "Full fluxes saved only for WT and two target KOs; other1071 raw residual summaries are recorded runner checks, not independently re-computable full-vector checks.",
+    "Experimental positive labels reused, not independent biological validation."
+  ],
+  "comparison_all_rows_checked": 1073,
+  "experimental_original_annotation_rows_exactly_retained": true,
+  "experimental_reference_reinterpreted": false,
+  "threshold_experimental_comparison": [
+    {
+      "cutoff": 0.01,
+      "old_count": 76,
+      "new_count": 76,
+      "TP": 55,
+      "FN": 267,
+      "unlabelled_predicted": 21
+    },
+    {
+      "cutoff": 0.05,
+      "old_count": 93,
+      "new_count": 93,
+      "TP": 65,
+      "FN": 257,
+      "unlabelled_predicted": 28
+    },
+    {
+      "cutoff": 0.1,
+      "old_count": 101,
+      "new_count": 101,
+      "TP": 73,
+      "FN": 249,
+      "unlabelled_predicted": 28
+    },
+    {
+      "cutoff": 0.15,
+      "old_count": 116,
+      "new_count": 116,
+      "TP": 80,
+      "FN": 242,
+      "unlabelled_predicted": 36
+    }
+  ],
+  "positive_intersection_recall": 0.2484472049689441,
+  "positive_reference_coverage": 0.19975186104218362,
+  "reviewed_comparison_sha256": {
+    "artifacts/screen_r1931_forward_20260915/compare.py": "9ea81b21a84ab153d763e4b0ddd590b57389895ed74a3c3393e72cd2fc67208d",
+    "artifacts/screen_r1931_forward_20260915/comparison.json": "7d41ffedab926f72ac9ca8e67f83fbe55e11ad6c397540b821e27969f3b14fe8",
+    "artifacts/screen_r1931_forward_20260915/essentiality_comparison.tsv": "8ecfee52ce7fef6505c4a00ac66684c7a7ce067f15d90caef1eebc7d3498e50c",
+    "artifacts/screen_r1931_forward_20260915/comparison_notes.txt": "250a2a247610fe492abb5c742a8330db0ed51829a32de39b95e6ac407652bb99",
+    "artifacts/screen_r1931_forward_20260915/REPORT.md": "dc68d66157746256309e4eaed99db07d4009ab86d3a934fcf2a9579f24daa7ec"
+  },
+  "claims": {
+    "total": 5,
+    "audited": 5,
+    "supported": 5,
+    "unresolved": 0
+  }
+}

@@ -1,0 +1,584 @@
+{
+  "scope": "runtime_only",
+  "calibration_status": "sensitivity_only_not_calibrated",
+  "execution_policy": "eight_trajectories_serial_one_process_no_retry",
+  "started_utc": "2026-09-07T18:00:42Z",
+  "inputs": {
+    "model": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "medium": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "profile": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "runner": "d3810a404f6e2c93802f2efd14686f9d3c7b0336d3caa18ecc90cebbeb67344a",
+    "r3_metrics": "0bd322f73cc02a362446d6688129de06b810156bc2cbb8558d255f424bc8a066"
+  },
+  "paths": {
+    "model": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml",
+    "medium": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv",
+    "profile": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+    "runner": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/scripts/gem_annotate/quinone_dfba_essentiality.py"
+  },
+  "parameters": {
+    "alpha_mmol_gDW": 0.0001,
+    "pool_multiplier": 1.0,
+    "initial_biomass_gDW_L": 0.01,
+    "hours": 24.0,
+    "runtime_topology": false,
+    "runtime_gpr_scenario": null,
+    "solver": "gurobi",
+    "Threads": 1,
+    "Seed": 0,
+    "Method": 1,
+    "FeasibilityTol": 1e-09
+  },
+  "software": {
+    "python": "3.13.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cobra": "0.30.0",
+    "gurobipy": "13.0.1"
+  },
+  "planned_order": [
+    {
+      "run_order": 1,
+      "dt_h": 0.0625,
+      "uracil_mode": "finite_batch",
+      "gene_id": "WT"
+    },
+    {
+      "run_order": 2,
+      "dt_h": 0.0625,
+      "uracil_mode": "finite_batch",
+      "gene_id": "YALI1A14736g"
+    },
+    {
+      "run_order": 3,
+      "dt_h": 0.0625,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "WT"
+    },
+    {
+      "run_order": 4,
+      "dt_h": 0.0625,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "YALI1A21711g"
+    },
+    {
+      "run_order": 5,
+      "dt_h": 0.03125,
+      "uracil_mode": "finite_batch",
+      "gene_id": "WT"
+    },
+    {
+      "run_order": 6,
+      "dt_h": 0.03125,
+      "uracil_mode": "finite_batch",
+      "gene_id": "YALI1A14736g"
+    },
+    {
+      "run_order": 7,
+      "dt_h": 0.03125,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "WT"
+    },
+    {
+      "run_order": 8,
+      "dt_h": 0.03125,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "YALI1A21711g"
+    }
+  ],
+  "planned_maximum_advanced_intervals": 4608,
+  "per_trajectory_wall_limit_seconds": 1800,
+  "cumulative_wall_limit_seconds": 7200,
+  "conditions": [
+    {
+      "run_order": 1,
+      "condition_id": "dt00625_finite_batch_WT",
+      "dt_h": 0.0625,
+      "uracil_mode": "finite_batch",
+      "gene_id": "WT",
+      "role": "WT",
+      "wall_seconds": 57.72385720899911,
+      "advanced_intervals": 384,
+      "trajectory_rows": 384,
+      "runner_level_solve_attempts": 712,
+      "solve_counts": {
+        "pfba": 712,
+        "fallback_optimize": 0,
+        "pfba_statuses": {
+          "optimal": 712
+        },
+        "fallback_statuses": {},
+        "pfba_exceptions": 0
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 1.308961867183044,
+      "dynamic_doublings": 7.0322792589239995,
+      "initial_growth_h-1": 1.464804644951635,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 1.464804644951635,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 92.94095043389059,
+      "final_uracil_mmol_L": 2.7564756033271465e-15,
+      "termination_status": "completed",
+      "termination_time_h": 24.0,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/01_dt00625_finite_batch_WT.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 328,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 2,
+      "condition_id": "dt00625_finite_batch_YALI1A14736g",
+      "dt_h": 0.0625,
+      "uracil_mode": "finite_batch",
+      "gene_id": "YALI1A14736g",
+      "role": "KO",
+      "wall_seconds": 44.603664249996655,
+      "advanced_intervals": 384,
+      "trajectory_rows": 384,
+      "runner_level_solve_attempts": 603,
+      "solve_counts": {
+        "pfba": 603,
+        "fallback_optimize": 0,
+        "pfba_statuses": {
+          "optimal": 603
+        },
+        "fallback_statuses": {},
+        "pfba_exceptions": 0
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 1.308961867183053,
+      "dynamic_doublings": 7.03227925892401,
+      "initial_growth_h-1": 0.48169196896430777,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 0.48169196896430777,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 13.264163823920896,
+      "final_uracil_mmol_L": 0.0,
+      "termination_status": "completed",
+      "termination_time_h": 24.0,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/02_dt00625_finite_batch_YALI1A14736g.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 219,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 3,
+      "condition_id": "dt00625_po1f_nonlimiting_WT",
+      "dt_h": 0.0625,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "WT",
+      "role": "WT",
+      "wall_seconds": 7.862792207975872,
+      "advanced_intervals": 85,
+      "trajectory_rows": 86,
+      "runner_level_solve_attempts": 87,
+      "solve_counts": {
+        "pfba": 86,
+        "fallback_optimize": 1,
+        "pfba_statuses": {
+          "optimal": 85
+        },
+        "fallback_statuses": {
+          "infeasible": 1
+        },
+        "pfba_exceptions": 1
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 16.244455505595493,
+      "dynamic_doublings": 10.665731671755633,
+      "initial_growth_h-1": 1.464804644951635,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 1.464804644951635,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 0.0,
+      "final_uracil_mmol_L": null,
+      "termination_status": "infeasible",
+      "termination_time_h": 5.3125,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/03_dt00625_po1f_nonlimiting_WT.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 0,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 4,
+      "condition_id": "dt00625_po1f_nonlimiting_YALI1A21711g",
+      "dt_h": 0.0625,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "YALI1A21711g",
+      "role": "KO",
+      "wall_seconds": 8.116112332994817,
+      "advanced_intervals": 85,
+      "trajectory_rows": 86,
+      "runner_level_solve_attempts": 87,
+      "solve_counts": {
+        "pfba": 86,
+        "fallback_optimize": 1,
+        "pfba_statuses": {
+          "optimal": 85
+        },
+        "fallback_statuses": {
+          "infeasible": 1
+        },
+        "pfba_exceptions": 1
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 16.24445550559673,
+      "dynamic_doublings": 10.665731671755744,
+      "initial_growth_h-1": 1.4648046449517578,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 1.4648046449517578,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 0.0,
+      "final_uracil_mmol_L": null,
+      "termination_status": "infeasible",
+      "termination_time_h": 5.3125,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/04_dt00625_po1f_nonlimiting_YALI1A21711g.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 0,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 5,
+      "condition_id": "dt003125_finite_batch_WT",
+      "dt_h": 0.03125,
+      "uracil_mode": "finite_batch",
+      "gene_id": "WT",
+      "role": "WT",
+      "wall_seconds": 117.27742558400496,
+      "advanced_intervals": 768,
+      "trajectory_rows": 768,
+      "runner_level_solve_attempts": 1427,
+      "solve_counts": {
+        "pfba": 1427,
+        "fallback_optimize": 0,
+        "pfba_statuses": {
+          "optimal": 1427
+        },
+        "fallback_statuses": {},
+        "pfba_exceptions": 0
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 1.3089618671830658,
+      "dynamic_doublings": 7.0322792589240235,
+      "initial_growth_h-1": 1.464804644951635,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 1.464804644951635,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 92.90268364643596,
+      "final_uracil_mmol_L": 0.0,
+      "termination_status": "completed",
+      "termination_time_h": 24.0,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/05_dt003125_finite_batch_WT.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 659,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 6,
+      "condition_id": "dt003125_finite_batch_YALI1A14736g",
+      "dt_h": 0.03125,
+      "uracil_mode": "finite_batch",
+      "gene_id": "YALI1A14736g",
+      "role": "KO",
+      "wall_seconds": 90.78896583299502,
+      "advanced_intervals": 768,
+      "trajectory_rows": 768,
+      "runner_level_solve_attempts": 1209,
+      "solve_counts": {
+        "pfba": 1209,
+        "fallback_optimize": 0,
+        "pfba_statuses": {
+          "optimal": 1209
+        },
+        "fallback_statuses": {},
+        "pfba_exceptions": 0
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 1.3089618671830625,
+      "dynamic_doublings": 7.03227925892402,
+      "initial_growth_h-1": 0.48169196896430777,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 0.48169196896430777,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 12.952047946059585,
+      "final_uracil_mmol_L": 0.0,
+      "termination_status": "completed",
+      "termination_time_h": 24.0,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/06_dt003125_finite_batch_YALI1A14736g.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 441,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 7,
+      "condition_id": "dt003125_po1f_nonlimiting_WT",
+      "dt_h": 0.03125,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "WT",
+      "role": "WT",
+      "wall_seconds": 15.294778500014218,
+      "advanced_intervals": 166,
+      "trajectory_rows": 167,
+      "runner_level_solve_attempts": 168,
+      "solve_counts": {
+        "pfba": 167,
+        "fallback_optimize": 1,
+        "pfba_statuses": {
+          "optimal": 166
+        },
+        "fallback_statuses": {
+          "infeasible": 1
+        },
+        "pfba_exceptions": 1
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 16.25228047939468,
+      "dynamic_doublings": 10.66642645237105,
+      "initial_growth_h-1": 1.464804644951635,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 1.464804644951635,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 0.0,
+      "final_uracil_mmol_L": null,
+      "termination_status": "infeasible",
+      "termination_time_h": 5.1875,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/07_dt003125_po1f_nonlimiting_WT.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 0,
+      "q9_source_positive_intervals": 0
+    },
+    {
+      "run_order": 8,
+      "condition_id": "dt003125_po1f_nonlimiting_YALI1A21711g",
+      "dt_h": 0.03125,
+      "uracil_mode": "po1f_nonlimiting",
+      "gene_id": "YALI1A21711g",
+      "role": "KO",
+      "wall_seconds": 15.658543084020494,
+      "advanced_intervals": 166,
+      "trajectory_rows": 167,
+      "runner_level_solve_attempts": 168,
+      "solve_counts": {
+        "pfba": 167,
+        "fallback_optimize": 1,
+        "pfba_statuses": {
+          "optimal": 166
+        },
+        "fallback_statuses": {
+          "infeasible": 1
+        },
+        "pfba_exceptions": 1
+      },
+      "solver_settings": {
+        "Threads": 1,
+        "Seed": 0,
+        "Method": 1,
+        "FeasibilityTol": 1e-09,
+        "OptimalityTol": 1e-07,
+        "Presolve": 0,
+        "NumericFocus": 0,
+        "ScaleFlag": -1,
+        "Crossover": -1
+      },
+      "model_state_restored": true,
+      "validation": {
+        "required_fields": true,
+        "time_starts_at_zero": true,
+        "advanced_intervals_have_dt": true,
+        "state_continuity": true,
+        "nonnegative_states": true,
+        "terminal_record_only": true
+      },
+      "final_biomass_gDW_L": 16.25228047939581,
+      "dynamic_doublings": 10.666426452371152,
+      "initial_growth_h-1": 1.4648046449517578,
+      "initial_source_free_solver_status": "optimal",
+      "initial_source_free_growth_h-1": 1.4648046449517578,
+      "q9_pool_depleted_h": null,
+      "q9_source_total_mmol_L": 0.0,
+      "final_glucose_mmol_L": 0.0,
+      "final_uracil_mmol_L": null,
+      "termination_status": "infeasible",
+      "termination_time_h": 5.1875,
+      "execution_status": "completed_call",
+      "trajectory_file": "trajectories/08_dt003125_po1f_nonlimiting_YALI1A21711g.tsv",
+      "native_backend_optimize_calls": null,
+      "native_backend_optimize_calls_reason": "not_instrumented_before_first_execution; no rerun permitted",
+      "reserve_enabled_second_solve_attempts": 0,
+      "q9_source_positive_intervals": 0
+    }
+  ],
+  "effective_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "c243b23e7344e3f1e2b4962be25f0f2a38980990c6fe88ee32d3aa4f7af90e30",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+  },
+  "cumulative_completed_wall_seconds": 357.32613900100114,
+  "finished_utc": "2026-09-07T18:20:51Z",
+  "completed_trajectories": 8,
+  "all_trajectory_checks_pass": true,
+  "measurement_limitations": {
+    "native_backend_optimize_calls": "not recorded; runner-level calls are not native LP counts; no rerun",
+    "wall_seconds": "simulate_gene only; fresh-context loading excluded"
+  },
+  "model_sha_after": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+  "model_file_unchanged": true
+}

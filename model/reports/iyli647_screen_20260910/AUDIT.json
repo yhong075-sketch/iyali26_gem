@@ -1,0 +1,4477 @@
+{
+  "audit_checked_utc": "2026-09-11T05:01:07.443353+00:00",
+  "scope": "Independent numerical audit of saved screen outputs; no model execution or solver calls. Mapping audit is reused from this agent earlier in this task and rechecked by source fingerprints; not a second independent biological ID audit.",
+  "inputs": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/inputs/locus_audit.json",
+      "sha256": "77f241c06800719bb6c8cb26a10d6c33c678ffff7cc4486327c5fe01476ac408"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/inputs/source_manifest.json",
+      "sha256": "cab7c72aaacfd571ae21c88bf1fee69e9f89aa42629e4445a2a30808872cd35e"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/runtime_plan.json",
+      "sha256": "96755dbb14322a5d6be257e41363a26d0581be86d67a71f1ebc7e05d19d667ee"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/run_screen.py",
+      "sha256": "916209b257cb55b8d408a58672b6ee533f65f5a096194aa8d42505a44a7fa012"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/run_manifest.json",
+      "sha256": "1693c1d119ce58732e32be3f1596961eeca8ee05f581cf85eab0204f826bad10"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/raw_deletions.tsv",
+      "sha256": "af41a9ec3e6f5a2204730779722596c019f88eea64736f64bd74e59ab880922c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv",
+      "sha256": "f1249e4cf5170ab04542bdeda0be69b8f756aed40b3dbcf43bbd7cbfb5c76086"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/native/run_manifest.json",
+      "sha256": "86b95e0e3beb27facd6e203dcaaed09e3ec557138f7acb42b97c81dc42e554fc"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/native/raw_deletions.tsv",
+      "sha256": "27346eb52d10c6c6df1a29a623cb88fd1e07d73eef1d5189142508022f96a7aa"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/native/screen_predictions.tsv",
+      "sha256": "a783add7e6c266cbed1547b6c5745138141556950171b11646594c6b46f32fa7"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/mapped28_po1f/run_manifest.json",
+      "sha256": "9f2950c7c15186830eb6c4fcfb18dc18f7102a211394b6d318153a647199c863"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/mapped28_po1f/raw_deletions.tsv",
+      "sha256": "25352c7d432975e50f4de3f272fbd0aa3b2c6eec46c8049c8c54aad44852152f"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/mapped28_po1f/screen_predictions.tsv",
+      "sha256": "e51a0116d412ab0815ed13f5bd6a37ab1d959fb1cd162f3955ddbaf5cc7368ff"
+    }
+  ],
+  "source_hash_checks": [
+    {
+      "path": "/private/tmp/worland-fixed-audit-20260910/iYLI647_corr_3.json",
+      "expected": "329be540c099409c2c7b76ee581a23f86eefdbbffe97e9b03b39b5e9c014b5d2",
+      "observed": "329be540c099409c2c7b76ee581a23f86eefdbbffe97e9b03b39b5e9c014b5d2",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+      "expected": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+      "observed": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/essentiality_per_gene.tsv",
+      "expected": "fcad4295baf2d1837a1ee4bc22b2a6b24ea90b75029308b37123f73245eb76a8",
+      "observed": "fcad4295baf2d1837a1ee4bc22b2a6b24ea90b75029308b37123f73245eb76a8",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/essentiality_summary.json",
+      "expected": "d3d2735e082ae0d4d55cf28819e0e1191bd1133d73feae2dee6d9b8f15c963e1",
+      "observed": "d3d2735e082ae0d4d55cf28819e0e1191bd1133d73feae2dee6d9b8f15c963e1",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/yali1_yali0_map/iyli21_genes_vs_S2.csv",
+      "expected": "7c68b3cb244f07848b7ad99d7ed0f95768c9812ddd80311e1cdffa06fff4bae9",
+      "observed": "7c68b3cb244f07848b7ad99d7ed0f95768c9812ddd80311e1cdffa06fff4bae9",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/yali1_yali0_map/s2_metabolic_genes.csv",
+      "expected": "f7f25bb3e4f3c720d4b0bd534309c5c5f3cfa091bbd22383858d71f8600c1c2e",
+      "observed": "f7f25bb3e4f3c720d4b0bd534309c5c5f3cfa091bbd22383858d71f8600c1c2e",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/curated_locus_identity_exclusions.csv",
+      "expected": "883f1aac417838e923f12a00285545a093b985e90fd87ecfd9e6f29adbeee408",
+      "observed": "883f1aac417838e923f12a00285545a093b985e90fd87ecfd9e6f29adbeee408",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/scripts/gem_annotate/locus_resolver.py",
+      "expected": "eb5996508300831ee0346e3cedb80cd01eb5043025461d3b9a639ee41e01e584",
+      "observed": "eb5996508300831ee0346e3cedb80cd01eb5043025461d3b9a639ee41e01e584",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/scripts/gem_annotate/config.py",
+      "expected": "1affa8f18f6a245e21af88857bfdbdf915a92a349a3fafe2a9c1af6f98731fc3",
+      "observed": "1affa8f18f6a245e21af88857bfdbdf915a92a349a3fafe2a9c1af6f98731fc3",
+      "matches": true,
+      "context": "frozen_locus_audit_source"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/inputs/locus_audit.json",
+      "expected": "77f241c06800719bb6c8cb26a10d6c33c678ffff7cc4486327c5fe01476ac408",
+      "observed": "77f241c06800719bb6c8cb26a10d6c33c678ffff7cc4486327c5fe01476ac408",
+      "matches": true,
+      "context": "frozen_mapping_copy_vs_original"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+      "expected": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+      "observed": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+      "matches": true,
+      "context": "iyali26_saved_model"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py",
+      "expected": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "observed": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/config.py",
+      "expected": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "observed": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_evidence.py",
+      "expected": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "observed": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/isozyme_capacity.py",
+      "expected": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "observed": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/isozyme_resolution.py",
+      "expected": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "observed": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/run_registry.py",
+      "expected": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "observed": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py",
+      "expected": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "observed": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py",
+      "expected": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "observed": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/validate_essential_genes.py",
+      "expected": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94",
+      "observed": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/run_screen.py",
+      "expected": "3c077c359f80e4258710fd1cd7efdadf0cf21c0b8c3a085b1325758ca9bf9043",
+      "observed": "3c077c359f80e4258710fd1cd7efdadf0cf21c0b8c3a085b1325758ca9bf9043",
+      "matches": true,
+      "context": "iyali26_saved_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+      "expected": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "observed": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "matches": true,
+      "context": "iyali26_medium"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+      "expected": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "observed": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "matches": true,
+      "context": "iyali26_strain_profile"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/inputs/iYLI647_corr_3.json",
+      "expected": "329be540c099409c2c7b76ee581a23f86eefdbbffe97e9b03b39b5e9c014b5d2",
+      "observed": "329be540c099409c2c7b76ee581a23f86eefdbbffe97e9b03b39b5e9c014b5d2",
+      "matches": true,
+      "context": "native_model"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py",
+      "expected": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "observed": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/config.py",
+      "expected": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "observed": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_evidence.py",
+      "expected": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "observed": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/isozyme_capacity.py",
+      "expected": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "observed": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/isozyme_resolution.py",
+      "expected": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "observed": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/run_registry.py",
+      "expected": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "observed": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py",
+      "expected": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "observed": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py",
+      "expected": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "observed": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/validate_essential_genes.py",
+      "expected": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94",
+      "observed": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/run_screen.py",
+      "expected": "916209b257cb55b8d408a58672b6ee533f65f5a096194aa8d42505a44a7fa012",
+      "observed": "916209b257cb55b8d408a58672b6ee533f65f5a096194aa8d42505a44a7fa012",
+      "matches": true,
+      "context": "native_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/inputs/iYLI647_corr_3.json",
+      "expected": "329be540c099409c2c7b76ee581a23f86eefdbbffe97e9b03b39b5e9c014b5d2",
+      "observed": "329be540c099409c2c7b76ee581a23f86eefdbbffe97e9b03b39b5e9c014b5d2",
+      "matches": true,
+      "context": "mapped28_po1f_model"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py",
+      "expected": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "observed": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/config.py",
+      "expected": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "observed": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_evidence.py",
+      "expected": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "observed": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/isozyme_capacity.py",
+      "expected": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "observed": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/isozyme_resolution.py",
+      "expected": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "observed": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/run_registry.py",
+      "expected": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "observed": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py",
+      "expected": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "observed": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py",
+      "expected": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "observed": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/code/scripts/gem_annotate/validate_essential_genes.py",
+      "expected": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94",
+      "observed": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/run_screen.py",
+      "expected": "916209b257cb55b8d408a58672b6ee533f65f5a096194aa8d42505a44a7fa012",
+      "observed": "916209b257cb55b8d408a58672b6ee533f65f5a096194aa8d42505a44a7fa012",
+      "matches": true,
+      "context": "mapped28_po1f_recorded_code"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/iyli647_screen_20260910/runtime_plan.json",
+      "expected": "96755dbb14322a5d6be257e41363a26d0581be86d67a71f1ebc7e05d19d667ee",
+      "observed": "96755dbb14322a5d6be257e41363a26d0581be86d67a71f1ebc7e05d19d667ee",
+      "matches": true,
+      "context": "mapped_runtime_plan"
+    }
+  ],
+  "source_hash_summary": {
+    "records_checked": 46,
+    "matched": 46,
+    "mismatched": 0
+  },
+  "screen_audits": {
+    "iyali26_saved": {
+      "raw_rows": 1074,
+      "prediction_rows": 1074,
+      "expected_genes": 1074,
+      "raw_unique_ids": 1074,
+      "prediction_unique_ids": 1074,
+      "status_counts": {
+        "optimal": 1074
+      },
+      "wt_growth": 1.8718823069403,
+      "wt_valid": true,
+      "unresolved_count": 0,
+      "unresolved_gene_ids": [],
+      "row_checks": {
+        "raw_status_matches": 1074,
+        "legacy_status_matches": 1074,
+        "numerically_valid_flag_matches": 1074,
+        "audited_call_matches": 4296,
+        "legacy_call_matches": 4296
+      },
+      "max_numeric_differences": {
+        "raw_vs_prediction_raw_growth_max_abs": 0.0,
+        "raw_vs_legacy_growth_max_abs": 0.0,
+        "raw_div_wt_vs_legacy_ratio_max_abs": 0.0
+      },
+      "negative_signed_zero_raw_count": 0,
+      "strict_unrounded_cutoff_curve": [
+        {
+          "cutoff": 0.01,
+          "predicted_essential_all_gene_records": 76,
+          "common_positive_TP": 52,
+          "common_positive_FN": 183,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.22127659574468084
+        },
+        {
+          "cutoff": 0.05,
+          "predicted_essential_all_gene_records": 93,
+          "common_positive_TP": 62,
+          "common_positive_FN": 173,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.26382978723404255
+        },
+        {
+          "cutoff": 0.1,
+          "predicted_essential_all_gene_records": 101,
+          "common_positive_TP": 70,
+          "common_positive_FN": 165,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.2978723404255319
+        },
+        {
+          "cutoff": 0.15,
+          "predicted_essential_all_gene_records": 114,
+          "common_positive_TP": 76,
+          "common_positive_FN": 159,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.32340425531914896
+        }
+      ],
+      "manifest_elapsed_seconds": 3.6252602920285426
+    },
+    "native": {
+      "raw_rows": 648,
+      "prediction_rows": 648,
+      "expected_genes": 648,
+      "raw_unique_ids": 648,
+      "prediction_unique_ids": 648,
+      "status_counts": {
+        "optimal": 648
+      },
+      "wt_growth": 1.1537351153250899,
+      "wt_valid": true,
+      "unresolved_count": 0,
+      "unresolved_gene_ids": [],
+      "row_checks": {
+        "raw_status_matches": 648,
+        "legacy_status_matches": 648,
+        "numerically_valid_flag_matches": 648,
+        "audited_call_matches": 2592,
+        "legacy_call_matches": 2592
+      },
+      "max_numeric_differences": {
+        "raw_vs_prediction_raw_growth_max_abs": 0.0,
+        "raw_vs_legacy_growth_max_abs": 0.0,
+        "raw_div_wt_vs_legacy_ratio_max_abs": 0.0
+      },
+      "negative_signed_zero_raw_count": 0,
+      "strict_unrounded_cutoff_curve": [
+        {
+          "cutoff": 0.01,
+          "predicted_essential_all_gene_records": 127,
+          "common_positive_TP": 80,
+          "common_positive_FN": 155,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.3404255319148936
+        },
+        {
+          "cutoff": 0.05,
+          "predicted_essential_all_gene_records": 127,
+          "common_positive_TP": 80,
+          "common_positive_FN": 155,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.3404255319148936
+        },
+        {
+          "cutoff": 0.1,
+          "predicted_essential_all_gene_records": 127,
+          "common_positive_TP": 80,
+          "common_positive_FN": 155,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.3404255319148936
+        },
+        {
+          "cutoff": 0.15,
+          "predicted_essential_all_gene_records": 127,
+          "common_positive_TP": 80,
+          "common_positive_FN": 155,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.3404255319148936
+        }
+      ],
+      "manifest_elapsed_seconds": 2.4962397500057705
+    },
+    "mapped28_po1f": {
+      "raw_rows": 648,
+      "prediction_rows": 648,
+      "expected_genes": 648,
+      "raw_unique_ids": 648,
+      "prediction_unique_ids": 648,
+      "status_counts": {
+        "optimal": 648
+      },
+      "wt_growth": 1.2171871273706656,
+      "wt_valid": true,
+      "unresolved_count": 0,
+      "unresolved_gene_ids": [],
+      "row_checks": {
+        "raw_status_matches": 648,
+        "legacy_status_matches": 648,
+        "numerically_valid_flag_matches": 648,
+        "audited_call_matches": 2592,
+        "legacy_call_matches": 2592
+      },
+      "max_numeric_differences": {
+        "raw_vs_prediction_raw_growth_max_abs": 0.0,
+        "raw_vs_legacy_growth_max_abs": 0.0,
+        "raw_div_wt_vs_legacy_ratio_max_abs": 0.0
+      },
+      "negative_signed_zero_raw_count": 0,
+      "strict_unrounded_cutoff_curve": [
+        {
+          "cutoff": 0.01,
+          "predicted_essential_all_gene_records": 69,
+          "common_positive_TP": 47,
+          "common_positive_FN": 188,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.2
+        },
+        {
+          "cutoff": 0.05,
+          "predicted_essential_all_gene_records": 79,
+          "common_positive_TP": 54,
+          "common_positive_FN": 181,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.2297872340425532
+        },
+        {
+          "cutoff": 0.1,
+          "predicted_essential_all_gene_records": 88,
+          "common_positive_TP": 59,
+          "common_positive_FN": 176,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.251063829787234
+        },
+        {
+          "cutoff": 0.15,
+          "predicted_essential_all_gene_records": 95,
+          "common_positive_TP": 66,
+          "common_positive_FN": 169,
+          "common_positive_unresolved": 0,
+          "common_positive_recall": 0.28085106382978725
+        }
+      ],
+      "manifest_elapsed_seconds": 1.8858825840288773
+    }
+  },
+  "common_positive_cross_classification": {
+    "native": [
+      {
+        "cutoff": 0.01,
+        "both_TP": 36,
+        "external_only_TP": 44,
+        "iyali26_only_TP": 16,
+        "both_FN": 139,
+        "unresolved": 0
+      },
+      {
+        "cutoff": 0.05,
+        "both_TP": 46,
+        "external_only_TP": 34,
+        "iyali26_only_TP": 16,
+        "both_FN": 139,
+        "unresolved": 0
+      },
+      {
+        "cutoff": 0.1,
+        "both_TP": 54,
+        "external_only_TP": 26,
+        "iyali26_only_TP": 16,
+        "both_FN": 139,
+        "unresolved": 0
+      },
+      {
+        "cutoff": 0.15,
+        "both_TP": 60,
+        "external_only_TP": 20,
+        "iyali26_only_TP": 16,
+        "both_FN": 139,
+        "unresolved": 0
+      }
+    ],
+    "mapped28_po1f": [
+      {
+        "cutoff": 0.01,
+        "both_TP": 37,
+        "external_only_TP": 10,
+        "iyali26_only_TP": 15,
+        "both_FN": 173,
+        "unresolved": 0
+      },
+      {
+        "cutoff": 0.05,
+        "both_TP": 43,
+        "external_only_TP": 11,
+        "iyali26_only_TP": 19,
+        "both_FN": 162,
+        "unresolved": 0
+      },
+      {
+        "cutoff": 0.1,
+        "both_TP": 48,
+        "external_only_TP": 11,
+        "iyali26_only_TP": 22,
+        "both_FN": 154,
+        "unresolved": 0
+      },
+      {
+        "cutoff": 0.15,
+        "both_TP": 55,
+        "external_only_TP": 11,
+        "iyali26_only_TP": 21,
+        "both_FN": 148,
+        "unresolved": 0
+      }
+    ]
+  },
+  "common_positive_rows_at_10pct": [
+    {
+      "scenario": "native",
+      "rows": [
+        {
+          "external_gene_id": "YALI0A00264g",
+          "iyali26_gene_id": "YALI1A00309g",
+          "source_gene_id": "YALI1_A00309g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0A02310g",
+          "iyali26_gene_id": "YALI1A02775g",
+          "source_gene_id": "YALI1_A02775g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0A02541g",
+          "iyali26_gene_id": "YALI1A03069g",
+          "source_gene_id": "YALI1_A03069g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 0.9999999999999977,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A02915g",
+          "iyali26_gene_id": "YALI1A03322g",
+          "source_gene_id": "YALI1_A03322g",
+          "external_ratio": 0.48237457117130905,
+          "iyali26_ratio": 1.0000000000000016,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A09042g",
+          "iyali26_gene_id": "YALI1A08781g",
+          "source_gene_id": "YALI1_A08781g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 0.9999999999999986,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A09427g",
+          "iyali26_gene_id": "YALI1A09121g",
+          "source_gene_id": "YALI1_A09121g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 0.9999999999999986,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A09900g",
+          "iyali26_gene_id": "YALI1A09766g",
+          "source_gene_id": "YALI1_A09766g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A10032g",
+          "iyali26_gene_id": "YALI1A09911g",
+          "source_gene_id": "YALI1_A09911g",
+          "external_ratio": 0.9999999999999979,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A10076g",
+          "iyali26_gene_id": "YALI1A09939g",
+          "source_gene_id": "YALI1_A09939g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0A10310g",
+          "iyali26_gene_id": "YALI1A10254g",
+          "source_gene_id": "YALI1_A10254g",
+          "external_ratio": 0.9999999999999979,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A10659g",
+          "iyali26_gene_id": "YALI1A10708g",
+          "source_gene_id": "YALI1_A10708g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A11143g",
+          "iyali26_gene_id": "YALI1A11258g",
+          "source_gene_id": "YALI1_A11258g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A12045g",
+          "iyali26_gene_id": "YALI1A12284g",
+          "source_gene_id": "YALI1_A12284g",
+          "external_ratio": 0.9999999999999953,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A13387g",
+          "iyali26_gene_id": "YALI1A13454g",
+          "source_gene_id": "YALI1_A13454g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A14784g",
+          "iyali26_gene_id": "YALI1A14721g",
+          "source_gene_id": "YALI1_A14721g",
+          "external_ratio": 0.9999999999999968,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A15950g",
+          "iyali26_gene_id": "YALI1A15879g",
+          "source_gene_id": "YALI1_A15879g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0A19206g",
+          "iyali26_gene_id": "YALI1A20176g",
+          "source_gene_id": "YALI1_A20176g",
+          "external_ratio": 0.9999303854277851,
+          "iyali26_ratio": 0.999999999999999,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A20108g",
+          "iyali26_gene_id": "YALI1A21156g",
+          "source_gene_id": "YALI1_A21156g",
+          "external_ratio": 0.9999999999999953,
+          "iyali26_ratio": 1.0000000000000009,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B00572g",
+          "iyali26_gene_id": "YALI1B00578g",
+          "source_gene_id": "YALI1_B00578g",
+          "external_ratio": 0.9999999999999948,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B00792g",
+          "iyali26_gene_id": "YALI1B00908g",
+          "source_gene_id": "YALI1_B00908g",
+          "external_ratio": 0.9999999999999974,
+          "iyali26_ratio": 0.9999999999999999,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B00704g",
+          "iyali26_gene_id": "YALI1B01136g",
+          "source_gene_id": "YALI1_B01136g",
+          "external_ratio": 0.6315172285212213,
+          "iyali26_ratio": 1.0000000000000016,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B01364g",
+          "iyali26_gene_id": "YALI1B02345g",
+          "source_gene_id": "YALI1_B02345g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B01540g",
+          "iyali26_gene_id": "YALI1B02487g",
+          "source_gene_id": "YALI1_B02487g",
+          "external_ratio": 0.482374571171309,
+          "iyali26_ratio": 0.9999999999999964,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B01826g",
+          "iyali26_gene_id": "YALI1B02806g",
+          "source_gene_id": "YALI1_B02806g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B02376g",
+          "iyali26_gene_id": "YALI1B03719g",
+          "source_gene_id": "YALI1_B03719g",
+          "external_ratio": 0.9999999999999974,
+          "iyali26_ratio": 1.0000000000000127,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B02728g",
+          "iyali26_gene_id": "YALI1B04138g",
+          "source_gene_id": "YALI1_B04138g",
+          "external_ratio": 0.9999999999999969,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B02948g",
+          "iyali26_gene_id": "YALI1B04433g",
+          "source_gene_id": "YALI1_B04433g",
+          "external_ratio": 0.9443520652232289,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B03630g",
+          "iyali26_gene_id": "YALI1B05072g",
+          "source_gene_id": "YALI1_B05072g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B03982g",
+          "iyali26_gene_id": "YALI1B05364g",
+          "source_gene_id": "YALI1_B05364g",
+          "external_ratio": 0.9999999999999963,
+          "iyali26_ratio": 0.9999999999999977,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B04180g",
+          "iyali26_gene_id": "YALI1B05571g",
+          "source_gene_id": "YALI1_B05571g",
+          "external_ratio": 0.9999999999999963,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0B04312g",
+          "iyali26_gene_id": "YALI1B05798g",
+          "source_gene_id": "YALI1_B05798g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999982,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0B05126G",
+          "iyali26_gene_id": "YALI1B07094g",
+          "source_gene_id": "YALI1_B07094g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B05368g",
+          "iyali26_gene_id": "YALI1B07366g",
+          "source_gene_id": "YALI1_B07366g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B05918g",
+          "iyali26_gene_id": "YALI1B07957g",
+          "source_gene_id": "YALI1_B07957g",
+          "external_ratio": 0.9999999999999963,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B06831g",
+          "iyali26_gene_id": "YALI1B08885g",
+          "source_gene_id": "YALI1_B08885g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 0.9999999999999895,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B06941g",
+          "iyali26_gene_id": "YALI1B09025g",
+          "source_gene_id": "YALI1_B09025g",
+          "external_ratio": 0.9999999999999969,
+          "iyali26_ratio": 0.9999999999999895,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B07447g",
+          "iyali26_gene_id": "YALI1B09592g",
+          "source_gene_id": "YALI1_B09592g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B08536g",
+          "iyali26_gene_id": "YALI1B11532g",
+          "source_gene_id": "YALI1_B11532g",
+          "external_ratio": 0.9979895066378306,
+          "iyali26_ratio": 0.9999999999999841,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B11330g",
+          "iyali26_gene_id": "YALI1B15015g",
+          "source_gene_id": "YALI1_B15015g",
+          "external_ratio": 0.9999999999999966,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B14399g",
+          "iyali26_gene_id": "YALI1B18955g",
+          "source_gene_id": "YALI1_B18955g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B14509g",
+          "iyali26_gene_id": "YALI1B19079g",
+          "source_gene_id": "YALI1_B19079g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15059g",
+          "iyali26_gene_id": "YALI1B19844g",
+          "source_gene_id": "YALI1_B19844g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15304g",
+          "iyali26_gene_id": "YALI1B20153g",
+          "source_gene_id": "YALI1_B20153g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.020804215452188645,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15444g",
+          "iyali26_gene_id": "YALI1B20289g",
+          "source_gene_id": "YALI1_B20289g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.04790423872092689,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15598g",
+          "iyali26_gene_id": "YALI1B20462g",
+          "source_gene_id": "YALI1_B20462g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999741,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0B16038g",
+          "iyali26_gene_id": "YALI1B21004g",
+          "source_gene_id": "YALI1_B21004g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B16104g",
+          "iyali26_gene_id": "YALI1B21070g",
+          "source_gene_id": "YALI1_B21070g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B16126g",
+          "iyali26_gene_id": "YALI1B21088g",
+          "source_gene_id": "YALI1_B21088g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B16324g",
+          "iyali26_gene_id": "YALI1B21313g",
+          "source_gene_id": "YALI1_B21313g",
+          "external_ratio": 0.9999999999999974,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B16390g",
+          "iyali26_gene_id": "YALI1B21356g",
+          "source_gene_id": "YALI1_B21356g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B17402g",
+          "iyali26_gene_id": "YALI1B22614g",
+          "source_gene_id": "YALI1_B22614g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.020804215451704706,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B17644g",
+          "iyali26_gene_id": "YALI1B22820g",
+          "source_gene_id": "YALI1_B22820g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B17666g",
+          "iyali26_gene_id": "YALI1B22853g",
+          "source_gene_id": "YALI1_B22853g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.11002421982935918,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0B17688g",
+          "iyali26_gene_id": "YALI1B22883g",
+          "source_gene_id": "YALI1_B22883g",
+          "external_ratio": 0.9999999999999974,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B18348g",
+          "iyali26_gene_id": "YALI1B23834g",
+          "source_gene_id": "YALI1_B23834g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B19382g",
+          "iyali26_gene_id": "YALI1B25427g",
+          "source_gene_id": "YALI1_B25427g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B20196g",
+          "iyali26_gene_id": "YALI1B26350g",
+          "source_gene_id": "YALI1_B26350g",
+          "external_ratio": 0.9999999999999952,
+          "iyali26_ratio": 0.9999999999999881,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B20372g",
+          "iyali26_gene_id": "YALI1B26679g",
+          "source_gene_id": "YALI1_B26679g",
+          "external_ratio": 0.9999999999999952,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B20438g",
+          "iyali26_gene_id": "YALI1B26749g",
+          "source_gene_id": "YALI1_B26749g",
+          "external_ratio": 0.996579204732157,
+          "iyali26_ratio": 1.0000000000000107,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B21428g",
+          "iyali26_gene_id": "YALI1B27874g",
+          "source_gene_id": "YALI1_B27874g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B22066g",
+          "iyali26_gene_id": "YALI1B28659g",
+          "source_gene_id": "YALI1_B28659g",
+          "external_ratio": 0.9999999999999948,
+          "iyali26_ratio": 1.0000000000000406,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B23188g",
+          "iyali26_gene_id": "YALI1B30090g",
+          "source_gene_id": "YALI1_B30090g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.020804215451913136,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B23298g",
+          "iyali26_gene_id": "YALI1B30181g",
+          "source_gene_id": "YALI1_B30181g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C01716g",
+          "iyali26_gene_id": "YALI1C02391g",
+          "source_gene_id": "YALI1_C02391g",
+          "external_ratio": 0.9999999999999968,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C03179g",
+          "iyali26_gene_id": "YALI1C04265g",
+          "source_gene_id": "YALI1_C04265g",
+          "external_ratio": 0.9999999999999968,
+          "iyali26_ratio": 1.000000000000034,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C05170g",
+          "iyali26_gene_id": "YALI1C06626g",
+          "source_gene_id": "YALI1_C06626g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C05951g",
+          "iyali26_gene_id": "YALI1C07638g",
+          "source_gene_id": "YALI1_C07638g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999873,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C06083g",
+          "iyali26_gene_id": "YALI1C07816g",
+          "source_gene_id": "YALI1_C07816g",
+          "external_ratio": 0.999999999999994,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C06369g",
+          "iyali26_gene_id": "YALI1C08262g",
+          "source_gene_id": "YALI1_C08262g",
+          "external_ratio": 0.44829606554627804,
+          "iyali26_ratio": 0.9999999999999885,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C06490g",
+          "iyali26_gene_id": "YALI1C08702g",
+          "source_gene_id": "YALI1_C08702g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C06776g",
+          "iyali26_gene_id": "YALI1C09033g",
+          "source_gene_id": "YALI1_C09033g",
+          "external_ratio": 0.9571194768685491,
+          "iyali26_ratio": 0.9697545335909505,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C06996g",
+          "iyali26_gene_id": "YALI1C09380g",
+          "source_gene_id": "YALI1_C09380g",
+          "external_ratio": 0.9999999999999968,
+          "iyali26_ratio": 0.9999999999999873,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C07128g",
+          "iyali26_gene_id": "YALI1C09467g",
+          "source_gene_id": "YALI1_C09467g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C10901g",
+          "iyali26_gene_id": "YALI1C15297g",
+          "source_gene_id": "YALI1_C15297g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C11407g",
+          "iyali26_gene_id": "YALI1C15991g",
+          "source_gene_id": "YALI1_C15991g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999853,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C11880g",
+          "iyali26_gene_id": "YALI1C16621g",
+          "source_gene_id": "YALI1_C16621g",
+          "external_ratio": 0.9781180160916093,
+          "iyali26_ratio": 0.9138898891378853,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C12771g",
+          "iyali26_gene_id": "YALI1C17947g",
+          "source_gene_id": "YALI1_C17947g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C15224g",
+          "iyali26_gene_id": "YALI1C21487g",
+          "source_gene_id": "YALI1_C21487g",
+          "external_ratio": 0.9999999999999961,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C17831g",
+          "iyali26_gene_id": "YALI1C25029g",
+          "source_gene_id": "YALI1_C25029g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 0.9999999999999998,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C18535g",
+          "iyali26_gene_id": "YALI1C25782g",
+          "source_gene_id": "YALI1_C25782g",
+          "external_ratio": 0.999999999999994,
+          "iyali26_ratio": 0.9999999999999998,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C18755g",
+          "iyali26_gene_id": "YALI1C26017g",
+          "source_gene_id": "YALI1_C26017g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 0.999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C19965g",
+          "iyali26_gene_id": "YALI1C27933g",
+          "source_gene_id": "YALI1_C27933g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 1.0000000000000029,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C21626g",
+          "iyali26_gene_id": "YALI1C29920g",
+          "source_gene_id": "YALI1_C29920g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 0.999999999999983,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C23364g",
+          "iyali26_gene_id": "YALI1C32184g",
+          "source_gene_id": "YALI1_C32184g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999795,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C23408g",
+          "iyali26_gene_id": "YALI1C32276g",
+          "source_gene_id": "YALI1_C32276g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.15656236468011034,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C23969g",
+          "iyali26_gene_id": "YALI1C33005g",
+          "source_gene_id": "YALI1_C33005g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.999999999999968,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D00737g",
+          "iyali26_gene_id": "YALI1D00766g",
+          "source_gene_id": "YALI1_D00766g",
+          "external_ratio": 0.999999999999995,
+          "iyali26_ratio": 0.9999999999999795,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D01089g",
+          "iyali26_gene_id": "YALI1D01188g",
+          "source_gene_id": "YALI1_D01188g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.14577805578112596,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D03069g",
+          "iyali26_gene_id": "YALI1D03865g",
+          "source_gene_id": "YALI1_D03865g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0000000000000344,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D03135g",
+          "iyali26_gene_id": "YALI1D03952g",
+          "source_gene_id": "YALI1_D03952g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.15656236468011034,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D03179g",
+          "iyali26_gene_id": "YALI1D04055g",
+          "source_gene_id": "YALI1_D04055g",
+          "external_ratio": 0.999999999999999,
+          "iyali26_ratio": 0.9999999999999928,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D03619g",
+          "iyali26_gene_id": "YALI1D04566g",
+          "source_gene_id": "YALI1_D04566g",
+          "external_ratio": 0.9999999999999946,
+          "iyali26_ratio": 1.0000000000000204,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D04422g",
+          "iyali26_gene_id": "YALI1D05474g",
+          "source_gene_id": "YALI1_D05474g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D05467g",
+          "iyali26_gene_id": "YALI1D07089g",
+          "source_gene_id": "YALI1_D07089g",
+          "external_ratio": 0.999999999999995,
+          "iyali26_ratio": 1.0000000000000246,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D05621g",
+          "iyali26_gene_id": "YALI1D07232g",
+          "source_gene_id": "YALI1_D07232g",
+          "external_ratio": 0.9999999999999966,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D06281g",
+          "iyali26_gene_id": "YALI1D08050g",
+          "source_gene_id": "YALI1_D08050g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D06303g",
+          "iyali26_gene_id": "YALI1D08082g",
+          "source_gene_id": "YALI1_D08082g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 1.0000000000000073,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D06501g",
+          "iyali26_gene_id": "YALI1D08339g",
+          "source_gene_id": "YALI1_D08339g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 1.000000000000003,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D08514g",
+          "iyali26_gene_id": "YALI1D10930g",
+          "source_gene_id": "YALI1_D10930g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D08558g",
+          "iyali26_gene_id": "YALI1D11015g",
+          "source_gene_id": "YALI1_D11015g",
+          "external_ratio": 0.9999999999999958,
+          "iyali26_ratio": 1.000000000000003,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D09361g",
+          "iyali26_gene_id": "YALI1D11984g",
+          "source_gene_id": "YALI1_D11984g",
+          "external_ratio": 0.9999999999999946,
+          "iyali26_ratio": 0.9999999999999842,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D09867g",
+          "iyali26_gene_id": "YALI1D12493g",
+          "source_gene_id": "YALI1_D12493g",
+          "external_ratio": 0.9999999999999981,
+          "iyali26_ratio": 0.9985539228140429,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D11374g",
+          "iyali26_gene_id": "YALI1D14260g",
+          "source_gene_id": "YALI1_D14260g",
+          "external_ratio": 0.9763515681418609,
+          "iyali26_ratio": 0.9999999999999869,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D11704g",
+          "iyali26_gene_id": "YALI1D14532g",
+          "source_gene_id": "YALI1_D14532g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.14577805578112596,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D13112g",
+          "iyali26_gene_id": "YALI1D16290g",
+          "source_gene_id": "YALI1_D16290g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D13596g",
+          "iyali26_gene_id": "YALI1D16809g",
+          "source_gene_id": "YALI1_D16809g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.14577805578112596,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D14762g",
+          "iyali26_gene_id": "YALI1D17983g",
+          "source_gene_id": "YALI1_D17983g",
+          "external_ratio": 0.9999999999999969,
+          "iyali26_ratio": 1.0000000000000249,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D14850g",
+          "iyali26_gene_id": "YALI1D18037g",
+          "source_gene_id": "YALI1_D18037g",
+          "external_ratio": 0.9999999999999925,
+          "iyali26_ratio": 1.0000000000000249,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D14894g",
+          "iyali26_gene_id": "YALI1D18130g",
+          "source_gene_id": "YALI1_D18130g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.11002421982935918,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D15268g",
+          "iyali26_gene_id": "YALI1D18577g",
+          "source_gene_id": "YALI1_D18577g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D15620g",
+          "iyali26_gene_id": "YALI1D19110g",
+          "source_gene_id": "YALI1_D19110g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 1.000000000000018,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D16357g",
+          "iyali26_gene_id": "YALI1D20222g",
+          "source_gene_id": "YALI1_D20222g",
+          "external_ratio": 0.8567682018194828,
+          "iyali26_ratio": 0.9705218581245321,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D16643g",
+          "iyali26_gene_id": "YALI1D20473g",
+          "source_gene_id": "YALI1_D20473g",
+          "external_ratio": 0.9999999999999969,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D16753g",
+          "iyali26_gene_id": "YALI1D20676g",
+          "source_gene_id": "YALI1_D20676g",
+          "external_ratio": 0.9900503606816882,
+          "iyali26_ratio": 1.0000000000000198,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D19206g",
+          "iyali26_gene_id": "YALI1D24361g",
+          "source_gene_id": "YALI1_D24361g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D19426g",
+          "iyali26_gene_id": "YALI1D24649g",
+          "source_gene_id": "YALI1_D24649g",
+          "external_ratio": 0.9999999999999969,
+          "iyali26_ratio": 1.0000000000000089,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D20152g",
+          "iyali26_gene_id": "YALI1D25450g",
+          "source_gene_id": "YALI1_D25450g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D20768g",
+          "iyali26_gene_id": "YALI1D26360g",
+          "source_gene_id": "YALI1_D26360g",
+          "external_ratio": 0.9995711491360826,
+          "iyali26_ratio": 1.0000000000000089,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D21530g",
+          "iyali26_gene_id": "YALI1D27148g",
+          "source_gene_id": "YALI1_D27148g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D21604g",
+          "iyali26_gene_id": "YALI1D27274g",
+          "source_gene_id": "YALI1_D27274g",
+          "external_ratio": 0.999999999999996,
+          "iyali26_ratio": 1.0000000000000224,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D22891g",
+          "iyali26_gene_id": "YALI1D29481g",
+          "source_gene_id": "YALI1_D29481g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.04790423872092689,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D23397g",
+          "iyali26_gene_id": "YALI1D30256g",
+          "source_gene_id": "YALI1_D30256g",
+          "external_ratio": 0.9763515681418624,
+          "iyali26_ratio": 0.9999999999999701,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D23639g",
+          "iyali26_gene_id": "YALI1D30570g",
+          "source_gene_id": "YALI1_D30570g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 1.0000000000000224,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D24629g",
+          "iyali26_gene_id": "YALI1D32594g",
+          "source_gene_id": "YALI1_D32594g",
+          "external_ratio": 0.999999999999996,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25234g",
+          "iyali26_gene_id": "YALI1D33465g",
+          "source_gene_id": "YALI1_D33465g",
+          "external_ratio": 1.0000000000000009,
+          "iyali26_ratio": 1.0000000000000124,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25476g",
+          "iyali26_gene_id": "YALI1D33780g",
+          "source_gene_id": "YALI1_D33780g",
+          "external_ratio": 0.9999999999999956,
+          "iyali26_ratio": 1.0000000000000013,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25564g",
+          "iyali26_gene_id": "YALI1D33889g",
+          "source_gene_id": "YALI1_D33889g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 1.0000000000000013,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25938g",
+          "iyali26_gene_id": "YALI1D34288g",
+          "source_gene_id": "YALI1_D34288g",
+          "external_ratio": 0.9999999999999934,
+          "iyali26_ratio": 1.000000000000019,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D26367g",
+          "iyali26_gene_id": "YALI1D34865g",
+          "source_gene_id": "YALI1_D34865g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.11002421982935918,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E00770g",
+          "iyali26_gene_id": "YALI1E01159g",
+          "source_gene_id": "YALI1_E01159g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 1.0000000000000124,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E01254g",
+          "iyali26_gene_id": "YALI1E01793g",
+          "source_gene_id": "YALI1_E01793g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E02288g",
+          "iyali26_gene_id": "YALI1E02885g",
+          "source_gene_id": "YALI1_E02885g",
+          "external_ratio": 0.9999999999999981,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E02728g",
+          "iyali26_gene_id": "YALI1E03387g",
+          "source_gene_id": "YALI1_E03387g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.04790423872092689,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E03146g",
+          "iyali26_gene_id": "YALI1E03762g",
+          "source_gene_id": "YALI1_E03762g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E04939g",
+          "iyali26_gene_id": "YALI1E05833g",
+          "source_gene_id": "YALI1_E05833g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 1.0000000000000155,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E05005g",
+          "iyali26_gene_id": "YALI1E05907g",
+          "source_gene_id": "YALI1_E05907g",
+          "external_ratio": 0.9999999999999944,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E05027g",
+          "iyali26_gene_id": "YALI1E05929g",
+          "source_gene_id": "YALI1_E05929g",
+          "external_ratio": 0.9999999999999981,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E05049g",
+          "iyali26_gene_id": "YALI1E05963g",
+          "source_gene_id": "YALI1_E05963g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E05137g",
+          "iyali26_gene_id": "YALI1E06015g",
+          "source_gene_id": "YALI1_E06015g",
+          "external_ratio": 0.9999999999999974,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E05753g",
+          "iyali26_gene_id": "YALI1E06759g",
+          "source_gene_id": "YALI1_E06759g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E06061g",
+          "iyali26_gene_id": "YALI1E07347g",
+          "source_gene_id": "YALI1_E07347g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E06193g",
+          "iyali26_gene_id": "YALI1E07506g",
+          "source_gene_id": "YALI1_E07506g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E06479g",
+          "iyali26_gene_id": "YALI1E07744g",
+          "source_gene_id": "YALI1_E07744g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E07073g",
+          "iyali26_gene_id": "YALI1E08382g",
+          "source_gene_id": "YALI1_E08382g",
+          "external_ratio": 0.9999999999999952,
+          "iyali26_ratio": 0.9985539228140285,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E09276g",
+          "iyali26_gene_id": "YALI1E11415g",
+          "source_gene_id": "YALI1_E11415g",
+          "external_ratio": 0.9999999999999956,
+          "iyali26_ratio": 0.999999999999988,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E10144g",
+          "iyali26_gene_id": "YALI1E12730g",
+          "source_gene_id": "YALI1_E12730g",
+          "external_ratio": 0.4823745711713106,
+          "iyali26_ratio": 1.0000000000000089,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E12441g",
+          "iyali26_gene_id": "YALI1E15432g",
+          "source_gene_id": "YALI1_E15432g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E12628g",
+          "iyali26_gene_id": "YALI1E15606g",
+          "source_gene_id": "YALI1_E15606g",
+          "external_ratio": 0.482374571171308,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E12683g",
+          "iyali26_gene_id": "YALI1E15659g",
+          "source_gene_id": "YALI1_E15659g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08007917143739848,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E13662g",
+          "iyali26_gene_id": "YALI1E16694g",
+          "source_gene_id": "YALI1_E16694g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 1.0000000000000167,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E14102g",
+          "iyali26_gene_id": "YALI1E17162g",
+          "source_gene_id": "YALI1_E17162g",
+          "external_ratio": 0.9999999999999998,
+          "iyali26_ratio": 0.9999999999999929,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E14443g",
+          "iyali26_gene_id": "YALI1E17431g",
+          "source_gene_id": "YALI1_E17431g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E14597g",
+          "iyali26_gene_id": "YALI1E17574g",
+          "source_gene_id": "YALI1_E17574g",
+          "external_ratio": 0.9999999999999974,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E15730g",
+          "iyali26_gene_id": "YALI1E18961g",
+          "source_gene_id": "YALI1_E18961g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E16434g",
+          "iyali26_gene_id": "YALI1E19647g",
+          "source_gene_id": "YALI1_E19647g",
+          "external_ratio": 0.9999999999999902,
+          "iyali26_ratio": 1.0000000000000204,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E16709g",
+          "iyali26_gene_id": "YALI1E19902g",
+          "source_gene_id": "YALI1_E19902g",
+          "external_ratio": 0.4823745711713098,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E16929g",
+          "iyali26_gene_id": "YALI1E20192g",
+          "source_gene_id": "YALI1_E20192g",
+          "external_ratio": 0.9995711491360817,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17347g",
+          "iyali26_gene_id": "YALI1E20626g",
+          "source_gene_id": "YALI1_E20626g",
+          "external_ratio": 0.9999999999999982,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17479g",
+          "iyali26_gene_id": "YALI1E20751g",
+          "source_gene_id": "YALI1_E20751g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.17643268944050078,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E17919g",
+          "iyali26_gene_id": "YALI1E21230g",
+          "source_gene_id": "YALI1_E21230g",
+          "external_ratio": 0.9999999999999994,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17963g",
+          "iyali26_gene_id": "YALI1E21312g",
+          "source_gene_id": "YALI1_E21312g",
+          "external_ratio": 1.0000000000000007,
+          "iyali26_ratio": 0.9999999999999893,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17985g",
+          "iyali26_gene_id": "YALI1E21345g",
+          "source_gene_id": "YALI1_E21345g",
+          "external_ratio": 0.9999999999999994,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E18942g",
+          "iyali26_gene_id": "YALI1E22718g",
+          "source_gene_id": "YALI1_E22718g",
+          "external_ratio": 0.9999999999999902,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E18964g",
+          "iyali26_gene_id": "YALI1E22736g",
+          "source_gene_id": "YALI1_E22736g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E21021g",
+          "iyali26_gene_id": "YALI1E25018g",
+          "source_gene_id": "YALI1_E25018g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0000000000000366,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E21351g",
+          "iyali26_gene_id": "YALI1E25443g",
+          "source_gene_id": "YALI1_E25443g",
+          "external_ratio": 1.000000000000004,
+          "iyali26_ratio": 0.9999999999999893,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E22649g",
+          "iyali26_gene_id": "YALI1E26811g",
+          "source_gene_id": "YALI1_E26811g",
+          "external_ratio": 0.9761806735301705,
+          "iyali26_ratio": 0.9999999999999893,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E22979g",
+          "iyali26_gene_id": "YALI1E27144g",
+          "source_gene_id": "YALI1_E27144g",
+          "external_ratio": 0.9999999999999956,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E24497g",
+          "iyali26_gene_id": "YALI1E29179g",
+          "source_gene_id": "YALI1_E29179g",
+          "external_ratio": 0.999999999999995,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E24607g",
+          "iyali26_gene_id": "YALI1E29319g",
+          "source_gene_id": "YALI1_E29319g",
+          "external_ratio": 0.999999999999995,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E26004g",
+          "iyali26_gene_id": "YALI1E30886g",
+          "source_gene_id": "YALI1_E30886g",
+          "external_ratio": 0.8567682018194842,
+          "iyali26_ratio": 0.9705218581245464,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E27005g",
+          "iyali26_gene_id": "YALI1E31947g",
+          "source_gene_id": "YALI1_E31947g",
+          "external_ratio": 0.9670605895102616,
+          "iyali26_ratio": 1.0000000000000366,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E28153g",
+          "iyali26_gene_id": "YALI1E33150g",
+          "source_gene_id": "YALI1_E33150g",
+          "external_ratio": 1.0000000000000007,
+          "iyali26_ratio": 0.999999999999982,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E28468g",
+          "iyali26_gene_id": "YALI1E33633g",
+          "source_gene_id": "YALI1_E33633g",
+          "external_ratio": 1.0000000000000007,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E28963g",
+          "iyali26_gene_id": "YALI1E34269g",
+          "source_gene_id": "YALI1_E34269g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.039900776310720754,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E29139g",
+          "iyali26_gene_id": "YALI1E34408g",
+          "source_gene_id": "YALI1_E34408g",
+          "external_ratio": 0.9999999999999932,
+          "iyali26_ratio": 0.999999999999982,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E29579g",
+          "iyali26_gene_id": "YALI1E35005g",
+          "source_gene_id": "YALI1_E35005g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E29667g",
+          "iyali26_gene_id": "YALI1E35082g",
+          "source_gene_id": "YALI1_E35082g",
+          "external_ratio": 0.9763515681418643,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E30129g",
+          "iyali26_gene_id": "YALI1E35520g",
+          "source_gene_id": "YALI1_E35520g",
+          "external_ratio": 0.9999999999999982,
+          "iyali26_ratio": 1.0000000000000366,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E30481g",
+          "iyali26_gene_id": "YALI1E35815g",
+          "source_gene_id": "YALI1_E35815g",
+          "external_ratio": 0.9999303854277822,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E31797g",
+          "iyali26_gene_id": "YALI1E37764g",
+          "source_gene_id": "YALI1_E37764g",
+          "external_ratio": 0.9999999999999968,
+          "iyali26_ratio": 1.0000000000000113,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E33033g",
+          "iyali26_gene_id": "YALI1E39221g",
+          "source_gene_id": "YALI1_E39221g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.02080421545170529,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E33517g",
+          "iyali26_gene_id": "YALI1E39693g",
+          "source_gene_id": "YALI1_E39693g",
+          "external_ratio": 0.9995711491360826,
+          "iyali26_ratio": 0.9999999999999701,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E33957g",
+          "iyali26_gene_id": "YALI1E40305g",
+          "source_gene_id": "YALI1_E40305g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E34037g",
+          "iyali26_gene_id": "YALI1E40361g",
+          "source_gene_id": "YALI1_E40361g",
+          "external_ratio": 0.4823745711713118,
+          "iyali26_ratio": 1.0000000000000249,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F00506g",
+          "iyali26_gene_id": "YALI1F00821g",
+          "source_gene_id": "YALI1_F00821g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999913,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F00924g",
+          "iyali26_gene_id": "YALI1F01456g",
+          "source_gene_id": "YALI1_F01456g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 0.9999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F01771g",
+          "iyali26_gene_id": "YALI1F02758g",
+          "source_gene_id": "YALI1_F02758g",
+          "external_ratio": 0.4823745711713105,
+          "iyali26_ratio": 0.9999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F02299g",
+          "iyali26_gene_id": "YALI1F03527g",
+          "source_gene_id": "YALI1_F03527g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F02497g",
+          "iyali26_gene_id": "YALI1F03803g",
+          "source_gene_id": "YALI1_F03803g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F02629g",
+          "iyali26_gene_id": "YALI1F03908g",
+          "source_gene_id": "YALI1_F03908g",
+          "external_ratio": 0.9999999999999948,
+          "iyali26_ratio": 1.0000000000000269,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F03567g",
+          "iyali26_gene_id": "YALI1F05089g",
+          "source_gene_id": "YALI1_F05089g",
+          "external_ratio": 0.48237457117130955,
+          "iyali26_ratio": 0.9999999999999892,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F04015g",
+          "iyali26_gene_id": "YALI1F06018g",
+          "source_gene_id": "YALI1_F06018g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F05192g",
+          "iyali26_gene_id": "YALI1F07827g",
+          "source_gene_id": "YALI1_F07827g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F05214g",
+          "iyali26_gene_id": "YALI1F07847g",
+          "source_gene_id": "YALI1_F07847g",
+          "external_ratio": 0.8602287156253505,
+          "iyali26_ratio": 0.9999999999999892,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F05610g",
+          "iyali26_gene_id": "YALI1F08349g",
+          "source_gene_id": "YALI1_F08349g",
+          "external_ratio": 0.9999999999999979,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F06468g",
+          "iyali26_gene_id": "YALI1F09598g",
+          "source_gene_id": "YALI1_F09598g",
+          "external_ratio": 0.9965792047321559,
+          "iyali26_ratio": 0.9817132964321588,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F07711g",
+          "iyali26_gene_id": "YALI1F11049g",
+          "source_gene_id": "YALI1_F11049g",
+          "external_ratio": 0.9890319689864472,
+          "iyali26_ratio": 0.8643869231239302,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F08613g",
+          "iyali26_gene_id": "YALI1F12013g",
+          "source_gene_id": "YALI1_F12013g",
+          "external_ratio": 0.4823745711713135,
+          "iyali26_ratio": 0.9999999999999876,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F08701g",
+          "iyali26_gene_id": "YALI1F12138g",
+          "source_gene_id": "YALI1_F12138g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F09185g",
+          "iyali26_gene_id": "YALI1F12842g",
+          "source_gene_id": "YALI1_F12842g",
+          "external_ratio": 0.9229730613918807,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F09449g",
+          "iyali26_gene_id": "YALI1F13039g",
+          "source_gene_id": "YALI1_F13039g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F11231g",
+          "iyali26_gene_id": "YALI1F14882g",
+          "source_gene_id": "YALI1_F14882g",
+          "external_ratio": 0.9999999999999939,
+          "iyali26_ratio": 1.0000000000000115,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F11297g",
+          "iyali26_gene_id": "YALI1F14958g",
+          "source_gene_id": "YALI1_F14958g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F11759g",
+          "iyali26_gene_id": "YALI1F15517g",
+          "source_gene_id": "YALI1_F15517g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F12639g",
+          "iyali26_gene_id": "YALI1F16984g",
+          "source_gene_id": "YALI1_F16984g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.17643268944050078,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F12749g",
+          "iyali26_gene_id": "YALI1F17082g",
+          "source_gene_id": "YALI1_F17082g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 1.0000000000000144,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F13453g",
+          "iyali26_gene_id": "YALI1F17962g",
+          "source_gene_id": "YALI1_F17962g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.19187452903441157,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F13541g",
+          "iyali26_gene_id": "YALI1F18105g",
+          "source_gene_id": "YALI1_F18105g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 1.0000000000000115,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F15345g",
+          "iyali26_gene_id": "YALI1F20637g",
+          "source_gene_id": "YALI1_F20637g",
+          "external_ratio": 0.9999999999999937,
+          "iyali26_ratio": 1.0000000000000115,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F15587g",
+          "iyali26_gene_id": "YALI1F20914g",
+          "source_gene_id": "YALI1_F20914g",
+          "external_ratio": 0.9999999999999942,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F16291g",
+          "iyali26_gene_id": "YALI1F21769g",
+          "source_gene_id": "YALI1_F21769g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F16819g",
+          "iyali26_gene_id": "YALI1F22436g",
+          "source_gene_id": "YALI1_F22436g",
+          "external_ratio": 0.9194566132959826,
+          "iyali26_ratio": 1.0000000000000107,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F18216g",
+          "iyali26_gene_id": "YALI1F24171g",
+          "source_gene_id": "YALI1_F24171g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F19448g",
+          "iyali26_gene_id": "YALI1F25908g",
+          "source_gene_id": "YALI1_F25908g",
+          "external_ratio": 0.9999999999999929,
+          "iyali26_ratio": 1.0000000000000107,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F19470g",
+          "iyali26_gene_id": "YALI1F25924g",
+          "source_gene_id": "YALI1_F25924g",
+          "external_ratio": 0.9999999999999973,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F20218g",
+          "iyali26_gene_id": "YALI1F26873g",
+          "source_gene_id": "YALI1_F26873g",
+          "external_ratio": 0.9999999999999929,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F20328g",
+          "iyali26_gene_id": "YALI1F27002g",
+          "source_gene_id": "YALI1_F27002g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F20702g",
+          "iyali26_gene_id": "YALI1F27556g",
+          "source_gene_id": "YALI1_F27556g",
+          "external_ratio": 0.967060589510266,
+          "iyali26_ratio": 1.0000000000000286,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F20790g",
+          "iyali26_gene_id": "YALI1F27686g",
+          "source_gene_id": "YALI1_F27686g",
+          "external_ratio": 0.9999999999999952,
+          "iyali26_ratio": 1.0000000000000286,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F20900g",
+          "iyali26_gene_id": "YALI1F27761g",
+          "source_gene_id": "YALI1_F27761g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F21010g",
+          "iyali26_gene_id": "YALI1F27904g",
+          "source_gene_id": "YALI1_F27904g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.020804215450586545,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F23221g",
+          "iyali26_gene_id": "YALI1F30459g",
+          "source_gene_id": "YALI1_F30459g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.19187452903441157,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F23727g",
+          "iyali26_gene_id": "YALI1F31135g",
+          "source_gene_id": "YALI1_F31135g",
+          "external_ratio": 0.9999999999999963,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F23837g",
+          "iyali26_gene_id": "YALI1F31283g",
+          "source_gene_id": "YALI1_F31283g",
+          "external_ratio": 0.9999999999999977,
+          "iyali26_ratio": 1.0000000000000113,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F26433g",
+          "iyali26_gene_id": "YALI1F33819g",
+          "source_gene_id": "YALI1_F33819g",
+          "external_ratio": 0.9999999999999908,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F26609g",
+          "iyali26_gene_id": "YALI1F34051g",
+          "source_gene_id": "YALI1_F34051g",
+          "external_ratio": 0.9999999999999981,
+          "iyali26_ratio": 1.0000000000000093,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F27665g",
+          "iyali26_gene_id": "YALI1F35109g",
+          "source_gene_id": "YALI1_F35109g",
+          "external_ratio": 0.9900961976679495,
+          "iyali26_ratio": 0.9877362862917849,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F29843g",
+          "iyali26_gene_id": "YALI1F37354g",
+          "source_gene_id": "YALI1_F37354g",
+          "external_ratio": 0.9999999999999944,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F30019g",
+          "iyali26_gene_id": "YALI1F37559g",
+          "source_gene_id": "YALI1_F37559g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.020804215451703526,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F30481g",
+          "iyali26_gene_id": "YALI1F38116g",
+          "source_gene_id": "YALI1_F38116g",
+          "external_ratio": 0.9979895066378323,
+          "iyali26_ratio": 0.986390078715598,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F30679g",
+          "iyali26_gene_id": "YALI1F38317g",
+          "source_gene_id": "YALI1_F38317g",
+          "external_ratio": 0.9999999999999971,
+          "iyali26_ratio": 1.0000000000000062,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F31273g",
+          "iyali26_gene_id": "YALI1F38986g",
+          "source_gene_id": "YALI1_F38986g",
+          "external_ratio": 0.999999999999994,
+          "iyali26_ratio": 0.9999999999999827,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F31735g",
+          "iyali26_gene_id": "YALI1F39330g",
+          "source_gene_id": "YALI1_F39330g",
+          "external_ratio": 0.999999999999994,
+          "iyali26_ratio": 1.0000000000000164,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F31999g",
+          "iyali26_gene_id": "YALI1F39620g",
+          "source_gene_id": "YALI1_F39620g",
+          "external_ratio": 0.999999999999994,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        }
+      ]
+    },
+    {
+      "scenario": "mapped28_po1f",
+      "rows": [
+        {
+          "external_gene_id": "YALI0A00264g",
+          "iyali26_gene_id": "YALI1A00309g",
+          "source_gene_id": "YALI1_A00309g",
+          "external_ratio": 1.0000000000000004,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0A02310g",
+          "iyali26_gene_id": "YALI1A02775g",
+          "source_gene_id": "YALI1_A02775g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0A02541g",
+          "iyali26_gene_id": "YALI1A03069g",
+          "source_gene_id": "YALI1_A03069g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 0.9999999999999977,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A02915g",
+          "iyali26_gene_id": "YALI1A03322g",
+          "source_gene_id": "YALI1_A03322g",
+          "external_ratio": 0.4910478083180883,
+          "iyali26_ratio": 1.0000000000000016,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A09042g",
+          "iyali26_gene_id": "YALI1A08781g",
+          "source_gene_id": "YALI1_A08781g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 0.9999999999999986,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A09427g",
+          "iyali26_gene_id": "YALI1A09121g",
+          "source_gene_id": "YALI1_A09121g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.9999999999999986,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A09900g",
+          "iyali26_gene_id": "YALI1A09766g",
+          "source_gene_id": "YALI1_A09766g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A10032g",
+          "iyali26_gene_id": "YALI1A09911g",
+          "source_gene_id": "YALI1_A09911g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A10076g",
+          "iyali26_gene_id": "YALI1A09939g",
+          "source_gene_id": "YALI1_A09939g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0A10310g",
+          "iyali26_gene_id": "YALI1A10254g",
+          "source_gene_id": "YALI1_A10254g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A10659g",
+          "iyali26_gene_id": "YALI1A10708g",
+          "source_gene_id": "YALI1_A10708g",
+          "external_ratio": 1.0000000000000004,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A11143g",
+          "iyali26_gene_id": "YALI1A11258g",
+          "source_gene_id": "YALI1_A11258g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A12045g",
+          "iyali26_gene_id": "YALI1A12284g",
+          "source_gene_id": "YALI1_A12284g",
+          "external_ratio": 1.0000000000000004,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A13387g",
+          "iyali26_gene_id": "YALI1A13454g",
+          "source_gene_id": "YALI1_A13454g",
+          "external_ratio": 1.0000000000000004,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A14784g",
+          "iyali26_gene_id": "YALI1A14721g",
+          "source_gene_id": "YALI1_A14721g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A15950g",
+          "iyali26_gene_id": "YALI1A15879g",
+          "source_gene_id": "YALI1_A15879g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0A19206g",
+          "iyali26_gene_id": "YALI1A20176g",
+          "source_gene_id": "YALI1_A20176g",
+          "external_ratio": 0.9999295302295654,
+          "iyali26_ratio": 0.999999999999999,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0A20108g",
+          "iyali26_gene_id": "YALI1A21156g",
+          "source_gene_id": "YALI1_A21156g",
+          "external_ratio": 1.0000000000000069,
+          "iyali26_ratio": 1.0000000000000009,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B00572g",
+          "iyali26_gene_id": "YALI1B00578g",
+          "source_gene_id": "YALI1_B00578g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B00792g",
+          "iyali26_gene_id": "YALI1B00908g",
+          "source_gene_id": "YALI1_B00908g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 0.9999999999999999,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B00704g",
+          "iyali26_gene_id": "YALI1B01136g",
+          "source_gene_id": "YALI1_B01136g",
+          "external_ratio": 0.6812400809022066,
+          "iyali26_ratio": 1.0000000000000016,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B01364g",
+          "iyali26_gene_id": "YALI1B02345g",
+          "source_gene_id": "YALI1_B02345g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B01540g",
+          "iyali26_gene_id": "YALI1B02487g",
+          "source_gene_id": "YALI1_B02487g",
+          "external_ratio": 0.4910478083180905,
+          "iyali26_ratio": 0.9999999999999964,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B01826g",
+          "iyali26_gene_id": "YALI1B02806g",
+          "source_gene_id": "YALI1_B02806g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B02376g",
+          "iyali26_gene_id": "YALI1B03719g",
+          "source_gene_id": "YALI1_B03719g",
+          "external_ratio": 0.9999999999999992,
+          "iyali26_ratio": 1.0000000000000127,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B02728g",
+          "iyali26_gene_id": "YALI1B04138g",
+          "source_gene_id": "YALI1_B04138g",
+          "external_ratio": 1.0000000000000009,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B02948g",
+          "iyali26_gene_id": "YALI1B04433g",
+          "source_gene_id": "YALI1_B04433g",
+          "external_ratio": 0.9454966484749471,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B03630g",
+          "iyali26_gene_id": "YALI1B05072g",
+          "source_gene_id": "YALI1_B05072g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B03982g",
+          "iyali26_gene_id": "YALI1B05364g",
+          "source_gene_id": "YALI1_B05364g",
+          "external_ratio": 1.0000000000000053,
+          "iyali26_ratio": 0.9999999999999977,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B04180g",
+          "iyali26_gene_id": "YALI1B05571g",
+          "source_gene_id": "YALI1_B05571g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0B04312g",
+          "iyali26_gene_id": "YALI1B05798g",
+          "source_gene_id": "YALI1_B05798g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 0.9999999999999982,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B05126G",
+          "iyali26_gene_id": "YALI1B07094g",
+          "source_gene_id": "YALI1_B07094g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B05368g",
+          "iyali26_gene_id": "YALI1B07366g",
+          "source_gene_id": "YALI1_B07366g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B05918g",
+          "iyali26_gene_id": "YALI1B07957g",
+          "source_gene_id": "YALI1_B07957g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B06831g",
+          "iyali26_gene_id": "YALI1B08885g",
+          "source_gene_id": "YALI1_B08885g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 0.9999999999999895,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B06941g",
+          "iyali26_gene_id": "YALI1B09025g",
+          "source_gene_id": "YALI1_B09025g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 0.9999999999999895,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B07447g",
+          "iyali26_gene_id": "YALI1B09592g",
+          "source_gene_id": "YALI1_B09592g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B08536g",
+          "iyali26_gene_id": "YALI1B11532g",
+          "source_gene_id": "YALI1_B11532g",
+          "external_ratio": 0.9979648567395745,
+          "iyali26_ratio": 0.9999999999999841,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B11330g",
+          "iyali26_gene_id": "YALI1B15015g",
+          "source_gene_id": "YALI1_B15015g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B14399g",
+          "iyali26_gene_id": "YALI1B18955g",
+          "source_gene_id": "YALI1_B18955g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B14509g",
+          "iyali26_gene_id": "YALI1B19079g",
+          "source_gene_id": "YALI1_B19079g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15059g",
+          "iyali26_gene_id": "YALI1B19844g",
+          "source_gene_id": "YALI1_B19844g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15304g",
+          "iyali26_gene_id": "YALI1B20153g",
+          "source_gene_id": "YALI1_B20153g",
+          "external_ratio": 0.03199425272904363,
+          "iyali26_ratio": 0.020804215452188645,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15444g",
+          "iyali26_gene_id": "YALI1B20289g",
+          "source_gene_id": "YALI1_B20289g",
+          "external_ratio": 0.07367078496820643,
+          "iyali26_ratio": 0.04790423872092689,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B15598g",
+          "iyali26_gene_id": "YALI1B20462g",
+          "source_gene_id": "YALI1_B20462g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999741,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0B16038g",
+          "iyali26_gene_id": "YALI1B21004g",
+          "source_gene_id": "YALI1_B21004g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B16104g",
+          "iyali26_gene_id": "YALI1B21070g",
+          "source_gene_id": "YALI1_B21070g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B16126g",
+          "iyali26_gene_id": "YALI1B21088g",
+          "source_gene_id": "YALI1_B21088g",
+          "external_ratio": 1.0000000000000016,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B16324g",
+          "iyali26_gene_id": "YALI1B21313g",
+          "source_gene_id": "YALI1_B21313g",
+          "external_ratio": 1.0000000000000022,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B16390g",
+          "iyali26_gene_id": "YALI1B21356g",
+          "source_gene_id": "YALI1_B21356g",
+          "external_ratio": 1.000000000000001,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B17402g",
+          "iyali26_gene_id": "YALI1B22614g",
+          "source_gene_id": "YALI1_B22614g",
+          "external_ratio": 0.03199425272904332,
+          "iyali26_ratio": 0.020804215451704706,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B17644g",
+          "iyali26_gene_id": "YALI1B22820g",
+          "source_gene_id": "YALI1_B22820g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B17666g",
+          "iyali26_gene_id": "YALI1B22853g",
+          "source_gene_id": "YALI1_B22853g",
+          "external_ratio": 0.16920356556842794,
+          "iyali26_ratio": 0.11002421982935918,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B17688g",
+          "iyali26_gene_id": "YALI1B22883g",
+          "source_gene_id": "YALI1_B22883g",
+          "external_ratio": 1.000000000000001,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B18348g",
+          "iyali26_gene_id": "YALI1B23834g",
+          "source_gene_id": "YALI1_B23834g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B19382g",
+          "iyali26_gene_id": "YALI1B25427g",
+          "source_gene_id": "YALI1_B25427g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B20196g",
+          "iyali26_gene_id": "YALI1B26350g",
+          "source_gene_id": "YALI1_B26350g",
+          "external_ratio": 1.0000000000000016,
+          "iyali26_ratio": 0.9999999999999881,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B20372g",
+          "iyali26_gene_id": "YALI1B26679g",
+          "source_gene_id": "YALI1_B26679g",
+          "external_ratio": 1.0000000000000016,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B20438g",
+          "iyali26_gene_id": "YALI1B26749g",
+          "source_gene_id": "YALI1_B26749g",
+          "external_ratio": 0.9966482204509466,
+          "iyali26_ratio": 1.0000000000000107,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B21428g",
+          "iyali26_gene_id": "YALI1B27874g",
+          "source_gene_id": "YALI1_B27874g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B22066g",
+          "iyali26_gene_id": "YALI1B28659g",
+          "source_gene_id": "YALI1_B28659g",
+          "external_ratio": 1.0000000000000004,
+          "iyali26_ratio": 1.0000000000000406,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0B23188g",
+          "iyali26_gene_id": "YALI1B30090g",
+          "source_gene_id": "YALI1_B30090g",
+          "external_ratio": 0.03199425272904388,
+          "iyali26_ratio": 0.020804215451913136,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0B23298g",
+          "iyali26_gene_id": "YALI1B30181g",
+          "source_gene_id": "YALI1_B30181g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C01716g",
+          "iyali26_gene_id": "YALI1C02391g",
+          "source_gene_id": "YALI1_C02391g",
+          "external_ratio": 1.0000000000000042,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C03179g",
+          "iyali26_gene_id": "YALI1C04265g",
+          "source_gene_id": "YALI1_C04265g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.000000000000034,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C05170g",
+          "iyali26_gene_id": "YALI1C06626g",
+          "source_gene_id": "YALI1_C06626g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C05951g",
+          "iyali26_gene_id": "YALI1C07638g",
+          "source_gene_id": "YALI1_C07638g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999873,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C06083g",
+          "iyali26_gene_id": "YALI1C07816g",
+          "source_gene_id": "YALI1_C07816g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C06369g",
+          "iyali26_gene_id": "YALI1C08262g",
+          "source_gene_id": "YALI1_C08262g",
+          "external_ratio": 0.48688213441006883,
+          "iyali26_ratio": 0.9999999999999885,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C06490g",
+          "iyali26_gene_id": "YALI1C08702g",
+          "source_gene_id": "YALI1_C08702g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999882,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C06776g",
+          "iyali26_gene_id": "YALI1C09033g",
+          "source_gene_id": "YALI1_C09033g",
+          "external_ratio": 0.9581982868929889,
+          "iyali26_ratio": 0.9697545335909505,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C06996g",
+          "iyali26_gene_id": "YALI1C09380g",
+          "source_gene_id": "YALI1_C09380g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.9999999999999873,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C07128g",
+          "iyali26_gene_id": "YALI1C09467g",
+          "source_gene_id": "YALI1_C09467g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C10901g",
+          "iyali26_gene_id": "YALI1C15297g",
+          "source_gene_id": "YALI1_C15297g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C11407g",
+          "iyali26_gene_id": "YALI1C15991g",
+          "source_gene_id": "YALI1_C15991g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999853,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C11880g",
+          "iyali26_gene_id": "YALI1C16621g",
+          "source_gene_id": "YALI1_C16621g",
+          "external_ratio": 0.9804715437011161,
+          "iyali26_ratio": 0.9138898891378853,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C12771g",
+          "iyali26_gene_id": "YALI1C17947g",
+          "source_gene_id": "YALI1_C17947g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0C15224g",
+          "iyali26_gene_id": "YALI1C21487g",
+          "source_gene_id": "YALI1_C21487g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C17831g",
+          "iyali26_gene_id": "YALI1C25029g",
+          "source_gene_id": "YALI1_C25029g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.9999999999999998,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C18535g",
+          "iyali26_gene_id": "YALI1C25782g",
+          "source_gene_id": "YALI1_C25782g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 0.9999999999999998,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C18755g",
+          "iyali26_gene_id": "YALI1C26017g",
+          "source_gene_id": "YALI1_C26017g",
+          "external_ratio": 1.0000000000000016,
+          "iyali26_ratio": 0.999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C19965g",
+          "iyali26_gene_id": "YALI1C27933g",
+          "source_gene_id": "YALI1_C27933g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 1.0000000000000029,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C21626g",
+          "iyali26_gene_id": "YALI1C29920g",
+          "source_gene_id": "YALI1_C29920g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.999999999999983,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C23364g",
+          "iyali26_gene_id": "YALI1C32184g",
+          "source_gene_id": "YALI1_C32184g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999795,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0C23408g",
+          "iyali26_gene_id": "YALI1C32276g",
+          "source_gene_id": "YALI1_C32276g",
+          "external_ratio": 0.24077362596506116,
+          "iyali26_ratio": 0.15656236468011034,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0C23969g",
+          "iyali26_gene_id": "YALI1C33005g",
+          "source_gene_id": "YALI1_C33005g",
+          "external_ratio": 0.16920356556842794,
+          "iyali26_ratio": 0.999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D00737g",
+          "iyali26_gene_id": "YALI1D00766g",
+          "source_gene_id": "YALI1_D00766g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 0.9999999999999795,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D01089g",
+          "iyali26_gene_id": "YALI1D01188g",
+          "source_gene_id": "YALI1_D01188g",
+          "external_ratio": 0.28277157594377667,
+          "iyali26_ratio": 0.14577805578112596,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D03069g",
+          "iyali26_gene_id": "YALI1D03865g",
+          "source_gene_id": "YALI1_D03865g",
+          "external_ratio": 0.0319942527290439,
+          "iyali26_ratio": 1.0000000000000344,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D03135g",
+          "iyali26_gene_id": "YALI1D03952g",
+          "source_gene_id": "YALI1_D03952g",
+          "external_ratio": 0.24077362596506116,
+          "iyali26_ratio": 0.15656236468011034,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D03179g",
+          "iyali26_gene_id": "YALI1D04055g",
+          "source_gene_id": "YALI1_D04055g",
+          "external_ratio": 1.0000000000000024,
+          "iyali26_ratio": 0.9999999999999928,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D03619g",
+          "iyali26_gene_id": "YALI1D04566g",
+          "source_gene_id": "YALI1_D04566g",
+          "external_ratio": 1.000000000000002,
+          "iyali26_ratio": 1.0000000000000204,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D04422g",
+          "iyali26_gene_id": "YALI1D05474g",
+          "source_gene_id": "YALI1_D05474g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D05467g",
+          "iyali26_gene_id": "YALI1D07089g",
+          "source_gene_id": "YALI1_D07089g",
+          "external_ratio": 1.000000000000002,
+          "iyali26_ratio": 1.0000000000000246,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D05621g",
+          "iyali26_gene_id": "YALI1D07232g",
+          "source_gene_id": "YALI1_D07232g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D06281g",
+          "iyali26_gene_id": "YALI1D08050g",
+          "source_gene_id": "YALI1_D08050g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D06303g",
+          "iyali26_gene_id": "YALI1D08082g",
+          "source_gene_id": "YALI1_D08082g",
+          "external_ratio": 1.0000000000000044,
+          "iyali26_ratio": 1.0000000000000073,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D06501g",
+          "iyali26_gene_id": "YALI1D08339g",
+          "source_gene_id": "YALI1_D08339g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.000000000000003,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D08514g",
+          "iyali26_gene_id": "YALI1D10930g",
+          "source_gene_id": "YALI1_D10930g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D08558g",
+          "iyali26_gene_id": "YALI1D11015g",
+          "source_gene_id": "YALI1_D11015g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.000000000000003,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D09361g",
+          "iyali26_gene_id": "YALI1D11984g",
+          "source_gene_id": "YALI1_D11984g",
+          "external_ratio": 1.0000000000000127,
+          "iyali26_ratio": 0.9999999999999842,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D09867g",
+          "iyali26_gene_id": "YALI1D12493g",
+          "source_gene_id": "YALI1_D12493g",
+          "external_ratio": 1.0000000000000013,
+          "iyali26_ratio": 0.9985539228140429,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D11374g",
+          "iyali26_gene_id": "YALI1D14260g",
+          "source_gene_id": "YALI1_D14260g",
+          "external_ratio": 0.9757029054187429,
+          "iyali26_ratio": 0.9999999999999869,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D11704g",
+          "iyali26_gene_id": "YALI1D14532g",
+          "source_gene_id": "YALI1_D14532g",
+          "external_ratio": 0.28277157594377667,
+          "iyali26_ratio": 0.14577805578112596,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D13112g",
+          "iyali26_gene_id": "YALI1D16290g",
+          "source_gene_id": "YALI1_D16290g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D13596g",
+          "iyali26_gene_id": "YALI1D16809g",
+          "source_gene_id": "YALI1_D16809g",
+          "external_ratio": 0.28277157594377667,
+          "iyali26_ratio": 0.14577805578112596,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D14762g",
+          "iyali26_gene_id": "YALI1D17983g",
+          "source_gene_id": "YALI1_D17983g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 1.0000000000000249,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D14850g",
+          "iyali26_gene_id": "YALI1D18037g",
+          "source_gene_id": "YALI1_D18037g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 1.0000000000000249,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D14894g",
+          "iyali26_gene_id": "YALI1D18130g",
+          "source_gene_id": "YALI1_D18130g",
+          "external_ratio": 0.16920356556842794,
+          "iyali26_ratio": 0.11002421982935918,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D15268g",
+          "iyali26_gene_id": "YALI1D18577g",
+          "source_gene_id": "YALI1_D18577g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D15620g",
+          "iyali26_gene_id": "YALI1D19110g",
+          "source_gene_id": "YALI1_D19110g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 1.000000000000018,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D16357g",
+          "iyali26_gene_id": "YALI1D20222g",
+          "source_gene_id": "YALI1_D20222g",
+          "external_ratio": 0.8673524690759626,
+          "iyali26_ratio": 0.9705218581245321,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D16643g",
+          "iyali26_gene_id": "YALI1D20473g",
+          "source_gene_id": "YALI1_D20473g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0D16753g",
+          "iyali26_gene_id": "YALI1D20676g",
+          "source_gene_id": "YALI1_D20676g",
+          "external_ratio": 0.990010125889825,
+          "iyali26_ratio": 1.0000000000000198,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D19206g",
+          "iyali26_gene_id": "YALI1D24361g",
+          "source_gene_id": "YALI1_D24361g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D19426g",
+          "iyali26_gene_id": "YALI1D24649g",
+          "source_gene_id": "YALI1_D24649g",
+          "external_ratio": 1.0000000000000036,
+          "iyali26_ratio": 1.0000000000000089,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D20152g",
+          "iyali26_gene_id": "YALI1D25450g",
+          "source_gene_id": "YALI1_D25450g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D20768g",
+          "iyali26_gene_id": "YALI1D26360g",
+          "source_gene_id": "YALI1_D26360g",
+          "external_ratio": 0.9995622272215746,
+          "iyali26_ratio": 1.0000000000000089,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D21530g",
+          "iyali26_gene_id": "YALI1D27148g",
+          "source_gene_id": "YALI1_D27148g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D21604g",
+          "iyali26_gene_id": "YALI1D27274g",
+          "source_gene_id": "YALI1_D27274g",
+          "external_ratio": 1.0000000000000013,
+          "iyali26_ratio": 1.0000000000000224,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D22891g",
+          "iyali26_gene_id": "YALI1D29481g",
+          "source_gene_id": "YALI1_D29481g",
+          "external_ratio": 0.07367078496820643,
+          "iyali26_ratio": 0.04790423872092689,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0D23397g",
+          "iyali26_gene_id": "YALI1D30256g",
+          "source_gene_id": "YALI1_D30256g",
+          "external_ratio": 0.9757029054187422,
+          "iyali26_ratio": 0.9999999999999701,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D23639g",
+          "iyali26_gene_id": "YALI1D30570g",
+          "source_gene_id": "YALI1_D30570g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 1.0000000000000224,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D24629g",
+          "iyali26_gene_id": "YALI1D32594g",
+          "source_gene_id": "YALI1_D32594g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25234g",
+          "iyali26_gene_id": "YALI1D33465g",
+          "source_gene_id": "YALI1_D33465g",
+          "external_ratio": 1.000000000000001,
+          "iyali26_ratio": 1.0000000000000124,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25476g",
+          "iyali26_gene_id": "YALI1D33780g",
+          "source_gene_id": "YALI1_D33780g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.0000000000000013,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25564g",
+          "iyali26_gene_id": "YALI1D33889g",
+          "source_gene_id": "YALI1_D33889g",
+          "external_ratio": 0.9999999999999982,
+          "iyali26_ratio": 1.0000000000000013,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D25938g",
+          "iyali26_gene_id": "YALI1D34288g",
+          "source_gene_id": "YALI1_D34288g",
+          "external_ratio": 1.000000000000004,
+          "iyali26_ratio": 1.000000000000019,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0D26367g",
+          "iyali26_gene_id": "YALI1D34865g",
+          "source_gene_id": "YALI1_D34865g",
+          "external_ratio": 0.16920356556842794,
+          "iyali26_ratio": 0.11002421982935918,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E00770g",
+          "iyali26_gene_id": "YALI1E01159g",
+          "source_gene_id": "YALI1_E01159g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.0000000000000124,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E01254g",
+          "iyali26_gene_id": "YALI1E01793g",
+          "source_gene_id": "YALI1_E01793g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E02288g",
+          "iyali26_gene_id": "YALI1E02885g",
+          "source_gene_id": "YALI1_E02885g",
+          "external_ratio": 0.9999999999999994,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E02728g",
+          "iyali26_gene_id": "YALI1E03387g",
+          "source_gene_id": "YALI1_E03387g",
+          "external_ratio": 0.07367078496820643,
+          "iyali26_ratio": 0.04790423872092689,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E03146g",
+          "iyali26_gene_id": "YALI1E03762g",
+          "source_gene_id": "YALI1_E03762g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E04939g",
+          "iyali26_gene_id": "YALI1E05833g",
+          "source_gene_id": "YALI1_E05833g",
+          "external_ratio": 0.9999999999999986,
+          "iyali26_ratio": 1.0000000000000155,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E05005g",
+          "iyali26_gene_id": "YALI1E05907g",
+          "source_gene_id": "YALI1_E05907g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E05027g",
+          "iyali26_gene_id": "YALI1E05929g",
+          "source_gene_id": "YALI1_E05929g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E05049g",
+          "iyali26_gene_id": "YALI1E05963g",
+          "source_gene_id": "YALI1_E05963g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E05137g",
+          "iyali26_gene_id": "YALI1E06015g",
+          "source_gene_id": "YALI1_E06015g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E05753g",
+          "iyali26_gene_id": "YALI1E06759g",
+          "source_gene_id": "YALI1_E06759g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E06061g",
+          "iyali26_gene_id": "YALI1E07347g",
+          "source_gene_id": "YALI1_E07347g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E06193g",
+          "iyali26_gene_id": "YALI1E07506g",
+          "source_gene_id": "YALI1_E07506g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E06479g",
+          "iyali26_gene_id": "YALI1E07744g",
+          "source_gene_id": "YALI1_E07744g",
+          "external_ratio": 0.2713326835383136,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E07073g",
+          "iyali26_gene_id": "YALI1E08382g",
+          "source_gene_id": "YALI1_E08382g",
+          "external_ratio": 1.0000000000000013,
+          "iyali26_ratio": 0.9985539228140285,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E09276g",
+          "iyali26_gene_id": "YALI1E11415g",
+          "source_gene_id": "YALI1_E11415g",
+          "external_ratio": 1.000000000000004,
+          "iyali26_ratio": 0.999999999999988,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E10144g",
+          "iyali26_gene_id": "YALI1E12730g",
+          "source_gene_id": "YALI1_E12730g",
+          "external_ratio": 0.4910478083180892,
+          "iyali26_ratio": 1.0000000000000089,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E12441g",
+          "iyali26_gene_id": "YALI1E15432g",
+          "source_gene_id": "YALI1_E15432g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E12628g",
+          "iyali26_gene_id": "YALI1E15606g",
+          "source_gene_id": "YALI1_E15606g",
+          "external_ratio": 0.49104780831808903,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E12683g",
+          "iyali26_gene_id": "YALI1E15659g",
+          "source_gene_id": "YALI1_E15659g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.08007917143739848,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E13662g",
+          "iyali26_gene_id": "YALI1E16694g",
+          "source_gene_id": "YALI1_E16694g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 1.0000000000000167,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E14102g",
+          "iyali26_gene_id": "YALI1E17162g",
+          "source_gene_id": "YALI1_E17162g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 0.9999999999999929,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E14443g",
+          "iyali26_gene_id": "YALI1E17431g",
+          "source_gene_id": "YALI1_E17431g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E14597g",
+          "iyali26_gene_id": "YALI1E17574g",
+          "source_gene_id": "YALI1_E17574g",
+          "external_ratio": 1.0000000000000022,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E15730g",
+          "iyali26_gene_id": "YALI1E18961g",
+          "source_gene_id": "YALI1_E18961g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E16434g",
+          "iyali26_gene_id": "YALI1E19647g",
+          "source_gene_id": "YALI1_E19647g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 1.0000000000000204,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E16709g",
+          "iyali26_gene_id": "YALI1E19902g",
+          "source_gene_id": "YALI1_E19902g",
+          "external_ratio": 0.49104780831809103,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E16929g",
+          "iyali26_gene_id": "YALI1E20192g",
+          "source_gene_id": "YALI1_E20192g",
+          "external_ratio": 0.9995622272215792,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17347g",
+          "iyali26_gene_id": "YALI1E20626g",
+          "source_gene_id": "YALI1_E20626g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17479g",
+          "iyali26_gene_id": "YALI1E20751g",
+          "source_gene_id": "YALI1_E20751g",
+          "external_ratio": 0.2713326835383136,
+          "iyali26_ratio": 0.17643268944050078,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17919g",
+          "iyali26_gene_id": "YALI1E21230g",
+          "source_gene_id": "YALI1_E21230g",
+          "external_ratio": 1.0000000000000022,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17963g",
+          "iyali26_gene_id": "YALI1E21312g",
+          "source_gene_id": "YALI1_E21312g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 0.9999999999999893,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E17985g",
+          "iyali26_gene_id": "YALI1E21345g",
+          "source_gene_id": "YALI1_E21345g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E18942g",
+          "iyali26_gene_id": "YALI1E22718g",
+          "source_gene_id": "YALI1_E22718g",
+          "external_ratio": 1.0000000000000022,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E18964g",
+          "iyali26_gene_id": "YALI1E22736g",
+          "source_gene_id": "YALI1_E22736g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999724,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E21021g",
+          "iyali26_gene_id": "YALI1E25018g",
+          "source_gene_id": "YALI1_E25018g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 1.0000000000000366,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E21351g",
+          "iyali26_gene_id": "YALI1E25443g",
+          "source_gene_id": "YALI1_E25443g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.9999999999999893,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E22649g",
+          "iyali26_gene_id": "YALI1E26811g",
+          "source_gene_id": "YALI1_E26811g",
+          "external_ratio": 0.9787113202048611,
+          "iyali26_ratio": 0.9999999999999893,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E22979g",
+          "iyali26_gene_id": "YALI1E27144g",
+          "source_gene_id": "YALI1_E27144g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E24497g",
+          "iyali26_gene_id": "YALI1E29179g",
+          "source_gene_id": "YALI1_E29179g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E24607g",
+          "iyali26_gene_id": "YALI1E29319g",
+          "source_gene_id": "YALI1_E29319g",
+          "external_ratio": 1.0000000000000058,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E26004g",
+          "iyali26_gene_id": "YALI1E30886g",
+          "source_gene_id": "YALI1_E30886g",
+          "external_ratio": 0.8673524690759679,
+          "iyali26_ratio": 0.9705218581245464,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E27005g",
+          "iyali26_gene_id": "YALI1E31947g",
+          "source_gene_id": "YALI1_E31947g",
+          "external_ratio": 0.9672952570665082,
+          "iyali26_ratio": 1.0000000000000366,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E28153g",
+          "iyali26_gene_id": "YALI1E33150g",
+          "source_gene_id": "YALI1_E33150g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 0.999999999999982,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E28468g",
+          "iyali26_gene_id": "YALI1E33633g",
+          "source_gene_id": "YALI1_E33633g",
+          "external_ratio": 1.0000000000000029,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E28963g",
+          "iyali26_gene_id": "YALI1E34269g",
+          "source_gene_id": "YALI1_E34269g",
+          "external_ratio": 0.061362539321105934,
+          "iyali26_ratio": 0.039900776310720754,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E29139g",
+          "iyali26_gene_id": "YALI1E34408g",
+          "source_gene_id": "YALI1_E34408g",
+          "external_ratio": 1.0000000000000027,
+          "iyali26_ratio": 0.999999999999982,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E29579g",
+          "iyali26_gene_id": "YALI1E35005g",
+          "source_gene_id": "YALI1_E35005g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E29667g",
+          "iyali26_gene_id": "YALI1E35082g",
+          "source_gene_id": "YALI1_E35082g",
+          "external_ratio": 0.9757029054187402,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E30129g",
+          "iyali26_gene_id": "YALI1E35520g",
+          "source_gene_id": "YALI1_E35520g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 1.0000000000000366,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E30481g",
+          "iyali26_gene_id": "YALI1E35815g",
+          "source_gene_id": "YALI1_E35815g",
+          "external_ratio": 0.9999295302295624,
+          "iyali26_ratio": 1.0000000000000067,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E31797g",
+          "iyali26_gene_id": "YALI1E37764g",
+          "source_gene_id": "YALI1_E37764g",
+          "external_ratio": 1.0000000000000044,
+          "iyali26_ratio": 1.0000000000000113,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E33033g",
+          "iyali26_gene_id": "YALI1E39221g",
+          "source_gene_id": "YALI1_E39221g",
+          "external_ratio": 0.03199425272904387,
+          "iyali26_ratio": 0.02080421545170529,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0E33517g",
+          "iyali26_gene_id": "YALI1E39693g",
+          "source_gene_id": "YALI1_E39693g",
+          "external_ratio": 0.9995622272215792,
+          "iyali26_ratio": 0.9999999999999701,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0E33957g",
+          "iyali26_gene_id": "YALI1E40305g",
+          "source_gene_id": "YALI1_E40305g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0E34037g",
+          "iyali26_gene_id": "YALI1E40361g",
+          "source_gene_id": "YALI1_E40361g",
+          "external_ratio": 0.4910478083180905,
+          "iyali26_ratio": 1.0000000000000249,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F00506g",
+          "iyali26_gene_id": "YALI1F00821g",
+          "source_gene_id": "YALI1_F00821g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.9999999999999913,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F00924g",
+          "iyali26_gene_id": "YALI1F01456g",
+          "source_gene_id": "YALI1_F01456g",
+          "external_ratio": 1.0000000000000047,
+          "iyali26_ratio": 0.9999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F01771g",
+          "iyali26_gene_id": "YALI1F02758g",
+          "source_gene_id": "YALI1_F02758g",
+          "external_ratio": 0.4910478083180895,
+          "iyali26_ratio": 0.9999999999999968,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F02299g",
+          "iyali26_gene_id": "YALI1F03527g",
+          "source_gene_id": "YALI1_F03527g",
+          "external_ratio": 1.0000000000000024,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F02497g",
+          "iyali26_gene_id": "YALI1F03803g",
+          "source_gene_id": "YALI1_F03803g",
+          "external_ratio": 0.07367078496820643,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "external_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F02629g",
+          "iyali26_gene_id": "YALI1F03908g",
+          "source_gene_id": "YALI1_F03908g",
+          "external_ratio": 1.000000000000002,
+          "iyali26_ratio": 1.0000000000000269,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F03567g",
+          "iyali26_gene_id": "YALI1F05089g",
+          "source_gene_id": "YALI1_F05089g",
+          "external_ratio": 0.4910478083180887,
+          "iyali26_ratio": 0.9999999999999892,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F04015g",
+          "iyali26_gene_id": "YALI1F06018g",
+          "source_gene_id": "YALI1_F06018g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F05192g",
+          "iyali26_gene_id": "YALI1F07827g",
+          "source_gene_id": "YALI1_F07827g",
+          "external_ratio": 0.13097833230137867,
+          "iyali26_ratio": 0.08516849581212876,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F05214g",
+          "iyali26_gene_id": "YALI1F07847g",
+          "source_gene_id": "YALI1_F07847g",
+          "external_ratio": 0.8709001586339806,
+          "iyali26_ratio": 0.9999999999999892,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F05610g",
+          "iyali26_gene_id": "YALI1F08349g",
+          "source_gene_id": "YALI1_F08349g",
+          "external_ratio": 1.0000000000000016,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F06468g",
+          "iyali26_gene_id": "YALI1F09598g",
+          "source_gene_id": "YALI1_F09598g",
+          "external_ratio": 0.9966482204509491,
+          "iyali26_ratio": 0.9817132964321588,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F07711g",
+          "iyali26_gene_id": "YALI1F11049g",
+          "source_gene_id": "YALI1_F11049g",
+          "external_ratio": 0.989142335007036,
+          "iyali26_ratio": 0.8643869231239302,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F08613g",
+          "iyali26_gene_id": "YALI1F12013g",
+          "source_gene_id": "YALI1_F12013g",
+          "external_ratio": 0.49104780831809,
+          "iyali26_ratio": 0.9999999999999876,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F08701g",
+          "iyali26_gene_id": "YALI1F12138g",
+          "source_gene_id": "YALI1_F12138g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F09185g",
+          "iyali26_gene_id": "YALI1F12842g",
+          "source_gene_id": "YALI1_F12842g",
+          "external_ratio": 0.926589968502649,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F09449g",
+          "iyali26_gene_id": "YALI1F13039g",
+          "source_gene_id": "YALI1_F13039g",
+          "external_ratio": 1.000000000000004,
+          "iyali26_ratio": 0.9999999999999883,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F11231g",
+          "iyali26_gene_id": "YALI1F14882g",
+          "source_gene_id": "YALI1_F14882g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 1.0000000000000115,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F11297g",
+          "iyali26_gene_id": "YALI1F14958g",
+          "source_gene_id": "YALI1_F14958g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F11759g",
+          "iyali26_gene_id": "YALI1F15517g",
+          "source_gene_id": "YALI1_F15517g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F12639g",
+          "iyali26_gene_id": "YALI1F16984g",
+          "source_gene_id": "YALI1_F16984g",
+          "external_ratio": 0.27133268353831397,
+          "iyali26_ratio": 0.17643268944050078,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F12749g",
+          "iyali26_gene_id": "YALI1F17082g",
+          "source_gene_id": "YALI1_F17082g",
+          "external_ratio": 1.000000000000001,
+          "iyali26_ratio": 1.0000000000000144,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F13453g",
+          "iyali26_gene_id": "YALI1F17962g",
+          "source_gene_id": "YALI1_F17962g",
+          "external_ratio": 0.2950787491181182,
+          "iyali26_ratio": 0.19187452903441157,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F13541g",
+          "iyali26_gene_id": "YALI1F18105g",
+          "source_gene_id": "YALI1_F18105g",
+          "external_ratio": 1.0000000000000024,
+          "iyali26_ratio": 1.0000000000000115,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F15345g",
+          "iyali26_gene_id": "YALI1F20637g",
+          "source_gene_id": "YALI1_F20637g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 1.0000000000000115,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F15587g",
+          "iyali26_gene_id": "YALI1F20914g",
+          "source_gene_id": "YALI1_F20914g",
+          "external_ratio": 1.0000000000000013,
+          "iyali26_ratio": 1.0000000000000004,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F16291g",
+          "iyali26_gene_id": "YALI1F21769g",
+          "source_gene_id": "YALI1_F21769g",
+          "external_ratio": 0.9999999999999989,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F16819g",
+          "iyali26_gene_id": "YALI1F22436g",
+          "source_gene_id": "YALI1_F22436g",
+          "external_ratio": 0.924387480506497,
+          "iyali26_ratio": 1.0000000000000107,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F18216g",
+          "iyali26_gene_id": "YALI1F24171g",
+          "source_gene_id": "YALI1_F24171g",
+          "external_ratio": 1.0000000000000038,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F19448g",
+          "iyali26_gene_id": "YALI1F25908g",
+          "source_gene_id": "YALI1_F25908g",
+          "external_ratio": 1.0000000000000038,
+          "iyali26_ratio": 1.0000000000000107,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F19470g",
+          "iyali26_gene_id": "YALI1F25924g",
+          "source_gene_id": "YALI1_F25924g",
+          "external_ratio": 1.0000000000000084,
+          "iyali26_ratio": 0.9999999999999926,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F20218g",
+          "iyali26_gene_id": "YALI1F26873g",
+          "source_gene_id": "YALI1_F26873g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F20328g",
+          "iyali26_gene_id": "YALI1F27002g",
+          "source_gene_id": "YALI1_F27002g",
+          "external_ratio": 0.0,
+          "iyali26_ratio": 0.0,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F20702g",
+          "iyali26_gene_id": "YALI1F27556g",
+          "source_gene_id": "YALI1_F27556g",
+          "external_ratio": 0.9672952570665082,
+          "iyali26_ratio": 1.0000000000000286,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F20790g",
+          "iyali26_gene_id": "YALI1F27686g",
+          "source_gene_id": "YALI1_F27686g",
+          "external_ratio": 1.0000000000000018,
+          "iyali26_ratio": 1.0000000000000286,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F20900g",
+          "iyali26_gene_id": "YALI1F27761g",
+          "source_gene_id": "YALI1_F27761g",
+          "external_ratio": 1.0000000000000033,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F21010g",
+          "iyali26_gene_id": "YALI1F27904g",
+          "source_gene_id": "YALI1_F27904g",
+          "external_ratio": 0.03199425272904341,
+          "iyali26_ratio": 0.020804215450586545,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F23221g",
+          "iyali26_gene_id": "YALI1F30459g",
+          "source_gene_id": "YALI1_F30459g",
+          "external_ratio": 0.2950787491181182,
+          "iyali26_ratio": 0.19187452903441157,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F23727g",
+          "iyali26_gene_id": "YALI1F31135g",
+          "source_gene_id": "YALI1_F31135g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 1.0000000000000064,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F23837g",
+          "iyali26_gene_id": "YALI1F31283g",
+          "source_gene_id": "YALI1_F31283g",
+          "external_ratio": 1.0000000000000064,
+          "iyali26_ratio": 1.0000000000000113,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F26433g",
+          "iyali26_gene_id": "YALI1F33819g",
+          "source_gene_id": "YALI1_F33819g",
+          "external_ratio": 1.0000000000000064,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F26609g",
+          "iyali26_gene_id": "YALI1F34051g",
+          "source_gene_id": "YALI1_F34051g",
+          "external_ratio": 1.0000000000000064,
+          "iyali26_ratio": 1.0000000000000093,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F27665g",
+          "iyali26_gene_id": "YALI1F35109g",
+          "source_gene_id": "YALI1_F35109g",
+          "external_ratio": 0.9920525629687146,
+          "iyali26_ratio": 0.9877362862917849,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F29843g",
+          "iyali26_gene_id": "YALI1F37354g",
+          "source_gene_id": "YALI1_F37354g",
+          "external_ratio": 1.0,
+          "iyali26_ratio": 0.0,
+          "classification": "iyali26_only_TP"
+        },
+        {
+          "external_gene_id": "YALI0F30019g",
+          "iyali26_gene_id": "YALI1F37559g",
+          "source_gene_id": "YALI1_F37559g",
+          "external_ratio": 0.03199425272904366,
+          "iyali26_ratio": 0.020804215451703526,
+          "classification": "both_TP"
+        },
+        {
+          "external_gene_id": "YALI0F30481g",
+          "iyali26_gene_id": "YALI1F38116g",
+          "source_gene_id": "YALI1_F38116g",
+          "external_ratio": 0.9979648567395716,
+          "iyali26_ratio": 0.986390078715598,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F30679g",
+          "iyali26_gene_id": "YALI1F38317g",
+          "source_gene_id": "YALI1_F38317g",
+          "external_ratio": 1.0000000000000064,
+          "iyali26_ratio": 1.0000000000000062,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F31273g",
+          "iyali26_gene_id": "YALI1F38986g",
+          "source_gene_id": "YALI1_F38986g",
+          "external_ratio": 1.0000000000000064,
+          "iyali26_ratio": 0.9999999999999827,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F31735g",
+          "iyali26_gene_id": "YALI1F39330g",
+          "source_gene_id": "YALI1_F39330g",
+          "external_ratio": 1.0000000000000087,
+          "iyali26_ratio": 1.0000000000000164,
+          "classification": "both_FN"
+        },
+        {
+          "external_gene_id": "YALI0F31999g",
+          "iyali26_gene_id": "YALI1F39620g",
+          "source_gene_id": "YALI1_F39620g",
+          "external_ratio": 1.0000000000000087,
+          "iyali26_ratio": 1.0000000000000022,
+          "classification": "both_FN"
+        }
+      ]
+    }
+  ],
+  "evaluation_scope": {
+    "frozen_common_positive_count": 235,
+    "external_positive_coverage_denominator": 1612,
+    "external_covered_positive_count": 235,
+    "orphan_gene_records": 4,
+    "unmapped_external_records": 15,
+    "external_records_outside_positive_evaluation": 413,
+    "experimental_negative_labels_added": 0,
+    "FP": null,
+    "TN": null,
+    "independent_validation_established": false
+  },
+  "claims": [
+    {
+      "id": "A1",
+      "claim": "Both external scenarios contain exactly the original 648 unique gene IDs in raw and predicted tables.",
+      "verdict": "supported"
+    },
+    {
+      "id": "A2",
+      "claim": "Both external runs have only optimal finite nonnegative raw KO values; unresolved count zero.",
+      "verdict": "supported"
+    },
+    {
+      "id": "A3",
+      "claim": "Stored four-threshold calls match raw KO/WT strict less-than without rounding; legacy classifications agree.",
+      "verdict": "supported"
+    },
+    {
+      "id": "A4",
+      "claim": "The shared evaluation uses exactly the pre-result 235 mapped experimental positives; no orphan, unmapped, or unlabelled record is assigned an experimental negative label.",
+      "verdict": "supported"
+    },
+    {
+      "id": "A5",
+      "claim": "Current file hashes match all checked recorded model, code, medium, strain, and mapping-source identities.",
+      "verdict": "supported"
+    },
+    {
+      "id": "A6",
+      "claim": "Reported overall essential-count curves agree with independently recomputed raw ratios.",
+      "verdict": "supported"
+    }
+  ],
+  "claim_coverage": {
+    "total": 6,
+    "audited": 6,
+    "supported": 6,
+    "partial": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "issues": [],
+  "limitations": [
+    "The mapped scenario contains 28 of 35 reference-medium exchanges; its full chemical/strain equivalence is not established. This audit confirms the recorded active medium equals the locked runtime plan, but does not repeat the separate reaction-mapping audit.",
+    "The native scenario is the saved JSON default medium, not reproduction of the paper 13C-MFA experimental conditions.",
+    "Common-positive comparison excludes unlabelled genes and nonmapped/orphan records rather than making them experimental negatives. Whole-model predicted-essential counts still include all original 648 record IDs.",
+    "No model/GPR, experimental labels, numerical thresholds, or original result tables were modified.",
+    "This audit recomputes saved-output arithmetic, not a reproduction of optimization; file identity checks do not certify a complete historical environment."
+  ]
+}

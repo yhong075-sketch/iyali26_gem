@@ -1,0 +1,2567 @@
+{
+  "started_at_utc": "2026-09-10T23:20:20.082000+00:00",
+  "completed_at_utc": "2026-09-10T23:21:20.882536+00:00",
+  "argv": [
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/scripts/gem_annotate/__main__.py",
+    "--research-root",
+    "artifacts/reference_pipeline_restore_20260909/research",
+    "--offline",
+    "--no-solve",
+    "--coq9-curation",
+    "metadata",
+    "--output-model",
+    "model_metadata_trna.xml"
+  ],
+  "options": {
+    "research_root": "artifacts/reference_pipeline_restore_20260909/research",
+    "starting_model": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyali26.xml",
+    "output_model": "model_metadata_trna.xml",
+    "mnx_dir": null,
+    "cache_dir": null,
+    "offline": true,
+    "no_solve": true,
+    "coq9_curation": "metadata",
+    "canonical_copy": false,
+    "provisional_capacity_profile": null,
+    "trna_biomass_mode": null,
+    "r608_curation": null
+  },
+  "head": "b9723026d08e28de42fc72c28104456e23638ed7",
+  "dirty_status": "M README.md\n M data/lipid_unlump_sn_core_curation.json\n M scripts/gem_annotate/__init__.py\n M scripts/gem_annotate/__main__.py\n M scripts/gem_annotate/annotate_reactions_extended.py\n M scripts/gem_annotate/biomass.py\n M scripts/gem_annotate/config.py\n M scripts/gem_annotate/ec_annotation.py\n M scripts/gem_annotate/exchange.py\n M scripts/gem_annotate/gaps.py\n M scripts/gem_annotate/genes.py\n M scripts/gem_annotate/idmapping.py\n M scripts/gem_annotate/main.py\n M scripts/gem_annotate/metabolites.py\n M scripts/gem_annotate/patches.py\n M scripts/gem_annotate/reactions.py\n M scripts/lp_sn12_candidate.py\n M scripts/update_model.py\n M tests/test_er_vlcfa_stereochemistry.py\n M tests/test_lp_sn12_candidate.py\n M tests/test_quinone_pipeline.py\n?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/c7_revision1_independent_followup_20260907/\n?? artifacts/cfsa_lipid_unlump_20260908/\n?? artifacts/cfsa_lipid_unlump_figure_20260909/\n?? artifacts/cfsa_multichain_20260908/\n?? artifacts/cfsa_pfba_cap_20260908/\n?? artifacts/cfsa_sampling_candidate_n1_20260908/\n?? artifacts/cfsa_tag_max_20260908/\n?? artifacts/cfsa_test_20260908/\n?? artifacts/closed_bounds_69_20260909/\n?? artifacts/coq9_dt_pair_local_20260907T175236Z/\n?? artifacts/coq9_dt_quarter_wt_20260907/\n?? artifacts/coq9_pipeline_20260909/\n?? artifacts/coq9_pipeline_integration_20260909/accepted/implementation_files.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/metadata.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.build.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.xml\n?? artifacts/coq9_pipeline_integration_20260909/accepted/preservation.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.build.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.xml\n?? artifacts/coq9_pipeline_integration_20260909/accepted/reference_vs_metadata.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/static_pair.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/tests.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/validation.log\n?? artifacts/coq9_pipeline_integration_20260909/before.json\n?? artifacts/coq9_pipeline_integration_20260909/cache/\n?? artifacts/coq9_pipeline_integration_20260909/case_alias_test.log\n?? artifacts/coq9_pipeline_integration_20260909/curation_tests_final.log\n?? artifacts/coq9_pipeline_integration_20260909/final/\n?? artifacts/coq9_pipeline_integration_20260909/make_fixture.py\n?? artifacts/coq9_pipeline_integration_20260909/metadata.build.json\n?? artifacts/coq9_pipeline_integration_20260909/metadata.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/metadata.log\n?? artifacts/coq9_pipeline_integration_20260909/metadata.xml\n?? artifacts/coq9_pipeline_integration_20260909/name_source_test.log\n?? artifacts/coq9_pipeline_integration_20260909/off.build.json\n?? artifacts/coq9_pipeline_integration_20260909/off.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/off.log\n?? artifacts/coq9_pipeline_integration_20260909/off.xml\n?? artifacts/coq9_pipeline_integration_20260909/off_attempt1.log\n?? artifacts/coq9_pipeline_integration_20260909/off_attempt2.log\n?? artifacts/coq9_pipeline_integration_20260909/prerequisite_probe.log\n?? artifacts/coq9_pipeline_integration_20260909/push_files.txt\n?? artifacts/coq9_pipeline_integration_20260909/static_pair.py\n?? artifacts/coq9_pipeline_integration_20260909/tests.log\n?? artifacts/coq9_pipeline_integration_20260909/tests_final.log\n?? artifacts/coq9_pipeline_integration_20260909/validate_final.py\n?? artifacts/coq9_reserve_depletion_20260908/\n?? artifacts/coq9_supply_mechanism_20260908/\n?? artifacts/coq9_wp2_proposal_only_20260905T2000Z/\n?? artifacts/coq9_wp2_proposal_v2_20260905/\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip.sha256\n?? artifacts/coq9_wp2_proposals_for_review_20260905.zip\n?? artifacts/decision_evidence_audit_20260908/\n?? artifacts/dfba_consistent_integrator_n2_20260908/\n?? artifacts/dfba_event_resolve_gate_20260909T062014Z/\n?? artifacts/escher_atlas_20260909/\n?? artifacts/figures/\n?? artifacts/identity_construct_followup_20260907/\n?? artifacts/iyali26_vs_iyali21_slide_20260907/\n?? artifacts/lipid_charge_fix_20260908/\n?? artifacts/metadata_reaction_selection_20260909/\n?? artifacts/methylcitrate_evidence_followup_20260907/\n?? artifacts/n1_n4_decision_audit_20260908/\n?? artifacts/n1_n4_handoff_20260908/\n?? artifacts/next_evidence_independent_audit_20260908/\n?? artifacts/polyamine_chemistry_wp2_20260907/\n?? artifacts/polyamine_demand_identifiability_n3_20260908/\n?? artifacts/polyamine_transport_evidence_20260907/\n?? artifacts/polyamine_transport_evidence_revision1_20260908/\n?? artifacts/r608_c7_ablation_20260908/\n?? artifacts/r608_c7_model_test_20260907/\n?? artifacts/r608_engineering_20260907/\n?? artifacts/r608_engineering_wp2_20260907/\n?? artifacts/r608_nonessential_mechanism_20260908/\n?? artifacts/r794_r795_gpr_review_20260909/\n?? artifacts/r795_escher_20260909/\n?? artifacts/reference_pipeline_restore_20260909/\n?? artifacts/static_mini_replay_20260905T190318Z/\n?? artifacts/tag_max_growth_20260909/\n?? artifacts/trna_biomass_restore_20260910/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/iyali26.xml\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metadata_reaction_selection.json\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? data/reference_build/\n?? data/reference_build_provenance.json\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? identity_support_next_20260906.md\n?? model_metadata_reaction_selection.build.json\n?? model_metadata_reaction_selection.coq9_genes.tsv\n?? model_metadata_reaction_selection.xml\n?? model_metadata_trna.coq9_genes.tsv\n?? model_metadata_trna.xml\n?? model_reference_metadata_r1172_sphpl.build.json\n?? model_reference_metadata_r1172_sphpl.coq9_genes.tsv\n?? model_reference_metadata_r1172_sphpl.xml\n?? outputs/\n?? results\n?? scripts/gem_annotate/cli.py\n?? scripts/gem_annotate/essentiality_evidence.py\n?? scripts/gem_annotate/essentiality_simulation_context.py\n?? scripts/gem_annotate/execution.py\n?? scripts/gem_annotate/gap_fill_direction.py\n?? scripts/gem_annotate/locus_resolver.py\n?? scripts/gem_annotate/microspecies.py\n?? scripts/gem_annotate/pipeline.py\n?? scripts/gem_annotate/provisional_capacity.py\n?? scripts/gem_annotate/r608.py\n?? scripts/gem_annotate/reaction_selection.py\n?? scripts/gem_annotate/sbml.py\n?? scripts/gem_annotate/strain_overlay.py\n?? tests/test_reaction_selection.py\n?? tests/test_reference_reactions.py\n?? ~$09012026.pptx",
+  "input": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyali26.xml",
+    "sha256": "5c8c199e2c5b622e97daf2b3500f763f83519fb598702a11dd153052c6a99f9d"
+  },
+  "input_unchanged": true,
+  "output": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+    "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0"
+  },
+  "reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+  "source_sha256": {
+    "scripts/gem_annotate/__init__.py": "f1ad9494aa26830ad22cf1f51045d8e5c72813259f6af33bd154e93719817991",
+    "scripts/gem_annotate/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "scripts/gem_annotate/add_sbo_terms.py": "4f603da89b52be3d46e66a0d5f84d4b6cb24bb8b0777230ecc1b6420a3769320",
+    "scripts/gem_annotate/annotate_reactions_extended.py": "d66231d36e23b868a4567b36910bad9ccdfd381cc695bedafdb1c772dfeb76ac",
+    "scripts/gem_annotate/biomass.py": "0ed5b34fa25c520a85aaff1e80fb9f3d43736d8699f1b00af61c1c271da5b1f6",
+    "scripts/gem_annotate/cli.py": "a2899b1e0089753bca1dc8e3cf11e550d405041c2f1d401601b3b7785b7b1005",
+    "scripts/gem_annotate/config.py": "1affa8f18f6a245e21af88857bfdbdf915a92a349a3fafe2a9c1af6f98731fc3",
+    "scripts/gem_annotate/coq9.py": "b587b3867a488fd992a9a9411a93cac8eec954bb1e59dbc35f9f0cea7e78cab5",
+    "scripts/gem_annotate/ec_annotation.py": "dd59263d3062ab059c051b0efd9f66c8c678a514c78f9cea68c1486b7267a9e7",
+    "scripts/gem_annotate/essentiality_evidence.py": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+    "scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+    "scripts/gem_annotate/exchange.py": "6d9046536aef5098d9484bba5c0975d42a7a77a4bbe55d8f4c0453f29f5ae43d",
+    "scripts/gem_annotate/execution.py": "346a22b64ac35170a4d58d61f29a1b178e80b6376c8e27dd18affdff265ec760",
+    "scripts/gem_annotate/gap_fill_direction.py": "c3fe4c5f8e982298db7b4c2f0eeef89efe0d5073d7e2d0fc86c1d5fc31b88a09",
+    "scripts/gem_annotate/gap_fill_prioritize.py": "894833a5f3222264a60ed2d72d48ebc8f54095b7a7796352efafe4ae5e0618ea",
+    "scripts/gem_annotate/gaps.py": "9c88d228462c9100c8047407220dc2e1e0b22945395a815d0a0dd1cd971c775d",
+    "scripts/gem_annotate/genes.py": "81755ebe71f4e5a528c534ab70956799195a542cfa8157a9a86524b6068b70aa",
+    "scripts/gem_annotate/http_utils.py": "bc96303ba88ec613e38f91752679dbfb91f60033e0508fa2afdb2bb1992bef81",
+    "scripts/gem_annotate/idmapping.py": "323bf5119f27747f001856c2d19dfff9432ee2ea94fe7c66894262bb8685c597",
+    "scripts/gem_annotate/io.py": "c5b6b5739d0216cc1b66d9fd49a1bb6e15355d81fbf00ea8916a2b34f7121088",
+    "scripts/gem_annotate/locus_resolver.py": "eb5996508300831ee0346e3cedb80cd01eb5043025461d3b9a639ee41e01e584",
+    "scripts/gem_annotate/main.py": "a6ba14df5593032f1aa3cb05385d37428cf90ba9fd84fe2915fbfc7515375381",
+    "scripts/gem_annotate/metabolites.py": "120e092b4258de1cea1c6da883cc875db65a4ce84454c95d62132608ae6ad3d0",
+    "scripts/gem_annotate/microspecies.py": "426398cb14a5c93c41ec9ec217187cc36592a0f78d6f1bf6162813c22089ebc6",
+    "scripts/gem_annotate/patches.py": "c625d1f7c1675f682c6dd3625eb60f5a17bceac7a7b9b06458ece01c90d91b04",
+    "scripts/gem_annotate/pipeline.py": "1dcc029801fbb4865b06a0fb1a1ab88d9008fdf5f5b6c717ab06bd5c0ea8f480",
+    "scripts/gem_annotate/provisional_capacity.py": "b1c6ef52fd68b4f7f21b5dec562ecb891f73116bb79d4825b1f5ab524633e770",
+    "scripts/gem_annotate/quinone.py": "22df99c978aabd850640a782bf96ed05fa37c063c1e51d5d3d584113ada7d151",
+    "scripts/gem_annotate/r608.py": "275ef2865d6c22b939c1a72593c5fa5625f3a655a65d4decf90e35dbc8a9551e",
+    "scripts/gem_annotate/reaction_selection.py": "aeec4d6855179466b825f3d9f0d0e3552d46401798d66d1af4b5cd5ad1ee372c",
+    "scripts/gem_annotate/reactions.py": "df78073873002e856c28f79cab81b9b1cc51ec78f977dce80de5da70d518c5f1",
+    "scripts/gem_annotate/sbml.py": "d59a88d3feb2961b2d2dda5f12a78775764d73b64f1a20f8f9b9f26bc2288d6f",
+    "scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "scripts/gem_annotate/validate_essential_genes.py": "f80f0195b993d44f6c61cb42b0987bc4491097de71080841e0e5e2662b4ce100",
+    "scripts/gem_annotate/vlcfa_stereochemistry.py": "0c039ce5fd3d67800153292f119afdc2720ea65d5aa0832756ad813cca60d7f0"
+  },
+  "data_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/gene_ec_cache.json": "5bcfe26a545e02c9d92465c003c899000581444251d36b76cb442cb9978fb2c3",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/gene_locus_tag_map.json": "fee341c644fac7a50562d846d0c34fe6608e883d5178fb55422ce42f6181a8c7",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/idmapping_results.json": "1bcaf0d5cf25f18ef69544867ec0176553444748b02a5e1f608426c138e6f6ed",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/kegg_uniprot_index.json": "28de31e33dd763afb99386bbb09d08bded1a0f914e52b96185d9dedf07291298",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/mnxm_to_bigg_metabolite.json": "777db05e1f019ff854b9abffc19cf50fce66eff2e2cd4eff5771370a0a24b81f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/ncbi_gene_mapping_safe_5a058745be767851.json": "015566ee0c0c87d33e2772eb788e2be159a6f3194965c96445dcba42cc60c28d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/tier_b_results_safe_5a058745be767851.json": "643a051bd25c97d778f8956e35b514c7cb3e0ec0a52ff31cc62dbee2aa2a7050",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/uniprot_UP000001300.json": "89f2dc9c77ff1aa5f1b4c245567285e5e98bebc0916ab94ed25b43e6210a3a4b",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/uniprot_UP000182444.json": "e5b0a04874079b4057ffe25dadcb6b812cba8c96b227f41187187b27715753a3",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/kegg/yli_ec.tsv": "89a9f695608bfa04cb6023c1508821218a8deb4da7c303e4680b236d907f9b48",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/kegg/yli_genes.tsv": "33cb8ae3689f9774f66e2c22e4c3caeab9fa55db89941fd4aa791be5c0d5bf4f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/kegg/yli_pathway.tsv": "b947e7b94cbf20cc0627fa7f4cfd148ff6d5c04b0010969050861286d8fc2f99",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/kegg/yli_pathway_names.tsv": "5bb4a9776a83c1fd30c6bd4c4c83474ab05428432d25ef15041a2910b3386031",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/locus_map/S1_table_primers.xlsx": "50bcd4bb1c22c05e9e1d1d28ea5f26085561014f938ba8e417e4a784eee5baea",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/locus_map/S2_table_YALI1_YALI0_map.xlsx": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/locus_map/funnel4_reaction_candidates.csv": "c112a4b60fa044b2b9ea47775fbb35aecaef44302ae1d9faa15b4c5b67b9c2be",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/locus_map/funnel6_curation_tiers.csv": "f123b6f187881e8184e6222f4d76aa86072c8f67bbaa7fa60f66fef880971c8c",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/locus_map/iyli21_genes_vs_S2.csv": "7c68b3cb244f07848b7ad99d7ed0f95768c9812ddd80311e1cdffa06fff4bae9",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/locus_map/s2_metabolic_genes.csv": "f7f25bb3e4f3c720d4b0bd534309c5c5f3cfa091bbd22383858d71f8600c1c2e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/metanetx/chem_depr.tsv": "de0778d39df767eec7620f318e58e5828902795c48b8f8b388e6f17fdccc6d0d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/metanetx/chem_prop.tsv": "8463f8ee94a1eaec6d6820a05bf09455675a9eb41ac72230dd0d85c9d6c800d2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/metanetx/chem_xref.tsv": "ba2451ffd9ba3342f8a64a966f8540d08ca82d9f70a28ee84a03aeb0bf6ed135",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/metanetx/reac_prop.tsv": "8582cc187d03ce127f8e914f8f298282ac9036f1448918117af044ac55b980db",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/metanetx/reac_xref.tsv": "2610e2998f582043a4e9d1a8ce42b7a8f4e2480e54d03ded26a7e83fd401f229",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/reference/ncbi/clib89_feature_table.txt": "15a15c73ca0817d2fe64d055101a627084278fbdd1ae004eb78ee98978c0a7f2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/coq9_curation.json": "28638e331534c65359426084f38e7cb12b99497225deb1f5be123df55257ded2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/coq9_gene_evidence.tsv": "2edacc114c24689a0913d531b498a3c9a4fe31823abf06fca1f0bfe8f3fee566",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyali26.xml": "5c8c199e2c5b622e97daf2b3500f763f83519fb598702a11dd153052c6a99f9d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/metadata_reaction_selection.json": "d994792f374732897c839172917558ace854a347a0a47f4b760b17572530c134",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/ec_overload_audit.csv": "b073e252c141640eb181f7e3e6436d73087821ac6f58ee2be013a35644c2dbfd",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/gap_fill_direction_curation.csv": "cf9c498c59caee7ac385379a3b8beba849c972b82f4de917ffa62bed1156196d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/gap_fill_prioritized.csv": "9412dd06ea17b5592d704aec6a528394266cbf285e5325c10c3e023f497f2035",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/gpr_isozyme_additions.csv": "162c32c77c82d278513c078cfcb5ce04e2e7c69ba8df9eda74effc557e1ea16f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/metabolite_microspecies.csv": "9ecd281be4402e60d4f44bb1b73c1def4ee21ce0756aa6df905e7d7eb4abac72",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/missing_formula_fill.csv": "ab40f30d4cb8dd1b021c7a06cf2626afe5151be0da818187f9c607504c29707e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/curated_gene_annotation_overrides.csv": "ca375a30afb96200da86bdb7a3de68c5169b14adc786920e0cc709374d1583b6",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/curated_locus_identity_exclusions.csv": "883f1aac417838e923f12a00285545a093b985e90fd87ecfd9e6f29adbeee408",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/curated_model_patches.csv": "c5443fb62da3dc2afb39b784018ef647fdfd70ab8d8a5d573971aee819ed9153",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/evidence/EGC-01862f24ad8f.json": "1cd43c10045cbb414b938a9177bbfa1cb459118cff8c8ec251fd709560302c20",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/evidence/EGC-41703ef278c1.json": "2cfe2d0897169e06d89c559cfaa495c8472f88be2b7088f495ca9128350a1533",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/evidence/EGC-legacy-cpa-ura2.json": "e8f6b213175fbe6a41991c17f4d09d9d026482b26173539f88cfbe0fa70aa699",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/retained_reactions.json": "6414b1d5ae7dc944dcc2f4efd1b06271b49388bbdddfec13d4bd0f45ec79fb34"
+  },
+  "source_unchanged_during_build": true,
+  "model_counts": {
+    "reactions": 2315,
+    "species": 1877,
+    "genes": 1074
+  },
+  "runtime_strain_overlay": null,
+  "medium": {
+    "R1016": 1000.0,
+    "R1029": 1000.0,
+    "R1030": 1000.0,
+    "R1070": 10.0,
+    "R1164": 1000.0,
+    "R1287": 1000.0,
+    "R1296": 1000.0,
+    "R1298": 1000.0,
+    "R1305": 1000.0,
+    "R1323": 1000.0,
+    "R1333": 1000.0,
+    "R1340": 1000.0,
+    "R1364": 1000.0,
+    "R2061": 1000.0,
+    "R2270": 1000.0
+  },
+  "solver": "optlang.gurobi_interface",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]",
+  "diagnostic_solves": "not run; execution guard enabled",
+  "network_gene_enrichment": "cache only; network guard enabled",
+  "coq9": {
+    "mode": "metadata",
+    "reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "requested_mode_complete": true,
+    "items": [
+      {
+        "item": "R305",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "name",
+            "status": "applied",
+            "before": "ferrocytochrome-c:oxygen oxidoreductase",
+            "target": "ubiquinol-9:cytochrome-c reductase (complex III)"
+          },
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "3.4.24.64",
+              "7.1.1.8"
+            ],
+            "target": [
+              "7.1.1.8"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.10.2.2",
+            "target": "7.1.1.8"
+          }
+        ]
+      },
+      {
+        "item": "R385",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "2.1.1.114",
+            "target": "2.1.1.64"
+          }
+        ]
+      },
+      {
+        "item": "R18",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.14.15.45",
+              "1.14.15.46",
+              "1.14.99.60",
+              "2.1.1.-",
+              "2.1.1.114",
+              "2.1.1.201",
+              "2.1.1.64",
+              "4.1.1.130"
+            ],
+            "target": [
+              "2.1.1.201"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "2.1.1.201",
+            "target": "2.1.1.201"
+          }
+        ]
+      },
+      {
+        "item": "R695",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.14.15.45",
+              "1.14.15.46",
+              "1.14.99.60",
+              "2.1.1.-",
+              "2.1.1.114",
+              "2.1.1.201",
+              "2.1.1.64",
+              "4.1.1.130"
+            ],
+            "target": [
+              "1.14.13.253"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": "1.14.13.253"
+          }
+        ]
+      },
+      {
+        "item": "R570",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.6.5.9",
+              "1.6.99.3",
+              "7.1.1.2"
+            ],
+            "target": [
+              "1.6.5.9"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "1.6.5.9",
+            "target": "1.6.5.9"
+          }
+        ]
+      },
+      {
+        "item": "R19",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.14.15.45",
+              "1.14.15.46",
+              "1.14.99.60",
+              "2.1.1.-",
+              "2.1.1.114",
+              "2.1.1.201",
+              "2.1.1.64",
+              "4.1.1.130"
+            ],
+            "target": []
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": null
+          }
+        ]
+      },
+      {
+        "item": "R2062",
+        "status": "applied",
+        "before_occurrences": 47,
+        "after_occurrences": 28,
+        "unique_genes": 28,
+        "reason": "逻辑去重完成；不证明复合体I的28基因生物学规则"
+      },
+      {
+        "item": "R305_qcycle",
+        "status": "deferred",
+        "reason": "explicit qcycle mode required"
+      },
+      {
+        "id": "CIII-GENE",
+        "reaction": "R305",
+        "status": "deferred",
+        "operation": "Separate YALI1D11769g cytochrome-c carrier dependency from enzyme-composition GPR; preserve gene and carrier requirement",
+        "evidence": "S05;S06;S08;input_XML",
+        "limitations": "Do not simply remove carrier requirement and claim CYC1 dispensable; exact mandatory membership of all accessory subunits not proven",
+        "reference_status": "gene_dependency_separation_spec_only"
+      },
+      {
+        "id": "CI-ARCH",
+        "reaction": "R1889;R2062",
+        "status": "deferred",
+        "operation": "Use one gene-associated pumping complex-I representation; retire or explicitly reclassify unsupported active nonpumping duplicate R2062 once CI GPR rebuilt",
+        "evidence": "S07;S09;S10;S17;input_XML",
+        "limitations": "Do not copy the current 28-gene AND. NDH2 is not a CI subunit; all remaining Boolean requirements need role-specific evidence",
+        "reference_status": "scientific_rebinding_spec_not_applied"
+      },
+      {
+        "id": "CI-NDH2",
+        "reaction": "R570;R573",
+        "status": "deferred",
+        "operation": "Retain R570 external NDH2 assignment; retain R573 bounds0,0 in native reference; engineered internal NDH2 only explicit construct-specific overlay",
+        "evidence": "S09;S10;S11;input_XML",
+        "limitations": "R573 is ALREADY disabled; not a new intervention. R2062 remains open0,1000",
+        "reference_status": "existing_native_orientation_decision_confirmed"
+      },
+      {
+        "id": "CI-PROTON",
+        "reaction": "R1889;R570",
+        "status": "deferred",
+        "operation": "Under frozen neutral NAD species only: R1889 consume4 not5 matrixH; R570 omit extra cytosolicH. Alternative is consistent charged NAD microspecies revision across all affected reactions",
+        "evidence": "exact_arithmetic;S17;S11",
+        "limitations": "Neither numerical balancing choice alone proves native proton convention. Do not edit shared NAD species in isolation",
+        "reference_status": "conditional_bookkeeping_not_applied"
+      },
+      {
+        "id": "COQ6-C5",
+        "reaction": "R39;R969;R808",
+        "status": "deferred",
+        "operation": "Create a mitochondrial C5 hydroxylation with proper electron supply; replace the cytosolic R39 detour as one coherent topology/redox edit; use YALI1A08781g as curated COQ6 candidate rather than attaching it to the current formal R39 unchanged",
+        "evidence": "S12;S13;archived_gene_evidence",
+        "limitations": "Exact Yarrowia ferredoxin/reductase identities not newly resolved; no invented GPR for donors",
+        "reference_status": "joint_reaction_candidate_spec_not_applied"
+      },
+      {
+        "id": "C1-BRANCH",
+        "reaction": "R40;R19",
+        "status": "deferred",
+        "operation": "Keep mutually distinguishable COQ4 oxidative-decarboxylation and COQ4-plus-COQ6 sequential candidates; do not assert both are obligatory native steps",
+        "evidence": "S13;S14",
+        "limitations": "Primary studies differ in systems; no native Yarrowia branch adjudication obtained",
+        "reference_status": "two_mechanisms_explicitly_unresolved"
+      },
+      {
+        "id": "COQ8-ROLE",
+        "gene": "YALI1B20527g",
+        "status": "deferred",
+        "operation": "Retain accessory ATPase/kinase-like role in gene evidence; do not add all-steps AND or arbitrary per-CoQ ATP cost",
+        "evidence": "S15;S13",
+        "limitations": "Native role/necessity remains candidate level; metabolic GPR absence is not evidence of nonessentiality",
+        "reference_status": "representation_decision"
+      },
+      {
+        "id": "COQ9-ROLE",
+        "gene": "YALI1F34675g",
+        "status": "deferred",
+        "operation": "Retain lipid-binding/substrate-presentation role; no universal synthome AND; optional explicit COQ7 accessory-dependency hypothesis only with appropriate evidence",
+        "evidence": "S16;S13",
+        "limitations": "Noncatalytic proteins may belong in specific obligatory-complex GPRs, but that obligation has not been shown for this native locus",
+        "reference_status": "representation_decision"
+      },
+      {
+        "item": "R573_retained",
+        "status": "already_correct",
+        "actual_bounds": [
+          0.0,
+          0.0
+        ],
+        "reason": "Observed only; already closed in reference, not a new repair. Different overlays are preserved."
+      }
+    ]
+  },
+  "retained_reactions": [
+    {
+      "item": "R1172",
+      "status": "applied",
+      "construction_source": "data/iyali26.xml",
+      "previous_policy": "Removed as carrier-free HMG-CoA transport between cytosol and mitochondria",
+      "current_status": "Retained by user request; native transport mechanism and carrier GPR remain unconfirmed",
+      "stoichiometry": {
+        "m646[C_cy]": -1.0,
+        "m648[C_mi]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": ""
+    },
+    {
+      "item": "SPHPL",
+      "status": "applied",
+      "construction_source": "data/reference_build/curation/gap_fill_prioritized.csv; SPHPL / MNXR188844",
+      "previous_policy": "Skipped as a representation already covered by R730",
+      "current_status": "Retained separately by user request; potential duplication with R730 remains recorded",
+      "stoichiometry": {
+        "m950[C_er]": -1.0,
+        "m509[C_cy]": 1.0,
+        "m1795[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1E33285g"
+    }
+  ],
+  "reaction_selection": {
+    "selection_id": "metadata_reaction_fields_preserve_trna_20260910",
+    "source_metadata_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "field_counts": {
+      "stoichiometry": 202,
+      "bounds": 7,
+      "gpr": 9
+    },
+    "items": [
+      {
+        "item": "R1",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R10",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R102",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1040",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1078",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1079",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1080",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1081",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R11",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R116",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R118",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R119",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R12",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R125",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R126",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1302",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1303",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1304",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R133",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R134",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R136",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1372",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1385",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1392",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1393",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R140",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1407",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1414",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1420",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1427",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R143",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R144",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R145",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R146",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1470",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1471",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1472",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1473",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1474",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1475",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1477",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1478",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1479",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1499",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1500",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R152",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1549",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R159",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R170",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R171",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R172",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1869",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1873",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1874",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1887",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1899",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R190",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1907",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1912",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1950",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R1951",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2017",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R202",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R203",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2041",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2064",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2067",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2068",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2077",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2078",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2080",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2081",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2084",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2094",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2095",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2104",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2110",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2111",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2118",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2121",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2122",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2167",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2173",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2183",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2269",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2274",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R2279",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R23",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R242",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R249",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R251",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R252",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R258",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R259",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R260",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R267",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R268",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R271",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R272",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R282",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R293",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R294",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R3",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R304",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R311",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R312",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R324",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R326",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R329",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R332",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R334",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R335",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R354",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R357",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R363",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R369",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R37",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R379",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R383",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R384",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R386",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R389",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R390",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R394",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R397",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R4",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R409",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R415",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R417",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R421",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R488",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R489",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R495",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R50",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R509",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R51",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R512",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R541",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R544",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R550",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R551",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R560",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R565",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R566",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R577",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R60",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R609",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R610",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R612",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R636",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R639",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R64",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R652",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R654",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R658",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R664",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R666",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R668",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R669",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R671",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R685",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R696",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R70",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R701",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R71",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R716",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R718",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R728",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R732",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R734",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R739",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R745",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R746",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R76",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R762",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R765",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R766",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "gpr",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R777",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R779",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R780",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R791",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R792",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R793",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R794",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R795",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R800",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R81",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R921",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R924",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R925",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R97",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R970",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R974",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R98",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R986",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R989",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_CAT2p",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_CYST_II",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_NDP1",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_NDP7g",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_NTP1",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_NTP3pp",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_NTP7",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_OAADCm",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "R_PGAM1_PhosHydro",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "bounds",
+            "status": "applied"
+          },
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      },
+      {
+        "item": "biomass_C",
+        "status": "already_correct",
+        "fields": [],
+        "reason": "Direct free-amino-acid consumption bypasses the required experimental tRNA biomass coupling. Preserve the reference B-group coupling instead."
+      },
+      {
+        "item": "r0242",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "stoichiometry",
+            "status": "applied"
+          }
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "requested_build_complete": true,
+  "gene_evidence": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.coq9_genes.tsv",
+    "sha256": "0981aae96439fabada082803f935d96ba6a21982064e87c114bc336b6ffcf7da"
+  }
+}

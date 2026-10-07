@@ -1,0 +1,4 @@
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --canonical-copy --output-model artifacts/reference_pipeline_restore_20260909/baseline.xml
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation metadata --output-model model_reference_metadata_r1172_sphpl.xml
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation off --output-model artifacts/reference_pipeline_restore_20260909/off.xml
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation qcycle --output-model artifacts/reference_pipeline_restore_20260909/qcycle.xml

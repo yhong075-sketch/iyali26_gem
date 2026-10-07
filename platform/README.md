@@ -64,8 +64,13 @@ tests fail or skip for reasons outside this checkout:
   expect no longer matches.
 - **CoA protonation tests:** they compare against `../iyali26_gem/model.xml` next to this
   repository and expect SHA-256 `bc2aac8f…`.
-- **Saved vacuole run tests:** they skip until the run is present under
-  `$IYALI26_RESEARCH_ROOT/artifacts/tasks/`.
+- **Saved vacuole run tests:** they read the run from `$IYALI26_RESEARCH_ROOT/artifacts/tasks/`.
+  Two of them cannot pass anywhere but the original checkout:
+  - `test_actual_run_identity…` checks the code recorded in the run, which has since changed.
+  - `test_audit_saved_run…` follows an absolute path recorded in the run's manifest.
+- **Test-order coupling:** `test_lipid_moiety_ledger` sets cobra's global solver to GLPK, so
+  `test_vacuole_supply::test_xml_only_four_bounds…` fails after it. The test passes when run on
+  its own.
 - **Two pinned checks:** the dFBA Slurm-script pin and the missing `docs/lipid_moiety_ledger.md`.
 
 ## Paths recorded by earlier runs

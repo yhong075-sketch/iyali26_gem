@@ -1,0 +1,369 @@
+{
+  "checked_at_utc": "2026-09-15T22:43:13.105330+00:00",
+  "scope": "read-only static GPR and saved feasible WT witness; no new optimization or model mutation",
+  "sources": {
+    "model_metadata_trna_r153_merged.xml": "10a3baa1da5eb8afb80f93c4cf8a43c3613af7ebb92c8e3385dcda44b91695d0",
+    "artifacts/arginine_two_gene_screen_20260915/run_manifest.json": "f377b9b4206ce7ea6a98e0f31aadc1b237c3c3e92ccb59ad81048ceaa944d3fa",
+    "artifacts/screen_test_vph1like_20260911/essentiality_per_gene.tsv": "7232721349df674c100f24195b7039d714217cce8a2d66cf52d33110c0a9f54a",
+    "artifacts/proline_two_gene_mechanism_20260915/check.py": "284f4c071d616bd43dade67b4c149c4c24b953bdc4e4d729d1074a89bc441366"
+  },
+  "medium": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+    "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "active_medium": {
+      "R946": 1000.0,
+      "R971": 1000.0,
+      "R1003": 0.00489,
+      "R1016": 1000.0,
+      "R1029": 1000.0,
+      "R1030": 1000.0,
+      "R1070": 10.0,
+      "R1127": 1000.0,
+      "R1164": 1000.0,
+      "R1189": 6.67e-05,
+      "R1202": 0.02586,
+      "R1204": 0.05414,
+      "R1215": 0.00859,
+      "R1217": 0.03434,
+      "R1220": 0.02466,
+      "R1222": 0.01207,
+      "R1223": 0.02727,
+      "R1231": 0.07562,
+      "R1232": 0.02205,
+      "R1233": 0.02486,
+      "R1234": 0.10765,
+      "R1263": 1000.0,
+      "R1268": 1000.0,
+      "R1287": 1000.0,
+      "R1296": 1000.0,
+      "R1298": 1000.0,
+      "R1305": 1000.0,
+      "R1314": 1000.0,
+      "R1323": 1000.0,
+      "R1333": 1000.0,
+      "R1340": 1000.0,
+      "R1354": 1000.0,
+      "R1364": 1000.0,
+      "R2061": 1000.0,
+      "R2270": 1000.0
+    }
+  },
+  "strain_profile": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+    "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "audit": {
+      "schema_version": "1.0",
+      "workflow": "po1f_runtime_strain_overlay",
+      "profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain": {
+        "name": "PO1f",
+        "reference_background": "W29/CLIB89",
+        "genotype": "MatA, leu2-270, ura3-302, xpr2-322, axp-2",
+        "assay_background": "Cas9/Cas12a fitness screen with intact NHEJ; LEU2-marked sgRNA plasmid selected in SD-Leu"
+      },
+      "operations": [
+        {
+          "type": "disable_reaction",
+          "reaction_id": "R612",
+          "locus": "URA3",
+          "gene_id": "YALI1E31685g",
+          "legacy_gene_id": "YALI0E26741g",
+          "allele": "ura3-302",
+          "protein_function": "orotidine-5'-phosphate decarboxylase; de novo UMP biosynthesis",
+          "evidence_status": "PO1f genotype is directly reported; enzyme identity is curated; current GEM lacks this gene and R612 has no GPR",
+          "before": {
+            "lower_bound": 0.0,
+            "upper_bound": 1000.0
+          },
+          "after": {
+            "lower_bound": 0.0,
+            "upper_bound": 0.0
+          },
+          "changed": true
+        },
+        {
+          "type": "plasmid_complement",
+          "reaction_id": "R45",
+          "locus": "LEU2",
+          "gene_id": "YALI1C00464g",
+          "legacy_gene_id": "YALI0C00407g",
+          "allele": "leu2-270",
+          "complement_source": "pCas9yl-GW/pLbCas12ayl-GW library plasmid backbone carrying the LEU2 selectable marker",
+          "protein_function": "3-isopropylmalate dehydrogenase; leucine biosynthesis",
+          "evidence_status": "PO1f genotype, pCRISPRyl LEU2 marker, derivative library-vector construction, and SD-Leu selection are directly reported",
+          "pseudo_gene": "PO1f_plasmid_LEU2",
+          "before": {
+            "gene_reaction_rule": "YALI1C00464g"
+          },
+          "after": {
+            "gene_reaction_rule": "PO1f_plasmid_LEU2"
+          },
+          "changed": true
+        }
+      ],
+      "medium": {
+        "assertions_checked": {
+          "R1219": 0.0,
+          "R1354": 0.01607
+        },
+        "runtime_uptake_overrides": {
+          "R1354": 1000.0
+        },
+        "active_medium_before": {
+          "R1003": 0.00489,
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1127": 1000.0,
+          "R1164": 1000.0,
+          "R1189": 6.67e-05,
+          "R1202": 0.02586,
+          "R1204": 0.05414,
+          "R1215": 0.00859,
+          "R1217": 0.03434,
+          "R1219": 0.0,
+          "R1220": 0.02466,
+          "R1222": 0.01207,
+          "R1223": 0.02727,
+          "R1231": 0.07562,
+          "R1232": 0.02205,
+          "R1233": 0.02486,
+          "R1234": 0.10765,
+          "R1263": 1000.0,
+          "R1268": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1314": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1354": 0.01607,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0,
+          "R946": 1000.0,
+          "R971": 1000.0
+        },
+        "active_medium": {
+          "R1003": 0.00489,
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1127": 1000.0,
+          "R1164": 1000.0,
+          "R1189": 6.67e-05,
+          "R1202": 0.02586,
+          "R1204": 0.05414,
+          "R1215": 0.00859,
+          "R1217": 0.03434,
+          "R1219": 0.0,
+          "R1220": 0.02466,
+          "R1222": 0.01207,
+          "R1223": 0.02727,
+          "R1231": 0.07562,
+          "R1232": 0.02205,
+          "R1233": 0.02486,
+          "R1234": 0.10765,
+          "R1263": 1000.0,
+          "R1268": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1314": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1354": 1000.0,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0,
+          "R946": 1000.0,
+          "R971": 1000.0
+        },
+        "formulation": {
+          "uracil_mg_per_l": 20.0,
+          "uracil_millimolar": 0.1784280489,
+          "uracil_molecular_weight_g_per_mol": 112.09,
+          "glucose_g_per_l": 20.0,
+          "glucose_molecular_weight_g_per_mol": 180.156,
+          "glucose_uptake": 10.0,
+          "supply_ratio_surrogate_uptake": 0.0160724418,
+          "supply_ratio_surrogate_status": "concentration_ratio_surrogate_not_measured_vmax",
+          "runtime_override_status": "static_fba_nonlimiting_not_measured_vmax"
+        }
+      },
+      "active_medium": {
+        "R1003": 0.00489,
+        "R1016": 1000.0,
+        "R1029": 1000.0,
+        "R1030": 1000.0,
+        "R1070": 10.0,
+        "R1127": 1000.0,
+        "R1164": 1000.0,
+        "R1189": 6.67e-05,
+        "R1202": 0.02586,
+        "R1204": 0.05414,
+        "R1215": 0.00859,
+        "R1217": 0.03434,
+        "R1219": 0.0,
+        "R1220": 0.02466,
+        "R1222": 0.01207,
+        "R1223": 0.02727,
+        "R1231": 0.07562,
+        "R1232": 0.02205,
+        "R1233": 0.02486,
+        "R1234": 0.10765,
+        "R1263": 1000.0,
+        "R1268": 1000.0,
+        "R1287": 1000.0,
+        "R1296": 1000.0,
+        "R1298": 1000.0,
+        "R1305": 1000.0,
+        "R1314": 1000.0,
+        "R1323": 1000.0,
+        "R1333": 1000.0,
+        "R1340": 1000.0,
+        "R1354": 1000.0,
+        "R1364": 1000.0,
+        "R2061": 1000.0,
+        "R2270": 1000.0,
+        "R946": 1000.0,
+        "R971": 1000.0
+      },
+      "assay_confounded_loci": [
+        "URA3",
+        "LEU2"
+      ],
+      "provenance_only_variants": [
+        "xpr2-322 and axp-2 are recorded but have no current small-molecule GEM reaction",
+        "Cas9/Cas12a expression cassettes integrated at A08 are assay provenance only",
+        "KU70 is intact in the fitness screen; delta-KU70 strains were used only for guide cutting-score calibration"
+      ],
+      "sources": [
+        "https://www.nature.com/articles/s42003-023-04996-8",
+        "https://sunrisescience.com/shop/growth-media/amino-acid-supplement-mixtures/csm-formulations/csm-leu-powder-10-grams/",
+        "https://www.addgene.org/70007/"
+      ],
+      "overlay_already_applied": false,
+      "model_layer_modified_in_memory": true,
+      "canonical_sbml_written": false
+    }
+  },
+  "WT_growth": 1.8718823069402954,
+  "max_mass_residual": 2.943400189379941e-14,
+  "targets": {
+    "YALI1A20176g": {
+      "disabled_gprs": [
+        "R327"
+      ],
+      "saved_WT_flux_feasible_after_KO": true,
+      "max_bound_violation": 0.0
+    },
+    "YALI1E35815g": {
+      "disabled_gprs": [
+        "R332"
+      ],
+      "saved_WT_flux_feasible_after_KO": true,
+      "max_bound_violation": 0.0
+    }
+  },
+  "local_reactions": {
+    "R1210": {
+      "name": "L-glutamate 5-semialdehyde dehydratase",
+      "equation": "L-glutamic 5-semialdehyde_C5H9NO3 <=> H+_p+1 + H2O_H2O + 1-pyrroline-5-carboxylate_C5H6NO2",
+      "gpr": "",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 1.5197867293031562
+    },
+    "R1931": {
+      "name": "L-Glutamate 5-semialdehyde:NAD+ oxidoreductase",
+      "equation": "NAD_C21H27N7O14P2 + H2O_H2O + L-glutamic 5-semialdehyde_C5H9NO3 <=> NADH_C21H29N7O14P2 + L-glutamate_C5H9NO4",
+      "gpr": "YALI1B12993g",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": -1.5197867293031562
+    },
+    "R327": {
+      "name": "glutamate 5-kinase",
+      "equation": "ATP_C10H16N5O13P3 + L-glutamate_C5H9NO4 --> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + L-gamma-glutamyl phosphate_C5H8NO7P",
+      "gpr": "YALI1A20176g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R332": {
+      "name": "glutamate-5-semialdehyde dehydrogenase",
+      "equation": "3.0 H+_p+1 + NADPH_C21H30N7O17P3 + L-gamma-glutamyl phosphate_C5H8NO7P --> phosphate_H3O4P + NADP(+)_C21H28N7O17P3 + L-glutamic 5-semialdehyde_C5H9NO3",
+      "gpr": "YALI1E35815g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R610": {
+      "name": "ornithine transaminase",
+      "equation": "ornithine_C5H13N2O2 + 2-oxoglutarate_C5H6O5 --> H+_p+1 + L-glutamate_C5H9NO4 + L-glutamic 5-semialdehyde_C5H9NO3",
+      "gpr": "YALI1C05908g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R689": {
+      "name": "pyrroline-5-carboxylate reductase",
+      "equation": "2.0 H+_p+1 + NADPH_C21H30N7O17P3 + 1-pyrroline-5-carboxylate_C5H6NO2 --> NADP(+)_C21H28N7O17P3 + L-proline_C5H9NO2",
+      "gpr": "YALI1B18955g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 1.5197867293031562
+    }
+  },
+  "original_screen_rows": [
+    {
+      "gene_id": "YALI1A20176g",
+      "source_gene_id": "YALI1_A20176g",
+      "source_sheet": "Sheet1",
+      "source_row": "677",
+      "source_putative_function": "similar to Saccharomyces cerevisiae PRO1 (YDR300C) and YHR033W%3B ancestral locus Anc_5.318,  similar to uniprot|P32264 Saccharomyces cerevisiae YDR300c PRO1 glutamate 5-kinase",
+      "function_evidence": "Source putative annotation; not newly verified",
+      "verified_symbol": "not verified in this analysis",
+      "model_associated_reactions": "R327: glutamate 5-kinase",
+      "experimental_label": "essential",
+      "in_screen": "True",
+      "ko_growth_ratio": "0.9999999999999981",
+      "classification_at_10pct": "FN",
+      "exclusion_reason": ""
+    },
+    {
+      "gene_id": "YALI1E35815g",
+      "source_gene_id": "YALI1_E35815g",
+      "source_sheet": "Sheet1",
+      "source_row": "487",
+      "source_putative_function": "similar to Saccharomyces cerevisiae PRO2 (YOR323C)%3B ancestral locus Anc_7.71,  similar to uniprot|P54885 Saccharomyces cerevisiae YOR323c PRO2 gamma-glutamyl phosphate reductase",
+      "function_evidence": "Source putative annotation; not newly verified",
+      "verified_symbol": "not verified in this analysis",
+      "model_associated_reactions": "R332: glutamate-5-semialdehyde dehydrogenase",
+      "experimental_label": "essential",
+      "in_screen": "True",
+      "ko_growth_ratio": "0.999999999999975",
+      "classification_at_10pct": "FN",
+      "exclusion_reason": ""
+    }
+  ]
+}

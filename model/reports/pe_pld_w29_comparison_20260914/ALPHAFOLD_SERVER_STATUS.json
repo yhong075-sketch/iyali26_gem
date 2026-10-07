@@ -1,0 +1,154 @@
+{
+  "recorded_at_utc": "2026-09-14T21:15:09.436694+00:00",
+  "authorization": "用网页版的预测",
+  "service": "Google DeepMind AlphaFold Server",
+  "service_url": "https://alphafoldserver.com/",
+  "prediction_model": "AlphaFold 3",
+  "model_build_version": "AlphaFold-beta-20231127 (baa66c34-2f7c-455c-9d77-f686cf8a9237 @ 2026-09-14 12:50:28)",
+  "job_name": "W29_YALI1E22633g_AOW05630_1_1829aa_20260914",
+  "job_id": "4ba24dc5f1f66c93",
+  "job_url": "https://alphafoldserver.com/fold/4ba24dc5f1f66c93",
+  "browser_tab_id": "1246009713",
+  "state": "complete_downloaded_verified",
+  "exact_backend_stage_unknown": false,
+  "submission_click_count": 1,
+  "server_job_row_observed": true,
+  "remaining_jobs_before": 30,
+  "remaining_jobs_after": 29,
+  "server_displayed_modified_time": "2026-09-14 12:50",
+  "server_displayed_timezone_interpretation": "America/Los_Angeles",
+  "actual_start_at_utc": null,
+  "actual_end_at_utc": null,
+  "target": {
+    "gene": "YALI1E22633g",
+    "old_locus": "YALI0E18898g",
+    "literature_name": "SPO14",
+    "protein_function": "SPO14-like phospholipase D candidate; PE hydrolysis uncharacterized",
+    "accession": "AOW05630.1",
+    "strain": "CLIB89(W29)",
+    "length": 1829,
+    "sequence_sha256": "4330de351517f9142cef7f2d0213894a4aa48e5050915096fe74790e736415ea",
+    "fasta_sha256": "135523590ed18bde211f75d786a6ae715a81dd20918a3169cb9599a4a9185165",
+    "entity_type": "Protein",
+    "copies": 1,
+    "ligands": [],
+    "modifications": []
+  },
+  "seed": 1,
+  "seed_count": 1,
+  "msa_and_template_settings": "Downloaded request: useStructureTemplate=true. No custom MSA or templates supplied at submission; paired/unpaired MSA and four templates included in archive. Exact database release and template date cutoff not recorded in request; unknown.",
+  "ui_sequence_checks": {
+    "input_display_contains_entire_entered_sequence": true,
+    "post_submit_residue_display_length": 1829,
+    "post_submit_entire_display_matches_entered_sequence": true,
+    "downloaded_server_request_verified": true
+  },
+  "resource_limits": "Provider-managed; do not transfer HPCC GPU/CPU/RAM/walltime settings. UI reports 5000-token total job limit.",
+  "site_wait_estimate": "up to 30 minutes for new jobs; not a task-specific guarantee",
+  "outputs_retrieved": true,
+  "pLDDT": {
+    "source": "CIF C-alpha atoms, website-displayed model 0",
+    "mean": 62.85617823947513,
+    "regions": {
+      "HKD1_733_760": {
+        "ca_plddt": {
+          "n": 28,
+          "mean": 93.77785714285713,
+          "median": 95.245,
+          "min": 80.5,
+          "max": 96.94
+        },
+        "within_pae_A": {
+          "n": 784,
+          "mean": 2.107397959183674,
+          "median": 1.7,
+          "min": 0.8,
+          "max": 10.5
+        }
+      },
+      "HKD2_1038_1065": {
+        "ca_plddt": {
+          "n": 28,
+          "mean": 95.92357142857144,
+          "median": 96.03,
+          "min": 91.8,
+          "max": 97.84
+        },
+        "within_pae_A": {
+          "n": 784,
+          "mean": 1.6192602040816326,
+          "median": 1.5,
+          "min": 0.8,
+          "max": 3.9
+        }
+      }
+    }
+  },
+  "PAE": {
+    "pae_rows_HKD1_cols_HKD2_A": {
+      "n": 784,
+      "mean": 2.6346938775510202,
+      "median": 2.3,
+      "min": 1.1,
+      "max": 9.7
+    },
+    "pae_rows_HKD2_cols_HKD1_A": {
+      "n": 784,
+      "mean": 2.1496173469387756,
+      "median": 2.1,
+      "min": 0.9,
+      "max": 4.5
+    }
+  },
+  "existing_hpcc_job": "28375032",
+  "hpcc_cancellation_performed": false,
+  "hpcc_resources_modified": false,
+  "scope": "Exactly one full-length single-chain website prediction, no automatic resubmit; no model/GPR/medium/label mutations.",
+  "source_links": [
+    "https://alphafoldserver.com/welcome",
+    "https://alphafoldserver.com/faq",
+    "https://alphafoldserver.com/output-terms"
+  ],
+  "submission_observation": {
+    "recorded_at_utc": "2026-09-14T19:48:33.581335+00:00",
+    "state": "in_progress",
+    "server_displayed_modified_time": "2026-09-14 12:45",
+    "outputs_retrieved": false
+  },
+  "ptm": 0.64,
+  "result": {
+    "retrieval": {
+      "retrieved_at_utc": "2026-09-14T21:07:49.647356+00:00",
+      "source_url": "https://alphafoldserver.com/fold/4ba24dc5f1f66c93",
+      "download_url": "https://alphafoldserver.com/_/v2/folds/4ba24dc5f1f66c93/fold.zip",
+      "acquisition": "Official Download link in authenticated user browser",
+      "file": "artifacts/pe_pld_w29_comparison_20260914/alphafold3_results.zip",
+      "sha256": "bfcb1f4f73a7b4d4d184764e6b3267a93d45c5537ae173600e2dfbaf67c6d6a7",
+      "bytes": 20486317,
+      "entries": 24,
+      "uncompressed_bytes": 261030148
+    },
+    "sample_count": 5,
+    "quality_report": "AF3_QUALITY.json",
+    "human_report": "AF3_RESULT_REPORT.md",
+    "request_schema_version": 3,
+    "all_cif_sequences_match_target": true,
+    "interpretation": "AlphaFold prediction; PE hydrolysis and free ethanolamine production remain unverified.",
+    "preservation": {
+      "path": "model_metadata_trna.xml",
+      "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+      "matches_previous": true,
+      "git_head": "a286d18d14bbcb404e8e00f4691c54e6fc81d1db",
+      "working_tree_clean": false,
+      "scope": "Prior dirty state and other work preserved, no environment reconstruction claimed."
+    },
+    "analysis_validation": "5 samples processed; exact sequence, residue numbering, atom count, finite pLDDT/PAE and matrix dimensions checked. Independent audit found 0 discrepancies in 312 cross-checked data fields.",
+    "audit_file": "AF3_SOURCE_AUDIT.md",
+    "outputs": {
+      "AF3_QUALITY.json": "0b59c7dd90e09ed30388bab1cb7b5868622a0dc0e02cb672144ef95b8c9430bf",
+      "AF3_RESULT_REPORT.md": "111a7e5f4aa2ac81a461faf469ac803467b22071297cf2f7ecaaf61235c7b728",
+      "AF3_quality.png": "c06102403e384a51cd447df69d95d87018169319d6a4e378fbe314673aa77cb1",
+      "analyze_af3.py": "d67a0f227a7135d8b69714f795ec3e7396cd4ec9c7a9536ca83aaade55e231a9"
+    }
+  }
+}

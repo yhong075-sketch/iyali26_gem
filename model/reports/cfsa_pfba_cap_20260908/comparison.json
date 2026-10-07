@@ -1,0 +1,126 @@
+{
+  "scope": "One new capped producing pilot versus preserved uncapped producing and growing pilots",
+  "scenarios": [
+    {
+      "condition": "Growing",
+      "n": 500,
+      "cap": 1223.3176651109031,
+      "max_mass_balance_residual": 5.040634576403136e-12,
+      "max_net_bound_violation": 4.098094158756077e-10,
+      "independent_valid": 500,
+      "varying_reactions": 1369,
+      "median_lag1": 0.9258577312720875,
+      "lag1_above_0_9": 941,
+      "half_chain_shift_above_1_sd": 107,
+      "l1_net_flux": {
+        "mean": 1092.348891146495,
+        "min": 1070.6916633374965,
+        "max": 1222.0974423708944
+      },
+      "growth": {
+        "mean": 1.3200240709624627,
+        "min": 1.3185692485707017,
+        "max": 1.3427830685722018
+      },
+      "lipid_demand": {
+        "mean": 0.026162509144479366,
+        "min": 2.7681377159792128e-05,
+        "max": 0.08005361606448202
+      },
+      "glucose_uptake": {
+        "mean": 9.956662597911855,
+        "min": 9.812451289063917,
+        "max": 9.999955285255368
+      }
+    },
+    {
+      "condition": "Producing",
+      "n": 500,
+      "cap": null,
+      "max_mass_balance_residual": 3.8863662288335377e-11,
+      "max_net_bound_violation": 1.3372787499364957e-13,
+      "independent_valid": 500,
+      "varying_reactions": 1369,
+      "median_lag1": 0.9094342203893198,
+      "lag1_above_0_9": 766,
+      "half_chain_shift_above_1_sd": 77,
+      "l1_net_flux": {
+        "mean": 45545.487992790295,
+        "min": 34765.21263875465,
+        "max": 77197.3073791261
+      },
+      "growth": {
+        "mean": 0.14696209110378117,
+        "min": 0.1465083849614141,
+        "max": 0.15087051502960766
+      },
+      "lipid_demand": {
+        "mean": 23.749121821746822,
+        "min": 23.740118881126378,
+        "max": 23.78771005216981
+      },
+      "glucose_uptake": {
+        "mean": 9.995114984854029,
+        "min": 9.977290976825222,
+        "max": 9.99994480686977
+      }
+    },
+    {
+      "condition": "Producing + cap",
+      "n": 500,
+      "cap": 2330.701999560738,
+      "max_mass_balance_residual": 5.917909059945013e-12,
+      "max_net_bound_violation": 2.8898947480160215e-09,
+      "max_split_bound_violation": 2.8898947480160215e-09,
+      "mean_split_total": 2329.476592665788,
+      "max_split_total": 2330.7017109482176,
+      "max_cap_violation": 0.0,
+      "max_split_minus_net_l1": 279.0636457442679,
+      "independent_valid": 500,
+      "varying_reactions": 1369,
+      "median_lag1": 0.9329129480459972,
+      "lag1_above_0_9": 998,
+      "half_chain_shift_above_1_sd": 46,
+      "l1_net_flux": {
+        "mean": 2210.631554569149,
+        "min": 2049.938543224537,
+        "max": 2329.6815046142638
+      },
+      "growth": {
+        "mean": 0.14699884650109407,
+        "min": 0.14650768565188427,
+        "max": 0.14864698499729898
+      },
+      "lipid_demand": {
+        "mean": 23.748624453494333,
+        "min": 23.740086597783797,
+        "max": 23.807462244875747
+      },
+      "glucose_uptake": {
+        "mean": 9.980319140554489,
+        "min": 9.866530286253841,
+        "max": 9.999679037831218
+      }
+    }
+  ],
+  "minimum_total_flux": 1864.5615996485903,
+  "cap": 2330.701999560738,
+  "uncapped_to_growing_ratio": 41.69500089388766,
+  "capped_to_growing_ratio": 2.0237412904305145,
+  "cap_to_growing_mean_ratio_bound": 2.133660791392855,
+  "minimum_to_growing_mean_ratio": 1.7069286331142839,
+  "net_flux_reduction_percent": 95.14632150846845,
+  "saved_data_validation": "All3x500 net points pass; all500 new split points pass variable bounds and cap independently per row",
+  "limitations": "Descriptive single short chains, not independent biological replicates or converged estimates; same seed does not imply paired samples; cap is not proof of looplessness",
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/minimum.npz": "bce2187ef113cd3c07da3b1cb3688cfc9f425cd7f9d22e2943646e2696004557",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/completed_result.json": "97816e782a0152cdc42d9513b4d68eab7f60b729297d68b1e95f1c39b50a6ef9",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_pfba_cap_20260908/samples.npz": "63216776042665e16975f6ba80382bf0a5581751e654a9beacd6016b8d189ec5",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.npz": "074f0ff312dfd9f9a7c9de72da3fae0e1c09a9239bdf2b6d7eaa223b57c9df5d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.json.gz": "03f8d261548bf319e92e0466ac5d0f01b57a62545503592cca88bb88ca66e20e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.npz": "f40901550ce7c578421a9e073d67f5e3bfb77f2831c4e9599383ec704ff253aa"
+  },
+  "analysis_code_sha256": "19249c47c85d494cb6d9ac463f4b0f9939931c36556213b5adfc5fbdbda269bb",
+  "new_solver_calls": 0
+}

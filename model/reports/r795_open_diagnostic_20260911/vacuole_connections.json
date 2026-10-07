@@ -1,0 +1,405 @@
+[
+  {
+    "id": "R1363",
+    "name": "water diffusion",
+    "bounds": [
+      0.0,
+      0.0
+    ],
+    "equation": "m32[C_cy] --> m1384[C_va]",
+    "species": {
+      "m32[C_cy]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": -1.0
+      },
+      "m1384[C_va]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2021",
+    "name": "cytosol nonspecific dipeptidase",
+    "bounds": [
+      0.0,
+      1000.0
+    ],
+    "equation": "m1384[C_va] + m1871[C_va] --> m1067[C_va] + m1863[C_va]",
+    "species": {
+      "m1384[C_va]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": -1.0
+      },
+      "m1871[C_va]": {
+        "name": "Gly-Asp",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1067[C_va]": {
+        "name": "L-aspartate_C4H7NO4",
+        "formula": "C4H7NO4",
+        "coefficient": 1.0
+      },
+      "m1863[C_va]": {
+        "name": "L-glycine",
+        "formula": null,
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2029",
+    "name": "cytosol nonspecific dipeptidase",
+    "bounds": [
+      0.0,
+      1000.0
+    ],
+    "equation": "m1384[C_va] + m1862[C_va] --> m1071[C_va] + m1863[C_va]",
+    "species": {
+      "m1384[C_va]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": -1.0
+      },
+      "m1862[C_va]": {
+        "name": "Gly_Glu",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1071[C_va]": {
+        "name": "L-glutamate_C5H9NO4",
+        "formula": "C5H9NO4",
+        "coefficient": 1.0
+      },
+      "m1863[C_va]": {
+        "name": "L-glycine",
+        "formula": null,
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2034",
+    "name": "cytosol nonspecific dipeptidase",
+    "bounds": [
+      0.0,
+      1000.0
+    ],
+    "equation": "m1384[C_va] + m1878[C_va] --> m1863[C_va] + m1879[C_va]",
+    "species": {
+      "m1384[C_va]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": -1.0
+      },
+      "m1878[C_va]": {
+        "name": "Ala-Gly",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1863[C_va]": {
+        "name": "L-glycine",
+        "formula": null,
+        "coefficient": 1.0
+      },
+      "m1879[C_va]": {
+        "name": "L-alanine",
+        "formula": "C3H7NO2",
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2039",
+    "name": "cytosol nonspecific dipeptidase",
+    "bounds": [
+      0.0,
+      1000.0
+    ],
+    "equation": "m1384[C_va] + m1866[C_va] --> m1863[C_va] + m1867[C_va]",
+    "species": {
+      "m1384[C_va]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": -1.0
+      },
+      "m1866[C_va]": {
+        "name": "Gly-Pro",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1863[C_va]": {
+        "name": "L-glycine",
+        "formula": null,
+        "coefficient": 1.0
+      },
+      "m1867[C_va]": {
+        "name": "L-proline",
+        "formula": "C5H9NO2",
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2020",
+    "name": "Gly-Asp transport via proton antiport",
+    "bounds": [
+      -1000.0,
+      1000.0
+    ],
+    "equation": "m10[C_cy] + m1870[C_cy] <=> m1007[C_va] + m1871[C_va]",
+    "species": {
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m1870[C_cy]": {
+        "name": "Gly-Asp",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m1871[C_va]": {
+        "name": "Gly-Asp",
+        "formula": null,
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2028",
+    "name": "Gly-glu transport via proton antiport",
+    "bounds": [
+      -1000.0,
+      1000.0
+    ],
+    "equation": "m10[C_cy] + m1861[C_cy] <=> m1007[C_va] + m1862[C_va]",
+    "species": {
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m1861[C_cy]": {
+        "name": "Gly_Glu",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m1862[C_va]": {
+        "name": "Gly_Glu",
+        "formula": null,
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2030",
+    "name": "Glycine transport (vacuole)",
+    "bounds": [
+      -1000.0,
+      1000.0
+    ],
+    "equation": "m10[C_cy] + m272[C_cy] <=> m1007[C_va] + m1863[C_va]",
+    "species": {
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m272[C_cy]": {
+        "name": "L-glycine_C2H5NO2",
+        "formula": "C2H5NO2",
+        "coefficient": -1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m1863[C_va]": {
+        "name": "L-glycine",
+        "formula": null,
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2038",
+    "name": "Gly-Pro transport via proton antiport",
+    "bounds": [
+      -1000.0,
+      1000.0
+    ],
+    "equation": "m10[C_cy] + m1865[C_cy] <=> m1007[C_va] + m1866[C_va]",
+    "species": {
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m1865[C_cy]": {
+        "name": "Gly-Pro",
+        "formula": null,
+        "coefficient": -1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m1866[C_va]": {
+        "name": "Gly-Pro",
+        "formula": null,
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R2040",
+    "name": "proline transport (vacuole)",
+    "bounds": [
+      -1000.0,
+      1000.0
+    ],
+    "equation": "m10[C_cy] + m765[C_cy] <=> m1007[C_va] + m1867[C_va]",
+    "species": {
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m765[C_cy]": {
+        "name": "L-proline_C5H9NO2",
+        "formula": "C5H9NO2",
+        "coefficient": -1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m1867[C_va]": {
+        "name": "L-proline",
+        "formula": "C5H9NO2",
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R882",
+    "name": "L-isoleucine transport",
+    "bounds": [
+      0.0,
+      1000.0
+    ],
+    "equation": "m1007[C_va] + m743[C_cy] --> m1076[C_va] + m10[C_cy]",
+    "species": {
+      "m743[C_cy]": {
+        "name": "L-isoleucine_C6H13NO2",
+        "formula": "C6H13NO2",
+        "coefficient": -1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m1076[C_va]": {
+        "name": "L-isoleucine_C6H13NO2",
+        "formula": "C6H13NO2",
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R883",
+    "name": "L-isoleucine transport",
+    "bounds": [
+      0.0,
+      0.0
+    ],
+    "equation": "m1007[C_va] + m1076[C_va] --> m10[C_cy] + m743[C_cy]",
+    "species": {
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -1.0
+      },
+      "m1076[C_va]": {
+        "name": "L-isoleucine_C6H13NO2",
+        "formula": "C6H13NO2",
+        "coefficient": -1.0
+      },
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 1.0
+      },
+      "m743[C_cy]": {
+        "name": "L-isoleucine_C6H13NO2",
+        "formula": "C6H13NO2",
+        "coefficient": 1.0
+      }
+    }
+  },
+  {
+    "id": "R795",
+    "name": "V-ATPase, vacuole",
+    "bounds": [
+      0.0,
+      0.0
+    ],
+    "equation": "2.0 m10[C_cy] + m141[C_cy] + m32[C_cy] --> 2.0 m1007[C_va] + m143[C_cy] + m35[C_cy]",
+    "species": {
+      "m10[C_cy]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": -2.0
+      },
+      "m32[C_cy]": {
+        "name": "H2O_H2O",
+        "formula": "H2O",
+        "coefficient": -1.0
+      },
+      "m141[C_cy]": {
+        "name": "ATP_C10H16N5O13P3",
+        "formula": "C10H16N5O13P3",
+        "coefficient": -1.0
+      },
+      "m35[C_cy]": {
+        "name": "phosphate_H3O4P",
+        "formula": "H3O4P",
+        "coefficient": 1.0
+      },
+      "m143[C_cy]": {
+        "name": "ADP_C10H15N5O10P2",
+        "formula": "C10H15N5O10P2",
+        "coefficient": 1.0
+      },
+      "m1007[C_va]": {
+        "name": "H+_p+1",
+        "formula": "H",
+        "coefficient": 2.0
+      }
+    }
+  }
+]

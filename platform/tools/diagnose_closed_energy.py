@@ -18,6 +18,7 @@ from scripts.gem_annotate.config import resolve_recorded_path
 from scripts.gem_annotate.model_layout import PLATFORM_ROOT
 ROOT = Path(__file__).resolve().parents[2]
 from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.config import load_project_paths
 DEFAULT = MODEL.reports / 'dipeptide_energy_audit_20260924'
 
 
@@ -32,7 +33,8 @@ def configure_solver(model, config):
 
 def workspace(path):
     path = resolve_recorded_path(path)
-    if not path.is_relative_to(ROOT):
+    # Authorized: the repository and the research workspace's task outputs.
+    if not any(path.is_relative_to(root) for root in (ROOT, load_project_paths().task_outputs)):
         raise ValueError('Path escapes authorized workspace: ' + str(path))
     return path
 

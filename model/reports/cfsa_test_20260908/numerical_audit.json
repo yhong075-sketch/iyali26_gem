@@ -1,0 +1,568 @@
+{
+  "audit_id": "cfsa_numerical_audit_20260908",
+  "verified_at_utc": "2026-09-08T07:13:29.127024+00:00",
+  "status": "independent_recalculation_of_saved_data_not_resampling_or_formal_model_validation",
+  "scope": {
+    "solver_calls": 0,
+    "sampler_calls": 0,
+    "model_imported_into_cobra": false,
+    "model_json_parsed_as_data": true,
+    "input_or_main_script_modified": false,
+    "time_budget_seconds": 300,
+    "allowed_outputs": [
+      "NUMERICAL_AUDIT.md",
+      "numerical_audit.json"
+    ]
+  },
+  "environment": {
+    "python_executable": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "python_version": "3.13.7",
+    "numpy_version": "2.3.3",
+    "independent_from_original_run": true,
+    "original_run_software_as_recorded": {
+      "cobra": "0.30.0",
+      "optlang": "1.8.3",
+      "gurobipy": "13.0.1",
+      "numpy": "2.4.3",
+      "pandas": "2.3.3",
+      "scipy": "1.18.0",
+      "python": "3.13.5",
+      "executable": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python"
+    }
+  },
+  "source_identity": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/result.json",
+      "sha256": "ad3109999c9db706a2c8b187480eba9e6fe0ab1b6c4ba38af398dafb3e77e446",
+      "size_bytes": 15865
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/plan.json",
+      "sha256": "36c7d950ef3387423751c10b7b14a20533b4ba9c353ec876a9ea620d1a383c6b",
+      "size_bytes": 1694
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/run_cfsa.py",
+      "sha256": "de150d38ce5836ee4b47b9b81a365f1c3925435e7c4d1aebbae2f68fcf268f3e",
+      "size_bytes": 10516
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/sample_diagnostics.json",
+      "sha256": "28253f66d58fb4021cf3540fb1346fe93e9abd2f10b2819873852010e7f28472",
+      "size_bytes": 5636
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.npz",
+      "sha256": "f40901550ce7c578421a9e073d67f5e3bfb77f2831c4e9599383ec704ff253aa",
+      "size_bytes": 4647413
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_0.json.gz",
+      "sha256": "03f8d261548bf319e92e0466ac5d0f01b57a62545503592cca88bb88ca66e20e",
+      "size_bytes": 484137
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_1.npz",
+      "sha256": "c58b73326d57db89302660510551c0d02e502abb7c09fb5cf5566d7fb4f47417",
+      "size_bytes": 4702541
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_1.json.gz",
+      "sha256": "e4df41930f4ee33f1a5f3a955e0771fc0bd2f403d0ea00e1d3d41bfcf890a038",
+      "size_bytes": 484153
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.npz",
+      "sha256": "074f0ff312dfd9f9a7c9de72da3fae0e1c09a9239bdf2b6d7eaa223b57c9df5d",
+      "size_bytes": 4580931
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/scenario_2.json.gz",
+      "sha256": "3296863c5fa0be686098e55de78aaf8dffd660b869ce89e716ba518ec3dab61d",
+      "size_bytes": 484147
+    }
+  ],
+  "protected_file_check": {
+    "count": 16,
+    "match_count": 16,
+    "files": [
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/baseline_manifest.json",
+        "expected_sha256": "af952e321d139a0f7a7704dbdcbe631f51e79bea8de24d90a54a95268e4e7e70",
+        "actual_sha256": "af952e321d139a0f7a7704dbdcbe631f51e79bea8de24d90a54a95268e4e7e70",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/plan.json",
+        "expected_sha256": "36c7d950ef3387423751c10b7b14a20533b4ba9c353ec876a9ea620d1a383c6b",
+        "actual_sha256": "36c7d950ef3387423751c10b7b14a20533b4ba9c353ec876a9ea620d1a383c6b",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/run_cfsa.py",
+        "expected_sha256": "de150d38ce5836ee4b47b9b81a365f1c3925435e7c4d1aebbae2f68fcf268f3e",
+        "actual_sha256": "de150d38ce5836ee4b47b9b81a365f1c3925435e7c4d1aebbae2f68fcf268f3e",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml",
+        "expected_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+        "actual_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv",
+        "expected_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+        "actual_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+        "expected_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+        "actual_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+        "match": true
+      },
+      {
+        "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/essentiality_simulation_context.py",
+        "expected_sha256": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+        "actual_sha256": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+        "match": true
+      },
+      {
+        "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/strain_overlay.py",
+        "expected_sha256": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+        "actual_sha256": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/__init__.py",
+        "expected_sha256": "90a19069199527e1d233f5715636389c696c1ed94bfee119ce3d29882fff4f58",
+        "actual_sha256": "90a19069199527e1d233f5715636389c696c1ed94bfee119ce3d29882fff4f58",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/multilevelpool.py",
+        "expected_sha256": "0ab7e4862627f72a691079288113b6f0bef31ed2769889d95985dffb8f1e2b8c",
+        "actual_sha256": "0ab7e4862627f72a691079288113b6f0bef31ed2769889d95985dffb8f1e2b8c",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/sampling.py",
+        "expected_sha256": "35bb4b1e650c2e32e4b665f2b0581dfa6c726320dc5dd0c13f5a260478ce6450",
+        "actual_sha256": "35bb4b1e650c2e32e4b665f2b0581dfa6c726320dc5dd0c13f5a260478ce6450",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/upstream/sampling_tools/util.py",
+        "expected_sha256": "c54c218fccaf001c4341ccaf65506e724f9a4f5cd854f366f1caca00acb831d0",
+        "actual_sha256": "c54c218fccaf001c4341ccaf65506e724f9a4f5cd854f366f1caca00acb831d0",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/__init__.py",
+        "expected_sha256": "90a19069199527e1d233f5715636389c696c1ed94bfee119ce3d29882fff4f58",
+        "actual_sha256": "90a19069199527e1d233f5715636389c696c1ed94bfee119ce3d29882fff4f58",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/multilevelpool.py",
+        "expected_sha256": "0ab7e4862627f72a691079288113b6f0bef31ed2769889d95985dffb8f1e2b8c",
+        "actual_sha256": "0ab7e4862627f72a691079288113b6f0bef31ed2769889d95985dffb8f1e2b8c",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/sampling.py",
+        "expected_sha256": "4be17353e443068a9b5a915aa812e2fdba4ab8e59f692d16d1bbfaff00249cb0",
+        "actual_sha256": "4be17353e443068a9b5a915aa812e2fdba4ab8e59f692d16d1bbfaff00249cb0",
+        "match": true
+      },
+      {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/cfsa_test_20260908/compatible/sampling_tools/util.py",
+        "expected_sha256": "e8b0b581b9befe16b7c110033b3477d17e3f834a666b14f77c02fd854c6a98ac",
+        "actual_sha256": "e8b0b581b9befe16b7c110033b3477d17e3f834a666b14f77c02fd854c6a98ac",
+        "match": true
+      }
+    ]
+  },
+  "budget_check": {
+    "recorded_backend_calls": 13480,
+    "declared_max_backend_calls": 14000,
+    "recorded_elapsed_seconds": 113.00301899999613,
+    "timestamp_elapsed_seconds": 113.003166,
+    "declared_wall_seconds": 1200,
+    "recorded_within_budgets": true,
+    "historical_calls_or_runtime_independently_reproduced": false
+  },
+  "plan_matches_embedded_result_plan": true,
+  "scenarios": [
+    {
+      "index": 0,
+      "condition": "Growing",
+      "shape": [
+        500,
+        2314
+      ],
+      "all_finite": true,
+      "saved_validation_v_count": 500,
+      "independent_projected_valid": 500,
+      "projection_abs_tolerance": 1e-07,
+      "max_mass_balance_residual": 5.040634576403136e-12,
+      "max_bound_violation": 4.098094158756077e-10,
+      "net_l1_cap": 1223.3176651109031,
+      "max_net_l1_cap_violation": 0.0,
+      "mean_l1_net_flux": 1092.348891146495,
+      "max_l1_net_flux": 1222.0974423708944,
+      "varying_reactions": 1369,
+      "varying_definition": "peak-to-peak net flux > 1e-7",
+      "lag1_definition": "Pearson correlation of samples[0:499] and samples[1:500], per varying reaction",
+      "median_lag1_varying": 0.9258577312720875,
+      "lag1_above_0_9": 941,
+      "selected_fluxes": {
+        "biomass_C": {
+          "mean": 1.3200240709624627,
+          "min": 1.3185692485707017,
+          "max": 1.3427830685722018
+        },
+        "CFSA_DM_lipids": {
+          "mean": 0.026162509144479366,
+          "min": 2.7681377159792128e-05,
+          "max": 0.08005361606448202
+        }
+      },
+      "demand": {
+        "id": "CFSA_DM_lipids",
+        "metabolites": {
+          "m1727[C_cy]": -1
+        },
+        "bounds": [
+          0,
+          1000
+        ]
+      },
+      "recorded_seed": 20260908,
+      "seed_matches_plan": true,
+      "recorded_sampler_retries": 1,
+      "comparison_with_saved_diagnostics": {
+        "max_mass_balance_residual": {
+          "saved": 5.040634576403136e-12,
+          "independent": 5.040634576403136e-12,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "max_bound_violation": {
+          "saved": 4.098094158756077e-10,
+          "independent": 4.098094158756077e-10,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "mean_l1_net_flux": {
+          "saved": 1092.348891146495,
+          "independent": 1092.348891146495,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "max_l1_net_flux": {
+          "saved": 1222.0974423708944,
+          "independent": 1222.0974423708944,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "median_lag1_varying": {
+          "saved": 0.9258577312720875,
+          "independent": 0.9258577312720875,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        }
+      }
+    },
+    {
+      "index": 1,
+      "condition": "Slow growing",
+      "shape": [
+        500,
+        2314
+      ],
+      "all_finite": true,
+      "saved_validation_v_count": 500,
+      "independent_projected_valid": 500,
+      "projection_abs_tolerance": 1e-07,
+      "max_mass_balance_residual": 9.855713918488344e-10,
+      "max_bound_violation": 3.6244747580974355e-09,
+      "net_l1_cap": 310.806297395808,
+      "max_net_l1_cap_violation": 0.0,
+      "mean_l1_net_flux": 288.40464274167005,
+      "max_l1_net_flux": 307.13133539810343,
+      "varying_reactions": 1369,
+      "varying_definition": "peak-to-peak net flux > 1e-7",
+      "lag1_definition": "Pearson correlation of samples[0:499] and samples[1:500], per varying reaction",
+      "median_lag1_varying": 0.9085758841881814,
+      "lag1_above_0_9": 779,
+      "selected_fluxes": {
+        "biomass_C": {
+          "mean": 0.14738054869433245,
+          "min": 0.14650805418600513,
+          "max": 0.15336917631647048
+        },
+        "CFSA_DM_lipids": {
+          "mean": 0.0470520629501119,
+          "min": 0.00042146422981097985,
+          "max": 0.12765652972621425
+        }
+      },
+      "demand": {
+        "id": "CFSA_DM_lipids",
+        "metabolites": {
+          "m1727[C_cy]": -1
+        },
+        "bounds": [
+          0,
+          1000
+        ]
+      },
+      "recorded_seed": 20260909,
+      "seed_matches_plan": true,
+      "recorded_sampler_retries": 0,
+      "comparison_with_saved_diagnostics": {
+        "max_mass_balance_residual": {
+          "saved": 9.855713918488344e-10,
+          "independent": 9.855713918488344e-10,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "max_bound_violation": {
+          "saved": 3.6244747580974355e-09,
+          "independent": 3.6244747580974355e-09,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "mean_l1_net_flux": {
+          "saved": 288.40464274167005,
+          "independent": 288.40464274167005,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "max_l1_net_flux": {
+          "saved": 307.13133539810343,
+          "independent": 307.13133539810343,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "median_lag1_varying": {
+          "saved": 0.9085758841881814,
+          "independent": 0.9085758841881814,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        }
+      }
+    },
+    {
+      "index": 2,
+      "condition": "Producing",
+      "shape": [
+        500,
+        2314
+      ],
+      "all_finite": true,
+      "saved_validation_v_count": 500,
+      "independent_projected_valid": 500,
+      "projection_abs_tolerance": 1e-07,
+      "max_mass_balance_residual": 3.8920505707196185e-11,
+      "max_bound_violation": 1.3372787499364957e-13,
+      "net_l1_cap": null,
+      "max_net_l1_cap_violation": null,
+      "mean_l1_net_flux": 45545.487992790295,
+      "max_l1_net_flux": 77197.3073791261,
+      "varying_reactions": 1369,
+      "varying_definition": "peak-to-peak net flux > 1e-7",
+      "lag1_definition": "Pearson correlation of samples[0:499] and samples[1:500], per varying reaction",
+      "median_lag1_varying": 0.9094342203893198,
+      "lag1_above_0_9": 766,
+      "selected_fluxes": {
+        "biomass_C": {
+          "mean": 0.14696209110378117,
+          "min": 0.1465083849614141,
+          "max": 0.15087051502960766
+        },
+        "CFSA_DM_lipids": {
+          "mean": 23.749121821746822,
+          "min": 23.740118881126378,
+          "max": 23.78771005216981
+        }
+      },
+      "demand": {
+        "id": "CFSA_DM_lipids",
+        "metabolites": {
+          "m1727[C_cy]": -1
+        },
+        "bounds": [
+          23.74006264072655,
+          1000
+        ]
+      },
+      "recorded_seed": 20260910,
+      "seed_matches_plan": true,
+      "recorded_sampler_retries": 6,
+      "comparison_with_saved_diagnostics": {
+        "max_mass_balance_residual": {
+          "saved": 3.8863662288335377e-11,
+          "independent": 3.8920505707196185e-11,
+          "difference": 5.684341886080802e-14,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "max_bound_violation": {
+          "saved": 1.3372787499364957e-13,
+          "independent": 1.3372787499364957e-13,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "mean_l1_net_flux": {
+          "saved": 45545.487992790295,
+          "independent": 45545.487992790295,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "max_l1_net_flux": {
+          "saved": 77197.3073791261,
+          "independent": 77197.3073791261,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        },
+        "median_lag1_varying": {
+          "saved": 0.9094342203893198,
+          "independent": 0.9094342203893198,
+          "difference": 0.0,
+          "agrees_at_1e_12_abs_1e_10_rel": true
+        }
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "N1",
+      "verdict": "supported",
+      "claim": "Saved arrays contain 3 x 500 finite net-flux samples with 2314 reaction columns.",
+      "sources": [
+        "scenario_0/1/2.npz: values/reactions/validation",
+        "scenario_0/1/2.json.gz: reactions/metabolites"
+      ],
+      "limitations": [
+        "Artifact inspection is not rerunning the historical sampler."
+      ]
+    },
+    {
+      "id": "N2",
+      "verdict": "partially_supported",
+      "claim": "Result records 113.003019 seconds and 13480 backend calls within declared 1200-second/14000-call budgets.",
+      "sources": [
+        "result.json: elapsed_seconds,backend_calls,started_utc,finished_utc",
+        "plan.json: wall_seconds,max_backend_calls",
+        "run_cfsa.py:35-37,49-50,102-114"
+      ],
+      "limitations": [
+        "113 seconds is observed run duration, not the authorized wall budget; the latter is 1200 seconds.",
+        "The source wraps the backend and increments a counter, but there is no per-call trace in the supplied evidence; history was not independently rerun/timed.",
+        "The wrapper begins after context loading and solver setup; this is the instrumented backend-call count, not independently established count of every possible backend operation since process start."
+      ]
+    },
+    {
+      "id": "N3",
+      "verdict": "supported",
+      "claim": "All 16 protected files currently match the hashes stored by the run.",
+      "sources": [
+        "result.json: protected_inputs,input_hashes_unchanged",
+        "run_cfsa.py:60-75,190-191"
+      ],
+      "limitations": [
+        "Current byte matching and recorded before/after comparison do not prove continuous absence of intermediate writes."
+      ]
+    },
+    {
+      "id": "N4",
+      "verdict": "supported",
+      "claim": "Seeds 20260908/20260909/20260910 are recorded and explicitly passed; saved scenario models contain a one-way demand of the mixed lipid pseudo-pool.",
+      "sources": [
+        "plan.json: seeds,target_definition",
+        "result.json: scenarios,memory_changes",
+        "run_cfsa.py:125-131,142-155",
+        "scenario_0/1/2.json.gz: CFSA_DM_lipids"
+      ],
+      "limitations": [
+        "Without resampling the random sequence was not independently reconstructed.",
+        "This verifies the saved demand definition, not a pure-TAG yield, physiological secretion endpoint, or lipid-candidate activation."
+      ]
+    },
+    {
+      "id": "N5",
+      "verdict": "supported",
+      "claim": "All saved net samples satisfy S*v, reaction bounds and the applicable net L1 cap at absolute tolerance 1e-7.",
+      "sources": [
+        "scenario_0/1/2.npz",
+        "scenario_0/1/2.json.gz",
+        "result.json: scenarios.total_flux_cap,cobra_tolerance",
+        "run_cfsa.py:148-154,165-166"
+      ],
+      "limitations": [
+        "COBRA JSON omits the added custom cap; its numeric value is taken from the result record.",
+        "Saved net fluxes cannot directly verify the original sampled forward/reverse variable trajectories.",
+        "Projection checks apply to the explicitly reconstructed constraints, not an independent audit of unsaved custom constraints."
+      ]
+    },
+    {
+      "id": "N6",
+      "verdict": "supported",
+      "claim": "Recomputed lag1 medians are about 0.926/0.909/0.909 for reactions with peak-to-peak >1e-7.",
+      "sources": [
+        "scenario_0/1/2.npz",
+        "sample_diagnostics.json: scenarios.median_lag1_varying"
+      ],
+      "limitations": [
+        "High autocorrelation indicates dependent samples but does not by itself prove nonstationarity or failed convergence.",
+        "One short chain per condition is insufficient here to establish adequate mixing, effective sample size, or calibrated tail probabilities."
+      ]
+    },
+    {
+      "id": "N7",
+      "verdict": "supported",
+      "claim": "Producing has much larger net L1 flux with no pFBA cap; data do not isolate specific cycles or establish pure TAG production.",
+      "sources": [
+        "result.json: scenarios[2].total_flux_cap,plan.target_definition",
+        "scenario_2.npz",
+        "run_cfsa.py:125-131"
+      ],
+      "limitations": [
+        "No per-cycle decomposition was performed; large L1 alone does not attribute individual fluxes to cycles.",
+        "Report as mixed/total lipid pseudo-pool demand flux, not TAG yield, calibrated physiology, or accepted engineering targets."
+      ]
+    }
+  ],
+  "coverage": {
+    "total_claims": 7,
+    "audited": 7,
+    "supported": 6,
+    "partially_supported": 1,
+    "unresolved": 1,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "prior_source_audit_coverage_unchanged": {
+    "total_claims": 6,
+    "audited": 6,
+    "supported": 5,
+    "unresolved": 1,
+    "partially_supported": 1,
+    "unsupported": 0,
+    "contradicted": 0,
+    "unchecked": 0,
+    "definition": "Counts refer only to the six scoped claims; partially_supported contributes to unresolved. Source-snapshot upstream authenticity is separately limited."
+  },
+  "projection_scope": "For net v, check S v=0, l<=v<=u and sum|v|<=C where applicable. Since v=f-r implies |v|<=f+r for nonnegative f,r, net L1 is a necessary check of the original cap; a minimal lift f=max(v,0),r=max(-v,0) has total L1 and certifies existence for the reconstructed standard split bounds and cap. It does not recover or validate the original forward/reverse trajectories.",
+  "interpretation_limits": [
+    "Mixed/total lipid pseudo-pool demand flux, not pure TAG yield or physiological secretion.",
+    "High autocorrelation; convergence and adequate mixing not established, without claiming autocorrelation alone proves nonconvergence.",
+    "Producing large fluxes observed; no per-cycle decomposition or biological attribution performed."
+  ],
+  "verification": {
+    "all_1500_projected_valid": true,
+    "all_sources_still_match": true
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "checked_at_utc": "2026-10-02T00:00:38.980135+00:00",
+  "new_model_solves": 0,
+  "scope": "User-defined consensus-list membership benchmark; no assay-specific calls used or read in this audit.",
+  "classification": "Among1073 screened model genes,322 normalized consensus-list members are benchmark positive;751 nonmembers are benchmark negative. Prediction is strict unrounded KO/same-run WT<0.15.",
+  "source": {
+    "workbook": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+    "workbook_sha256": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+    "sheet": "Sheet1",
+    "range": "A2:A1613",
+    "normalization": "Remove only underscore immediately after ^YALI[012] prefix; no cross-version mapping",
+    "prediction_sha256": "0a582f18b724a0ada32b5b91fb2d7b81bd6802071ad2ff7baf966c4b756489db"
+  },
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/atp_candidate_repair_20260924/candidates/E5.xml",
+    "sha256": "43042d16f874a91d61f12f9f2b65838cbc264821d98bcf6e108300bf787007be"
+  },
+  "counts": {
+    "model_genes": 1073,
+    "source_list_genes": 1612,
+    "list_members": 322,
+    "list_nonmembers": 751,
+    "list_members_outside_model": 1290,
+    "TP": 77,
+    "FN": 245,
+    "FP": 33,
+    "TN": 718
+  },
+  "metrics": {
+    "recall": 0.2391304347826087,
+    "precision": 0.7,
+    "specificity": 0.9560585885486018,
+    "accuracy": 0.7409133271202236,
+    "F1": 0.35648148148148145,
+    "MCC": 0.2949129267828324
+  },
+  "limitations": [
+    "Negative class means absence from the selected consensus list, not a newly verified experimental Non-essential call.",
+    "This is a user-defined development/reference benchmark, not independent biological validation."
+  ],
+  "claims": [
+    {
+      "id": "M1",
+      "claim": "Frozen original consensus workbook and frozen E5 predictions retain audited identities",
+      "verdict": "supported",
+      "source": "original workbook and screen_predictions.json"
+    },
+    {
+      "id": "M2",
+      "claim": "Exact normalized membership intersection gives322 positives and751 operational negatives among1073 model genes",
+      "verdict": "supported",
+      "source": "original workbook columnA and prediction gene_ids"
+    },
+    {
+      "id": "M3",
+      "claim": "Independent2x2 counts and derived metrics follow the explicit list-membership rule",
+      "verdict": "supported",
+      "source": "original workbook and strict raw-growth-derived predictions"
+    },
+    {
+      "id": "M4",
+      "claim": "Final summary and1073-row detail table exactly match independently recomputed counts; original experimental labels remain unchanged",
+      "verdict": "supported",
+      "source": "summary.json and reference_gene_comparison.tsv"
+    },
+    {
+      "id": "M5",
+      "claim": "Figure correctly shows4 cells,322/751 denominators, row percentages and metrics; footnote explicitly defines list complement without claiming verified nonessentiality",
+      "verdict": "supported",
+      "source": "confusion_matrix_15pct.svg and visually inspected PNG"
+    },
+    {
+      "id": "M6",
+      "claim": "All recorded source and final output hashes match; original workbook and frozen predictions remain unchanged",
+      "verdict": "supported",
+      "source": "summary.json:source_sha256/output_sha256 and original files"
+    }
+  ],
+  "audit_coverage": {
+    "total_claims": 6,
+    "audited": 6,
+    "supported": 6,
+    "unresolved": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "detail_rows_verified": 1073,
+  "original_experimental_labels_preserved": true,
+  "final_visual_review": "PNG visible without clipping; TP77/FN245/FP33/TN718, reference denominators322/751, percentages, metrics and explicit list-membership footnote consistent.",
+  "audited_output_sha256": {
+    "build_matrix.py": "e1027c7686df01cd23e532fc880144bc801e4b6df0df78c5cb98b7ef10b12361",
+    "summary.json": "dbc6e19314d8c56438a420af8aac3a8072b91c0c4a9254d583f56d6bc6490bc1",
+    "reference_gene_comparison.tsv": "56ab43643fe368b05901597faac8160507ebbf2195217c7ccd9b3c0538ec3b0b",
+    "confusion_matrix_15pct.pdf": "698d0524190c2d16eed460799f2b8d63e8aa401a2a3391505a3097393b2276b2",
+    "confusion_matrix_15pct.svg": "69a33663306918c2e998fcd3d11453a1eff6ff7b4367217e6775e9e1ab4c9a09",
+    "confusion_matrix_15pct.png": "96cdb621d67f58d3099d49167558a50a0158004ff05f762185a793f482c608c7"
+  }
+}

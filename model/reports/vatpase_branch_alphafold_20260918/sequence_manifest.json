@@ -1,0 +1,741 @@
+{
+  "created_utc": "2026-09-18T22:01:01.411983+00:00",
+  "scope": "Traceable unfused multi-chain inputs only; no model/GPR mutations or AlphaFold execution performed by this preparation",
+  "assumptions": [
+    "A and B are separate prediction systems; no artificial fusion/linkers.",
+    "Each gene product appears exactly once; GPR AND does not specify copy number.",
+    "A is an explicitly mixed-strain component hypothesis because it includes CLIB122 YALI0E16192g alongside W29 sequences.",
+    "These groups are not asserted to be native complete assemblies or functional alternatives.",
+    "AlphaFold assembly confidence or structural similarity does not establish ATP hydrolysis, proton pumping, compartment localization or gene essentiality."
+  ],
+  "groups": [
+    {
+      "group": "A",
+      "chains": 12,
+      "total_residues": 4106,
+      "gene_order": [
+        "YALI1A11258g",
+        "YALI1E14125g",
+        "YALI1D00581g",
+        "YALI1E10492g",
+        "YALI1A09766g",
+        "YALI1F20965g",
+        "YALI0E16192g",
+        "YALI1F31854g",
+        "YALI1F21690g",
+        "YALI1E37063g",
+        "YALI1E32332g",
+        "YALI1E12482g"
+      ],
+      "fasta": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/branch_A_12chains.fasta",
+        "sha256": "c8a5274ae01923ce06d2e6e14d59c94f277fbe4e04c2926fccd02dbd2ae0aec8"
+      },
+      "stoichiometry": "one copy of each specified gene product; requested component-group hypothesis, not a native-stoichiometry reconstruction",
+      "mixed_strain": true
+    },
+    {
+      "group": "B",
+      "chains": 2,
+      "total_residues": 1000,
+      "gene_order": [
+        "YALI1F38820g",
+        "YALI1F13017g"
+      ],
+      "fasta": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/branch_B_2chains.fasta",
+        "sha256": "15dd7c0d2a97bf5c0e5c42726ad19aa685ce4fdd3b14a21368ba7b16fc6e101b"
+      },
+      "stoichiometry": "one copy of each specified gene product; requested component-group hypothesis, not a native-stoichiometry reconstruction",
+      "mixed_strain": false
+    }
+  ],
+  "records": [
+    {
+      "gene_id": "YALI1A11258g",
+      "input_group": "A",
+      "chain_id": "A",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 C 候选；复合体结构/连接",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1H6Q1E3",
+      "uniprot_entry_version": 31,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW00516.1",
+      "locus_tag": "YALI1_A11258g",
+      "sequence_length": 383,
+      "sequence_sha256": "a16d2810b79d270eadade0c748f3fc8652d3558378fcc25f91052401144c043b",
+      "sequence": "MPLLQLSLPQNATSGGDPQTQLELWLQEHLSLVGPASQLHLPQFKIGTLESLVQLSEELHKTDGQLDGALAKVADIIGVLHEGSPAQQAFSKKINDRSEVDYVRDFRWNSNKYKTEGVPLTELSNNITGEALSLDQDVRTLFQNYQNAKSTLASVDRKQSGNLSIKSLHDVVAADDFVLDSEHLQTVLVAVPNSQSKEFVGSYESLTKMVVPRSAHVISKDDEYTLFGVTLFKKFVPEFIHKCREAKYTVRDFEYSPQRVQEERQEQQQASQQERQLWGEVVRLARTAYADLFKAIVHLRVIRIFVESVLRYGLPPNFLTATFEPTNLKKAKDALVEKFGYLGGNAFAKDKAGKIKSDQGLGEFGGLADQDYEPFVIYELKLY",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6Q1E3_snapshot.json",
+        "sha256": "fabcdb06af45d7e3b993ebc4a1493fa4adfc2ff3ec97464e266f83d647ac2c8a"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1H6Q1E3_snapshot.json",
+        "sha256": "fabcdb06af45d7e3b993ebc4a1493fa4adfc2ff3ec97464e266f83d647ac2c8a"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1H6Q1E3.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW00516.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_A11258g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1E14125g",
+      "input_group": "A",
+      "chain_id": "B",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 G 候选；外周柄",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NI06",
+      "uniprot_entry_version": 32,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW05273.1",
+      "locus_tag": "YALI1_E14125g",
+      "sequence_length": 115,
+      "sequence_sha256": "9ccdca5e29a88dcd20b242dbc9561d71db590cf44400f0c48daa2a9c68a14307",
+      "sequence": "MSAQNSKEIQKLLQAEKKAHEIVQKARGYRTQKLKDAKTDAAADIEAYKKKKEEDFSKTKNADSGSNTKAEAEAEESAKSELAEIKKAGEKAEKDVLKKLIDEVLTPKPIVHINA",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NI06_snapshot.json",
+        "sha256": "ee8c41474607506d7cd9bcc9d0b7f3e8f383ae023fce52cb8be23feefea10e63"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NI06_snapshot.json",
+        "sha256": "ee8c41474607506d7cd9bcc9d0b7f3e8f383ae023fce52cb8be23feefea10e63"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NI06.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW05273.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_E14125g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1D00581g",
+      "input_group": "A",
+      "chain_id": "C",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 D 候选；中央转轴",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NCM2",
+      "uniprot_entry_version": 28,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW03384.1",
+      "locus_tag": "YALI1_D00581g",
+      "sequence_length": 257,
+      "sequence_sha256": "793b868d431f0b036e2309f2f378784b5ae64efa99971ea51217700ae6d5bfb5",
+      "sequence": "MSANNREAVFPTRMTLGMMKGKLKGATQGHNLLKRKSEALTKRFRDITRKIDESKHKMGRVMQTAAFSLAEVTYATGDNINYQVQESVRSARLRVRAKEENVSGVKLPSFSSYYVEENSDFSLTGLGRGGQQVQKAKAVYSKAVETLVELASLQTAFVILDEVIKITNRRVNAIEHVIIPRTENTIKYINSELDELDREEFYRLKKVQDKKARDTAAQDAEQKKQALEAAAREEKVGHAEATESADLTADKDDDVIF",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NCM2_snapshot.json",
+        "sha256": "f62a78131e6bd479c33c3af829825a8881dcca1b256bc2a65ae8284060fa1bdb"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NCM2_snapshot.json",
+        "sha256": "f62a78131e6bd479c33c3af829825a8881dcca1b256bc2a65ae8284060fa1bdb"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NCM2.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW03384.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_D00581g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1E10492g",
+      "input_group": "A",
+      "chain_id": "D",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 H 候选；调节/复合体稳定",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1H6PTA8",
+      "uniprot_entry_version": 26,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW05136.1",
+      "locus_tag": "YALI1_E10492g",
+      "sequence_length": 440,
+      "sequence_sha256": "34093dea0e632116148785c92707cd540b2ba73ded0448889e121401f73f1a4a",
+      "sequence": "MSIAFNSSYLDEIQTAIRSRPIPWDGYVRANLLTPDEAALIKTIEKQSPEARKETVKKDLTHYATSFVSLLRKIPREDVAKYILSFVASLVQELPEFAQAMLELSKLDSDSPFGPLLKLLESEDEQIQLLAVKSIVVLLADSKTVDLTTEKYAAQYLQFVGLLIGSSASVQVQDVGTVSLAVLLSNRSYRPLFWKFNSELVPKLLDIIKADKGGLHLQYYTLLVIWLESFDNKAAHQLVSSFSELIPTLLQAARTSVKEKITRLCVAIIVNVLKAAPKDTVASLLLNQGQAVFKNFSDRKWTDEELIEDIEVVYTQLNEEVARMTTFDRYYAEIKSGKLSWTPAHKSEFFWQENVGQFKDDDWKVLKMLAGIVKSATDPTVQAVACSDVANVCKLLPDAIQVLQDDGAKLKIMELMSSDNSEVRFEALKATQVFVAQSLK",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PTA8_snapshot.json",
+        "sha256": "e88268e2ca069e490184fd5f9529b87b721510388220c264b1065e16a6953b4c"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1H6PTA8_snapshot.json",
+        "sha256": "e88268e2ca069e490184fd5f9529b87b721510388220c264b1065e16a6953b4c"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1H6PTA8.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW05136.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_E10492g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1A09766g",
+      "input_group": "A",
+      "chain_id": "E",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 催化亚基 A 候选；ATP 水解",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8N4B6",
+      "uniprot_entry_version": 30,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW00464.1",
+      "locus_tag": "YALI1_A09766g",
+      "sequence_length": 577,
+      "sequence_sha256": "66d86ce2d0bf97ec0dd436998682b85ee2a339e80d2112cbece657316cdb9dc8",
+      "sequence": "MIGCAMYELVKVGHDNLVGEVIRIEGDKATIQVYEETAGVTVGDPVTRTGEPLSVELGPGLMETIYDGIQRPLKAIQEKSDSIYIPRGIDAPALNREKKYAFTPGPLKVGDHISGGDIYGSVFENSLLSDHKIMLPPRARGTITWIASKGDYTVVDDILEVEFEGKKTKYRMLQKWPVRVPRPVNERLTANYPLLTGQRVLDALFPVVQGGTTCIPGAFGCGKTVISQSLSKYSNSDIIIYVGCGERGNEMAEVLLEFPELNVEIDGREEPIMKRTTLVANTSNMPVAAREASIYTGITIAEYFRDQGKDVSMIADSSSRWAEALREISGRLGEMPADQGFPAYLGAKLASFYERAGKAATLGGPDREGSVSIVAAVSPPGGDFSDPVTTATLGITQVFWGLDKKLAQRKHFPSVNTAVSYSKYTTVLDKYYNEHFEVFPQNRDKIKEILTNAEELETVVQLVGKSSLSDTDKVTLDVATLLKEDFLQQNGYSTYDAFCPIWKTAAMMKTFITYHDEAQRAVSNGASWSKLSEKTADIKHKVSSAKFFEPSQGEEALNKEFDKLDADIVDKFTQYSE",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8N4B6_snapshot.json",
+        "sha256": "1ce9f96cf021522b2fb3c88e8203653070786a60f5e1df27f79abf13f01c4e2f"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8N4B6_snapshot.json",
+        "sha256": "1ce9f96cf021522b2fb3c88e8203653070786a60f5e1df27f79abf13f01c4e2f"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8N4B6.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW00464.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_A09766g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1F20965g",
+      "input_group": "A",
+      "chain_id": "F",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 E 候选；外周柄",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NNL2",
+      "uniprot_entry_version": 28,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW07234.1",
+      "locus_tag": "YALI1_F20965g",
+      "sequence_length": 227,
+      "sequence_sha256": "5e0227dea97826716d381e700081d5282e49b86c2351411347fdd0610a56f1ce",
+      "sequence": "MSHALNDDQVAGELRKMVDFIQKEAEEKAKEIELKANEEYEIEKANIVRAESSNIDTQYAVKAKQESLSQQITKSTINNKARLRVLGARQEVLDQYYEAAGKQLKDASKDKSKYTTVLQGLITEGAYTLLEPVIYVRARKADQDIAKGTFDAVSKAYEKETGSKVEVKLDDEVLPAESSGGVIVFNGTKKISVDNTLEERLKLLFIEKLPAIRTDIFGPSPTRKFFD",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NNL2_snapshot.json",
+        "sha256": "7be1ee4799540829ac11b79b4bd743cb364076813d31fc58234ab69aed9e5679"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NNL2_snapshot.json",
+        "sha256": "7be1ee4799540829ac11b79b4bd743cb364076813d31fc58234ab69aed9e5679"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NNL2.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW07234.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_F20965g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI0E16192g",
+      "input_group": "A",
+      "chain_id": "G",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 F 候选；中央转轴",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica (strain CLIB 122 / E 150)",
+      "strain": "CLIB122 / E150",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "Q6C5Q2",
+      "uniprot_entry_version": 101,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2004-08-16",
+      "protein_accession_version": "CAG79603.1",
+      "locus_tag": "YALI0_E16192g",
+      "sequence_length": 122,
+      "sequence_sha256": "77656c06617ff3afd81db0fd47b5bac184ecfa565236de96f1e5b02069ec3518",
+      "sequence": "MATTQKDREFLAVIGDEDSVTGLLLAGIGNVSDDAEKKKNFFVVDAKTENEAIEKAFDEFTNTRKDIAILLINQHIADKIRFRVDTYTQAFPALLEIPSKDHPYVPEKDSVLRRVRRLFGDN",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/Q6C5Q2_snapshot.json",
+        "sha256": "364cce381ba2bae6595b330d6b72b2ea607bf4f24988673a9929de62af10928c"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/Q6C5Q2_snapshot.json",
+        "sha256": "364cce381ba2bae6595b330d6b72b2ea607bf4f24988673a9929de62af10928c"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/Q6C5Q2.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/CAG79603.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+          "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb"
+        },
+        "strain": [
+          "CLIB122"
+        ],
+        "locus_tags": [
+          "YALI0_E16192g"
+        ]
+      },
+      "strain_conflict": "Explicitly retaining CLIB122 Q6C5Q2 v1 / CAG79603.1, NOT substituting W29 YALI1_E19360g. W29 mapped locus is annotated pseudogene/nonfunctional due to frameshift; active W29 F protein remains unresolved."
+    },
+    {
+      "gene_id": "YALI1F31854g",
+      "input_group": "A",
+      "chain_id": "H",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V0 proteolipid 候选；膜内转子",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NPS9",
+      "uniprot_entry_version": 31,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW07648.1",
+      "locus_tag": "YALI1_F31854g",
+      "sequence_length": 164,
+      "sequence_sha256": "d19d543fa50e052978b0fc8e5d652d52a68deea85c52bb4047a05f92d2a236a6",
+      "sequence": "MALTATEFCPVYAPFFGAIGCTAAIVFTCFGASYGTAKSGVGICATSVLRPDLLIKNTVPVIMAGILAIYGLVVSVLISGSLQQQSSLYAGFIQLGAGLSVGLSGLAAGFAIGIVGDAGVRGTAQQPRLFVGMILILIFAEVLGLYGLIVALLLNSKAGADVQC",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NPS9_snapshot.json",
+        "sha256": "d1986eb9c86a282a39aec148ae9aa9cc72773080748daff12c83bb5d0113158e"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NPS9_snapshot.json",
+        "sha256": "d1986eb9c86a282a39aec148ae9aa9cc72773080748daff12c83bb5d0113158e"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NPS9.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW07648.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_F31854g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1F21690g",
+      "input_group": "A",
+      "chain_id": "I",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V0 亚基 d 候选；转子连接（按家族注释）",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1H6PZG0",
+      "uniprot_entry_version": 33,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW07262.1",
+      "locus_tag": "YALI1_F21690g",
+      "sequence_length": 346,
+      "sequence_sha256": "3f6dfe57bf1ac5dd6af4d23e3c9b405d1568472eeaa7834ecde41261cc8d87f1",
+      "sequence": "MEGLYFNINNGYVEALVRGYQSGLLKSSNYTNLTQCDSLEDFKTQLSSTEYGNFLSNVPSPISTSTIQEKAAAKLIAEFRYVRAQSVEPMTKFMDYISYGYMIDNVALLINGALHERDNTEMLERCHPLGWFDTLPTLSVATDVESLYDTVLVDTPLAPYFKDCFQGGVHELDELNIEIIRNRLYKAYLEDFYNFSMTLPSPSDQIMKQLLDFEADRRSINIALNSFGSGLSSSDRLSLMPQFGQLYPVGTEALSRAEDVEQVRAIIDGLSDYKGVFDTTDNKSLADHFYKREMDMCKMAFTQQFTYSTIWAWIKTREQEVRNITWIAECIAQNQKDRINNYISVF",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PZG0_snapshot.json",
+        "sha256": "bd02c0be421ce4d9efeee6f75faef7b36320aee80cff34f88392c36396271bf9"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1H6PZG0_snapshot.json",
+        "sha256": "bd02c0be421ce4d9efeee6f75faef7b36320aee80cff34f88392c36396271bf9"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1H6PZG0.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW07262.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_F21690g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1E37063g",
+      "input_group": "A",
+      "chain_id": "J",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V0 proteolipid 候选；膜内转子，c/c′细分未定",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NKR8",
+      "uniprot_entry_version": 29,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW06232.1",
+      "locus_tag": "YALI1_E37063g",
+      "sequence_length": 138,
+      "sequence_sha256": "3e0c777347d7b3b615a78503c069d12328bc6e4293aef728d6aab42bc657b5e8",
+      "sequence": "MVLSSAGAAIGTAKSGIGIAGIGVFKPELIMKSLIPVVMSGILSVYGLVVSVLIAGSLSPTENYSLFNGFMHLACGLSVGFAALASGYAIGIVGDEGVRNFMLQPRLFVGIVLILIFAEVLGLYGMIIALILNTKGSG",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NKR8_snapshot.json",
+        "sha256": "f7cd7de5a7b0d8d0ec2cd638e7a4639667cec54e8f4fa68e93d169d72e5ffb70"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NKR8_snapshot.json",
+        "sha256": "f7cd7de5a7b0d8d0ec2cd638e7a4639667cec54e8f4fa68e93d169d72e5ffb70"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NKR8.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW06232.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_E37063g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1E32332g",
+      "input_group": "A",
+      "chain_id": "K",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V1 亚基 B 候选；核苷酸结合/催化头结构",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NK63",
+      "uniprot_entry_version": 34,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW06034.1",
+      "locus_tag": "YALI1_E32332g",
+      "sequence_length": 512,
+      "sequence_sha256": "108889196f8632097f3da962535f2ee2a333ef3b60f1cedf72919a43876e67c8",
+      "sequence": "MTSARMTDKELFELNKSAVTQDFRITPRLSYNTVGGVNGPLVILDNVKFPRYNEIVNLTLPDGSERAGQVLEVRGSRAIVQVFEGTSGIDVKKTKVEFTGENLKIAVSEDVLGRVFDGSARPIDNGPKVFAEDYLDINGSPINPYSRIYPEEMISTGISTIDTMNSIARGQKIPIFSASGLPHNEIAAQICRQAGLVRPTKDVHDGHEENFSIVFAAMGVNLETSRFFKQDFEASGALERTSLFLNLANDPTIERIITPRLALTTAEYLAYQTERHVLTILTDMSSYADALREVSAAREEVPGRRGYPGYMYTDLSTIYERAGRVEGRNGSITQVPILTMPNDDITHPIPDLTGYITEGQISVDRQLYNRGIYPPINVLPSLSRLMKSAIGEGRTRKDHGDVSNQLYAKYAIGKDAAAMKAVVGEEALSTEDKLSLEFLDKFEKQFVSQGPYEDRSIFESLDLAWELLRIYPKEMLNRISPKIIDEFYDRESDEFAGKDTEEIIETENLIDA",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NK63_snapshot.json",
+        "sha256": "c771644027faa8387b52f6da2f94159d98c7d62f4f5ce0f4a56e4046e1df4ede"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NK63_snapshot.json",
+        "sha256": "c771644027faa8387b52f6da2f94159d98c7d62f4f5ce0f4a56e4046e1df4ede"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NK63.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW06034.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_genpept_20260918.gb",
+          "sha256": "1f3c988ced99c7ba6d817877f7eaf94fd3a1e8d6214b55ddf9317f043da46372"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_E32332g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1E12482g",
+      "input_group": "A",
+      "chain_id": "L",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V0 亚基 a 候选；质子通道/装配，区室未定",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NHU2",
+      "uniprot_entry_version": 24,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW05203.1",
+      "locus_tag": "YALI1_E12482g",
+      "sequence_length": 825,
+      "sequence_sha256": "c464853ed35c33c57f436a7d4d6a95a33c6953890f10ee892d97b14239301954",
+      "sequence": "METAAMEREAIFRSAEMSLVQLYVASEIGRDVVAALGELGVVMFRDLNTSVNVFQRSFIKEIRRVDGVERQLRGLRAHIDKHGVAIDEQPEGVAAPTLDEVDNMCHQVGALEERVGHLDTTWNELVDKRALILERREMVQTAGIFFADARENRHEIRASLEGDRAGLLYDLDDPQPDVEAATVTWNSVAGLSFVTGVIPSTKTAIFERILWRSLRGNLYFRHQAIEKPLAGVRKDVFIVFGHGESLLAKIKRIALTLDATLYPVSEDFDTRREQVEELNIKLADVDNVLGSTNNALMTELALAANTLPHWEVLANKEKAIYHTLNMFNYDQTRRCLIAEGWIPKADFRAVQEVLRDVTLSSGVAINSILNEIKTSKTPPTFHRTNKFTAAFQLIVDAYGIASYQEINPGLATVVTFPFMFAIMFGDLGHGVILALAGLVMVLKEKSILKMRNRDEIFDMAFSGRYIVLLMGIFSLYTGLMYNDIFSKSMTLFRSGWAWPESWEEKERITAHQTGVYPFGLDPAWHGTDNNLLFTNSYKMKLSILMGFTHMSYSFFFSFLNYKFFNSQIDIWGNFVPGLLFMQSIFGYLSLTIVYKWCVDWIAKDKTPPGLLNMLINMFLSPGTIDAPLYPGQKFVQIILVLIALVCVPWLLLLKPLYLRRQHKQTQYDAIRQPNAYHIGDTDDDADSFDMTIEEFEEEGEGHEQFEFGEVMIHQVIHTIEFCLNCVSHTASYLRLWALSLAHAQLSTVLWDMTIQGAFGPTGPAGVAMVVIMFAMWFVLTVVILVMMEGTSAMLHSLRLHWVEAMSKFFEGEGYAYAPFNFKDQQ",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NHU2_snapshot.json",
+        "sha256": "cdd58466d8b00d40451daa75b5b0923e7e4e846925177c0de5e21bc89903dd28"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NHU2_snapshot.json",
+        "sha256": "cdd58466d8b00d40451daa75b5b0923e7e4e846925177c0de5e21bc89903dd28"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NHU2.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW05203.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/r794_r795_gpr_review_20260909/sources/ncbi_target_proteins.gp",
+          "sha256": "e105e1b3ab2be40f1aff21760f7eb363388e6d902152956358c605d85c2a9a47"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_E12482g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1F38820g",
+      "input_group": "B",
+      "chain_id": "A",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "偏 Vph1-like 的 V0 a 亚基候选；质子通道/装配；仍需实验确认，原生区室未定",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1H6PMT1",
+      "uniprot_entry_version": 27,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW07942.1",
+      "locus_tag": "YALI1_F38820g",
+      "sequence_length": 804,
+      "sequence_sha256": "bbe56eb89a0ab7edad9e0e65450a1574c7dee90acd6695134b4008b6026a0083",
+      "sequence": "MPESNQSGEAIFRSAEMSLVQLYIASEIGRETVMSLGELGLVQFRDLNKKVNVFQRNFIQEVRRLDNVDRQLRLFERECEKEGLTLEDGDPHSAASASDIDALVALGDTLEKRITELRDAEERVTESQTESQELRAVLTETAKFFDQRAGGGSRDIESQSLRNVQFVAGVIPRDRVEVLERILWRVLRGNLFLETAEFGGDDGDKSVFIVFSHGAEIISKVERIAKTLDAHLYWIADDVRERENQLQEVNQKLSDIDIVSQRTRHTLNTELRLIAQKLPNWRVIVIKEKSVYSTLNLFQYDTNRKVLIGEGWVPKDDISKVKTTLKSITDEADVEIPSVLNVLETSRTPPTYHRTNKFTSAFQLIVDAYGISSYREVNPGLPTIVTFPFMFAIMFGDIGHGFILFLAAFALVYYEAKIGKMKRDEIFDMAYQGRYILLLMGAFSMYTGFMYNDIFSKSMTLFKPGWAWPESWKEGQTIQAHQTGVYAFGLDPTWHGTDNNLLFTNSYKMKLSVLMGHVHMTYSFFLSLVNYIFFGSVVDFWGNFVPGLLFMQGIFGYLALTIVYKWTVDWVAIGQQPPSLLDTLINMFLAPGKVPVPLYPGQAYVQVILVVIALICVPWLLLVKPLWLRRDMQKHEYERVSGNGGPLDLLDAPDQLEETVGDTPGDATGGDDFDDEEEEEHGFGDIVIHQVIHTIEFCLNCVSHTASYLRLWALSLAHAQLSTVLWDMTLQAAFGFSGVVGVIMTVILFGMWFVLTVVILVCMEGTSAMLHSLRLHWVESMSKFFEGEGTPYEPFSFKDELATN",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_snapshot.json",
+        "sha256": "5e5571a899d358575efc986c7f42ad35e22550d741d06d23fea88391a98b9fe5"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1H6PMT1_snapshot.json",
+        "sha256": "5e5571a899d358575efc986c7f42ad35e22550d741d06d23fea88391a98b9fe5"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1H6PMT1.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW07942.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/r794_r795_gpr_review_20260909/sources/ncbi_target_proteins.gp",
+          "sha256": "e105e1b3ab2be40f1aff21760f7eb363388e6d902152956358c605d85c2a9a47"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_F38820g"
+        ]
+      }
+    },
+    {
+      "gene_id": "YALI1F13017g",
+      "input_group": "B",
+      "chain_id": "B",
+      "copies": 1,
+      "established_native_gene_name": "not established / 原生正式名未核实",
+      "candidate_function_zh": "V0 c″ 膜内转子亚基候选；质子转运；同源/既有 AlphaFold 预测支持，仍需实验确认",
+      "functional_evidence_status": "uncharacterized: unreviewed database homology annotation; native experimental function not established",
+      "organism": "Yarrowia lipolytica",
+      "strain": "CLIB89 (W29)",
+      "strain_evidence": "direct GenPept /strain field; exact sequence match",
+      "uniprot_accession": "A0A1D8NMN8",
+      "uniprot_entry_version": 31,
+      "uniprot_sequence_version": 1,
+      "sequence_last_updated": "2017-01-18",
+      "protein_accession_version": "AOW06904.1",
+      "locus_tag": "YALI1_F13017g",
+      "sequence_length": 196,
+      "sequence_sha256": "00f894c0314271b5f90338c3bfdc86698b718bd0ba9acc590b015494b98af34d",
+      "sequence": "MATKILASTLFLFGLVVAGYLLFQGEGESFNVGEFLSTTSPLMWANLGIGMCITLSVIGAAWGIFITGSTIIGAGVKAPRITTKNLISIIFCEVVAIYGLIMAIVFSAKLASVEDVYTKSNMYTGFSLFWAGLTVGLGNLVCGICVGITGSTAAVADAADSALFVKILVIEIFGSVLGLFGLIVGLLMAGKASEIS",
+      "source": {
+        "path": "artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_snapshot.json",
+        "sha256": "381cfd3d5b6f4d03bf6df65467c3fb42a5b6653b8d3315d58abd05bf809f6d9f"
+      },
+      "frozen_source": {
+        "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/A0A1D8NMN8_snapshot.json",
+        "sha256": "381cfd3d5b6f4d03bf6df65467c3fb42a5b6653b8d3315d58abd05bf809f6d9f"
+      },
+      "source_url": "https://rest.uniprot.org/uniprotkb/A0A1D8NMN8.json",
+      "source_locator": "sequence.value; sequence.length; entryAudit; genes[].orfNames[]; organism; uniProtKBCrossReferences",
+      "historical_source_snapshot_created_utc": "2026-09-09T22:50:05.461786+00:00",
+      "snapshot_reuse": "No new UniProt retrieval; exact existing versioned sequence reused",
+      "versioned_secondary_source_url": "https://www.ncbi.nlm.nih.gov/protein/AOW06904.1",
+      "genpept_exact_check": {
+        "source": {
+          "path": "artifacts/r794_r795_gpr_review_20260909/sources/ncbi_target_proteins.gp",
+          "sha256": "e105e1b3ab2be40f1aff21760f7eb363388e6d902152956358c605d85c2a9a47"
+        },
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "locus_tags": [
+          "YALI1_F13017g"
+        ]
+      }
+    }
+  ],
+  "verification": {
+    "all14_present_once": true,
+    "all14_uniprot_snapshot_gene_mapping_exact": true,
+    "all14_snapshot_sequence_equal_original_fasta": true,
+    "all14_expected_length_and_full_sha_match_historical_manifest": true,
+    "all14_standard20_amino_acids_only": true,
+    "versioned_genpept_exact_sequence_and_strain_checked": 14,
+    "reused_versioned_genpept_records": 5,
+    "newly_retrieved_versioned_genpept_records": 9,
+    "successful_new_network_retrievals": 1
+  },
+  "reference_sources": {
+    "historical_gene_sequence_manifest": {
+      "path": "artifacts/r794_r795_gpr_review_20260909/gene_sequences.json",
+      "sha256": "eee16034d17366185b74f29f83189fa2cf3fed24481fb2d7229568e23927d968"
+    },
+    "historical_fasta": {
+      "path": "artifacts/r794_r795_gpr_review_20260909/target_sequences.fasta",
+      "sha256": "52e0fb52110b6d8406ab942e4acaeb1c3f9d6f66530d6799728b62163c48cbe2"
+    },
+    "historical_function_candidates": {
+      "path": "artifacts/r794_r795_gpr_review_20260909/GENES.md",
+      "sha256": "5d978ddf8e3809a1062c9b5bf51576102bafa5a26b852f37fc8e0bdb2b3f2291"
+    },
+    "F_W29_conflict_original_genbank": {
+      "path": "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/sources/ncbi_locus_E19360.gb",
+      "sha256": "e6acceec7082b635090b6b0965e7b904202efc8f48bba08c6cfecc4248bcbdc6"
+    },
+    "F_W29_conflict_review": {
+      "path": "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/identity_mapping/REPORT.md",
+      "sha256": "a8fdaccf4308f3dcebda3bbd62df48f72b5469c8a2ed2d4782729486871b0f0f"
+    },
+    "F38820_candidate_curated_annotation": {
+      "path": "data/reference_build/curation/gene_function_annotations.json",
+      "sha256": "a85a9acebc2c316e6e3133995968ce87d6e7362ccac4f13faade771ce79afd48"
+    },
+    "new_genpept_fetch_record": {
+      "path": "artifacts/vatpase_branch_alphafold_20260918/inputs/sources/nine_remaining_fetch.json",
+      "sha256": "07fac125cd65ac909d5e77a0d66253315913fd4a39c2eee6aa6852a2231bfd1c"
+    }
+  }
+}

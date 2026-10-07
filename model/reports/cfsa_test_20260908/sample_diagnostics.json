@@ -1,0 +1,168 @@
+{
+  "scenarios": [
+    {
+      "condition": "Growing",
+      "generated": 500,
+      "upstream_valid": 500,
+      "independent_projected_valid": 500,
+      "max_mass_balance_residual": 5.040634576403136e-12,
+      "max_bound_violation": 4.098094158756077e-10,
+      "total_flux_cap": 1223.3176651109031,
+      "mean_l1_net_flux": 1092.348891146495,
+      "max_l1_net_flux": 1222.0974423708944,
+      "varying_reactions": 1369,
+      "lag1_above_0_9": 941,
+      "median_lag1_varying": 0.9258577312720875,
+      "half_chain_mean_shift_over_1_sd": 107,
+      "sampler_retries": 1,
+      "selected_fluxes": {
+        "biomass_C": {
+          "name": "biomass_C",
+          "mean": 1.3200240709624627,
+          "min": 1.3185692485707017,
+          "max": 1.3427830685722018,
+          "sd": 0.002904528058015006
+        },
+        "CFSA_DM_lipids": {
+          "name": "CFSA test-only demand for mixed lipid pool",
+          "mean": 0.026162509144479366,
+          "min": 2.7681377159792128e-05,
+          "max": 0.08005361606448202,
+          "sd": 0.01889675989277032
+        },
+        "R1070": {
+          "name": "D-glucose exchange",
+          "mean": -9.956662597911855,
+          "min": -9.999955285255368,
+          "max": -9.812451289063917,
+          "sd": 0.038022096314191026
+        },
+        "R1287": {
+          "name": "oxygen exchange",
+          "mean": -15.759933280907585,
+          "min": -18.49798072004831,
+          "max": -15.261827304882829,
+          "sd": 0.26988245305657066
+        },
+        "xLIPID": {
+          "name": "Lipids pool",
+          "mean": 2.6330239375673346e-05,
+          "min": 2.7736215649646054e-08,
+          "max": 8.014450470149731e-05,
+          "sd": 1.8873021124519306e-05
+        }
+      }
+    },
+    {
+      "condition": "Slow growing",
+      "generated": 500,
+      "upstream_valid": 500,
+      "independent_projected_valid": 500,
+      "max_mass_balance_residual": 9.855713918488344e-10,
+      "max_bound_violation": 3.6244747580974355e-09,
+      "total_flux_cap": 310.806297395808,
+      "mean_l1_net_flux": 288.40464274167005,
+      "max_l1_net_flux": 307.13133539810343,
+      "varying_reactions": 1369,
+      "lag1_above_0_9": 779,
+      "median_lag1_varying": 0.9085758841881814,
+      "half_chain_mean_shift_over_1_sd": 103,
+      "sampler_retries": 0,
+      "selected_fluxes": {
+        "biomass_C": {
+          "name": "biomass_C",
+          "mean": 0.14738054869433245,
+          "min": 0.14650805418600513,
+          "max": 0.15336917631647048,
+          "sd": 0.0011047900996677188
+        },
+        "CFSA_DM_lipids": {
+          "name": "CFSA test-only demand for mixed lipid pool",
+          "mean": 0.0470520629501119,
+          "min": 0.00042146422981097985,
+          "max": 0.12765652972621425,
+          "sd": 0.030642314516503177
+        },
+        "R1070": {
+          "name": "D-glucose exchange",
+          "mean": -2.4033590431722027,
+          "min": -2.6823739166359255,
+          "max": -2.094793265158895,
+          "sd": 0.10148351075710092
+        },
+        "R1287": {
+          "name": "oxygen exchange",
+          "mean": -5.04922307951656,
+          "min": -5.5904037930527295,
+          "max": -4.402726024179259,
+          "sd": 0.09950549231458652
+        },
+        "xLIPID": {
+          "name": "Lipids pool",
+          "mean": 4.73085583955568e-05,
+          "min": 4.465172668828582e-07,
+          "max": 0.0001277174498796079,
+          "sd": 3.05718558080641e-05
+        }
+      }
+    },
+    {
+      "condition": "Producing",
+      "generated": 500,
+      "upstream_valid": 500,
+      "independent_projected_valid": 500,
+      "max_mass_balance_residual": 3.8863662288335377e-11,
+      "max_bound_violation": 1.3372787499364957e-13,
+      "total_flux_cap": null,
+      "mean_l1_net_flux": 45545.487992790295,
+      "max_l1_net_flux": 77197.3073791261,
+      "varying_reactions": 1369,
+      "lag1_above_0_9": 766,
+      "median_lag1_varying": 0.9094342203893198,
+      "half_chain_mean_shift_over_1_sd": 77,
+      "sampler_retries": 6,
+      "selected_fluxes": {
+        "biomass_C": {
+          "name": "biomass_C",
+          "mean": 0.14696209110378117,
+          "min": 0.1465083849614141,
+          "max": 0.15087051502960766,
+          "sd": 0.0004880270319405683
+        },
+        "CFSA_DM_lipids": {
+          "name": "CFSA test-only demand for mixed lipid pool",
+          "mean": 23.749121821746822,
+          "min": 23.740118881126378,
+          "max": 23.78771005216981,
+          "sd": 0.008985338426363185
+        },
+        "R1070": {
+          "name": "D-glucose exchange",
+          "mean": -9.995114984854029,
+          "min": -9.99994480686977,
+          "max": -9.977290976825222,
+          "sd": 0.003510648734963334
+        },
+        "R1287": {
+          "name": "oxygen exchange",
+          "mean": -15.970889728599902,
+          "min": -17.710957104042976,
+          "max": -14.338367916430615,
+          "sd": 0.4935129524354923
+        },
+        "xLIPID": {
+          "name": "Lipids pool",
+          "mean": 0.02374931118522727,
+          "min": 0.023740157623692,
+          "max": 0.02378772190193481,
+          "sd": 8.961665662210031e-06
+        }
+      }
+    }
+  ],
+  "no_new_solver_calls": true,
+  "quality_gate": "all saved raw samples pass S*v, reaction bounds and applicable net L1 cap",
+  "interpretation": "Single short chain per condition, no independent convergence or biological validation",
+  "cap_check_scope": "Net L1 checks projected feasibility; original forward/reverse sampled values were not saved",
+  "undefined_diagnostics": "Stored as NaN in NPZ, not treated as zero or passing"
+}

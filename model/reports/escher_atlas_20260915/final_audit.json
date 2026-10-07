@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "checked_at_utc": "2026-09-15T23:22:42.184535+00:00",
+  "verdict": "supported_within_scope",
+  "atlas_data_sha256": "2cdab0e033b2469004f6f17e58a139e8152fddc5fd8b096c8d8863f5087f676d",
+  "source_model_sha256": "10a3baa1da5eb8afb80f93c4cf8a43c3613af7ebb92c8e3385dcda44b91695d0",
+  "scope": "Independent static source and data audit of the frozen merged model, completed saved retry screen, annotation derivation, and every Escher reaction instance. This audit ran no solver and did not repeat browser interaction or perform new biological validation.",
+  "checks": {
+    "source_identity_and_complete_gene_set": "passed",
+    "saved_screen_raw_rows_and_strict_thresholds": "passed",
+    "all_single_KO_GPR_disabled_and_newly_closed_sets": "passed; independently evaluated all 1,073 source Boolean GPR interventions with the recorded PO1f R45 plasmid replacement and runtime base bounds",
+    "saved_medium_strain_context_objective_and_solver_settings": "passed; exact prior targeted context and retry preflight",
+    "protected_source_code_and_output_hashes": "passed",
+    "failed_attempt_seven_files_preserved": "passed",
+    "experimental_exact_ID_positive_only_reuse": "passed",
+    "identity_original_rows_and_current_evidence_qualifiers": "passed",
+    "all_model_metabolites_reactions_stoichiometry_bounds_GPR": "passed; absent source charges remain null",
+    "all_map_reaction_GPR_species_connections_counts": "passed",
+    "builder_schema_validation_record": "passed; source fields and all map data independently checked",
+    "renderer_record_binding": "passed; 239-map renderer report hashes match final HTML/template/data, zero recorded page errors or remote requests",
+    "independent_browser_reexecution": "not performed",
+    "report_claims": "Reviewed numerical counts, thresholds, residual summaries, attempt accounting, evidence and limitations against the saved sources; browser claims rely on the separately bound renderer report"
+  },
+  "counts": {
+    "model_reactions": 2314,
+    "model_metabolites": 1877,
+    "model_genes": 1073,
+    "source_metabolites_with_unknown_charge": 20,
+    "maps": 239,
+    "drawn_reaction_instances": 2361,
+    "unique_reactions_covered": 2314,
+    "screen_KO_rows": 1073,
+    "screen_primary_solves": 1074,
+    "audit_solver_calls": 0,
+    "experimental_reference_positives": 1612,
+    "experimental_positives_in_model": 322,
+    "experimental_unknown_in_model": 751,
+    "predicted_essential_at_15pct": 116,
+    "predicted_nonessential_at_15pct": 957,
+    "predicted_and_experimental_positive": 80,
+    "experimental_positive_not_predicted": 242,
+    "predicted_essential_unlabelled": 36,
+    "source_bound_closed": 68,
+    "associated_genes": 1061,
+    "unassociated_genes": 12,
+    "unassociated_experimental_positive": 8,
+    "identity_evidence_genes": 53,
+    "GPR_closure_rows_checked": 1073,
+    "failed_attempt_preserved_files": 7
+  },
+  "prediction": {
+    "scope": "Saved full single-gene knockout screen of the exact source model with PO1f / SD-Leu runtime overlay",
+    "WT": 1.8718823069402954,
+    "threshold": {
+      "ratio_cutoff": 0.15,
+      "operator": "<",
+      "round_before_compare": false,
+      "equality": "nonessential"
+    },
+    "threshold_counts": [
+      {
+        "cutoff": 0.01,
+        "predicted_essential": 76
+      },
+      {
+        "cutoff": 0.05,
+        "predicted_essential": 93
+      },
+      {
+        "cutoff": 0.1,
+        "predicted_essential": 101
+      },
+      {
+        "cutoff": 0.15,
+        "predicted_essential": 116
+      }
+    ],
+    "raw_status_counts": {
+      "optimal": 1073
+    },
+    "unresolved_rows": 0,
+    "max_recorded_mass_residual": 1.3304912727107876e-12,
+    "max_recorded_bound_violation": 4.699231903300752e-08,
+    "simulation_context": {
+      "simulation_context_fingerprint_version": "1",
+      "simulation_context_fingerprint": "27955b9f42b406c4352c90851c6105fabfcdef5fa09e1df12874d6ec8964ef9b",
+      "strain_overlay_enabled": true,
+      "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "strain_overlay_effect_fingerprint_version": "1",
+      "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+    },
+    "objective": {
+      "direction": "max",
+      "coefficients": {
+        "biomass_C": 1.0
+      }
+    },
+    "excluded_runtime_genes": [
+      "PO1f_plasmid_LEU2"
+    ],
+    "medium_source": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+      "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85"
+    },
+    "strain_source": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+      "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+    }
+  },
+  "failed_attempt": {
+    "status": "incomplete",
+    "primary_solves_recorded": 41,
+    "completed_KO_rows_recorded": 39,
+    "raw_KO_rows_preserved": 40,
+    "scope": "The final solved KO row was preserved before context restoration failed; the completed counter remained 39. Incomplete attempt retained verbatim; none of its partial rows is imported into final predictions.",
+    "preserved_sha256": {
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/run_screen.py": "acd4534514876d1e9e4d0a33259289f74d18f884f5d762b238adfb854cd417b0",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/TASK.md": "53895a99fd3ff6cb88d8abdfe2f22e7a3b5f9e94341720aabbcdac4d02b07cc5",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/preflight.json": "a517c299bfadb41a67b7d463dd5ee1e7d4fb3b93efd5747c3f75cc102abc27d8",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/execution.json": "212a59a9660ee01ff13a5eeca7e59fe90aee4d490953b1e43e2f7caeb5ff8e18",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/run_manifest.json": "c0da11fcdb4a09a7f52a38f3601f9626c8ea518576f9a500adb176c7c3ac79f2",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/raw_deletions.tsv": "66d38657496e5172322cb275063be118c6e5c271f465345d29a31edaa5d91e2b",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen/screen.log": "1e4306a64177c0706db5bf18874a97b558ecd30b8b5fba63154195693af3879c"
+    }
+  },
+  "evidence_reuse": {
+    "experimental": "All retained E fields and original source rows equal the pinned prior annotation; 322 exact IDs agree with the preserved 1,612-positive table. The original workbook was not reinterpreted in this audit.",
+    "identity": "48 CoQ raw rows and 3 archived V-ATPase candidate raw records preserved; historical three-gene hypothesis explicitly separated from current GPR; two current provisional annotations retain AlphaFold limits and the R153 opposing-function evidence."
+  },
+  "limitations": [
+    "A saved screen is computational evidence under the recorded condition, not independent native-gene essentiality validation.",
+    "E is a positive-only development reference; 751 unlabelled model genes are unknown, not experimental negatives.",
+    "Reaction activity colors use original frozen source bounds; neither zero flux nor permission for flux establishes global blockage or activity. No new FVA was run.",
+    "Candidate identity, function, native localization, and provisional GPR uncertainties remain unresolved; prediction flags do not resolve them.",
+    "Saved residual summaries were checked but feasible flux vectors were not recomputed and no solver was run by this audit.",
+    "Browser interaction and rendered appearance were not independently repeated by this auditor; the final renderer report and its artifact hashes were checked."
+  ],
+  "sources": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/inputs/model.xml",
+      "sha256": "10a3baa1da5eb8afb80f93c4cf8a43c3613af7ebb92c8e3385dcda44b91695d0"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/atlas-data.json",
+      "sha256": "2cdab0e033b2469004f6f17e58a139e8152fddc5fd8b096c8d8863f5087f676d"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/annotation_status.json",
+      "sha256": "27f157acfd54405ecb17d42656f9964887802f08b29bee85a9de27cfc6834b12"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/annotation_sources.json",
+      "sha256": "21cbf551f6688a5ba7fdcd98ec34c4898fe044b54684ecf0061e86804473538b"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/annotate.py",
+      "sha256": "c877d2085049bba0959871cc1cbaf44537594535c745540d8ef76bb53b3eb244"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/build.py",
+      "sha256": "478c94a41958e9e4cca8ba8409e7e91a46c5f40946352c6373a8b03f0305f83f"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/core_layout.json",
+      "sha256": "8c1074c894b2f32921635735b9a3343be47d48a796061aeb80f99bde1eb81665"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/preflight.json",
+      "sha256": "5ee2102c0e6453b250bcadd0dfaa4b17a7d8743771833f1ff1d421ff590b13d9"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/run_manifest.json",
+      "sha256": "9f3c5996232a9b310e96653c3c48265564eab7bd01b2aa7addbda197e65c77b4"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/raw_deletions.tsv",
+      "sha256": "a5602a8d5ae33ba81d4e0da849f60d1ad9e32fc23ea3ea9e64967e07afce91fe"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/screen_predictions.tsv",
+      "sha256": "c43f36137b3af80155fb977dc388ba4d1915107edf836fd9f135f2b96b2f14cc"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/screen_summary.json",
+      "sha256": "fe8fd1fe84a5dfbc7cfc4420cf99fdc6778b08436f76082c8b4921a7fa1ae1a0"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/execution.json",
+      "sha256": "48098c6900e800c1cf50e188c352a39d1e011f5aa895e7572e04be096bac06de"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/screen_retry/static_regression.json",
+      "sha256": "435bcd7fd561927256018600223ca640b7fc49a5cca2383c07662b7d5a93f4d2"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260911/annotation_status.json",
+      "sha256": "ef15978b538cf1345b3712080decf996bbd421010b7ac57f3d3e7b12d5bcbce8"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/vatpase_gpr_hypothesis_20260911/screen/essentiality_per_gene.tsv",
+      "sha256": "fe29c50c9d33ace8e73c123233df00aedf039eb7709f06560c4b48f8fb575036"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/coq9_gene_evidence.tsv",
+      "sha256": "2edacc114c24689a0913d531b498a3c9a4fe31823abf06fca1f0bfe8f3fee566"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/r153_gpr_assignment.json",
+      "sha256": "43db4c872ee812aad64da5b5280ef641ceafc68d030c42db9277e1ce43c2bed4"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/r1025_gpr_assignment.json",
+      "sha256": "b1b054bd4556e85ccb62ed715fb3b68909bdfbc3b1d85ae534995657c8e13062"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/validation.json",
+      "sha256": "d356b3238d252d37e7f06a2aed48e453b5ee4496b7a7824e832c2b03144ee09b"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/render-check.json",
+      "sha256": "ac9cfe793dbcd00ceddc37bbeb73ae363280b3b9f0d266ae025cb312a6e23887"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/escher_atlas_20260915/REPORT.md",
+      "sha256": "fa072a015105e8223cf2e2ad20c4b17e43e59c42cc360ab0858f2ee2995a8562"
+    }
+  ]
+}

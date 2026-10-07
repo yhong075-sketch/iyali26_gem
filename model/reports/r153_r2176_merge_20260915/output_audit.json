@@ -1,0 +1,254 @@
+{
+  "audited_at_utc": "2026-09-15T22:11:25.676907+00:00",
+  "reviewer": "independent audit_three_reaction_ko subagent",
+  "scope": "Five exact output claims plus one saved-numerical-result claim; independent XML/arithmetic audit, no optimization or rebuild.",
+  "counts": {
+    "total_claims": 6,
+    "audited": 6,
+    "supported": 6,
+    "unresolved": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "claim_id": "O01",
+      "claim": "Fixed old model and new build identities match recorded hashes; second build completed offline/no-solve with matching relevant code/curation.",
+      "sources": [
+        "TASK.md",
+        "build_execution.json",
+        "model_metadata_trna_r153_merged.build.json",
+        "actual input/output bytes"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "O02",
+      "claim": "Exactly R2176 is removed; every retained reaction XML is unchanged except the exact additive R153 merge notes. R153 retains [-1000,1000].",
+      "sources": [
+        "old/new XML: reactions",
+        "curation before/notes"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "O03",
+      "claim": "All 1877 species,1073 genes,compartments,parameters and objective XML are unchanged; full XML comparison leaves no residual difference outside declared edits.",
+      "sources": [
+        "complete old/new XML"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "O04",
+      "claim": "Group membership changes only replace R2176 with R153; group metadata and other members are unchanged.",
+      "sources": [
+        "old/new XML: groups"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "O05",
+      "claim": "Original R153 conflict/unverified notes are preserved; R2176 full old record remains in curation and is accurately referenced from output notes, with prior capacity and superseded statements explicit.",
+      "sources": [
+        "curation before.R2176 and notes",
+        "output XML:R153 notes"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    },
+    {
+      "claim_id": "O06",
+      "claim": "Both saved WT/R153-only KO conditions have complete finite flux vectors satisfying independently reconstructed original-output XML/declared medium/profile and objective; raw ratio/cutoffs match.",
+      "sources": [
+        "run_manifest.json",
+        "execution.json",
+        "build_validation.json",
+        "run_ko.py",
+        "actual merged XML/SD-Leu/profile"
+      ],
+      "verdict": "supported",
+      "audit_status": "audited"
+    }
+  ],
+  "sources_sha256": {
+    "model_metadata_trna_r153_single_gpr.xml": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f",
+    "model_metadata_trna_r153_merged.xml": "10a3baa1da5eb8afb80f93c4cf8a43c3613af7ebb92c8e3385dcda44b91695d0",
+    "data/reference_build/curation/r153_r2176_merge.json": "1f78c8af49601a3b254f50bcaea01e7bba84bf288b720d5d654c506c3d5c8c4d",
+    "model_metadata_trna_r153_merged.build.json": "e8e189b14ce87955a73cd2d4d6318b203125278efc54442cb10db3f66b1da7e1",
+    "artifacts/r153_r2176_merge_20260915/build_execution.json": "94122705a4b9efdc375ac938b251fa7761bcd58ea144aa7ee51940976ee5af0f",
+    "artifacts/r153_r2176_merge_20260915/TASK.md": "eb36fd05192b6236d97656d9cd29ff2f81cea2e038a1015cdd58ad306aee02b6",
+    "scripts/gem_annotate/patches.py": "67577ae3f62679fc545f4a9466b9fc980191f7466e27853460b408335585e8ed",
+    "scripts/gem_annotate/main.py": "b7f1355955d05475e1a0068dd51a0cbda95d928a629f951f0b1ee4092141cbdd",
+    "tests/test_r153_merge.py": "7dc0c37ed4479c4bfde4231e3569907ecf82f2b24955497fd4b37e469e90b9ef",
+    "artifacts/r153_r2176_merge_20260915/run_manifest.json": "f12415ff9ebe64919e30b8cc5fdbff8c1a156fa07afffcaec688bb3fcd3699b3",
+    "artifacts/r153_r2176_merge_20260915/run_ko.py": "8d8d30a49cd7ec7b7e7ae699907906a179e436c5dc756e5348777a021db1940a",
+    "artifacts/r153_r2176_merge_20260915/execution.json": "d8294d910edda230ccbcbf607af6fcfa37f1ccbb6be6055b220c0774f5f4e1ad",
+    "artifacts/r153_r2176_merge_20260915/build_validation.json": "ac0e86a152eb587b0468e32847952c4f430e23191711eb92aa9c70cfea72c885",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "xml_checks": {
+    "old_reactions": 2315,
+    "new_reactions": 2314,
+    "removed_reactions": [
+      "R2176"
+    ],
+    "changed_retained_reactions": [
+      "R153 notes only"
+    ],
+    "retained_R153_bounds": [
+      -1000,
+      1000
+    ],
+    "unchanged_entity_counts": {
+      "species": 1877,
+      "genes": 1073,
+      "compartments": 14,
+      "parameters": 7,
+      "objectives": 1
+    },
+    "group_changes": {
+      "G_group8": {
+        "removed": [
+          "R_R2176"
+        ],
+        "added": []
+      }
+    },
+    "only_allowed_edit_classes_after_full_XML_comparison": true,
+    "all_original_R153_notes_preserved": true,
+    "exact_additive_merge_notes": {
+      "reaction_merge_id": "R153-R2176-MERGE-20260915",
+      "merged_reaction_ids": "R2176",
+      "merged_reaction_name": "L-Citrulline:L-aspartate ligase (AMP-forming)",
+      "merged_reaction_source_sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f",
+      "merged_reaction_original_record": "data/reference_build/curation/r153_r2176_merge.json#/before/R2176",
+      "reaction_merge_capacity": "User-authorized single [-1000,1000] bound; former summed interval [-2000,2000]. Not a globally equivalent feasible set.",
+      "reaction_merge_evidence": "Exact same stoichiometry, compartments, bounds and GPR in fixed input; existing conflicting GPR function evidence remains unconfirmed.",
+      "reaction_merge_supersedes": "Earlier R153 notes describing preserved R2176 apply to the pre-merge build. R2176 is now merged into R153; no new gene-function validation."
+    },
+    "curation_snapshot_still_equals_original_record": true,
+    "exact_member_attribute_names_checked": true,
+    "strict_full_XML_after_only_removing_R2176_group_member_and_handling_R153_notes": true,
+    "group_detail": "G_group8 already contained R153. Exact deletion of only the old R2176 member yields byte-content-equivalent element trees, including every surviving member attribute/name and order (ignoring formatting whitespace). No synthetic member renaming or deduplication needed for this actual input."
+  },
+  "build_evidence": {
+    "execution": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "scripts.gem_annotate",
+        "--research-root",
+        "artifacts/reference_pipeline_restore_20260909/research",
+        "--offline",
+        "--no-solve",
+        "--coq9-curation",
+        "metadata",
+        "--output-model",
+        "model_metadata_trna_r153_merged.xml"
+      ],
+      "started_at_utc": "2026-09-15T22:09:11.543968+00:00",
+      "timeout_seconds": 600,
+      "attempt": 2,
+      "log": "build2.log",
+      "returncode": 0,
+      "elapsed_seconds": 62.84550333296647
+    },
+    "model_counts": {
+      "reactions": 2314,
+      "species": 1877,
+      "genes": 1073
+    },
+    "diagnostic_solves": "not run; execution guard enabled",
+    "network_gene_enrichment": "cache only; network guard enabled",
+    "merge_record": {
+      "merge_id": "R153-R2176-MERGE-20260915",
+      "status": "applied",
+      "retained": "R153",
+      "removed": "R2176",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ]
+    }
+  },
+  "limits": [
+    "Reviewer did not rebuild, execute tests, optimize or make scientific edits.",
+    "This audit supports exact requested output edits, not global feasible-set equivalence or native biological enzyme function.",
+    "Annotation-comparison fix was tested by tests4 (one test); tests3 four regressions apply to prior helper version.",
+    "Broader unrelated protected file set verification belongs to parent validation; old comparison model identity was independently rechecked here.",
+    "Saved primal feasibility and matching objective values are independently checked; optimal status remains solver-reported without independent dual optimality certificate."
+  ],
+  "reviewer_optimization_calls": 0,
+  "numerical_checks": {
+    "conditions": {
+      "WT": {
+        "complete_finite_flux_count": 2314,
+        "max_mass_residual_fsum": 2.943400189379941e-14,
+        "max_mass_residual_original_order": 1.4210854715202004e-14,
+        "max_bound_violation": 0.0,
+        "biomass_objective_from_flux": 1.8718823069402954,
+        "solver_status_recorded": "optimal",
+        "changed_bounds": {},
+        "R153_flux": 0.20917915810634433
+      },
+      "KO_R153_reaction": {
+        "complete_finite_flux_count": 2314,
+        "max_mass_residual_fsum": 2.914335439641036e-15,
+        "max_mass_residual_original_order": 9.769962616701378e-15,
+        "max_bound_violation": 0.0,
+        "biomass_objective_from_flux": 0.20595239043348756,
+        "solver_status_recorded": "optimal",
+        "changed_bounds": {
+          "R153": [
+            0,
+            0
+          ]
+        },
+        "R153_flux": 0.0
+      }
+    },
+    "total_finite_flux_values_checked": 4628,
+    "threshold": 1e-07,
+    "raw_KO_WT_ratio": 0.11002421982935945,
+    "strict_predictions": [
+      {
+        "cutoff": 0.01,
+        "essential": false
+      },
+      {
+        "cutoff": 0.05,
+        "essential": false
+      },
+      {
+        "cutoff": 0.1,
+        "essential": false
+      },
+      {
+        "cutoff": 0.15,
+        "essential": true
+      }
+    ],
+    "previous_same_medium_WT": 1.8718823069402997,
+    "new_minus_previous_WT": -4.218847493575595e-15,
+    "execution": {
+      "command": [
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python",
+        "artifacts/r153_r2176_merge_20260915/run_ko.py"
+      ],
+      "started_at_utc": "2026-09-15T22:11:39.378494+00:00",
+      "timeout_seconds": 180,
+      "returncode": 0,
+      "elapsed_seconds": 3.1441126249847002
+    },
+    "recorded_primary_solves": 2,
+    "current_medium_profile_equals_prior": true,
+    "all_effective_base_bounds_reconstructed": true
+  },
+  "completed_at_utc": "2026-09-15T22:12:56.301817+00:00"
+}

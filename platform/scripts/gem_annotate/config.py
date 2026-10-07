@@ -108,7 +108,9 @@ class ProjectPaths:
         if parts[:2] == ("data", "reference_build") and len(parts) == 3:
             return MODEL.curation_file(parts[2]).resolve()
         if parts and parts[0] == "artifacts":
-            return (MODEL.reports.joinpath(*parts[1:])).resolve()
+            # Small task files are in git under model/reports; large ones only in the workspace.
+            in_git = MODEL.reports.joinpath(*parts[1:])
+            return (in_git if in_git.exists() else self.task_outputs.joinpath(*parts[1:])).resolve()
         if parts == ("model.xml",):
             return MODEL.canonical_model.resolve()
         if len(parts) == 1 and parts[0].startswith("model_"):

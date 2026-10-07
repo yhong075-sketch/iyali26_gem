@@ -1,0 +1,59 @@
+{
+  "status": "proposal_only_not_applied",
+  "target": "CoQ6 C5 hydroxylation",
+  "candidate_gene": "YALI1A08781g",
+  "native_symbol": "not independently established; COQ6-family candidate",
+  "function": "FAD-dependent CoQ ring hydroxylase",
+  "evidence": "curated family annotation, reference-panel homology, existing sequence-identical AlphaFold prediction, cross-species enzymology; new TargetP2 mTP prediction",
+  "sequence": "XP_499891.1",
+  "targetp_mTP": 0.999294,
+  "proposed_compartment": "C_mi",
+  "existing_reactions_affected": [
+    "R39",
+    "R969",
+    "R808"
+  ],
+  "proposed_stoichiometry": {
+    "m641[C_mi]": -1,
+    "m64[C_mi]": -1,
+    "Fd_red[C_mi]": -2,
+    "m28[C_mi]": -1,
+    "m939[C_mi]": 1,
+    "m26[C_mi]": 1,
+    "Fd_ox[C_mi]": 2
+  },
+  "carrier_definition": "Formal symbol only: Fd_red/Fd_ox have the same atoms, charges z-1/z; no pseudo-metabolite added to the model.",
+  "provisional_catalytic_gpr": "YALI1A08781g",
+  "open_decisions": [
+    "Native redox carrier/reductase and NADH/NADPH preference; generic carrier must not be given free supply.",
+    "Coupled replacement of old R39 and compartment connections; retain original evidence, avoid parallel donor-free bypass.",
+    "C1 R40/R19 sequential versus coupled mechanism and quinol/quinone oxidation step unresolved."
+  ],
+  "candidate_donor_leads": [
+    {
+      "gene": "YALI1B03314g",
+      "protein": "XP_500417.1",
+      "family": "YAH1-like ferredoxin",
+      "evidence": "mapping/model assignment only for CoQ; not accepted donor GPR"
+    },
+    {
+      "gene": "YALI1B19490g",
+      "protein": "XP_500902.3",
+      "family": "ARH1-like ferredoxin reductase",
+      "evidence": "mapping/model assignment only for CoQ; not accepted donor GPR"
+    }
+  ],
+  "sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7615680/",
+    "https://pubmed.ncbi.nlm.nih.gov/20534343/",
+    "https://pubmed.ncbi.nlm.nih.gov/21944752/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC10873809/"
+  ],
+  "audit": "coq6_audit/evidence.json",
+  "acceptance_checks": [
+    "Explicit matched redox species and regeneration with complete atom/charge balance",
+    "Old free-redox route no longer bypasses the catalyst",
+    "Gene-to-bound Boolean transmission",
+    "Scoped supply and phenotype tests only after separately fixing input, medium, objective, budget and outcome criteria"
+  ]
+}

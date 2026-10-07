@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-09-13T04:15:43.277453+00:00",
+  "authorization": {
+    "user_request": "可以按15% 阈值",
+    "scope": "Current YALI1F28274g single-knockout interpretation under SD-Leu/PO1f; historical benchmark and execution records retained"
+  },
+  "source_run_manifest": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_pipeline_20260912/run_manifest.json",
+    "sha256": "71f7ef7139b205208fc0f0937d2186840236c73a826a9326aa2b5ab69461ec79"
+  },
+  "source_audit": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_pipeline_20260912/KO_AUDIT.md",
+    "sha256": "a950cfb102ff6d1b9491b9e4558a2bacb1dc2800f274ed18ef26e039801cff3e",
+    "coverage": "Reuse existing independently audited 15% classification; no new biological claim"
+  },
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r1025_gpr.xml",
+    "sha256": "b83bbc65a00b6dc049501f8c22e82414d6133fb2c0b1845d24f4106e19a4fab0"
+  },
+  "gene": {
+    "id": "YALI1F28274g",
+    "verified_native_symbol": null,
+    "function": "Nce103-like beta carbonic anhydrase candidate; CO2/bicarbonate interconversion",
+    "evidence": "automatic annotation and existing AlphaFold prediction; native catalysis and localization unconfirmed"
+  },
+  "raw_growth": {
+    "WT": 1.8718823069403,
+    "KO": 0.20595239043348756,
+    "units": "h^-1"
+  },
+  "ko_wt_ratio": 0.11002421982935918,
+  "comparison": "unrounded KO/WT < cutoff; equality is nonessential",
+  "historical_primary": {
+    "cutoff": 0.1,
+    "essential": false,
+    "reference_classification": "FN"
+  },
+  "user_selected_primary": {
+    "cutoff": 0.15,
+    "essential": true,
+    "reference_classification": "TP"
+  },
+  "experimental_reference_label": "essential",
+  "interpretation": "Model-essential under the selected 15% rule, with positive residual growth; no independent validation or experimental function upgrade",
+  "selection_timing": "15% was included in the original sensitivity analysis; selected as the primary interpretation after the result was observed",
+  "new_optimization_solves": 0,
+  "historical_execution_records_modified": false,
+  "global_benchmark_contract_modified": false
+}

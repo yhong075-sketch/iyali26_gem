@@ -1,0 +1,862 @@
+[
+  {
+    "schema": "https://escher.github.io/escher/jsonschema/1-0-0#",
+    "homepage": "https://escher.github.io",
+    "map_id": "iyali26-vatpase-candidate-20260921",
+    "map_name": "V-ATPase candidate: reaction context and evidence gaps",
+    "map_description": "Three exact-stoichiometry reactions from the screened candidate. Saved WT fluxes, test-only GPR, and evidence gaps. No new optimization."
+  },
+  {
+    "nodes": {
+      "0": {
+        "node_type": "metabolite",
+        "bigg_id": "m10[C_cy]",
+        "name": "H+ [cy]",
+        "x": 200,
+        "y": 405,
+        "node_is_primary": true,
+        "label_x": 105,
+        "label_y": 370
+      },
+      "1": {
+        "node_type": "metabolite",
+        "bigg_id": "m293[C_go]",
+        "name": "H+ [go]",
+        "x": 1130,
+        "y": 405,
+        "node_is_primary": true,
+        "label_x": 1050,
+        "label_y": 370
+      },
+      "2": {
+        "node_type": "metabolite",
+        "bigg_id": "m141[C_cy]",
+        "name": "ATP [cy]",
+        "x": 440,
+        "y": 315,
+        "node_is_primary": false,
+        "label_x": 385,
+        "label_y": 287
+      },
+      "3": {
+        "node_type": "metabolite",
+        "bigg_id": "m32[C_cy]",
+        "name": "H2O [cy]",
+        "x": 440,
+        "y": 485,
+        "node_is_primary": false,
+        "label_x": 370,
+        "label_y": 522
+      },
+      "4": {
+        "node_type": "metabolite",
+        "bigg_id": "m143[C_cy]",
+        "name": "ADP [cy]",
+        "x": 810,
+        "y": 315,
+        "node_is_primary": false,
+        "label_x": 750,
+        "label_y": 287
+      },
+      "5": {
+        "node_type": "metabolite",
+        "bigg_id": "m35[C_cy]",
+        "name": "Pi [cy]",
+        "x": 810,
+        "y": 485,
+        "node_is_primary": false,
+        "label_x": 775,
+        "label_y": 522
+      },
+      "6": {
+        "node_type": "multimarker",
+        "x": 622,
+        "y": 405
+      },
+      "7": {
+        "node_type": "midmarker",
+        "x": 650,
+        "y": 405
+      },
+      "8": {
+        "node_type": "multimarker",
+        "x": 678,
+        "y": 405
+      },
+      "9": {
+        "node_type": "multimarker",
+        "x": 622,
+        "y": 565
+      },
+      "10": {
+        "node_type": "midmarker",
+        "x": 650,
+        "y": 565
+      },
+      "11": {
+        "node_type": "multimarker",
+        "x": 678,
+        "y": 565
+      },
+      "12": {
+        "node_type": "metabolite",
+        "bigg_id": "m10[C_cy]",
+        "name": "H+ [cy]",
+        "x": 200,
+        "y": 740,
+        "node_is_primary": true,
+        "label_x": 105,
+        "label_y": 705
+      },
+      "13": {
+        "node_type": "metabolite",
+        "bigg_id": "m1007[C_va]",
+        "name": "H+ [va]",
+        "x": 1130,
+        "y": 740,
+        "node_is_primary": true,
+        "label_x": 1050,
+        "label_y": 705
+      },
+      "14": {
+        "node_type": "metabolite",
+        "bigg_id": "m141[C_cy]",
+        "name": "ATP [cy]",
+        "x": 440,
+        "y": 650,
+        "node_is_primary": false,
+        "label_x": 385,
+        "label_y": 622
+      },
+      "15": {
+        "node_type": "metabolite",
+        "bigg_id": "m32[C_cy]",
+        "name": "H2O [cy]",
+        "x": 440,
+        "y": 820,
+        "node_is_primary": false,
+        "label_x": 370,
+        "label_y": 857
+      },
+      "16": {
+        "node_type": "metabolite",
+        "bigg_id": "m143[C_cy]",
+        "name": "ADP [cy]",
+        "x": 810,
+        "y": 650,
+        "node_is_primary": false,
+        "label_x": 750,
+        "label_y": 622
+      },
+      "17": {
+        "node_type": "metabolite",
+        "bigg_id": "m35[C_cy]",
+        "name": "Pi [cy]",
+        "x": 810,
+        "y": 820,
+        "node_is_primary": false,
+        "label_x": 775,
+        "label_y": 857
+      },
+      "18": {
+        "node_type": "multimarker",
+        "x": 622,
+        "y": 740
+      },
+      "19": {
+        "node_type": "midmarker",
+        "x": 650,
+        "y": 740
+      },
+      "20": {
+        "node_type": "multimarker",
+        "x": 678,
+        "y": 740
+      }
+    },
+    "reactions": {
+      "0": {
+        "bigg_id": "R794",
+        "name": "R794",
+        "reversibility": false,
+        "label_x": 605,
+        "label_y": 370,
+        "gene_reaction_rule": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1F13017g and (YALI1E12482g or YALI1F38820g))",
+        "genes": [
+          {
+            "bigg_id": "YALI0E16192g",
+            "name": "YALI0E16192g"
+          },
+          {
+            "bigg_id": "YALI1A09766g",
+            "name": "YALI1A09766g"
+          },
+          {
+            "bigg_id": "YALI1A11258g",
+            "name": "YALI1A11258g"
+          },
+          {
+            "bigg_id": "YALI1D00581g",
+            "name": "YALI1D00581g"
+          },
+          {
+            "bigg_id": "YALI1E10492g",
+            "name": "YALI1E10492g"
+          },
+          {
+            "bigg_id": "YALI1E12482g",
+            "name": "YALI1E12482g"
+          },
+          {
+            "bigg_id": "YALI1E14125g",
+            "name": "YALI1E14125g"
+          },
+          {
+            "bigg_id": "YALI1E32332g",
+            "name": "YALI1E32332g"
+          },
+          {
+            "bigg_id": "YALI1E37063g",
+            "name": "YALI1E37063g"
+          },
+          {
+            "bigg_id": "YALI1F13017g",
+            "name": "YALI1F13017g"
+          },
+          {
+            "bigg_id": "YALI1F20965g",
+            "name": "YALI1F20965g"
+          },
+          {
+            "bigg_id": "YALI1F21690g",
+            "name": "YALI1F21690g"
+          },
+          {
+            "bigg_id": "YALI1F31854g",
+            "name": "YALI1F31854g"
+          },
+          {
+            "bigg_id": "YALI1F38820g",
+            "name": "YALI1F38820g"
+          }
+        ],
+        "metabolites": [
+          {
+            "bigg_id": "m10[C_cy]",
+            "coefficient": -2.0
+          },
+          {
+            "bigg_id": "m32[C_cy]",
+            "coefficient": -1.0
+          },
+          {
+            "bigg_id": "m141[C_cy]",
+            "coefficient": -1.0
+          },
+          {
+            "bigg_id": "m35[C_cy]",
+            "coefficient": 1.0
+          },
+          {
+            "bigg_id": "m143[C_cy]",
+            "coefficient": 1.0
+          },
+          {
+            "bigg_id": "m293[C_go]",
+            "coefficient": 2.0
+          }
+        ],
+        "segments": {
+          "0": {
+            "from_node_id": "6",
+            "to_node_id": "7",
+            "b1": null,
+            "b2": null
+          },
+          "1": {
+            "from_node_id": "7",
+            "to_node_id": "8",
+            "b1": null,
+            "b2": null
+          },
+          "2": {
+            "from_node_id": "0",
+            "to_node_id": "6",
+            "b1": null,
+            "b2": null
+          },
+          "3": {
+            "from_node_id": "8",
+            "to_node_id": "1",
+            "b1": null,
+            "b2": null
+          },
+          "4": {
+            "from_node_id": "2",
+            "to_node_id": "6",
+            "b1": {
+              "x": 531.0,
+              "y": 315
+            },
+            "b2": {
+              "x": 531.0,
+              "y": 405
+            }
+          },
+          "5": {
+            "from_node_id": "3",
+            "to_node_id": "6",
+            "b1": {
+              "x": 531.0,
+              "y": 485
+            },
+            "b2": {
+              "x": 531.0,
+              "y": 405
+            }
+          },
+          "6": {
+            "from_node_id": "8",
+            "to_node_id": "4",
+            "b1": {
+              "x": 744.0,
+              "y": 405
+            },
+            "b2": {
+              "x": 744.0,
+              "y": 315
+            }
+          },
+          "7": {
+            "from_node_id": "8",
+            "to_node_id": "5",
+            "b1": {
+              "x": 744.0,
+              "y": 405
+            },
+            "b2": {
+              "x": 744.0,
+              "y": 485
+            }
+          }
+        }
+      },
+      "1": {
+        "bigg_id": "R1159",
+        "name": "R1159",
+        "reversibility": true,
+        "label_x": 590,
+        "label_y": 609,
+        "gene_reaction_rule": "",
+        "genes": [],
+        "metabolites": [
+          {
+            "bigg_id": "m10[C_cy]",
+            "coefficient": -1.0
+          },
+          {
+            "bigg_id": "m293[C_go]",
+            "coefficient": 1.0
+          }
+        ],
+        "segments": {
+          "8": {
+            "from_node_id": "9",
+            "to_node_id": "10",
+            "b1": null,
+            "b2": null
+          },
+          "9": {
+            "from_node_id": "10",
+            "to_node_id": "11",
+            "b1": null,
+            "b2": null
+          },
+          "10": {
+            "from_node_id": "0",
+            "to_node_id": "9",
+            "b1": {
+              "x": 200,
+              "y": 565
+            },
+            "b2": {
+              "x": 480,
+              "y": 565
+            }
+          },
+          "11": {
+            "from_node_id": "11",
+            "to_node_id": "1",
+            "b1": {
+              "x": 820,
+              "y": 565
+            },
+            "b2": {
+              "x": 1130,
+              "y": 565
+            }
+          }
+        }
+      },
+      "2": {
+        "bigg_id": "R795",
+        "name": "R795",
+        "reversibility": false,
+        "label_x": 605,
+        "label_y": 705,
+        "gene_reaction_rule": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1F13017g and (YALI1E12482g or YALI1F38820g))",
+        "genes": [
+          {
+            "bigg_id": "YALI0E16192g",
+            "name": "YALI0E16192g"
+          },
+          {
+            "bigg_id": "YALI1A09766g",
+            "name": "YALI1A09766g"
+          },
+          {
+            "bigg_id": "YALI1A11258g",
+            "name": "YALI1A11258g"
+          },
+          {
+            "bigg_id": "YALI1D00581g",
+            "name": "YALI1D00581g"
+          },
+          {
+            "bigg_id": "YALI1E10492g",
+            "name": "YALI1E10492g"
+          },
+          {
+            "bigg_id": "YALI1E12482g",
+            "name": "YALI1E12482g"
+          },
+          {
+            "bigg_id": "YALI1E14125g",
+            "name": "YALI1E14125g"
+          },
+          {
+            "bigg_id": "YALI1E32332g",
+            "name": "YALI1E32332g"
+          },
+          {
+            "bigg_id": "YALI1E37063g",
+            "name": "YALI1E37063g"
+          },
+          {
+            "bigg_id": "YALI1F13017g",
+            "name": "YALI1F13017g"
+          },
+          {
+            "bigg_id": "YALI1F20965g",
+            "name": "YALI1F20965g"
+          },
+          {
+            "bigg_id": "YALI1F21690g",
+            "name": "YALI1F21690g"
+          },
+          {
+            "bigg_id": "YALI1F31854g",
+            "name": "YALI1F31854g"
+          },
+          {
+            "bigg_id": "YALI1F38820g",
+            "name": "YALI1F38820g"
+          }
+        ],
+        "metabolites": [
+          {
+            "bigg_id": "m10[C_cy]",
+            "coefficient": -2.0
+          },
+          {
+            "bigg_id": "m32[C_cy]",
+            "coefficient": -1.0
+          },
+          {
+            "bigg_id": "m141[C_cy]",
+            "coefficient": -1.0
+          },
+          {
+            "bigg_id": "m35[C_cy]",
+            "coefficient": 1.0
+          },
+          {
+            "bigg_id": "m143[C_cy]",
+            "coefficient": 1.0
+          },
+          {
+            "bigg_id": "m1007[C_va]",
+            "coefficient": 2.0
+          }
+        ],
+        "segments": {
+          "12": {
+            "from_node_id": "18",
+            "to_node_id": "19",
+            "b1": null,
+            "b2": null
+          },
+          "13": {
+            "from_node_id": "19",
+            "to_node_id": "20",
+            "b1": null,
+            "b2": null
+          },
+          "14": {
+            "from_node_id": "12",
+            "to_node_id": "18",
+            "b1": null,
+            "b2": null
+          },
+          "15": {
+            "from_node_id": "20",
+            "to_node_id": "13",
+            "b1": null,
+            "b2": null
+          },
+          "16": {
+            "from_node_id": "14",
+            "to_node_id": "18",
+            "b1": {
+              "x": 531.0,
+              "y": 650
+            },
+            "b2": {
+              "x": 531.0,
+              "y": 740
+            }
+          },
+          "17": {
+            "from_node_id": "15",
+            "to_node_id": "18",
+            "b1": {
+              "x": 531.0,
+              "y": 820
+            },
+            "b2": {
+              "x": 531.0,
+              "y": 740
+            }
+          },
+          "18": {
+            "from_node_id": "20",
+            "to_node_id": "16",
+            "b1": {
+              "x": 744.0,
+              "y": 740
+            },
+            "b2": {
+              "x": 744.0,
+              "y": 650
+            }
+          },
+          "19": {
+            "from_node_id": "20",
+            "to_node_id": "17",
+            "b1": {
+              "x": 744.0,
+              "y": 740
+            },
+            "b2": {
+              "x": 744.0,
+              "y": 820
+            }
+          }
+        }
+      }
+    },
+    "text_labels": {
+      "0": {
+        "x": 60,
+        "y": 67,
+        "text": "V-ATPase: knockout propagation works; growth is unchanged"
+      },
+      "1": {
+        "x": 60,
+        "y": 112,
+        "text": "iYali26 | Screened GPR candidate | SD-Leu / PO1f | 21 September 2026"
+      },
+      "2": {
+        "x": 60,
+        "y": 167,
+        "text": "WT growth 1.87188 h-1    |    All 14 target single KOs ~100% of WT    |    Essential calls (<15%): 116 -> 116"
+      },
+      "3": {
+        "x": 75,
+        "y": 230,
+        "text": "A. Current reaction context"
+      },
+      "4": {
+        "x": 100,
+        "y": 272,
+        "text": "CYTOSOL [cy]"
+      },
+      "5": {
+        "x": 1005,
+        "y": 272,
+        "text": "GOLGI [go]"
+      },
+      "6": {
+        "x": 995,
+        "y": 657,
+        "text": "VACUOLE [va]"
+      },
+      "7": {
+        "x": 255,
+        "y": 885,
+        "text": "R795: bounds [0,0]; already closed before knockout"
+      },
+      "8": {
+        "x": 85,
+        "y": 930,
+        "text": "All drawn WT fluxes = 0. Arrows show stored directionality, not positive flux."
+      },
+      "9": {
+        "x": 85,
+        "y": 962,
+        "text": "Core view only: other proton-associated reactions and the wider ATP network are not drawn."
+      },
+      "10": {
+        "x": 75,
+        "y": 1027,
+        "text": "B. Test-only GPR shared by R794 and R795"
+      },
+      "11": {
+        "x": 90,
+        "y": 1067,
+        "text": "AND across 12 shared candidates, then AND (a candidate 1 OR a candidate 2)"
+      },
+      "12": {
+        "x": 90,
+        "y": 1120,
+        "text": "YALI1A11258g | V1 C / scaffold"
+      },
+      "13": {
+        "x": 90,
+        "y": 1159,
+        "text": "YALI1E14125g | V1 G / stalk"
+      },
+      "14": {
+        "x": 90,
+        "y": 1198,
+        "text": "YALI1D00581g | V1 D / shaft"
+      },
+      "15": {
+        "x": 90,
+        "y": 1237,
+        "text": "YALI1E10492g | V1 H / regulation"
+      },
+      "16": {
+        "x": 90,
+        "y": 1276,
+        "text": "YALI1A09766g | V1 A / ATP hydrolysis"
+      },
+      "17": {
+        "x": 90,
+        "y": 1315,
+        "text": "YALI1F20965g | V1 E / stalk"
+      },
+      "18": {
+        "x": 705,
+        "y": 1120,
+        "text": "YALI0E16192g | V1 F / shaft"
+      },
+      "19": {
+        "x": 705,
+        "y": 1159,
+        "text": "YALI1F31854g | V0 proteolipid / rotor"
+      },
+      "20": {
+        "x": 705,
+        "y": 1198,
+        "text": "YALI1F21690g | V0 d / coupling"
+      },
+      "21": {
+        "x": 705,
+        "y": 1237,
+        "text": "YALI1E37063g | V0 proteolipid / rotor"
+      },
+      "22": {
+        "x": 705,
+        "y": 1276,
+        "text": "YALI1E32332g | V1 B / nucleotide binding"
+      },
+      "23": {
+        "x": 705,
+        "y": 1315,
+        "text": "YALI1F13017g | V0 c″ / rotor"
+      },
+      "24": {
+        "x": 90,
+        "y": 1383,
+        "text": "AND (YALI1E12482g  OR  YALI1F38820g)"
+      },
+      "25": {
+        "x": 90,
+        "y": 1423,
+        "text": "V0 a / proton channel"
+      },
+      "26": {
+        "x": 590,
+        "y": 1423,
+        "text": "Vph1-like V0 a / proton channel"
+      },
+      "27": {
+        "x": 90,
+        "y": 1463,
+        "text": "Native names unverified; homology / AlphaFold support, not experimental validation."
+      },
+      "28": {
+        "x": 90,
+        "y": 1500,
+        "text": "a-subunit OR is a test hypothesis, not demonstrated same-compartment complementation."
+      },
+      "29": {
+        "x": 1355,
+        "y": 230,
+        "text": "C. Why the screen does not change"
+      },
+      "30": {
+        "x": 1370,
+        "y": 274,
+        "text": "Shared-component KO makes both pump GPRs false."
+      },
+      "31": {
+        "x": 1370,
+        "y": 311,
+        "text": "R794: [0,1000] -> [0,0]; R795: already [0,0]."
+      },
+      "32": {
+        "x": 1370,
+        "y": 358,
+        "text": "The complete saved WT flux remains feasible"
+      },
+      "33": {
+        "x": 1370,
+        "y": 395,
+        "text": "after every target single knockout."
+      },
+      "34": {
+        "x": 1370,
+        "y": 442,
+        "text": "The present constraints permit WT-level growth"
+      },
+      "35": {
+        "x": 1370,
+        "y": 479,
+        "text": "without flux through either pump."
+      },
+      "36": {
+        "x": 1370,
+        "y": 530,
+        "text": "ATP demand does not automatically require pump flux."
+      },
+      "37": {
+        "x": 1370,
+        "y": 566,
+        "text": "Biomass uses ATP; its reaction has no H+ [go]/[va] term."
+      },
+      "38": {
+        "x": 1355,
+        "y": 640,
+        "text": "D. What evidence is still missing?"
+      },
+      "39": {
+        "x": 1370,
+        "y": 696,
+        "text": "1  Growth-linked acidification"
+      },
+      "40": {
+        "x": 1370,
+        "y": 735,
+        "text": "A measured, condition-specific acidification need"
+      },
+      "41": {
+        "x": 1370,
+        "y": 768,
+        "text": "and a supported mechanism linking it to growth."
+      },
+      "42": {
+        "x": 1370,
+        "y": 835,
+        "text": "2  Proton transport energetics"
+      },
+      "43": {
+        "x": 1370,
+        "y": 874,
+        "text": "Physiological direction and energy coupling of R1159."
+      },
+      "44": {
+        "x": 1370,
+        "y": 907,
+        "text": "A possible alternative connection; not an active WT bypass."
+      },
+      "45": {
+        "x": 1370,
+        "y": 974,
+        "text": "3  Native a-subunit localization"
+      },
+      "46": {
+        "x": 1370,
+        "y": 1013,
+        "text": "Golgi/vacuolar localization and complementation"
+      },
+      "47": {
+        "x": 1370,
+        "y": 1046,
+        "text": "for the two a candidates under the same conditions."
+      },
+      "48": {
+        "x": 1370,
+        "y": 1113,
+        "text": "4  The W29 F-subunit identity"
+      },
+      "49": {
+        "x": 1370,
+        "y": 1152,
+        "text": "Resolve the CLIB122 old-F / W29 locus conflict;"
+      },
+      "50": {
+        "x": 1370,
+        "y": 1185,
+        "text": "confirm an intact, expressed native protein."
+      },
+      "51": {
+        "x": 1370,
+        "y": 1252,
+        "text": "5  Native complex assembly"
+      },
+      "52": {
+        "x": 1370,
+        "y": 1291,
+        "text": "Complete subunit stoichiometry and orthogonal evidence."
+      },
+      "53": {
+        "x": 1370,
+        "y": 1324,
+        "text": "AlphaFold predictions alone do not validate function."
+      },
+      "54": {
+        "x": 1370,
+        "y": 1439,
+        "text": "Do not add an arbitrary sink merely to force essentiality."
+      },
+      "55": {
+        "x": 1370,
+        "y": 1481,
+        "text": "No new optimization or scientific model changes in this figure."
+      },
+      "56": {
+        "x": 60,
+        "y": 1564,
+        "text": "Evidence: 2026-09-21 screen + independent flux/GPR audit; prior sequence/AlphaFold review. Candidate status is retained."
+      }
+    },
+    "canvas": {
+      "x": 0,
+      "y": 0,
+      "width": 2200,
+      "height": 1600
+    }
+  }
+]
