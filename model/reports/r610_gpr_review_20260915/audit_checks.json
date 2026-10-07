@@ -1,0 +1,276 @@
+{
+  "status": "complete_with_native_biology_limits",
+  "independent_checks": {
+    "retrieval_network.json_file_count": 4,
+    "retrieval_af_files.json_file_count": 3,
+    "sequence_length": 432,
+    "sequence_sha256": "85fc7d9872b5eff7eed949e9ee55bbe3d5128b1d6b34f781ae1e22d07bb2786d",
+    "official_cached_fasta_AFAPI_PDB_exact_match": true,
+    "pdb_ca_mean_plddt": 97.14099537037038,
+    "pdb_ca_plddt_range": [
+      60.78,
+      98.94
+    ],
+    "pae_shape": [
+      432,
+      432
+    ],
+    "api_mean_plddt": 97.12,
+    "cytosol_GO": [
+      {
+        "database": "GO",
+        "id": "GO:0005829",
+        "properties": [
+          {
+            "key": "GoTerm",
+            "value": "C:cytosol"
+          },
+          {
+            "key": "GoEvidenceType",
+            "value": "IEA:EnsemblFungi"
+          }
+        ]
+      }
+    ],
+    "cached_entry_type": "UniProtKB unreviewed (TrEMBL)",
+    "uniprot_now": {
+      "entryType": "Inactive",
+      "primaryAccession": "A0A1H6PJM3",
+      "uniProtkbId": "A0A1H6PJM3_YARLL",
+      "annotationScore": 0.0,
+      "inactiveReason": {
+        "inactiveReasonType": "DELETED",
+        "deletedReason": "Not part of a reference proteome"
+      },
+      "extraAttributes": {
+        "uniParcId": "UPI00003BBE2E"
+      }
+    },
+    "official_identity_fragments": [
+      "VERSION     XP_501441.1",
+      "DBSOURCE    REFSEQ: accession XM_501441.3",
+      "/strain=\"CLIB89(W29)\"",
+      "/locus_tag=\"YALI1_C05908g\"",
+      "/old_locus_tag=\"YALI2_C00075g\"",
+      "/coded_by=\"XM_501441.3:1..1299\""
+    ],
+    "model_sha256": "d417f1de0425bc3336503b45a9498154b8a25a5d90d6f58e68b9d80cfc79297b",
+    "r610_bounds": [
+      0.0,
+      1000.0
+    ],
+    "r610_stoichiometry": {
+      "M_m51__91__C_cy__93__": -1.0,
+      "M_m311__91__C_cy__93__": -1.0,
+      "M_m50__91__C_cy__93__": 1.0,
+      "M_m552__91__C_cy__93__": 1.0,
+      "M_m10__91__C_cy__93__": 1.0
+    },
+    "r610_gpr": "YALI1C05908g",
+    "target_associations": [
+      "R610"
+    ],
+    "exact_or_reversed_same_compartment_duplicates": []
+  },
+  "blast_independent_from_raw_XML": [
+    {
+      "reference": "P07991",
+      "query_length": 432,
+      "reference_length": 424,
+      "query_union_coverage": 0.9722222222222222,
+      "reference_union_coverage": 0.9764150943396226,
+      "best_hsp_identity": 0.5933806146572104,
+      "best_hsp_evalue": 0.0,
+      "best_hsp_bitscore": 523.087
+    },
+    {
+      "reference": "P18544",
+      "query_length": 432,
+      "reference_length": 423,
+      "query_union_coverage": 0.9328703703703703,
+      "reference_union_coverage": 0.91725768321513,
+      "best_hsp_identity": 0.2966507177033493,
+      "best_hsp_evalue": 2.53126e-56,
+      "best_hsp_bitscore": 181.03
+    },
+    {
+      "reference": "P17649",
+      "query_length": 432,
+      "reference_length": 471,
+      "query_union_coverage": 0.9282407407407407,
+      "reference_union_coverage": 0.8980891719745223,
+      "best_hsp_identity": 0.25754060324825984,
+      "best_hsp_evalue": 4.72026e-28,
+      "best_hsp_bitscore": 103.99
+    }
+  ],
+  "blast_checked_without_rerun": true,
+  "blast_input_reference_and_tool_fingerprints_passed": true,
+  "residue_mapping_independent_count": 7,
+  "plp_lys_mapping": [
+    {
+      "reference": "P07991",
+      "type": "Modified residue",
+      "reference_position": 272,
+      "reference_aa": "K",
+      "query_position": 272,
+      "query_aa": "K",
+      "same_residue": true,
+      "description": "N6-(pyridoxal phosphate)lysine",
+      "ligand": null,
+      "reference_evidence": [
+        {
+          "evidenceCode": "ECO:0000250"
+        }
+      ]
+    },
+    {
+      "reference": "P18544",
+      "type": "Modified residue",
+      "reference_position": 276,
+      "reference_aa": "K",
+      "query_position": 272,
+      "query_aa": "K",
+      "same_residue": true,
+      "description": "N6-(pyridoxal phosphate)lysine",
+      "ligand": null,
+      "reference_evidence": [
+        {
+          "evidenceCode": "ECO:0000250"
+        }
+      ]
+    },
+    {
+      "reference": "P17649",
+      "type": "Modified residue",
+      "reference_position": 326,
+      "reference_aa": "K",
+      "query_position": 272,
+      "query_aa": "K",
+      "same_residue": true,
+      "description": "N6-(pyridoxal phosphate)lysine",
+      "ligand": null,
+      "reference_evidence": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P80147"
+        }
+      ]
+    }
+  ],
+  "final_script_sha256": "79590db387226d3d941b6530f1806bcad517f0ff6eb060f346297f7a5b10d0d3",
+  "prior_screen_exact_row_confirmed": {
+    "gene_id": "YALI1C05908g",
+    "ko_status": "optimal",
+    "ko_growth": "1.8718823069403",
+    "ko_growth_ratio": "1.0000000000000002",
+    "raw_growth": "1.8718823069403",
+    "raw_status": "optimal",
+    "raw_growth_repr": "1.8718823069403",
+    "numerically_valid": "True",
+    "audit_status": "valid",
+    "audited_essential_at_1pct": "False",
+    "audited_essential_at_5pct": "False",
+    "audited_essential_at_10pct": "False",
+    "audited_essential_at_15pct": "False"
+  },
+  "prior_screen_source_sha256": "f18fb4fd4d6be2a18d79957ab902516d102af5d374d88e8a2fea9353be718e18",
+  "prior_target_fluxes_sha256": "e87b403041f6846c892c3faf3ec987cc938dbfcadc31b977c0d84fb82887008a",
+  "checked_utc": "2026-09-16T00:26:02.356840+00:00",
+  "auditor_role": "independent source and static arithmetic audit",
+  "new_optimization_count": 0,
+  "new_alignment_runs_by_auditor": 0,
+  "source_model_final_sha256": "d417f1de0425bc3336503b45a9498154b8a25a5d90d6f58e68b9d80cfc79297b",
+  "prior_saved_flux_subset_exactly_confirmed": true,
+  "report_wording_review": "No blocking factual or numerical discrepancy found; candidate function, inferred localization, AF prediction and cross-species condition limits are explicit.",
+  "coverage": {
+    "total_claims": 6,
+    "audited_claims": 6,
+    "supported": 3,
+    "partial": 2,
+    "unverified": 1,
+    "unresolved_native_biology_claims": 3,
+    "coverage_fraction": 1.0
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "W29 target sequence identity and versioned provenance",
+      "status": "supported",
+      "evidence": "432 aa exact match across XP_501441.1, AOW02333.1, target FASTA, cached UniProt, AF API and PDB; current transcript XM_501441.3 distinguished from historical version; official records specify CLIB89(W29). Native symbol remains unverified."
+    },
+    {
+      "id": "C2",
+      "claim": "Actual R610 model rule, chemistry, bounds and static knockout implication",
+      "status": "supported",
+      "evidence": "Direct XML: single YALI1C05908g leaf, only associated R610, all species C_cy, stoichiometry and [0,1000] as reported; no exact or reversed same-compartment stoichiometry duplicate. Independent Boolean implication agrees with saved actual in-memory KO; auditor did not rerun COBRA knockout or solve."
+    },
+    {
+      "id": "C3",
+      "claim": "Native OAT functional assignment from controlled reference comparison",
+      "status": "partial",
+      "evidence": "All three raw BLAST XML alignments, identity counts, coordinate sequences, coverage, E values and seven site mappings checked independently. CAR2 reference preferred at 59.34% identity/97.22% query coverage; source reviewed annotations and primary functional complementation support reference function. Native substrate specificity remains unassayed; three-reference panel is not proteome-wide exclusion; shared Lys272 does not distinguish substrates."
+    },
+    {
+      "id": "C4",
+      "claim": "Native cytosolic localization",
+      "status": "unverified",
+      "evidence": "Historical GO:0005829 is IEA:EnsemblFungi. Model C_cy and cross-species precedent are consistent, but no W29 native localization experiment was retrieved; AF confidence and family names do not resolve this."
+    },
+    {
+      "id": "C5",
+      "claim": "Existing exact-sequence AlphaFold reuse and reported confidence",
+      "status": "supported",
+      "evidence": "AF-A0A1H6PJM3-F1 v6 exact 432 aa PDB/API match, full 432x432 PAE present. API mean pLDDT97.12 vs PDB CA mean97.14099537037038 preserved separately. No new prediction or structure alignment; no functional/localization proof inferred."
+    },
+    {
+      "id": "C6",
+      "claim": "Biological plausibility and current-condition interpretation of OAT proline bypass",
+      "status": "partial",
+      "evidence": "Independent primary 2007 PDF pp1630-1632 supports S.cerevisiae CAR2/PRO2 synthetic sick and proline-associated improvement in maximum OD under ammonium-sulphate-free medium. Double mutant remains viable. Supports pathway class, not W29 ammonium SD-Leu quantitative flux or unique bypass. Previous screen target row and saved target flux subset match source exactly; not newly solved."
+    }
+  ],
+  "sources_opened": [
+    {
+      "source": "Official NCBI and UniProt/AlphaFold snapshots",
+      "location": "identity_sources and references directories; manifest source URL/SHA records checked",
+      "access": "original saved official responses; independently parsed sequence and annotation fields"
+    },
+    {
+      "url": "https://iubmb.qmul.ac.uk/enzyme/EC2/6/1/13.html",
+      "access": "direct official entry",
+      "locator": "reaction and PLP comments"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3036506/",
+      "access": "direct primary-study abstract",
+      "locator": "functional complementation; full 1987 methods not read"
+    },
+    {
+      "url": "https://genome.cshlp.org/content/17/11/1626.full.pdf",
+      "access": "direct publisher PDF text",
+      "locator": "p1630 results; p1631 Figure5 caption; p1632 Experimental procedures; original PMC direct page challenged, publisher PDF succeeds"
+    }
+  ],
+  "limits": [
+    "Not native catalytic or localization validation.",
+    "Not whole-proteome OR exclusion or proof that an additional gene is never involved.",
+    "Not a de novo AlphaFold prediction, structure comparison, substrate docking or thermodynamic analysis.",
+    "No repeat BLAST, no new LP, no model or state edits; only final saved BLAST outputs independently audited.",
+    "Prior flux witnesses are condition-specific feasible solutions; neither uniqueness nor native quantitative flux is claimed.",
+    "1993 cross-species localization background and all UGA1/ARG8 primary assay chains were not independently reconstructed."
+  ],
+  "audited_file_sha256": {
+    "TASK.md": "7c80876f8c2759858f766488a75cb41ba5e07f165cfd7a3bef81853b437233b8",
+    "REPORT.md": "fa358075a6d70940246cb0616befdd745b81711495cf102cb75e88f07d62a689",
+    "BIOCHEMISTRY.md": "ce734880c701ab529ffaa0e4db55fc907e6c9258d6191f8563c81a668820326d",
+    "IDENTITY.md": "eb08b4b56f78f3cf239574cb4f588aa41088e06e3f18da5a2796b7b1d489ab91",
+    "identity_checks.json": "8f6c169deb6f58d84029a388f0e72c07711982d46a28d9c02a4d94b09c287836",
+    "model_snapshot.json": "2ace25715a795287d2e623bae85e6b3a4d8d50ea7c229ee255a712ba68c04db6",
+    "local_blast_results.json": "b3d0890473cc146c3a87be4d278ea47de12f1ff0395be0df059fcf35c622dcf1",
+    "local_blast.xml": "eed4b424af175d59819f3a58193f3744814d7cc03a1b1a8b6f879d638c0f8a42",
+    "residue_mapping.json": "e235d06c2ecbdc8dfadb6210e50a657e71ca4ce11d916b2c9133dc7c42161ac7",
+    "compare_sequences.py": "79590db387226d3d941b6530f1806bcad517f0ff6eb060f346297f7a5b10d0d3"
+  }
+}

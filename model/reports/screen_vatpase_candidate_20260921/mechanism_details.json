@@ -1,0 +1,2128 @@
+{
+  "checked_utc": "2026-09-21T23:33:01.636789+00:00",
+  "scope": "Candidate screen only; local stoichiometric rows and saved WT. No LP/FVA or model changes.",
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_vatpase_candidate_20260921/candidate.xml": "0fcc2f6ff05124b91977c6f96f78cbe5906a3ccbf3f936f95990afe02b540353",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_vatpase_candidate_20260921/candidate/run_manifest.json": "348ae99577e76c851340a871f20cb200807c7f38f29b06cef42825294efbeb14",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_vatpase_candidate_20260921/candidate/target_fluxes.json": "fbd0554241fbcc2564f70b70d59bdf626db4ecc4be793566f6d4d32a480494df"
+  },
+  "script_sha256": "dd1d1e4c61af03220e4b6941c7f15b20cde6e6b3655768bfe4b92d3ffa33b176",
+  "solver_calls": 0,
+  "WT_growth": 1.8718823069402997,
+  "golgi_proton_row": {
+    "R141": 1.0,
+    "R794": 2.0,
+    "R1159": 1.0,
+    "R2048": -2.0,
+    "R_NDP7g": 1.0
+  },
+  "vacuolar_proton_row": {
+    "R795": 2.0,
+    "R869": -1.0,
+    "R870": -1.0,
+    "R871": -1.0,
+    "R876": -1.0,
+    "R878": -1.0,
+    "R879": -1.0,
+    "R882": -1.0,
+    "R883": -1.0,
+    "R887": -1.0,
+    "R888": -1.0,
+    "R897": -1.0,
+    "R898": -1.0,
+    "R918": -1.0,
+    "R925": -1.0,
+    "R927": -1.0,
+    "R1163": 1.0,
+    "R2020": 1.0,
+    "R2028": 1.0,
+    "R2030": 1.0,
+    "R2038": 1.0,
+    "R2040": 1.0
+  },
+  "vacuolar_nonzero_bounds": [
+    "R882",
+    "R2020",
+    "R2028",
+    "R2030",
+    "R2038",
+    "R2040"
+  ],
+  "vacuolar_water_row": {
+    "R1363": 1.0,
+    "R2021": -1.0,
+    "R2029": -1.0,
+    "R2034": -1.0,
+    "R2039": -1.0
+  },
+  "dipeptide_supply_chains": [
+    {
+      "reactions": [
+        "R2018",
+        "R2019",
+        "R2020",
+        "R2021"
+      ],
+      "species": [
+        "m1869[C_ex]",
+        "m1870[C_cy]",
+        "m1871[C_va]"
+      ],
+      "summed_row": {
+        "R2018": -1,
+        "R2021": -1
+      },
+      "conclusion": "All four fluxes must be zero under current bounds"
+    },
+    {
+      "reactions": [
+        "R2026",
+        "R2027",
+        "R2028",
+        "R2029"
+      ],
+      "species": [
+        "m1860[C_ex]",
+        "m1861[C_cy]",
+        "m1862[C_va]"
+      ],
+      "summed_row": {
+        "R2026": -1,
+        "R2029": -1
+      },
+      "conclusion": "All four fluxes must be zero under current bounds"
+    },
+    {
+      "reactions": [
+        "R2031",
+        "R2032",
+        "R2033",
+        "R2034"
+      ],
+      "species": [
+        "m1876[C_ex]",
+        "m1877[C_cy]",
+        "m1878[C_va]"
+      ],
+      "summed_row": {
+        "R2031": -1,
+        "R2034": -1
+      },
+      "conclusion": "All four fluxes must be zero under current bounds"
+    },
+    {
+      "reactions": [
+        "R2036",
+        "R2037",
+        "R2038",
+        "R2039"
+      ],
+      "species": [
+        "m1864[C_ex]",
+        "m1865[C_cy]",
+        "m1866[C_va]"
+      ],
+      "summed_row": {
+        "R2036": -1,
+        "R2039": -1
+      },
+      "conclusion": "All four fluxes must be zero under current bounds"
+    }
+  ],
+  "R141_isolated_rows": {
+    "m289[C_go]": {
+      "R141": -1.0
+    },
+    "m291[C_go]": {
+      "R141": 1.0
+    }
+  },
+  "golgi_compartment_reactions_saved_WT_zero": [
+    "R141",
+    "R586",
+    "R602",
+    "R794",
+    "R826",
+    "R827",
+    "R828",
+    "R829",
+    "R850",
+    "R1034",
+    "R1035",
+    "R1036",
+    "R1037",
+    "R1038",
+    "R1039",
+    "R1057",
+    "R1135",
+    "R1137",
+    "R1159",
+    "R1179",
+    "R1180",
+    "R1181",
+    "R1182",
+    "R1183",
+    "R1184",
+    "R1185",
+    "R1186",
+    "R1187",
+    "R1188",
+    "R1238",
+    "R1239",
+    "R1240",
+    "R1241",
+    "R1242",
+    "R1243",
+    "R1244",
+    "R1245",
+    "R1246",
+    "R1247",
+    "R1253",
+    "R1254",
+    "R1255",
+    "R1256",
+    "R1257",
+    "R1258",
+    "R1259",
+    "R1260",
+    "R1261",
+    "R1262",
+    "R1359",
+    "R1815",
+    "R1816",
+    "R1817",
+    "R1818",
+    "R1819",
+    "R1820",
+    "R1821",
+    "R1822",
+    "R1823",
+    "R1824",
+    "R1825",
+    "R1826",
+    "R1827",
+    "R1828",
+    "R1829",
+    "R1830",
+    "R1831",
+    "R1832",
+    "R1833",
+    "R1834",
+    "R2046",
+    "R2047",
+    "R2048",
+    "R2049",
+    "R2057",
+    "R_NDP7g"
+  ],
+  "mannan_WT_demand": 0.44148157020956275,
+  "reactions": {
+    "R1159": {
+      "name": "H+ diffusion",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m293[C_go]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R1163": {
+      "name": "H+ diffusion",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m1007[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R1250": {
+      "name": "mannan transport",
+      "stoichiometry": {
+        "m1324[C_cy]": -1.0,
+        "m504[C_er]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": -0.44148157020956275
+    },
+    "R1363": {
+      "name": "water diffusion",
+      "stoichiometry": {
+        "m32[C_cy]": -1.0,
+        "m1384[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R141": {
+      "name": "alpha 1,2-mannosyltransferase",
+      "stoichiometry": {
+        "m289[C_go]": -1.0,
+        "m290[C_go]": -1.0,
+        "m291[C_go]": 1.0,
+        "m292[C_go]": 1.0,
+        "m293[C_go]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2018": {
+      "name": "Gly-Asp exchange",
+      "stoichiometry": {
+        "m1869[C_ex]": -1.0
+      },
+      "bounds": [
+        -0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2019": {
+      "name": "Gly-Asp transport via proton antiport",
+      "stoichiometry": {
+        "m342[C_ex]": -1.0,
+        "m1869[C_ex]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1870[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2020": {
+      "name": "Gly-Asp transport via proton antiport",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m1870[C_cy]": -1.0,
+        "m1007[C_va]": 1.0,
+        "m1871[C_va]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2021": {
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1384[C_va]": -1.0,
+        "m1871[C_va]": -1.0,
+        "m1067[C_va]": 1.0,
+        "m1863[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2026": {
+      "name": "Gly-Glu exchange",
+      "stoichiometry": {
+        "m1860[C_ex]": -1.0
+      },
+      "bounds": [
+        -0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2027": {
+      "name": "Gly-glu transport via proton antiport",
+      "stoichiometry": {
+        "m342[C_ex]": -1.0,
+        "m1860[C_ex]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1861[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2028": {
+      "name": "Gly-glu transport via proton antiport",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m1861[C_cy]": -1.0,
+        "m1007[C_va]": 1.0,
+        "m1862[C_va]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2029": {
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1384[C_va]": -1.0,
+        "m1862[C_va]": -1.0,
+        "m1071[C_va]": 1.0,
+        "m1863[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2030": {
+      "name": "Glycine transport (vacuole)",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m272[C_cy]": -1.0,
+        "m1007[C_va]": 1.0,
+        "m1863[C_va]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2031": {
+      "name": "Ala-Gly exchange",
+      "stoichiometry": {
+        "m1876[C_ex]": -1.0
+      },
+      "bounds": [
+        -0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2032": {
+      "name": "Ala-Gly transport via proton antiport",
+      "stoichiometry": {
+        "m1876[C_ex]": -1.0,
+        "m1877[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2033": {
+      "name": "Ala-Gly transport via proton antiport",
+      "stoichiometry": {
+        "m1877[C_cy]": -1.0,
+        "m1878[C_va]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2034": {
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1384[C_va]": -1.0,
+        "m1878[C_va]": -1.0,
+        "m1863[C_va]": 1.0,
+        "m1879[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2036": {
+      "name": "Gly-Pro exchange",
+      "stoichiometry": {
+        "m1864[C_ex]": -1.0
+      },
+      "bounds": [
+        -0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2037": {
+      "name": "Gly-Pro transport via proton antiport",
+      "stoichiometry": {
+        "m342[C_ex]": -1.0,
+        "m1864[C_ex]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1865[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2038": {
+      "name": "Gly-Pro transport via proton antiport",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m1865[C_cy]": -1.0,
+        "m1007[C_va]": 1.0,
+        "m1866[C_va]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2039": {
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1384[C_va]": -1.0,
+        "m1866[C_va]": -1.0,
+        "m1863[C_va]": 1.0,
+        "m1867[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2040": {
+      "name": "proline transport (vacuole)",
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m765[C_cy]": -1.0,
+        "m1007[C_va]": 1.0,
+        "m1867[C_va]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R2048": {
+      "name": "Reaction",
+      "stoichiometry": {
+        "m1327[C_go]": -1.0,
+        "m1886[C_go]": -1.0,
+        "m293[C_go]": -2.0,
+        "m1314[C_go]": 1.0,
+        "m835[C_go]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R289": {
+      "name": "dolichyl-phosphate-mannose--protein mannosyltransferase",
+      "stoichiometry": {
+        "m502[C_er]": -1.0,
+        "m102[C_er]": 1.0,
+        "m503[C_er]": 1.0,
+        "m504[C_er]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.44148157020956275
+    },
+    "R642": {
+      "name": "phosphoglycerate kinase",
+      "stoichiometry": {
+        "m143[C_cy]": -1.0,
+        "m494[C_cy]": -1.0,
+        "m10[C_cy]": -1.0,
+        "m141[C_cy]": 1.0,
+        "m884[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 7.592345911549636
+    },
+    "R694": {
+      "name": "pyruvate kinase",
+      "stoichiometry": {
+        "m107[C_cy]": -1.0,
+        "m143[C_cy]": -1.0,
+        "m4[C_cy]": 1.0,
+        "m141[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 115.62695763352349
+    },
+    "R794": {
+      "name": "V-ATPase, Golgi",
+      "stoichiometry": {
+        "m10[C_cy]": -2.0,
+        "m32[C_cy]": -1.0,
+        "m141[C_cy]": -1.0,
+        "m35[C_cy]": 1.0,
+        "m143[C_cy]": 1.0,
+        "m293[C_go]": 2.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R795": {
+      "name": "V-ATPase, vacuole",
+      "stoichiometry": {
+        "m10[C_cy]": -2.0,
+        "m32[C_cy]": -1.0,
+        "m141[C_cy]": -1.0,
+        "m35[C_cy]": 1.0,
+        "m143[C_cy]": 1.0,
+        "m1007[C_va]": 2.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R869": {
+      "name": "L-asparagine transport",
+      "stoichiometry": {
+        "m319[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1066[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R870": {
+      "name": "L-aspartate transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1066[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m319[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R871": {
+      "name": "L-aspartate transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1067[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m267[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R876": {
+      "name": "L-glutamate transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1071[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m50[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R878": {
+      "name": "L-glutamine transport",
+      "stoichiometry": {
+        "m130[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1073[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R879": {
+      "name": "L-glutamine transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1073[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m130[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R882": {
+      "name": "L-isoleucine transport",
+      "stoichiometry": {
+        "m743[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1076[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R883": {
+      "name": "L-isoleucine transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1076[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m743[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R887": {
+      "name": "L-leucine transport, vacuoluar",
+      "stoichiometry": {
+        "m775[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1080[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R888": {
+      "name": "L-leucine transport, vacuoluar",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1080[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m775[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R897": {
+      "name": "L-tyrosine transport",
+      "stoichiometry": {
+        "m992[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1089[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R898": {
+      "name": "L-tyrosine transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1089[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m992[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R918": {
+      "name": "putrescine transport",
+      "stoichiometry": {
+        "m850[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1102[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R925": {
+      "name": "spermidine transport",
+      "stoichiometry": {
+        "m467[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": -2.0,
+        "m1110[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R927": {
+      "name": "spermine transport",
+      "stoichiometry": {
+        "m902[C_cy]": -1.0,
+        "m1007[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m1112[C_va]": 1.0
+      },
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "WT_flux": 0.0
+    },
+    "R_NDP7g": {
+      "name": "R_NDP7g",
+      "stoichiometry": {
+        "m836[C_go]": -1.0,
+        "m835[C_go]": -1.0,
+        "m838[C_go]": 1.0,
+        "m837[C_go]": 1.0,
+        "m293[C_go]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "WT_flux": 0.0
+    },
+    "biomass_C": {
+      "name": "biomass_C",
+      "stoichiometry": {
+        "m32[C_cy]": -23.09,
+        "m86[C_cy]": -0.055401,
+        "m89[C_cy]": -0.01007,
+        "m93[C_cy]": -0.050871,
+        "m95[C_cy]": -0.05721,
+        "m141[C_cy]": -23.09,
+        "m149[C_cy]": -0.059363,
+        "m294[C_cy]": -0.00686,
+        "m359[C_cy]": -0.003029,
+        "m401[C_cy]": -0.868358,
+        "m459[C_cy]": -0.010436,
+        "m465[C_cy]": -0.009226,
+        "m505[C_cy]": -0.010353,
+        "m964[C_cy]": -0.02,
+        "m1000[C_cy]": -0.035251,
+        "m1123[C_cy]": -0.943397,
+        "m1324[C_cy]": -0.235849,
+        "m1631[C_em]": -3.5e-05,
+        "m1640[C_lp]": -0.000234,
+        "m1648[C_em]": -7.5e-05,
+        "m1700[C_lp]": -0.000237,
+        "m1701[C_lp]": -0.000346,
+        "m1705[C_lp]": -5.8e-05,
+        "trna_biomass_residue_R798": -0.172773,
+        "trna_biomass_residue_R129": -0.567939,
+        "trna_biomass_residue_R154": -0.125563,
+        "trna_biomass_residue_R157": -0.186498,
+        "trna_biomass_residue_R165": -0.186531,
+        "trna_biomass_residue_R248": -0.003632,
+        "trna_biomass_residue_R336": -0.243866,
+        "trna_biomass_residue_R337": -0.243904,
+        "trna_biomass_residue_R368": -0.509943,
+        "trna_biomass_residue_R392": -0.053881,
+        "trna_biomass_residue_R493": -0.090566,
+        "trna_biomass_residue_R522": -0.19455,
+        "trna_biomass_residue_R531": -0.275005,
+        "trna_biomass_residue_R547": -0.044232,
+        "trna_biomass_residue_R625": -0.082571,
+        "trna_biomass_residue_R673": -0.206372,
+        "trna_biomass_residue_R723": -0.284699,
+        "trna_biomass_residue_R759": -0.210543,
+        "trna_biomass_residue_R771": -0.002154,
+        "trna_biomass_residue_R775": -0.041282,
+        "m10[C_cy]": 23.09,
+        "m35[C_cy]": 23.09,
+        "m143[C_cy]": 23.09,
+        "m1401[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "WT_flux": 1.8718823069402997
+    }
+  },
+  "species": {
+    "m1384[C_va]": {
+      "metaid": "meta_M_m1384__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1384__91__C_va__93__",
+      "name": "H2O_H2O",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H2O"
+    },
+    "m1866[C_va]": {
+      "metaid": "meta_M_m1866__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1866__91__C_va__93__",
+      "name": "Gly-Pro",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1863[C_va]": {
+      "metaid": "meta_M_m1863__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1863__91__C_va__93__",
+      "name": "L-glycine",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1867[C_va]": {
+      "metaid": "meta_M_m1867__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1867__91__C_va__93__",
+      "name": "L-proline",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C5H9NO2"
+    },
+    "m32[C_cy]": {
+      "metaid": "meta_M_m32__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m32__91__C_cy__93__",
+      "name": "H2O_H2O",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H2O"
+    },
+    "m836[C_go]": {
+      "metaid": "meta_M_m836__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m836__91__C_go__93__",
+      "name": "UDP_C9H14N2O12P2",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H14N2O12P2"
+    },
+    "m835[C_go]": {
+      "metaid": "meta_M_m835__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m835__91__C_go__93__",
+      "name": "H2O_H2O",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H2O"
+    },
+    "m838[C_go]": {
+      "metaid": "meta_M_m838__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m838__91__C_go__93__",
+      "name": "UMP_C9H13N2O9P",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H13N2O9P"
+    },
+    "m837[C_go]": {
+      "metaid": "meta_M_m837__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m837__91__C_go__93__",
+      "name": "phosphate_H3O4P",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H3O4P"
+    },
+    "m293[C_go]": {
+      "metaid": "meta_M_m293__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m293__91__C_go__93__",
+      "name": "H+_p+1",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "1",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H"
+    },
+    "m10[C_cy]": {
+      "metaid": "meta_M_m10__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m10__91__C_cy__93__",
+      "name": "H+_p+1",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "1",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H"
+    },
+    "m272[C_cy]": {
+      "metaid": "meta_M_m272__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m272__91__C_cy__93__",
+      "name": "L-glycine_C2H5NO2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C2H5NO2"
+    },
+    "m1007[C_va]": {
+      "metaid": "meta_M_m1007__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1007__91__C_va__93__",
+      "name": "H+_p+1",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "1",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H"
+    },
+    "m342[C_ex]": {
+      "metaid": "meta_M_m342__91__C_ex__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m342__91__C_ex__93__",
+      "name": "H+_p+1",
+      "compartment": "C_ex",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "1",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H"
+    },
+    "m1864[C_ex]": {
+      "metaid": "meta_M_m1864__91__C_ex__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1864__91__C_ex__93__",
+      "name": "Gly-Pro",
+      "compartment": "C_ex",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1865[C_cy]": {
+      "metaid": "meta_M_m1865__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1865__91__C_cy__93__",
+      "name": "Gly-Pro",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1871[C_va]": {
+      "metaid": "meta_M_m1871__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1871__91__C_va__93__",
+      "name": "Gly-Asp",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1067[C_va]": {
+      "metaid": "meta_M_m1067__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1067__91__C_va__93__",
+      "name": "L-aspartate_C4H7NO4",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C4H7NO4"
+    },
+    "m1869[C_ex]": {
+      "metaid": "meta_M_m1869__91__C_ex__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1869__91__C_ex__93__",
+      "name": "Gly-Asp",
+      "compartment": "C_ex",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1870[C_cy]": {
+      "metaid": "meta_M_m1870__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1870__91__C_cy__93__",
+      "name": "Gly-Asp",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1876[C_ex]": {
+      "metaid": "meta_M_m1876__91__C_ex__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1876__91__C_ex__93__",
+      "name": "Ala-Gly",
+      "compartment": "C_ex",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1324[C_cy]": {
+      "metaid": "meta_M_m1324__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1324__91__C_cy__93__",
+      "name": "mannan_",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C24H42O21"
+    },
+    "m504[C_er]": {
+      "metaid": "meta_M_m504__91__C_er__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m504__91__C_er__93__",
+      "name": "mannan_",
+      "compartment": "C_er",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C24H42O21"
+    },
+    "m86[C_cy]": {
+      "metaid": "meta_M_m86__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m86__91__C_cy__93__",
+      "name": "AMP_C10H14N5O7P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H14N5O7P"
+    },
+    "m89[C_cy]": {
+      "metaid": "meta_M_m89__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m89__91__C_cy__93__",
+      "name": "dAMP_C10H14N5O6P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H14N5O6P"
+    },
+    "m93[C_cy]": {
+      "metaid": "meta_M_m93__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m93__91__C_cy__93__",
+      "name": "GMP_C10H14N5O8P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H14N5O8P"
+    },
+    "m95[C_cy]": {
+      "metaid": "meta_M_m95__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m95__91__C_cy__93__",
+      "name": "CMP_C9H14N3O8P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H14N3O8P"
+    },
+    "m141[C_cy]": {
+      "metaid": "meta_M_m141__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m141__91__C_cy__93__",
+      "name": "ATP_C10H16N5O13P3",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H16N5O13P3"
+    },
+    "m149[C_cy]": {
+      "metaid": "meta_M_m149__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m149__91__C_cy__93__",
+      "name": "UMP_C9H13N2O9P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H13N2O9P"
+    },
+    "m294[C_cy]": {
+      "metaid": "meta_M_m294__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m294__91__C_cy__93__",
+      "name": "trehalose_C12H22O11",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C12H22O11"
+    },
+    "m359[C_cy]": {
+      "metaid": "meta_M_m359__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m359__91__C_cy__93__",
+      "name": "zymosterol_C27H44O",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C27H44O"
+    },
+    "m401[C_cy]": {
+      "metaid": "meta_M_m401__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m401__91__C_cy__93__",
+      "name": "chitin_H2O(C8H13NO5)n",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H2O(C8H13NO5)n"
+    },
+    "m459[C_cy]": {
+      "metaid": "meta_M_m459__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m459__91__C_cy__93__",
+      "name": "dCMP_C9H14N3O7P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H14N3O7P"
+    },
+    "m465[C_cy]": {
+      "metaid": "meta_M_m465__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m465__91__C_cy__93__",
+      "name": "dGMP_C10H14N5O7P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H14N5O7P"
+    },
+    "m505[C_cy]": {
+      "metaid": "meta_M_m505__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m505__91__C_cy__93__",
+      "name": "dTMP_C10H15N2O8P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H15N2O8P"
+    },
+    "m964[C_cy]": {
+      "metaid": "meta_M_m964__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m964__91__C_cy__93__",
+      "name": "sulphate_H2O4S",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H2O4S"
+    },
+    "m1000[C_cy]": {
+      "metaid": "meta_M_m1000__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1000__91__C_cy__93__",
+      "name": "ergosterol_C28H44O",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C28H44O"
+    },
+    "m1123[C_cy]": {
+      "metaid": "meta_M_m1123__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1123__91__C_cy__93__",
+      "name": "(1-3)-beta-D-glucan_",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H10O5*2"
+    },
+    "m1631[C_em]": {
+      "metaid": "meta_M_m1631__91__C_em__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1631__91__C_em__93__",
+      "name": "phosphatidyl-L-serine_C8H11NO10PR2",
+      "compartment": "C_em",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C8H11NO10PR2"
+    },
+    "m1640[C_lp]": {
+      "metaid": "meta_M_m1640__91__C_lp__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1640__91__C_lp__93__",
+      "name": "triglyceride",
+      "compartment": "C_lp",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H5O6*3"
+    },
+    "m1648[C_em]": {
+      "metaid": "meta_M_m1648__91__C_em__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1648__91__C_em__93__",
+      "name": "1-phosphatidyl-1D-myo-inositol",
+      "compartment": "C_em",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C11H17O13P*2"
+    },
+    "m1700[C_lp]": {
+      "metaid": "meta_M_m1700__91__C_lp__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1700__91__C_lp__93__",
+      "name": "phosphatidylethanolamine_C7H12NO8PR2",
+      "compartment": "C_lp",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C7H12NO8PR2"
+    },
+    "m1701[C_lp]": {
+      "metaid": "meta_M_m1701__91__C_lp__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1701__91__C_lp__93__",
+      "name": "phosphatidylcholine_C10H18NO8PR2",
+      "compartment": "C_lp",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H18NO8PR2"
+    },
+    "m1705[C_lp]": {
+      "metaid": "meta_M_m1705__91__C_lp__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1705__91__C_lp__93__",
+      "name": "phosphatidate",
+      "compartment": "C_lp",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "trna_biomass_residue_R798": {
+      "metaid": "meta_M_trna_biomass_residue_R798",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R798",
+      "name": "Protein-incorporated L-valine_C5H11NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R129": {
+      "metaid": "meta_M_trna_biomass_residue_R129",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R129",
+      "name": "Protein-incorporated L-alanine_C3H7NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R154": {
+      "metaid": "meta_M_trna_biomass_residue_R154",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R154",
+      "name": "Protein-incorporated L-arginine_C6H14N4O2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R157": {
+      "metaid": "meta_M_trna_biomass_residue_R157",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R157",
+      "name": "Protein-incorporated L-asparagine_C4H8N2O3 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R165": {
+      "metaid": "meta_M_trna_biomass_residue_R165",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R165",
+      "name": "Protein-incorporated L-aspartate_C4H7NO4 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R248": {
+      "metaid": "meta_M_trna_biomass_residue_R248",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R248",
+      "name": "Protein-incorporated L-cysteine_C3H7NO2S requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R336": {
+      "metaid": "meta_M_trna_biomass_residue_R336",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R336",
+      "name": "Protein-incorporated L-glutamine_C5H10N2O3 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R337": {
+      "metaid": "meta_M_trna_biomass_residue_R337",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R337",
+      "name": "Protein-incorporated L-glutamate_C5H9NO4 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R368": {
+      "metaid": "meta_M_trna_biomass_residue_R368",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R368",
+      "name": "Protein-incorporated L-glycine_C2H5NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R392": {
+      "metaid": "meta_M_trna_biomass_residue_R392",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R392",
+      "name": "Protein-incorporated L-histidine_C6H9N3O2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R493": {
+      "metaid": "meta_M_trna_biomass_residue_R493",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R493",
+      "name": "Protein-incorporated L-isoleucine_C6H13NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R522": {
+      "metaid": "meta_M_trna_biomass_residue_R522",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R522",
+      "name": "Protein-incorporated L-leucine_C6H13NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R531": {
+      "metaid": "meta_M_trna_biomass_residue_R531",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R531",
+      "name": "Protein-incorporated L-lysine_C6H14N2O2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R547": {
+      "metaid": "meta_M_trna_biomass_residue_R547",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R547",
+      "name": "Protein-incorporated L-methionine_C5H11NO2S requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R625": {
+      "metaid": "meta_M_trna_biomass_residue_R625",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R625",
+      "name": "Protein-incorporated L-phenylalanine_C9H11NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R673": {
+      "metaid": "meta_M_trna_biomass_residue_R673",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R673",
+      "name": "Protein-incorporated L-proline_C5H9NO2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R723": {
+      "metaid": "meta_M_trna_biomass_residue_R723",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R723",
+      "name": "Protein-incorporated L-serine_C3H7NO3 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R759": {
+      "metaid": "meta_M_trna_biomass_residue_R759",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R759",
+      "name": "Protein-incorporated L-threonine_C4H9NO3 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R771": {
+      "metaid": "meta_M_trna_biomass_residue_R771",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R771",
+      "name": "Protein-incorporated L-tryptophan_C11H12N2O2 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "trna_biomass_residue_R775": {
+      "metaid": "meta_M_trna_biomass_residue_R775",
+      "sboTerm": "SBO:0000247",
+      "id": "M_trna_biomass_residue_R775",
+      "name": "Protein-incorporated L-tyrosine_C9H11NO3 requirement (experimental B split)",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false"
+    },
+    "m35[C_cy]": {
+      "metaid": "meta_M_m35__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m35__91__C_cy__93__",
+      "name": "phosphate_H3O4P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H3O4P"
+    },
+    "m143[C_cy]": {
+      "metaid": "meta_M_m143__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m143__91__C_cy__93__",
+      "name": "ADP_C10H15N5O10P2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H15N5O10P2"
+    },
+    "m1401[C_cy]": {
+      "metaid": "meta_M_m1401__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1401__91__C_cy__93__",
+      "name": "biomass_",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m502[C_er]": {
+      "metaid": "meta_M_m502__91__C_er__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m502__91__C_er__93__",
+      "name": "dolichyl D-mannosyl phosphate_C26H47O9P(C5H8)n",
+      "compartment": "C_er",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C26H47O9P(C5H8)n"
+    },
+    "m102[C_er]": {
+      "metaid": "meta_M_m102__91__C_er__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m102__91__C_er__93__",
+      "name": "H+_p+1",
+      "compartment": "C_er",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "1",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "H"
+    },
+    "m503[C_er]": {
+      "metaid": "meta_M_m503__91__C_er__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m503__91__C_er__93__",
+      "name": "dolichyl phosphate_C20H37O4P(C5H8)n",
+      "compartment": "C_er",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C20H37O4P(C5H8)n"
+    },
+    "m992[C_cy]": {
+      "metaid": "meta_M_m992__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m992__91__C_cy__93__",
+      "name": "L-tyrosine_C9H11NO3",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H11NO3"
+    },
+    "m1089[C_va]": {
+      "metaid": "meta_M_m1089__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1089__91__C_va__93__",
+      "name": "L-tyrosine_C9H11NO3",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C9H11NO3"
+    },
+    "m1327[C_go]": {
+      "metaid": "meta_M_m1327__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1327__91__C_go__93__",
+      "name": "mannosylinositol phosphorylceramide B' (C24)_C54H106NO17P",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C54H106NO17P"
+    },
+    "m1886[C_go]": {
+      "metaid": "meta_M_m1886__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1886__91__C_go__93__",
+      "name": "1D-myo-inositol 1-phosphate",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "-2",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H11O9P"
+    },
+    "m1314[C_go]": {
+      "metaid": "meta_M_m1314__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1314__91__C_go__93__",
+      "name": "inositol phosphomannosylinositol phosphoceramide B' (C24)_C60H117NO25P2",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C60H117NO25P2"
+    },
+    "m107[C_cy]": {
+      "metaid": "meta_M_m107__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m107__91__C_cy__93__",
+      "name": "phosphoenolpyruvate_C3H5O6P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C3H5O6P"
+    },
+    "m4[C_cy]": {
+      "metaid": "meta_M_m4__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m4__91__C_cy__93__",
+      "name": "pyruvate_C3H4O3",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C3H4O3"
+    },
+    "m775[C_cy]": {
+      "metaid": "meta_M_m775__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m775__91__C_cy__93__",
+      "name": "L-leucine_C6H13NO2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H13NO2"
+    },
+    "m1080[C_va]": {
+      "metaid": "meta_M_m1080__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1080__91__C_va__93__",
+      "name": "L-leucine_C6H13NO2",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H13NO2"
+    },
+    "m765[C_cy]": {
+      "metaid": "meta_M_m765__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m765__91__C_cy__93__",
+      "name": "L-proline_C5H9NO2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C5H9NO2"
+    },
+    "m1860[C_ex]": {
+      "metaid": "meta_M_m1860__91__C_ex__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1860__91__C_ex__93__",
+      "name": "Gly_Glu",
+      "compartment": "C_ex",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m319[C_cy]": {
+      "metaid": "meta_M_m319__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m319__91__C_cy__93__",
+      "name": "L-asparagine_C4H8N2O3",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C4H8N2O3"
+    },
+    "m1066[C_va]": {
+      "metaid": "meta_M_m1066__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1066__91__C_va__93__",
+      "name": "L-asparagine_C4H8N2O3",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C4H8N2O3"
+    },
+    "m1861[C_cy]": {
+      "metaid": "meta_M_m1861__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1861__91__C_cy__93__",
+      "name": "Gly_Glu",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1862[C_va]": {
+      "metaid": "meta_M_m1862__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1862__91__C_va__93__",
+      "name": "Gly_Glu",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m902[C_cy]": {
+      "metaid": "meta_M_m902__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m902__91__C_cy__93__",
+      "name": "spermine_C10H26N4",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H26N4"
+    },
+    "m1112[C_va]": {
+      "metaid": "meta_M_m1112__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1112__91__C_va__93__",
+      "name": "spermine_C10H26N4",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H26N4"
+    },
+    "m1071[C_va]": {
+      "metaid": "meta_M_m1071__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1071__91__C_va__93__",
+      "name": "L-glutamate_C5H9NO4",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C5H9NO4"
+    },
+    "m494[C_cy]": {
+      "metaid": "meta_M_m494__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m494__91__C_cy__93__",
+      "name": "1,3-bisphospho-D-glycerate_C3H4O10P2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "-4",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C3H4O10P2"
+    },
+    "m884[C_cy]": {
+      "metaid": "meta_M_m884__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m884__91__C_cy__93__",
+      "name": "3-phosphoglycerate_C3H4O7P",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "-3",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C3H4O7P"
+    },
+    "m467[C_cy]": {
+      "metaid": "meta_M_m467__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m467__91__C_cy__93__",
+      "name": "spermidine_C7H19N3",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C7H19N3"
+    },
+    "m1110[C_va]": {
+      "metaid": "meta_M_m1110__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1110__91__C_va__93__",
+      "name": "spermidine_C7H19N3",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C7H19N3"
+    },
+    "m289[C_go]": {
+      "metaid": "meta_M_m289__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m289__91__C_go__93__",
+      "name": "beta-D-mannosyldiacetylchitobiosyldiphosphodolichol_C37H66N2O22P2",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C37H66N2O22P2"
+    },
+    "m290[C_go]": {
+      "metaid": "meta_M_m290__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m290__91__C_go__93__",
+      "name": "GDP-alpha-D-mannose_C16H23N5O16P2",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "-2",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C16H23N5O16P2"
+    },
+    "m291[C_go]": {
+      "metaid": "meta_M_m291__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m291__91__C_go__93__",
+      "name": "alpha-D-mannosyl-beta-D-mannosyldiacetylchitobiosyldiphosphodolichol_C38H68N2O27P2(C5H8)n",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C38H68N2O27P2(C5H8)n"
+    },
+    "m292[C_go]": {
+      "metaid": "meta_M_m292__91__C_go__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m292__91__C_go__93__",
+      "name": "GDP_C10H15N5O11P2",
+      "compartment": "C_go",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C10H15N5O11P2"
+    },
+    "m50[C_cy]": {
+      "metaid": "meta_M_m50__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m50__91__C_cy__93__",
+      "name": "L-glutamate_C5H9NO4",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C5H9NO4"
+    },
+    "m1877[C_cy]": {
+      "metaid": "meta_M_m1877__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1877__91__C_cy__93__",
+      "name": "Ala-Gly",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1878[C_va]": {
+      "metaid": "meta_M_m1878__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1878__91__C_va__93__",
+      "name": "Ala-Gly",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+    },
+    "m1879[C_va]": {
+      "metaid": "meta_M_m1879__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1879__91__C_va__93__",
+      "name": "L-alanine",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C3H7NO2"
+    },
+    "m1076[C_va]": {
+      "metaid": "meta_M_m1076__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1076__91__C_va__93__",
+      "name": "L-isoleucine_C6H13NO2",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H13NO2"
+    },
+    "m743[C_cy]": {
+      "metaid": "meta_M_m743__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m743__91__C_cy__93__",
+      "name": "L-isoleucine_C6H13NO2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C6H13NO2"
+    },
+    "m850[C_cy]": {
+      "metaid": "meta_M_m850__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m850__91__C_cy__93__",
+      "name": "putrescine_C4H12N2",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C4H12N2"
+    },
+    "m1102[C_va]": {
+      "metaid": "meta_M_m1102__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1102__91__C_va__93__",
+      "name": "putrescine_C4H12N2",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C4H12N2"
+    },
+    "m1073[C_va]": {
+      "metaid": "meta_M_m1073__91__C_va__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m1073__91__C_va__93__",
+      "name": "L-glutamine_C5H10N2O3",
+      "compartment": "C_va",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C5H10N2O3"
+    },
+    "m130[C_cy]": {
+      "metaid": "meta_M_m130__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m130__91__C_cy__93__",
+      "name": "L-glutamine_C5H10N2O3",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C5H10N2O3"
+    },
+    "m267[C_cy]": {
+      "metaid": "meta_M_m267__91__C_cy__93__",
+      "sboTerm": "SBO:0000247",
+      "id": "M_m267__91__C_cy__93__",
+      "name": "L-aspartate_C4H7NO4",
+      "compartment": "C_cy",
+      "hasOnlySubstanceUnits": "false",
+      "boundaryCondition": "false",
+      "constant": "false",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0",
+      "{http://www.sbml.org/sbml/level3/version1/fbc/version2}chemicalFormula": "C4H7NO4"
+    }
+  },
+  "limits": [
+    "76 Golgi-associated reactions are zero in this saved WT; not proof all are structurally blocked.",
+    "Biological validity of missing supply and native acidification requirements is unresolved.",
+    "Saved ATP-producing flux is not an independently validated physiological energy model."
+  ]
+}

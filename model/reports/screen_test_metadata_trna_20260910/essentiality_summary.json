@@ -1,0 +1,149 @@
+{
+  "status": "complete_positive_only_comparison",
+  "analysed_at_utc": "2026-09-11T00:01:50.407814+00:00",
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+    "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0"
+  },
+  "medium": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+    "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "active_medium": {
+      "R946": 1000.0,
+      "R971": 1000.0,
+      "R1003": 0.00489,
+      "R1016": 1000.0,
+      "R1029": 1000.0,
+      "R1030": 1000.0,
+      "R1070": 10.0,
+      "R1127": 1000.0,
+      "R1164": 1000.0,
+      "R1189": 6.67e-05,
+      "R1202": 0.02586,
+      "R1204": 0.05414,
+      "R1215": 0.00859,
+      "R1217": 0.03434,
+      "R1220": 0.02466,
+      "R1222": 0.01207,
+      "R1223": 0.02727,
+      "R1231": 0.07562,
+      "R1232": 0.02205,
+      "R1233": 0.02486,
+      "R1234": 0.10765,
+      "R1263": 1000.0,
+      "R1268": 1000.0,
+      "R1287": 1000.0,
+      "R1296": 1000.0,
+      "R1298": 1000.0,
+      "R1305": 1000.0,
+      "R1314": 1000.0,
+      "R1323": 1000.0,
+      "R1333": 1000.0,
+      "R1340": 1000.0,
+      "R1354": 1000.0,
+      "R1364": 1000.0,
+      "R2061": 1000.0,
+      "R2270": 1000.0
+    }
+  },
+  "strain_profile": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+  "WT": 1.8718823069403,
+  "primary_cutoff": 0.1,
+  "primary": {
+    "cutoff": 0.1,
+    "TP": 73,
+    "FN": 249,
+    "FP": null,
+    "TN": null,
+    "recall": 0.2267080745341615,
+    "model_predicted_essential": 101,
+    "predicted_essential_unlabelled": 28
+  },
+  "coverage": {
+    "experimental_positives": 1612,
+    "in_screen": 322,
+    "outside_screen": 1290,
+    "positive_coverage": 0.19975186104218362,
+    "screened_genes": 1074,
+    "unlabelled_screened_genes": 752
+  },
+  "cutoff_curve": [
+    {
+      "cutoff": 0.01,
+      "TP": 55,
+      "FN": 267,
+      "FP": null,
+      "TN": null,
+      "recall": 0.17080745341614906,
+      "model_predicted_essential": 76,
+      "predicted_essential_unlabelled": 21
+    },
+    {
+      "cutoff": 0.05,
+      "TP": 65,
+      "FN": 257,
+      "FP": null,
+      "TN": null,
+      "recall": 0.20186335403726707,
+      "model_predicted_essential": 93,
+      "predicted_essential_unlabelled": 28
+    },
+    {
+      "cutoff": 0.1,
+      "TP": 73,
+      "FN": 249,
+      "FP": null,
+      "TN": null,
+      "recall": 0.2267080745341615,
+      "model_predicted_essential": 101,
+      "predicted_essential_unlabelled": 28
+    },
+    {
+      "cutoff": 0.15,
+      "TP": 79,
+      "FN": 243,
+      "FP": null,
+      "TN": null,
+      "recall": 0.2453416149068323,
+      "model_predicted_essential": 114,
+      "predicted_essential_unlabelled": 35
+    }
+  ],
+  "extra_model_solves": 0,
+  "unresolved_solver_results": 0,
+  "independent_validation": false,
+  "experimental_input": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+    "original_user_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/raw/assays/42003_2023_4996_MOESM10_ESM.xlsx",
+    "sha256": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+    "sheet": "Sheet1",
+    "range": "A2:B1613",
+    "raw_records": 1612,
+    "label_basis": "User-designated essential gene list; workbook contains IDs and putative functions only",
+    "normalization": "Remove underscore immediately after YALI0/1/2 prefix; no aliases or cross-version mapping"
+  },
+  "analysis_code": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/score_experiment.py",
+    "sha256": "4c8c39540c324eba65a14f863c9db25abb98f96869224a7d676e9470297206cf",
+    "git_head": "b9723026d08e28de42fc72c28104456e23638ed7",
+    "worktree_state": "dirty; original screen source hashes retained in run_manifest.json",
+    "python": "/Users/david/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3"
+  },
+  "input_sha256": {
+    "screen_predictions.tsv": "f1249e4cf5170ab04542bdeda0be69b8f756aed40b3dbcf43bbd7cbfb5c76086",
+    "gene_context.tsv": "7df4b6a06528fa9f820db815208f584c8d8722db195b07dfc87e731dd0aee35d",
+    "run_manifest.json": "1693c1d119ce58732e32be3f1596961eeca8ee05f581cf85eab0204f826bad10"
+  },
+  "notes": [
+    "FP, TN, accuracy, precision, specificity and MCC unavailable: no experimental negative labels supplied.",
+    "Unlabelled model genes are not negative examples; out-of-model positives are not FN.",
+    "Reference used in model development; this is not independent validation.",
+    "Existing closed-energy issue unresolved; model, medium and thresholds unchanged."
+  ],
+  "output_sha256": {
+    "essentiality_per_gene.tsv": "fcad4295baf2d1837a1ee4bc22b2a6b24ea90b75029308b37123f73245eb76a8",
+    "confusion_matrix_counts.tsv": "b46757b34fc55f494023d6a6582412b2d151ac9745035a4433dce9f621089e2e",
+    "confusion_matrix_10pct.pdf": "dc4000e12e561467f1ec67171bb15d9269f7fa252ef1590658432ab91b7333ae",
+    "confusion_matrix_10pct.png": "72149183f308011083b7a480315ee960bc954629a866de8389c569e69448225b"
+  }
+}

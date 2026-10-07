@@ -1,0 +1,199 @@
+{
+  "checked_at_utc": "2026-09-09T22:55:22.735155+00:00",
+  "reference_rebuilt_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+  "updated_sha256": "649ddfc59a21567e9acdebeb2508a17566335f089906df2fb75b2818fb30fcff",
+  "counts": {
+    "reference": [
+      2313,
+      1877,
+      1074
+    ],
+    "updated": [
+      2315,
+      1877,
+      1074
+    ]
+  },
+  "mathematical_changes_only_two_added_reactions": true,
+  "all_original_reactions_S_bounds_GPR_preserved": true,
+  "all_species_properties_and_genes_preserved": true,
+  "objective_and_all_original_constraints_preserved_after_removing_additions": true,
+  "trna_biomass_reactions_preserved": 20,
+  "added_reactions": {
+    "R1172": {
+      "reaction": "m646[C_cy] <=> m648[C_mi]",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "",
+      "mass_charge_residual": {}
+    },
+    "SPHPL": {
+      "reaction": "m950[C_er] <=> m1795[C_cy] + m509[C_cy]",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1E33285g",
+      "mass_charge_residual": {
+        "charge": -1.0,
+        "H": -1.0
+      }
+    }
+  },
+  "changed_existing_reaction_annotations": [
+    "R18",
+    "R19",
+    "R305",
+    "R385",
+    "R570",
+    "R695",
+    "R2062"
+  ],
+  "same_mode_idempotency": true,
+  "optimization_calls": 0,
+  "final_checked_at_utc": "2026-09-09T22:59:02.047065+00:00",
+  "three_modes_complete": true,
+  "three_mode_source_hashes_identical": true,
+  "metadata_vs_off_mathematics_equal": true,
+  "qcycle_only_differences": [
+    [
+      "R305",
+      "m28[C_mi]",
+      -1.5,
+      -2.0
+    ],
+    [
+      "R305",
+      "m10[C_cy]",
+      1.5,
+      4.0
+    ]
+  ],
+  "qcycle_R305_element_charge_residual": {},
+  "targeted_tests": {
+    "passed": 35,
+    "failed": 0,
+    "command": ".venv/bin/python -m unittest tests.test_coq9_curation tests.test_quinone_pipeline tests.test_er_vlcfa_stereochemistry tests.test_reference_reactions"
+  },
+  "output_sha256": {
+    "off": "83b408baa2d5922d76d19efd11d1a46d8d80d50278154bc6db07839a6c45399b",
+    "metadata": "649ddfc59a21567e9acdebeb2508a17566335f089906df2fb75b2818fb30fcff",
+    "qcycle": "581992c81f90d9a91faf71087d0ac31c852442f3813a57127f5574e16f98e0d6"
+  },
+  "static_checks": {
+    "checked_at_utc": "2026-09-09T22:56:59.366966+00:00",
+    "scope": "Frozen reference vs reference plus two retained reactions and CoQ9 metadata; four solves only, no tuning, KO, FVA or dynamics",
+    "energy_protocol": "Project saved test_gap_fill_direction.py uses memote ATP dissipation (MNXM3). Reuse that dissipation equation; close all boundary inputs while preserving current internal bounds, including closed R573. The memote default bound reset is not used because it reopens 0/0 reactions.",
+    "memote_protocol_sha256": "d0ed7ae482f58eb8ec52cba239a267e1bb98840c0e48ceef2c6e703f73c9d7c0",
+    "optimization_calls": 4,
+    "modes": {
+      "reference": {
+        "input_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+        "solver": "optlang.gurobi_interface",
+        "tolerances": {
+          "feasibility": 1e-07,
+          "optimality": 1e-07,
+          "integrality": 1e-07
+        },
+        "medium": {
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1164": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0
+        },
+        "runtime_strain_overlay": null,
+        "objective": "1.0*biomass_C - 1.0*biomass_C_reverse_c1d5c",
+        "objective_direction": "max",
+        "R305_bounds": [
+          0.0,
+          1000.0
+        ],
+        "artificial_reserve_supply_reactions": [],
+        "WT": {
+          "status": "optimal",
+          "objective": 1.38759147548709,
+          "R305_flux": 25.238051841345204
+        },
+        "closed_ATP": {
+          "status": "not_completed",
+          "reason": "Solver status is 'infeasible'."
+        }
+      },
+      "updated": {
+        "input_sha256": "649ddfc59a21567e9acdebeb2508a17566335f089906df2fb75b2818fb30fcff",
+        "solver": "optlang.gurobi_interface",
+        "tolerances": {
+          "feasibility": 1e-07,
+          "optimality": 1e-07,
+          "integrality": 1e-07
+        },
+        "medium": {
+          "R1016": 1000.0,
+          "R1029": 1000.0,
+          "R1030": 1000.0,
+          "R1070": 10.0,
+          "R1164": 1000.0,
+          "R1287": 1000.0,
+          "R1296": 1000.0,
+          "R1298": 1000.0,
+          "R1305": 1000.0,
+          "R1323": 1000.0,
+          "R1333": 1000.0,
+          "R1340": 1000.0,
+          "R1364": 1000.0,
+          "R2061": 1000.0,
+          "R2270": 1000.0
+        },
+        "runtime_strain_overlay": null,
+        "objective": "1.0*biomass_C - 1.0*biomass_C_reverse_c1d5c",
+        "objective_direction": "max",
+        "R305_bounds": [
+          0.0,
+          1000.0
+        ],
+        "artificial_reserve_supply_reactions": [],
+        "WT": {
+          "status": "optimal",
+          "objective": 1.3875914754870904,
+          "R305_flux": 25.23805184134522
+        },
+        "closed_ATP": {
+          "status": "not_completed",
+          "reason": "Solver status is 'infeasible'."
+        }
+      }
+    },
+    "interpretation": "Static outcomes do not establish native GPR validity or choose proton stoichiometry by fit to growth.",
+    "closed_energy_passed": false,
+    "closed_energy_interpretation": "Not evaluable under the preserved bounds: both closed-boundary problems were infeasible; this is not zero ATP dissipation or evidence that energy cycles are absent.",
+    "updated_mandatory_flux_bounds": [
+      {
+        "sbml_id": "R_xMAINTENANCE",
+        "bounds": [
+          7.8625,
+          1000.0
+        ]
+      }
+    ]
+  },
+  "full_scientific_acceptance": false,
+  "unresolved": [
+    "R1172 native carrier/GPR is unconfirmed",
+    "SPHPL has H=-1 and charge=-1 residual and ER/cytosol compartment assignment; preserved without an invented proton-side decision",
+    "Closed ATP tests infeasible with original maintenance lower bound retained; energy-cycle absence not established",
+    "Existing unresolved CI/COQ6/8/9 reconstruction remains deferred"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "curation_id": "R1159-GOLGI-LEAK-20260923",
+  "status": "user_authorized_conditional",
+  "authorization": "2026-09-23 user: 修改 并入管线 然后push; accepted the preceding conditional [-1000,0] proposal.",
+  "reaction_id": "R1159",
+  "reaction_name": "H+ diffusion",
+  "before_bounds": [-1000, 1000],
+  "after_bounds": [-1000, 0],
+  "stoichiometry": {"m10[C_cy]": -1.0, "m293[C_go]": 1.0},
+  "species": {
+    "m10[C_cy]": {"formula": "H", "charge": 1, "compartment": "C_cy"},
+    "m293[C_go]": {"formula": "H", "charge": 1, "compartment": "C_go"}
+  },
+  "reviewed_model": {
+    "path": "artifacts/screen_vatpase_candidate_20260921/candidate.xml",
+    "sha256": "0fcc2f6ff05124b91977c6f96f78cbe5906a3ccbf3f936f95990afe02b540353"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nature.com/articles/s41598-020-58795-w",
+      "locator": "Results: In vivo calibration and determination of the Golgi pH; Fig. 3 discussion",
+      "claim": "Exponentially growing S. cerevisiae BY4742: Golgi pH 6.65 +/- 0.05, cytosol 7.27 +/- 0.05.",
+      "scope": "Direct yeast measurements; cross-species support, not W29. Does not establish leak identity or permanent direction.",
+      "accessed": "2026-09-23"
+    },
+    {
+      "url": "https://doi.org/10.1152/ajpcell.2001.281.3.C908",
+      "full_text": "https://mcb.berkeley.edu/labs/machen/pdfs/chandy2001.pdf",
+      "locator": "C910-C911 equations 2-3; Fig. 8 discussion; C918-C919 cytosolic acidification discussion",
+      "claim": "Mammalian Golgi alkalinizes after V-ATPase inhibition; proton leak depends on pH gradient and membrane potential.",
+      "scope": "Cross-species mechanism support. Perturbed cytosolic pH can alter Golgi acidification; the same channel's reverse transport was not established.",
+      "accessed": "2026-09-23"
+    }
+  ],
+  "notes": {
+    "r1159_direction_curation": "R1159-GOLGI-LEAK-20260923",
+    "r1159_previous_bounds": "[-1000, 1000]",
+    "r1159_direction_assumption": "Conditional passive net H+ leak from acidic Golgi to cytosol, assuming membrane potential does not reverse the electrochemical driving force. Stored cy-to-go stoichiometry is unchanged; only negative flux is allowed.",
+    "r1159_direction_limits": "W29/PO1f compartment pH, membrane potential and leak mechanism remain unverified. The inherited magnitude 1000 is not measured permeability. This is not a claim of permanent irreversibility or restored gene essentiality.",
+    "r1159_direction_sources": "https://doi.org/10.1038/s41598-020-58795-w; https://doi.org/10.1152/ajpcell.2001.281.3.C908",
+    "r1159_direction_authorization": "User authorized conditional [-1000,0], pipeline integration and push on 2026-09-23."
+  }
+}

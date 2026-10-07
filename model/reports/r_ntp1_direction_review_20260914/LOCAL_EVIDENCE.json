@@ -1,0 +1,365 @@
+{
+  "checked_at_utc": "2026-09-14T18:49:38.293324+00:00",
+  "scope": "Two reaction columns, five species, two GPR members, selected curation rows, metadata selection, and R_NTP1 values in 22 saved runs. No LP, full feasibility recheck, model edits, sequence/structure identification, or native enzyme validation.",
+  "script_sha256": "e4a249d453eec9fbbdc30d71100ebf79303d9f1e8d2d19c7c84cb17cd0100091",
+  "input_sha256": {
+    "model_metadata_trna.xml": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0",
+    "data/metadata_reaction_selection.json": "d994792f374732897c839172917558ace854a347a0a47f4b760b17572530c134",
+    "data/reference_build/curation/gap_fill_direction_curation.csv": "cf9c498c59caee7ac385379a3b8beba849c972b82f4de917ffa62bed1156196d",
+    "data/reference_build/curation/gap_fill_prioritized.csv": "9412dd06ea17b5592d704aec6a528394266cbf285e5325c10c3e023f497f2035",
+    "data/yali1_yali0_map/iyli21_genes_vs_S2.csv": "7c68b3cb244f07848b7ad99d7ed0f95768c9812ddd80311e1cdffa06fff4bae9",
+    "artifacts/escher_atlas_20260911/review/sources/DIRECTION.md": "79a1c5f8b3c79d77ca0c4bce0c7958cd19087ad88ab91ca1fb2f8c1c31184905",
+    "artifacts/escher_atlas_20260911/review/sources/direction_results.json": "f2bf143e2484ea0c8e7a0eb632f8adc1b8c99c59ed7782dd07cc6ea5efa9a723",
+    "artifacts/iyli647_screen_20260910/nonessential_diagnosis_20260911/results.json": "3e38ddf833e0f84c7bdeb21cccd3166c58f81b37ae09adab0f65c6291f163abb",
+    "artifacts/iyli647_screen_20260910/nonessential_diagnosis_20260911/controls.json": "d97daac8d41a2dbed3ba11c4b49d6b8d3632bc717ac3a837796a7393b99873df",
+    "scripts/gem_annotate/main.py": "e4786a14d62a6dd5f0f404434b22cf8e8d7bd3ecc9401571af72967c4532cd90",
+    "scripts/gem_annotate/gaps.py": "9c88d228462c9100c8047407220dc2e1e0b22945395a815d0a0dd1cd971c775d",
+    "scripts/gem_annotate/reaction_selection.py": "aeec4d6855179466b825f3d9f0d0e3552d46401798d66d1af4b5cd5ad1ee372c"
+  },
+  "inputs_unchanged": true,
+  "reactions": {
+    "R_xMAINTENANCE": {
+      "stoichiometry": {
+        "M_m141__91__C_cy__93__": -1.0,
+        "M_m32__91__C_cy__93__": -1.0,
+        "M_m35__91__C_cy__93__": 1.0,
+        "M_m143__91__C_cy__93__": 1.0
+      },
+      "species": {
+        "M_m141__91__C_cy__93__": {
+          "name": "ATP_C10H16N5O13P3",
+          "formula": "C10H16N5O13P3",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        },
+        "M_m32__91__C_cy__93__": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        },
+        "M_m35__91__C_cy__93__": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        },
+        "M_m143__91__C_cy__93__": {
+          "name": "ADP_C10H15N5O10P2",
+          "formula": "C10H15N5O10P2",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        }
+      },
+      "residual_products_minus_reactants": {
+        "C": 0.0,
+        "H": 0.0,
+        "N": 0.0,
+        "O": 0.0,
+        "P": 0.0,
+        "charge": 0.0
+      },
+      "bounds": [
+        7.8625,
+        1000.0
+      ],
+      "notes": [],
+      "gene_product_association_xml": []
+    },
+    "R_R_NTP1": {
+      "stoichiometry": {
+        "M_m143__91__C_cy__93__": -1.0,
+        "M_m35__91__C_cy__93__": -1.0,
+        "M_m10__91__C_cy__93__": -1.0,
+        "M_m141__91__C_cy__93__": 1.0,
+        "M_m32__91__C_cy__93__": 1.0
+      },
+      "species": {
+        "M_m143__91__C_cy__93__": {
+          "name": "ADP_C10H15N5O10P2",
+          "formula": "C10H15N5O10P2",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        },
+        "M_m35__91__C_cy__93__": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        },
+        "M_m10__91__C_cy__93__": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1.0,
+          "compartment": "C_cy"
+        },
+        "M_m141__91__C_cy__93__": {
+          "name": "ATP_C10H16N5O13P3",
+          "formula": "C10H16N5O13P3",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        },
+        "M_m32__91__C_cy__93__": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0.0,
+          "compartment": "C_cy"
+        }
+      },
+      "residual_products_minus_reactants": {
+        "C": 0.0,
+        "H": -1.0,
+        "N": 0.0,
+        "O": 0.0,
+        "P": 0.0,
+        "charge": -1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "notes": [
+        "\n          \n            metadata_previous_gap_fill_direction_status: active\n            metadata_previous_gap_fill_stoichiometry_action: reverse\n            metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00086\n            metadata_previous_gap_fill_direction_rationale: Encode ATP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00086.\n            metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910\n            metadata_selected_fields: bounds; stoichiometry\n            metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797\n            metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function\n          \n        "
+      ],
+      "gene_product_association_xml": [
+        "<ns0:geneProductAssociation xmlns:ns0=\"http://www.sbml.org/sbml/level3/version1/fbc/version2\">\n          <ns0:or>\n            <ns0:geneProductRef ns0:geneProduct=\"G_YALI1A09766g\" />\n            <ns0:geneProductRef ns0:geneProduct=\"G_YALI1E41893g\" />\n          </ns0:or>\n        </ns0:geneProductAssociation>\n      "
+      ]
+    }
+  },
+  "net_ntp1_plus_maintenance": {
+    "M_m10__91__C_cy__93__": -1.0
+  },
+  "gene_product_records": [
+    "<ns0:geneProduct xmlns:ns0=\"http://www.sbml.org/sbml/level3/version1/fbc/version2\" metaid=\"meta_G_YALI1E41893g\" sboTerm=\"SBO:0000243\" ns0:id=\"G_YALI1E41893g\" ns0:name=\"COBRAProtein94\" ns0:label=\"G_YALI1E41893g\" />\n      ",
+    "<ns0:geneProduct xmlns:ns0=\"http://www.sbml.org/sbml/level3/version1/fbc/version2\" metaid=\"meta_G_YALI1A09766g\" sboTerm=\"SBO:0000243\" ns0:id=\"G_YALI1A09766g\" ns0:name=\"COBRAProtein663\" ns0:label=\"G_YALI1A09766g\" />\n      "
+  ],
+  "curation_and_mapping_rows": {
+    "data/reference_build/curation/gap_fill_direction_curation.csv": [
+      {
+        "schema_version": "1",
+        "status": "active",
+        "bigg_reaction": "R_NTP1",
+        "mnxr_id": "MNXR153054",
+        "stoichiometry_action": "reverse",
+        "lower_bound": "0",
+        "upper_bound": "1000",
+        "evidence_url": "https://www.kegg.jp/entry/R00086",
+        "rationale": "Encode ATP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00086."
+      }
+    ],
+    "data/reference_build/curation/gap_fill_prioritized.csv": [
+      {
+        "priority": "P0",
+        "gene_id": "YALI1A09766g",
+        "ec_number": "7.1.2.2",
+        "mnxr_id": "MNXR153054",
+        "bigg_reaction": "R_NTP1",
+        "kegg_reaction": "R00086",
+        "missing_metabolites_count": "0",
+        "missing_metabolites": "",
+        "equation": "1 MNXM1@MNXD1 + 1 MNXM40333@MNXD1 + 1 MNXM9@MNXD1 = 1 MNXM3@MNXD1 + 1 WATER@MNXD1"
+      },
+      {
+        "priority": "P0",
+        "gene_id": "YALI1E41893g",
+        "ec_number": "3.1.3.2",
+        "mnxr_id": "MNXR153054",
+        "bigg_reaction": "R_NTP1",
+        "kegg_reaction": "R00086",
+        "missing_metabolites_count": "0",
+        "missing_metabolites": "",
+        "equation": "1 MNXM1@MNXD1 + 1 MNXM40333@MNXD1 + 1 MNXM9@MNXD1 = 1 MNXM3@MNXD1 + 1 WATER@MNXD1"
+      }
+    ],
+    "data/yali1_yali0_map/iyli21_genes_vs_S2.csv": [
+      {
+        "model_gene": "YALI1A09766g",
+        "yali1_s2": "YALI1_A09766g",
+        "yali0": "YALI0A09900g",
+        "category": "has_YALI0",
+        "n_reactions": "2"
+      },
+      {
+        "model_gene": "YALI1E41893g",
+        "yali1_s2": "YALI1_E41893g",
+        "yali0": "YALI0E35222g",
+        "category": "has_YALI0",
+        "n_reactions": "11"
+      }
+    ]
+  },
+  "selection": {
+    "fields": [
+      "bounds",
+      "stoichiometry"
+    ],
+    "before": {
+      "stoichiometry": {
+        "m141[C_cy]": -1.0,
+        "m143[C_cy]": 1.0,
+        "m32[C_cy]": -1.0,
+        "m35[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1A09766g or YALI1E41893g"
+    },
+    "after": {
+      "stoichiometry": {
+        "m10[C_cy]": -1.0,
+        "m141[C_cy]": 1.0,
+        "m143[C_cy]": -1.0,
+        "m32[C_cy]": 1.0,
+        "m35[C_cy]": -1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1A09766g or YALI1E41893g"
+    },
+    "species": {
+      "m10[C_cy]": {
+        "formula": "H",
+        "charge": 1,
+        "compartment": "C_cy"
+      },
+      "m141[C_cy]": {
+        "formula": "C10H16N5O13P3",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m143[C_cy]": {
+        "formula": "C10H15N5O10P2",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m32[C_cy]": {
+        "formula": "H2O",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m35[C_cy]": {
+        "formula": "H3O4P",
+        "charge": 0,
+        "compartment": "C_cy"
+      }
+    },
+    "superseded_notes": {
+      "gap_fill_direction_status": "active",
+      "gap_fill_stoichiometry_action": "reverse",
+      "gap_fill_direction_evidence": "https://www.kegg.jp/entry/R00086",
+      "gap_fill_direction_rationale": "Encode ATP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00086."
+    }
+  },
+  "selection_provenance": {
+    "selection_id": "metadata_reaction_fields_preserve_trna_20260910",
+    "authorization": "User selected metadata reaction differences, then explicitly rejected loss of the experimental tRNA biomass requirement. Preserve the existing tRNA-coupled biomass; use metadata for the other reaction fields.",
+    "source_metadata_path": "artifacts/coq9_pipeline_integration_20260909/accepted/metadata.xml",
+    "source_metadata_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "biological_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+  },
+  "old_witness_values": {
+    "WT": 157.55576349404305,
+    "YALI1A02775g": 165.3305274130646,
+    "YALI1B20462g": 165.3305274130646,
+    "YALI1C07638g": 182.55968650379893,
+    "YALI1C08702g": 182.5596865037989,
+    "YALI1C15991g": 182.55799081695105,
+    "YALI1C32184g": 182.55799081695108,
+    "YALI1D03865g": 182.55799081695108,
+    "YALI1E22736g": 182.55799081695108,
+    "YALI1E25018g": 182.55799081695108,
+    "YALI1F00821g": 182.55799081695108,
+    "YALI1F03803g": 182.55799081695108,
+    "YALI1A02775g__R319__reaction_only": 151.65649915735506,
+    "YALI1A02775g__R319__double": 7.8625,
+    "YALI1C07638g__R2233__reaction_only": 140.11427546846917,
+    "YALI1C07638g__R2233__double": 7.8625,
+    "YALI1C15991g__R2004__reaction_only": 165.07752386365115,
+    "YALI1C15991g__R2004__double": 177.33543595456302,
+    "YALI1D03865g__R1892__reaction_only": 177.36034445911358,
+    "YALI1D03865g__R1892__double": 10.382599182419902,
+    "YALI1F00821g__R2081__reaction_only": 214.05421559617218,
+    "YALI1F00821g__R2081__double": 7.8625
+  },
+  "old_context": {
+    "started_at_utc": "2026-09-11T17:05:11.965190+00:00",
+    "model": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+      "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0"
+    },
+    "medium": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+      "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "active_medium": {
+        "R946": 1000.0,
+        "R971": 1000.0,
+        "R1003": 0.00489,
+        "R1016": 1000.0,
+        "R1029": 1000.0,
+        "R1030": 1000.0,
+        "R1070": 10.0,
+        "R1127": 1000.0,
+        "R1164": 1000.0,
+        "R1189": 6.67e-05,
+        "R1202": 0.02586,
+        "R1204": 0.05414,
+        "R1215": 0.00859,
+        "R1217": 0.03434,
+        "R1220": 0.02466,
+        "R1222": 0.01207,
+        "R1223": 0.02727,
+        "R1231": 0.07562,
+        "R1232": 0.02205,
+        "R1233": 0.02486,
+        "R1234": 0.10765,
+        "R1263": 1000.0,
+        "R1268": 1000.0,
+        "R1287": 1000.0,
+        "R1296": 1000.0,
+        "R1298": 1000.0,
+        "R1305": 1000.0,
+        "R1314": 1000.0,
+        "R1323": 1000.0,
+        "R1333": 1000.0,
+        "R1340": 1000.0,
+        "R1354": 1000.0,
+        "R1364": 1000.0,
+        "R2061": 1000.0,
+        "R2270": 1000.0
+      }
+    },
+    "simulation_context": {
+      "simulation_context_fingerprint_version": "1",
+      "simulation_context_fingerprint": "77f5ce6f4f1f57a0125e015fda6c060493dc5fc3dc5da734029a6f936ea0517d",
+      "strain_overlay_enabled": true,
+      "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "strain_overlay_effect_fingerprint_version": "1",
+      "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+    },
+    "software": {
+      "cobra": "0.30.0",
+      "optlang": "1.8.3",
+      "gurobipy": "13.0.1"
+    },
+    "solver": {
+      "Threads": 1,
+      "TimeLimit": 30.0,
+      "FeasibilityTol": 1e-07,
+      "OptimalityTol": 1e-07,
+      "Method": 0,
+      "Presolve": 0
+    },
+    "script_sha256": "a920c18ac7d5282dc106eca84b0508a5bfe89e20fc598109886af21c39ece974",
+    "dirty_state_before": " M README.md\n M data/lipid_unlump_sn_core_curation.json\n M scripts/gem_annotate/cli.py\n M scripts/gem_annotate/genes.py\n M scripts/gem_annotate/main.py\n M scripts/gem_annotate/patches.py\n M scripts/lp_sn12_candidate.py\n M tests/test_lp_sn12_candidate.py\n?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/c7_revision1_independent_followup_20260907/\n?? artifacts/cfsa_lipid_unlump_20260908/\n?? artifacts/cfsa_lipid_unlump_figure_20260909/\n?? artifacts/cfsa_multichain_20260908/\n?? artifacts/cfsa_pfba_cap_20260908/\n?? artifacts/cfsa_sampling_candidate_n1_20260908/\n?? artifacts/cfsa_tag_max_20260908/\n?? artifacts/cfsa_test_20260908/\n?? artifacts/closed_bounds_69_20260909/\n?? artifacts/coq9_dt_pair_local_20260907T175236Z/\n?? artifacts/coq9_dt_quarter_wt_20260907/\n?? artifacts/coq9_pipeline_20260909/\n?? artifacts/coq9_pipeline_integration_20260909/accepted/implementation_files.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/metadata.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.build.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.xml\n?? artifacts/coq9_pipeline_integration_20260909/accepted/preservation.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.build.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.xml\n?? artifacts/coq9_pipeline_integration_20260909/accepted/reference_vs_metadata.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/static_pair.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/tests.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/validation.log\n?? artifacts/coq9_pipeline_integration_20260909/before.json\n?? artifacts/coq9_pipeline_integration_20260909/cache/\n?? artifacts/coq9_pipeline_integration_20260909/case_alias_test.log\n?? artifacts/coq9_pipeline_integration_20260909/curation_tests_final.log\n?? artifacts/coq9_pipeline_integration_20260909/final/\n?? artifacts/coq9_pipeline_integration_20260909/make_fixture.py\n?? artifacts/coq9_pipeline_integration_20260909/metadata.build.json\n?? artifacts/coq9_pipeline_integration_20260909/metadata.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/metadata.log\n?? artifacts/coq9_pipeline_integration_20260909/metadata.xml\n?? artifacts/coq9_pipeline_integration_20260909/name_source_test.log\n?? artifacts/coq9_pipeline_integration_20260909/off.build.json\n?? artifacts/coq9_pipeline_integration_20260909/off.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/off.log\n?? artifacts/coq9_pipeline_integration_20260909/off.xml\n?? artifacts/coq9_pipeline_integration_20260909/off_attempt1.log\n?? artifacts/coq9_pipeline_integration_20260909/off_attempt2.log\n?? artifacts/coq9_pipeline_integration_20260909/prerequisite_probe.log\n?? artifacts/coq9_pipeline_integration_20260909/push_files.txt\n?? artifacts/coq9_pipeline_integration_20260909/static_pair.py\n?? artifacts/coq9_pipeline_integration_20260909/tests.log\n?? artifacts/coq9_pipeline_integration_20260909/tests_final.log\n?? artifacts/coq9_pipeline_integration_20260909/validate_final.py\n?? artifacts/coq9_reserve_depletion_20260908/\n?? artifacts/coq9_supply_mechanism_20260908/\n?? artifacts/coq9_wp2_proposal_only_20260905T2000Z/\n?? artifacts/coq9_wp2_proposal_v2_20260905/\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip.sha256\n?? artifacts/coq9_wp2_proposals_for_review_20260905.zip\n?? artifacts/decision_evidence_audit_20260908/\n?? artifacts/dfba_consistent_integrator_n2_20260908/\n?? artifacts/dfba_event_resolve_gate_20260909T062014Z/\n?? artifacts/dipeptide_exchange_candidate_20260911/\n?? artifacts/dipeptidyl_gene_lookup_20260911/\n?? artifacts/escher_atlas_20260909/\n?? artifacts/f38820_annotation_pipeline_20260911/\n?? artifacts/figures/\n?? artifacts/identity_construct_followup_20260907/\n?? artifacts/iyali26_vs_iyali21_slide_20260907/\n?? artifacts/iyli647_inactive_comparison_20260910/\n?? artifacts/iyli647_screen_20260910/\n?? artifacts/lipid_charge_fix_20260908/\n?? artifacts/metadata_reaction_selection_20260909/\n?? artifacts/methylcitrate_evidence_followup_20260907/\n?? artifacts/model_metadata_trna_push_20260910/before.json\n?? artifacts/model_metadata_trna_push_20260910/push_result.json\n?? artifacts/model_metadata_trna_push_20260910/rebuild.log\n?? artifacts/model_metadata_trna_push_20260910/staged-checkout/\n?? artifacts/model_metadata_trna_push_20260910/tests.log\n?? artifacts/model_metadata_trna_push_20260910/verification.build.json\n?? artifacts/model_metadata_trna_push_20260910/verification.coq9_genes.tsv\n?? artifacts/model_metadata_trna_push_20260910/verification.xml\n?? artifacts/n1_n4_decision_audit_20260908/\n?? artifacts/n1_n4_handoff_20260908/\n?? artifacts/next_evidence_independent_audit_20260908/\n?? artifacts/polyamine_chemistry_wp2_20260907/\n?? artifacts/polyamine_demand_identifiability_n3_20260908/\n?? artifacts/polyamine_transport_evidence_20260907/\n?? artifacts/polyamine_transport_evidence_revision1_20260908/\n?? artifacts/r608_c7_ablation_20260908/\n?? artifacts/r608_c7_model_test_20260907/\n?? artifacts/r608_engineering_20260907/\n?? artifacts/r608_engineering_wp2_20260907/\n?? artifacts/r608_nonessential_mechanism_20260908/\n?? artifacts/r794_r795_gpr_review_20260909/\n?? artifacts/r795_dipeptide_escher_20260911/\n?? artifacts/r795_escher_20260909/\n?? artifacts/r795_open_diagnostic_20260911/\n?? artifacts/r795_r1363_open_diagnostic_20260911/\n?? artifacts/reference_pipeline_restore_20260909/\n?? artifacts/screen_test_metadata_trna_20260910/PROJECT_STATE.before.md\n?? artifacts/screen_test_metadata_trna_20260910/PROJECT_STATE.before_workbook.md\n?? artifacts/screen_test_metadata_trna_20260910/commands.txt\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_10pct.png\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_15pct_compact.json\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_15pct_compact.pdf\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_15pct_compact.png\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_validation.json\n?? artifacts/screen_test_metadata_trna_20260910/essentiality_per_gene.tsv\n?? artifacts/screen_test_metadata_trna_20260910/execution.json\n?? artifacts/screen_test_metadata_trna_20260910/gene_context.tsv\n?? artifacts/screen_test_metadata_trna_20260910/inputs/\n?? artifacts/screen_test_metadata_trna_20260910/legacy_predictions.tsv\n?? artifacts/screen_test_metadata_trna_20260910/raw_deletions.tsv\n?? artifacts/screen_test_metadata_trna_20260910/render_confusion_matrix_15pct.py\n?? artifacts/screen_test_metadata_trna_20260910/run_manifest.json\n?? artifacts/screen_test_metadata_trna_20260910/run_screen.py\n?? artifacts/screen_test_metadata_trna_20260910/score_experiment.py\n?? artifacts/screen_test_metadata_trna_20260910/score_experiment.py.before_workbook\n?? artifacts/screen_test_metadata_trna_20260910/screen.log\n?? artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv\n?? artifacts/screen_test_metadata_trna_20260910/screen_summary.json.before_workbook\n?? artifacts/screen_test_metadata_trna_20260910/trna_charging_screen.tsv\n?? artifacts/screen_test_metadata_trna_20260910/trna_screen_summary.json\n?? artifacts/screen_test_metadata_trna_20260910/unlabelled_15pct_comparison/\n?? artifacts/screen_test_vph1like_20260911/\n?? artifacts/static_mini_replay_20260905T190318Z/\n?? artifacts/tag_max_growth_20260909/\n?? artifacts/trna_biomass_restore_20260910/before.json\n?? artifacts/trna_biomass_restore_20260910/before/\n?? artifacts/trna_biomass_restore_20260910/build.log\n?? artifacts/trna_biomass_restore_20260910/commands.txt\n?? artifacts/trna_biomass_restore_20260910/delivery.json\n?? artifacts/trna_biomass_restore_20260910/static_check.log\n?? artifacts/trna_biomass_restore_20260910/static_check.py\n?? artifacts/trna_biomass_restore_20260910/tests.log\n?? artifacts/trna_biomass_restore_20260910/validate.py\n?? artifacts/trna_biomass_restore_20260910/validation.log\n?? artifacts/vatpase_gpr_hypothesis_20260911/\n?? artifacts/vatpase_nonessential_diagnosis_20260911/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? data/reference_build/curation/gene_function_annotations.json\n?? data/reference_build/curation/vatpase_gpr_hypothesis.json\n?? data/reference_build/media/\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? identity_support_next_20260906.md\n?? model_metadata_reaction_selection.build.json\n?? model_metadata_reaction_selection.coq9_genes.tsv\n?? model_metadata_reaction_selection.xml\n?? model_metadata_trna_vatpase_and_hypothesis.build.json\n?? model_metadata_trna_vatpase_and_hypothesis.coq9_genes.tsv\n?? model_metadata_trna_vatpase_and_hypothesis.xml\n?? model_metadata_trna_vph1like.build.json\n?? model_metadata_trna_vph1like.coq9_genes.tsv\n?? model_metadata_trna_vph1like.xml\n?? model_reference_metadata_r1172_sphpl.build.json\n?? model_reference_metadata_r1172_sphpl.coq9_genes.tsv\n?? model_reference_metadata_r1172_sphpl.xml\n?? outputs/\n?? results\n?? tests/test_gene_function_annotations.py\n?? tests/test_vatpase_gpr_hypothesis.py\n?? ~$09012026.pptx\n"
+  },
+  "counterfactuals_not_applied": [
+    "Changing bounds only does not fix the H/charge imbalance.",
+    "Keeping current neutral species, ATP + water -> ADP + phosphate is balanced.",
+    "Removing the extra reactant proton while retaining reversibility makes the synthesis column exactly opposite xMAINTENANCE; this is an algebraic consequence, not a model edit or new solve."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-18T18:30:10.644767+00:00",
+  "objective": "Read-only review of CoQ9 biosynthetic GPRs COQ1–COQ9 and screenshot step-to-reaction mapping in latest local model. Respiratory CI/CIII reconstruction excluded.",
+  "model": "model_metadata_trna_r539_alphafold_labeled.xml",
+  "model_sha256": "cff96f40368b3de3d502956cf33dda246e049becfa43c1bba12fbd8ded6acd9a",
+  "code_head": "c31921d3ea3b1889383dfdb48510a09d85e4cae1",
+  "tracked_dirty": [
+    " M README.md",
+    " M data/lipid_unlump_sn_core_curation.json",
+    " M data/metadata_reaction_selection.json",
+    " M scripts/gem_annotate/cli.py",
+    " M scripts/gem_annotate/genes.py",
+    " M scripts/gem_annotate/main.py",
+    " M scripts/gem_annotate/patches.py",
+    " M scripts/gem_annotate/reaction_selection.py",
+    " M scripts/lp_sn12_candidate.py",
+    " M tests/test_lp_sn12_candidate.py",
+    " M tests/test_reaction_selection.py"
+  ],
+  "plan": [
+    "Extract actual 11 biosynthesis/transport reactions, gene rules, upstream precursor supply, adjacent duplicate chemistry and static knockout transmission without optimization.",
+    "Reconcile existing candidate identity/crosswalk against versioned native sequence and primary enzyme literature; distinguish sequence/annotation from native experimental proof.",
+    "Independently audit key pathway and GPR claims; retain uncertainty.",
+    "Save compact gene/reaction evidence and Chinese conclusions, no model/pipeline mutation."
+  ],
+  "budget": "Nine COQ-family candidates, approximately 11 core reactions plus direct precursor neighbors; no optimization, no screen, no dFBA, no parameter changes. Reuse exact existing structures if available; new structure work only if needed for a specific unresolved identity, not blanket prediction.",
+  "allowed": "Current workspace, user-provided diagram, public primary sources and official databases; write review artifacts only.",
+  "exclusions": [
+    "No model/GPR/curation/boundary/benchmark changes",
+    "No push/commit or publication",
+    "No assumed full synthome AND",
+    "No invention of donor genes or native essentiality"
+  ],
+  "stop_conditions": [
+    "Downgrade gene-level identity if version bridge absent",
+    "Retain COQ4/6 chemistry alternatives when native evidence absent",
+    "Do not infer native mitochondrial localization or necessity from homology alone"
+  ],
+  "deliverables": [
+    "Current reaction/gene extraction",
+    "Evidence and uncertainty per COQ candidate",
+    "Independent source audit",
+    "Concise Chinese recommendation"
+  ]
+}

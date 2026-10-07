@@ -1,0 +1,289 @@
+{
+  "checked_utc": "2026-09-24T23:38:50.028785+00:00",
+  "coverage": {
+    "total_claims": 37,
+    "audited": 37,
+    "supported": 34,
+    "contradicted": 0,
+    "unresolved": 3,
+    "unchecked": 0
+  },
+  "scope": "Finite selected claims; not full-model/global-literature validation. Prior and new facts kept distinct. Zero optimizer/model-change/cluster calls by auditor.",
+  "optimization_calls_by_auditor": 0,
+  "actual_new_calls_reviewed": 22,
+  "solver_call_seconds": 0.6277138750301674,
+  "new_candidate_sha256": "a0307b9b00c1ed6e981d605f65ba15a0e313fe95e0e664dc05cfb95ef4291848",
+  "actual_constraint_primal_max_error": 1.1328453637399899e-10,
+  "net_flux_values_checked": 50938,
+  "split_primal_values_checked": 101876,
+  "final_document_sha256": {
+    "REPORT.md": "5906e0f22f5eccdf25d2987f7d713d5c8eedea18e3404abcba91687947ffb514",
+    "supply_module_spec.md": "2ac41692f4f8872c5bcdd5d951f025fef29d599c830b5e5dce0f9aa3c6c635de",
+    "supply_route_decision.tsv": "19003eff047736a2b1d6548ae506624ea6ca8d605032681ba1764e893d4a1735",
+    "minimal_experiment_plan.md": "9208f7f102fb32b47f58146b46becb4e97df0368f2f0ad5a41ec240f87d88f0b",
+    "routes/supply_module_spec.json": "019c638f6a29fc8d5773a15a26dee11259c1ca115d2d4f394435e1a47e8eccdb",
+    "routes/check_supply_spec.py": "6a18f2aa4eed69f036e6896739ed0983bbaa8fc985d278f089fa7178eab10e5c",
+    "routes/tests.log": "752c749ca7f27b469074153d32c394442010967af79f07b3e4b20c402f558d33"
+  },
+  "claims": [
+    {
+      "id": "CHEM-97363",
+      "claim": "Chosen Gly-L-Asp neutral free-parent DB entity has formula C6H10N2O5, charge0, and structure listed in exact_structures.json.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-99278",
+      "claim": "Chosen Gly-L-Glu neutral free-parent DB entity has formula C7H12N2O5, charge0, and structure listed in exact_structures.json.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-6998029",
+      "claim": "Chosen L-Ala-Gly neutral free-parent DB entity has formula C5H10N2O3, charge0, and structure listed in exact_structures.json.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-3013625",
+      "claim": "Chosen Gly-L-Pro neutral free-parent DB entity has formula C7H12N2O3, charge0, and structure listed in exact_structures.json.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-750",
+      "claim": "Chosen glycine neutral free-parent DB entity has formula C2H5NO2, charge0, and structure listed in exact_structures.json.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-ORIGINAL",
+      "claim": "Both local earlier reconstructions have name-only dipeptide entries without exact structural provenance; original stereochemistry remains unconfirmed.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-GLY-LEGACY",
+      "claim": "Legacy MNXM12053 and cpd16187 are unstructured L-glycine name entries, no conflicting identified structure recovered.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-PROTONATION",
+      "claim": "Neutral parent versus zwitterion must be distinguished by explicit atomic-charge representation; standard InChIKey alone may coincide.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-GLU-ANION",
+      "claim": "Gly-Glu(1-) is C7H11N2O5/-1, different from the selected neutral C7H12N2O5/0.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "CHEM-PRODUCT-INCHI",
+      "claim": "Current Asp/Glu product numeric formulas/charges neutral but existing InChIs contain /p-1; this pre-existing annotation inconsistency is not silently corrected.",
+      "verdict": "supported",
+      "evidence": "chemistry/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN1",
+      "claim": "PO1f KAE8169967.1/BKA90DRAFT_141684 exactly equals W29 AOW05368.1/XP_503902.2,454aa",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN2",
+      "claim": "PO1f KAE8174307.1/BKA90DRAFT_151083 exactly equals W29 AOW07335.1/XP_505554.3 and CLIB122 CAG78363.1,478aa",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN3",
+      "claim": "E16433 W29 vs CLIB122 sole Q17K is within AMP_N and outside annotated Prolidase domain and active positions",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN4",
+      "claim": "F23706 historical DSM3286 XP_505554.2 lacks one terminal repeat K at ambiguous476/477 versus W29",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN5",
+      "claim": "Existing AF-A0A1D8NNX0-v6 478CA sequence exactly matches W29/PO1f/CLIB122",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN6",
+      "claim": "ScYFR006W/P43590 reviewed record is uncharacterized and contains cytoplasm HDA versus predicted TM8-24; no catalytic-face orientation established",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN7",
+      "claim": "Ito2003 A.elegans enzyme releases Gly from exact Gly-Glu; no Yarrowia locus mapping made",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN8",
+      "claim": "ScDug1 2009 Table2 did not test four target non-Cys dipeptides",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN9",
+      "claim": "Yarrowia DPAP precursor processing and broad extract activities do not establish target free-dipeptide vacuole flux or PO1f SD-Leu expression",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "EN10",
+      "claim": "No new native exact four-target hydrolase/localization link was recovered in this bounded search",
+      "verdict": "supported",
+      "evidence": "enzyme/claims.json",
+      "method": "independent primary-record review; bounded claims and conditional model transfer preserved"
+    },
+    {
+      "id": "OPS1",
+      "claim": "Original E5 and original open candidate identities, sizes and exactly four changed bounds were verified.",
+      "verdict": "supported",
+      "evidence": "auditor_static.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS2",
+      "claim": "Newly rebuilt open XML is byte-identical to old open XML, but fresh run binds the new path.",
+      "verdict": "supported",
+      "evidence": "fresh_rebuilt/manifest.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS3",
+      "claim": "Chemistry XML changes only 13 pools: names, formulae, annotations and notes; charge remains 0; reaction/GPR/compartment/objective fields unchanged.",
+      "verdict": "supported",
+      "evidence": "auditor_static.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS4",
+      "claim": "17 adjacent reactions covered; all 13 internal reactions balance under selected neutral representation, four exchange residuals are intentional material boundaries.",
+      "verdict": "supported",
+      "evidence": "auditor_static.json; adjacent_reaction_balance.tsv",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS5",
+      "claim": "No new internal imbalance or needed H+/water correction was found; pre-existing Asp/Glu InChI versus numeric chemistry inconsistency is recorded outside target scope.",
+      "verdict": "supported",
+      "evidence": "automatic_stoichiometry_suggestions.json; auditor_static.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS6",
+      "claim": "Old validator selected frozen config paths; new entry requires explicit paths and SHA/manifest and distinguishes saved audit from fresh optimization.",
+      "verdict": "supported",
+      "evidence": "previous_source_snapshot/scripts/validate_vacuole_supply.py; scripts/validate_vacuole_supply.py",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS7",
+      "claim": "Candidate preflights all rows, applies idempotently, protects reviewed annotation/microspecies/metadata paths, and verifies export/reload.",
+      "verdict": "supported",
+      "evidence": "scripts/gem_annotate/dipeptide_chemistry.py; engineering_tests.log",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS8",
+      "claim": "Both new 11-call runs bind actual new XML paths and manifest identities; chemistry baseline/candidate actual LP signatures match.",
+      "verdict": "supported",
+      "evidence": "fresh_rebuilt/manifest.json; fresh_chemistry/manifest.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS9",
+      "claim": "All 22 reported optimal primals satisfy independently recomputed actual matrices, bounds, objectives and intended scenarios within 1e-7; both four-carrier maxima are zero.",
+      "verdict": "supported",
+      "evidence": "auditor_runs.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS10",
+      "claim": "Chemistry candidate no-source/restored growth is 1.4291778922791902 and G3 growth 1.434139669972012; annotation-only candidate did not improve ordinary FBA growth.",
+      "verdict": "supported",
+      "evidence": "fresh_chemistry/manifest.json; auditor_runs.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "OPS11",
+      "claim": "Global budget contains 22 calls, all complete/optimal, total solver call time below 900 seconds, single-call 60 seconds and one thread.",
+      "verdict": "supported",
+      "evidence": "solver_budget.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "ROUTE1",
+      "claim": "Declared SD-Leu and manufacturer CSM-Leu composition omit all four target dipeptides; no analytical absence or historical batch purity claim.",
+      "verdict": "supported",
+      "evidence": "routes/source_records.json; archived media/profile; original methods and manufacturer independently accessed 2026-09-24",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "ROUTE2",
+      "claim": "All 36 route rows preserve existing directions/bounds and distinguish cell uptake, vacuole entry, hydrolysis and amino-acid return; both real supply routes remain disabled.",
+      "verdict": "supported",
+      "evidence": "supply_route_decision.tsv; routes/network_inventory.json",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "ROUTE3",
+      "claim": "Specification separates net growth and replacement synthesis, nonoverlapping cleavage/remainder products, shared Gly budget and costs; parameter checker is not model activation or biological validation.",
+      "verdict": "supported",
+      "evidence": "supply_module_spec.md; routes/check_supply_spec.py; routes/tests.log",
+      "method": "independent static/raw-result inspection; no additional optimization"
+    },
+    {
+      "id": "BIO1",
+      "claim": "Whether all twelve original dipeptide pools were originally intended as the exact selected L-alpha free structures.",
+      "verdict": "unresolved",
+      "evidence": "chemical_representation.md; reaction_identity_cards.md; supply_module_spec.md",
+      "method": "explicit evidence gap, not negative biological finding"
+    },
+    {
+      "id": "BIO2",
+      "claim": "Which native W29/PO1f enzyme hydrolyses each exact free target in its actual compartment, topology and SD-Leu activity state.",
+      "verdict": "unresolved",
+      "evidence": "chemical_representation.md; reaction_identity_cards.md; supply_module_spec.md",
+      "method": "explicit evidence gap, not negative biological finding"
+    },
+    {
+      "id": "BIO3",
+      "claim": "Condition-matched actual external or internal target supply routes, complete precursors, cleavage yields and rates.",
+      "verdict": "unresolved",
+      "evidence": "chemical_representation.md; reaction_identity_cards.md; supply_module_spec.md",
+      "method": "explicit evidence gap, not negative biological finding"
+    }
+  ]
+}

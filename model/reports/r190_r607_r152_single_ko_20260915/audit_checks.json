@@ -1,0 +1,646 @@
+{
+  "audited_at_utc": "2026-09-15T21:11:13.697696+00:00",
+  "reviewer": "independent audit_three_reaction_ko subagent",
+  "scope": "Opened source XML/media/profile and execution artifacts; independently reconstructed stoichiometry/bounds and evaluated stored fluxes using Python stdlib only. No optimization or new scientific model change.",
+  "method": {
+    "audit_python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "arithmetic": "double-precision float; math.fsum for independent row sums; original XML reaction-order addition also checked against saved residuals",
+    "feasibility_tolerance": 1e-07,
+    "cutoff_comparison": "strict unrounded KO/WT < cutoff",
+    "optimization_calls": 0,
+    "biological_source_searches": 0
+  },
+  "counts": {
+    "total_claims": 13,
+    "audited": 13,
+    "supported": 13,
+    "unresolved": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "本次输入 XML、medium、profile 的完整 SHA 与任务/验收/历史介质记录一致。",
+      "sources": [
+        "TASK.md",
+        "run_manifest.json#/model",
+        "build_validation.json#/model"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "本次 runner 和三个实际导入的项目源码 SHA 匹配记录；三个复用源码与历史记录匹配。",
+      "sources": [
+        "run_manifest.json#/source_sha256",
+        "run_ko.py"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "直接从 XML 和声明 medium/PO1f 配置重建的全部 2315 个基础边界、有效摄入和 biomass_C 最大化目标与记录一致。",
+      "sources": [
+        "input XML: reaction bounds and objective",
+        "SD-Leu CSV",
+        "PO1f JSON",
+        "run_manifest.json#/base_bounds"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "记录包含 WT 与三个独立单反应关闭条件，程序成功退出、主调用数 4、参数及总时长符合任务预算。",
+      "sources": [
+        "execution.json",
+        "run_manifest.json#/resource_limits",
+        "run_manifest.json#/results",
+        "run_ko.py"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C05",
+      "claim": "三个关闭条件的 bounds 差异分别且仅为对应反应 [0,0]；代码逐条件使用恢复上下文并断言全部边界恢复/基因 functional。",
+      "sources": [
+        "run_ko.py: for rid in TARGETS",
+        "run_manifest.json#/results/*/changed_bounds"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C06",
+      "claim": "保存的 9260 个通量均完整有限，并满足从原 XML 重建的全部稳态行和有效边界，违反严格小于 1e-7。",
+      "sources": [
+        "input XML: all speciesReference entries",
+        "run_manifest.json#/results/*/fluxes"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C07",
+      "claim": "各条件保存目标值与目标通量一致；原始值、repr、legacy 归一化值一致，WT 通过既有范围。",
+      "sources": [
+        "run_manifest.json#/objective",
+        "run_manifest.json#/results"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C08",
+      "claim": "三个未舍入 KO/WT 均为 0.1100242198293592；严格 15% 为 true、1/5/10% 为 false。",
+      "sources": [
+        "run_manifest.json#/KO_WT_ratio",
+        "run_manifest.json#/audited_predictions",
+        "REPORT.md: result table"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C09",
+      "claim": "报告的反应连接与 R153/R2176 同计量关系由 XML 支持；三个保存 KO 解中目标通量均零。",
+      "sources": [
+        "input XML: R190/R607/R153/R2176/R152",
+        "run_manifest.json#/results/*/local_fluxes"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C10",
+      "claim": "机制文件的九条局部完整物种行及四列通量与原 XML/运行记录一致。",
+      "sources": [
+        "local_mechanism.json#/complete_species_rows",
+        "input XML",
+        "run_manifest.json#/results"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C11",
+      "claim": "三个保存 KO 解的精氨酸摄入 0.02586 经 R867/R154/TRNA_BIOMASS_R154 供给 biomass_C，0.02586/0.125563 等于保存生长。",
+      "sources": [
+        "SD-Leu CSV: R1202",
+        "input XML: arginine/tRNA/residue rows",
+        "run_manifest.json#/results/*/fluxes",
+        "REPORT.md: residual growth"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C12",
+      "claim": "报告将必需限定为当前模型/条件/15% 分类，将供给解释限定为保存通量见证，并明确无原生必需性或唯一路径实验证明。",
+      "sources": [
+        "REPORT.md: classification and mechanism limitations",
+        "TASK.md"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    },
+    {
+      "claim_id": "C13",
+      "claim": "外部区室推断警告确实存在；182 个 SBO exchange 恰与 C_ex 单物种边界集合相同，且当前有效边界全部一致。",
+      "sources": [
+        "run.log: external compartment warnings",
+        "input XML: SBO and compartment annotations",
+        "run_manifest.json#/base_bounds"
+      ],
+      "evidence_type": "direct_local_source_and_arithmetic",
+      "audit_status": "audited",
+      "verdict": "supported",
+      "decision": "use_with_limits"
+    }
+  ],
+  "inputs": {
+    "model": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_ntp1_hydrolysis.xml",
+      "actual_sha256": "9adfb0f6187360770f1ca38ebbdb7a9e68d99705c6868a91a8e7f583cd7e7e36",
+      "declared_sha256": "9adfb0f6187360770f1ca38ebbdb7a9e68d99705c6868a91a8e7f583cd7e7e36"
+    },
+    "medium": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+      "actual_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "declared_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85"
+    },
+    "strain_profile": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+      "actual_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "declared_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+    }
+  },
+  "actual_project_source_hash_checks": {
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py": {
+      "recorded": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "actual": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "match": true
+    },
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py": {
+      "recorded": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "actual": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "match": true
+    },
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py": {
+      "recorded": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "actual": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "match": true
+    },
+    "artifacts/r190_r607_r152_single_ko_20260915/run_ko.py": {
+      "recorded": "81a93fb80efb0138ccd41a012407a49e4a0bfa576804c8dd0822cbcbbaf393b7",
+      "actual": "81a93fb80efb0138ccd41a012407a49e4a0bfa576804c8dd0822cbcbbaf393b7",
+      "match": true
+    }
+  },
+  "source_snapshots": {
+    "artifacts/r190_r607_r152_single_ko_20260915/TASK.md": "759d07d65711d79c7ddfcb4d303486d766a46f71977839fa8b59e4d37f511085",
+    "artifacts/r190_r607_r152_single_ko_20260915/run_ko.py": "81a93fb80efb0138ccd41a012407a49e4a0bfa576804c8dd0822cbcbbaf393b7",
+    "artifacts/r190_r607_r152_single_ko_20260915/run_manifest.json": "f058fa45f684fcff8b75b1164ae7084a989596b128babb2dee2dbc611289c3ef",
+    "artifacts/r190_r607_r152_single_ko_20260915/execution.json": "5868555aa048a5e1782c1908c4c24f45c282ec342572c3163662a9e84043f4c5",
+    "artifacts/r190_r607_r152_single_ko_20260915/run.log": "ab82bceaffc1c6fd0a2aa79f770faceeb4eaf8083b6daca84b4f00db182850e4",
+    "artifacts/r190_r607_r152_single_ko_20260915/REPORT.md": "f2a882bf9a84c9cb33b7fc6b9ce02bc31a0324e138981522c92424be86b588cc",
+    "artifacts/r190_r607_r152_single_ko_20260915/local_mechanism.json": "a4263498b71764ec758d08e2c2aa75e0521c3ee1c554488c47703d7e13043cf1",
+    "PROJECT_STATE.md": "3b6ae9c6ddbfb0b0fc1d72fac0a9db22da02dd7f41319586cafd59f6fb161973",
+    "docs/BENCHMARK_CONTRACT.md": "8def558f86d2e78ba7c02bd37ec6dc276f0b45d10afcc724749359933c00ba4d",
+    "docs/baseline_manifest.json": "19b1846bb2ac2cb9117970e4b04456f58e35aa8e65d6b43880d487d12f40e971",
+    "artifacts/r_ntp1_pipeline_20260914/build_validation.json": "4374676489671eb7112699d00678befde457988e6e30b8ca375b316914e034d6",
+    "artifacts/screen_test_metadata_trna_20260910/run_manifest.json": "1693c1d119ce58732e32be3f1596961eeca8ee05f581cf85eab0204f826bad10",
+    ".venv/lib/python3.13/site-packages/cobra/core/model.py": "d1cef9ca7fb83b48c24bad93cf2408e87f3232011b635adaf77fa487d9b06c16",
+    ".venv/lib/python3.13/site-packages/optlang/interface.py": "dc9d31e2e99ff09a601711b8db74be6f2914fef7a73f06627e4baf1860a6f633"
+  },
+  "model_checks": {
+    "reaction_count": 2315,
+    "species_count": 1877,
+    "all_species_steady_state": true,
+    "no_dynamic_rules_or_constraints": true,
+    "reconstructed_base_bounds_match": true,
+    "active_medium_matches": true,
+    "objective_matches": true,
+    "overlay_effect_and_context_fingerprints_match": true,
+    "runtime_gpr_overlay_precondition_and_record_match": true,
+    "SBO_exchange_count": 182,
+    "C_ex_single_species_boundary_count": 182,
+    "exchange_sets_identical": true,
+    "changed_bounds_vs_raw_XML": {
+      "R612": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          0.0,
+          0.0
+        ]
+      },
+      "R946": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "R971": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "R1003": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.00489,
+          1000.0
+        ]
+      },
+      "R1127": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "R1189": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -6.67e-05,
+          1000.0
+        ]
+      },
+      "R1202": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.02586,
+          1000.0
+        ]
+      },
+      "R1204": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.05414,
+          1000.0
+        ]
+      },
+      "R1215": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.00859,
+          1000.0
+        ]
+      },
+      "R1217": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.03434,
+          1000.0
+        ]
+      },
+      "R1220": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.02466,
+          1000.0
+        ]
+      },
+      "R1222": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.01207,
+          1000.0
+        ]
+      },
+      "R1223": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.02727,
+          1000.0
+        ]
+      },
+      "R1231": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.07562,
+          1000.0
+        ]
+      },
+      "R1232": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.02205,
+          1000.0
+        ]
+      },
+      "R1233": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.02486,
+          1000.0
+        ]
+      },
+      "R1234": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -0.10765,
+          1000.0
+        ]
+      },
+      "R1263": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "R1268": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "R1314": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      },
+      "R1354": {
+        "xml": [
+          0.0,
+          1000.0
+        ],
+        "effective": [
+          -1000.0,
+          1000.0
+        ]
+      }
+    }
+  },
+  "conditions": {
+    "WT": {
+      "flux_count": 2315,
+      "stoichiometric_rows": 1877,
+      "raw_status_recorded": "optimal",
+      "objective_from_flux": 1.8718823069402997,
+      "KO_WT_ratio": 1.0,
+      "changed_bounds_verified": {},
+      "max_mass_residual_fsum": 6.780719648963318e-14,
+      "max_mass_residual_record_order": 9.237055564881302e-14,
+      "max_bound_violation": 0,
+      "worst_fsum_species": "m32[C_cy]",
+      "all_finite": true,
+      "raw_equals_legacy": true,
+      "local_fluxes": {
+        "R190": 0.20917915810634485,
+        "R607": 0.20917915810634485,
+        "R152": 0.20917915810634485
+      }
+    },
+    "KO_R190_reaction": {
+      "flux_count": 2315,
+      "stoichiometric_rows": 1877,
+      "raw_status_recorded": "optimal",
+      "objective_from_flux": 0.20595239043348756,
+      "KO_WT_ratio": 0.1100242198293592,
+      "changed_bounds_verified": {
+        "R190": [
+          0,
+          0
+        ]
+      },
+      "max_mass_residual_fsum": 1.4825021364597152e-14,
+      "max_mass_residual_record_order": 2.1316282072803006e-14,
+      "max_bound_violation": 0,
+      "worst_fsum_species": "m10[C_cy]",
+      "all_finite": true,
+      "raw_equals_legacy": true,
+      "local_fluxes": {
+        "R190": 0.0,
+        "R607": 0.0,
+        "R152": 0.0
+      }
+    },
+    "KO_R607_reaction": {
+      "flux_count": 2315,
+      "stoichiometric_rows": 1877,
+      "raw_status_recorded": "optimal",
+      "objective_from_flux": 0.20595239043348756,
+      "KO_WT_ratio": 0.1100242198293592,
+      "changed_bounds_verified": {
+        "R607": [
+          0,
+          0
+        ]
+      },
+      "max_mass_residual_fsum": 6.314393452555578e-15,
+      "max_mass_residual_record_order": 2.1316282072803006e-14,
+      "max_bound_violation": 0,
+      "worst_fsum_species": "m107[C_cy]",
+      "all_finite": true,
+      "raw_equals_legacy": true,
+      "local_fluxes": {
+        "R190": 0.0,
+        "R607": 0.0,
+        "R152": 0.0
+      }
+    },
+    "KO_R152_reaction": {
+      "flux_count": 2315,
+      "stoichiometric_rows": 1877,
+      "raw_status_recorded": "optimal",
+      "objective_from_flux": 0.20595239043348756,
+      "KO_WT_ratio": 0.1100242198293592,
+      "changed_bounds_verified": {
+        "R152": [
+          0,
+          0
+        ]
+      },
+      "max_mass_residual_fsum": 6.314393452555578e-15,
+      "max_mass_residual_record_order": 2.1316282072803006e-14,
+      "max_bound_violation": 0,
+      "worst_fsum_species": "m107[C_cy]",
+      "all_finite": true,
+      "raw_equals_legacy": true,
+      "local_fluxes": {
+        "R190": 0.0,
+        "R607": 0.0,
+        "R152": 0.0
+      }
+    }
+  },
+  "local_mechanism": {
+    "complete_row_checks": {
+      "m1064[C_ex]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 2,
+        "all_four_flux_columns_match": true
+      },
+      "m310[C_cy]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 8,
+        "all_four_flux_columns_match": true
+      },
+      "m312[C_cy]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 3,
+        "all_four_flux_columns_match": true
+      },
+      "m313[C_cy]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 3,
+        "all_four_flux_columns_match": true
+      },
+      "m315[C_cy]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 4,
+        "all_four_flux_columns_match": true
+      },
+      "m316[C_mi]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 2,
+        "all_four_flux_columns_match": true
+      },
+      "m318[C_mi]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 1,
+        "all_four_flux_columns_match": true
+      },
+      "m325[C_cy]": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 3,
+        "all_four_flux_columns_match": true
+      },
+      "trna_biomass_residue_R154": {
+        "complete_reaction_row_matches": true,
+        "reaction_count": 2,
+        "all_four_flux_columns_match": true
+      }
+    },
+    "R153_R2176_stoichiometry_identical": true,
+    "arginine_uptake": 0.02586,
+    "biomass_residue_coefficient": 0.125563,
+    "uptake_over_coefficient": 0.20595239043348756,
+    "all_three_KO_saved_flux_chains_match": true
+  },
+  "execution": {
+    "exit_code": 0,
+    "recorded_primary_solves": 4,
+    "whole_subprocess_seconds": 4.10889875004068,
+    "manifest_computation_seconds": 0.21163724997313693,
+    "all_raw_statuses_recorded_optimal": true,
+    "no_retry_in_runner_or_applicable_optlang_auto_presolve_branch": true,
+    "historical_full_dirty_environment_reconstructed": false
+  },
+  "warnings": [
+    "run.log contains external-compartment inference warnings; current annotated exchanges, C_ex geometry and effective bounds were independently reconciled."
+  ],
+  "limits": [
+    "This is an independent source/numerical audit of delivered results, not a rerun of the four optimizations.",
+    "Saved primal flux feasibility does not independently prove global optimality; optimal status is solver-reported, with no saved dual optimality certificate.",
+    "Context restoration and functional gene assertions are supported by source code and successful completion; no independent runtime before/after gene-state snapshot was saved.",
+    "Hashes establish current identities of recorded inputs and project source files, not restoration of the full historical dirty environment or all dependency binaries.",
+    "Historical medium/profile assertions are reused as declared model conditions; their native biological validity and external cited papers were not re-audited here.",
+    "The local flux witness does not establish a unique pathway, universal KO equivalence, native enzyme function, physiological uptake capacity, or experimental essentiality.",
+    "Audit coverage counts only the 13 scoped claims listed here; it is not an audit of unrelated project claims."
+  ],
+  "concurrent_documentation_updates": {
+    "PROJECT_STATE.md": {
+      "audit_start_sha256": "3b6ae9c6ddbfb0b0fc1d72fac0a9db22da02dd7f41319586cafd59f6fb161973",
+      "audit_end_sha256": "f0561f265978241b195e01c5949de273375cd57f6a61ec9169e0ba785d763d17",
+      "assessment": "Expected concurrent project-state documentation update; current relevant run entry opened and checked. Scientific inputs, runtime code, result data and REPORT.md/local_mechanism.json remain at audited hashes. Other new work-line entry is outside this audit."
+    }
+  },
+  "completed_at_utc": "2026-09-15T21:13:22.605517+00:00"
+}

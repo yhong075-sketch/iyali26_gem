@@ -1,0 +1,235 @@
+{
+  "status": "completed",
+  "started_utc": "2026-09-09T18:10:45.209432+00:00",
+  "backend_calls": 22075,
+  "stages": {
+    "maximum_growth": {
+      "objective": 1.463512824099338,
+      "growth": 1.463512824099338,
+      "tag_mass": 0.0,
+      "checks": {
+        "mass_balance": 1.1096025899319517e-13,
+        "net_bounds": 1.86196845281288e-13,
+        "split_bounds": 9.487184037598737e-10
+      }
+    },
+    "maximum_tag": {
+      "objective": 0.6067357657722899,
+      "growth": 0.14650760568106092,
+      "tag_mass": 0.6067357657722899,
+      "checks": {
+        "mass_balance": 1.785231857498069e-12,
+        "net_bounds": 0.0,
+        "split_bounds": 1.6265309068243888e-10
+      }
+    },
+    "growth_at_90percent_tag": {
+      "objective": 0.2852106611426179,
+      "growth": 0.2852106611426179,
+      "tag_mass": 0.546062189195061,
+      "checks": {
+        "mass_balance": 2.4355201168145936e-12,
+        "net_bounds": 0.0,
+        "split_bounds": 3.166415512339881e-10,
+        "tag_lower": 0.0
+      }
+    },
+    "scenario_0_pfba_growth": {
+      "objective": 1.4635128240992656,
+      "growth": 1.4635128240992656,
+      "tag_mass": 0.0,
+      "checks": {
+        "mass_balance": 8.43769498715119e-14,
+        "net_bounds": 0.0,
+        "split_bounds": 9.487184037598268e-10
+      }
+    },
+    "scenario_0_pfba_minimum": {
+      "objective": 978.5000804292857,
+      "growth": 1.4635128240992656,
+      "tag_mass": 0.0,
+      "checks": {
+        "mass_balance": 2.7344793096517606e-13,
+        "net_bounds": 0.0,
+        "split_bounds": 9.487184037598268e-10,
+        "pfba_growth_floor": 0.0
+      }
+    },
+    "scenario_1_pfba_growth": {
+      "objective": 0.2852106611426179,
+      "growth": 0.2852106611426179,
+      "tag_mass": 0.05308771683298486,
+      "checks": {
+        "mass_balance": 8.257755141616887e-10,
+        "net_bounds": 7.143970823149638e-10,
+        "split_bounds": 9.549507100707572e-10
+      }
+    },
+    "scenario_1_pfba_minimum": {
+      "objective": 240.35481936817644,
+      "growth": 0.2852106611426179,
+      "tag_mass": -1.1369878456705451e-09,
+      "checks": {
+        "mass_balance": 9.832933868052486e-10,
+        "net_bounds": 5.839298915170325e-10,
+        "split_bounds": 9.549507100707572e-10,
+        "pfba_growth_floor": 0.0
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "index": 0,
+      "label": "Growing",
+      "status": "completed",
+      "cap": 1223.125100536607,
+      "generated": 500,
+      "valid": 500,
+      "seed": 20260911,
+      "warmup_points": 2089,
+      "checks": {
+        "mass_balance": 2.4115154317883025e-12,
+        "net_bounds": 0.0,
+        "split_bounds": 9.088476936068284e-10,
+        "total_flux_sum_bound": 0.0
+      },
+      "sampler_retries": 2
+    },
+    {
+      "index": 1,
+      "label": "Slow growth",
+      "status": "completed",
+      "cap": 300.4435242102205,
+      "generated": 500,
+      "valid": 500,
+      "seed": 20260912,
+      "warmup_points": 2074,
+      "nonfinite_draws": 0,
+      "checks": {
+        "mass_balance": 5.944763344783999e-12,
+        "net_bounds": 0.0,
+        "split_bounds": 6.90624592325701e-10,
+        "total_flux_sum_bound": 0.0
+      },
+      "sampler_retries": 0
+    },
+    {
+      "index": 2,
+      "label": "Producing",
+      "status": "completed",
+      "cap": null,
+      "generated": 500,
+      "valid": 500,
+      "seed": 20260913,
+      "warmup_points": 1337,
+      "nonfinite_draws": 0,
+      "checks": {
+        "mass_balance": 4.695266397902742e-11,
+        "net_bounds": 8.842829143151609e-12,
+        "split_bounds": 3.1760062662015127e-10,
+        "tag_lower": 0.0
+      },
+      "sampler_retries": 1
+    }
+  ],
+  "code_sha256": "33efcd3934da8afa91e7237a461bc1a8b3df6af7cdfcac09fd6cd7d7cc34caae",
+  "software": {
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "gurobipy": "13.0.1",
+    "numpy": "2.4.3",
+    "scipy": "1.18.0"
+  },
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]",
+  "medium": {
+    "R1003": 0.00489,
+    "R1016": 1000.0,
+    "R1029": 1000.0,
+    "R1030": 1000.0,
+    "R1070": 10.0,
+    "R1127": 1000.0,
+    "R1164": 1000.0,
+    "R1189": 6.67e-05,
+    "R1202": 0.02586,
+    "R1204": 0.05414,
+    "R1215": 0.00859,
+    "R1217": 0.03434,
+    "R1220": 0.02466,
+    "R1222": 0.01207,
+    "R1223": 0.02727,
+    "R1231": 0.07562,
+    "R1232": 0.02205,
+    "R1233": 0.02486,
+    "R1234": 0.10765,
+    "R1263": 1000.0,
+    "R1268": 1000.0,
+    "R1287": 1000.0,
+    "R1296": 1000.0,
+    "R1298": 1000.0,
+    "R1305": 1000.0,
+    "R1314": 1000.0,
+    "R1323": 1000.0,
+    "R1333": 1000.0,
+    "R1340": 1000.0,
+    "R1354": 1000.0,
+    "R1364": 1000.0,
+    "R2061": 1000.0,
+    "R2270": 1000.0,
+    "R946": 1000.0,
+    "R971": 1000.0
+  },
+  "elapsed_seconds": 300.18935941695236,
+  "maximum_growth": 1.463512824099338,
+  "maximum_tag_mass": 0.6067357657722899,
+  "slow_growth_upper": 0.2852106611426179,
+  "exact_copy_checks": 1,
+  "finished_utc": "2026-09-09T18:18:47.591276+00:00",
+  "inputs_unchanged": true,
+  "continuation": {
+    "started_utc": "2026-09-09T18:15:40.322678+00:00",
+    "code_sha256": "cad30b6d86c1a67f339591b5ee55ed4318056ef21f0dc998aa183690a2a4efa3",
+    "reason": "Original native-copy inventory assertion rejected retained orphan Gurobi range auxiliaries, before any solver warmup or draws in scenarios 1 and 2. Validate declared constraints exactly and continue these unstarted chains.",
+    "additional_endpoint_solves": 0,
+    "target_or_bound_changes": false,
+    "original_failures": [
+      {
+        "index": 1,
+        "label": "Slow growth",
+        "status": "stopped",
+        "cap": 300.4435242102205,
+        "generated": 0,
+        "valid": 0,
+        "seed": 20260912,
+        "error": {
+          "type": "AssertionError",
+          "message": ""
+        }
+      },
+      {
+        "index": 2,
+        "label": "Producing",
+        "status": "stopped",
+        "cap": null,
+        "generated": 0,
+        "valid": 0,
+        "seed": 20260913,
+        "error": {
+          "type": "AssertionError",
+          "message": ""
+        }
+      }
+    ],
+    "copy_checks": [
+      {
+        "declared_variables": 7512,
+        "declared_constraints": 3007,
+        "exact_coefficients_and_bounds": true
+      },
+      {
+        "declared_variables": 7512,
+        "declared_constraints": 3007,
+        "exact_coefficients_and_bounds": true
+      }
+    ]
+  }
+}

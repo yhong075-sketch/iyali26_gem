@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "artifact_type": "hpcc_slurm_validation_handoff",
+  "batch": "C_R1521_NADH_frontier",
+  "formal_evidence_scope": "HPCC Slurm job 27551763 only",
+  "run_directory": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r1521_frontier_ed4b82d_corrected_81chZCqE",
+  "correction_history": {
+    "failed_job": "27551530",
+    "failed_job_state": "FAILED/1:0",
+    "root_cause": "The failed wrapper incorrectly required both fixed R1521 directions to be infeasible.",
+    "corrected_job": "27551763",
+    "automatic_resubmission": false,
+    "further_resubmission_authorized": false
+  },
+  "git": {
+    "repository": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014",
+    "remote_branch": "origin/lipid-unlump",
+    "commit_before_after": "ed4b82d9b38531f499bf6b3b9bded5e03c868634",
+    "tree_before_after": "b8de0b409cb3d56aeee3dc4e290881eedfae19f7",
+    "live_remote_at_submission": "ed4b82d9b38531f499bf6b3b9bded5e03c868634",
+    "live_remote_postflight": "ed4b82d9b38531f499bf6b3b9bded5e03c868634",
+    "postflight_checked_at": "2026-08-18T16:04:38-07:00",
+    "tracked_clean_before_after": true,
+    "untracked_count_before_after": 0,
+    "unchanged": true
+  },
+  "model": {
+    "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml",
+    "mode_before_after": "0444",
+    "bytes_before_after": 14039307,
+    "sha256_before_after": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "fingerprint_before_after": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "dimensions_before_after": {
+      "metabolites": 1877,
+      "reactions": 2313,
+      "genes": 1074
+    },
+    "unchanged": true
+  },
+  "job": {
+    "job_id": "27551763",
+    "job_name": "r1521C2_ed4b82d",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "partition": "short",
+    "account": "iwheeldonlab",
+    "node": "x01",
+    "requested_tasks": 1,
+    "requested_cpus_per_task": 1,
+    "allocated_cpus": 2,
+    "requested_memory": "8G",
+    "time_limit": "00:30:00",
+    "submit_time": "2026-08-18T15:55:57-07:00",
+    "start_time": "2026-08-18T15:55:59-07:00",
+    "end_time": "2026-08-18T16:03:11-07:00",
+    "elapsed": "00:07:12",
+    "metrics_runtime_seconds": 387.75002360343933,
+    "batch_total_cpu": "06:18.565",
+    "batch_max_rss": "1123000K",
+    "batch_max_vm_size": "1091012K",
+    "metrics_status": 0,
+    "postflight_status": 0
+  },
+  "software": {
+    "slurm": "24.11.1",
+    "platform": "Linux-4.18.0-553.144.1.el8_10.x86_64-x86_64-with-glibc2.28",
+    "python": "3.11.15",
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "scipy": "1.17.1",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "glpk": "5.0",
+    "libsbml": "5.21.1",
+    "solver_interface": "optlang.glpk_interface"
+  },
+  "commands": {
+    "submission": "/opt/linux/rocky/8.x/x86_64/pkgs/slurm/24.11.1/bin/sbatch --parsable /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r1521_frontier_ed4b82d_corrected_81chZCqE/job.sh",
+    "metrics": "/rhome/yhong075/iyali26_flow_phase2/.venv/bin/python /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r1521_frontier_ed4b82d_corrected_81chZCqE/metrics.py --repo /rhome/yhong075/iyali26_gem_lipid_unlump_a014 --model /rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml --run-dir /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r1521_frontier_ed4b82d_corrected_81chZCqE --output /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/r1521_frontier_ed4b82d_corrected_81chZCqE/metrics.json",
+    "tests": "in-process unittest.TextTestRunner: tests.test_coa_protonation_curation tests.test_fatty_acyl_coa_handoff tests.test_r1521_current_snapshot_handoff tests.test_lp_sn12_candidate",
+    "fva": "cobra.flux_analysis.flux_variability_analysis(reaction_list=all, fraction_of_optimum=1.0, processes=1)"
+  },
+  "tests": {
+    "requested": 60,
+    "ran": 60,
+    "passed": 60,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0,
+    "runtime_seconds": 257.2451221118681,
+    "successful": true
+  },
+  "r1521_contract": {
+    "two_audits_identical": true,
+    "canonical_audit_sha256": "82cb8c15f8c64a9f23e65c6e56a93c5fa5fe2b4e2dd8a6b295bee98d7ed927e8",
+    "audit_file_sha256": "522ecec3b4ad34ad3d9de2fe27a4818fe3b20e80680bdc1793ce17574c2870ff",
+    "strict_ledgers": {
+      "local": {
+        "incident": 70,
+        "evaluable": 47,
+        "unassessable": 23,
+        "newly_unbalanced": 30,
+        "repaired": 0,
+        "ledger_sha256": "d168c9c777f55df1862a494fa3a967271baad7d9d8d25439bfbe6a233f68681f"
+      },
+      "global": {
+        "incident": 121,
+        "evaluable": 89,
+        "unassessable": 32,
+        "newly_unbalanced": 73,
+        "repaired": 2,
+        "ledger_sha256": "30161ae68373cd71bc8bb89da328569963e6660d62caf989611a462abd18fa12"
+      },
+      "atomic": {
+        "incident": 303,
+        "evaluable": 228,
+        "unassessable": 75,
+        "newly_unbalanced": 146,
+        "repaired": 2,
+        "ledger_sha256": "c537a70713d027ca776b61b5cb44025cd03080789a4e0255b5684f8fad5d34fc"
+      }
+    }
+  },
+  "network": {
+    "lp_structure_unchanged": true,
+    "lp_structure_sha256": "7e05b8a73d8d241b76cb24e6e5732a1e2717417550779d3aaf1fff4de035c12a",
+    "objective_reaction": "biomass_C",
+    "fba": {
+      "source_status": "optimal",
+      "source_objective": 1.3875914754870862,
+      "candidate_status": "optimal",
+      "candidate_objective": 1.3875914754870926
+    },
+    "pfba": {
+      "source_status": "optimal",
+      "source_biomass": 1.3875914754870897,
+      "source_total_absolute_flux": 969.5058117613671,
+      "candidate_status": "optimal",
+      "candidate_biomass": 1.3875914754870897,
+      "candidate_total_absolute_flux": 969.5058117613743
+    },
+    "performance": {
+      "iterations": 5,
+      "source_fba_median_seconds": 0.12569945584982634,
+      "candidate_fba_median_seconds": 0.12029365170747042,
+      "source_pfba_median_seconds": 0.9111604122444987,
+      "candidate_pfba_median_seconds": 0.9050543350167572,
+      "performance_review_required": false
+    },
+    "full_fva": {
+      "fraction_of_optimum": 1.0,
+      "processes": 1,
+      "reaction_count_each": 2313,
+      "source_runtime_seconds": 37.47574051702395,
+      "candidate_runtime_seconds": 35.084292320068926,
+      "source_results_sha256": "1424f15e4678bbb78d81e56ccfba09dfd826cd4b68e1492eed7c20dec7106e51",
+      "candidate_results_sha256": "a60094fe33a145417c95b21e466744d93d8182bad19e43e248939c29b23b94d0",
+      "blocked_count_each": 1771,
+      "blocked_sets_equal": true,
+      "maximum_absolute_range_delta": 1.3826593203702942e-09,
+      "comparison_tolerance": 1e-07,
+      "r1521_source_range": [0.0, -1.2961595703619036e-11],
+      "r1521_candidate_range": [0.0, 3.047851586089681e-11],
+      "r1521_near_zero_at_100_percent_optimum": true,
+      "interpretation": "Near-zero flux at maximum growth does not imply infeasibility when growth is allowed to decrease."
+    },
+    "cuts": {
+      "sets": ["R1504", "R1521", "R80", "R1504+R1521+R80"],
+      "source_all_optimal": true,
+      "candidate_all_optimal": true
+    },
+    "r1521_forcing": {
+      "source_forward_1": {
+        "status": "optimal",
+        "fixed_flux": 1.0,
+        "attained_flux": 1.0,
+        "objective": 1.3081908855971505
+      },
+      "candidate_forward_1": {
+        "status": "optimal",
+        "fixed_flux": 1.0,
+        "attained_flux": 1.0,
+        "objective": 1.3081908855971462
+      },
+      "source_reverse_1": {
+        "status": "infeasible",
+        "fixed_flux": -1.0,
+        "objective": null
+      },
+      "candidate_reverse_1": {
+        "status": "infeasible",
+        "fixed_flux": -1.0,
+        "objective": null
+      },
+      "source_candidate_match_within_absolute_tolerance": 1e-08,
+      "interpretation": "Network feasibility and growth-cost result only; it is not enzyme-identity, GPR, or biological-necessity evidence."
+    }
+  },
+  "sbml_roundtrip": {
+    "temporary_candidate_only": true,
+    "production_sbml": false,
+    "temporary_deleted_after_validation": true,
+    "bytes": 14040370,
+    "sha256_before_deletion": "0a637e0bba56def9f92e7260fb86c04a0df2831d6355605c522350f624f6b351",
+    "dimensions_preserved": true,
+    "lp_structure_preserved": true,
+    "focal_exact_balances_passed": true,
+    "objective": 1.3875914754870862
+  },
+  "source_contract_and_idempotency": {
+    "source_fingerprint_unchanged": true,
+    "two_fresh_copy_candidates_equal": true,
+    "blocked_apply_attempts": 2,
+    "both_blocked_before_write": true,
+    "exception": "CoAProtonationActivationBlocked",
+    "production_apply_performed": false
+  },
+  "gpr_evidence": {
+    "systematic_id": "YALI1E18441g",
+    "established_name": "MFE2",
+    "legacy_locus_tag": "YALI0E15378g",
+    "protein_accessions": ["Q9P4D9", "F2Z6I5"],
+    "protein_function": "Peroxisomal multifunctional beta-oxidation enzyme with 2-enoyl-CoA hydratase 2 and (3R)-hydroxyacyl-CoA dehydrogenase activities.",
+    "gene_role_and_peroxisomal_localization": "experimentally_supported",
+    "protein_domain_and_3r_assignment": "database_and_homology_inference",
+    "exact_c26_substrate_turnover": "unverified",
+    "model_gpr_status": "Model assignment only; not direct evidence of exact C26 turnover."
+  },
+  "artifacts": {
+    "fva_candidate.json": {"bytes": 235216, "sha256": "4e37fcae769c75479e166fc60fe95f3187c980474576c2c537977d646ea7adf7"},
+    "fva_source.json": {"bytes": 235977, "sha256": "d8046349ae8b0f74f65d23e7a49b614b0639f4ca4b21bebb317187032b3cda8b"},
+    "job.sh": {"bytes": 3684, "sha256": "51df53917d24ef104c6b8ac62c2661a492f141200d993313253ad6260d3f55a2"},
+    "metrics.json": {"bytes": 31471, "sha256": "28ce8aba589e8ee0184832ae5314b11c46d8489ffea2125b1fc5f1c8c8642c0f"},
+    "metrics.py": {"bytes": 36779, "sha256": "d5afc8a1bf8874ed726ceb27232c1ea87ff9598087a652734cc6b56409e2ed17"},
+    "metrics_driver.log": {"bytes": 63771, "sha256": "15bd80cdf0e5b15e3c8da0c3bf0c781f531a2b221b013c7e728318802d53cc20"},
+    "network_checkpoint.json": {"bytes": 7051, "sha256": "89e7216e524700d383306268ea3de1f2891ab49b6e71d652d5477bda0b0b2dfb"},
+    "r1521_audit_1.json": {"bytes": 19441, "sha256": "522ecec3b4ad34ad3d9de2fe27a4818fe3b20e80680bdc1793ce17574c2870ff"},
+    "r1521_audit_2.json": {"bytes": 19441, "sha256": "522ecec3b4ad34ad3d9de2fe27a4818fe3b20e80680bdc1793ce17574c2870ff"},
+    "slurm-27551763.err": {"bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "slurm-27551763.out": {"bytes": 292, "sha256": "925ac711482371795ed77654f6902e974f7ce0e219e6e51e5db94f261e35305a"},
+    "snapshot_after.json": {"bytes": 838, "sha256": "870cf0899a811b420a7ad2269536fa0944f53016840f6de79c2fbcd1b9b41c9a"},
+    "snapshot_before.json": {"bytes": 838, "sha256": "870cf0899a811b420a7ad2269536fa0944f53016840f6de79c2fbcd1b9b41c9a"},
+    "test_summary.json": {"bytes": 404, "sha256": "cae6eee4d57043dbcb4949c7266f56d92387778be1233972bd31bdd698db8c77"},
+    "unittest.log": {"bytes": 11764, "sha256": "a56ff3b04cc9092d11be388b147ee900455436c293b7d7d087a195e8f5636e2d"}
+  },
+  "acceptance": {
+    "hpcc_computational_validation_gate_passed": true,
+    "expected_fail_closed_state_reproduced": true,
+    "frontier_closed": false,
+    "production_gate_passed": false,
+    "production_apply_performed": false,
+    "activation_state": "blocked",
+    "ready_for_activation": false,
+    "human_gate_required": true
+  }
+}

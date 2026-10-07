@@ -1,0 +1,60 @@
+{
+  "recorded_at_utc": "2026-09-13T05:01:55.623181+00:00",
+  "status": "verified_incremental_count",
+  "scope": "User asks current count; saved-result aggregation and structural inspection only",
+  "cutoff": 0.15,
+  "comparison": "unrounded KO/WT < cutoff",
+  "previous_full_screen": {
+    "screened_genes": 1074,
+    "predicted_essential": 114,
+    "TP": 79,
+    "FN": 243,
+    "predicted_essential_unlabelled": 35,
+    "experimental_positives_in_screen": 322,
+    "recall": 0.2453416149068323
+  },
+  "current_model_count": {
+    "screened_genes": 1074,
+    "predicted_essential": 115,
+    "TP": 80,
+    "FN": 242,
+    "predicted_essential_unlabelled": 35,
+    "experimental_positives_in_screen": 322,
+    "recall": 0.2484472049689441
+  },
+  "changed_gprs": {
+    "R1025": [
+      "",
+      "YALI1F28274g"
+    ],
+    "R1026": [
+      "",
+      "YALI1F28274g"
+    ]
+  },
+  "gene": {
+    "id": "YALI1F28274g",
+    "verified_native_symbol": null,
+    "function": "Nce103-like beta carbonic anhydrase candidate; CO2/bicarbonate interconversion",
+    "evidence": "automatic annotation and existing AlphaFold prediction; native catalysis and localization unconfirmed"
+  },
+  "target_old_ratio": 1.0000000000000266,
+  "target_current_ratio": 0.11002421982935918,
+  "all_other_mathematics_equal": true,
+  "same_runtime_conditions": true,
+  "proof": "Only two unconditional GPRs become a single target gene. For WT and each of the other 1073 single KOs that target remains functional, so both rules stay true and every LP coefficient and bound is unchanged. The target KO uses its saved current-model result.",
+  "new_optimization_solves": 0,
+  "current_model_full_screen_rerun": false,
+  "independent_biological_validation": false,
+  "input_and_code_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_vph1like_20260911/run_manifest.json": "bdb5b71e77e70618688d485badd120801a4a21b9c12de38c96b575d67fe88aaf",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_vph1like_20260911/screen_summary.json": "4cb33d88b27c74824bcb154108fcfb4ad1f44b00ea94ba18b84d1dbe75e7d086",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_vph1like_20260911/essentiality_per_gene.tsv": "7232721349df674c100f24195b7039d714217cce8a2d66cf52d33110c0a9f54a",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_pipeline_20260912/run_manifest.json": "71f7ef7139b205208fc0f0937d2186840236c73a826a9326aa2b5ab69461ec79",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_pipeline_20260912/threshold_selection_15pct.json": "5ff27355be9dca5c7fe82901afcf7359695fc66297122779612c8341964d8ce4",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_vph1like.xml": "f77f07f96c8f19d0507112813110dc2afe613ddb31c912c0700927f036b23736",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r1025_gpr.xml": "b83bbc65a00b6dc049501f8c22e82414d6133fb2c0b1845d24f4106e19a4fab0",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_gpr_pipeline_20260912/summarize_essentiality.py": "b8b5f8042d544fa0b199df2bbb2742ea3035793dde3b4dd85de7aba137095ff6",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/tests/test_coq9_curation.py": "167105c8b41e7a59407a74d343b5458ba7526b570058c8140419844f9dc532e4"
+  }
+}

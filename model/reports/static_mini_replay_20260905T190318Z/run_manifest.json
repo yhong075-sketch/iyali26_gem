@@ -1,0 +1,707 @@
+{
+  "run_id": "static_mini_replay_20260905T190318Z",
+  "created_at_utc": "2026-09-05T19:03:18.795065+00:00",
+  "status": "completed_panel_passed",
+  "authorized_scope": "historical XML WT+fixed6; canonical only if first passes; <=14 actual optimize calls including retries; <=600s; no other analysis",
+  "protected_inputs": [
+    {
+      "id": "historical_executed_model",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/trna_biomass_group_b/pipeline_runs/ce6d752991bb-20260826T072416Z/model.trna_biomass_group_b.xml",
+      "sha256_before": "07dbdc7bbc75688975ee71135c93cc1d5dfae65dca3d602fe2472a6c9da5a405",
+      "expected_sha256": "07dbdc7bbc75688975ee71135c93cc1d5dfae65dca3d602fe2472a6c9da5a405",
+      "sha256_after": "07dbdc7bbc75688975ee71135c93cc1d5dfae65dca3d602fe2472a6c9da5a405",
+      "unchanged": true
+    },
+    {
+      "id": "canonical_model",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/model.xml",
+      "sha256_before": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "expected_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "sha256_after": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "unchanged": true
+    },
+    {
+      "id": "experimental_positive",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+      "sha256_before": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+      "expected_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+      "sha256_after": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+      "unchanged": true
+    },
+    {
+      "id": "medium",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv",
+      "sha256_before": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "expected_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "sha256_after": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "unchanged": true
+    },
+    {
+      "id": "strain_profile",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+      "sha256_before": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "expected_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "sha256_after": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "unchanged": true
+    },
+    {
+      "id": "historical_per_gene",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/trna_biomass_group_b/pipeline_runs/ce6d752991bb-20260826T072416Z/essentiality_screen/essentiality_per_gene.tsv",
+      "sha256_before": "1460eb40c42509338f740335cdc2c211d34c3b6bb974c7228dfc25d7d28ac82c",
+      "expected_sha256": "1460eb40c42509338f740335cdc2c211d34c3b6bb974c7228dfc25d7d28ac82c",
+      "sha256_after": "1460eb40c42509338f740335cdc2c211d34c3b6bb974c7228dfc25d7d28ac82c",
+      "unchanged": true
+    },
+    {
+      "id": "historical_run_manifest",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/trna_biomass_group_b/pipeline_runs/ce6d752991bb-20260826T072416Z/essentiality_screen/run_manifest.json",
+      "sha256_before": "676a9863762f220f1493e2f8ade0eb83064c022ba276a9fd5af4cb1209d75fd5",
+      "expected_sha256": "676a9863762f220f1493e2f8ade0eb83064c022ba276a9fd5af4cb1209d75fd5",
+      "sha256_after": "676a9863762f220f1493e2f8ade0eb83064c022ba276a9fd5af4cb1209d75fd5",
+      "unchanged": true
+    },
+    {
+      "id": "historical_summary",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/trna_biomass_group_b/pipeline_runs/ce6d752991bb-20260826T072416Z/essentiality_screen/essentiality_summary.json",
+      "sha256_before": "177b551568b0d398bbfac13b1862e5ce45b5ddcca545b5a1373c50d4f615cfe5",
+      "expected_sha256": "177b551568b0d398bbfac13b1862e5ce45b5ddcca545b5a1373c50d4f615cfe5",
+      "sha256_after": "177b551568b0d398bbfac13b1862e5ce45b5ddcca545b5a1373c50d4f615cfe5",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/patches.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/patches.py",
+      "sha256_before": "b1573b2fa5d08a5ef504386efa758c1933404fd211afb0ca9ce9db38d9241d6e",
+      "expected_sha256": "b1573b2fa5d08a5ef504386efa758c1933404fd211afb0ca9ce9db38d9241d6e",
+      "historically_hash_recorded": true,
+      "sha256_after": "b1573b2fa5d08a5ef504386efa758c1933404fd211afb0ca9ce9db38d9241d6e",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/sbml.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/sbml.py",
+      "sha256_before": "d59a88d3feb2961b2d2dda5f12a78775764d73b64f1a20f8f9b9f26bc2288d6f",
+      "expected_sha256": "d59a88d3feb2961b2d2dda5f12a78775764d73b64f1a20f8f9b9f26bc2288d6f",
+      "historically_hash_recorded": true,
+      "sha256_after": "d59a88d3feb2961b2d2dda5f12a78775764d73b64f1a20f8f9b9f26bc2288d6f",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/strain_overlay.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/strain_overlay.py",
+      "sha256_before": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "expected_sha256": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "historically_hash_recorded": true,
+      "sha256_after": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/trna_biomass_pipeline.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/trna_biomass_pipeline.py",
+      "sha256_before": "cb7e4dd29db8404ab1df7c6a408e7dab20984be117f2c867125dc296166d06e1",
+      "expected_sha256": "cb7e4dd29db8404ab1df7c6a408e7dab20984be117f2c867125dc296166d06e1",
+      "historically_hash_recorded": true,
+      "sha256_after": "cb7e4dd29db8404ab1df7c6a408e7dab20984be117f2c867125dc296166d06e1",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/validate_essential_genes.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/validate_essential_genes.py",
+      "sha256_before": "a721f7625e8e8f6473f955310cd912cee40edd8fb62cbed20fa202c79490aa67",
+      "expected_sha256": "a721f7625e8e8f6473f955310cd912cee40edd8fb62cbed20fa202c79490aa67",
+      "historically_hash_recorded": true,
+      "sha256_after": "a721f7625e8e8f6473f955310cd912cee40edd8fb62cbed20fa202c79490aa67",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/essentiality_simulation_context.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/essentiality_simulation_context.py",
+      "sha256_before": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "expected_sha256": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "historically_hash_recorded": false,
+      "sha256_after": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/config.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/config.py",
+      "sha256_before": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "expected_sha256": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "historically_hash_recorded": false,
+      "sha256_after": "7c6ea07aada196ca325aa6230c85ed921a85b6487e0ec9788db484b86cb2125f",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/essentiality_evidence.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/essentiality_evidence.py",
+      "sha256_before": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "expected_sha256": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "historically_hash_recorded": false,
+      "sha256_after": "5b490ecb96f6a87161d0a91bdecf8c15af0ce9cc25cb3524975f32fad0ce09de",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/isozyme_capacity.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/isozyme_capacity.py",
+      "sha256_before": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "expected_sha256": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "historically_hash_recorded": false,
+      "sha256_after": "3ff1a2716553a7042c12bc422a5f3a0b69725158cadba8a0710d68a3b263b926",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/isozyme_resolution.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/isozyme_resolution.py",
+      "sha256_before": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "expected_sha256": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "historically_hash_recorded": false,
+      "sha256_after": "4cb4bd52f2c6dc08412b5a68ff0e489f5f019aa8de6bb15852633e770663c9c9",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/run_registry.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/run_registry.py",
+      "sha256_before": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "expected_sha256": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "historically_hash_recorded": false,
+      "sha256_after": "c0564c4be54dedf51d765ab0571005bbe53a6ee4787dbf052919270ad73f0c19",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/__init__.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/__init__.py",
+      "sha256_before": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "expected_sha256": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "historically_hash_recorded": false,
+      "sha256_after": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+      "unchanged": true
+    },
+    {
+      "id": "code:scripts/gem_annotate/prepare_essentiality_assays.py",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/scripts/gem_annotate/prepare_essentiality_assays.py",
+      "sha256_before": "23c1928a2df986c8195aa2a376aadfa3a7df02ae3a786cb2501826d82440d98f",
+      "expected_sha256": "23c1928a2df986c8195aa2a376aadfa3a7df02ae3a786cb2501826d82440d98f",
+      "historically_hash_recorded": false,
+      "sha256_after": "23c1928a2df986c8195aa2a376aadfa3a7df02ae3a786cb2501826d82440d98f",
+      "unchanged": true
+    },
+    {
+      "id": "code:uv.lock",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/uv.lock",
+      "sha256_before": "2f32cc375d007bdf4d9d1c0cbbef71a8033bc400948738d41fec8579bd7c8cef",
+      "expected_sha256": "2f32cc375d007bdf4d9d1c0cbbef71a8033bc400948738d41fec8579bd7c8cef",
+      "historically_hash_recorded": false,
+      "sha256_after": "2f32cc375d007bdf4d9d1c0cbbef71a8033bc400948738d41fec8579bd7c8cef",
+      "unchanged": true
+    },
+    {
+      "id": "code:pyproject.toml",
+      "path": "/private/tmp/iyali26_coq9_wp12_20260904/pyproject.toml",
+      "sha256_before": "1d7e494927727a87176e488a966df1e9541d3b0934d25a0cf976e344bbcf4671",
+      "expected_sha256": "1d7e494927727a87176e488a966df1e9541d3b0934d25a0cf976e344bbcf4671",
+      "historically_hash_recorded": false,
+      "sha256_after": "1d7e494927727a87176e488a966df1e9541d3b0934d25a0cf976e344bbcf4671",
+      "unchanged": true
+    },
+    {
+      "id": "protected:AGENTS.md",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/AGENTS.md",
+      "sha256_before": "289658f9ad50773dd6c0460ad37ce0dd55197de010f58611887c57d7f0724314",
+      "sha256_after": "289658f9ad50773dd6c0460ad37ce0dd55197de010f58611887c57d7f0724314",
+      "unchanged": true
+    },
+    {
+      "id": "protected:docs/BENCHMARK_CONTRACT.md",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/BENCHMARK_CONTRACT.md",
+      "sha256_before": "8def558f86d2e78ba7c02bd37ec6dc276f0b45d10afcc724749359933c00ba4d",
+      "sha256_after": "8def558f86d2e78ba7c02bd37ec6dc276f0b45d10afcc724749359933c00ba4d",
+      "unchanged": true
+    },
+    {
+      "id": "protected:docs/baseline_manifest.json",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/baseline_manifest.json",
+      "sha256_before": "af952e321d139a0f7a7704dbdcbe631f51e79bea8de24d90a54a95268e4e7e70",
+      "sha256_after": "af952e321d139a0f7a7704dbdcbe631f51e79bea8de24d90a54a95268e4e7e70",
+      "unchanged": true
+    },
+    {
+      "id": "protected:.gitignore",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.gitignore",
+      "sha256_before": "1e51cad3c05d429ec0a3fa79c71e99535ea43949b2c60c78c23279a4ec6d0311",
+      "sha256_after": "1e51cad3c05d429ec0a3fa79c71e99535ea43949b2c60c78c23279a4ec6d0311",
+      "unchanged": true
+    },
+    {
+      "id": "protected:model.xml",
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model.xml",
+      "sha256_before": "576a284ee86f0b96c802ea2e4445a862da49463022962471bfc841c469fcb5f2",
+      "sha256_after": "576a284ee86f0b96c802ea2e4445a862da49463022962471bfc841c469fcb5f2",
+      "unchanged": true
+    }
+  ],
+  "software_preflight": {
+    "python": "3.13.5",
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "pandas": "2.3.3",
+    "gurobipy": "13.0.1"
+  },
+  "panel": [
+    {
+      "gene_id": "YALI1B19079g",
+      "established_symbol": null,
+      "name_status": "not_verified_in_this_task",
+      "protein_function": "methionine adenosyltransferase",
+      "evidence_status": "model/GPR assignment only",
+      "model_reaction_ids": [
+        "R544"
+      ],
+      "historical_evidence_artifact": "historical_per_gene",
+      "historical_row": 417,
+      "historical_ko_growth": 0.0,
+      "historical_ko_wt_ratio": 0.0,
+      "historical_classification": "TP",
+      "historical_solver_status": "optimal"
+    },
+    {
+      "gene_id": "YALI1B20289g",
+      "established_symbol": null,
+      "name_status": "not_verified_in_this_task",
+      "protein_function": "saccharopine dehydrogenase (lysine-forming)",
+      "evidence_status": "model/GPR assignment only",
+      "model_reaction_ids": [
+        "R718"
+      ],
+      "historical_evidence_artifact": "historical_per_gene",
+      "historical_row": 440,
+      "historical_ko_growth": 0.08967109688914747,
+      "historical_ko_wt_ratio": 0.061205762303123405,
+      "historical_classification": "TP",
+      "historical_solver_status": "optimal"
+    },
+    {
+      "gene_id": "YALI1E15659g",
+      "established_symbol": null,
+      "name_status": "not_verified_in_this_task",
+      "protein_function": "methionine synthase",
+      "evidence_status": "model/GPR assignment only",
+      "model_reaction_ids": [
+        "R65",
+        "R545"
+      ],
+      "historical_evidence_artifact": "historical_per_gene",
+      "historical_row": 1430,
+      "historical_ko_growth": 0.14989878416810523,
+      "historical_ko_wt_ratio": 0.10231467743348883,
+      "historical_classification": "FN",
+      "historical_solver_status": "optimal"
+    },
+    {
+      "gene_id": "YALI1A15879g",
+      "established_symbol": null,
+      "name_status": "not_verified_in_this_task",
+      "protein_function": "histidine-biosynthesis trifunctional enzyme activities",
+      "evidence_status": "model/GPR assignment only",
+      "model_reaction_ids": [
+        "R389",
+        "R651",
+        "R652"
+      ],
+      "historical_evidence_artifact": "historical_per_gene",
+      "historical_row": 146,
+      "historical_ko_growth": 0.15942540041944286,
+      "historical_ko_wt_ratio": 0.10881714957959472,
+      "historical_classification": "FN",
+      "historical_solver_status": "optimal"
+    },
+    {
+      "gene_id": "YALI1F12842g",
+      "established_symbol": null,
+      "name_status": "not_verified_in_this_task",
+      "protein_function": "pyruvate kinase",
+      "evidence_status": "model/GPR assignment only",
+      "model_reaction_ids": [
+        "R694"
+      ],
+      "historical_evidence_artifact": "historical_per_gene",
+      "historical_row": 1980,
+      "historical_ko_growth": 1.4046334965721354,
+      "historical_ko_wt_ratio": 0.958744421521669,
+      "historical_classification": "FN",
+      "historical_solver_status": "optimal"
+    },
+    {
+      "gene_id": "YALI1B09025g",
+      "established_symbol": null,
+      "name_status": "not_verified_in_this_task",
+      "protein_function": "ribose-5-phosphate isomerase",
+      "evidence_status": "model/GPR assignment only",
+      "model_reaction_ids": [
+        "R712"
+      ],
+      "historical_evidence_artifact": "historical_per_gene",
+      "historical_row": 306,
+      "historical_ko_growth": 1.465076056810599,
+      "historical_ko_wt_ratio": 0.999999999999993,
+      "historical_classification": "FN",
+      "historical_solver_status": "optimal"
+    }
+  ],
+  "selection_policy": "Preselected from historical outcomes and frozen model annotations: zero/partial TP, two near-threshold FN, high-ratio single-reaction and OR controls; never replace after new results.",
+  "historical_controls": [
+    {
+      "gene_id": "YALI1A15879g",
+      "source_gene_id": "YALI1_A15879g",
+      "function": "similar to Saccharomyces cerevisiae HIS4 (YCL030C)%3B ancestral locus Anc_1.45,  similar to uniprot|P00815 Saccharomyces cerevisiae YCL030c HIS4 phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP pyrophosphatase/histidinol dehydrogenase",
+      "source": "https://doi.org/10.1038/s42003-023-04996-8",
+      "confidence": "consensus_essential_in_at_least_2_of_3_screens",
+      "experimental_essential": "True",
+      "in_model": "True",
+      "ko_status": "optimal",
+      "ko_growth": "0.15942540041944286",
+      "ko_growth_ratio": "0.10881714957959472",
+      "predicted_essential_primary": "False",
+      "classification": "FN",
+      "essential_at_1pct": "False",
+      "essential_at_5pct": "False",
+      "essential_at_10pct": "False",
+      "essential_at_15pct": "True"
+    },
+    {
+      "gene_id": "YALI1B09025g",
+      "source_gene_id": "YALI1_B09025g",
+      "function": "  similar to uniprot|Q12189 Saccharomyces cerevisiae YOR095c RKI1 D-ribose-5-phosphate ketol-isomerase,similar to Saccharomyces cerevisiae RKI1 (YOR095C)%3B ancestral locus Anc_2.189",
+      "source": "https://doi.org/10.1038/s42003-023-04996-8",
+      "confidence": "consensus_essential_in_at_least_2_of_3_screens",
+      "experimental_essential": "True",
+      "in_model": "True",
+      "ko_status": "optimal",
+      "ko_growth": "1.465076056810599",
+      "ko_growth_ratio": "0.999999999999993",
+      "predicted_essential_primary": "False",
+      "classification": "FN",
+      "essential_at_1pct": "False",
+      "essential_at_5pct": "False",
+      "essential_at_10pct": "False",
+      "essential_at_15pct": "False"
+    },
+    {
+      "gene_id": "YALI1B19079g",
+      "source_gene_id": "YALI1_B19079g",
+      "function": "  highly similar to uniprot|Q9P842 Candida albicans S- adenosylmethionine synthetase 2 (CaSAM2),similar to Saccharomyces cerevisiae SAM2 (YDR502C) and SAM1 (YLR180W)%3B ancestral locus Anc_1.58",
+      "source": "https://doi.org/10.1038/s42003-023-04996-8",
+      "confidence": "consensus_essential_in_at_least_2_of_3_screens",
+      "experimental_essential": "True",
+      "in_model": "True",
+      "ko_status": "optimal",
+      "ko_growth": "0.0",
+      "ko_growth_ratio": "0.0",
+      "predicted_essential_primary": "True",
+      "classification": "TP",
+      "essential_at_1pct": "True",
+      "essential_at_5pct": "True",
+      "essential_at_10pct": "True",
+      "essential_at_15pct": "True"
+    },
+    {
+      "gene_id": "YALI1B20289g",
+      "source_gene_id": "YALI1_B20289g",
+      "function": "similar to Saccharomyces cerevisiae LYS1 (YIR034C)%3B ancestral locus Anc_2.664,  uniprot|P38997 Yarrowia lipolytica Saccharopine dehydrogenase",
+      "source": "https://doi.org/10.1038/s42003-023-04996-8",
+      "confidence": "consensus_essential_in_at_least_2_of_3_screens",
+      "experimental_essential": "True",
+      "in_model": "True",
+      "ko_status": "optimal",
+      "ko_growth": "0.08967109688914747",
+      "ko_growth_ratio": "0.061205762303123405",
+      "predicted_essential_primary": "True",
+      "classification": "TP",
+      "essential_at_1pct": "False",
+      "essential_at_5pct": "False",
+      "essential_at_10pct": "True",
+      "essential_at_15pct": "True"
+    },
+    {
+      "gene_id": "YALI1E15659g",
+      "source_gene_id": "YALI1_E15659g",
+      "function": "  highly similar to uniprot|P05694 Saccharomyces cerevisiae YER091c MET6 5- methyltetrahydropteroyltriglutamate--homocysteine methyltransferase,similar to Saccharomyces cerevisiae MET6 (YER091C)%3B ancestral locus Anc_7.378",
+      "source": "https://doi.org/10.1038/s42003-023-04996-8",
+      "confidence": "consensus_essential_in_at_least_2_of_3_screens",
+      "experimental_essential": "True",
+      "in_model": "True",
+      "ko_status": "optimal",
+      "ko_growth": "0.14989878416810523",
+      "ko_growth_ratio": "0.10231467743348883",
+      "predicted_essential_primary": "False",
+      "classification": "FN",
+      "essential_at_1pct": "False",
+      "essential_at_5pct": "False",
+      "essential_at_10pct": "False",
+      "essential_at_15pct": "True"
+    },
+    {
+      "gene_id": "YALI1F12842g",
+      "source_gene_id": "YALI1_F12842g",
+      "function": "  uniprot|P30614 Yarrowia lipolytica Pyruvate kinase,similar to Saccharomyces cerevisiae CDC19 (YAL038W) and PYK2 (YOR347C)%3B ancestral locus Anc_7.45",
+      "source": "https://doi.org/10.1038/s42003-023-04996-8",
+      "confidence": "consensus_essential_in_at_least_2_of_3_screens",
+      "experimental_essential": "True",
+      "in_model": "True",
+      "ko_status": "optimal",
+      "ko_growth": "1.4046334965721354",
+      "ko_growth_ratio": "0.958744421521669",
+      "predicted_essential_primary": "False",
+      "classification": "FN",
+      "essential_at_1pct": "False",
+      "essential_at_5pct": "False",
+      "essential_at_10pct": "False",
+      "essential_at_15pct": "False"
+    }
+  ],
+  "historical_wt": 1.4650760568106092,
+  "frozen_contract_command": "'/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python' -B - <<'PY'\nimport json\nimport subprocess\nimport sys\n\nworker = r'''\nimport csv\nimport importlib.metadata as metadata\nimport json\nimport math\nimport os\nfrom pathlib import Path\nimport platform\nimport sys\nfrom hashlib import sha256\nfrom unittest.mock import patch\n\nchannel = os.fdopen(os.dup(1), \"w\", buffering=1)\nsink = os.open(os.devnull, os.O_WRONLY)\nos.dup2(sink, 1)\nos.dup2(sink, 2)\nos.close(sink)\nreport = {\"status\": \"running\", \"phase\": \"preflight\", \"stages\": [],\n          \"primary_solves_requested_upper_bound\": 0,\n          \"purpose\": \"bounded_static_reference_check\",\n          \"historical_full_environment_reproduction\": \"not_established\",\n          \"logs_suppressed\": True}\n\ndef safe(value):\n    if isinstance(value, dict):\n        return {str(k): safe(v) for k, v in value.items()}\n    if isinstance(value, (list, tuple)):\n        return [safe(v) for v in value]\n    if isinstance(value, (set, frozenset)):\n        return [safe(v) for v in sorted(value, key=str)]\n    if hasattr(value, \"item\"):\n        return safe(value.item())\n    if isinstance(value, float) and not math.isfinite(value):\n        return \"NaN\" if math.isnan(value) else (\"+Infinity\" if value > 0 else \"-Infinity\")\n    return value\n\ndef emit():\n    print(json.dumps(safe(report), ensure_ascii=False, allow_nan=False), file=channel, flush=True)\n\ndef require(condition, message):\n    if not condition:\n        report[\"failure_reason\"] = message\n        raise RuntimeError(\"declared_gate_failed\")\n\ndef digest(path):\n    return sha256(Path(path).read_bytes()).hexdigest()\n\ndef finite_nonnegative(value):\n    try:\n        return value is not None and math.isfinite(float(value)) and float(value) >= 0\n    except (TypeError, ValueError):\n        return False\n\nemit()\ntry:\n    manifest_path = Path(\"/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/docs/baseline_manifest.json\")\n    manifest = json.loads(manifest_path.read_text())\n    report[\"manifest_sha256\"] = digest(manifest_path)\n    require(manifest[\"schema_version\"] == \"1.0\", \"Unexpected manifest schema\")\n    require(manifest[\"baseline_id\"] == \"iyali26_static_reference_provisional_20260905\", \"Unexpected baseline\")\n    artifacts = manifest[\"artifacts\"]\n    required = (\"historical_executed_model\", \"canonical_model\", \"experimental_positive\",\n                \"medium\", \"strain_profile\", \"historical_per_gene\", \"historical_run_manifest\",\n                \"historical_summary\")\n    report[\"input_hashes\"] = {}\n    for key in required:\n        item = artifacts[key]\n        observed = digest(item[\"path\"])\n        report[\"input_hashes\"][key] = observed\n        require(observed == item[\"sha256\"], \"Input SHA mismatch: \" + key)\n    code = manifest[\"code_identity\"]\n    worktree = Path(code[\"recovered_worktree\"]).resolve()\n    require(str(worktree) == \"/private/tmp/iyali26_coq9_wp12_20260904\", \"Unexpected recovered worktree\")\n    require(bool(code[\"source_files\"]), \"Missing source-file inventory\")\n    report[\"source_hashes\"] = {}\n    for item in code[\"source_files\"]:\n        path = Path(item[\"path\"]).resolve()\n        require(path == (worktree / item[\"relative_path\"]).resolve(), \"Source path mismatch\")\n        observed = digest(path)\n        report[\"source_hashes\"][item[\"relative_path\"]] = {\n            \"sha256\": observed, \"historically_hash_recorded\": item[\"historically_hash_recorded\"]}\n        require(observed == item[\"sha256\"], \"Source SHA mismatch: \" + item[\"relative_path\"])\n    actual_software = {\"python\": platform.python_version()}\n    for package in (\"cobra\", \"optlang\", \"pandas\", \"gurobipy\"):\n        actual_software[package] = metadata.version(package)\n    report[\"software\"] = actual_software\n    report[\"python_executable\"] = sys.executable\n    require(actual_software == code[\"expected_software\"], \"Software version mismatch\")\n    selected = [\"YALI1B19079g\", \"YALI1B20289g\", \"YALI1E15659g\",\n                \"YALI1A15879g\", \"YALI1F12842g\", \"YALI1B09025g\"]\n    task = manifest[\"next_task\"]\n    require(task[\"selected_gene_ids\"] == selected, \"Predeclared control list changed\")\n    require(task[\"max_primary_solves\"] == 14 and task[\"wall_time_seconds\"] == 600, \"Budget changed\")\n    require(task[\"comparison_abs_tol\"] == 1e-8 and task[\"comparison_rel_tol\"] == 1e-6, \"Comparison gate changed\")\n    report[\"selected_gene_ids\"] = selected\n    report[\"new_declared_resource_settings\"] = {\"Threads\": 1, \"processes\": 1, \"wall_time_seconds\": 600}\n    cuts = (0.01, 0.05, 0.10, 0.15)\n    old_manifest = json.loads(Path(artifacts[\"historical_run_manifest\"][\"path\"]).read_text())\n    for old_key, key in ((\"model\", \"historical_executed_model\"), (\"experimental\", \"experimental_positive\"),\n                         (\"medium\", \"medium\"), (\"strain_profile\", \"strain_profile\")):\n        require(old_manifest[\"inputs\"][old_key][\"sha256\"] == artifacts[key][\"sha256\"], \"Historical input binding mismatch: \" + key)\n    old_summary = json.loads(Path(artifacts[\"historical_summary\"][\"path\"]).read_text())\n    with Path(artifacts[\"historical_per_gene\"][\"path\"]).open(newline=\"\") as handle:\n        old_rows = [r for r in csv.DictReader(handle, delimiter=\"\\t\") if r[\"gene_id\"] in selected]\n    require(len(old_rows) == 6 and len({r[\"gene_id\"] for r in old_rows}) == 6, \"Historical controls missing or duplicated\")\n    reference = {r[\"gene_id\"]: r for r in old_rows}\n    require(all(r[\"ko_status\"] == \"optimal\" and r[\"in_model\"] == \"True\" and\n                r[\"experimental_essential\"] == \"True\" and finite_nonnegative(r[\"ko_growth\"]) and\n                finite_nonnegative(r[\"ko_growth_ratio\"]) for r in old_rows), \"Invalid historical control record\")\n    call_columns = (\"essential_at_1pct\", \"essential_at_5pct\", \"essential_at_10pct\", \"essential_at_15pct\")\n    historical_calls = {}\n    for row in old_rows:\n        require(all(row.get(column) in (\"True\", \"False\") for column in call_columns), \"Missing or invalid historical cutoff calls\")\n        recorded = [row[column] == \"True\" for column in call_columns]\n        require(recorded == [float(row[\"ko_growth_ratio\"]) < cutoff for cutoff in cuts], \"Historical recorded calls disagree with raw-ratio rule\")\n        historical_calls[row[\"gene_id\"]] = recorded\n    require(finite_nonnegative(old_summary[\"wt_growth\"]), \"Invalid historical WT\")\n    os.environ[\"IYALI26_RESEARCH_ROOT\"] = manifest[\"workspace\"][\"research_root\"]\n    report[\"research_root\"] = os.environ[\"IYALI26_RESEARCH_ROOT\"]\n    sys.path.insert(0, str(worktree))\n    from scripts.gem_annotate import validate_essential_genes as validator\n    from scripts.gem_annotate.essentiality_simulation_context import load_effective_simulation_context\n    require(Path(validator.__file__).resolve() == worktree / \"scripts/gem_annotate/validate_essential_genes.py\", \"Wrong module imported\")\n    experimental = validator.load_experimental(Path(artifacts[\"experimental_positive\"][\"path\"]), positive_only=True)\n    positive_ids = set(experimental.loc[experimental[\"essential\"].eq(True), \"gene_id\"])\n    require(set(selected) <= positive_ids, \"Control absent from positive reference\")\n    report[\"phase\"] = \"preflight_passed\"\n    emit()\n\n    def compare(stage, wt, rows, ref_wt, ref_rows, ref_calls, label):\n        checks = {\"wt\": math.isclose(wt, float(ref_wt), abs_tol=1e-8, rel_tol=1e-6), \"genes\": {}}\n        for row in rows:\n            target = ref_rows[row[\"gene_id\"]]\n            ratio = float(row[\"ko_growth_ratio\"])\n            ref_ratio = float(target[\"ko_growth_ratio\"])\n            checks[\"genes\"][row[\"gene_id\"]] = {\n                \"growth\": math.isclose(float(row[\"ko_growth\"]), float(target[\"ko_growth\"]), abs_tol=1e-8, rel_tol=1e-6),\n                \"ratio\": math.isclose(ratio, ref_ratio, abs_tol=1e-8, rel_tol=1e-6),\n                \"calls\": [ratio < c for c in cuts], \"reference_calls\": ref_calls[row[\"gene_id\"]]}\n        stage.setdefault(\"comparisons\", {})[label] = checks\n        emit()\n        require(checks[\"wt\"] and all(x[\"growth\"] and x[\"ratio\"] and x[\"calls\"] == x[\"reference_calls\"]\n                                    for x in checks[\"genes\"].values()), \"Numerical or cutoff mismatch: \" + label)\n\n    for key in (\"historical_executed_model\", \"canonical_model\"):\n        stage = {\"model_artifact\": key, \"status\": \"running\"}\n        report[\"stages\"].append(stage)\n        report[\"phase\"] = key\n        emit()\n        context = load_effective_simulation_context(\n            model_path=artifacts[key][\"path\"], media_path=artifacts[\"medium\"][\"path\"],\n            strain_profile_path=artifacts[\"strain_profile\"][\"path\"])\n        stage[\"loaded_input_hashes\"] = {key: context.canonical_model_sha256,\n                                       \"medium\": context.medium_sha256,\n                                       \"strain_profile\": context.strain_profile_sha256}\n        emit()\n        require(all(value == artifacts[name][\"sha256\"] for name, value in stage[\"loaded_input_hashes\"].items()),\n                \"Loaded input SHA mismatch; no solve dispatched\")\n        model = context.model\n        model.solver = \"gurobi\"\n        model.solver.problem.Params.Threads = 1\n        stage[\"context\"] = context.provenance()\n        stage[\"solver_parameters\"] = {name: getattr(model.solver.problem.Params, name)\n                                      for name in (\"Threads\", \"FeasibilityTol\", \"OptimalityTol\", \"Method\", \"Seed\", \"Presolve\")}\n        stage[\"optlang_presolve\"] = model.solver.configuration.presolve\n        require(stage[\"optlang_presolve\"] != \"auto\", \"optlang auto presolve permits implicit retry; stop without changing it\")\n        stage[\"cobra_tolerance\"] = model.tolerance\n        all_ids = {gene.id for gene in model.genes}\n        require(set(selected) <= all_ids, \"Predeclared control missing from model\")\n        require(context.strain_overlay_enabled and context.active_medium.get(\"R1354\") == 1000.0 and\n                context.active_medium.get(\"R1189\", 0) > 0 and context.active_medium.get(\"R1219\", 0) == 0,\n                \"Historical runtime medium/strain invariant failed\")\n        raw_tables = []\n        original_deletion = validator.single_gene_deletion\n        original_optimize = model.optimize\n\n        def observe_wt(*args, **kwargs):\n            require(model.solver.configuration.presolve != \"auto\", \"Unexpected auto presolve before WT\")\n            report[\"primary_solves_requested_upper_bound\"] += 1\n            require(report[\"primary_solves_requested_upper_bound\"] <= 14, \"Primary solve budget exceeded\")\n            emit()\n            solution = original_optimize(*args, **kwargs)\n            stage[\"raw_wt\"] = {\"status\": solution.status, \"objective_value\": solution.objective_value}\n            emit()\n            if solution.status == \"optimal\" and finite_nonnegative(solution.objective_value) and 0.1 <= float(solution.objective_value) <= 2.0:\n                checks = {\"historical_record\": math.isclose(float(solution.objective_value), float(old_summary[\"wt_growth\"]), abs_tol=1e-8, rel_tol=1e-6)}\n                if key == \"canonical_model\":\n                    checks[\"first_stage_replay\"] = math.isclose(float(solution.objective_value), report[\"stages\"][0][\"legacy\"][\"wt_growth\"], abs_tol=1e-8, rel_tol=1e-6)\n                stage[\"early_wt_comparisons\"] = checks\n                emit()\n                if not all(checks.values()):\n                    stage[\"legacy_unavailable_reason\"] = \"Stopped after WT comparison, before original function requested KO\"\n                    require(False, \"WT comparison failed; no KO dispatched\")\n            return solution\n\n        def observe_deletion(*args, **kwargs):\n            require(len(args) == 1 and set(kwargs) == {\"processes\", \"gene_list\"} and\n                    kwargs[\"processes\"] == 1 and list(kwargs[\"gene_list\"]) == sorted(selected), \"KO request exceeded declared scope\")\n            frames = []\n            stage[\"raw_deletion\"] = {\"dispatch\": \"predeclared single-KO calls to unchanged engine\", \"calls\": []}\n            for gene_id in sorted(selected):\n                require(model.solver.configuration.presolve != \"auto\", \"Unexpected auto presolve before KO\")\n                report[\"primary_solves_requested_upper_bound\"] += 1\n                require(report[\"primary_solves_requested_upper_bound\"] <= 14, \"Primary solve budget exceeded\")\n                stage[\"requested_ko\"] = gene_id\n                emit()\n                raw = original_deletion(args[0], gene_list=[gene_id], processes=1)\n                stage[\"raw_deletion\"][\"calls\"].append({\"requested_gene_id\": gene_id,\n                    \"columns\": list(raw.columns), \"rows\": [\n                        {\"index\": index, \"values\": row.to_dict()} for index, row in raw.iterrows()]})\n                emit()\n                if not {\"ids\", \"growth\", \"status\"} <= set(raw.columns) or raw.empty:\n                    stage[\"legacy_unavailable_reason\"] = \"Missing raw columns or empty return; do not fabricate normalized rows\"\n                    require(False, \"Raw KO malformed or missing; no further KO dispatched\")\n                frames.append(raw.copy(deep=True))\n                valid_id = (len(raw) == 1 and isinstance(raw.iloc[0][\"ids\"], (set, frozenset)) and raw.iloc[0][\"ids\"] == {gene_id})\n                if not valid_id or not all(raw[\"status\"].eq(\"optimal\")) or not all(finite_nonnegative(v) for v in raw[\"growth\"]):\n                    stage[\"early_raw_gate_failure\"] = \"Raw KO wrong/duplicate ID, nonoptimal, None/NaN/Inf or negative growth\"\n                    break\n                growth = float(raw.iloc[0][\"growth\"])\n                ratio = growth / float(stage[\"raw_wt\"][\"objective_value\"])\n                observed_calls = [ratio < cutoff for cutoff in cuts]\n                references = [(\"historical_record\", reference[gene_id], historical_calls[gene_id])]\n                if key == \"canonical_model\":\n                    first = report[\"stages\"][0]\n                    first_row = next(r for r in first[\"legacy\"][\"predictions\"] if r[\"gene_id\"] == gene_id)\n                    first_calls = first[\"comparisons\"][\"historical_record\"][\"genes\"][gene_id][\"calls\"]\n                    references.append((\"first_stage_replay\", first_row, first_calls))\n                early_checks = {}\n                for label, target, target_calls in references:\n                    early_checks[label] = {\"growth\": math.isclose(growth, float(target[\"ko_growth\"]), abs_tol=1e-8, rel_tol=1e-6),\n                                           \"ratio\": math.isclose(ratio, float(target[\"ko_growth_ratio\"]), abs_tol=1e-8, rel_tol=1e-6),\n                                           \"calls\": observed_calls, \"reference_calls\": target_calls}\n                stage.setdefault(\"early_ko_comparisons\", {})[gene_id] = early_checks\n                emit()\n                if not all(c[\"growth\"] and c[\"ratio\"] and c[\"calls\"] == c[\"reference_calls\"] for c in early_checks.values()):\n                    stage[\"early_comparison_gate_failure\"] = \"KO numerical or cutoff mismatch; do not dispatch later KO\"\n                    break\n            combined = validator.pd.concat(frames, ignore_index=True)\n            raw_tables.append(combined)\n            return combined\n\n        with patch.object(model, \"optimize\", observe_wt), patch.object(validator, \"single_gene_deletion\", observe_deletion):\n            predictions, wt = validator.run_single_gene_deletions(model, \"gurobi\", excluded_gene_ids=all_ids - set(selected))\n        rows = predictions.to_dict(orient=\"records\")\n        stage[\"legacy\"] = {\"wt_growth\": wt, \"predictions\": rows}\n        emit()\n        require(\"early_raw_gate_failure\" not in stage, \"Raw KO anomaly: partial legacy retained, later KO not dispatched\")\n        require(\"early_comparison_gate_failure\" not in stage, \"KO comparison failed: partial legacy retained, later KO not dispatched\")\n        require(len(raw_tables) == 1, \"Unexpected deletion call count\")\n        raw = raw_tables[0]\n        require({\"ids\", \"growth\", \"status\"} <= set(raw.columns), \"Raw KO columns missing\")\n        raw_ids = [validator._gene_id_from_deletion_row(index, row) for index, row in raw.iterrows()]\n        require(len(raw) == 6 and len(set(raw_ids)) == 6 and set(raw_ids) == set(selected), \"Raw KO rows missing, duplicated or unexpected\")\n        require(all(isinstance(ids, (set, frozenset)) and len(ids) == 1 for ids in raw[\"ids\"]), \"Raw KO IDs are not singleton deletions\")\n        require(all(status == \"optimal\" for status in raw[\"status\"]), \"Raw KO nonoptimal: retain legacy result and stop\")\n        require(all(finite_nonnegative(value) for value in raw[\"growth\"]), \"Raw KO None/NaN/Inf/negative: retain legacy result and stop\")\n        require(len(rows) == 6 and {r[\"gene_id\"] for r in rows} == set(selected) and\n                all(finite_nonnegative(r[\"ko_growth\"]) and finite_nonnegative(r[\"ko_growth_ratio\"]) for r in rows), \"Invalid legacy result shape or numbers\")\n        compare(stage, wt, rows, old_summary[\"wt_growth\"], reference, historical_calls, \"historical_record\")\n        if key == \"canonical_model\":\n            first = report[\"stages\"][0][\"legacy\"]\n            first_calls = {gene_id: report[\"stages\"][0][\"comparisons\"][\"historical_record\"][\"genes\"][gene_id][\"calls\"] for gene_id in selected}\n            compare(stage, wt, rows, first[\"wt_growth\"], {r[\"gene_id\"]: r for r in first[\"predictions\"]}, first_calls, \"first_stage_replay\")\n        stage[\"status\"] = \"passed\"\n        emit()\n    report[\"status\"] = \"passed\"\n    report[\"phase\"] = \"complete\"\n    report[\"claim_limit\"] = \"Only these six controls and WT; no global recall, calibration or complete model equivalence claim\"\nexcept Exception as exc:\n    report[\"status\"] = \"stopped\"\n    report.setdefault(\"failure_reason\", \"Execution error; no automatic retry or substitution\")\n    report[\"exception_type\"] = type(exc).__name__\n    if report[\"stages\"] and report[\"stages\"][-1][\"status\"] == \"running\":\n        report[\"stages\"][-1][\"status\"] = \"stopped\"\nemit()\n'''\n\nprocess = subprocess.Popen([sys.executable, \"-B\", \"-c\", worker], stdout=subprocess.PIPE,\n                           stderr=subprocess.DEVNULL, text=True)\ntimed_out = False\ntry:\n    output, _ = process.communicate(timeout=600)\nexcept subprocess.TimeoutExpired:\n    timed_out = True\n    process.kill()\n    output, _ = process.communicate()\ncheckpoints = []\nfor line in output.splitlines():\n    try:\n        checkpoints.append(json.loads(line))\n    except json.JSONDecodeError:\n        pass\nresult = checkpoints[-1] if checkpoints else {\"status\": \"stopped\", \"stages\": [], \"failure_reason\": \"No complete worker checkpoint\"}\nif timed_out or process.returncode != 0 or result.get(\"status\") == \"running\":\n    result[\"status\"] = \"stopped\"\n    result[\"failure_reason\"] = \"600-second wall-clock limit\" if timed_out else \"Worker did not complete normally\"\n    for stage in result.get(\"stages\", []):\n        if stage.get(\"status\") == \"running\":\n            stage[\"status\"] = \"stopped\"\nresult[\"worker_returncode\"] = process.returncode\nresult[\"timed_out\"] = timed_out\nprint(json.dumps(result, ensure_ascii=False, allow_nan=False))\nsys.exit(0 if result[\"status\"] == \"passed\" else 1)\nPY",
+  "frozen_contract_command_sha256": "5f34a64f8dea5f913a00d4a6a2b33f60b791e9c85648657bafbbb09c92d54d33",
+  "preflight_failures": [],
+  "source_identity": {
+    "historical_dirty": true,
+    "recovered_worktree": "/private/tmp/iyali26_coq9_wp12_20260904",
+    "recovered_content_commit": "36bb6f0735e4c6458bd53c0ceb01952b116b8be7",
+    "historical_full_environment": "not_established"
+  },
+  "git_before": {
+    "head": "994b09bf5f0e86b548094ff7bbb94296d37c4536",
+    "branch": "codex/r989-gpr-main-worktree",
+    "status": "?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/figures/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? results\n?? ~$09012026.pptx\n"
+  },
+  "project_state_before": "# iYali26 项目状态\n\n状态：**暂定静态参考已登记；不是正式模型发布，也不是 acCRISPR 校准完成。**\n\n最近静态核验：2026-09-05T18:26:14.662278+00:00（2026-09-05，America/Los_Angeles）。本次只核对文件、源码、哈希及已有结果；**未运行模型、求解器或测试，本次复现为零**。历史对话未读取，负责人及既往授权不靠对话推断。\n\n唯一输入身份清单：[baseline_manifest.json](docs/baseline_manifest.json)。评价、缺口和下一任务完整命令：[BENCHMARK_CONTRACT.md](docs/BENCHMARK_CONTRACT.md)。本页只维护状态和交接，不复制原有案件账本。\n\n## 目录与模型身份\n\n当前目录：`/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem`；分支 `codex/r989-gpr-main-worktree`；HEAD `994b09bf5f0e86b548094ff7bbb94296d37c4536`，非 detached HEAD。本轮开始时已跟踪文件无修改，65条未跟踪记录原样保留。本轮只增加获准的四份文档。\n\n落盘与版本管理分开：现有 `.gitignore` 忽略整个 `docs/`，因此合同与manifest虽已持久落盘，普通 `git diff` 不显示它们；本轮用逐文件无索引diff核查。没有修改ignore规则或暂存文件，四份文档尚未纳入Git提交；是否纳入版本管理是后续单独动作。\n\n下列缩写只用于阅读；实际复现以 manifest 的完整 SHA 和路径为准。\n\n| 层次 | 文件身份／manifest条目 | 允许的解释 |\n|---|---|---|\n| 当前目录模型 | `576a284e…`；`artifacts.current_directory_model` | 当前工作树的文件，不自动成为暂定参考；本目录缺少 canonical 构建起点 `data/iyali26.xml`。 |\n| 暂定参考的 canonical 文件 | `bc2aac8f…`；`artifacts.canonical_model`，持久文件在相邻 integration 工作树 | 作为历史筛查链的父模型登记；不因本轮登记新增“正式模型”批准。 |\n| 历史实际执行文件 | `07dbdc7b…`；`artifacts.historical_executed_model`，持久保存在 research 结果包 | 历史复现优先输入。与 canonical 有21项XML属性差异；PO1f配置另在内存施加。未证明加载后的优化问题或科学意义完全等价。 |\n| canonical 构建起点 | `5c8c199e…`；`artifacts.pipeline_starting_model` | 用于来源记录，下一项最小重放不重建模型。 |\n| lipid-unlump 候选 | `d5bc83aa…`；`artifacts.lipid_candidate` | 科学激活仍被禁止；不是当前目录模型或正式参考的替代。 |\n| CoQ9 runtime 专题 | 文件使用 `bc2aac8f…`，另有动态配置、人工reserve与独立评价端点 | 仍为未校准敏感性方案，不能替换本静态参考结果。 |\n\n## 暂定参考结果与声明边界\n\n可追溯结果包为 `ce6d752991bb-20260826T072416Z`，详见 manifest 的 `historical_run`、`benchmark`、`label_dependencies`。\n\n- 正例覆盖率：**322/1612＝19.98%**。**1290个未进入当前模型评价交集，具体原因待分类**；保留历史文件的 `outside_gem_scope` 原字段，不沿用它作为已确认原因。\n- 交集内召回率：10%主阈值下 **67/322＝20.81%**（TP 67、FN 255），不是全模型准确率。1/5/10/15%阈值对应 TP/FN 为57/265、63/259、67/255、79/243。\n- 历史运行未启用连续fitness评价。共识标签依赖已有多筛选汇总且已用于诊断/修模，当前定位是**开发与回归参考，独立验证性质未建立**。\n- 交付物核实：实际执行XML、输入、结果和记录的5个源码文件哈希可对应；历史 `dirty=true` 不消除，完整历史环境未恢复。导出KO表1074行均记录optimal，不足以证明归一化前无异常。\n\n## 三条工作线\n\n| 工作线 | 最近可信交付／证据等级与位置 | 未决项／阻塞 | 负责人和下一步 |\n|---|---|---|---|\n| inactive | 8月6日调查交付物已核实：116个inactive案件、248条反应阻塞记录，锁旧模型 `0f3a6c2b…`。全189案中75案已审、114案文献待补，已审不等于已解决。较新CoQ9 WP2专题交付物支持8条件的3条全可比指标相符、2条单条件相符、3条停止。[调查报告](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/2026-08-06_iYali26_current-SHA_189-case_review.md>)；[CoQ9现有门](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/quinone_dfba_essentiality/coq9_wp2_qualified_baseline_20260905/NEXT_GATE_DECISION.md>)。 | 旧全线诊断不能充当本参考的新诊断。CoQ9 exact-zero停止点及14项丢失参数记录仍待审核；不自动推进矩阵或反事实。 | 负责人未核实。后续先确认受影响案件的版本绑定；本轮不生成新诊断、不激活反应。 |\n| isozyme | 交付物已核实：[8月诊断表](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/current_sha_diagnosis/essentiality_isozyme_resolution.tsv>)24组，13组因果候选open、11组非因果重分类；24组均无pipeline patch、未回归。[持久ledger](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/isozyme_resolution_ledger.csv>)仍是旧 `39f4cae…` 的33组。 | 版本、化学、身份和直接证据门未闭合。探索性capacity不等于实测容量；本轮不更新案件状态。 | 负责人未核实。后续解释24组与33组的关系，按适用基线重新绑定所需证据，不为匹配率删除OR关系。 |\n| lipid-unlump | 候选XML及[门控记录](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.json>)已核实。整合报告声称421项测试通过；本次未重跑。[smoke记录](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/docs/integration_smoke_validation.json>)仅1基因、0.1小时且production=false。 | CoA/连通组分化学、cardiolipin、暂定GPR及激活门未闭合；旧 `5f500c6c…` 候选HPCC证据不能转移认证新候选。新候选完整24小时全基因dFBA包在已查范围未定位，不宣称历史从未运行。 | 同事负责，姓名未核实；我们只审核建议。下一步需要同事的同版本输入—代码—结果交付包，不接管修模。 |\n\n三线均**没有本次复现**；各自下一步是依赖记录，不构成新增执行授权。\n\n## 缺口及唯一下一任务\n\n- **阻塞当前文档任务：无。** 已退出计划模式；本轮获准的范围仅为四文件落盘和静态核验。\n- **仅限制声明：** 转座子逐基因calls／原共识重建、出版商身份和guide QC、独立验证资格、1290项未进入交集原因、完整历史执行环境及优化问题等价性。可保留这些未决项完成暂定登记。\n- **影响其他工作线：** 旧案件绑定、CoQ9已有门及lipid已有门；只暂停受影响工作，不连带暂停无关文档或获准的小规模验证。\n\n唯一下一任务：**`static_mini_replay_001`，等待计算授权。** 命令位于合同，状态**未执行**。先历史实际XML的WT＋固定6个KO，通过后同配置检查canonical XML；最多14次静态FBA、单进程、单次尝试、总600秒。保留原始与历史归一化返回值；任何输入、状态、完整性或比较门失败即停，不重试或调参，不计算小样本全局召回率。\n\n本轮不创建其他输出账本；后续命令默认只输出JSON到标准输出。每周日导师PPT从本入口提取已核实结果及限制，不能把候选、任务完成或小样本重放写成正式模型发布／校准完成。\n",
+  "project_state_sha256_before": "93fc0714a45a8dc32446e8f49098b70dba5edfc57b53a556db6368dc494ec7d7",
+  "executed_script": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/replay.py",
+    "sha256": "a9323c464f7c8aaed853ab529741d9f7c32533857902c6108dadb5aab3aa1240",
+    "command_argv": [
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python",
+      "-B",
+      "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/replay.py"
+    ],
+    "command_shell": "'/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python' -B '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/replay.py'",
+    "status": "executed_once",
+    "deviations_from_frozen_command": [
+      "Runtime-only backend entry/completion counter and stop before entry 15; unchanged original optimization method.",
+      "Supervisor timestamps and elapsed wall seconds; unchanged 600s timeout.",
+      "Persist stdout using newly authorized result directory."
+    ],
+    "evaluation_semantics_changed": false
+  },
+  "budget_audit": {
+    "verdict": "passed_static_read_only",
+    "model_load_solver_switch_medium_overlay_optimize_calls_found": 0,
+    "wt_optimize_calls": 1,
+    "per_single_ko_optimize_calls": 1,
+    "implicit_retry_guard": "Frozen contract rejects optlang presolve auto; counter additionally catches every _optimize entry.",
+    "source_locations": [
+      "cobra/core/model.py:1196,1234",
+      "cobra/flux_analysis/deletion.py:24,96,243,349",
+      "optlang/interface.py:1507-1510",
+      "optlang/gurobi_interface.py:668-674"
+    ],
+    "count_interpretation": "All entries returning normally correspond to one problem.optimize each; interrupted/exceptional entry is an upper bound, not proof the backend started."
+  },
+  "execution": {
+    "execution_started_at_utc": "2026-09-05T19:04:46.361651+00:00",
+    "execution_finished_at_utc": "2026-09-05T19:04:52.914036+00:00",
+    "elapsed_wall_seconds": 6.552298499998869,
+    "backend_optimization_entries": 14,
+    "backend_optimization_completed": 14,
+    "worker_returncode": 0,
+    "timed_out": false,
+    "actual_backend_optimize_calls": 14,
+    "extra_retries": 0,
+    "count_budget_fully_used": true,
+    "stopped_by_budget": false
+  },
+  "environment_recorded_in_this_run": {
+    "software": {
+      "python": "3.13.5",
+      "cobra": "0.30.0",
+      "optlang": "1.8.3",
+      "pandas": "2.3.3",
+      "gurobipy": "13.0.1"
+    },
+    "python_executable": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python",
+    "per_stage": [
+      {
+        "model_artifact": "historical_executed_model",
+        "solver_parameters": {
+          "Threads": 1,
+          "FeasibilityTol": 1e-07,
+          "OptimalityTol": 1e-07,
+          "Method": 0,
+          "Seed": 0,
+          "Presolve": 0
+        },
+        "optlang_presolve": false,
+        "cobra_tolerance": 1e-07
+      },
+      {
+        "model_artifact": "canonical_model",
+        "solver_parameters": {
+          "Threads": 1,
+          "FeasibilityTol": 1e-07,
+          "OptimalityTol": 1e-07,
+          "Method": 0,
+          "Seed": 0,
+          "Presolve": 0
+        },
+        "optlang_presolve": false,
+        "cobra_tolerance": 1e-07
+      }
+    ],
+    "not_a_recovered_complete_historical_environment": true
+  },
+  "comparison_summary": {
+    "contract_verdict": "passed",
+    "historical_numeric_checks": {
+      "passed": 26,
+      "failed": 0
+    },
+    "historical_ko_status_checks": {
+      "passed": 12,
+      "failed": 0
+    },
+    "historical_cutoff_checks": {
+      "passed": 48,
+      "failed": 0
+    },
+    "historical_wt_status_checks": {
+      "unavailable": 2,
+      "reason": "Historical summary/run manifest has no separate WT status field; do not substitute inferred optimal as recorded data."
+    },
+    "model_to_model_numeric_checks": {
+      "passed": 13,
+      "failed": 0,
+      "max_absolute_difference": 0.0
+    },
+    "model_to_model_status_checks": {
+      "passed": 7,
+      "failed": 0
+    },
+    "model_to_model_cutoff_checks": {
+      "passed": 24,
+      "failed": 0
+    },
+    "max_abs_growth_difference_vs_history": 6.217248937900877e-15,
+    "max_abs_ratio_difference_vs_history": 4.218847493575595e-15,
+    "authorized_panel_members_not_executed": 0,
+    "out_of_scope_not_executed": [
+      "full_gene_screen",
+      "dFBA",
+      "FVA",
+      "pFBA",
+      "parameter_scan",
+      "ML_training",
+      "HPCC",
+      "full_flux_vector_comparison"
+    ],
+    "claim_limit": "Only WT and fixed six KO under locked SD-Leu/PO1f; no whole-model equivalence or independent calibration claim."
+  },
+  "protected_inputs_verification": {
+    "checked_count": 28,
+    "unchanged_count": 28,
+    "checked_at_utc": "2026-09-05T19:07:22.240100+00:00"
+  },
+  "next_task": {
+    "title": "Classify the 1290 positive IDs absent from the evaluation intersection",
+    "status": "proposed_not_authorized_not_executed",
+    "scope": "Read-only join of the existing consensus, mapping and frozen model gene IDs; distinguish normalization/mapping ambiguity, mapped gene absent and unresolved categories; preserve labels and model.",
+    "acceptance": "Each of 1290 IDs assigned one evidenced category or explicitly unresolved, with counts summing to 1290; no solver or model edits."
+  },
+  "workbench_file_tracking": [
+    {
+      "path": "AGENTS.md",
+      "tracked": false,
+      "ignored": false,
+      "ignore_rule": null
+    },
+    {
+      "path": "PROJECT_STATE.md",
+      "tracked": false,
+      "ignored": false,
+      "ignore_rule": null
+    },
+    {
+      "path": "docs/BENCHMARK_CONTRACT.md",
+      "tracked": false,
+      "ignored": true,
+      "ignore_rule": ".gitignore:12:docs/\tdocs/BENCHMARK_CONTRACT.md"
+    },
+    {
+      "path": "docs/baseline_manifest.json",
+      "tracked": false,
+      "ignored": true,
+      "ignore_rule": ".gitignore:12:docs/\tdocs/baseline_manifest.json"
+    }
+  ],
+  "four_file_preservation_recommendation": {
+    "executed": false,
+    "commands": [
+      "git add -- AGENTS.md PROJECT_STATE.md",
+      "git add -f -- docs/BENCHMARK_CONTRACT.md docs/baseline_manifest.json",
+      "git diff --cached --name-only"
+    ],
+    "conditions": "Only these four paths; inspect entire staged path list before a separately authorized commit. Do not change ignore rules, include result artifacts, or run git add ."
+  },
+  "outputs": [
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/replay.py",
+      "sha256": "a9323c464f7c8aaed853ab529741d9f7c32533857902c6108dadb5aab3aa1240"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/result.json",
+      "sha256": "adf70b93a180e49e1abe8072a18fee32ab72aa8405d97578fdb0bc6fcd25731d"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/panel_results.tsv",
+      "sha256": "d5fbda98f39e6560482e312a0007a257ec82e9ff1d9f5bbe9d971444c13be90c"
+    },
+    {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/static_mini_replay_20260905T190318Z/run.log",
+      "sha256": "1ca146d9d7c87ec1b74b1b53030bfae5be6737896a94fbe57199674b2e9c769e"
+    }
+  ],
+  "independent_audit": {
+    "status": "passed_read_only",
+    "claims_total": 6,
+    "audited": 6,
+    "supported": 6,
+    "unresolved_audit_claims": 0,
+    "contradicted": 0,
+    "unchecked": 0,
+    "scope": [
+      "execution-copy changes preserve scientific semantics",
+      "14 normal backend returns and 600s budget",
+      "fixed panel identity and raw/legacy completeness",
+      "own-WT ratio denominator and 48 historical strict-cutoff calls",
+      "historical and model-to-model numerical comparisons",
+      "28 protected file hashes"
+    ],
+    "no_additional_model_or_solver_execution": true,
+    "limitations": [
+      "Historical WT status was not independently recorded; two direct status comparisons are unavailable.",
+      "Full historical environment and independent validation status remain unestablished."
+    ]
+  },
+  "project_state_update": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/PROJECT_STATE.md",
+    "sha256_before": "93fc0714a45a8dc32446e8f49098b70dba5edfc57b53a556db6368dc494ec7d7",
+    "sha256_after": "4a2cbdea59483c438c9d06088815088eedf74580951c1469d162cd9f8d2136f8",
+    "updated_at_utc": "2026-09-05T19:09:25.924381+00:00",
+    "diff": "--- PROJECT_STATE.md before run\n+++ PROJECT_STATE.md after run\n@@ -1,14 +1,14 @@\n # iYali26 项目状态\n \n-状态：**暂定静态参考已登记；不是正式模型发布，也不是 acCRISPR 校准完成。**\n+状态：**暂定静态参考已登记；两份XML的WT＋固定6KO重放通过。不是正式模型发布，也不是 acCRISPR 校准完成。**\n \n-最近静态核验：2026-09-05T18:26:14.662278+00:00（2026-09-05，America/Los_Angeles）。本次只核对文件、源码、哈希及已有结果；**未运行模型、求解器或测试，本次复现为零**。历史对话未读取，负责人及既往授权不靠对话推断。\n+工作台初次静态核验：2026-09-05T18:26:14.662278+00:00（2026-09-05，America/Los_Angeles）。该轮仅核对文件、源码、哈希及已有结果，没有执行模型。最新计算完成：2026-09-05T19:04:52.914036+00:00；范围和结果见下方限定重放记录。历史对话未读取，负责人及既往授权不靠对话推断。\n \n 唯一输入身份清单：[baseline_manifest.json](docs/baseline_manifest.json)。评价、缺口和下一任务完整命令：[BENCHMARK_CONTRACT.md](docs/BENCHMARK_CONTRACT.md)。本页只维护状态和交接，不复制原有案件账本。\n \n ## 目录与模型身份\n \n-当前目录：`/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem`；分支 `codex/r989-gpr-main-worktree`；HEAD `994b09bf5f0e86b548094ff7bbb94296d37c4536`，非 detached HEAD。本轮开始时已跟踪文件无修改，65条未跟踪记录原样保留。本轮只增加获准的四份文档。\n+当前目录：`/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem`；分支 `codex/r989-gpr-main-worktree`；HEAD `994b09bf5f0e86b548094ff7bbb94296d37c4536`，非 detached HEAD。工作台落盘前已跟踪文件无修改，65条未跟踪记录原样保留；该轮增加四份文档。本轮计算另建独立结果目录，仅增量更新本状态入口。\n \n 落盘与版本管理分开：现有 `.gitignore` 忽略整个 `docs/`，因此合同与manifest虽已持久落盘，普通 `git diff` 不显示它们；本轮用逐文件无索引diff核查。没有修改ignore规则或暂存文件，四份文档尚未纳入Git提交；是否纳入版本管理是后续单独动作。\n \n@@ -40,14 +40,25 @@\n | isozyme | 交付物已核实：[8月诊断表](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/current_sha_diagnosis/essentiality_isozyme_resolution.tsv>)24组，13组因果候选open、11组非因果重分类；24组均无pipeline patch、未回归。[持久ledger](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/isozyme_resolution_ledger.csv>)仍是旧 `39f4cae…` 的33组。 | 版本、化学、身份和直接证据门未闭合。探索性capacity不等于实测容量；本轮不更新案件状态。 | 负责人未核实。后续解释24组与33组的关系，按适用基线重新绑定所需证据，不为匹配率删除OR关系。 |\n | lipid-unlump | 候选XML及[门控记录](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.json>)已核实。整合报告声称421项测试通过；本次未重跑。[smoke记录](</Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_integration/docs/integration_smoke_validation.json>)仅1基因、0.1小时且production=false。 | CoA/连通组分化学、cardiolipin、暂定GPR及激活门未闭合；旧 `5f500c6c…` 候选HPCC证据不能转移认证新候选。新候选完整24小时全基因dFBA包在已查范围未定位，不宣称历史从未运行。 | 同事负责，姓名未核实；我们只审核建议。下一步需要同事的同版本输入—代码—结果交付包，不接管修模。 |\n \n-三线均**没有本次复现**；各自下一步是依赖记录，不构成新增执行授权。\n+上述三条工作线的交付本轮未重新执行；下方小面板不代表三线已完成。各线下一步是依赖记录，不构成新增执行授权。\n \n ## 缺口及唯一下一任务\n \n-- **阻塞当前文档任务：无。** 已退出计划模式；本轮获准的范围仅为四文件落盘和静态核验。\n+- **阻塞本轮限定重放：无。** 用户已明确授权，执行完成；没有自动扩大计算范围。\n - **仅限制声明：** 转座子逐基因calls／原共识重建、出版商身份和guide QC、独立验证资格、1290项未进入交集原因、完整历史执行环境及优化问题等价性。可保留这些未决项完成暂定登记。\n - **影响其他工作线：** 旧案件绑定、CoQ9已有门及lipid已有门；只暂停受影响工作，不连带暂停无关文档或获准的小规模验证。\n \n-唯一下一任务：**`static_mini_replay_001`，等待计算授权。** 命令位于合同，状态**未执行**。先历史实际XML的WT＋固定6个KO，通过后同配置检查canonical XML；最多14次静态FBA、单进程、单次尝试、总600秒。保留原始与历史归一化返回值；任何输入、状态、完整性或比较门失败即停，不重试或调参，不计算小样本全局召回率。\n+## 本轮限定静态重放：已执行并通过\n \n-本轮不创建其他输出账本；后续命令默认只输出JSON到标准输出。每周日导师PPT从本入口提取已核实结果及限制，不能把候选、任务完成或小样本重放写成正式模型发布／校准完成。\n+运行 `static_mini_replay_20260905T190318Z`，完成原任务 `static_mini_replay_001`。实际模型依次是历史执行文件 `07dbdc7b…` 与 canonical `bc2aac8f…`，均使用冻结SD-Leu／PO1f配置及合同固定6KO；第一阶段通过后才执行第二阶段，每份模型用自身WT作分母。冻结合同与baseline manifest保留制定时内容；本节及本轮run manifest记录后续授权和实际执行状态。\n+\n+- [run manifest](artifacts/static_mini_replay_20260905T190318Z/run_manifest.json)：完整输入／源码SHA、命令、环境、预算、运行前后核对；[原始及legacy结果](artifacts/static_mini_replay_20260905T190318Z/result.json)、[逐项表](artifacts/static_mini_replay_20260905T190318Z/panel_results.tsv)、[日志](artifacts/static_mini_replay_20260905T190318Z/run.log)、[实际执行副本](artifacts/static_mini_replay_20260905T190318Z/replay.py)。执行副本仅增加后端计数、预算门和计时，不修改既有评价语义。\n+- 14次后端优化均正常返回optimal，额外重试0次；单计算进程，墙钟6.5522985秒。两份模型WT均为1.4650760568106092 h⁻¹；6项KO的growth、KO/WT和四阈值calls在两模型间一致。\n+- 可用历史比较全部通过：26项数值、48项阈值calls及12项KO状态。历史growth最大绝对差6.21724894e-15、ratio最大绝对差4.21884749e-15，满足`abs_tol=1e-8, rel_tol=1e-6`；分类仍使用严格`<`。历史独立WT状态字段未保存，两项对应状态比较明确不可用，不以代码推断补齐。\n+- 本次实测两阶段均为Threads=1、FeasibilityTol=OptimalityTol=1e-7、Method=0、Seed=0、Presolve=0、optlang presolve=false；这是本次环境记录，不回填为历史完整参数。\n+- 28项受保护输入／源码／文件运行前后SHA一致；AGENTS、冻结合同、原始baseline manifest及模型均未修改。独立只读审阅复核了运行次数、时间、全部面板结果和28项SHA，没有额外求解。\n+- 结论只适用于此面板与条件；未进行全基因筛查、FVA、pFBA、dFBA、扫描、训练或HPCC，不要求或声称完整通量向量一致。小面板通过不证明全模型等价或独立校准完成，CoQ9及lipid审批门保持有效。\n+\n+唯一下一任务（**仅建议，尚未执行／授权**）：用现有共识、ID mapping与冻结模型基因列表，对1290个未进入当前评价交集的正例进行只读原因分类。每个ID保留证据，区分格式／映射歧义、已映射但模型无对应基因及未决情况；类别总数须为1290，不修改标签或模型，不运行求解器。\n+\n+四份工作台文件当前均未被Git跟踪；合同和baseline manifest仍被既有`docs/`规则忽略。仅保存四文件的建议见本轮run manifest，未执行暂存、提交或ignore变更。每周日导师PPT复用本入口与具体证据，不能把小样本重放写成正式模型发布／校准完成。本轮已停止。\n"
+  },
+  "git_after": {
+    "head": "994b09bf5f0e86b548094ff7bbb94296d37c4536",
+    "branch": "codex/r989-gpr-main-worktree",
+    "tracked_diff_empty": true,
+    "staged_diff_empty": true,
+    "status": "?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/figures/\n?? artifacts/static_mini_replay_20260905T190318Z/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? results\n?? ~$09012026.pptx\n"
+  }
+}

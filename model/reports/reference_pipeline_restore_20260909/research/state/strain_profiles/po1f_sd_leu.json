@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "po1f_sd_leu_accrispr_v1",
+  "strain": {
+    "name": "PO1f",
+    "reference_background": "W29/CLIB89",
+    "genotype": "MatA, leu2-270, ura3-302, xpr2-322, axp-2",
+    "assay_background": "Cas9/Cas12a fitness screen with intact NHEJ; LEU2-marked sgRNA plasmid selected in SD-Leu"
+  },
+  "operations": [
+    {
+      "type": "disable_reaction",
+      "reaction_id": "R612",
+      "expected_before": {
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0
+      },
+      "set_bounds": {
+        "lower_bound": 0.0,
+        "upper_bound": 0.0
+      },
+      "locus": "URA3",
+      "gene_id": "YALI1E31685g",
+      "legacy_gene_id": "YALI0E26741g",
+      "allele": "ura3-302",
+      "protein_function": "orotidine-5'-phosphate decarboxylase; de novo UMP biosynthesis",
+      "evidence_status": "PO1f genotype is directly reported; enzyme identity is curated; current GEM lacks this gene and R612 has no GPR"
+    },
+    {
+      "type": "plasmid_complement",
+      "reaction_id": "R45",
+      "expected_before": {
+        "gene_reaction_rule": "YALI1C00464g"
+      },
+      "set_gene_reaction_rule": "PO1f_plasmid_LEU2",
+      "pseudo_gene": "PO1f_plasmid_LEU2",
+      "locus": "LEU2",
+      "gene_id": "YALI1C00464g",
+      "legacy_gene_id": "YALI0C00407g",
+      "allele": "leu2-270",
+      "complement_source": "pCas9yl-GW/pLbCas12ayl-GW library plasmid backbone carrying the LEU2 selectable marker",
+      "protein_function": "3-isopropylmalate dehydrogenase; leucine biosynthesis",
+      "evidence_status": "PO1f genotype, pCRISPRyl LEU2 marker, derivative library-vector construction, and SD-Leu selection are directly reported"
+    }
+  ],
+  "medium": {
+    "uptake_assertions": {
+      "R1219": 0.0,
+      "R1354": 0.01607
+    },
+    "runtime_uptake_overrides": {
+      "R1354": 1000.0
+    },
+    "formulation": {
+      "uracil_mg_per_l": 20.0,
+      "uracil_millimolar": 0.1784280489,
+      "uracil_molecular_weight_g_per_mol": 112.09,
+      "glucose_g_per_l": 20.0,
+      "glucose_molecular_weight_g_per_mol": 180.156,
+      "glucose_uptake": 10.0,
+      "supply_ratio_surrogate_uptake": 0.0160724418,
+      "supply_ratio_surrogate_status": "concentration_ratio_surrogate_not_measured_vmax",
+      "runtime_override_status": "static_fba_nonlimiting_not_measured_vmax"
+    }
+  },
+  "assay_confounded_loci": [
+    "URA3",
+    "LEU2"
+  ],
+  "provenance_only_variants": [
+    "xpr2-322 and axp-2 are recorded but have no current small-molecule GEM reaction",
+    "Cas9/Cas12a expression cassettes integrated at A08 are assay provenance only",
+    "KU70 is intact in the fitness screen; delta-KU70 strains were used only for guide cutting-score calibration"
+  ],
+  "sources": [
+    "https://www.nature.com/articles/s42003-023-04996-8",
+    "https://sunrisescience.com/shop/growth-media/amino-acid-supplement-mixtures/csm-formulations/csm-leu-powder-10-grams/",
+    "https://www.addgene.org/70007/"
+  ]
+}

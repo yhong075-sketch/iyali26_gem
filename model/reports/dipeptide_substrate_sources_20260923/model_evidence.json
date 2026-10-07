@@ -1,0 +1,633 @@
+{
+  "checked_utc": "2026-09-23T17:57:45.630876+00:00",
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_vatpase_candidate_20260921/candidate.xml": "0fcc2f6ff05124b91977c6f96f78cbe5906a3ccbf3f936f95990afe02b540353",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_vatpase_candidate_20260921/candidate/run_manifest.json": "348ae99577e76c851340a871f20cb200807c7f38f29b06cef42825294efbeb14",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/dipeptide_pool_diagnostic_20260914/results.json": "0e8f1a8ffe9d2592055c02b66b2d3b796e50e7a45540b265971cf5f5415f6790"
+  },
+  "script_sha256": "d5e107116d5236b36a77c2e75a593e65178b2751c0f854a152ce6681034cb76f",
+  "model_counts": {
+    "reactions": 2314,
+    "species": 1877
+  },
+  "scope": "Fixed 2026-09-21 candidate and recorded SD-Leu/PO1f; zero new LP, no model changes.",
+  "chains": [
+    {
+      "hydrolysis": "R2021",
+      "substrate": "Gly-Asp",
+      "species": {
+        "m1869[C_ex]": {
+          "metaid": "meta_M_m1869__91__C_ex__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1869__91__C_ex__93__",
+          "name": "Gly-Asp",
+          "compartment": "C_ex",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1870[C_cy]": {
+          "metaid": "meta_M_m1870__91__C_cy__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1870__91__C_cy__93__",
+          "name": "Gly-Asp",
+          "compartment": "C_cy",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1871[C_va]": {
+          "metaid": "meta_M_m1871__91__C_va__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1871__91__C_va__93__",
+          "name": "Gly-Asp",
+          "compartment": "C_va",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        }
+      },
+      "complete_pool_rows": {
+        "m1869[C_ex]": {
+          "R2018": -1.0,
+          "R2019": -1.0
+        },
+        "m1870[C_cy]": {
+          "R2019": 1.0,
+          "R2020": -1.0
+        },
+        "m1871[C_va]": {
+          "R2020": 1.0,
+          "R2021": -1.0
+        }
+      },
+      "reactions": {
+        "R2018": {
+          "name": "Gly-Asp exchange",
+          "stoichiometry": {
+            "m1869[C_ex]": -1.0
+          },
+          "bounds": [
+            -0.0,
+            1000.0
+          ]
+        },
+        "R2019": {
+          "name": "Gly-Asp transport via proton antiport",
+          "stoichiometry": {
+            "m342[C_ex]": -1.0,
+            "m1869[C_ex]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m1870[C_cy]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2020": {
+          "name": "Gly-Asp transport via proton antiport",
+          "stoichiometry": {
+            "m10[C_cy]": -1.0,
+            "m1870[C_cy]": -1.0,
+            "m1007[C_va]": 1.0,
+            "m1871[C_va]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2021": {
+          "name": "cytosol nonspecific dipeptidase",
+          "stoichiometry": {
+            "m1384[C_va]": -1.0,
+            "m1871[C_va]": -1.0,
+            "m1067[C_va]": 1.0,
+            "m1863[C_va]": 1.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ]
+        }
+      },
+      "sum_balance": {
+        "R2018": -1.0,
+        "R2021": -1.0
+      },
+      "actual_media_entry": null,
+      "actual_uptake": 0,
+      "hydrolysis_named_stoichiometry": [
+        {
+          "id": "m1384[C_va]",
+          "name": "H2O_H2O",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1871[C_va]",
+          "name": "Gly-Asp",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1067[C_va]",
+          "name": "L-aspartate_C4H7NO4",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        },
+        {
+          "id": "m1863[C_va]",
+          "name": "L-glycine",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        }
+      ]
+    },
+    {
+      "hydrolysis": "R2029",
+      "substrate": "Gly_Glu",
+      "species": {
+        "m1860[C_ex]": {
+          "metaid": "meta_M_m1860__91__C_ex__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1860__91__C_ex__93__",
+          "name": "Gly_Glu",
+          "compartment": "C_ex",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1861[C_cy]": {
+          "metaid": "meta_M_m1861__91__C_cy__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1861__91__C_cy__93__",
+          "name": "Gly_Glu",
+          "compartment": "C_cy",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1862[C_va]": {
+          "metaid": "meta_M_m1862__91__C_va__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1862__91__C_va__93__",
+          "name": "Gly_Glu",
+          "compartment": "C_va",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        }
+      },
+      "complete_pool_rows": {
+        "m1860[C_ex]": {
+          "R2026": -1.0,
+          "R2027": -1.0
+        },
+        "m1861[C_cy]": {
+          "R2027": 1.0,
+          "R2028": -1.0
+        },
+        "m1862[C_va]": {
+          "R2028": 1.0,
+          "R2029": -1.0
+        }
+      },
+      "reactions": {
+        "R2026": {
+          "name": "Gly-Glu exchange",
+          "stoichiometry": {
+            "m1860[C_ex]": -1.0
+          },
+          "bounds": [
+            -0.0,
+            1000.0
+          ]
+        },
+        "R2027": {
+          "name": "Gly-glu transport via proton antiport",
+          "stoichiometry": {
+            "m342[C_ex]": -1.0,
+            "m1860[C_ex]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m1861[C_cy]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2028": {
+          "name": "Gly-glu transport via proton antiport",
+          "stoichiometry": {
+            "m10[C_cy]": -1.0,
+            "m1861[C_cy]": -1.0,
+            "m1007[C_va]": 1.0,
+            "m1862[C_va]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2029": {
+          "name": "cytosol nonspecific dipeptidase",
+          "stoichiometry": {
+            "m1384[C_va]": -1.0,
+            "m1862[C_va]": -1.0,
+            "m1071[C_va]": 1.0,
+            "m1863[C_va]": 1.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ]
+        }
+      },
+      "sum_balance": {
+        "R2026": -1.0,
+        "R2029": -1.0
+      },
+      "actual_media_entry": null,
+      "actual_uptake": 0,
+      "hydrolysis_named_stoichiometry": [
+        {
+          "id": "m1384[C_va]",
+          "name": "H2O_H2O",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1862[C_va]",
+          "name": "Gly_Glu",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1071[C_va]",
+          "name": "L-glutamate_C5H9NO4",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        },
+        {
+          "id": "m1863[C_va]",
+          "name": "L-glycine",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        }
+      ]
+    },
+    {
+      "hydrolysis": "R2034",
+      "substrate": "Ala-Gly",
+      "species": {
+        "m1876[C_ex]": {
+          "metaid": "meta_M_m1876__91__C_ex__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1876__91__C_ex__93__",
+          "name": "Ala-Gly",
+          "compartment": "C_ex",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1877[C_cy]": {
+          "metaid": "meta_M_m1877__91__C_cy__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1877__91__C_cy__93__",
+          "name": "Ala-Gly",
+          "compartment": "C_cy",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1878[C_va]": {
+          "metaid": "meta_M_m1878__91__C_va__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1878__91__C_va__93__",
+          "name": "Ala-Gly",
+          "compartment": "C_va",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        }
+      },
+      "complete_pool_rows": {
+        "m1876[C_ex]": {
+          "R2031": -1.0,
+          "R2032": -1.0
+        },
+        "m1877[C_cy]": {
+          "R2032": 1.0,
+          "R2033": -1.0
+        },
+        "m1878[C_va]": {
+          "R2033": 1.0,
+          "R2034": -1.0
+        }
+      },
+      "reactions": {
+        "R2031": {
+          "name": "Ala-Gly exchange",
+          "stoichiometry": {
+            "m1876[C_ex]": -1.0
+          },
+          "bounds": [
+            -0.0,
+            1000.0
+          ]
+        },
+        "R2032": {
+          "name": "Ala-Gly transport via proton antiport",
+          "stoichiometry": {
+            "m1876[C_ex]": -1.0,
+            "m1877[C_cy]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2033": {
+          "name": "Ala-Gly transport via proton antiport",
+          "stoichiometry": {
+            "m1877[C_cy]": -1.0,
+            "m1878[C_va]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2034": {
+          "name": "cytosol nonspecific dipeptidase",
+          "stoichiometry": {
+            "m1384[C_va]": -1.0,
+            "m1878[C_va]": -1.0,
+            "m1863[C_va]": 1.0,
+            "m1879[C_va]": 1.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ]
+        }
+      },
+      "sum_balance": {
+        "R2031": -1.0,
+        "R2034": -1.0
+      },
+      "actual_media_entry": null,
+      "actual_uptake": 0,
+      "hydrolysis_named_stoichiometry": [
+        {
+          "id": "m1384[C_va]",
+          "name": "H2O_H2O",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1878[C_va]",
+          "name": "Ala-Gly",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1863[C_va]",
+          "name": "L-glycine",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        },
+        {
+          "id": "m1879[C_va]",
+          "name": "L-alanine",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        }
+      ]
+    },
+    {
+      "hydrolysis": "R2039",
+      "substrate": "Gly-Pro",
+      "species": {
+        "m1864[C_ex]": {
+          "metaid": "meta_M_m1864__91__C_ex__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1864__91__C_ex__93__",
+          "name": "Gly-Pro",
+          "compartment": "C_ex",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1865[C_cy]": {
+          "metaid": "meta_M_m1865__91__C_cy__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1865__91__C_cy__93__",
+          "name": "Gly-Pro",
+          "compartment": "C_cy",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        },
+        "m1866[C_va]": {
+          "metaid": "meta_M_m1866__91__C_va__93__",
+          "sboTerm": "SBO:0000247",
+          "id": "M_m1866__91__C_va__93__",
+          "name": "Gly-Pro",
+          "compartment": "C_va",
+          "hasOnlySubstanceUnits": "false",
+          "boundaryCondition": "false",
+          "constant": "false",
+          "{http://www.sbml.org/sbml/level3/version1/fbc/version2}charge": "0"
+        }
+      },
+      "complete_pool_rows": {
+        "m1864[C_ex]": {
+          "R2036": -1.0,
+          "R2037": -1.0
+        },
+        "m1865[C_cy]": {
+          "R2037": 1.0,
+          "R2038": -1.0
+        },
+        "m1866[C_va]": {
+          "R2038": 1.0,
+          "R2039": -1.0
+        }
+      },
+      "reactions": {
+        "R2036": {
+          "name": "Gly-Pro exchange",
+          "stoichiometry": {
+            "m1864[C_ex]": -1.0
+          },
+          "bounds": [
+            -0.0,
+            1000.0
+          ]
+        },
+        "R2037": {
+          "name": "Gly-Pro transport via proton antiport",
+          "stoichiometry": {
+            "m342[C_ex]": -1.0,
+            "m1864[C_ex]": -1.0,
+            "m10[C_cy]": 1.0,
+            "m1865[C_cy]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2038": {
+          "name": "Gly-Pro transport via proton antiport",
+          "stoichiometry": {
+            "m10[C_cy]": -1.0,
+            "m1865[C_cy]": -1.0,
+            "m1007[C_va]": 1.0,
+            "m1866[C_va]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ]
+        },
+        "R2039": {
+          "name": "cytosol nonspecific dipeptidase",
+          "stoichiometry": {
+            "m1384[C_va]": -1.0,
+            "m1866[C_va]": -1.0,
+            "m1863[C_va]": 1.0,
+            "m1867[C_va]": 1.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ]
+        }
+      },
+      "sum_balance": {
+        "R2036": -1.0,
+        "R2039": -1.0
+      },
+      "actual_media_entry": null,
+      "actual_uptake": 0,
+      "hydrolysis_named_stoichiometry": [
+        {
+          "id": "m1384[C_va]",
+          "name": "H2O_H2O",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1866[C_va]",
+          "name": "Gly-Pro",
+          "compartment": "C_va",
+          "coefficient": -1.0
+        },
+        {
+          "id": "m1863[C_va]",
+          "name": "L-glycine",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        },
+        {
+          "id": "m1867[C_va]",
+          "name": "L-proline",
+          "compartment": "C_va",
+          "coefficient": 1.0
+        }
+      ]
+    }
+  ],
+  "vacuolar_water_row": {
+    "R1363": 1.0,
+    "R2021": -1.0,
+    "R2029": -1.0,
+    "R2034": -1.0,
+    "R2039": -1.0
+  },
+  "water_transport": {
+    "name": "water diffusion",
+    "stoichiometry": {
+      "m32[C_cy]": -1.0,
+      "m1384[C_va]": 1.0
+    },
+    "bounds": [
+      0.0,
+      0.0
+    ]
+  },
+  "old_diagnostic_pool": {
+    "model": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_vatpase_and_hypothesis.xml",
+      "sha256": "b00a9ea20c21712b428f159f9050727053cf373ae89c6cfe161e7a77e0b2eb64"
+    },
+    "sources": [
+      {
+        "reaction": "POOL_GlyAsp_cy",
+        "name": "Gly-Asp",
+        "metabolite": "m1870[C_cy]",
+        "coefficient": 1,
+        "bounds": [
+          0,
+          1
+        ],
+        "gpr": "",
+        "evidence": "artificial diagnostic source"
+      },
+      {
+        "reaction": "POOL_GlyGlu_cy",
+        "name": "Gly-Glu",
+        "metabolite": "m1861[C_cy]",
+        "coefficient": 1,
+        "bounds": [
+          0,
+          1
+        ],
+        "gpr": "",
+        "evidence": "artificial diagnostic source"
+      },
+      {
+        "reaction": "POOL_AlaGly_cy",
+        "name": "Ala-Gly",
+        "metabolite": "m1877[C_cy]",
+        "coefficient": 1,
+        "bounds": [
+          0,
+          1
+        ],
+        "gpr": "",
+        "evidence": "artificial diagnostic source"
+      },
+      {
+        "reaction": "POOL_GlyPro_cy",
+        "name": "Gly-Pro",
+        "metabolite": "m1865[C_cy]",
+        "coefficient": 1,
+        "bounds": [
+          0,
+          1
+        ],
+        "gpr": "",
+        "evidence": "artificial diagnostic source"
+      }
+    ],
+    "interpretation": "Artificial continuous intracellular sources, not measured pools or medium composition"
+  }
+}

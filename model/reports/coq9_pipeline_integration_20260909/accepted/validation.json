@@ -1,0 +1,691 @@
+{
+  "checked_at_utc": "2026-09-09T22:17:45.018018+00:00",
+  "three_real_entry_builds_complete": true,
+  "source_identity_identical_across_modes": true,
+  "inputs_preserved": true,
+  "existing_Q9_integration": {
+    "reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "20_local_reactions_S_species_bounds_GPR_match": true,
+    "11_main_chain_reactions_exactly_balanced": true,
+    "whole_model_equal_to_saved_reference_claimed": false
+  },
+  "model_counts": {
+    "off": {
+      "reactions": 2295,
+      "species": 1857,
+      "genes": 1073
+    },
+    "metadata": {
+      "reactions": 2295,
+      "species": 1857,
+      "genes": 1073
+    },
+    "qcycle": {
+      "reactions": 2295,
+      "species": 1857,
+      "genes": 1073
+    }
+  },
+  "metadata_vs_off": {
+    "S_species_bounds_directions_objective_all_constraints_variables_gene_set_GPR_logic_equal": true
+  },
+  "qcycle_vs_metadata": {
+    "only_mathematical_differences": [
+      [
+        "R305",
+        "m28[C_mi]",
+        -1.5,
+        -2.0
+      ],
+      [
+        "R305",
+        "m10[C_cy]",
+        1.5,
+        4.0
+      ]
+    ],
+    "R305_exact_element_charge_residual": {},
+    "R305_metadata_residual": {
+      "H": "-2",
+      "charge": "-2"
+    },
+    "cytosolic_proton_is_P_side_proxy": true
+  },
+  "R2062": {
+    "occurrences": {
+      "off": 47,
+      "metadata": 28,
+      "qcycle": 28
+    },
+    "different_genes": 28,
+    "meaning": "逻辑去重完成；未证明复合体I的28基因生物学规则"
+  },
+  "final_export_annotation_targets_and_history_verified": true,
+  "same_mode_in_memory_reapplication_and_evidence_idempotent": true,
+  "protected_files_unchanged": [
+    "data/lipid_unlump_sn_core_curation.json",
+    "scripts/lp_sn12_candidate.py",
+    "tests/test_lp_sn12_candidate.py",
+    "model.xml",
+    "data/iyli21.xml"
+  ],
+  "per_mode_status": {
+    "off": [
+      {
+        "item": "R305",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R385",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R18",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R695",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R570",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R19",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R2062",
+        "status": "deferred",
+        "reason": "CoQ9 curation disabled; existing pipeline steps retained"
+      },
+      {
+        "item": "R305_qcycle",
+        "status": "deferred",
+        "reason": "explicit qcycle mode required"
+      },
+      {
+        "id": "CIII-GENE",
+        "reaction": "R305",
+        "status": "deferred",
+        "operation": "Separate YALI1D11769g cytochrome-c carrier dependency from enzyme-composition GPR; preserve gene and carrier requirement",
+        "evidence": "S05;S06;S08;input_XML",
+        "limitations": "Do not simply remove carrier requirement and claim CYC1 dispensable; exact mandatory membership of all accessory subunits not proven",
+        "reference_status": "gene_dependency_separation_spec_only"
+      },
+      {
+        "id": "CI-ARCH",
+        "reaction": "R1889;R2062",
+        "status": "deferred",
+        "operation": "Use one gene-associated pumping complex-I representation; retire or explicitly reclassify unsupported active nonpumping duplicate R2062 once CI GPR rebuilt",
+        "evidence": "S07;S09;S10;S17;input_XML",
+        "limitations": "Do not copy the current 28-gene AND. NDH2 is not a CI subunit; all remaining Boolean requirements need role-specific evidence",
+        "reference_status": "scientific_rebinding_spec_not_applied"
+      },
+      {
+        "id": "CI-NDH2",
+        "reaction": "R570;R573",
+        "status": "deferred",
+        "operation": "Retain R570 external NDH2 assignment; retain R573 bounds0,0 in native reference; engineered internal NDH2 only explicit construct-specific overlay",
+        "evidence": "S09;S10;S11;input_XML",
+        "limitations": "R573 is ALREADY disabled; not a new intervention. R2062 remains open0,1000",
+        "reference_status": "existing_native_orientation_decision_confirmed"
+      },
+      {
+        "id": "CI-PROTON",
+        "reaction": "R1889;R570",
+        "status": "deferred",
+        "operation": "Under frozen neutral NAD species only: R1889 consume4 not5 matrixH; R570 omit extra cytosolicH. Alternative is consistent charged NAD microspecies revision across all affected reactions",
+        "evidence": "exact_arithmetic;S17;S11",
+        "limitations": "Neither numerical balancing choice alone proves native proton convention. Do not edit shared NAD species in isolation",
+        "reference_status": "conditional_bookkeeping_not_applied"
+      },
+      {
+        "id": "COQ6-C5",
+        "reaction": "R39;R969;R808",
+        "status": "deferred",
+        "operation": "Create a mitochondrial C5 hydroxylation with proper electron supply; replace the cytosolic R39 detour as one coherent topology/redox edit; use YALI1A08781g as curated COQ6 candidate rather than attaching it to the current formal R39 unchanged",
+        "evidence": "S12;S13;archived_gene_evidence",
+        "limitations": "Exact Yarrowia ferredoxin/reductase identities not newly resolved; no invented GPR for donors",
+        "reference_status": "joint_reaction_candidate_spec_not_applied"
+      },
+      {
+        "id": "C1-BRANCH",
+        "reaction": "R40;R19",
+        "status": "deferred",
+        "operation": "Keep mutually distinguishable COQ4 oxidative-decarboxylation and COQ4-plus-COQ6 sequential candidates; do not assert both are obligatory native steps",
+        "evidence": "S13;S14",
+        "limitations": "Primary studies differ in systems; no native Yarrowia branch adjudication obtained",
+        "reference_status": "two_mechanisms_explicitly_unresolved"
+      },
+      {
+        "id": "COQ8-ROLE",
+        "gene": "YALI1B20527g",
+        "status": "deferred",
+        "operation": "Retain accessory ATPase/kinase-like role in gene evidence; do not add all-steps AND or arbitrary per-CoQ ATP cost",
+        "evidence": "S15;S13",
+        "limitations": "Native role/necessity remains candidate level; metabolic GPR absence is not evidence of nonessentiality",
+        "reference_status": "representation_decision"
+      },
+      {
+        "id": "COQ9-ROLE",
+        "gene": "YALI1F34675g",
+        "status": "deferred",
+        "operation": "Retain lipid-binding/substrate-presentation role; no universal synthome AND; optional explicit COQ7 accessory-dependency hypothesis only with appropriate evidence",
+        "evidence": "S16;S13",
+        "limitations": "Noncatalytic proteins may belong in specific obligatory-complex GPRs, but that obligation has not been shown for this native locus",
+        "reference_status": "representation_decision"
+      },
+      {
+        "item": "R573_retained",
+        "status": "already_correct",
+        "actual_bounds": [
+          0.0,
+          0.0
+        ],
+        "reason": "Observed only; already closed in reference, not a new repair. Different overlays are preserved."
+      }
+    ],
+    "metadata": [
+      {
+        "item": "R305",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "name",
+            "status": "applied",
+            "before": "ferrocytochrome-c:oxygen oxidoreductase",
+            "target": "ubiquinol-9:cytochrome-c reductase (complex III)"
+          },
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "7.1.1.8"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.10.2.2",
+            "target": "7.1.1.8"
+          }
+        ]
+      },
+      {
+        "item": "R385",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "2.1.1.114",
+            "target": "2.1.1.64"
+          }
+        ]
+      },
+      {
+        "item": "R18",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "2.1.1.201"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "2.1.1.201",
+            "target": "2.1.1.201"
+          }
+        ]
+      },
+      {
+        "item": "R695",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "1.14.13.253"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": "1.14.13.253"
+          }
+        ]
+      },
+      {
+        "item": "R570",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.6.99.3"
+            ],
+            "target": [
+              "1.6.5.9"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "1.6.5.9",
+            "target": "1.6.5.9"
+          }
+        ]
+      },
+      {
+        "item": "R19",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "already_correct",
+            "before": [],
+            "target": []
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": null
+          }
+        ]
+      },
+      {
+        "item": "R2062",
+        "status": "applied",
+        "before_occurrences": 47,
+        "after_occurrences": 28,
+        "unique_genes": 28,
+        "reason": "逻辑去重完成；不证明复合体I的28基因生物学规则"
+      },
+      {
+        "item": "R305_qcycle",
+        "status": "deferred",
+        "reason": "explicit qcycle mode required"
+      },
+      {
+        "id": "CIII-GENE",
+        "reaction": "R305",
+        "status": "deferred",
+        "operation": "Separate YALI1D11769g cytochrome-c carrier dependency from enzyme-composition GPR; preserve gene and carrier requirement",
+        "evidence": "S05;S06;S08;input_XML",
+        "limitations": "Do not simply remove carrier requirement and claim CYC1 dispensable; exact mandatory membership of all accessory subunits not proven",
+        "reference_status": "gene_dependency_separation_spec_only"
+      },
+      {
+        "id": "CI-ARCH",
+        "reaction": "R1889;R2062",
+        "status": "deferred",
+        "operation": "Use one gene-associated pumping complex-I representation; retire or explicitly reclassify unsupported active nonpumping duplicate R2062 once CI GPR rebuilt",
+        "evidence": "S07;S09;S10;S17;input_XML",
+        "limitations": "Do not copy the current 28-gene AND. NDH2 is not a CI subunit; all remaining Boolean requirements need role-specific evidence",
+        "reference_status": "scientific_rebinding_spec_not_applied"
+      },
+      {
+        "id": "CI-NDH2",
+        "reaction": "R570;R573",
+        "status": "deferred",
+        "operation": "Retain R570 external NDH2 assignment; retain R573 bounds0,0 in native reference; engineered internal NDH2 only explicit construct-specific overlay",
+        "evidence": "S09;S10;S11;input_XML",
+        "limitations": "R573 is ALREADY disabled; not a new intervention. R2062 remains open0,1000",
+        "reference_status": "existing_native_orientation_decision_confirmed"
+      },
+      {
+        "id": "CI-PROTON",
+        "reaction": "R1889;R570",
+        "status": "deferred",
+        "operation": "Under frozen neutral NAD species only: R1889 consume4 not5 matrixH; R570 omit extra cytosolicH. Alternative is consistent charged NAD microspecies revision across all affected reactions",
+        "evidence": "exact_arithmetic;S17;S11",
+        "limitations": "Neither numerical balancing choice alone proves native proton convention. Do not edit shared NAD species in isolation",
+        "reference_status": "conditional_bookkeeping_not_applied"
+      },
+      {
+        "id": "COQ6-C5",
+        "reaction": "R39;R969;R808",
+        "status": "deferred",
+        "operation": "Create a mitochondrial C5 hydroxylation with proper electron supply; replace the cytosolic R39 detour as one coherent topology/redox edit; use YALI1A08781g as curated COQ6 candidate rather than attaching it to the current formal R39 unchanged",
+        "evidence": "S12;S13;archived_gene_evidence",
+        "limitations": "Exact Yarrowia ferredoxin/reductase identities not newly resolved; no invented GPR for donors",
+        "reference_status": "joint_reaction_candidate_spec_not_applied"
+      },
+      {
+        "id": "C1-BRANCH",
+        "reaction": "R40;R19",
+        "status": "deferred",
+        "operation": "Keep mutually distinguishable COQ4 oxidative-decarboxylation and COQ4-plus-COQ6 sequential candidates; do not assert both are obligatory native steps",
+        "evidence": "S13;S14",
+        "limitations": "Primary studies differ in systems; no native Yarrowia branch adjudication obtained",
+        "reference_status": "two_mechanisms_explicitly_unresolved"
+      },
+      {
+        "id": "COQ8-ROLE",
+        "gene": "YALI1B20527g",
+        "status": "deferred",
+        "operation": "Retain accessory ATPase/kinase-like role in gene evidence; do not add all-steps AND or arbitrary per-CoQ ATP cost",
+        "evidence": "S15;S13",
+        "limitations": "Native role/necessity remains candidate level; metabolic GPR absence is not evidence of nonessentiality",
+        "reference_status": "representation_decision"
+      },
+      {
+        "id": "COQ9-ROLE",
+        "gene": "YALI1F34675g",
+        "status": "deferred",
+        "operation": "Retain lipid-binding/substrate-presentation role; no universal synthome AND; optional explicit COQ7 accessory-dependency hypothesis only with appropriate evidence",
+        "evidence": "S16;S13",
+        "limitations": "Noncatalytic proteins may belong in specific obligatory-complex GPRs, but that obligation has not been shown for this native locus",
+        "reference_status": "representation_decision"
+      },
+      {
+        "item": "R573_retained",
+        "status": "already_correct",
+        "actual_bounds": [
+          0.0,
+          0.0
+        ],
+        "reason": "Observed only; already closed in reference, not a new repair. Different overlays are preserved."
+      }
+    ],
+    "qcycle": [
+      {
+        "item": "R305",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "name",
+            "status": "applied",
+            "before": "ferrocytochrome-c:oxygen oxidoreductase",
+            "target": "ubiquinol-9:cytochrome-c reductase (complex III)"
+          },
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "7.1.1.8"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.10.2.2",
+            "target": "7.1.1.8"
+          }
+        ]
+      },
+      {
+        "item": "R385",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "2.1.1.114",
+            "target": "2.1.1.64"
+          }
+        ]
+      },
+      {
+        "item": "R18",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "2.1.1.201"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "2.1.1.201",
+            "target": "2.1.1.201"
+          }
+        ]
+      },
+      {
+        "item": "R695",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "1.14.13.253"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": "1.14.13.253"
+          }
+        ]
+      },
+      {
+        "item": "R570",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.6.99.3"
+            ],
+            "target": [
+              "1.6.5.9"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "1.6.5.9",
+            "target": "1.6.5.9"
+          }
+        ]
+      },
+      {
+        "item": "R19",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "already_correct",
+            "before": [],
+            "target": []
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": null
+          }
+        ]
+      },
+      {
+        "item": "R2062",
+        "status": "applied",
+        "before_occurrences": 47,
+        "after_occurrences": 28,
+        "unique_genes": 28,
+        "reason": "逻辑去重完成；不证明复合体I的28基因生物学规则"
+      },
+      {
+        "item": "R305_qcycle",
+        "status": "applied",
+        "reason": "explicit qcycle mode required",
+        "before": {
+          "m28[C_mi]": -1.5,
+          "m10[C_cy]": 1.5
+        },
+        "after": {
+          "m28[C_mi]": -2.0,
+          "m10[C_cy]": 4.0
+        },
+        "residual": {},
+        "scope": "Q-cycle mechanism candidate; existing cytosolic H is a P-side/intermembrane proxy, not a new compartment. No native stoichiometric measurement is claimed. Full GPR and bounds retained."
+      },
+      {
+        "id": "CIII-GENE",
+        "reaction": "R305",
+        "status": "deferred",
+        "operation": "Separate YALI1D11769g cytochrome-c carrier dependency from enzyme-composition GPR; preserve gene and carrier requirement",
+        "evidence": "S05;S06;S08;input_XML",
+        "limitations": "Do not simply remove carrier requirement and claim CYC1 dispensable; exact mandatory membership of all accessory subunits not proven",
+        "reference_status": "gene_dependency_separation_spec_only"
+      },
+      {
+        "id": "CI-ARCH",
+        "reaction": "R1889;R2062",
+        "status": "deferred",
+        "operation": "Use one gene-associated pumping complex-I representation; retire or explicitly reclassify unsupported active nonpumping duplicate R2062 once CI GPR rebuilt",
+        "evidence": "S07;S09;S10;S17;input_XML",
+        "limitations": "Do not copy the current 28-gene AND. NDH2 is not a CI subunit; all remaining Boolean requirements need role-specific evidence",
+        "reference_status": "scientific_rebinding_spec_not_applied"
+      },
+      {
+        "id": "CI-NDH2",
+        "reaction": "R570;R573",
+        "status": "deferred",
+        "operation": "Retain R570 external NDH2 assignment; retain R573 bounds0,0 in native reference; engineered internal NDH2 only explicit construct-specific overlay",
+        "evidence": "S09;S10;S11;input_XML",
+        "limitations": "R573 is ALREADY disabled; not a new intervention. R2062 remains open0,1000",
+        "reference_status": "existing_native_orientation_decision_confirmed"
+      },
+      {
+        "id": "CI-PROTON",
+        "reaction": "R1889;R570",
+        "status": "deferred",
+        "operation": "Under frozen neutral NAD species only: R1889 consume4 not5 matrixH; R570 omit extra cytosolicH. Alternative is consistent charged NAD microspecies revision across all affected reactions",
+        "evidence": "exact_arithmetic;S17;S11",
+        "limitations": "Neither numerical balancing choice alone proves native proton convention. Do not edit shared NAD species in isolation",
+        "reference_status": "conditional_bookkeeping_not_applied"
+      },
+      {
+        "id": "COQ6-C5",
+        "reaction": "R39;R969;R808",
+        "status": "deferred",
+        "operation": "Create a mitochondrial C5 hydroxylation with proper electron supply; replace the cytosolic R39 detour as one coherent topology/redox edit; use YALI1A08781g as curated COQ6 candidate rather than attaching it to the current formal R39 unchanged",
+        "evidence": "S12;S13;archived_gene_evidence",
+        "limitations": "Exact Yarrowia ferredoxin/reductase identities not newly resolved; no invented GPR for donors",
+        "reference_status": "joint_reaction_candidate_spec_not_applied"
+      },
+      {
+        "id": "C1-BRANCH",
+        "reaction": "R40;R19",
+        "status": "deferred",
+        "operation": "Keep mutually distinguishable COQ4 oxidative-decarboxylation and COQ4-plus-COQ6 sequential candidates; do not assert both are obligatory native steps",
+        "evidence": "S13;S14",
+        "limitations": "Primary studies differ in systems; no native Yarrowia branch adjudication obtained",
+        "reference_status": "two_mechanisms_explicitly_unresolved"
+      },
+      {
+        "id": "COQ8-ROLE",
+        "gene": "YALI1B20527g",
+        "status": "deferred",
+        "operation": "Retain accessory ATPase/kinase-like role in gene evidence; do not add all-steps AND or arbitrary per-CoQ ATP cost",
+        "evidence": "S15;S13",
+        "limitations": "Native role/necessity remains candidate level; metabolic GPR absence is not evidence of nonessentiality",
+        "reference_status": "representation_decision"
+      },
+      {
+        "id": "COQ9-ROLE",
+        "gene": "YALI1F34675g",
+        "status": "deferred",
+        "operation": "Retain lipid-binding/substrate-presentation role; no universal synthome AND; optional explicit COQ7 accessory-dependency hypothesis only with appropriate evidence",
+        "evidence": "S16;S13",
+        "limitations": "Noncatalytic proteins may belong in specific obligatory-complex GPRs, but that obligation has not been shown for this native locus",
+        "reference_status": "representation_decision"
+      },
+      {
+        "item": "R573_retained",
+        "status": "already_correct",
+        "actual_bounds": [
+          0.0,
+          0.0
+        ],
+        "reason": "Observed only; already closed in reference, not a new repair. Different overlays are preserved."
+      }
+    ]
+  },
+  "commands": [
+    ".venv/bin/python -m scripts.gem_annotate --coq9-curation off --offline --no-solve --mnx-dir artifacts/r608_engineering_20260907/research/reference/metanetx --cache-dir artifacts/coq9_pipeline_integration_20260909/cache --output-model artifacts/coq9_pipeline_integration_20260909/accepted/off.xml",
+    ".venv/bin/python -m scripts.gem_annotate --coq9-curation metadata --offline --no-solve --mnx-dir artifacts/r608_engineering_20260907/research/reference/metanetx --cache-dir artifacts/coq9_pipeline_integration_20260909/cache --output-model artifacts/coq9_pipeline_integration_20260909/accepted/metadata.xml",
+    ".venv/bin/python -m scripts.gem_annotate --coq9-curation qcycle --offline --no-solve --mnx-dir artifacts/r608_engineering_20260907/research/reference/metanetx --cache-dir artifacts/coq9_pipeline_integration_20260909/cache --output-model artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.xml"
+  ],
+  "output_sha256": {
+    "off": "4be265d85ab9ff3b2ecfda26762bda66b4bd05680f11cde5773af6c9f1ce3fef",
+    "metadata": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "qcycle": "78ec77ea146990737f6a83aee9f0c10fd3248a6434803e025e185892fa750582"
+  },
+  "historical_attempts": {
+    "first_three_mode_semantic_comparison": "Failed because the old generic proton balancer selected tied compartments from an unordered set. Rebuilt after deterministic tie ordering; initial four solver results are retained under final/ and are not used for acceptance.",
+    "off_attempt1": "Atomic property rule was initially too broad and conflicted with ER neutral closure; scoped to Q9 participants.",
+    "off_attempt2": "Existing mixed-case identity aliases survived ER correction and were merged later; normalized before authoritative curation.",
+    "metadata_attempt1": "Supplementary automatic annotation reintroduced R305 wrong-name MNXR; the same exclusion now reaches both passes."
+  },
+  "targeted_tests": {
+    "command": ".venv/bin/python -m unittest tests.test_coq9_curation tests.test_quinone_pipeline tests.test_er_vlcfa_stereochemistry",
+    "passed": 33,
+    "failed": 0,
+    "log": "tests.log"
+  },
+  "static_checks": {
+    "final_optimization_calls": 4,
+    "earlier_debug_optimization_calls": 4,
+    "total_optimization_calls_this_integration": 8,
+    "WT": {
+      "metadata": {
+        "status": "optimal",
+        "objective": 1.7793777728998976,
+        "R305_flux": 0.2444188896410755
+      },
+      "qcycle": {
+        "status": "optimal",
+        "objective": 1.7793777728998903,
+        "R305_flux": 1.3243535094361572
+      }
+    },
+    "closed_ATP_objective": {
+      "metadata": 1000.0,
+      "qcycle": 1000.0
+    },
+    "closed_energy_passed": false,
+    "reason": "Both modes support the same ATP dissipation cycle at 1000 with R305 flux zero; current unrelated energy-generating cycle retained, no threshold/bound tuning. All 183 boundary reactions closed; no artificial reserve supply present.",
+    "candidate_remains_opt_in": true,
+    "details": "static_pair.json"
+  },
+  "not_run": [
+    "full gene knockout",
+    "dFBA",
+    "CFSA",
+    "parameter scan",
+    "native GPR/function validation",
+    "unrelated full-project audit"
+  ],
+  "mathematical_verification_note": "Exact exported-model comparison uses independent SBML reads. Gurobi Model.copy() serializes the solver through LP and can round unrelated coefficients, so it is not used as the mathematical reference copy."
+}

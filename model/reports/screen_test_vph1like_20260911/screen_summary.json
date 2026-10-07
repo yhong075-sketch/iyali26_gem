@@ -1,0 +1,111 @@
+{
+  "completed_at_utc": "2026-09-11T00:58:09.005206+00:00",
+  "status": "screen_and_reused_positive_label_comparison_complete",
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_vph1like.xml",
+    "sha256": "f77f07f96c8f19d0507112813110dc2afe613ddb31c912c0700927f036b23736"
+  },
+  "WT": 1.8718823069403,
+  "screened_genes": 1074,
+  "raw_solver_status_counts": {
+    "optimal": 1074
+  },
+  "unresolved_rows": 0,
+  "execution": {
+    "returncode": 0,
+    "timed_out": false,
+    "wall_seconds": 7.558847000007518
+  },
+  "primary_cutoff": 0.1,
+  "threshold_results": [
+    {
+      "cutoff": 0.01,
+      "predicted_essential": 76,
+      "TP": 55,
+      "FN": 267,
+      "recall": 0.17080745341614906,
+      "predicted_essential_unlabelled": 21,
+      "FP": null,
+      "TN": null,
+      "classifications_changed": 0
+    },
+    {
+      "cutoff": 0.05,
+      "predicted_essential": 93,
+      "TP": 65,
+      "FN": 257,
+      "recall": 0.20186335403726707,
+      "predicted_essential_unlabelled": 28,
+      "FP": null,
+      "TN": null,
+      "classifications_changed": 0
+    },
+    {
+      "cutoff": 0.1,
+      "predicted_essential": 101,
+      "TP": 73,
+      "FN": 249,
+      "recall": 0.2267080745341615,
+      "predicted_essential_unlabelled": 28,
+      "FP": null,
+      "TN": null,
+      "classifications_changed": 0
+    },
+    {
+      "cutoff": 0.15,
+      "predicted_essential": 114,
+      "TP": 79,
+      "FN": 243,
+      "recall": 0.2453416149068323,
+      "predicted_essential_unlabelled": 35,
+      "FP": null,
+      "TN": null,
+      "classifications_changed": 0
+    }
+  ],
+  "coverage": {
+    "experimental_positives": 1612,
+    "in_screen": 322,
+    "outside_screen": 1290,
+    "positive_coverage": 0.19975186104218362,
+    "unlabelled_screened_genes": 752
+  },
+  "comparison": {
+    "previous_model": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna.xml",
+      "sha256": "d274bad3050e3c9220a8b6287eae847f3bf1334892284d565a6c4d96b38135a0"
+    },
+    "WT_difference": 0.0,
+    "max_absolute_raw_growth_difference": 2.0922361065878192e-12,
+    "raw_growth_values_exactly_equal": 136,
+    "all_four_threshold_classifications_identical": true
+  },
+  "target": {
+    "gene_id": "YALI1F38820g",
+    "ko_status": "optimal",
+    "ko_growth": "1.8718823069403139",
+    "ko_growth_ratio": "1.0000000000000075",
+    "raw_growth": "1.8718823069403139",
+    "raw_status": "optimal",
+    "numerically_valid": "True",
+    "audit_status": "valid",
+    "legacy_essential_at_1pct": "False",
+    "audited_essential_at_1pct": "False",
+    "legacy_essential_at_5pct": "False",
+    "audited_essential_at_5pct": "False",
+    "legacy_essential_at_10pct": "False",
+    "audited_essential_at_10pct": "False",
+    "legacy_essential_at_15pct": "False",
+    "audited_essential_at_15pct": "False"
+  },
+  "target_function": "YALI1F38820g; native symbol unverified; Vph1-like V0 a subunit candidate from sequence and AlphaFold prediction, experimental confirmation required",
+  "experimental_label_source": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/essentiality_per_gene.tsv",
+    "sha256": "fcad4295baf2d1837a1ee4bc22b2a6b24ea90b75029308b37123f73245eb76a8",
+    "scope": "Reuse the prior saved positive-only labels and original IDs/row locators; workbook not reread or remapped this turn; development reference, not independent biological validation"
+  },
+  "input_files_and_protected_work_unchanged": true,
+  "postprocessing_extra_solves": 0,
+  "postprocessing_code_sha256": "b5e6471a6951503748016fc5d795e606ad73a120f2af2fe031ea067b64086b43",
+  "known_limitation": "Previously observed closed ATP generation remains unresolved; screen completion does not certify biological validity."
+}

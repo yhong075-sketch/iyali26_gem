@@ -1,0 +1,785 @@
+{
+  "artifact_type": "fatty_acyl_coa_handoff_acceptance_report",
+  "coa_curation_audit": {
+    "activation_blockers": [
+      {
+        "reaction_id": "R613",
+        "reason": "Reaction identity maps to a different MetaNetX compound than its reference equation; no tuple or proton repair is authorized.",
+        "residual_after_curated_tuples": null
+      },
+      {
+        "reaction_id": "R2076",
+        "reason": "Reaction has no biochemical identity; no tuple or proton repair is authorized.",
+        "residual_after_curated_tuples": null
+      },
+      {
+        "reaction_id": "R1419",
+        "reason": "NADP+/NADPH joins the redox connected component; closure requires the complete source-backed component.",
+        "residual_after_curated_tuples": {}
+      },
+      {
+        "reaction_id": "R1708",
+        "reason": "Acetate/succinate closure requires the complete source-backed component; original reaction stoichiometry receives no H+ edit.",
+        "residual_after_curated_tuples": {}
+      },
+      {
+        "reaction_id": "R2004",
+        "reason": "Pyruvate/oxaloacetate closure requires the complete source-backed component; original reaction stoichiometry receives no H+ edit.",
+        "residual_after_curated_tuples": {}
+      }
+    ],
+    "activation_blockers_clear": false,
+    "activation_reason": "Current-main pH 7.3 tuple migration is an audit-only connected-component candidate. Production activation remains blocked until every source-backed component reaction is closed and the separate cardiolipin gate is reviewed.",
+    "activation_state": "blocked",
+    "balanced_count_after": 1274,
+    "balanced_count_before": 1349,
+    "counts": {
+      "annotations": 24,
+      "identity_corrections": 3,
+      "metabolites": 127,
+      "reaction_corrections": 3
+    },
+    "gate_passed": false,
+    "newly_unbalanced": {
+      "R1043": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1092": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R128": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R13": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R130": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R132": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R133": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R135": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1377": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1378": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1379": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1381": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1406": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1408": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1409": {
+        "H": 5.0,
+        "charge": 5.0
+      },
+      "R1411": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1434": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1435": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R146": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R148": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1484": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R1517": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1518": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1522": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1523": {
+        "H": -5.0,
+        "charge": -5.0
+      },
+      "R1524": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1534": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R1537": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R161": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R162": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R163": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1885": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1886": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1894": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R1931": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1933": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1947": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1953": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1964": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R1968": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1969": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1970": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1974": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R1975": {
+        "H": 3.0,
+        "charge": 3.0
+      },
+      "R1979": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R1997": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2003": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R2007": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R2043": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R2062": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R2064": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2068": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2069": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R2070": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R2071": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2078": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2086": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2096": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2119": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R2190": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R236": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R237": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R246": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R247": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R25": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R254": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R257": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R265": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R297": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R300": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R307": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R308": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R316": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R331": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R344": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R348": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R349": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R361": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R389": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R398": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R45": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R487": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R49": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R490": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R496": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R500": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R501": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R502": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R513": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R517": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R52": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R533": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R534": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R535": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R538": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R552": {
+        "H": -3.0,
+        "charge": -3.0
+      },
+      "R564": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R567": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R568": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R569": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R571": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R572": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R573": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R578": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R579": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R604": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R605": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R606": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R61": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R613": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R618": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R623": {
+        "H": -4.0,
+        "charge": -4.0
+      },
+      "R634": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R641": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R690": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R691": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R692": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R694": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R695": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R718": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R726": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R737": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R740": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R741": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R742": {
+        "H": -2.0,
+        "charge": -3.0
+      },
+      "R747": {
+        "H": -2.0,
+        "charge": -2.0
+      },
+      "R77": {
+        "H": 2.0,
+        "charge": 2.0
+      },
+      "R801": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R82": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R83": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R87": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R88": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R89": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R9": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R90": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R91": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R92": {
+        "H": 1.0,
+        "charge": 1.0
+      },
+      "R_OAADCm": {
+        "H": -1.0,
+        "charge": -1.0
+      },
+      "R_PGAM1_PhosHydro": {
+        "H": -1.0,
+        "charge": -1.0
+      }
+    },
+    "non_h_charge_deltas": {},
+    "objective_after": 1.3875914754870906,
+    "objective_before": 1.3875914754870937,
+    "objective_unchanged": true,
+    "ready_for_activation": false,
+    "source_snapshot": {
+      "actual_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+      "declared": true,
+      "errors": [],
+      "file_sha256_verified": true,
+      "model_fingerprint_verified": true,
+      "source_model": "../iyali26_gem/model.xml",
+      "source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+      "source_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+      "source_stage": "current_main_model_xml",
+      "target_model_fingerprint": null,
+      "target_model_fingerprint_verified": null,
+      "verified": true
+    },
+    "target_reactions_unbalanced": {
+      "R613": {
+        "H": -1.0,
+        "charge": -1.0
+      }
+    },
+    "validation": {
+      "errors": [],
+      "valid": true
+    }
+  },
+  "current_model_matches_declared_source": true,
+  "current_snapshot_component_reviews": {
+    "R1521": {
+      "activation_state": "blocked",
+      "path": "data/r1521_current_snapshot_handoff.json",
+      "ready_for_activation": false,
+      "role": "Current-snapshot, read-only component review that resolves the local 3R identity and R1504/R1521/R80 chemistry while keeping production activation blocked.",
+      "source_model": "../iyali26_gem/model.xml",
+      "source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+      "source_model_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415"
+    }
+  },
+  "declared_source_model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+  "declared_source_model_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+  "file_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model.xml": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_lipid_unlump/data/coa_protonation_curation.json": "28a80e5d1547b3b82f9123ccffc681c80d9d9a8138f1b94ac2d33922727f7f94",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_lipid_unlump/data/fatty_acyl_coa_handoff.json": "b10e0f4072190ab582d104c72f86bae9cf11b2173cc4fe1984f2885e3d1d5d35",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_lipid_unlump/data/lipid_moiety_ledger_spec.json": "8274bf4fbba79e9573ff5def4a0713aeb0d5814399567258546f75dbf617b578",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_lipid_unlump/data/r1521_current_snapshot_handoff.json": "154575461585937a49c895a54b6e341f21bebb1eeb7cb5789cc72db12aae331a"
+  },
+  "generic_pool_policy": [
+    {
+      "actual_member_ids": [
+        "m1422[C_em]",
+        "m1426[C_em]",
+        "m1428[C_em]",
+        "m1430[C_em]",
+        "m1731[C_em]",
+        "m231[C_em]",
+        "m243[C_em]"
+      ],
+      "charge_is_nonchemical_placeholder": true,
+      "chebi_is_absent": true,
+      "expected_member_ids": [
+        "m1422[C_em]",
+        "m1426[C_em]",
+        "m1428[C_em]",
+        "m1430[C_em]",
+        "m1731[C_em]",
+        "m231[C_em]",
+        "m243[C_em]"
+      ],
+      "formula_is_absent": true,
+      "handoff_tuple_is_null": true,
+      "inventory_linked": true,
+      "live_model_charge": 0,
+      "no_complete_chemical_tuple": true,
+      "product_id": "m567[C_em]",
+      "product_is_the_only_positive_member": true,
+      "reaction_id": "xPOOL_AC_EM"
+    },
+    {
+      "actual_member_ids": [
+        "m1480[C_lp]",
+        "m1482[C_lp]",
+        "m1484[C_lp]",
+        "m1486[C_lp]",
+        "m1488[C_lp]",
+        "m1490[C_lp]",
+        "m1735[C_lp]"
+      ],
+      "charge_is_nonchemical_placeholder": true,
+      "chebi_is_absent": true,
+      "expected_member_ids": [
+        "m1480[C_lp]",
+        "m1482[C_lp]",
+        "m1484[C_lp]",
+        "m1486[C_lp]",
+        "m1488[C_lp]",
+        "m1490[C_lp]",
+        "m1735[C_lp]"
+      ],
+      "formula_is_absent": true,
+      "handoff_tuple_is_null": true,
+      "inventory_linked": true,
+      "live_model_charge": 0,
+      "no_complete_chemical_tuple": true,
+      "product_id": "m570[C_lp]",
+      "product_is_the_only_positive_member": true,
+      "reaction_id": "xPOOL_AC_LP"
+    },
+    {
+      "actual_member_ids": [
+        "m1624[C_mm]",
+        "m1625[C_mm]",
+        "m1738[C_mm]",
+        "m1739[C_mm]",
+        "m1741[C_mm]",
+        "m1742[C_mm]",
+        "m1743[C_mm]"
+      ],
+      "charge_is_nonchemical_placeholder": true,
+      "chebi_is_absent": true,
+      "expected_member_ids": [
+        "m1624[C_mm]",
+        "m1625[C_mm]",
+        "m1738[C_mm]",
+        "m1739[C_mm]",
+        "m1741[C_mm]",
+        "m1742[C_mm]",
+        "m1743[C_mm]"
+      ],
+      "formula_is_absent": true,
+      "handoff_tuple_is_null": true,
+      "inventory_linked": true,
+      "live_model_charge": 0,
+      "no_complete_chemical_tuple": true,
+      "product_id": "m790[C_mm]",
+      "product_is_the_only_positive_member": true,
+      "reaction_id": "xPOOL_AC_MM"
+    }
+  ],
+  "inventory": {
+    "generic_pools": 3,
+    "specific_copies": 36,
+    "specific_groups": 7
+  },
+  "model_fingerprint": "01c9ede9d1c0e50b54279bfa8b00d5fcfaa119d4b4765da00ec08246b60671bb",
+  "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model.xml",
+  "model_sha256": "0f3a6c2b151e945b3461d3fa85f04575f8e8570ba817ed2879013aec91f62415",
+  "ready_for_activation": false,
+  "remaining_blockers": [
+    {
+      "reaction_id": "R613",
+      "reason": "Model identity conflicts with its cited reference equation; tuple and proton repairs are forbidden.",
+      "status": "identity_unresolved"
+    },
+    {
+      "reaction_id": "R2076",
+      "reason": "The reaction has no biochemical identity; tuple and proton repairs are forbidden.",
+      "status": "identity_unresolved"
+    },
+    {
+      "reaction_id": "R1521",
+      "reason": "The local 3R identity is closed, but full NAD/NADH migration exposes a source-reviewed connected-component frontier.",
+      "status": "connected_component_migration_blocked"
+    },
+    {
+      "reaction_id": "R1708",
+      "reason": "The focal reaction closes without H+ after its four tuples migrate, but the acetate/succinate component is still open.",
+      "status": "connected_component_migration_blocked"
+    },
+    {
+      "reaction_id": "R2004",
+      "reason": "The focal reaction closes without H+ after its four tuples migrate, but the pyruvate/oxaloacetate component is still open.",
+      "status": "connected_component_migration_blocked"
+    }
+  ],
+  "schema_version": 1
+}

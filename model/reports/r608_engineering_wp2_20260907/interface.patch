@@ -1,0 +1,70 @@
+--- a/scripts/gem_annotate/r608.py
++++ b/scripts/gem_annotate/r608.py
+@@ -18,6 +18,12 @@
+ )
+ REACTIONS = frozenset(("R607", "R608"))
+ PROTON = "m10[C_cy]"
++C7_METABOLITES = METABOLITES | {"m257[C_cy]"}
++REACTION_PROTONS = {
++    reaction_id: PROTON
++    for reaction_id in ("R607", "R608", "R118", "R151", "R610", "R728", "R729", "R2183")
++}
++REACTION_PROTONS["R609"] = "m28[C_mi]"
+ FIELDS = frozenset(("formula", "charge", "name", "annotation"))
+ 
+ 
+@@ -57,16 +63,21 @@
+         or curation["source_model_sha256"] != source_model_sha256
+     ):
+         raise ValueError("R608 source model does not match the proposal")
+-    if (
+-        not isinstance(curation["metabolites"], dict)
+-        or set(curation["metabolites"]) != METABOLITES
+-    ):
+-        raise ValueError("R608 requires exactly the six scoped metabolites")
++    if not isinstance(curation["metabolites"], dict):
++        raise ValueError("R608 requires a scoped metabolite mapping")
++    c7 = (
++        curation["selected_representation"] == "C"
++        and set(curation["metabolites"]) == C7_METABOLITES
++    )
++    expected_metabolites = C7_METABOLITES if c7 else METABOLITES
++    expected_reactions = REACTION_PROTONS.keys() if c7 else REACTIONS
++    if set(curation["metabolites"]) != expected_metabolites:
++        raise ValueError("R608 requires the complete six-species or C7 scope")
+     if (
+         not isinstance(curation["reactions"], dict)
+-        or set(curation["reactions"]) != REACTIONS
++        or set(curation["reactions"]) != expected_reactions
+     ):
+-        raise ValueError("R608 requires exactly R607 and R608")
++        raise ValueError("R608 requires the exact reactions for the selected scope")
+ 
+     states = []
+     for met_id, record in curation["metabolites"].items():
+@@ -116,8 +127,9 @@
+                 )
+             ):
+                 raise ValueError(f"invalid stoichiometry: {reaction_id}")
+-        if {key: val for key, val in record["before"].items() if key != PROTON} != {
+-            key: val for key, val in record["after"].items() if key != PROTON
++        proton = REACTION_PROTONS[reaction_id]
++        if {key: val for key, val in record["before"].items() if key != proton} != {
++            key: val for key, val in record["after"].items() if key != proton
+         }:
+             raise ValueError(f"out-of-scope stoichiometry: {reaction_id}")
+         actual = _stoichiometry(model.reactions.get_by_id(reaction_id))
+@@ -134,10 +146,11 @@
+                 setattr(met, field, deepcopy(value))
+         for reaction_id, record in curation["reactions"].items():
+             reaction = candidate.reactions.get_by_id(reaction_id)
+-            delta = record["after"].get(PROTON, 0) - record["before"].get(PROTON, 0)
++            proton = REACTION_PROTONS[reaction_id]
++            delta = record["after"].get(proton, 0) - record["before"].get(proton, 0)
+             if delta:
+                 reaction.add_metabolites(
+-                    {candidate.metabolites.get_by_id(PROTON): delta}
++                    {candidate.metabolites.get_by_id(proton): delta}
+                 )
+     from .pipeline import validate_model
+ 

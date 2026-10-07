@@ -1,0 +1,1446 @@
+{
+  "limits": {
+    "solves": 150,
+    "solve_wall_seconds": 1800,
+    "per_solve_seconds": 60
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  },
+  "calls": [
+    {
+      "label": "initial_validation/E0_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E0"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:40.563644+00:00",
+      "solve_call_seconds": 0.009393417043611407,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E0_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E0",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:40.642701+00:00",
+      "solve_call_seconds": 0.01409558393061161,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E0_GTP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E0",
+        "carrier": "GTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:40.703128+00:00",
+      "solve_call_seconds": 0.008661875035613775,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E0_UTP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E0",
+        "carrier": "UTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:40.758377+00:00",
+      "solve_call_seconds": 0.009199292049743235,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E0_CTP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E0",
+        "carrier": "CTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:40.815200+00:00",
+      "solve_call_seconds": 0.012472125003114343,
+      "max_mass_residual": 1.1368683772161603e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E0_growth",
+      "status": "optimal",
+      "objective": 1.8718823069403008,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E0"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:40.873203+00:00",
+      "solve_call_seconds": 0.04047895804978907,
+      "max_mass_residual": 2.2815598152078898e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E1_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E1"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:43.885539+00:00",
+      "solve_call_seconds": 0.007482542074285448,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E1_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E1",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:43.966193+00:00",
+      "solve_call_seconds": 0.027901416993699968,
+      "max_mass_residual": 1.7053025658242404e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E1_growth",
+      "status": "optimal",
+      "objective": 1.8718823069402988,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E1"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:44.040041+00:00",
+      "solve_call_seconds": 0.04196141706779599,
+      "max_mass_residual": 4.944070326751149e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E2_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E2"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:47.146198+00:00",
+      "solve_call_seconds": 0.007100249989889562,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E2_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E2",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:47.225521+00:00",
+      "solve_call_seconds": 0.007696749991737306,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E2_growth",
+      "status": "optimal",
+      "objective": 1.871882306940297,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E2"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:47.280100+00:00",
+      "solve_call_seconds": 0.04187079204712063,
+      "max_mass_residual": 5.758124554423871e-14,
+      "max_bound_violation": 0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E3"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:50.291018+00:00",
+      "solve_call_seconds": 0.007517874939367175,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:42:50.371994+00:00",
+      "solve_call_seconds": 0.03253058309201151,
+      "max_mass_residual": 2.5579538487363607e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_witness",
+      "status": "optimal",
+      "objective": 6.333333333333332,
+      "purpose": {
+        "kind": "fixed_D_L1",
+        "variant": "E3",
+        "D": 1.0
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:03.646607+00:00",
+      "solve_call_seconds": 0.022714874939993024,
+      "max_mass_residual": 2.7755575615628914e-16,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_GTP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "GTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:04.066291+00:00",
+      "solve_call_seconds": 0.01096991600934416,
+      "max_mass_residual": 3.979039320256561e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_UTP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "UTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:04.332381+00:00",
+      "solve_call_seconds": 0.0159676669863984,
+      "max_mass_residual": 1.7053025658242404e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_CTP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "CTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:04.402474+00:00",
+      "solve_call_seconds": 0.010904707945883274,
+      "max_mass_residual": 6.821210263296962e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "initial_validation/E3_growth",
+      "status": "optimal",
+      "objective": 1.871882306940297,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E3"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:04.467099+00:00",
+      "solve_call_seconds": 0.04594695894047618,
+      "max_mass_residual": 3.8338120655553865e-14,
+      "max_bound_violation": 0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E3_interventions/E3_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E3"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:35.537737+00:00",
+      "solve_call_seconds": 0.007463459041900933,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E3_interventions/E3_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:35.615227+00:00",
+      "solve_call_seconds": 0.031682875007390976,
+      "max_mass_residual": 2.5579538487363607e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E3_interventions/E3_block_NDP1_forward",
+      "status": "optimal",
+      "objective": 489.655172413793,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "ATP",
+        "blocks": [
+          [
+            "R_NDP1",
+            "forward"
+          ]
+        ]
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:35.689829+00:00",
+      "solve_call_seconds": 0.012903499999083579,
+      "max_mass_residual": 1.7053025658242404e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E3_interventions/E3_block_R72_reverse",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "ATP",
+        "blocks": [
+          [
+            "R72",
+            "reverse"
+          ]
+        ]
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:35.745462+00:00",
+      "solve_call_seconds": 0.010194499976933002,
+      "max_mass_residual": 1.0857093002414331e-11,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E3_interventions/E3_block_both",
+      "status": "optimal",
+      "objective": 489.6551724137929,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E3",
+        "carrier": "ATP",
+        "blocks": [
+          [
+            "R_NDP1",
+            "forward"
+          ],
+          [
+            "R72",
+            "reverse"
+          ]
+        ]
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:43:35.798094+00:00",
+      "solve_call_seconds": 0.01926795905455947,
+      "max_mass_residual": 6.821210263296962e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "behavior_tests/known_direction_R_PGAM1_PhosHydro",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "known_direction_R_PGAM1_PhosHydro"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:44:38.319737+00:00",
+      "solve_call_seconds": 0.008245791890658438,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "behavior_tests/known_direction_R_NTP3pp",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "known_direction_R_NTP3pp"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:44:38.371295+00:00",
+      "solve_call_seconds": 0.007903833058662713,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "behavior_tests/known_direction_R_NTP7",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "known_direction_R_NTP7"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:44:38.421676+00:00",
+      "solve_call_seconds": 0.007767832954414189,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "behavior_tests/E3_remaining_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "E3_remaining_ATP"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:44:39.221364+00:00",
+      "solve_call_seconds": 0.016793041955679655,
+      "max_mass_residual": 7.958078640513122e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "behavior_tests/closed_exact_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "closed_exact_zero"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:44:39.983407+00:00",
+      "solve_call_seconds": 0.007438709028065205,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "behavior_tests/restored_PO1f_SD_Leu_growth",
+      "status": "optimal",
+      "objective": 1.871882306940297,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "restored_PO1f_SD_Leu_growth"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:44:40.158230+00:00",
+      "solve_call_seconds": 0.04397495905868709,
+      "max_mass_residual": 3.8338120655553865e-14,
+      "max_bound_violation": 0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E4"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:13.701868+00:00",
+      "solve_call_seconds": 0.007577957934699953,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_ATP",
+      "status": "optimal",
+      "objective": 489.65517241379297,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:13.779574+00:00",
+      "solve_call_seconds": 0.039743667002767324,
+      "max_mass_residual": 2.4868995751603507e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_witness",
+      "status": "optimal",
+      "objective": 18.615384615384617,
+      "purpose": {
+        "kind": "fixed_D_L1",
+        "variant": "E4",
+        "D": 1.0
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:26.447187+00:00",
+      "solve_call_seconds": 0.021581709035672247,
+      "max_mass_residual": 4.440892098500626e-16,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_GTP",
+      "status": "optimal",
+      "objective": 489.6551724137931,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "GTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:26.850390+00:00",
+      "solve_call_seconds": 0.014537582988850772,
+      "max_mass_residual": 2.2737367544323206e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_UTP",
+      "status": "optimal",
+      "objective": 489.6551724137914,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "UTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:26.914380+00:00",
+      "solve_call_seconds": 0.02244974998757243,
+      "max_mass_residual": 1.6981971384666394e-12,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_CTP",
+      "status": "optimal",
+      "objective": 489.6551724137936,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "CTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:26.985940+00:00",
+      "solve_call_seconds": 0.028785041999071836,
+      "max_mass_residual": 3.183231456205249e-12,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_validation/E4_growth",
+      "status": "optimal",
+      "objective": 1.8718823069403019,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E4"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:45:27.061016+00:00",
+      "solve_call_seconds": 0.05385050002951175,
+      "max_mass_residual": 6.836496429726835e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_interventions/E4_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E4"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:46:02.000707+00:00",
+      "solve_call_seconds": 0.007988083991222084,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_interventions/E4_ATP",
+      "status": "optimal",
+      "objective": 489.65517241379297,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:46:02.083457+00:00",
+      "solve_call_seconds": 0.04114937502890825,
+      "max_mass_residual": 2.4868995751603507e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_interventions/E4_block_CAT2p_reverse",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "ATP",
+        "blocks": [
+          [
+            "R_CAT2p",
+            "reverse"
+          ]
+        ]
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:46:02.171205+00:00",
+      "solve_call_seconds": 0.017405749997124076,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_interventions/E4_block_OAADCm_forward",
+      "status": "optimal",
+      "objective": 241.37931034482773,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "ATP",
+        "blocks": [
+          [
+            "R_OAADCm",
+            "forward"
+          ]
+        ]
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:46:02.233840+00:00",
+      "solve_call_seconds": 0.013687583967112005,
+      "max_mass_residual": 1.4495071809506044e-12,
+      "max_bound_violation": 5.115907697472721e-13,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E4_interventions/E4_block_CAT_OAA",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E4",
+        "carrier": "ATP",
+        "blocks": [
+          [
+            "R_CAT2p",
+            "reverse"
+          ],
+          [
+            "R_OAADCm",
+            "forward"
+          ]
+        ]
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:46:02.294360+00:00",
+      "solve_call_seconds": 0.011381541029550135,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "all_zero_feasibility",
+        "variant": "E5"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.285789+00:00",
+      "solve_call_seconds": 0.008003458962775767,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_ATP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "ATP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.366943+00:00",
+      "solve_call_seconds": 0.026041958015412092,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_GTP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "GTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.441638+00:00",
+      "solve_call_seconds": 0.008087374968454242,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_UTP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "UTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.498576+00:00",
+      "solve_call_seconds": 0.025306791998445988,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_CTP",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "closed_max",
+        "variant": "E5",
+        "carrier": "CTP",
+        "blocks": []
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.572078+00:00",
+      "solve_call_seconds": 0.02007629198487848,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "E5_validation/E5_growth",
+      "status": "optimal",
+      "objective": 1.429177892279185,
+      "purpose": {
+        "kind": "real_culture_growth",
+        "variant": "E5"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:48:49.638254+00:00",
+      "solve_call_seconds": 0.03857783298008144,
+      "max_mass_residual": 5.894763843716788e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "growth_attribution/E4_plus_CAT2p",
+      "status": "optimal",
+      "objective": 1.4299514166082394,
+      "purpose": {
+        "kind": "growth_attribution",
+        "baseline": "E4",
+        "partial_E5_repair": "R_CAT2p"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:50:25.247569+00:00",
+      "solve_call_seconds": 0.04026745806913823,
+      "max_mass_residual": 5.6687497035877443e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "growth_attribution/E4_plus_OAADCm",
+      "status": "optimal",
+      "objective": 1.8718823069403032,
+      "purpose": {
+        "kind": "growth_attribution",
+        "baseline": "E4",
+        "partial_E5_repair": "R_OAADCm"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:50:27.413876+00:00",
+      "solve_call_seconds": 0.03729275008663535,
+      "max_mass_residual": 8.234537184070856e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/E5_closed_ATP_reproduction",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "E5_closed_ATP_reproduction"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:24.471147+00:00",
+      "solve_call_seconds": 0.01904062496032566,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/E5_real_growth_positive_control",
+      "status": "optimal",
+      "objective": 1.429177892279185,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "E5_real_growth_positive_control"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:24.536594+00:00",
+      "solve_call_seconds": 0.03769700007978827,
+      "max_mass_residual": 5.894763843716788e-14,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/known_direction_R_PGAM1_PhosHydro",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "known_direction_R_PGAM1_PhosHydro"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:25.501224+00:00",
+      "solve_call_seconds": 0.008518915972672403,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/known_direction_R_NTP3pp",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "known_direction_R_NTP3pp"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:25.556918+00:00",
+      "solve_call_seconds": 0.00798904208932072,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/known_direction_R_NTP7",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "known_direction_R_NTP7"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:25.612956+00:00",
+      "solve_call_seconds": 0.008467708015814424,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/E3_remaining_ATP",
+      "status": "optimal",
+      "objective": 1000.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "E3_remaining_ATP"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:26.551967+00:00",
+      "solve_call_seconds": 0.01665079197846353,
+      "max_mass_residual": 7.958078640513122e-13,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/closed_exact_zero",
+      "status": "optimal",
+      "objective": 0.0,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "closed_exact_zero"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:27.332270+00:00",
+      "solve_call_seconds": 0.007416083011776209,
+      "max_mass_residual": 0.0,
+      "max_bound_violation": 0.0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    },
+    {
+      "label": "final_behavior_tests/restored_PO1f_SD_Leu_growth",
+      "status": "optimal",
+      "objective": 1.871882306940297,
+      "purpose": {
+        "kind": "behavior_test",
+        "assertion": "restored_PO1f_SD_Leu_growth"
+      },
+      "solver": {
+        "Threads": 1,
+        "TimeLimit": 60.0,
+        "Presolve": 0,
+        "FeasibilityTol": 1e-07,
+        "OptimalityTol": 1e-07,
+        "IntFeasTol": 1e-07
+      },
+      "started_utc": "2026-09-24T21:51:27.387359+00:00",
+      "solve_call_seconds": 0.04532858298625797,
+      "max_mass_residual": 3.8338120655553865e-14,
+      "max_bound_violation": 0,
+      "max_constraint_violation": 0,
+      "postprocessing": "complete"
+    }
+  ],
+  "solve_call_seconds": 1.183404672308825
+}

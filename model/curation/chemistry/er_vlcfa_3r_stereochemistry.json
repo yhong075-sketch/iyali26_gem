@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "curation_id": "iyli21_er_vlcfa_c26_3r_hydroxyacyl_coa",
+  "source_model": "data/iyli21.xml",
+  "source_sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631",
+  "scope": {
+    "metabolite_ids": ["m1446[C_em]"],
+    "reaction_ids": ["R1419", "R1426"],
+    "excluded_metabolite_ids": ["m1546[C_pe]"],
+    "excluded_identity_source_state": {
+      "id": "m1546[C_pe]",
+      "name": "(R)-3-hydroxyhexacosanoyl-CoA_",
+      "tuple": {"formula": null, "charge": 0},
+      "absent_annotation_keys": ["chebi", "hmdb", "inchi", "inchikey", "lipidmaps", "lipidmapsm", "metacyc.compound", "metacycm", "metanetx.chemical", "seed.compound", "seedm"]
+    }
+  },
+  "neutral_patch": {
+    "metabolite": {
+      "id": "m1446[C_em]",
+      "legacy_name": "(S)-3-hydroxyhexacosanoyl-CoA_C47H86N7O18P3S",
+      "target_name": "(3R)-3-hydroxyhexacosanoyl-CoA",
+      "allowed_source_tuples": [
+        {"formula": null, "charge": 0},
+        {"formula": "C47H86N7O18P3S", "charge": 0}
+      ],
+      "target_tuple": {"formula": "C47H86N7O18P3S", "charge": 0},
+      "annotation_target": {"chebi": "CHEBI:76465"},
+      "replace_annotation_keys": ["chebi", "hmdb", "inchi", "inchikey", "lipidmaps", "lipidmapsm", "metacyc.compound", "metacycm", "metanetx.chemical", "seed.compound", "seedm"]
+    },
+    "neutral_closure_metabolites": [
+      {"id": "m377[C_em]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "H", "charge": 1}], "target_tuple": {"formula": "H", "charge": 1}},
+      {"id": "m1437[C_em]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "C47H84N7O18P3S", "charge": -4}, {"formula": "C47H84N7O18P3S", "charge": 0}], "target_tuple": {"formula": "C47H84N7O18P3S", "charge": 0}},
+      {"id": "m1438[C_em]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "C21H30N7O17P3", "charge": -4}, {"formula": "C21H30N7O17P3", "charge": 0}], "target_tuple": {"formula": "C21H30N7O17P3", "charge": 0}},
+      {"id": "m1439[C_em]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "C21H29N7O17P3", "charge": -3}, {"formula": "C21H29N7O17P3", "charge": 1}], "target_tuple": {"formula": "C21H29N7O17P3", "charge": 1}},
+      {"id": "m1447[C_em]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "H2O", "charge": 0}], "target_tuple": {"formula": "H2O", "charge": 0}},
+      {"id": "m1454[C_em]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "C47H84N7O17P3S", "charge": 0}], "target_tuple": {"formula": "C47H84N7O17P3S", "charge": 0}},
+      {"id": "m185[C_pe]", "allowed_source_tuples": [{"formula": null, "charge": 0}, {"formula": "C47H84N7O18P3S", "charge": -4}, {"formula": "C47H84N7O18P3S", "charge": 0}], "target_tuple": {"formula": "C47H84N7O18P3S", "charge": 0}}
+    ],
+    "reactions": [
+      {
+        "id": "R1419",
+        "legacy_name": "B-ketoacyl-CoA reductase ((S)-3-hydroxyhexacosanoyl-CoA)",
+        "target_name": "B-ketoacyl-CoA reductase ((3R)-3-hydroxyhexacosanoyl-CoA)",
+        "bounds": [0.0, 1000.0],
+        "reversible": false,
+        "stoichiometry": {"m377[C_em]": -1.0, "m1437[C_em]": -1.0, "m1438[C_em]": -1.0, "m1439[C_em]": 1.0, "m1446[C_em]": 1.0},
+        "rhea": {"master": "39207", "directional": "39208"}
+      },
+      {
+        "id": "R1426",
+        "legacy_name": "B-hydroxyacyl-CoA dehydratase (trans-hexacos-2-enoyl-CoA)",
+        "target_name": "B-hydroxyacyl-CoA dehydratase (trans-hexacos-2-enoyl-CoA)",
+        "bounds": [-1000.0, 1000.0],
+        "reversible": true,
+        "stoichiometry": {"m1446[C_em]": -1.0, "m1447[C_em]": 1.0, "m1454[C_em]": 1.0},
+        "rhea": {"master": "39211", "directional": "39214"}
+      }
+    ]
+  },
+  "biochemical_ph_identity": {
+    "chebi": "CHEBI:76378",
+    "biochemical_ph_tuple": {"formula": "C47H82N7O18P3S", "charge": -4}
+  },
+  "evidence": "Rhea's ER VLCFA elongation reactions use the (3R)-3-hydroxyacyl-CoA participant. The neutral patch maps to CHEBI:76465. CHEBI:76378 is reserved for the separately blocked pH 7.3 migration. R1419 remains blocked until m1437[C_em] and m185[C_pe] are migrated atomically. m1546[C_pe] is excluded from this ER patch. The separate current-snapshot R1521 handoff records MFE2/type-2 evidence for a 3R peroxisomal participant: Rhea 39211/39213 matches the hydration direction, while Rhea 78635/78638 is the master/bidirectional dehydrogenase chemistry and 78637 matches the written oxidation direction. The earlier 3S inference from the type-1 general reactions 16105/22432 is superseded."
+}

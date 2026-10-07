@@ -1,0 +1,698 @@
+{
+  "schema_version": 5,
+  "linoleoyl_neutral_correction": {
+    "scope": "Restore the existing neutral CoA convention before lipid expansion; not a global biochemical-pH migration.",
+    "authorization": "User requested fixing the linoleoyl charge bug and integrating it into the pipeline, 2026-09-08.",
+    "ids": ["m1731[C_em]", "m1735[C_lp]", "m1743[C_mm]", "m1797[C_pe]", "m1798[C_cy]"],
+    "expected_source_tuple": {"formula": "C39H66N7O17P3S", "charge": -4},
+    "candidate_tuple": {"formula": "C39H66N7O17P3S", "charge": 0},
+    "annotation_target": {"sbo": "SBO:0000247", "chebi": "CHEBI:15530", "kegg.compound": "C02050"},
+    "annotation_policy": "Replace conflicting stearoyl identities and structure annotations with verified neutral linoleoyl identity; original annotations remain in the frozen source.",
+    "source_url": "https://www.ebi.ac.uk/chebi/CHEBI:15530",
+    "source_fields": {"formula": "C39H66N7O17P3S", "net_charge": 0},
+    "accessed_on": "2026-09-08"
+  },
+  "source": {
+    "model_path": "../iyali26_gem/model.xml",
+    "model_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "model_fingerprint": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121",
+    "tuple_convention": "legacy_source_convention",
+    "source": "current model.xml snapshot; reaction IDs and annotations are the direct template source"
+  },
+  "R989_gpr_curation": {
+    "reaction_id": "R989",
+    "expected_source_gpr": "",
+    "expected_compartments": ["C_mi"],
+    "approved_candidate_gpr": "YALI1D01489g",
+    "gene_identity": {
+      "systematic_id": "YALI1D01489g",
+      "source_systematic_id": "YALI1_D01489g",
+      "legacy_id": "YALI0D01309g",
+      "established_name": "no established gene name",
+      "protein_function": "predicted 5-formyltetrahydrofolate cyclo-ligase",
+      "evidence_category": "curated annotation",
+      "gene_id": "2910453",
+      "refseq_protein": "XP_502280.2",
+      "uniprot": "Q6CAN2"
+    },
+    "target_sequence": {
+      "accession": "XP_502280.2",
+      "length_aa": 235,
+      "sha256_convention": "uppercase amino-acid sequence only; no FASTA header or whitespace",
+      "sha256": "d8cea1ec65af975fe803163cfaa05eb6fb3961dfce8df5546a4f14e1c0e007f9"
+    },
+    "alphafold": {
+      "model_id": "AF-Q6CAN2-F1",
+      "version": 6,
+      "prediction_method": "AlphaFold Monomer v2",
+      "model_date": "2022-06-01",
+      "input_accession": "Q6CAN2",
+      "input_length_aa": 212,
+      "input_sequence_sha256": "f0482ab3de313bafe55c4b2d29d446ee6d8ff97b69949eb8096190ad85dd4536",
+      "global_plddt": 89.94,
+      "scope": "fold_and_family_compatibility_only",
+      "limitation": "The AlphaFoldDB model covers the legacy 212-aa Q6CAN2 core, not the current 235-aa XP_502280.2 N-terminal extension, and cannot establish catalytic activity, dual localization, or mitochondrial localization."
+    },
+    "localization_counterevidence": {
+      "method": "TargetP 2.0 non-plant",
+      "job_id": "6A8DF2140014D6282BEC5B97",
+      "prediction": "Other",
+      "other_probability": 0.8307,
+      "mtp_probability": 0.1639,
+      "cleavage_site": "none"
+    },
+    "model_assignment": {
+      "evidence_category": "model/GPR assignment only",
+      "status": "candidate_only",
+      "human_model_assignment_approved": true,
+      "wet_lab_review_required": true,
+      "wet_lab_review_status": "pending",
+      "mitochondrial_localization_status": "unverified",
+      "production_claim_allowed": false
+    },
+    "notes": {
+      "curated_gpr_correction": "Human-approved provisional assignment of YALI1D01489g to mitochondrial R989; the same EC 6.3.3.2 chemistry is already assigned to cytosolic R64.",
+      "gpr_evidence_status": "model_gpr_assignment_only; alphafold_family_compatible; mitochondrial_localization_unverified; wet_lab_review_required",
+      "gpr_evidence_limit": "AlphaFoldDB AF-Q6CAN2-F1 v6 supports MTHFS fold/family compatibility only; it does not establish Yarrowia catalytic activity, dual localization, or mitochondrial localization. TargetP 2.0 predicts Other=0.8307, mTP=0.1639, with no cleavage site."
+    },
+    "evidence_sources": [
+      {
+        "source_id": "NCBI_XP_502280_2",
+        "url": "https://www.ncbi.nlm.nih.gov/protein/XP_502280.2",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Current Yarrowia lipolytica CLIB89/W29 RefSeq protein identity and 235-aa sequence."
+      },
+      {
+        "source_id": "ALPHAFOLDDB_Q6CAN2",
+        "url": "https://alphafold.ebi.ac.uk/entry/Q6CAN2",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C2"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "AF-Q6CAN2-F1 v6 supports compatibility of the legacy 212-aa core with the predicted MTHFS fold only."
+      },
+      {
+        "source_id": "UNIPROT_Q6CAN2",
+        "url": "https://www.uniprot.org/uniprotkb/Q6CAN2/entry",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C3"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Automated family/function and phylogenetic localization annotations; no direct Yarrowia biochemical or localization experiment."
+      },
+      {
+        "source_id": "TARGETP_Q6CAN2_W29",
+        "url": "https://services.healthtech.dtu.dk/services/TargetP-2.0/",
+        "accessed_on": "2026-08-25",
+        "claim_ids": ["R989_C4"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Independent non-plant prediction on XP_502280.2; Other=0.8307, mTP=0.1639, no cleavage site."
+      }
+    ],
+    "evidence_audit_coverage": {
+      "total_claims": 4,
+      "audited": 4,
+      "supported": 2,
+      "unresolved": 2,
+      "contradicted": 0,
+      "unchecked": 0
+    }
+  },
+  "coq_R39_R40_curation": {
+    "human_gate": {
+      "approved_on": "2026-08-26",
+      "approved_scope": [
+        "move R39 from the cytosol to the mitochondrial CoQ pathway",
+        "assign provisional R39 GPR YALI1A08781g",
+        "label the R39 mapping as AlphaFold-prediction-only and unverified",
+        "remove redundant R808 and R969 CoQ-intermediate shuttles",
+        "lock the existing R40 GPR YALI1F34625g"
+      ],
+      "evidence_label_confirmed_on": "2026-08-27",
+      "candidate_model_change_allowed": true,
+      "native_yarrowia_biochemistry_verified": false,
+      "wet_lab_review_required": true,
+      "production_claim_allowed": false
+    },
+    "R39": {
+      "reaction_id": "R39",
+      "expected_source": {
+        "name": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+        "bounds": [0.0, 1000.0],
+        "gpr": "",
+        "compartments": ["C_cy"],
+        "stoichiometry": {
+          "m108[C_cy]": -1.0,
+          "m109[C_cy]": -0.5,
+          "m110[C_cy]": 1.0,
+          "m10[C_cy]": 1.0
+        }
+      },
+      "expected_source_notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged."
+      },
+      "candidate": {
+        "name": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1A08781g",
+        "compartments": ["C_mi"],
+        "stoichiometry": {
+          "m641[C_mi]": -1.0,
+          "m64[C_mi]": -0.5,
+          "m939[C_mi]": 1.0,
+          "m28[C_mi]": 1.0
+        },
+        "reaction_representation": "mass_and_charge_balanced_redox_lump",
+        "explicit_ferredoxin_electron_transfer": false
+      },
+      "gene_identity": {
+        "systematic_id": "YALI1A08781g",
+        "source_systematic_id": "YALI1_A08781g",
+        "legacy_id": "YALI0A09042g",
+        "old_locus_tag": "YALI2_A00555g",
+        "gene_id": "2906060",
+        "established_name": "no established gene name",
+        "candidate_label": "COQ6 candidate",
+        "protein_function": "putative FAD-dependent CoQ monooxygenase",
+        "evidence_category": "uncharacterized",
+        "refseq_transcript": "XM_499891.3",
+        "refseq_protein": "XP_499891.1",
+        "uniprot": "F2Z6J4"
+      },
+      "target_sequences": {
+        "sha256_convention": "uppercase sequence only; no FASTA header or whitespace",
+        "cds": {
+          "accession": "XM_499891.3",
+          "length_nt": 1398,
+          "sha256": "80bd5c0e342f42dd259c17886a0b433d5e541e199d8cbdb3bd4ceb544fdf443e"
+        },
+        "protein": {
+          "accession": "XP_499891.1",
+          "length_aa": 465,
+          "sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee"
+        }
+      },
+      "alphafold": {
+        "model_id": "AF-F2Z6J4-F1",
+        "version": 6,
+        "model_date": "2022-06-01",
+        "input_accession": "F2Z6J4",
+        "input_length_aa": 465,
+        "mean_plddt": 84.28,
+        "percent_residues_plddt_ge_70": 82.6,
+        "evidence_status": "alphafold_prediction_only",
+        "scope": "fold_and_family_compatibility_only",
+        "limitation": "AlphaFold confidence cannot establish catalytic activity, mitochondrial localization, substrate specificity, or native Yarrowia biochemistry."
+      },
+      "mapping_contract": {
+        "mapping_id": "coq6_r39_alphafold_provisional_v1",
+        "reaction_id": "R39",
+        "gene_id": "YALI1A08781g",
+        "compartment": "C_mi",
+        "native_yarrowia_gpr_evidence_basis": "alphafold_prediction_only",
+        "verification_status": "unverified",
+        "target_protein_sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee"
+      },
+      "mapping_sha256": "b5593af023434e7b25d76e987b61dacd1be70471827aafae868a80996c565fb9",
+      "model_assignment": {
+        "evidence_category": "model/GPR assignment only",
+        "status": "candidate_only",
+        "evidence_basis": "alphafold_prediction_only",
+        "verification_status": "unverified",
+        "human_candidate_mapping_approved": true,
+        "native_yarrowia_biochemistry_status": "unverified",
+        "wet_lab_review_required": true,
+        "production_claim_allowed": false
+      },
+      "notes": {
+        "curated_coq9_chemistry": "The earlier CoQ6-to-CoQ9 chain correction is retained; this candidate additionally changes the R39 compartment and GPR, superseding the earlier statement that those fields were unchanged.",
+        "curated_compartment_topology": "Human-approved replacement of the unsupported cytosol excursion with the mitochondrial R407-R39-R715 CoQ route; redundant R969 and R808 shuttles are removed.",
+        "curated_gpr_correction": "Provisional AlphaFold-only candidate assignment of YALI1A08781g (COQ6 candidate; RefSeq XP_499891.1; UniProt F2Z6J4) to mitochondrial R39.",
+        "gpr_evidence_status": "model_gpr_assignment_only; alphafold_prediction_only; native_yarrowia_biochemistry_unverified",
+        "gpr_mapping_sha256": "b5593af023434e7b25d76e987b61dacd1be70471827aafae868a80996c565fb9",
+        "gpr_evidence_limit": "R39 preserves the legacy mass-balanced 0.5 O2 redox lump and does not explicitly model Yah1/Arh1 electron transfer. AlphaFold supports fold and family compatibility only; it cannot verify catalytic activity, mitochondrial localization, substrate specificity, reaction-level dependence, or native Yarrowia biochemistry. Cross-species studies are retained as context, not direct evidence for this Yarrowia GPR."
+      }
+    },
+    "R40": {
+      "reaction_id": "R40",
+      "action": "lock_existing_assignment_without_stoichiometry_change",
+      "expected_source_and_candidate": {
+        "name": "3-nonaprenyl-4-hydroxy-5-methoxybenzoate decarboxylase",
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1F34625g",
+        "compartments": ["C_mi"],
+        "stoichiometry": {
+          "m28[C_mi]": -1.0,
+          "m111[C_mi]": -1.0,
+          "m44[C_mi]": 1.0,
+          "m63[C_mi]": 1.0
+        }
+      },
+      "gene_identity": {
+        "systematic_id": "YALI1F34625g",
+        "source_systematic_id": "YALI1_F34625g",
+        "legacy_id": "YALI0F27247g",
+        "old_locus_tag": "YALI2_E00964g",
+        "gene_id": "2907824",
+        "established_name": "COQ4",
+        "protein_function": "zinc-dependent CoQ-ring C1 decarboxylase and CoQ-synthome organizing protein",
+        "evidence_category": "curated annotation",
+        "refseq_transcript": "XM_505938.3",
+        "refseq_protein": "XP_505938.1",
+        "uniprot": "Q6C074"
+      },
+      "target_sequences": {
+        "sha256_convention": "uppercase sequence only; no FASTA header or whitespace",
+        "cds": {
+          "accession": "XM_505938.3",
+          "length_nt": 789,
+          "sha256": "1ce66dea74c918cc84ae0243eb8d47d3145d41699f26077bba2a87d5bfb77d95"
+        },
+        "protein": {
+          "accession": "XP_505938.1",
+          "length_aa": 262,
+          "sha256": "2d7fc4589ef709501bcba4be7f2baef1d2ba9bb0a4ec51aa720ec9e1b97b5b9b"
+        }
+      },
+      "alphafold": {
+        "model_id": "AF-Q6C074-F1",
+        "version": 6,
+        "model_date": "2025-08-01",
+        "input_accession": "Q6C074",
+        "input_length_aa": 262,
+        "mean_plddt": 91.61,
+        "percent_residues_plddt_ge_70": 92.7,
+        "scope": "fold_and_family_compatibility_only",
+        "limitation": "AlphaFold confidence cannot resolve sequential versus oxidative decarboxylation or verify native Yarrowia biochemistry."
+      },
+      "model_assignment": {
+        "evidence_category": "model/GPR assignment only",
+        "status": "candidate_only",
+        "human_model_assignment_approved": true,
+        "native_yarrowia_biochemistry_status": "unverified",
+        "wet_lab_review_required": true,
+        "production_claim_allowed": false
+      },
+      "expected_notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1F34625g (COQ4; UniProt Q6C074), CoQ-ring C1 decarboxylase/synthome-organising protein. Cross-species experiments support C1 decarboxylation, while oxidative versus sequential decarboxylation/hydroxylation remains unresolved.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified"
+      }
+    },
+    "removed_shuttles": [
+      {
+        "reaction_id": "R808",
+        "expected_source_gpr": "",
+        "expected_source_bounds": [-1000.0, 1000.0],
+        "expected_source_compartments": ["C_cy", "C_mi"],
+        "expected_source_stoichiometry": {"m110[C_cy]": -1.0, "m939[C_mi]": 1.0},
+        "decision": "remove_redundant_unsupported_shuttle"
+      },
+      {
+        "reaction_id": "R969",
+        "expected_source_gpr": "",
+        "expected_source_bounds": [-1000.0, 1000.0],
+        "expected_source_compartments": ["C_cy", "C_mi"],
+        "expected_source_stoichiometry": {"m108[C_cy]": -1.0, "m641[C_mi]": 1.0},
+        "decision": "remove_redundant_unsupported_shuttle"
+      }
+    ],
+    "removed_orphan_metabolites": ["m108[C_cy]", "m110[C_cy]"],
+    "evidence_sources": [
+      {
+        "source_id": "YARROWIA_BIOCYC_R39_R40",
+        "url": "https://biocyc.org/GCF_001761485/organism-summary",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["COQ_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "GCF_001761485Cyc v30.0 Tier 3 returned no exact R39 or R40 record; no hit is not evidence of absence."
+      },
+      {
+        "source_id": "NCBI_R39_SEQUENCE",
+        "url": "https://www.ncbi.nlm.nih.gov/protein/XP_499891.1",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R39_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Current CLIB89/W29 CDS and protein identity, version, length, and sequence hash."
+      },
+      {
+        "source_id": "UNIPROT_ALPHAFOLD_R39",
+        "url": "https://www.uniprot.org/uniprotkb/F2Z6J4/entry",
+        "additional_url": "https://alphafold.ebi.ac.uk/entry/F2Z6J4",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R39_C2"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "UbiH/COQ6 family and fold compatibility only; no native Yarrowia catalytic or localization experiment."
+      },
+      {
+        "source_id": "OZEIR_2011_NICOLL_2024_COQ6",
+        "url": "https://doi.org/10.1016/j.chembiol.2011.07.008",
+        "additional_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7615680/",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R39_C3"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Cross-species genetic/biochemical and reconstructed-system evidence for COQ6 C5 hydroxylation; organism transfer remains explicit."
+      },
+      {
+        "source_id": "NCBI_UNIPROT_R40",
+        "url": "https://www.uniprot.org/uniprotkb/Q6C074/entry",
+        "additional_url": "https://www.ncbi.nlm.nih.gov/protein/XP_505938.1",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R40_C1"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Current Yarrowia sequence identity plus reviewed COQ4 decarboxylase annotation; native Yarrowia biochemistry remains unverified."
+      },
+      {
+        "source_id": "RHEA_81179",
+        "url": "https://www.rhea-db.org/rhea/81179",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R40_C2"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Curated EC 4.1.1.130 reaction identity matches R40; reaction identity alone does not prove the Yarrowia GPR."
+      },
+      {
+        "source_id": "NICOLL_PELOSI_2024_COQ4",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7615680/",
+        "additional_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7616408/",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["R40_C3"],
+        "reviewer_verdict": "partially_supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "Cross-species COQ4 C1 decarboxylation is supported, while sequential versus oxidative mechanism and exact native Yarrowia substrate use remain unresolved."
+      },
+      {
+        "source_id": "FROZEN_MODEL_COQ_TOPOLOGY",
+        "path": "model.xml@sha256:bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+        "accessed_on": "2026-08-26",
+        "claim_ids": ["COQ_C2"],
+        "reviewer_verdict": "supported",
+        "audit_status": "audited",
+        "decision": "use_as_constraint",
+        "conditions": "R407 and R715 are mitochondrial; source R39 requires the unsupported reversible R969/R808 cytosol excursion."
+      }
+    ],
+    "evidence_audit_coverage": {
+      "total_claims": 8,
+      "audited": 8,
+      "supported": 6,
+      "unresolved": 2,
+      "contradicted": 0,
+      "unchecked": 0
+    }
+  },
+  "R1521_neutral_formula_completion": {
+    "reaction_id": "R1521",
+    "metabolite_id": "m1546[C_pe]",
+    "identity": "(3R)-3-hydroxyhexacosanoyl-CoA",
+    "expected_source_name": "(R)-3-hydroxyhexacosanoyl-CoA_",
+    "expected_source_tuple": {"formula": null, "charge": 0},
+    "candidate_tuple": {"formula": "C47H86N7O18P3S", "charge": 0},
+    "scope": "formula_completion_only_in_legacy_neutral_convention",
+    "same_identity_source_copy": {
+      "metabolite_id": "m1446[C_em]",
+      "expected_tuple": {"formula": "C47H86N7O18P3S", "charge": 0}
+    },
+    "biochemical_ph_tuple": {
+      "chebi": "CHEBI:76378",
+      "formula": "C47H82N7O18P3S",
+      "charge": -4,
+      "status": "blocked_not_applied"
+    },
+    "incident_reaction_balance_after": {
+      "R1504": {},
+      "R1521": {"H": 1.0, "charge": 1.0}
+    },
+    "decision": {
+      "human_candidate_approved": true,
+      "change_formula": true,
+      "change_charge": false,
+      "change_name_or_annotation": false,
+      "change_reaction_stoichiometry_bounds_or_gpr": false,
+      "production_apply_allowed": false
+    },
+    "evidence_sources": [
+      {
+        "source_id": "R1521_CURRENT_SNAPSHOT_HANDOFF",
+        "path": "data/r1521_current_snapshot_handoff.json",
+        "claim": "Peroxisomal MFE2 uses the (3R)-hydroxy-C26-CoA identity; Rhea 78635/78638 supports the reversible dehydrogenase chemistry.",
+        "audit_status": "audited",
+        "decision": "use_as_constraint"
+      },
+      {
+        "source_id": "ER_VLCFA_3R_STEREOCHEMISTRY",
+        "path": "data/er_vlcfa_3r_stereochemistry.json",
+        "claim": "The same (3R)-hydroxy-C26-CoA identity already carries the legacy-neutral C47H86N7O18P3S/0 tuple in the ER copy.",
+        "audit_status": "audited",
+        "decision": "use_as_constraint"
+      },
+      {
+        "source_id": "RHEA_78635",
+        "url": "https://www.rhea-db.org/rhea/78635",
+        "claim": "The biochemical-pH species is C47H82N7O18P3S/charge -4 and is deliberately deferred from this formula-only patch.",
+        "audit_status": "audited",
+        "decision": "defer"
+      }
+    ]
+  },
+  "chains": [
+    {"id": "lauroyl", "lp_acyl_coa_id": "m1480[C_lp]", "legacy_tuple": {"formula": "C33H58N7O17P3S", "charge": 0}, "weight": 0.002892744479495268},
+    {"id": "myristoyl", "lp_acyl_coa_id": "m1482[C_lp]", "legacy_tuple": {"formula": "C35H62N7O17P3S", "charge": 0}, "weight": 0.001928496319663512},
+    {"id": "palmitoyl", "lp_acyl_coa_id": "m1484[C_lp]", "legacy_tuple": {"formula": "C37H66N7O17P3S", "charge": 0}, "weight": 0.18320715036803364},
+    {"id": "palmitoleoyl", "lp_acyl_coa_id": "m1486[C_lp]", "legacy_tuple": {"formula": "C37H64N7O17P3S", "charge": 0}, "weight": 0.083},
+    {"id": "stearoyl", "lp_acyl_coa_id": "m1488[C_lp]", "legacy_tuple": {"formula": "C39H70N7O17P3S", "charge": 0}, "weight": 0.04049842271293375},
+    {"id": "oleoyl", "lp_acyl_coa_id": "m1490[C_lp]", "legacy_tuple": {"formula": "C39H68N7O17P3S", "charge": 0}, "weight": 0.49658780231335437},
+    {"id": "linoleoyl", "lp_acyl_coa_id": "m1735[C_lp]", "legacy_tuple": {"formula": "C39H66N7O17P3S", "charge": -4}, "weight": 0.19188538380651946}
+  ],
+  "states": [
+    {"id": "lpa_lp", "name": "lysophosphatidate", "compartment": "C_lp"},
+    {"id": "pa_lp", "name": "phosphatidate", "compartment": "C_lp"}, {"id": "pa_em", "name": "phosphatidate", "compartment": "C_em"},
+    {"id": "cdp_dag_em", "name": "CDP-diacylglycerol", "compartment": "C_em"}, {"id": "pi_em", "name": "phosphatidylinositol", "compartment": "C_em"},
+    {"id": "ps_em", "name": "phosphatidylserine", "compartment": "C_em"}, {"id": "ps_mm", "name": "phosphatidylserine", "compartment": "C_mm"},
+    {"id": "pe_mm", "name": "phosphatidylethanolamine", "compartment": "C_mm"}, {"id": "pe_em", "name": "phosphatidylethanolamine", "compartment": "C_em"}, {"id": "pe_lp", "name": "phosphatidylethanolamine", "compartment": "C_lp"},
+    {"id": "pmme_em", "name": "phosphatidyl-N-methylethanolamine", "compartment": "C_em"}, {"id": "pdme_em", "name": "phosphatidyl-N,N-dimethylethanolamine", "compartment": "C_em"},
+    {"id": "pc_em", "name": "phosphatidylcholine", "compartment": "C_em"}, {"id": "pc_lp", "name": "phosphatidylcholine", "compartment": "C_lp"},
+    {"id": "dag_em", "name": "diacylglycerol", "compartment": "C_em"}, {"id": "dag_cy", "name": "diacylglycerol", "compartment": "C_cy"}, {"id": "dag_lp", "name": "diacylglycerol", "compartment": "C_lp"},
+    {"id": "tag_lp", "name": "triacylglycerol", "compartment": "C_lp"}
+  ],
+  "steps": [
+    {"reaction_id": "R353", "bounds": [0.0, 1000.0], "gpr": "YALI1C00230g", "stoichiometry": {"m570[C_lp]": -1.0, "m576[C_lp]": -1.0, "m573[C_lp]": 1.0, "m577[C_lp]": 1.0}},
+    {"reaction_id": "R1846", "bounds": [0.0, 1000.0], "gpr": "YALI1E22736g or YALI1F13550g or YALI1D21511g", "stoichiometry": {"m570[C_lp]": -1.0, "m577[C_lp]": -1.0, "m1705[C_lp]": 1.0, "m573[C_lp]": 1.0}, "source_state": "lpa_lp", "target_state": "pa_lp", "template_source_id": "m577[C_lp]", "template_target_id": "m1705[C_lp]"},
+    {"reaction_id": "R1790", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m1705[C_lp]": -1.0, "m378[C_em]": 1.0}, "source_state": "pa_lp", "target_state": "pa_em", "template_source_id": "m1705[C_lp]", "template_target_id": "m378[C_em]"},
+    {"reaction_id": "R196", "bounds": [-1000.0, 1000.0], "gpr": "YALI1E17431g", "stoichiometry": {"m376[C_em]": -1.0, "m377[C_em]": -1.0, "m378[C_em]": -1.0, "m379[C_em]": 1.0, "m380[C_em]": 1.0}, "source_state": "pa_em", "target_state": "cdp_dag_em", "template_source_id": "m378[C_em]", "template_target_id": "m379[C_em]"},
+    {"reaction_id": "R1839", "bounds": [0.0, 1000.0], "gpr": "YALI1F27002g", "stoichiometry": {"m1605[C_em]": -1.0, "m379[C_em]": -1.0, "m1601[C_em]": 1.0, "m1648[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "cdp_dag_em", "target_state": "pi_em", "template_source_id": "m379[C_em]", "template_target_id": "m1648[C_em]"},
+    {"reaction_id": "R1841", "bounds": [0.0, 1000.0], "gpr": "YALI1D10930g", "stoichiometry": {"m1604[C_em]": -1.0, "m379[C_em]": -1.0, "m1601[C_em]": 1.0, "m1631[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "cdp_dag_em", "target_state": "ps_em", "template_source_id": "m379[C_em]", "template_target_id": "m1631[C_em]"},
+    {"reaction_id": "R1792", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m1631[C_em]": -1.0, "m868[C_mm]": 1.0}, "source_state": "ps_em", "target_state": "ps_mm", "template_source_id": "m1631[C_em]", "template_target_id": "m868[C_mm]"},
+    {"reaction_id": "R629", "bounds": [0.0, 1000.0], "gpr": "YALI1D27274g", "stoichiometry": {"m382[C_mm]": -1.0, "m868[C_mm]": -1.0, "m869[C_mm]": 1.0, "m870[C_mm]": 1.0}, "source_state": "ps_mm", "target_state": "pe_mm", "template_source_id": "m868[C_mm]", "template_target_id": "m870[C_mm]"},
+    {"reaction_id": "R1793", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m870[C_mm]": -1.0, "m1633[C_em]": 1.0}, "source_state": "pe_mm", "target_state": "pe_em", "template_source_id": "m870[C_mm]", "template_target_id": "m1633[C_em]"},
+    {"reaction_id": "R1787", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m1633[C_em]": -1.0, "m1700[C_lp]": 1.0}, "source_state": "pe_em", "target_state": "pe_lp", "template_source_id": "m1633[C_em]", "template_target_id": "m1700[C_lp]"},
+    {"reaction_id": "R1835", "bounds": [0.0, 1000.0], "gpr": "YALI1E07347g", "stoichiometry": {"m1606[C_em]": -1.0, "m1633[C_em]": -1.0, "m1607[C_em]": 1.0, "m1717[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "pe_em", "target_state": "pmme_em", "template_source_id": "m1633[C_em]", "template_target_id": "m1717[C_em]"},
+    {"reaction_id": "R1845", "bounds": [0.0, 1000.0], "gpr": "YALI1E15432g", "stoichiometry": {"m1606[C_em]": -1.0, "m1717[C_em]": -1.0, "m1607[C_em]": 1.0, "m1719[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "pmme_em", "target_state": "pdme_em", "template_source_id": "m1717[C_em]", "template_target_id": "m1719[C_em]"},
+    {"reaction_id": "R1844", "bounds": [0.0, 1000.0], "gpr": "YALI1E15432g", "stoichiometry": {"m1606[C_em]": -1.0, "m1719[C_em]": -1.0, "m1607[C_em]": 1.0, "m1632[C_em]": 1.0, "m377[C_em]": 1.0}, "source_state": "pdme_em", "target_state": "pc_em", "template_source_id": "m1719[C_em]", "template_target_id": "m1632[C_em]"},
+    {"reaction_id": "R1786", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m1632[C_em]": -1.0, "m1701[C_lp]": 1.0}, "source_state": "pc_em", "target_state": "pc_lp", "template_source_id": "m1632[C_em]", "template_target_id": "m1701[C_lp]"},
+    {"reaction_id": "R1773", "bounds": [0.0, 1000.0], "gpr": "YALI1D35593g", "stoichiometry": {"m1447[C_em]": -1.0, "m378[C_em]": -1.0, "m1599[C_em]": 1.0, "m1649[C_em]": 1.0}, "source_state": "pa_em", "target_state": "dag_em", "template_source_id": "m378[C_em]", "template_target_id": "m1649[C_em]"},
+    {"reaction_id": "R1776", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m1670[C_cy]": -1.0, "m1649[C_em]": 1.0}, "source_state": "dag_cy", "target_state": "dag_em", "template_source_id": "m1670[C_cy]", "template_target_id": "m1649[C_em]", "construction_direction": "reverse"},
+    {"reaction_id": "R1778", "bounds": [-1000.0, 1000.0], "gpr": "", "reaction_classification": "composite_or_nonenzymatic_lipid_exchange", "stoichiometry": {"m1670[C_cy]": -1.0, "m1642[C_lp]": 1.0}, "source_state": "dag_cy", "target_state": "dag_lp", "template_source_id": "m1670[C_cy]", "template_target_id": "m1642[C_lp]"},
+    {"reaction_id": "R1771", "bounds": [-1000.0, 1000.0], "gpr": "YALI1E38810g", "stoichiometry": {"m1642[C_lp]": -1.0, "m570[C_lp]": -1.0, "m1640[C_lp]": 1.0, "m573[C_lp]": 1.0}}
+  ],
+  "biomass": {"reaction_id": "biomass_C", "terms": [
+    {"generic_metabolite_id": "m1705[C_lp]", "state": "pa_lp", "compartment": "C_lp", "coefficient": 0.000058, "arity": 2},
+    {"generic_metabolite_id": "m1631[C_em]", "state": "ps_em", "compartment": "C_em", "coefficient": 0.000035, "arity": 2},
+    {"generic_metabolite_id": "m1648[C_em]", "state": "pi_em", "compartment": "C_em", "coefficient": 0.000075, "arity": 2},
+    {"generic_metabolite_id": "m1700[C_lp]", "state": "pe_lp", "compartment": "C_lp", "coefficient": 0.000237, "arity": 2},
+    {"generic_metabolite_id": "m1701[C_lp]", "state": "pc_lp", "compartment": "C_lp", "coefficient": 0.000346, "arity": 2},
+    {"generic_metabolite_id": "m1640[C_lp]", "state": "tag_lp", "compartment": "C_lp", "coefficient": 0.000234, "arity": 3}
+  ]},
+  "cardiolipin_four_chain_audit": {
+    "mode": "audit_only",
+    "compartment": "C_mm",
+    "position_convention": {
+      "positions": ["proS_sn1", "proS_sn2", "proR_sn1", "proR_sn2"],
+      "ordered_half_label_pattern": "sn1=<chain>|sn2=<chain>",
+      "metabolite_id_pattern": "ul_cl_mm__proS_sn1__<a>__proS_sn2__<b>__proR_sn1__<c>__proR_sn2__<d>[C_mm]",
+      "proS_proR_stereochemically_equivalent": false,
+      "half_swap_canonicalization_allowed": false
+    },
+    "state_space": {
+      "digest_convention": "UTF-8; Python/Unicode ascending sort; LF join; trailing LF",
+      "ordered_half_pair_count": 49,
+      "ordered_half_labels_sha256": "2b7fc64ec0a8a6e0ab46bedca36e7bf48fff46b35032418855d5218a3d937dd5",
+      "not_adopted_modeling_envelope": {
+        "status": "not_adopted",
+        "all_state_count": 2401,
+        "all_ids_sha256": "af34ecde5ef4a2823208c2ff7e81733b42d907034ca816fdafb9f9f1288f0ecb",
+        "same_half_state_count": 49,
+        "same_half_ids_sha256": "3eb9cba676499fa5daa16077fd36282f22988970aeaa12c2e5f357fec7bb39b6",
+        "different_half_state_count": 2352,
+        "different_half_ids_sha256": "3db29ba9826a80e5d9e777c98c1b2c635427b6dccf3817402629031601b5fcd9"
+      },
+      "forbidden_lossy_half_swap_fold": {
+        "count_formula": "49*50/2",
+        "state_count": 1225,
+        "status": "forbidden"
+      },
+      "current_strict_model": {
+        "currently_instantiated_network_position_state_count": 0,
+        "evidence_supported_position_state_count": 0,
+        "included_position_metabolite_count": 0,
+        "included_position_reaction_count": 0,
+        "reachability_scope": "zero means no position-resolved cardiolipin state is instantiated in the current candidate; it does not prove all 2,401 envelope states biologically unreachable"
+      }
+    },
+    "template_reactions": [
+      {"reaction_id": "R1791", "bounds": [-1000.0, 1000.0], "gpr": "", "compartments": ["C_em", "C_mm"], "stoichiometry": {"m378[C_em]": -1.0, "m383[C_mm]": 1.0}},
+      {"reaction_id": "R197", "bounds": [-1000.0, 1000.0], "gpr": "YALI1E17431g", "compartments": ["C_mm"], "stoichiometry": {"m381[C_mm]": -1.0, "m382[C_mm]": -1.0, "m383[C_mm]": -1.0, "m384[C_mm]": 1.0, "m385[C_mm]": 1.0}},
+      {"reaction_id": "R1836", "bounds": [0.0, 1000.0], "gpr": "YALI1E17162g", "compartments": ["C_mm"], "stoichiometry": {"m1628[C_mm]": -1.0, "m1629[C_mm]": 1.0, "m1653[C_mm]": 1.0, "m382[C_mm]": 1.0, "m384[C_mm]": -1.0}},
+      {"reaction_id": "R1722", "bounds": [0.0, 1000.0], "gpr": "YALI1A13994g", "compartments": ["C_mm"], "stoichiometry": {"m1623[C_mm]": -1.0, "m1630[C_mm]": 1.0, "m1650[C_mm]": 1.0, "m1653[C_mm]": -1.0}},
+      {"reaction_id": "R1721", "bounds": [0.0, 1000.0], "gpr": "YALI1F31283g", "compartments": ["C_mm"], "stoichiometry": {"m1629[C_mm]": 1.0, "m1650[C_mm]": -1.0, "m1651[C_mm]": 1.0, "m382[C_mm]": 1.0, "m384[C_mm]": -1.0}},
+      {"reaction_id": "R1723", "bounds": [0.0, 1000.0], "gpr": "YALI1D22083g", "compartments": ["C_mm"], "stoichiometry": {"m1623[C_mm]": -1.0, "m1651[C_mm]": -1.0, "m1654[C_mm]": 1.0, "m1655[C_mm]": 1.0, "m382[C_mm]": 1.0}},
+      {"reaction_id": "R1724", "bounds": [-1000.0, 1000.0], "gpr": "YALI1C19814g", "compartments": ["C_mm"], "stoichiometry": {"m1651[C_mm]": 1.0, "m1654[C_mm]": -1.0, "m789[C_mm]": 1.0, "m791[C_mm]": -1.0}},
+      {"reaction_id": "R1794", "bounds": [-1000.0, 1000.0], "gpr": "", "compartments": ["C_em", "C_mm"], "stoichiometry": {"m1632[C_em]": -1.0, "m791[C_mm]": 1.0}},
+      {"reaction_id": "R1742", "bounds": [0.0, 1000.0], "gpr": "YALI1F11605g", "compartments": ["C_mm"], "notes": {"PROTEIN_CLASS": "3.1.4.2"}, "stoichiometry": {"m1623[C_mm]": -1.0, "m1628[C_mm]": 1.0, "m1650[C_mm]": -1.0, "m1674[C_mm]": 1.0, "m382[C_mm]": 1.0}}
+    ],
+    "gene_identity_ledger": [
+      {"systematic_id": "YALI1E17431g", "legacy_id": "YALI0E14443g", "database_ids": ["GeneID:2911514", "UniProt:Q6C5X0"], "established_name": "no established gene name verified", "candidate_label": "CDS1", "protein_function": "predicted CDP-diacylglycerol synthase", "model_gpr_role": {"reaction_id": "R197", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "curated annotation", "evidence_status": ["experimental_support", "database_inference", "model_assignment", "unverified"], "evidence_detail": "sfGFP directly supports ER localization only; catalytic identity is predicted and the mitochondrial R197 role is unverified"},
+      {"systematic_id": "YALI1C17238g", "legacy_id": "YALI0C12276g", "database_ids": ["GeneID:2910122", "UniProt:Q6CC57"], "established_name": "no established gene name verified", "candidate_label": "TAM41", "protein_function": "putative mitochondrial CDP-diacylglycerol synthase", "model_gpr_role": null, "evidence_category": "curated annotation", "evidence_status": ["database_inference", "unverified"], "evidence_detail": "related-system Tam41 evidence and database inference do not directly verify this Yarrowia protein", "gpr_replacement_action": "forbidden"},
+      {"systematic_id": "YALI1E17162g", "legacy_id": "YALI0E14102g", "database_ids": ["GeneID:2911499", "UniProt:Q6C5Y3"], "established_name": "no established gene name verified", "protein_function": "predicted phosphatidylglycerolphosphate synthase", "model_gpr_role": {"reaction_id": "R1836", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "model/GPR assignment only", "evidence_status": ["database_inference", "model_assignment", "unverified"], "evidence_detail": "no direct Yarrowia biochemical or localization evidence audited"},
+      {"systematic_id": "YALI1A13994g", "legacy_id": "YALI0A14157g", "database_ids": ["GeneID:2906466", "UniProt:Q6CH12"], "established_name": "no established gene name verified", "protein_function": "predicted phosphatidylglycerolphosphate phosphatase", "model_gpr_role": {"reaction_id": "R1722", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "model/GPR assignment only", "evidence_status": ["database_inference", "model_assignment", "unverified"], "evidence_detail": "no direct Yarrowia biochemical or localization evidence audited"},
+      {"systematic_id": "YALI1F31283g", "legacy_id": "YALI0F23837g", "database_ids": ["GeneID:2908748", "UniProt:Q6C0K8"], "established_name": "no established gene name verified", "protein_function": "predicted cardiolipin synthase", "model_gpr_role": {"reaction_id": "R1721", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "model/GPR assignment only", "evidence_status": ["database_inference", "model_assignment", "unverified"], "evidence_detail": "no direct Yarrowia biochemical or localization evidence audited"},
+      {"systematic_id": "YALI1D22083g", "legacy_id": "YALI0D17842g", "database_ids": ["GeneID:2911317", "UniProt:Q6C8Q4"], "established_name": "no established gene name verified", "protein_function": "putative cardiolipin phospholipase", "model_gpr_role": {"reaction_id": "R1723", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "model/GPR assignment only", "evidence_status": ["model_assignment", "unverified"], "evidence_detail": "no direct Yarrowia biochemical, position-selectivity, or localization evidence audited"},
+      {"systematic_id": "YALI1C19814g", "legacy_id": "YALI0C14036g", "database_ids": ["GeneID:2909726", "UniProt:Q6CBZ7"], "established_name": "no established gene name verified", "candidate_label": "tafazzin", "protein_function": "tafazzin-family phospholipid transacylase", "model_gpr_role": {"reaction_id": "R1724", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "curated annotation", "evidence_status": ["experimental_support", "model_assignment", "unverified"], "evidence_detail": "cryo-EM directly supports the protein and inner-mitochondrial-membrane matrix-side placement; Yarrowia catalytic kinetics and position-resolved remodeling remain unverified"},
+      {"systematic_id": "YALI1F11605g", "legacy_id": "YALI0F08217g", "old_aliases": ["YALI2_F00162g", "RefSeq:XP_505153.1"], "database_ids": ["GeneID:2908510", "UniProt:Q6C2F9"], "deleted_database_ids": ["UniProt:A0A1D8NMM1"], "established_name": "no established gene name verified", "candidate_label": "PGC1", "protein_function": "putative phosphatidylglycerol-specific phospholipase C/glycerophosphodiester phosphodiesterase", "model_gpr_role": {"reaction_id": "R1742", "compartment": "C_mm", "status": "source_model_assignment"}, "evidence_category": "uncharacterized", "evidence_status": ["database_inference", "model_assignment", "unverified"], "evidence_detail": "EC annotation conflicts and C_mm localization is unverified"},
+      {"systematic_id": "YALI1B16087g", "legacy_id": "YALI0B12254g", "old_aliases": ["YALI2_C00842g"], "normalized_aliases": ["YALI2C00842g"], "database_ids": ["GeneID:2907165"], "established_name": "no established gene name verified", "candidate_label": "LCLAT1-like", "protein_function": "lysocardiolipin acyltransferase candidate", "model_gpr_role": null, "evidence_category": "uncharacterized", "evidence_status": ["database_inference", "unverified"], "evidence_detail": "no direct Yarrowia biochemical, localization, or remodeling evidence audited", "gpr_replacement_or_addition_action": "forbidden"}
+    ],
+    "R197_gpr_decision_contract": {
+      "current_gpr": "YALI1E17431g",
+      "current_gene_candidate_label": "CDS1",
+      "current_gene_localization_evidence": "direct sfGFP: ER",
+      "mitochondrial_R197_evidence_status": "unverified",
+      "replacement_candidate": "YALI1C17238g",
+      "replacement_candidate_label": "TAM41",
+      "replacement_evidence_status": "database inference only",
+      "replacement_action": "forbidden"
+    },
+    "R1742_annotation_conflict": {
+      "claim_id": "CL-E10",
+      "source_ids": ["R1742_NCBI_UNIPROT_KEGG", "IUBMB_EC_3_1_4_2"],
+      "audit_status": "audited",
+      "decision": "exclude",
+      "conditions": "source-model R1742 EC assignment compared with KEGG orthology scope and IUBMB EC nomenclature",
+      "reviewer_verdict": "contradicted",
+      "reaction_id": "R1742",
+      "gpr": "YALI1F11605g",
+      "model_assigned_ec": "3.1.4.2",
+      "iubmb_ec_3_1_4_2_function": "glycerophosphocholine phosphodiesterase",
+      "model_ec_match_verdict": "contradicted",
+      "kegg_orthology": "K18694",
+      "kegg_supported_ec_scope": "3.1.4.-",
+      "C_mm_localization_evidence_status": "unverified",
+      "reaction_expansion_decision": "blocked"
+    },
+    "evidence_sources": [
+      {"source_id": "LIPID_MAPS_PL_LPL", "claim_ids": ["CL-E01"], "url": "https://www.lipidmaps.org/lipid_nomenclature/glycerophospholipids/pl_lpl", "locator": "glycerophospholipid shorthand record", "accessed_on": "2026-08-18", "supports": "standardized position-specific glycerophospholipid notation", "evidence_type": "official nomenclature", "conditions": "general glycerophospholipid nomenclature", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "nomenclature does not establish Yarrowia state reachability"},
+      {"source_id": "Schlame_2008_JLR", "claim_ids": ["CL-E02"], "doi": "10.1194/jlr.R700018-JLR200", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2444000/", "locator": "article discussion of central-glycerol pro-R/pro-S chirality", "accessed_on": "2026-08-18", "supports": "the two phosphatidyl halves retain stereochemical identity and cannot be losslessly folded by half swap", "evidence_type": "peer-reviewed review", "conditions": "cardiolipin structure; not organism-specific", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "not Yarrowia-specific reachability evidence"},
+      {"source_id": "Abreu_Park_2022", "claim_ids": ["CL-E03"], "doi": "10.3390/biom12081026", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9394261/", "locator": "article cardiolipin lipidomics results", "accessed_on": "2026-08-18", "supports": "Yarrowia CL 72:7 and CL 72:6 observations are sum/probable species, not four-position assignments", "evidence_type": "peer-reviewed experimental lipidomics", "conditions": "Yarrowia lipidomics under the reported study conditions", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "sum composition cannot identify pro-S/pro-R or individual sn positions"},
+      {"source_id": "Sekova_2019", "claim_ids": ["CL-E04"], "doi": "10.3390/metabo9120307", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6950712/", "locator": "article W29 cardiolipin profile", "accessed_on": "2026-08-18", "supports": "Yarrowia W29 cardiolipin evidence constrains marginal composition but not a joint four-position state", "evidence_type": "peer-reviewed experimental lipidomics", "conditions": "Yarrowia W29 under the reported study conditions", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "no complete four-position mapping"},
+      {"source_id": "Bredeweg_2016", "claim_ids": ["CL-E05"], "doi": "10.1186/s13068-016-0687-7", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5210315/", "locator": "article sfGFP localization results", "accessed_on": "2026-08-18", "supports": "YALI1E17431g/YALI0E14443g localizes to ER in the tested sfGFP system", "evidence_type": "peer-reviewed direct localization experiment", "conditions": "Yarrowia sfGFP localization in the tested expression system", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "does not support mitochondrial R197 assignment"},
+      {"source_id": "Tamura_2013", "claim_ids": ["CL-E06"], "doi": "10.1016/j.cmet.2013.03.018", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3654088/", "locator": "article Tam41 mitochondrial CDP-diacylglycerol synthase results", "accessed_on": "2026-08-18", "supports": "Tam41 can perform mitochondrial CDP-diacylglycerol synthesis in the studied non-Yarrowia system", "evidence_type": "peer-reviewed direct experiment in a related system", "conditions": "non-Yarrowia Tam41 experimental system", "reviewer_verdict": "partially_supported", "audit_status": "audited", "decision": "defer", "limitations": "organism transfer does not verify YALI1C17238g or authorize GPR replacement"},
+      {"source_id": "Schiller_2022", "claim_ids": ["CL-E07"], "doi": "10.1126/sciadv.add3855", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9668296/", "locator": "article Yarrowia tafazzin cryo-EM structure and membrane orientation", "accessed_on": "2026-08-18", "supports": "YALI1C19814g/YALI0C14036g protein and inner-mitochondrial-membrane matrix-side placement", "evidence_type": "peer-reviewed direct structural experiment", "conditions": "purified Yarrowia tafazzin cryo-EM system", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "does not provide the kinetics or position-resolved network needed to activate R1724 expansion"},
+      {"source_id": "RHEA_32931", "claim_ids": ["CL-E08"], "url": "https://www.rhea-db.org/rhea/32931", "locator": "Rhea reaction record; EC 2.7.8.41", "accessed_on": "2026-08-18", "supports": "canonical cardiolipin synthase chemistry", "evidence_type": "curated reaction database", "conditions": "curated reaction identity independent of organism", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "reaction identity does not establish Yarrowia GPR, chain reachability, or position mapping"},
+      {"source_id": "R1742_NCBI_UNIPROT_KEGG", "claim_ids": ["CL-E09"], "url": "https://www.ncbi.nlm.nih.gov/gene/2908510", "additional_urls": {"uniprot_active": "https://www.uniprot.org/uniprotkb/Q6C2F9", "uniprot_deleted_archive": "https://rest.uniprot.org/unisave/A0A1D8NMM1?format=json", "kegg_orthology": "https://www.kegg.jp/entry/K18694"}, "locator": "NCBI Gene/RefSeq identity, UniProt active and deleted records, and KEGG orthology record", "accessed_on": "2026-08-18", "supports": "YALI1F11605g identity, aliases, active Q6C2F9, deleted A0A1D8NMM1, and K18694 support limited to EC 3.1.4.-", "evidence_type": "official database records", "conditions": "Yarrowia database identity and KEGG orthology annotations", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "database records do not verify C_mm localization or R1742 chemistry"},
+      {"source_id": "IUBMB_EC_3_1_4_2", "claim_ids": ["CL-E11"], "url": "https://iubmb.qmul.ac.uk/enzyme/EC3/1/4/2.html", "locator": "IUBMB EC 3.1.4.2 record", "accessed_on": "2026-08-18", "supports": "EC 3.1.4.2 is glycerophosphocholine phosphodiesterase rather than phosphatidylglycerol-specific phospholipase C", "evidence_type": "official enzyme nomenclature", "conditions": "IUBMB enzyme nomenclature", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "EC conflict blocks rather than identifies the correct Yarrowia reaction"},
+      {"source_id": "Connerth_2012", "claim_ids": ["CL-E12"], "doi": "10.1126/science.1225625", "url": "https://pubmed.ncbi.nlm.nih.gov/23042293/", "locator": "article Ups1-Mdm35 phosphatidic-acid transfer results", "accessed_on": "2026-08-18", "supports": "intramitochondrial phosphatidic-acid transfer by Ups1-Mdm35 in Saccharomyces cerevisiae", "evidence_type": "peer-reviewed direct experiment in a related species", "conditions": "Saccharomyces cerevisiae mitochondrial transport system", "reviewer_verdict": "partially_supported", "audit_status": "audited", "decision": "defer", "limitations": "heterologous precedent does not identify a Yarrowia R1791 transporter or authorize a route"},
+      {"source_id": "de_Kroon_2002", "claim_ids": ["CL-E13"], "doi": "10.1091/mbc.E02-08-0460", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC165103/", "locator": "article ER-mitochondria phosphatidylcholine equilibration results", "accessed_on": "2026-08-18", "supports": "phosphatidylcholine and precursor equilibration between ER and mitochondria in Saccharomyces cerevisiae", "evidence_type": "peer-reviewed direct experiment in a related species", "conditions": "Saccharomyces cerevisiae ER-mitochondria transport system", "reviewer_verdict": "partially_supported", "audit_status": "audited", "decision": "defer", "limitations": "the molecular transport mechanism and a Yarrowia R1794 GPR remain unknown"},
+      {"source_id": "Beranek_2009", "claim_ids": ["CL-E14"], "doi": "10.1074/jbc.M805511200", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2670162/", "locator": "article Saccharomyces cerevisiae CLD1 results", "accessed_on": "2026-08-18", "supports": "a cardiolipin-specific phospholipase encoded by CLD1 in Saccharomyces cerevisiae", "evidence_type": "peer-reviewed direct experiment in a related species", "conditions": "Saccharomyces cerevisiae CLD1 experiments", "reviewer_verdict": "partially_supported", "audit_status": "audited", "decision": "defer", "limitations": "does not directly verify YALI1D22083g, its localization, or position selectivity"},
+      {"source_id": "Baile_2013", "claim_ids": ["CL-E15"], "doi": "10.1091/mbc.E13-03-0121", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3681703/", "locator": "article matrix-side Cld1p and remodeling-topology results", "accessed_on": "2026-08-18", "supports": "Saccharomyces Cld1p deacylation occurs on the matrix-facing inner-membrane leaflet and implies an unresolved MLCL translocation step", "evidence_type": "peer-reviewed direct experiment in a related species", "conditions": "Saccharomyces cerevisiae inner-membrane remodeling topology", "reviewer_verdict": "partially_supported", "audit_status": "audited", "decision": "defer", "limitations": "does not establish Yarrowia remodeling topology, transporter, or position mapping"},
+      {"source_id": "Abe_2016", "claim_ids": ["CL-E16"], "doi": "10.1074/jbc.M116.718510", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4957036/", "locator": "article purified Saccharomyces tafazzin transacylation results", "accessed_on": "2026-08-18", "supports": "Saccharomyces tafazzin remodels cardiolipin by phospholipid transacylation under the tested liposome conditions", "evidence_type": "peer-reviewed direct experiment in a related species", "conditions": "purified Saccharomyces tafazzin liposome assay", "reviewer_verdict": "partially_supported", "audit_status": "audited", "decision": "defer", "limitations": "does not verify a Yarrowia LCLAT1-like enzyme or authorize adding YALI1B16087g to a GPR"},
+      {"source_id": "YALI1B16087_NCBI_KEGG", "claim_ids": ["CL-E17"], "url": "https://www.ncbi.nlm.nih.gov/gene/2907165", "additional_urls": {"kegg_gene": "https://www.kegg.jp/entry/yli:2907165"}, "locator": "NCBI Gene/RefSeq and KEGG gene records", "accessed_on": "2026-08-18", "supports": "YALI1B16087g identity and the database inference retained only as an LCLAT1-like candidate", "evidence_type": "official database records", "conditions": "Yarrowia locus identity and database annotations", "reviewer_verdict": "supported", "audit_status": "audited", "decision": "use_as_constraint", "limitations": "does not directly verify lysocardiolipin acyltransferase activity, localization, or a model GPR"}
+    ],
+    "evidence_audit_coverage": {"total_claims": 17, "audited": 17, "supported": 10, "unresolved": 6, "contradicted": 1, "unchecked": 0},
+    "network_evidence": {
+      "R1791_R1794_yarrowia_transporter_evidence": "bounded_audit_no_direct_evidence_found",
+      "transporter_search_provenance": {
+        "targets": ["Yarrowia R1791 phosphatidate ER-mitochondrial-membrane transporter", "Yarrowia R1794 phosphatidylcholine ER-mitochondrial-membrane transporter"],
+        "sources_checked": ["NCBI Gene/RefSeq records in this audit", "UniProtKB records in this audit", "KEGG records in this audit", "PubMed-indexed Connerth_2012 and de_Kroon_2002 articles"],
+        "accessed_on": "2026-08-18",
+        "result": "no direct Yarrowia transporter evidence found within the bounded audit",
+        "interpretation": "no hit is not evidence of absence"
+      },
+      "observed_cardiolipin_species": ["CL 72:7", "CL 72:6"],
+      "observed_species_resolution": "sum_composition_or_probable_only; no sn-position assignment",
+      "pg_cdpdag_to_proS_proR_mapping": "unresolved",
+      "R1723_removed_position_and_chain": "unresolved",
+      "R1724_MLCL_vacancy_PC_donor_site_and_chain": "unresolved",
+      "CL_MLCL_leaflet_redistribution": "unknown",
+      "candidate_reaction_generation": "forbidden"
+    },
+    "biomass_contract": {
+      "reaction_id": "biomass_C",
+      "candidate_action": "no_change",
+      "xLIPID_generic_cardiolipin_metabolite_id": "m1651[C_mm]",
+      "xLIPID_generic_cardiolipin_coefficient": -0.842,
+      "xLIPID_weight_adopted": false,
+      "sekova_profile_fraction": {
+        "source_id": "Sekova_2019",
+        "reported_percent_range": [7, 9],
+        "condition_scope": "reported experimental conditions only",
+        "quantity_type": "relative cardiolipin profile fraction",
+        "absolute_mol_per_gDW_available": false,
+        "species_response_factor_calibration_available": false,
+        "sn_position_weights_available": false
+      },
+      "cardiolipin_biomass_weight_decision": "blocked",
+      "independent_chain_product_weighting": "forbidden"
+    },
+    "gates": {
+      "network_reachability_gate_passed": false,
+      "position_identity_gate_passed": false,
+      "transport_evidence_gate_passed": false,
+      "remodeling_evidence_gate_passed": false,
+      "biomass_weight_gate_passed": false,
+      "human_activation_approved": false,
+      "ready_for_activation": false,
+      "production_apply_allowed": false
+    },
+    "activation": {
+      "state": "blocked",
+      "ready_for_activation": false,
+      "production_apply_allowed": false,
+      "human_approval_recorded": false,
+      "human_gate_required": true
+    },
+    "blockers": [
+      "pg_cdpdag_to_proS_proR_assignment_unresolved",
+      "chain_resolved_mitochondrial_pg_supply_absent",
+      "R1791_R1794_yarrowia_transporters_unverified",
+      "cardiolipin_remodeling_position_selectivity_unverified",
+      "YALI1B16087g_LCLAT1_like_GPR_addition_forbidden",
+      "R1742_ec_and_C_mm_localization_conflict_unresolved",
+      "cardiolipin_biomass_weight_not_source_supported",
+      "independent_chain_product_weighting_forbidden_without_joint_position_data",
+      "production_activation_requires_new_human_approval"
+    ]
+  },
+  "generic_acyl_coa_ids": ["m570[C_lp]", "m567[C_em]", "m790[C_mm]"],
+  "remove_reactions": ["R351", "R1902", "R1766", "R1719", "R350", "R2091", "R352", "R1843", "R1772", "R1727", "R530", "xPOOL_AC_LP", "xPOOL_AC_EM", "xPOOL_AC_MM"],
+  "close_reactions": ["R2135", "R2144", "R2145", "R2168", "R2169", "R2170", "R1707", "R1785", "R2165"],
+  "blockers": ["pH_7_3_coa_acyl_coa_tuple_migration_unresolved", "R1521_R1708_R2004_component_chemistry_unresolved", "cardiolipin_four_chain_expansion_deferred", "production_apply_forbidden_pending_human_approval"]
+}

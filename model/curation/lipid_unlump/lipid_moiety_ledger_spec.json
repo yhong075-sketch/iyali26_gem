@@ -1,0 +1,377 @@
+{
+  "schema_version": 2,
+  "title": "Read-only aggregate acyl-moiety ledger contract",
+  "purpose": "Plan an in-memory, non-activatable TAG acyl-moiety ledger without changing model.xml.",
+  "activation_ready": false,
+  "execution_mode": {
+    "source_model_immutable": true,
+    "build_scope": "in_memory_only",
+    "allowed_artifact": "canonical_json_manifest_only",
+    "xml_output_forbidden": true,
+    "model_activation_forbidden": true,
+    "immutable_input_alias_output_forbidden": true
+  },
+  "public_compile_contract": {
+    "entrypoint": "compile_dry_run",
+    "required_parameters": [
+      "model_path",
+      "curation_csv"
+    ],
+    "optional_parameters": [
+      "spec_path",
+      "verify_determinism"
+    ],
+    "forbidden_parameters": [
+      "activation_opt_in"
+    ]
+  },
+  "inputs": {
+    "source_model": "model.xml",
+    "curation": "data/lipid_combo_curation.csv",
+    "required_sha256": [
+      "model.xml",
+      "data/lipid_combo_curation.csv",
+      "data/lipid_moiety_ledger_spec.json"
+    ]
+  },
+  "source_chemical_convention": {
+    "name": "biochemical_pH_anionic",
+    "interpretation": "The same-compartment CoA and all seven xPOOL_AC_EM acyl-CoAs must use the explicit biochemical-pH anionic formula/charge tuples below. The compiler only reads and verifies those tuples and canonical identities; it never repairs the source model.",
+    "annotation_policy": {
+      "accepted_value_shapes": [
+        "string",
+        "list_of_strings"
+      ],
+      "required_canonical_fields": [
+        "bigg",
+        "kegg",
+        "mnxm",
+        "chebi"
+      ],
+      "wrong_same_namespace_forbidden": true
+    },
+    "same_compartment_coa": {
+      "chemical_identity": "coenzyme A",
+      "formula": "C21H32N7O16P3S",
+      "charge": -4,
+      "canonical_mapping": {
+        "bigg": "coa",
+        "kegg": "C00010",
+        "mnxm": "MNXM12",
+        "chebi": "CHEBI:57287"
+      }
+    },
+    "acyl_coas": {
+      "lauroyl": {
+        "chemical_identity": "lauroyl-CoA",
+        "formula": "C33H54N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "ddcacoa",
+          "kegg": "C01832",
+          "mnxm": "MNXM363",
+          "chebi": "CHEBI:57375"
+        }
+      },
+      "myristoyl": {
+        "chemical_identity": "myristoyl-CoA",
+        "formula": "C35H58N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "tdcoa",
+          "kegg": "C02593",
+          "mnxm": "MNXM224",
+          "chebi": "CHEBI:57385"
+        }
+      },
+      "palmitoyl": {
+        "chemical_identity": "palmitoyl-CoA",
+        "formula": "C37H62N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "pmtcoa",
+          "kegg": "C00154",
+          "mnxm": "MNXM88",
+          "chebi": "CHEBI:57379"
+        }
+      },
+      "palmitoleoyl": {
+        "chemical_identity": "palmitoleoyl-CoA",
+        "formula": "C37H60N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "hdcoa",
+          "kegg": "C21072",
+          "mnxm": "MNXM781",
+          "chebi": "CHEBI:61540"
+        }
+      },
+      "stearoyl": {
+        "chemical_identity": "stearoyl-CoA",
+        "formula": "C39H66N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "stcoa",
+          "kegg": "C00412",
+          "mnxm": "MNXM272",
+          "chebi": "CHEBI:57394"
+        }
+      },
+      "oleoyl": {
+        "chemical_identity": "oleoyl-CoA",
+        "formula": "C39H64N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "ocdce9coa",
+          "kegg": "C00510",
+          "mnxm": "MNXM686",
+          "chebi": "CHEBI:57387"
+        }
+      },
+      "linoleoyl": {
+        "chemical_identity": "linoleoyl-CoA",
+        "formula": "C39H62N7O17P3S",
+        "charge": -4,
+        "canonical_mapping": {
+          "bigg": "lnlccoa",
+          "kegg": "C02050",
+          "mnxm": "MNXM638",
+          "chebi": "CHEBI:57383"
+        }
+      }
+    }
+  },
+  "candidate_gpr_curation": {
+    "first_acylation": {
+      "gpr": "YALI1C00230g",
+      "genes": [
+        {
+          "id": "YALI1C00230g",
+          "yali0": "YALI0C00209g",
+          "symbol": "SCT1",
+          "function": "glycerol-3-phosphate/dihydroxyacetone phosphate acyltransferase",
+          "evidence_status": "curated annotation"
+        }
+      ],
+      "status": "candidate_only",
+      "source_urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC9505966/"],
+      "caveat": "No direct seven-acyl-chain substrate spectrum or endosomal-membrane localization evidence."
+    },
+    "second_acylation": {
+      "gpr": "YALI1E22736g or YALI1F25951g",
+      "genes": [
+        {
+          "id": "YALI1E22736g",
+          "yali0": "YALI0E18964g",
+          "symbol": "SLC1",
+          "function": "1-acyl-sn-glycerol-3-phosphate acyltransferase",
+          "evidence_status": "curated annotation"
+        },
+        {
+          "id": "YALI1F25951g",
+          "yali0": "YALI0F19514g",
+          "symbol": "ALE1",
+          "function": "lysophospholipid acyltransferase with LPAAT/LPCAT annotation",
+          "evidence_status": "curated annotation"
+        }
+      ],
+      "status": "candidate_only",
+      "source_urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC9505966/"],
+      "caveat": "The OR rule denotes model alternatives, not experimentally proven chain interchangeability or endosomal-membrane localization."
+    },
+    "terminal_tag_route": {
+      "gpr": "YALI1E38810g",
+      "genes": [
+        {
+          "id": "YALI1E38810g",
+          "yali0": "YALI0E32769g",
+          "symbol": "DGA1",
+          "function": "DGAT2-family acyl-CoA:diacylglycerol acyltransferase",
+          "evidence_status": "experimentally verified"
+        }
+      ],
+      "status": "candidate_only",
+      "source_urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC3161177/"],
+      "caveat": "DGA1 supports lipid-particle/ER TAG synthesis, not the current endosomal-membrane source context."
+    }
+  },
+  "required_blockers": [
+    {
+      "id": "read_only_manifest_only_prototype",
+      "severity": "blocking",
+      "required_manifest_status": "open",
+      "effect": "activation_ready must remain false because this compiler only emits a read-only JSON manifest."
+    },
+    {
+      "id": "candidate_gpr_compartment_evidence_unresolved",
+      "severity": "blocking",
+      "required_manifest_status": "open",
+      "effect": "activation_ready must remain false: candidate GPRs are supported at the reaction-family level, but xPOOL_AC_EM is in the endosomal-membrane context and its source templates are disabled."
+    },
+    {
+      "id": "aggregate_ledger_lacks_molecular_species_provenance",
+      "severity": "blocking",
+      "required_manifest_status": "open",
+      "effect": "activation_ready must remain false because the aggregate ledger does not retain DAG pairing, sn position, or cross-compartment provenance."
+    },
+    {
+      "id": "chemistry_source_not_normalized",
+      "severity": "blocking",
+      "required_manifest_status": "open_when_source_verification_fails",
+      "effect": "activation_ready must remain false whenever the immutable source model does not exactly match the declared biochemical-pH anionic tuples and canonical identities."
+    }
+  ],
+  "chains": [
+    {
+      "id": "lauroyl",
+      "curation_member": "lauroyl-CoA",
+      "acyl_residue_formula": "C12H22O",
+      "carbon_atoms": 12,
+      "double_bonds": 0
+    },
+    {
+      "id": "myristoyl",
+      "curation_member": "myristoyl-CoA",
+      "acyl_residue_formula": "C14H26O",
+      "carbon_atoms": 14,
+      "double_bonds": 0
+    },
+    {
+      "id": "palmitoyl",
+      "curation_member": "palmitoyl-CoA",
+      "acyl_residue_formula": "C16H30O",
+      "carbon_atoms": 16,
+      "double_bonds": 0
+    },
+    {
+      "id": "palmitoleoyl",
+      "curation_member": "palmitoleoyl-CoA",
+      "acyl_residue_formula": "C16H28O",
+      "carbon_atoms": 16,
+      "double_bonds": 1
+    },
+    {
+      "id": "stearoyl",
+      "curation_member": "stearoyl-CoA",
+      "acyl_residue_formula": "C18H34O",
+      "carbon_atoms": 18,
+      "double_bonds": 0
+    },
+    {
+      "id": "oleoyl",
+      "curation_member": "oleoyl-CoA",
+      "acyl_residue_formula": "C18H32O",
+      "carbon_atoms": 18,
+      "double_bonds": 1
+    },
+    {
+      "id": "linoleoyl",
+      "curation_member": "linoleoyl-CoA",
+      "acyl_residue_formula": "C18H30O",
+      "carbon_atoms": 18,
+      "double_bonds": 2
+    }
+  ],
+  "curation_selection": {
+    "layer": "tri",
+    "verdict": "keep",
+    "composition_key": "unordered member_chains multiset",
+    "expected_tag_outputs": 35
+  },
+  "architecture": {
+    "first_acylation_reactions": 7,
+    "second_acylation_reactions": 7,
+    "terminal_tag_routes": 81,
+    "biochemical_reactions_exact": 95,
+    "generated_metabolites_exact": 44,
+    "generated_metabolites_maximum": 44
+  },
+  "required_manifest": {
+    "canonical_serialization": "UTF-8 JSON, sorted keys, compact separators, trailing newline",
+    "must_include": [
+      "activation_ready",
+      "input_sha256",
+      "architecture",
+      "source_chemical_convention",
+      "chain_ledger_ids",
+      "tag_outputs",
+      "abundance",
+      "candidate_gpr",
+      "validation",
+      "blockers"
+    ],
+    "validation_required_fields": [
+      "mass_balance",
+      "occupancy",
+      "chain_identity",
+      "ids",
+      "budget",
+      "fba_probe",
+      "abundance",
+      "source_chemical_convention",
+      "source_model_baseline",
+      "source_model_unchanged"
+    ],
+    "validation_flat_fields": [
+      "generated_biochemical_reactions_balanced",
+      "generated_metabolites_within_budget",
+      "chain_identity_conserved",
+      "occupancy_conserved",
+      "source_coa_acyl_formula_charge_verified",
+      "per_tag_required_chain_cut",
+      "all_supply_cut",
+      "fba_status",
+      "pfba_status"
+    ]
+  },
+  "validation_gates": {
+    "generated_biochemical_reactions_element_and_charge_balanced": true,
+    "charge_balance_interpretation": "Generated reactions always use the declared biochemical-pH anionic canonical tuples. Source formula/charge and canonical-identity verification is reported separately and opens a blocker on mismatch; the source model is never repaired.",
+    "source_coa_acyl_formula_charge_verified": "The same-compartment CoA and all seven xPOOL_AC_EM acyl-CoAs exactly match their declared formula, integer charge, chemical identity, and canonical mappings.",
+    "chain_identity_conserved": {
+      "chains": 7,
+      "statement": "For each chain i, w_i^T S = 0 over generated biochemical reactions."
+    },
+    "occupancy_conserved": {
+      "statement": "For every generated biochemical reaction, sum_i L_i - mono - 2*di = 0."
+    },
+    "per_tag_required_chain_cut": "Closing any required chain supply makes that TAG demand exactly zero.",
+    "all_supply_cut": "Closing all seven chain supplies makes every TAG demand and every free-ledger demand exactly zero.",
+    "all_supply_cut_internal_flux": "With all chain supplies closed, all 95 internal dry-run reaction maxima are exactly zero.",
+    "fba": "optimal",
+    "pfba": "optimal with every selected TAG demand flux equal to 1.0 within numerical tolerance",
+    "determinism": "Two independent plans have byte-identical canonical JSON.",
+    "cross_process_determinism": "CLI manifests are byte-identical under distinct PYTHONHASHSEED values.",
+    "source_model_unchanged": true,
+    "source_model_baseline_scope": "independent_source_baseline_not_integrated_regression",
+    "activation_ready": false,
+    "xml_output_rejected": true,
+    "immutable_input_alias_output_rejected": true,
+    "atomic_json_output": true
+  },
+  "capability_boundary": {
+    "retained": "Aggregate histogram of the seven acyl-chain identities selected only from tri/keep/member_chains.",
+    "curation_inputs_retained": [
+      "tri",
+      "keep",
+      "member_chains",
+      "prob",
+      "cumulative_coverage",
+      "xPOOL abundance weights"
+    ],
+    "curation_inputs_not_retained": [],
+    "toy_supply_upper_bound": 3,
+    "not_retained": [
+      "DAG pairing identity",
+      "sn-1/sn-2/sn-3 position",
+      "cross-compartment provenance"
+    ],
+    "unsupported_uses": [
+      "site-specific enzymes",
+      "selective lipolysis",
+      "isotope tracing",
+      "quantitative TAG composition inference without an explicit soft-prior probe",
+      "quantitative TAG yield inference"
+    ]
+  }
+}

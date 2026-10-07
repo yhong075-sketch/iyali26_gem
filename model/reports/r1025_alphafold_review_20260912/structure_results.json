@@ -1,0 +1,2316 @@
+{
+  "created_utc": "2026-09-13T01:29:04.643234+00:00",
+  "tool": "US-align 20260908",
+  "tool_sha256": "a25ca7594582a7e68210f651907e2e38964ef2004efe738e62e8a4625a2527f8",
+  "script_sha256": "523d3bad53962935e9d4552b44a7e32f0faa46e378e73d40020fb2cb38700e62",
+  "extractor_sha256": "3892acc1cd319fb14537c8bf78156df1341f86aaafe126f41e1160699cc1ed17",
+  "git_head": "ff36d87eb6c8f933dfc4413f43a2fcefcf0eea27",
+  "git_dirty": " M README.md\n M data/lipid_unlump_sn_core_curation.json\n M scripts/gem_annotate/cli.py\n M scripts/gem_annotate/genes.py\n M scripts/gem_annotate/main.py\n M scripts/gem_annotate/patches.py\n M scripts/lp_sn12_candidate.py\n M tests/test_lp_sn12_candidate.py\n?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/amidase_function_prediction_20260911/\n?? artifacts/argininosuccinate_identity_20260911/\n?? artifacts/c7_revision1_independent_followup_20260907/\n?? artifacts/cfsa_lipid_unlump_20260908/\n?? artifacts/cfsa_lipid_unlump_figure_20260909/\n?? artifacts/cfsa_multichain_20260908/\n?? artifacts/cfsa_pfba_cap_20260908/\n?? artifacts/cfsa_sampling_candidate_n1_20260908/\n?? artifacts/cfsa_tag_max_20260908/\n?? artifacts/cfsa_test_20260908/\n?? artifacts/closed_bounds_69_20260909/\n?? artifacts/coq9_dt_pair_local_20260907T175236Z/\n?? artifacts/coq9_dt_quarter_wt_20260907/\n?? artifacts/coq9_pipeline_20260909/\n?? artifacts/coq9_pipeline_integration_20260909/accepted/implementation_files.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/metadata.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.build.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/off.xml\n?? artifacts/coq9_pipeline_integration_20260909/accepted/preservation.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.build.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/qcycle.xml\n?? artifacts/coq9_pipeline_integration_20260909/accepted/reference_vs_metadata.json\n?? artifacts/coq9_pipeline_integration_20260909/accepted/static_pair.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/tests.log\n?? artifacts/coq9_pipeline_integration_20260909/accepted/validation.log\n?? artifacts/coq9_pipeline_integration_20260909/before.json\n?? artifacts/coq9_pipeline_integration_20260909/cache/\n?? artifacts/coq9_pipeline_integration_20260909/case_alias_test.log\n?? artifacts/coq9_pipeline_integration_20260909/curation_tests_final.log\n?? artifacts/coq9_pipeline_integration_20260909/final/\n?? artifacts/coq9_pipeline_integration_20260909/make_fixture.py\n?? artifacts/coq9_pipeline_integration_20260909/metadata.build.json\n?? artifacts/coq9_pipeline_integration_20260909/metadata.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/metadata.log\n?? artifacts/coq9_pipeline_integration_20260909/metadata.xml\n?? artifacts/coq9_pipeline_integration_20260909/name_source_test.log\n?? artifacts/coq9_pipeline_integration_20260909/off.build.json\n?? artifacts/coq9_pipeline_integration_20260909/off.coq9_genes.tsv\n?? artifacts/coq9_pipeline_integration_20260909/off.log\n?? artifacts/coq9_pipeline_integration_20260909/off.xml\n?? artifacts/coq9_pipeline_integration_20260909/off_attempt1.log\n?? artifacts/coq9_pipeline_integration_20260909/off_attempt2.log\n?? artifacts/coq9_pipeline_integration_20260909/prerequisite_probe.log\n?? artifacts/coq9_pipeline_integration_20260909/push_files.txt\n?? artifacts/coq9_pipeline_integration_20260909/static_pair.py\n?? artifacts/coq9_pipeline_integration_20260909/tests.log\n?? artifacts/coq9_pipeline_integration_20260909/tests_final.log\n?? artifacts/coq9_pipeline_integration_20260909/validate_final.py\n?? artifacts/coq9_reserve_depletion_20260908/\n?? artifacts/coq9_supply_mechanism_20260908/\n?? artifacts/coq9_wp2_proposal_only_20260905T2000Z/\n?? artifacts/coq9_wp2_proposal_v2_20260905/\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip.sha256\n?? artifacts/coq9_wp2_proposals_for_review_20260905.zip\n?? artifacts/d16151_function_prediction_20260911/\n?? artifacts/decision_evidence_audit_20260908/\n?? artifacts/dfba_consistent_integrator_n2_20260908/\n?? artifacts/dfba_event_resolve_gate_20260909T062014Z/\n?? artifacts/dipeptide_exchange_candidate_20260911/\n?? artifacts/dipeptidyl_function_prediction_20260911/\n?? artifacts/dipeptidyl_gene_lookup_20260911/\n?? artifacts/escher_atlas_20260909/\n?? artifacts/escher_atlas_20260911/\n?? artifacts/f38820_annotation_pipeline_20260911/\n?? artifacts/figures/\n?? artifacts/identity_construct_followup_20260907/\n?? artifacts/iyali26_vs_iyali21_slide_20260907/\n?? artifacts/iyli647_inactive_comparison_20260910/\n?? artifacts/iyli647_screen_20260910/\n?? artifacts/lipid_charge_fix_20260908/\n?? artifacts/metadata_reaction_selection_20260909/\n?? artifacts/methylcitrate_evidence_followup_20260907/\n?? artifacts/model_metadata_trna_push_20260910/before.json\n?? artifacts/model_metadata_trna_push_20260910/push_result.json\n?? artifacts/model_metadata_trna_push_20260910/rebuild.log\n?? artifacts/model_metadata_trna_push_20260910/staged-checkout/\n?? artifacts/model_metadata_trna_push_20260910/tests.log\n?? artifacts/model_metadata_trna_push_20260910/verification.build.json\n?? artifacts/model_metadata_trna_push_20260910/verification.coq9_genes.tsv\n?? artifacts/model_metadata_trna_push_20260910/verification.xml\n?? artifacts/model_static_screen_20260911/\n?? artifacts/n1_n4_decision_audit_20260908/\n?? artifacts/n1_n4_handoff_20260908/\n?? artifacts/next_evidence_independent_audit_20260908/\n?? artifacts/polyamine_chemistry_wp2_20260907/\n?? artifacts/polyamine_demand_identifiability_n3_20260908/\n?? artifacts/polyamine_transport_evidence_20260907/\n?? artifacts/polyamine_transport_evidence_revision1_20260908/\n?? artifacts/r1025_alphafold_review_20260912/\n?? artifacts/r1025_direction_review_20260912/\n?? artifacts/r1025_gpr_search_20260912/\n?? artifacts/r1026_gpr_pipeline_20260911/\n?? artifacts/r153_r2176_gpr_review_20260911/\n?? artifacts/r2081_closed_f00821_ko_20260911/\n?? artifacts/r2202_r1026_gpr_review_20260911/\n?? artifacts/r2251_r2087_gpr_review_20260911/\n?? artifacts/r293_r2080_function_prediction_20260911/\n?? artifacts/r293_r2080_gpr_review_20260911/\n?? artifacts/r334_r2081_gpr_review_20260911/\n?? artifacts/r608_c7_ablation_20260908/\n?? artifacts/r608_c7_model_test_20260907/\n?? artifacts/r608_engineering_20260907/\n?? artifacts/r608_engineering_wp2_20260907/\n?? artifacts/r608_nonessential_mechanism_20260908/\n?? artifacts/r794_r795_gpr_review_20260909/\n?? artifacts/r795_dipeptide_escher_20260911/\n?? artifacts/r795_escher_20260909/\n?? artifacts/r795_open_diagnostic_20260911/\n?? artifacts/r795_r1363_open_diagnostic_20260911/\n?? artifacts/reference_pipeline_restore_20260909/\n?? artifacts/screen_test_metadata_trna_20260910/PROJECT_STATE.before.md\n?? artifacts/screen_test_metadata_trna_20260910/PROJECT_STATE.before_workbook.md\n?? artifacts/screen_test_metadata_trna_20260910/commands.txt\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_10pct.png\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_15pct_compact.json\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_15pct_compact.pdf\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_15pct_compact.png\n?? artifacts/screen_test_metadata_trna_20260910/confusion_matrix_validation.json\n?? artifacts/screen_test_metadata_trna_20260910/essentiality_per_gene.tsv\n?? artifacts/screen_test_metadata_trna_20260910/execution.json\n?? artifacts/screen_test_metadata_trna_20260910/gene_context.tsv\n?? artifacts/screen_test_metadata_trna_20260910/inputs/\n?? artifacts/screen_test_metadata_trna_20260910/legacy_predictions.tsv\n?? artifacts/screen_test_metadata_trna_20260910/raw_deletions.tsv\n?? artifacts/screen_test_metadata_trna_20260910/render_confusion_matrix_15pct.py\n?? artifacts/screen_test_metadata_trna_20260910/run_manifest.json\n?? artifacts/screen_test_metadata_trna_20260910/run_screen.py\n?? artifacts/screen_test_metadata_trna_20260910/score_experiment.py\n?? artifacts/screen_test_metadata_trna_20260910/score_experiment.py.before_workbook\n?? artifacts/screen_test_metadata_trna_20260910/screen.log\n?? artifacts/screen_test_metadata_trna_20260910/screen_predictions.tsv\n?? artifacts/screen_test_metadata_trna_20260910/screen_summary.json.before_workbook\n?? artifacts/screen_test_metadata_trna_20260910/trna_charging_screen.tsv\n?? artifacts/screen_test_metadata_trna_20260910/trna_screen_summary.json\n?? artifacts/screen_test_metadata_trna_20260910/unlabelled_15pct_comparison/\n?? artifacts/screen_test_vph1like_20260911/\n?? artifacts/static_mini_replay_20260905T190318Z/\n?? artifacts/tag_max_growth_20260909/\n?? artifacts/trna_biomass_restore_20260910/before.json\n?? artifacts/trna_biomass_restore_20260910/before/\n?? artifacts/trna_biomass_restore_20260910/build.log\n?? artifacts/trna_biomass_restore_20260910/commands.txt\n?? artifacts/trna_biomass_restore_20260910/delivery.json\n?? artifacts/trna_biomass_restore_20260910/static_check.log\n?? artifacts/trna_biomass_restore_20260910/static_check.py\n?? artifacts/trna_biomass_restore_20260910/tests.log\n?? artifacts/trna_biomass_restore_20260910/validate.py\n?? artifacts/trna_biomass_restore_20260910/validation.log\n?? artifacts/vatpase_gpr_hypothesis_20260911/\n?? artifacts/vatpase_nonessential_diagnosis_20260911/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? data/reference_build/curation/gene_function_annotations.json\n?? data/reference_build/curation/r1026_gpr_assignment.json\n?? data/reference_build/curation/vatpase_gpr_hypothesis.json\n?? data/reference_build/media/\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? identity_support_next_20260906.md\n?? model_metadata_reaction_selection.build.json\n?? model_metadata_reaction_selection.coq9_genes.tsv\n?? model_metadata_reaction_selection.xml\n?? model_metadata_trna_r1026_gpr_build2.build.json\n?? model_metadata_trna_r1026_gpr_build2.coq9_genes.tsv\n?? model_metadata_trna_r1026_gpr_build2.xml\n?? model_metadata_trna_vatpase_and_hypothesis.build.json\n?? model_metadata_trna_vatpase_and_hypothesis.coq9_genes.tsv\n?? model_metadata_trna_vatpase_and_hypothesis.xml\n?? model_metadata_trna_vph1like.build.json\n?? model_metadata_trna_vph1like.coq9_genes.tsv\n?? model_metadata_trna_vph1like.xml\n?? model_reference_metadata_r1172_sphpl.build.json\n?? model_reference_metadata_r1172_sphpl.coq9_genes.tsv\n?? model_reference_metadata_r1172_sphpl.xml\n?? output/\n?? outputs/\n?? results\n?? tests/test_gene_function_annotations.py\n?? tests/test_r1026_gpr_assignment.py\n?? tests/test_vatpase_gpr_hypothesis.py\n?? tmp/\n?? ~$09012026.pptx\n",
+  "rows": [
+    {
+      "reference": "3EYX",
+      "query": "YALI1F28274g",
+      "aligned_length": 186,
+      "rmsd_angstrom": 1.94,
+      "tm_normalized_query": 0.77405,
+      "tm_normalized_reference_coordinates": 0.86574,
+      "coverage_query": 0.8378378378378378,
+      "coverage_reference_coordinates": 0.9441624365482234,
+      "reference_coordinate_length": 197,
+      "reference_entity_length": 216,
+      "elapsed_seconds": 0.022403749986551702,
+      "returncode": 0,
+      "command": [
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/chains/YALI1F28274g.pdb",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/chains/3EYX.pdb",
+        "-mol",
+        "prot",
+        "-mm",
+        "0",
+        "-ter",
+        "2",
+        "-m",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/results/3EYX.matrix.txt",
+        "-do"
+      ],
+      "raw_output": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/results/3EYX.txt",
+      "raw_output_sha256": "3b83e058fba29ee88eab34ba7f0cdd1bf773328c4a79d3c813866c412aa25f57",
+      "matrix": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/results/3EYX.matrix.txt",
+      "matrix_sha256": "daa9f03b645921df817160caca837150b2c06506cbd594a6b0f5590b5d75b77c",
+      "aligned_pairs": [
+        {
+          "query_position": 14,
+          "query_aa": "S",
+          "reference_position": 17,
+          "reference_aa": "N",
+          "distance_angstrom": 1.161,
+          "query_plddt": 96.19
+        },
+        {
+          "query_position": 15,
+          "query_aa": "L",
+          "reference_position": 18,
+          "reference_aa": "L",
+          "distance_angstrom": 1.353,
+          "query_plddt": 95.94
+        },
+        {
+          "query_position": 16,
+          "query_aa": "A",
+          "reference_position": 19,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.444,
+          "query_plddt": 97.19
+        },
+        {
+          "query_position": 17,
+          "query_aa": "T",
+          "reference_position": 20,
+          "reference_aa": "D",
+          "distance_angstrom": 1.477,
+          "query_plddt": 95.12
+        },
+        {
+          "query_position": 18,
+          "query_aa": "L",
+          "reference_position": 21,
+          "reference_aa": "I",
+          "distance_angstrom": 1.404,
+          "query_plddt": 95.81
+        },
+        {
+          "query_position": 19,
+          "query_aa": "L",
+          "reference_position": 22,
+          "reference_aa": "L",
+          "distance_angstrom": 1.425,
+          "query_plddt": 97.69
+        },
+        {
+          "query_position": 20,
+          "query_aa": "E",
+          "reference_position": 23,
+          "reference_aa": "A",
+          "distance_angstrom": 1.766,
+          "query_plddt": 96.81
+        },
+        {
+          "query_position": 21,
+          "query_aa": "R",
+          "reference_position": 24,
+          "reference_aa": "A",
+          "distance_angstrom": 1.747,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 22,
+          "query_aa": "N",
+          "reference_position": 25,
+          "reference_aa": "N",
+          "distance_angstrom": 1.579,
+          "query_plddt": 97.81
+        },
+        {
+          "query_position": 23,
+          "query_aa": "E",
+          "reference_position": 26,
+          "reference_aa": "A",
+          "distance_angstrom": 1.682,
+          "query_plddt": 98.25
+        },
+        {
+          "query_position": 24,
+          "query_aa": "K",
+          "reference_position": 27,
+          "reference_aa": "K",
+          "distance_angstrom": 1.554,
+          "query_plddt": 97.81
+        },
+        {
+          "query_position": 25,
+          "query_aa": "W",
+          "reference_position": 28,
+          "reference_aa": "W",
+          "distance_angstrom": 1.505,
+          "query_plddt": 96.88
+        },
+        {
+          "query_position": 26,
+          "query_aa": "A",
+          "reference_position": 29,
+          "reference_aa": "A",
+          "distance_angstrom": 1.689,
+          "query_plddt": 97.88
+        },
+        {
+          "query_position": 27,
+          "query_aa": "N",
+          "reference_position": 30,
+          "reference_aa": "S",
+          "distance_angstrom": 1.5,
+          "query_plddt": 98.0
+        },
+        {
+          "query_position": 28,
+          "query_aa": "R",
+          "reference_position": 31,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.192,
+          "query_plddt": 97.56
+        },
+        {
+          "query_position": 29,
+          "query_aa": "V",
+          "reference_position": 32,
+          "reference_aa": "M",
+          "distance_angstrom": 1.779,
+          "query_plddt": 96.56
+        },
+        {
+          "query_position": 30,
+          "query_aa": "S",
+          "reference_position": 33,
+          "reference_aa": "N",
+          "distance_angstrom": 1.7,
+          "query_plddt": 97.12
+        },
+        {
+          "query_position": 31,
+          "query_aa": "S",
+          "reference_position": 34,
+          "reference_aa": "N",
+          "distance_angstrom": 1.48,
+          "query_plddt": 97.88
+        },
+        {
+          "query_position": 32,
+          "query_aa": "V",
+          "reference_position": 35,
+          "reference_aa": "I",
+          "distance_angstrom": 2.387,
+          "query_plddt": 97.62
+        },
+        {
+          "query_position": 33,
+          "query_aa": "R",
+          "reference_position": 36,
+          "reference_aa": "Q",
+          "distance_angstrom": 2.434,
+          "query_plddt": 96.81
+        },
+        {
+          "query_position": 34,
+          "query_aa": "P",
+          "reference_position": 37,
+          "reference_aa": "P",
+          "distance_angstrom": 2.078,
+          "query_plddt": 97.12
+        },
+        {
+          "query_position": 35,
+          "query_aa": "S",
+          "reference_position": 38,
+          "reference_aa": "T",
+          "distance_angstrom": 2.344,
+          "query_plddt": 96.94
+        },
+        {
+          "query_position": 36,
+          "query_aa": "L",
+          "reference_position": 39,
+          "reference_aa": "L",
+          "distance_angstrom": 1.848,
+          "query_plddt": 96.44
+        },
+        {
+          "query_position": 37,
+          "query_aa": "F",
+          "reference_position": 40,
+          "reference_aa": "F",
+          "distance_angstrom": 0.499,
+          "query_plddt": 97.31
+        },
+        {
+          "query_position": 45,
+          "query_aa": "A",
+          "reference_position": 49,
+          "reference_aa": "S",
+          "distance_angstrom": 1.399,
+          "query_plddt": 94.75
+        },
+        {
+          "query_position": 46,
+          "query_aa": "P",
+          "reference_position": 50,
+          "reference_aa": "P",
+          "distance_angstrom": 0.548,
+          "query_plddt": 97.88
+        },
+        {
+          "query_position": 47,
+          "query_aa": "K",
+          "reference_position": 51,
+          "reference_aa": "H",
+          "distance_angstrom": 0.576,
+          "query_plddt": 97.81
+        },
+        {
+          "query_position": 48,
+          "query_aa": "I",
+          "reference_position": 52,
+          "reference_aa": "T",
+          "distance_angstrom": 0.715,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 49,
+          "query_aa": "L",
+          "reference_position": 53,
+          "reference_aa": "L",
+          "distance_angstrom": 0.506,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 50,
+          "query_aa": "W",
+          "reference_position": 54,
+          "reference_aa": "F",
+          "distance_angstrom": 0.507,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 51,
+          "query_aa": "I",
+          "reference_position": 55,
+          "reference_aa": "I",
+          "distance_angstrom": 0.323,
+          "query_plddt": 98.88
+        },
+        {
+          "query_position": 52,
+          "query_aa": "G",
+          "reference_position": 56,
+          "reference_aa": "G",
+          "distance_angstrom": 0.336,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 53,
+          "query_aa": "C",
+          "reference_position": 57,
+          "reference_aa": "C",
+          "distance_angstrom": 0.369,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 54,
+          "query_aa": "S",
+          "reference_position": 58,
+          "reference_aa": "S",
+          "distance_angstrom": 0.667,
+          "query_plddt": 98.38
+        },
+        {
+          "query_position": 55,
+          "query_aa": "D",
+          "reference_position": 59,
+          "reference_aa": "D",
+          "distance_angstrom": 0.672,
+          "query_plddt": 98.06
+        },
+        {
+          "query_position": 56,
+          "query_aa": "S",
+          "reference_position": 60,
+          "reference_aa": "S",
+          "distance_angstrom": 0.37,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 57,
+          "query_aa": "R",
+          "reference_position": 61,
+          "reference_aa": "R",
+          "distance_angstrom": 0.433,
+          "query_plddt": 97.0
+        },
+        {
+          "query_position": 58,
+          "query_aa": "A",
+          "reference_position": 62,
+          "reference_aa": "Y",
+          "distance_angstrom": 2.148,
+          "query_plddt": 94.75
+        },
+        {
+          "query_position": 59,
+          "query_aa": "G",
+          "reference_position": 63,
+          "reference_aa": "N",
+          "distance_angstrom": 1.117,
+          "query_plddt": 95.38
+        },
+        {
+          "query_position": 60,
+          "query_aa": "E",
+          "reference_position": 64,
+          "reference_aa": "E",
+          "distance_angstrom": 1.107,
+          "query_plddt": 97.31
+        },
+        {
+          "query_position": 61,
+          "query_aa": "G",
+          "reference_position": 65,
+          "reference_aa": "N",
+          "distance_angstrom": 1.8,
+          "query_plddt": 96.19
+        },
+        {
+          "query_position": 62,
+          "query_aa": "C",
+          "reference_position": 66,
+          "reference_aa": "C",
+          "distance_angstrom": 1.559,
+          "query_plddt": 96.5
+        },
+        {
+          "query_position": 63,
+          "query_aa": "L",
+          "reference_position": 67,
+          "reference_aa": "L",
+          "distance_angstrom": 2.185,
+          "query_plddt": 97.62
+        },
+        {
+          "query_position": 64,
+          "query_aa": "D",
+          "reference_position": 68,
+          "reference_aa": "G",
+          "distance_angstrom": 3.083,
+          "query_plddt": 96.44
+        },
+        {
+          "query_position": 65,
+          "query_aa": "L",
+          "reference_position": 69,
+          "reference_aa": "V",
+          "distance_angstrom": 2.078,
+          "query_plddt": 96.31
+        },
+        {
+          "query_position": 66,
+          "query_aa": "L",
+          "reference_position": 70,
+          "reference_aa": "L",
+          "distance_angstrom": 2.032,
+          "query_plddt": 94.88
+        },
+        {
+          "query_position": 67,
+          "query_aa": "P",
+          "reference_position": 71,
+          "reference_aa": "P",
+          "distance_angstrom": 1.863,
+          "query_plddt": 93.75
+        },
+        {
+          "query_position": 68,
+          "query_aa": "G",
+          "reference_position": 72,
+          "reference_aa": "G",
+          "distance_angstrom": 1.238,
+          "query_plddt": 94.5
+        },
+        {
+          "query_position": 69,
+          "query_aa": "E",
+          "reference_position": 73,
+          "reference_aa": "E",
+          "distance_angstrom": 0.667,
+          "query_plddt": 96.81
+        },
+        {
+          "query_position": 70,
+          "query_aa": "V",
+          "reference_position": 74,
+          "reference_aa": "V",
+          "distance_angstrom": 0.376,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 71,
+          "query_aa": "F",
+          "reference_position": 75,
+          "reference_aa": "F",
+          "distance_angstrom": 0.371,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 72,
+          "query_aa": "V",
+          "reference_position": 76,
+          "reference_aa": "T",
+          "distance_angstrom": 0.319,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 73,
+          "query_aa": "H",
+          "reference_position": 77,
+          "reference_aa": "W",
+          "distance_angstrom": 0.347,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 74,
+          "query_aa": "R",
+          "reference_position": 78,
+          "reference_aa": "K",
+          "distance_angstrom": 0.869,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 75,
+          "query_aa": "N",
+          "reference_position": 79,
+          "reference_aa": "N",
+          "distance_angstrom": 0.868,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 76,
+          "query_aa": "I",
+          "reference_position": 80,
+          "reference_aa": "V",
+          "distance_angstrom": 0.85,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 77,
+          "query_aa": "A",
+          "reference_position": 81,
+          "reference_aa": "A",
+          "distance_angstrom": 0.659,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 78,
+          "query_aa": "N",
+          "reference_position": 82,
+          "reference_aa": "N",
+          "distance_angstrom": 0.519,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 79,
+          "query_aa": "L",
+          "reference_position": 83,
+          "reference_aa": "I",
+          "distance_angstrom": 0.692,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 80,
+          "query_aa": "L",
+          "reference_position": 84,
+          "reference_aa": "C",
+          "distance_angstrom": 0.156,
+          "query_plddt": 98.0
+        },
+        {
+          "query_position": 81,
+          "query_aa": "P",
+          "reference_position": 85,
+          "reference_aa": "H",
+          "distance_angstrom": 0.614,
+          "query_plddt": 94.94
+        },
+        {
+          "query_position": 82,
+          "query_aa": "D",
+          "reference_position": 86,
+          "reference_aa": "S",
+          "distance_angstrom": 1.654,
+          "query_plddt": 89.88
+        },
+        {
+          "query_position": 83,
+          "query_aa": "S",
+          "reference_position": 87,
+          "reference_aa": "E",
+          "distance_angstrom": 2.679,
+          "query_plddt": 92.69
+        },
+        {
+          "query_position": 84,
+          "query_aa": "D",
+          "reference_position": 88,
+          "reference_aa": "D",
+          "distance_angstrom": 2.114,
+          "query_plddt": 96.88
+        },
+        {
+          "query_position": 85,
+          "query_aa": "F",
+          "reference_position": 89,
+          "reference_aa": "L",
+          "distance_angstrom": 1.616,
+          "query_plddt": 97.19
+        },
+        {
+          "query_position": 86,
+          "query_aa": "S",
+          "reference_position": 90,
+          "reference_aa": "T",
+          "distance_angstrom": 2.078,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 87,
+          "query_aa": "S",
+          "reference_position": 91,
+          "reference_aa": "L",
+          "distance_angstrom": 2.47,
+          "query_plddt": 98.06
+        },
+        {
+          "query_position": 88,
+          "query_aa": "L",
+          "reference_position": 92,
+          "reference_aa": "K",
+          "distance_angstrom": 2.213,
+          "query_plddt": 98.12
+        },
+        {
+          "query_position": 89,
+          "query_aa": "S",
+          "reference_position": 93,
+          "reference_aa": "A",
+          "distance_angstrom": 1.329,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 90,
+          "query_aa": "V",
+          "reference_position": 94,
+          "reference_aa": "T",
+          "distance_angstrom": 1.229,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 91,
+          "query_aa": "I",
+          "reference_position": 95,
+          "reference_aa": "L",
+          "distance_angstrom": 1.403,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 92,
+          "query_aa": "Q",
+          "reference_position": 96,
+          "reference_aa": "E",
+          "distance_angstrom": 1.292,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 93,
+          "query_aa": "F",
+          "reference_position": 97,
+          "reference_aa": "F",
+          "distance_angstrom": 0.556,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 94,
+          "query_aa": "A",
+          "reference_position": 98,
+          "reference_aa": "A",
+          "distance_angstrom": 0.417,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 95,
+          "query_aa": "V",
+          "reference_position": 99,
+          "reference_aa": "I",
+          "distance_angstrom": 0.934,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 96,
+          "query_aa": "Q",
+          "reference_position": 100,
+          "reference_aa": "I",
+          "distance_angstrom": 1.02,
+          "query_plddt": 97.44
+        },
+        {
+          "query_position": 97,
+          "query_aa": "V",
+          "reference_position": 101,
+          "reference_aa": "C",
+          "distance_angstrom": 0.603,
+          "query_plddt": 97.69
+        },
+        {
+          "query_position": 98,
+          "query_aa": "L",
+          "reference_position": 102,
+          "reference_aa": "L",
+          "distance_angstrom": 0.604,
+          "query_plddt": 98.12
+        },
+        {
+          "query_position": 99,
+          "query_aa": "K",
+          "reference_position": 103,
+          "reference_aa": "K",
+          "distance_angstrom": 0.88,
+          "query_plddt": 97.94
+        },
+        {
+          "query_position": 100,
+          "query_aa": "V",
+          "reference_position": 104,
+          "reference_aa": "V",
+          "distance_angstrom": 0.633,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 101,
+          "query_aa": "R",
+          "reference_position": 105,
+          "reference_aa": "N",
+          "distance_angstrom": 0.768,
+          "query_plddt": 98.19
+        },
+        {
+          "query_position": 102,
+          "query_aa": "H",
+          "reference_position": 106,
+          "reference_aa": "K",
+          "distance_angstrom": 0.837,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 103,
+          "query_aa": "I",
+          "reference_position": 107,
+          "reference_aa": "V",
+          "distance_angstrom": 0.817,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 104,
+          "query_aa": "I",
+          "reference_position": 108,
+          "reference_aa": "I",
+          "distance_angstrom": 0.855,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 105,
+          "query_aa": "V",
+          "reference_position": 109,
+          "reference_aa": "I",
+          "distance_angstrom": 0.719,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 106,
+          "query_aa": "C",
+          "reference_position": 110,
+          "reference_aa": "C",
+          "distance_angstrom": 0.782,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 107,
+          "query_aa": "G",
+          "reference_position": 111,
+          "reference_aa": "G",
+          "distance_angstrom": 0.73,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 108,
+          "query_aa": "H",
+          "reference_position": 112,
+          "reference_aa": "H",
+          "distance_angstrom": 0.675,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 109,
+          "query_aa": "Y",
+          "reference_position": 113,
+          "reference_aa": "T",
+          "distance_angstrom": 0.611,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 110,
+          "query_aa": "D",
+          "reference_position": 114,
+          "reference_aa": "D",
+          "distance_angstrom": 0.532,
+          "query_plddt": 97.56
+        },
+        {
+          "query_position": 111,
+          "query_aa": "C",
+          "reference_position": 115,
+          "reference_aa": "C",
+          "distance_angstrom": 0.373,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 112,
+          "query_aa": "G",
+          "reference_position": 116,
+          "reference_aa": "G",
+          "distance_angstrom": 0.413,
+          "query_plddt": 97.62
+        },
+        {
+          "query_position": 113,
+          "query_aa": "G",
+          "reference_position": 117,
+          "reference_aa": "G",
+          "distance_angstrom": 0.36,
+          "query_plddt": 97.5
+        },
+        {
+          "query_position": 114,
+          "query_aa": "V",
+          "reference_position": 118,
+          "reference_aa": "I",
+          "distance_angstrom": 0.46,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 115,
+          "query_aa": "W",
+          "reference_position": 119,
+          "reference_aa": "K",
+          "distance_angstrom": 0.399,
+          "query_plddt": 97.94
+        },
+        {
+          "query_position": 116,
+          "query_aa": "S",
+          "reference_position": 120,
+          "reference_aa": "T",
+          "distance_angstrom": 1.06,
+          "query_plddt": 96.94
+        },
+        {
+          "query_position": 117,
+          "query_aa": "S",
+          "reference_position": 121,
+          "reference_aa": "C",
+          "distance_angstrom": 1.659,
+          "query_plddt": 97.0
+        },
+        {
+          "query_position": 118,
+          "query_aa": "L",
+          "reference_position": 122,
+          "reference_aa": "L",
+          "distance_angstrom": 1.219,
+          "query_plddt": 95.31
+        },
+        {
+          "query_position": 119,
+          "query_aa": "T",
+          "reference_position": 123,
+          "reference_aa": "T",
+          "distance_angstrom": 3.133,
+          "query_plddt": 90.25
+        },
+        {
+          "query_position": 120,
+          "query_aa": "S",
+          "reference_position": 124,
+          "reference_aa": "N",
+          "distance_angstrom": 2.88,
+          "query_plddt": 88.06
+        },
+        {
+          "query_position": 121,
+          "query_aa": "K",
+          "reference_position": 125,
+          "reference_aa": "Q",
+          "distance_angstrom": 2.852,
+          "query_plddt": 91.0
+        },
+        {
+          "query_position": 122,
+          "query_aa": "K",
+          "reference_position": 127,
+          "reference_aa": "E",
+          "distance_angstrom": 1.739,
+          "query_plddt": 92.56
+        },
+        {
+          "query_position": 123,
+          "query_aa": "L",
+          "reference_position": 129,
+          "reference_aa": "L",
+          "distance_angstrom": 1.578,
+          "query_plddt": 93.19
+        },
+        {
+          "query_position": 124,
+          "query_aa": "G",
+          "reference_position": 135,
+          "reference_aa": "S",
+          "distance_angstrom": 2.246,
+          "query_plddt": 94.25
+        },
+        {
+          "query_position": 125,
+          "query_aa": "I",
+          "reference_position": 136,
+          "reference_aa": "H",
+          "distance_angstrom": 1.875,
+          "query_plddt": 93.69
+        },
+        {
+          "query_position": 126,
+          "query_aa": "I",
+          "reference_position": 137,
+          "reference_aa": "L",
+          "distance_angstrom": 1.792,
+          "query_plddt": 95.44
+        },
+        {
+          "query_position": 127,
+          "query_aa": "D",
+          "reference_position": 138,
+          "reference_aa": "Y",
+          "distance_angstrom": 2.393,
+          "query_plddt": 94.19
+        },
+        {
+          "query_position": 128,
+          "query_aa": "H",
+          "reference_position": 139,
+          "reference_aa": "K",
+          "distance_angstrom": 2.005,
+          "query_plddt": 95.12
+        },
+        {
+          "query_position": 129,
+          "query_aa": "W",
+          "reference_position": 140,
+          "reference_aa": "Y",
+          "distance_angstrom": 1.602,
+          "query_plddt": 97.56
+        },
+        {
+          "query_position": 130,
+          "query_aa": "L",
+          "reference_position": 141,
+          "reference_aa": "L",
+          "distance_angstrom": 1.649,
+          "query_plddt": 97.69
+        },
+        {
+          "query_position": 131,
+          "query_aa": "R",
+          "reference_position": 142,
+          "reference_aa": "D",
+          "distance_angstrom": 1.897,
+          "query_plddt": 96.12
+        },
+        {
+          "query_position": 132,
+          "query_aa": "P",
+          "reference_position": 143,
+          "reference_aa": "D",
+          "distance_angstrom": 1.856,
+          "query_plddt": 97.75
+        },
+        {
+          "query_position": 133,
+          "query_aa": "I",
+          "reference_position": 144,
+          "reference_aa": "I",
+          "distance_angstrom": 2.008,
+          "query_plddt": 98.19
+        },
+        {
+          "query_position": 134,
+          "query_aa": "R",
+          "reference_position": 145,
+          "reference_aa": "D",
+          "distance_angstrom": 2.34,
+          "query_plddt": 97.44
+        },
+        {
+          "query_position": 135,
+          "query_aa": "D",
+          "reference_position": 146,
+          "reference_aa": "T",
+          "distance_angstrom": 2.454,
+          "query_plddt": 96.94
+        },
+        {
+          "query_position": 136,
+          "query_aa": "T",
+          "reference_position": 147,
+          "reference_aa": "M",
+          "distance_angstrom": 2.212,
+          "query_plddt": 97.38
+        },
+        {
+          "query_position": 137,
+          "query_aa": "K",
+          "reference_position": 148,
+          "reference_aa": "Y",
+          "distance_angstrom": 2.501,
+          "query_plddt": 97.62
+        },
+        {
+          "query_position": 138,
+          "query_aa": "V",
+          "reference_position": 149,
+          "reference_aa": "H",
+          "distance_angstrom": 3.078,
+          "query_plddt": 97.38
+        },
+        {
+          "query_position": 139,
+          "query_aa": "R",
+          "reference_position": 150,
+          "reference_aa": "E",
+          "distance_angstrom": 3.041,
+          "query_plddt": 96.69
+        },
+        {
+          "query_position": 140,
+          "query_aa": "H",
+          "reference_position": 151,
+          "reference_aa": "E",
+          "distance_angstrom": 2.873,
+          "query_plddt": 97.19
+        },
+        {
+          "query_position": 141,
+          "query_aa": "K",
+          "reference_position": 152,
+          "reference_aa": "S",
+          "distance_angstrom": 2.538,
+          "query_plddt": 97.0
+        },
+        {
+          "query_position": 142,
+          "query_aa": "A",
+          "reference_position": 153,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.57,
+          "query_plddt": 97.62
+        },
+        {
+          "query_position": 143,
+          "query_aa": "M",
+          "reference_position": 154,
+          "reference_aa": "N",
+          "distance_angstrom": 1.254,
+          "query_plddt": 97.25
+        },
+        {
+          "query_position": 144,
+          "query_aa": "L",
+          "reference_position": 155,
+          "reference_aa": "L",
+          "distance_angstrom": 1.288,
+          "query_plddt": 97.81
+        },
+        {
+          "query_position": 145,
+          "query_aa": "D",
+          "reference_position": 156,
+          "reference_aa": "I",
+          "distance_angstrom": 1.698,
+          "query_plddt": 96.69
+        },
+        {
+          "query_position": 146,
+          "query_aa": "A",
+          "reference_position": 157,
+          "reference_aa": "H",
+          "distance_angstrom": 1.363,
+          "query_plddt": 98.06
+        },
+        {
+          "query_position": 147,
+          "query_aa": "I",
+          "reference_position": 158,
+          "reference_aa": "L",
+          "distance_angstrom": 1.087,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 148,
+          "query_aa": "E",
+          "reference_position": 159,
+          "reference_aa": "K",
+          "distance_angstrom": 1.65,
+          "query_plddt": 97.19
+        },
+        {
+          "query_position": 149,
+          "query_aa": "D",
+          "reference_position": 160,
+          "reference_aa": "T",
+          "distance_angstrom": 0.646,
+          "query_plddt": 98.0
+        },
+        {
+          "query_position": 150,
+          "query_aa": "P",
+          "reference_position": 161,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.259,
+          "query_plddt": 96.94
+        },
+        {
+          "query_position": 151,
+          "query_aa": "K",
+          "reference_position": 162,
+          "reference_aa": "R",
+          "distance_angstrom": 1.514,
+          "query_plddt": 97.44
+        },
+        {
+          "query_position": 152,
+          "query_aa": "D",
+          "reference_position": 163,
+          "reference_aa": "E",
+          "distance_angstrom": 0.679,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 153,
+          "query_aa": "K",
+          "reference_position": 164,
+          "reference_aa": "K",
+          "distance_angstrom": 0.322,
+          "query_plddt": 98.38
+        },
+        {
+          "query_position": 154,
+          "query_aa": "C",
+          "reference_position": 165,
+          "reference_aa": "S",
+          "distance_angstrom": 0.901,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 155,
+          "query_aa": "A",
+          "reference_position": 166,
+          "reference_aa": "H",
+          "distance_angstrom": 0.608,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 156,
+          "query_aa": "R",
+          "reference_position": 167,
+          "reference_aa": "Y",
+          "distance_angstrom": 0.194,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 157,
+          "query_aa": "L",
+          "reference_position": 168,
+          "reference_aa": "L",
+          "distance_angstrom": 0.545,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 158,
+          "query_aa": "V",
+          "reference_position": 169,
+          "reference_aa": "S",
+          "distance_angstrom": 0.529,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 159,
+          "query_aa": "E",
+          "reference_position": 170,
+          "reference_aa": "H",
+          "distance_angstrom": 0.328,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 160,
+          "query_aa": "L",
+          "reference_position": 171,
+          "reference_aa": "C",
+          "distance_angstrom": 0.675,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 161,
+          "query_aa": "N",
+          "reference_position": 172,
+          "reference_aa": "N",
+          "distance_angstrom": 0.598,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 162,
+          "query_aa": "V",
+          "reference_position": 173,
+          "reference_aa": "V",
+          "distance_angstrom": 0.116,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 163,
+          "query_aa": "C",
+          "reference_position": 174,
+          "reference_aa": "K",
+          "distance_angstrom": 0.537,
+          "query_plddt": 98.12
+        },
+        {
+          "query_position": 164,
+          "query_aa": "A",
+          "reference_position": 175,
+          "reference_aa": "R",
+          "distance_angstrom": 0.894,
+          "query_plddt": 97.19
+        },
+        {
+          "query_position": 165,
+          "query_aa": "Q",
+          "reference_position": 176,
+          "reference_aa": "Q",
+          "distance_angstrom": 0.623,
+          "query_plddt": 98.19
+        },
+        {
+          "query_position": 166,
+          "query_aa": "V",
+          "reference_position": 177,
+          "reference_aa": "F",
+          "distance_angstrom": 0.635,
+          "query_plddt": 97.88
+        },
+        {
+          "query_position": 167,
+          "query_aa": "N",
+          "reference_position": 178,
+          "reference_aa": "N",
+          "distance_angstrom": 0.463,
+          "query_plddt": 95.44
+        },
+        {
+          "query_position": 168,
+          "query_aa": "N",
+          "reference_position": 179,
+          "reference_aa": "R",
+          "distance_angstrom": 0.312,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 169,
+          "query_aa": "L",
+          "reference_position": 180,
+          "reference_aa": "I",
+          "distance_angstrom": 0.521,
+          "query_plddt": 95.62
+        },
+        {
+          "query_position": 170,
+          "query_aa": "K",
+          "reference_position": 181,
+          "reference_aa": "I",
+          "distance_angstrom": 0.694,
+          "query_plddt": 93.75
+        },
+        {
+          "query_position": 171,
+          "query_aa": "R",
+          "reference_position": 182,
+          "reference_aa": "E",
+          "distance_angstrom": 0.584,
+          "query_plddt": 92.69
+        },
+        {
+          "query_position": 172,
+          "query_aa": "N",
+          "reference_position": 183,
+          "reference_aa": "N",
+          "distance_angstrom": 0.637,
+          "query_plddt": 93.12
+        },
+        {
+          "query_position": 173,
+          "query_aa": "T",
+          "reference_position": 184,
+          "reference_aa": "P",
+          "distance_angstrom": 1.132,
+          "query_plddt": 91.44
+        },
+        {
+          "query_position": 174,
+          "query_aa": "V",
+          "reference_position": 185,
+          "reference_aa": "T",
+          "distance_angstrom": 1.061,
+          "query_plddt": 93.88
+        },
+        {
+          "query_position": 175,
+          "query_aa": "I",
+          "reference_position": 186,
+          "reference_aa": "V",
+          "distance_angstrom": 0.626,
+          "query_plddt": 95.25
+        },
+        {
+          "query_position": 176,
+          "query_aa": "I",
+          "reference_position": 187,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.033,
+          "query_plddt": 92.38
+        },
+        {
+          "query_position": 177,
+          "query_aa": "E",
+          "reference_position": 188,
+          "reference_aa": "T",
+          "distance_angstrom": 1.59,
+          "query_plddt": 92.5
+        },
+        {
+          "query_position": 178,
+          "query_aa": "A",
+          "reference_position": 189,
+          "reference_aa": "A",
+          "distance_angstrom": 1.452,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 179,
+          "query_aa": "Q",
+          "reference_position": 190,
+          "reference_aa": "V",
+          "distance_angstrom": 1.494,
+          "query_plddt": 94.0
+        },
+        {
+          "query_position": 180,
+          "query_aa": "G",
+          "reference_position": 191,
+          "reference_aa": "Q",
+          "distance_angstrom": 2.386,
+          "query_plddt": 90.81
+        },
+        {
+          "query_position": 181,
+          "query_aa": "E",
+          "reference_position": 192,
+          "reference_aa": "N",
+          "distance_angstrom": 2.465,
+          "query_plddt": 94.06
+        },
+        {
+          "query_position": 182,
+          "query_aa": "R",
+          "reference_position": 193,
+          "reference_aa": "G",
+          "distance_angstrom": 2.817,
+          "query_plddt": 95.38
+        },
+        {
+          "query_position": 183,
+          "query_aa": "D",
+          "reference_position": 194,
+          "reference_aa": "E",
+          "distance_angstrom": 3.117,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 184,
+          "query_aa": "L",
+          "reference_position": 195,
+          "reference_aa": "L",
+          "distance_angstrom": 0.737,
+          "query_plddt": 98.0
+        },
+        {
+          "query_position": 185,
+          "query_aa": "Q",
+          "reference_position": 196,
+          "reference_aa": "Q",
+          "distance_angstrom": 0.708,
+          "query_plddt": 97.75
+        },
+        {
+          "query_position": 186,
+          "query_aa": "I",
+          "reference_position": 197,
+          "reference_aa": "V",
+          "distance_angstrom": 0.745,
+          "query_plddt": 98.19
+        },
+        {
+          "query_position": 187,
+          "query_aa": "H",
+          "reference_position": 198,
+          "reference_aa": "Y",
+          "distance_angstrom": 0.681,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 188,
+          "query_aa": "G",
+          "reference_position": 199,
+          "reference_aa": "G",
+          "distance_angstrom": 0.975,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 189,
+          "query_aa": "V",
+          "reference_position": 200,
+          "reference_aa": "L",
+          "distance_angstrom": 0.905,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 190,
+          "query_aa": "V",
+          "reference_position": 201,
+          "reference_aa": "L",
+          "distance_angstrom": 0.969,
+          "query_plddt": 98.75
+        },
+        {
+          "query_position": 191,
+          "query_aa": "Y",
+          "reference_position": 202,
+          "reference_aa": "Y",
+          "distance_angstrom": 0.948,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 192,
+          "query_aa": "D",
+          "reference_position": 203,
+          "reference_aa": "N",
+          "distance_angstrom": 1.276,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 193,
+          "query_aa": "P",
+          "reference_position": 204,
+          "reference_aa": "V",
+          "distance_angstrom": 1.355,
+          "query_plddt": 97.31
+        },
+        {
+          "query_position": 194,
+          "query_aa": "G",
+          "reference_position": 205,
+          "reference_aa": "E",
+          "distance_angstrom": 1.285,
+          "query_plddt": 96.81
+        },
+        {
+          "query_position": 195,
+          "query_aa": "S",
+          "reference_position": 206,
+          "reference_aa": "D",
+          "distance_angstrom": 1.023,
+          "query_plddt": 97.5
+        },
+        {
+          "query_position": 196,
+          "query_aa": "G",
+          "reference_position": 207,
+          "reference_aa": "G",
+          "distance_angstrom": 1.561,
+          "query_plddt": 97.56
+        },
+        {
+          "query_position": 197,
+          "query_aa": "L",
+          "reference_position": 208,
+          "reference_aa": "L",
+          "distance_angstrom": 1.458,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 198,
+          "query_aa": "L",
+          "reference_position": 209,
+          "reference_aa": "L",
+          "distance_angstrom": 1.263,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 199,
+          "query_aa": "K",
+          "reference_position": 210,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.318,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 200,
+          "query_aa": "E",
+          "reference_position": 211,
+          "reference_aa": "T",
+          "distance_angstrom": 1.454,
+          "query_plddt": 97.94
+        },
+        {
+          "query_position": 201,
+          "query_aa": "I",
+          "reference_position": 212,
+          "reference_aa": "V",
+          "distance_angstrom": 1.441,
+          "query_plddt": 96.31
+        },
+        {
+          "query_position": 202,
+          "query_aa": "M",
+          "reference_position": 213,
+          "reference_aa": "S",
+          "distance_angstrom": 3.862,
+          "query_plddt": 93.69
+        },
+        {
+          "query_position": 203,
+          "query_aa": "V",
+          "reference_position": 214,
+          "reference_aa": "T",
+          "distance_angstrom": 6.009,
+          "query_plddt": 93.06
+        },
+        {
+          "query_position": 204,
+          "query_aa": "P",
+          "reference_position": 215,
+          "reference_aa": "Y",
+          "distance_angstrom": 9.814,
+          "query_plddt": 89.5
+        },
+        {
+          "query_position": 209,
+          "query_aa": "A",
+          "reference_position": 220,
+          "reference_aa": "P",
+          "distance_angstrom": 10.452,
+          "query_plddt": 80.31
+        },
+        {
+          "query_position": 210,
+          "query_aa": "E",
+          "reference_position": 221,
+          "reference_aa": "K",
+          "distance_angstrom": 7.654,
+          "query_plddt": 81.56
+        }
+      ]
+    },
+    {
+      "reference": "2CBA",
+      "query": "YALI1F28274g",
+      "aligned_length": 93,
+      "rmsd_angstrom": 6.0,
+      "tm_normalized_query": 0.24278,
+      "tm_normalized_reference_coordinates": 0.21812,
+      "coverage_query": 0.4189189189189189,
+      "coverage_reference_coordinates": 0.36046511627906974,
+      "reference_coordinate_length": 258,
+      "reference_entity_length": 260,
+      "elapsed_seconds": 0.03349837497808039,
+      "returncode": 0,
+      "command": [
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/continuation_20260910/structure/tools/USalign",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/chains/YALI1F28274g.pdb",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/chains/2CBA.pdb",
+        "-mol",
+        "prot",
+        "-mm",
+        "0",
+        "-ter",
+        "2",
+        "-m",
+        "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/results/2CBA.matrix.txt",
+        "-do"
+      ],
+      "raw_output": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/results/2CBA.txt",
+      "raw_output_sha256": "cb90ceecfb9cbf6781ca5e7c8b696a16335cc4f1963d636aeb8a7bef6849e37e",
+      "matrix": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r1025_alphafold_review_20260912/results/2CBA.matrix.txt",
+      "matrix_sha256": "d381936ffc84fa837827d5e682099cab5424251d69d37a2c0185ae269dc8f9db",
+      "aligned_pairs": [
+        {
+          "query_position": 50,
+          "query_aa": "W",
+          "reference_position": 47,
+          "reference_aa": "L",
+          "distance_angstrom": 10.057,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 52,
+          "query_aa": "G",
+          "reference_position": 49,
+          "reference_aa": "V",
+          "distance_angstrom": 6.355,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 53,
+          "query_aa": "C",
+          "reference_position": 50,
+          "reference_aa": "S",
+          "distance_angstrom": 7.22,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 54,
+          "query_aa": "S",
+          "reference_position": 51,
+          "reference_aa": "Y",
+          "distance_angstrom": 3.512,
+          "query_plddt": 98.38
+        },
+        {
+          "query_position": 55,
+          "query_aa": "D",
+          "reference_position": 52,
+          "reference_aa": "D",
+          "distance_angstrom": 3.109,
+          "query_plddt": 98.06
+        },
+        {
+          "query_position": 56,
+          "query_aa": "S",
+          "reference_position": 53,
+          "reference_aa": "Q",
+          "distance_angstrom": 4.699,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 57,
+          "query_aa": "R",
+          "reference_position": 54,
+          "reference_aa": "A",
+          "distance_angstrom": 10.01,
+          "query_plddt": 97.0
+        },
+        {
+          "query_position": 58,
+          "query_aa": "A",
+          "reference_position": 77,
+          "reference_aa": "A",
+          "distance_angstrom": 7.715,
+          "query_plddt": 94.75
+        },
+        {
+          "query_position": 59,
+          "query_aa": "G",
+          "reference_position": 78,
+          "reference_aa": "V",
+          "distance_angstrom": 4.248,
+          "query_plddt": 95.38
+        },
+        {
+          "query_position": 60,
+          "query_aa": "E",
+          "reference_position": 79,
+          "reference_aa": "L",
+          "distance_angstrom": 2.346,
+          "query_plddt": 97.31
+        },
+        {
+          "query_position": 61,
+          "query_aa": "G",
+          "reference_position": 80,
+          "reference_aa": "K",
+          "distance_angstrom": 4.804,
+          "query_plddt": 96.19
+        },
+        {
+          "query_position": 62,
+          "query_aa": "C",
+          "reference_position": 81,
+          "reference_aa": "G",
+          "distance_angstrom": 5.103,
+          "query_plddt": 96.5
+        },
+        {
+          "query_position": 63,
+          "query_aa": "L",
+          "reference_position": 82,
+          "reference_aa": "G",
+          "distance_angstrom": 4.998,
+          "query_plddt": 97.62
+        },
+        {
+          "query_position": 64,
+          "query_aa": "D",
+          "reference_position": 83,
+          "reference_aa": "P",
+          "distance_angstrom": 10.249,
+          "query_plddt": 96.44
+        },
+        {
+          "query_position": 65,
+          "query_aa": "L",
+          "reference_position": 84,
+          "reference_aa": "L",
+          "distance_angstrom": 7.524,
+          "query_plddt": 96.31
+        },
+        {
+          "query_position": 66,
+          "query_aa": "L",
+          "reference_position": 85,
+          "reference_aa": "D",
+          "distance_angstrom": 7.489,
+          "query_plddt": 94.88
+        },
+        {
+          "query_position": 69,
+          "query_aa": "E",
+          "reference_position": 86,
+          "reference_aa": "G",
+          "distance_angstrom": 1.85,
+          "query_plddt": 96.81
+        },
+        {
+          "query_position": 70,
+          "query_aa": "V",
+          "reference_position": 87,
+          "reference_aa": "T",
+          "distance_angstrom": 2.399,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 71,
+          "query_aa": "F",
+          "reference_position": 88,
+          "reference_aa": "Y",
+          "distance_angstrom": 2.963,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 72,
+          "query_aa": "V",
+          "reference_position": 89,
+          "reference_aa": "R",
+          "distance_angstrom": 1.366,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 73,
+          "query_aa": "H",
+          "reference_position": 90,
+          "reference_aa": "L",
+          "distance_angstrom": 1.524,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 74,
+          "query_aa": "R",
+          "reference_position": 91,
+          "reference_aa": "I",
+          "distance_angstrom": 5.019,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 75,
+          "query_aa": "N",
+          "reference_position": 92,
+          "reference_aa": "Q",
+          "distance_angstrom": 5.582,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 79,
+          "query_aa": "L",
+          "reference_position": 93,
+          "reference_aa": "F",
+          "distance_angstrom": 1.756,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 80,
+          "query_aa": "L",
+          "reference_position": 94,
+          "reference_aa": "H",
+          "distance_angstrom": 2.735,
+          "query_plddt": 98.0
+        },
+        {
+          "query_position": 81,
+          "query_aa": "P",
+          "reference_position": 95,
+          "reference_aa": "F",
+          "distance_angstrom": 6.396,
+          "query_plddt": 94.94
+        },
+        {
+          "query_position": 82,
+          "query_aa": "D",
+          "reference_position": 96,
+          "reference_aa": "H",
+          "distance_angstrom": 9.344,
+          "query_plddt": 89.88
+        },
+        {
+          "query_position": 87,
+          "query_aa": "S",
+          "reference_position": 121,
+          "reference_aa": "V",
+          "distance_angstrom": 6.266,
+          "query_plddt": 98.06
+        },
+        {
+          "query_position": 88,
+          "query_aa": "L",
+          "reference_position": 122,
+          "reference_aa": "H",
+          "distance_angstrom": 9.777,
+          "query_plddt": 98.12
+        },
+        {
+          "query_position": 89,
+          "query_aa": "S",
+          "reference_position": 123,
+          "reference_aa": "W",
+          "distance_angstrom": 9.326,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 90,
+          "query_aa": "V",
+          "reference_position": 130,
+          "reference_aa": "D",
+          "distance_angstrom": 6.053,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 91,
+          "query_aa": "I",
+          "reference_position": 131,
+          "reference_aa": "F",
+          "distance_angstrom": 5.174,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 92,
+          "query_aa": "Q",
+          "reference_position": 132,
+          "reference_aa": "G",
+          "distance_angstrom": 4.132,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 93,
+          "query_aa": "F",
+          "reference_position": 133,
+          "reference_aa": "K",
+          "distance_angstrom": 3.243,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 94,
+          "query_aa": "A",
+          "reference_position": 134,
+          "reference_aa": "A",
+          "distance_angstrom": 1.658,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 95,
+          "query_aa": "V",
+          "reference_position": 135,
+          "reference_aa": "V",
+          "distance_angstrom": 1.613,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 96,
+          "query_aa": "Q",
+          "reference_position": 136,
+          "reference_aa": "Q",
+          "distance_angstrom": 1.568,
+          "query_plddt": 97.44
+        },
+        {
+          "query_position": 98,
+          "query_aa": "L",
+          "reference_position": 137,
+          "reference_aa": "Q",
+          "distance_angstrom": 3.983,
+          "query_plddt": 98.12
+        },
+        {
+          "query_position": 99,
+          "query_aa": "K",
+          "reference_position": 138,
+          "reference_aa": "P",
+          "distance_angstrom": 3.669,
+          "query_plddt": 97.94
+        },
+        {
+          "query_position": 100,
+          "query_aa": "V",
+          "reference_position": 139,
+          "reference_aa": "D",
+          "distance_angstrom": 1.673,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 101,
+          "query_aa": "R",
+          "reference_position": 140,
+          "reference_aa": "G",
+          "distance_angstrom": 5.887,
+          "query_plddt": 98.19
+        },
+        {
+          "query_position": 102,
+          "query_aa": "H",
+          "reference_position": 141,
+          "reference_aa": "L",
+          "distance_angstrom": 5.735,
+          "query_plddt": 98.62
+        },
+        {
+          "query_position": 103,
+          "query_aa": "I",
+          "reference_position": 142,
+          "reference_aa": "A",
+          "distance_angstrom": 1.951,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 104,
+          "query_aa": "I",
+          "reference_position": 143,
+          "reference_aa": "V",
+          "distance_angstrom": 3.272,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 105,
+          "query_aa": "V",
+          "reference_position": 144,
+          "reference_aa": "L",
+          "distance_angstrom": 1.252,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 106,
+          "query_aa": "C",
+          "reference_position": 145,
+          "reference_aa": "G",
+          "distance_angstrom": 6.632,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 107,
+          "query_aa": "G",
+          "reference_position": 146,
+          "reference_aa": "I",
+          "distance_angstrom": 6.415,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 114,
+          "query_aa": "V",
+          "reference_position": 154,
+          "reference_aa": "K",
+          "distance_angstrom": 5.208,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 115,
+          "query_aa": "W",
+          "reference_position": 155,
+          "reference_aa": "P",
+          "distance_angstrom": 2.629,
+          "query_plddt": 97.94
+        },
+        {
+          "query_position": 116,
+          "query_aa": "S",
+          "reference_position": 156,
+          "reference_aa": "G",
+          "distance_angstrom": 3.102,
+          "query_plddt": 96.94
+        },
+        {
+          "query_position": 117,
+          "query_aa": "S",
+          "reference_position": 157,
+          "reference_aa": "L",
+          "distance_angstrom": 2.331,
+          "query_plddt": 97.0
+        },
+        {
+          "query_position": 118,
+          "query_aa": "L",
+          "reference_position": 158,
+          "reference_aa": "Q",
+          "distance_angstrom": 4.859,
+          "query_plddt": 95.31
+        },
+        {
+          "query_position": 123,
+          "query_aa": "L",
+          "reference_position": 159,
+          "reference_aa": "K",
+          "distance_angstrom": 5.674,
+          "query_plddt": 93.19
+        },
+        {
+          "query_position": 125,
+          "query_aa": "I",
+          "reference_position": 160,
+          "reference_aa": "V",
+          "distance_angstrom": 8.521,
+          "query_plddt": 93.69
+        },
+        {
+          "query_position": 126,
+          "query_aa": "I",
+          "reference_position": 161,
+          "reference_aa": "V",
+          "distance_angstrom": 8.789,
+          "query_plddt": 95.44
+        },
+        {
+          "query_position": 127,
+          "query_aa": "D",
+          "reference_position": 162,
+          "reference_aa": "D",
+          "distance_angstrom": 3.931,
+          "query_plddt": 94.19
+        },
+        {
+          "query_position": 128,
+          "query_aa": "H",
+          "reference_position": 163,
+          "reference_aa": "V",
+          "distance_angstrom": 2.524,
+          "query_plddt": 95.12
+        },
+        {
+          "query_position": 129,
+          "query_aa": "W",
+          "reference_position": 164,
+          "reference_aa": "L",
+          "distance_angstrom": 7.262,
+          "query_plddt": 97.56
+        },
+        {
+          "query_position": 130,
+          "query_aa": "L",
+          "reference_position": 165,
+          "reference_aa": "D",
+          "distance_angstrom": 11.123,
+          "query_plddt": 97.69
+        },
+        {
+          "query_position": 131,
+          "query_aa": "R",
+          "reference_position": 166,
+          "reference_aa": "S",
+          "distance_angstrom": 9.75,
+          "query_plddt": 96.12
+        },
+        {
+          "query_position": 132,
+          "query_aa": "P",
+          "reference_position": 167,
+          "reference_aa": "I",
+          "distance_angstrom": 11.032,
+          "query_plddt": 97.75
+        },
+        {
+          "query_position": 154,
+          "query_aa": "C",
+          "reference_position": 182,
+          "reference_aa": "R",
+          "distance_angstrom": 10.726,
+          "query_plddt": 98.44
+        },
+        {
+          "query_position": 155,
+          "query_aa": "A",
+          "reference_position": 183,
+          "reference_aa": "G",
+          "distance_angstrom": 8.709,
+          "query_plddt": 98.5
+        },
+        {
+          "query_position": 157,
+          "query_aa": "L",
+          "reference_position": 184,
+          "reference_aa": "L",
+          "distance_angstrom": 6.692,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 158,
+          "query_aa": "V",
+          "reference_position": 185,
+          "reference_aa": "L",
+          "distance_angstrom": 4.05,
+          "query_plddt": 98.81
+        },
+        {
+          "query_position": 159,
+          "query_aa": "E",
+          "reference_position": 186,
+          "reference_aa": "P",
+          "distance_angstrom": 5.219,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 162,
+          "query_aa": "V",
+          "reference_position": 189,
+          "reference_aa": "L",
+          "distance_angstrom": 10.918,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 169,
+          "query_aa": "L",
+          "reference_position": 197,
+          "reference_aa": "S",
+          "distance_angstrom": 7.241,
+          "query_plddt": 95.62
+        },
+        {
+          "query_position": 170,
+          "query_aa": "K",
+          "reference_position": 198,
+          "reference_aa": "L",
+          "distance_angstrom": 4.345,
+          "query_plddt": 93.75
+        },
+        {
+          "query_position": 171,
+          "query_aa": "R",
+          "reference_position": 199,
+          "reference_aa": "T",
+          "distance_angstrom": 2.641,
+          "query_plddt": 92.69
+        },
+        {
+          "query_position": 172,
+          "query_aa": "N",
+          "reference_position": 200,
+          "reference_aa": "T",
+          "distance_angstrom": 1.926,
+          "query_plddt": 93.12
+        },
+        {
+          "query_position": 173,
+          "query_aa": "T",
+          "reference_position": 201,
+          "reference_aa": "P",
+          "distance_angstrom": 1.132,
+          "query_plddt": 91.44
+        },
+        {
+          "query_position": 174,
+          "query_aa": "V",
+          "reference_position": 202,
+          "reference_aa": "P",
+          "distance_angstrom": 2.792,
+          "query_plddt": 93.88
+        },
+        {
+          "query_position": 176,
+          "query_aa": "I",
+          "reference_position": 203,
+          "reference_aa": "L",
+          "distance_angstrom": 1.969,
+          "query_plddt": 92.38
+        },
+        {
+          "query_position": 178,
+          "query_aa": "A",
+          "reference_position": 204,
+          "reference_aa": "L",
+          "distance_angstrom": 2.381,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 179,
+          "query_aa": "Q",
+          "reference_position": 205,
+          "reference_aa": "E",
+          "distance_angstrom": 3.191,
+          "query_plddt": 94.0
+        },
+        {
+          "query_position": 183,
+          "query_aa": "D",
+          "reference_position": 206,
+          "reference_aa": "C",
+          "distance_angstrom": 7.543,
+          "query_plddt": 95.56
+        },
+        {
+          "query_position": 184,
+          "query_aa": "L",
+          "reference_position": 207,
+          "reference_aa": "V",
+          "distance_angstrom": 4.458,
+          "query_plddt": 98.0
+        },
+        {
+          "query_position": 185,
+          "query_aa": "Q",
+          "reference_position": 208,
+          "reference_aa": "T",
+          "distance_angstrom": 3.678,
+          "query_plddt": 97.75
+        },
+        {
+          "query_position": 186,
+          "query_aa": "I",
+          "reference_position": 209,
+          "reference_aa": "W",
+          "distance_angstrom": 1.906,
+          "query_plddt": 98.19
+        },
+        {
+          "query_position": 187,
+          "query_aa": "H",
+          "reference_position": 210,
+          "reference_aa": "I",
+          "distance_angstrom": 1.94,
+          "query_plddt": 98.31
+        },
+        {
+          "query_position": 188,
+          "query_aa": "G",
+          "reference_position": 211,
+          "reference_aa": "V",
+          "distance_angstrom": 1.952,
+          "query_plddt": 98.56
+        },
+        {
+          "query_position": 189,
+          "query_aa": "V",
+          "reference_position": 212,
+          "reference_aa": "L",
+          "distance_angstrom": 3.452,
+          "query_plddt": 98.69
+        },
+        {
+          "query_position": 200,
+          "query_aa": "E",
+          "reference_position": 213,
+          "reference_aa": "K",
+          "distance_angstrom": 4.54,
+          "query_plddt": 97.94
+        },
+        {
+          "query_position": 201,
+          "query_aa": "I",
+          "reference_position": 214,
+          "reference_aa": "E",
+          "distance_angstrom": 5.343,
+          "query_plddt": 96.31
+        },
+        {
+          "query_position": 202,
+          "query_aa": "M",
+          "reference_position": 215,
+          "reference_aa": "P",
+          "distance_angstrom": 8.489,
+          "query_plddt": 93.69
+        },
+        {
+          "query_position": 203,
+          "query_aa": "V",
+          "reference_position": 216,
+          "reference_aa": "I",
+          "distance_angstrom": 11.961,
+          "query_plddt": 93.06
+        },
+        {
+          "query_position": 206,
+          "query_aa": "D",
+          "reference_position": 243,
+          "reference_aa": "D",
+          "distance_angstrom": 9.739,
+          "query_plddt": 86.12
+        },
+        {
+          "query_position": 207,
+          "query_aa": "E",
+          "reference_position": 244,
+          "reference_aa": "N",
+          "distance_angstrom": 10.472,
+          "query_plddt": 85.94
+        },
+        {
+          "query_position": 208,
+          "query_aa": "Y",
+          "reference_position": 245,
+          "reference_aa": "W",
+          "distance_angstrom": 5.053,
+          "query_plddt": 85.0
+        },
+        {
+          "query_position": 209,
+          "query_aa": "A",
+          "reference_position": 246,
+          "reference_aa": "R",
+          "distance_angstrom": 1.639,
+          "query_plddt": 80.31
+        },
+        {
+          "query_position": 210,
+          "query_aa": "E",
+          "reference_position": 247,
+          "reference_aa": "P",
+          "distance_angstrom": 5.401,
+          "query_plddt": 81.56
+        },
+        {
+          "query_position": 211,
+          "query_aa": "D",
+          "reference_position": 248,
+          "reference_aa": "A",
+          "distance_angstrom": 10.973,
+          "query_plddt": 84.81
+        }
+      ]
+    }
+  ],
+  "new_USalign_runs": 2,
+  "new_AlphaFold_predictions": 0,
+  "new_LP_solves": 0,
+  "method": "Whole available CA chains, rigid sequence-independent monomer alignment; no trimming. 2CBA is a different-fold CA control, not an inactive enzyme.",
+  "old_AF_limitations_scope": "model_metadata limitations are verbatim from the old review; this task adds two comparisons"
+}

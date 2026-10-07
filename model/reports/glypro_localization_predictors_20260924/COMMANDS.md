@@ -1,0 +1,10 @@
+# Actual commands / actions
+
+- Fixed public W29454aa sequence copied from prior validated task, SHA assertion passed.
+- Official browser submissions: DeepLoc2.1 high-quality/long, SignalP6.0 eukarya/slow/long, TargetP2.0 nonplant/long, DTU DeepTMHMM1.0.57 one sequence. No paid service, user email, custom model parameters, or duplicate submissions. DTU job IDs and BioLib UUID recorded in prediction_verification.json.
+- `.venv/bin/python artifacts/glypro_localization_predictors_20260924/download_dtu.py` downloaded official observed result links. Browser DeepTMHMM Download > Export as zip saved `/Users/david/Downloads/deeptmhmm.zip`; copied and CRC-checked locally, retained official input/metadata/logs and outputs.
+- `.venv/bin/python artifacts/glypro_localization_predictors_20260924/verify_predictions.py` ran after three results and again after fourth; official sequence prefixes, full DeepLoc/DeepTMHMM sequence and downloaded archives checked. Final verifier covers all four.
+- `.venv/bin/python artifacts/glypro_localization_predictors_20260924/reference_panel.py` ran once: five specified reference sequences, local repository BLASTP2.17.0+, exact command/executable/input hashes in reference_panel_manifest.json. No database-wide rank implied.
+- Existing NCBI RID BBH56DR2014 fetched three times this follow-up using documented Get and XML2_S/JSON2_S outputs. All raw responses remained WAITING HTML; extension does not imply valid BLAST XML/JSON. No re-submission. Actual server version/database release and realized parameters remain unknown. Earlier requested MATRIX_NAME differs from current API MATRIX key; no assumption that request proves realized matrix.
+- Existing AlphaFold/structural fit evidence reused by file hash; no new structure prediction or structural fit. No GEM optimization, model/GPR/media edit, install, cluster job, commit, push, or wet lab action.
+- Source audit delegated under govern-agentic-research independent-review requirement; reviewer opened primary sources and independently checked downloads/BLAST in reference_audit/.

@@ -1,0 +1,94 @@
+{
+  "REF": "Immutable original chemical candidate; no cytosolic hydrolysis added",
+  "scenarios": {
+    "TEMPLATE": {
+      "bounds": {
+        "R2039": [
+          0.0,
+          1000.0
+        ],
+        "HYP_GLYPRO_HYD_CY": [
+          0.0,
+          0.0
+        ]
+      },
+      "route_isolation_only_not_localization_evidence": true
+    },
+    "V_ONLY": {
+      "bounds": {
+        "R2039": [
+          0.0,
+          0.01
+        ],
+        "HYP_GLYPRO_HYD_CY": [
+          0.0,
+          0.0
+        ]
+      },
+      "route_isolation_only_not_localization_evidence": true
+    },
+    "C_ONLY": {
+      "bounds": {
+        "R2039": [
+          0.0,
+          0.0
+        ],
+        "HYP_GLYPRO_HYD_CY": [
+          0.0,
+          0.01
+        ]
+      },
+      "route_isolation_only_not_localization_evidence": true
+    },
+    "NONE": {
+      "bounds": {
+        "R2039": [
+          0.0,
+          0.0
+        ],
+        "HYP_GLYPRO_HYD_CY": [
+          0.0,
+          0.0
+        ]
+      },
+      "route_isolation_only_not_localization_evidence": true
+    }
+  },
+  "hydrolysis_id": "HYP_GLYPRO_HYD_CY",
+  "matched_capacity_mmol_gdw_h": 0.01,
+  "sources": {
+    "O_CY": "m1865[C_cy]",
+    "O_VA": "m1866[C_va]"
+  },
+  "diagnostic_sources_persisted_in_xml": false,
+  "shared_transport_bounds": {
+    "R1363": [
+      0.0,
+      0.04
+    ],
+    "R795": [
+      0.0,
+      0.04
+    ],
+    "R871": [
+      0.0,
+      0.01
+    ],
+    "R876": [
+      0.0,
+      0.01
+    ]
+  },
+  "biological_evidence": {
+    "candidate_gene": "YALI1E16433g",
+    "candidate_gene_name": "native_formal_name_unverified",
+    "candidate_protein_function": "M24B/X-Pro peptidase; prolidase-like candidate",
+    "functional_status": "hypothesis; target_free_Gly-L-Pro_activity_not_experimentally_confirmed",
+    "localization_status": "prediction_supported_not_experimental",
+    "nuclear_localization": "prediction_candidate_retained; not_modelled_in_this_comparison",
+    "hypothesis_scope": "diagnostic_compartment_comparison; not_formal_GPR_or_native_localization",
+    "default_status": "disabled; activate_only_in_explicit_scenario"
+  },
+  "protection_scope": "Historical chemical and energy locks remain exact; the explicit overlay is validated separately and removed in a copy for strict historical adjacency validation",
+  "candidate_manifest": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/glypro_compartment_hypotheses_20260928/candidates/manifest.json"
+}

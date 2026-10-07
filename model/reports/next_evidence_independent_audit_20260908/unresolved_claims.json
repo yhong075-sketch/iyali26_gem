@@ -1,0 +1,83 @@
+[
+  {
+    "group": "transport",
+    "claim_id": "PAT-C019",
+    "claim": "区分候选机制至少需要膜面明确且背景可分离的配对底物/H⁺通量证据。",
+    "source_ids": [
+      "L-DERIVATION"
+    ],
+    "verdict": "partial",
+    "checked_utc": "2026-09-08T01:22:10.790057+00:00",
+    "source_locator": "inputs/transport/REPORT.md minimum discriminatory experiment table",
+    "reason": "配对通量及背景/膜面控制是合理拟议方案，未实施；但“至少需要”若被理解为所有可能判别方法的必要条件，则超出所给推导。建议写“本拟议方案需要”，不宣称排除了其他可识别实验设计。",
+    "limitations": "Proposal not performed; aggregate native membrane data may leave multiple-carrier ambiguity and not establish molecular stoichiometry.",
+    "audit_actor": "independent reviewer /root; distinct from producer",
+    "audit_status": "reviewed"
+  },
+  {
+    "group": "identity",
+    "claim_id": "IDCF-C005",
+    "claim": "2013实验靶向序列已与现行YALI1F03803g直接闭合。",
+    "source_ids": [
+      "IDCF-S2013",
+      "IDCF-PAT-US",
+      "IDCF-NCBI-WINDOW"
+    ],
+    "verdict": "unverified",
+    "checked_utc": "2026-09-08T01:35:47.818350+00:00",
+    "source_locator": "2013 Methods; associated patent; local primer matching; no complete experimental allele or vector sequence",
+    "reason": "The strengthened locus connection does not close identity of complete2013 experimental allele with current target. Original IDN-C016 unresolved remains; no claim upgrade.",
+    "limitations": "新增引物和局部匹配补强靶位点联系；完整构建／实验等位基因序列仍缺，不能升级原claim。",
+    "gene_identity": {
+      "system_id": "YALI1F03803g",
+      "old_id": "YALI0F02497g",
+      "names": [
+        "PDH1 (UniProt)",
+        "PHD1/phd1 (2013 paper)"
+      ],
+      "protein_function": "candidate 2-methylcitrate dehydratase",
+      "function_evidence_status": "curated annotation"
+    },
+    "audit_actor": "independent source auditor, inline",
+    "audit_status": "reviewed"
+  },
+  {
+    "group": "structure",
+    "version": "original_pre_af3",
+    "claim_id": "AFMC-012",
+    "claim": "固定标识未取得458 aa精确模型；MD5查询被审批阻止。HPCC作业28187510已提交。用户后续改用网页版并登录，相同序列的AlphaFold 3单链任务已提交一次，网页显示处理中；用户明确要求取消后，原HPCC作业28187510确认为CANCELLED，运行0秒；仅保留网页预测。",
+    "source_ids": [
+      "sources/uniprot_icl1_identifier_search.json",
+      "logs/exact_query_approval_block.json",
+      "logs/hpcc_environment_status.json",
+      "logs/hpcc_job_28187510_status.txt",
+      "logs/alphafold_server_status.json",
+      "logs/hpcc_job_28187510_cancelled.txt"
+    ],
+    "verdict": "partially_supported",
+    "checked_utc": "2026-09-08T01:41:21.898481+00:00",
+    "source_locator": "sources/uniprot_icl1_identifier_search.json; logs/exact_query_approval_block.json; logs/hpcc_environment_status.json; logs/hpcc_job_28187510_status.txt; logs/alphafold_server_status.json; logs/hpcc_job_28187510_cancelled.txt; independently read raw sources listed in structure_source_files.json; structure_static_check.json",
+    "reason": "HPCC raw scheduler cancellation log supports CANCELLED and elapsed00:00:00. Preserved pre-AF3 serverstatus recovered with exactly original frozenSHA, supporting author-recorded in_progress/unknownwebID state. Approval-block log records two failed requests; original user approval/cancellation conversation and original UI observations were not independently read, so those history assertions remain author-recorded, not fully verified.",
+    "limitations": "非数据库中不存在模型的证明；网页与HPCC方法不同。尚无458 aa预测结果，网页任务没有公开显示可用的作业ID。",
+    "audit_actor": "independent source auditor, inline",
+    "audit_status": "reviewed"
+  },
+  {
+    "group": "af3_addendum",
+    "version": 2,
+    "claim_id": "AFMC-012",
+    "claim": "网页作业65aeb4efda5ee9be已完成并下载完整结果；原HPCC作业28187510按用户要求取消且运行0秒。旧记录的“尚无结果/未知网页ID”现已被更新。",
+    "source_ids": [
+      "logs/alphafold_server_status.json",
+      "logs/hpcc_job_28187510_cancelled.txt",
+      "structures/fold_xp_065950166_2_458aa_monomer_20260907.zip"
+    ],
+    "verdict": "partially_supported",
+    "checked_utc": "2026-09-08T01:43:53.267831+00:00",
+    "source_locator": "raw AlphaFold Server ZIP members; af3_source_files.json; af3_static_check.json; logs/alphafold_server_status.json; logs/hpcc_job_28187510_cancelled.txt; structures/fold_xp_065950166_2_458aa_monomer_20260907.zip",
+    "reason": "Original downloaded archive SHA492cd6e... and five mmCIF entry IDs directly support job65aeb4efda5ee9be actual output delivery. Scheduler raw log confirms cancelled0seconds. Historical user cancellation authorization remains author-recorded rather than independently read, so that subclaim is not independently established.",
+    "limitations": "提交及结果页Modified时间不是实际计算开始/结束时间，队列与运行时长未知。",
+    "audit_actor": "independent source auditor, inline",
+    "audit_status": "reviewed"
+  }
+]

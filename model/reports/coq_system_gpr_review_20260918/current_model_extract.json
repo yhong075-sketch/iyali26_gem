@@ -1,0 +1,1126 @@
+{
+  "checked_utc": "2026-09-18T18:33:49.097901+00:00",
+  "model": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r539_alphafold_labeled.xml",
+  "model_sha256": "cff96f40368b3de3d502956cf33dda246e049becfa43c1bba12fbd8ded6acd9a",
+  "cobra_version": "0.30.0",
+  "optimization_calls": 0,
+  "counts": [
+    2314,
+    1877,
+    1073
+  ],
+  "reactions": [
+    {
+      "id": "R763",
+      "name": "all-trans-nonaprenyl-diphosphate synthase (four-IPP lump)",
+      "gpr": "YALI1C26017g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "4.0 m984[C_mi] + m985[C_mi] --> 4.0 m204[C_mi] + m640[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.5.1.85"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.5.1.-",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "coq9_stoichiometry_scope": "The four-IPP lump is balanced model bookkeeping; direct Yarrowia evidence supports Q9 chain length, not this exact lump."
+      },
+      "stoichiometry": {
+        "m984[C_mi]": -4.0,
+        "m985[C_mi]": -1.0,
+        "m204[C_mi]": 4.0,
+        "m640[C_mi]": 1.0
+      },
+      "species": {
+        "m984[C_mi]": {
+          "name": "isopentenyl diphosphate_C5H12O7P2",
+          "formula": "C5H12O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m985[C_mi]": {
+          "name": "pentaprenyl diphosphate_C25H44O7P2",
+          "formula": "C25H44O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m204[C_mi]": {
+          "name": "diphosphate_H4O7P2",
+          "formula": "H4O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m640[C_mi]": {
+          "name": "nonaprenyl diphosphate_C45H76O7P2",
+          "formula": "C45H76O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R407",
+      "name": "4-hydroxybenzoate nonaprenyltransferase",
+      "gpr": "YALI1F08349g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m138[C_mi] + m640[C_mi] --> m204[C_mi] + m641[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.5.1.39",
+        "kegg.reaction": "R07273"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.5.1.39",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_quinone_branch_cleanup": "Retained mitochondrial COQ2 reaction. Removed inert/mis-annotated R189 and R2242/R2247/R2248/R2249/R2250 branches; see docs/curation/quinone_branch_cleanup.md.",
+        "gpr_evidence_status": "curated_annotation",
+        "coq9_chain_status": "The formal pipeline has replaced the legacy CoQ6 identities with the curated, mass-balanced CoQ9 main-chain representation."
+      },
+      "stoichiometry": {
+        "m138[C_mi]": -1.0,
+        "m640[C_mi]": -1.0,
+        "m204[C_mi]": 1.0,
+        "m641[C_mi]": 1.0
+      },
+      "species": {
+        "m138[C_mi]": {
+          "name": "4-hydroxybenzoate_C7H6O3",
+          "formula": "C7H6O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m640[C_mi]": {
+          "name": "nonaprenyl diphosphate_C45H76O7P2",
+          "formula": "C45H76O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m204[C_mi]": {
+          "name": "diphosphate_H4O7P2",
+          "formula": "H4O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m641[C_mi]": {
+          "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R969",
+      "name": "nonaprenyl 4-hydroxybenzoate transport",
+      "gpr": "",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "equation": "m108[C_cy] <=> m641[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000185"
+      },
+      "notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged."
+      },
+      "stoichiometry": {
+        "m108[C_cy]": -1.0,
+        "m641[C_mi]": 1.0
+      },
+      "species": {
+        "m108[C_cy]": {
+          "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m641[C_mi]": {
+          "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R39",
+      "name": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+      "gpr": "",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m108[C_cy] + 0.5 m109[C_cy] --> m10[C_cy] + m110[C_cy]",
+      "annotation": {
+        "sbo": "SBO:0000176"
+      },
+      "notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged."
+      },
+      "stoichiometry": {
+        "m108[C_cy]": -1.0,
+        "m109[C_cy]": -0.5,
+        "m110[C_cy]": 1.0,
+        "m10[C_cy]": 1.0
+      },
+      "species": {
+        "m108[C_cy]": {
+          "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m109[C_cy]": {
+          "name": "oxygen_O2",
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m110[C_cy]": {
+          "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+          "formula": "C52H77O4",
+          "charge": -1,
+          "compartment": "C_cy"
+        },
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R808",
+      "name": "3-nonaprenyl-4,5-dihydroxybenzoate transport",
+      "gpr": "",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "equation": "m110[C_cy] <=> m939[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000185"
+      },
+      "notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged."
+      },
+      "stoichiometry": {
+        "m110[C_cy]": -1.0,
+        "m939[C_mi]": 1.0
+      },
+      "species": {
+        "m110[C_cy]": {
+          "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+          "formula": "C52H77O4",
+          "charge": -1,
+          "compartment": "C_cy"
+        },
+        "m939[C_mi]": {
+          "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+          "formula": "C52H77O4",
+          "charge": -1,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R715",
+      "name": "SAM:3-nonaprenyl-4,5-dihydroxybenzoate O-methyltransferase",
+      "gpr": "YALI1B20835g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m60[C_mi] + m939[C_mi] --> m111[C_mi] + m62[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.1.1.114"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.1.1.114",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1B20835g (COQ3 candidate; active UniProt Q6CEG2), CoQ O-methyltransferase. Cross-species step evidence: E. coli UbiG structure 4KDC and reconstructed ancestral tetrapod COQ3.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified"
+      },
+      "stoichiometry": {
+        "m60[C_mi]": -1.0,
+        "m939[C_mi]": -1.0,
+        "m62[C_mi]": 1.0,
+        "m111[C_mi]": 1.0
+      },
+      "species": {
+        "m60[C_mi]": {
+          "name": "S-adenosyl-L-methionine_C15H22N6O5S",
+          "formula": "C15H22N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m939[C_mi]": {
+          "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+          "formula": "C52H77O4",
+          "charge": -1,
+          "compartment": "C_mi"
+        },
+        "m62[C_mi]": {
+          "name": "S-adenosyl-L-homocysteine_C14H20N6O5S",
+          "formula": "C14H20N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m111[C_mi]": {
+          "name": "3-nonaprenyl-4-hydroxy-5-methoxybenzoate_C53H79O4",
+          "formula": "C53H79O4",
+          "charge": -1,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R40",
+      "name": "3-nonaprenyl-4-hydroxy-5-methoxybenzoate decarboxylase",
+      "gpr": "YALI1F34625g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m111[C_mi] + m28[C_mi] --> m44[C_mi] + m63[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176"
+      },
+      "notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1F34625g (COQ4; UniProt Q6C074), CoQ-ring C1 decarboxylase/synthome-organising protein. Cross-species experiments support C1 decarboxylation, while oxidative versus sequential decarboxylation/hydroxylation remains unresolved.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified"
+      },
+      "stoichiometry": {
+        "m28[C_mi]": -1.0,
+        "m111[C_mi]": -1.0,
+        "m44[C_mi]": 1.0,
+        "m63[C_mi]": 1.0
+      },
+      "species": {
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi"
+        },
+        "m111[C_mi]": {
+          "name": "3-nonaprenyl-4-hydroxy-5-methoxybenzoate_C53H79O4",
+          "formula": "C53H79O4",
+          "charge": -1,
+          "compartment": "C_mi"
+        },
+        "m44[C_mi]": {
+          "name": "carbon dioxide_CO2",
+          "formula": "CO2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m63[C_mi]": {
+          "name": "2-methoxy-6-(all-trans-nonaprenyl)phenol_C52H80O2",
+          "formula": "C52H80O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R19",
+      "name": "2-methoxy-6-(all-trans-nonaprenyl)phenol monooxygenase",
+      "gpr": "",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m63[C_mi] + m64[C_mi] --> m26[C_mi] + m59[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176"
+      },
+      "notes": {
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "Removed the unsupported inherited seven-gene synthome AND. YALI1A08781g (COQ6 candidate; active UniProt F2Z6J4) remains deferred for this exact reaction; an empty GPR denotes unknown catalyst identity, not a spontaneous reaction.",
+        "gpr_evidence_status": "deferred_reaction_identity_unresolved",
+        "gpr_evidence_limit": "COQ6 family/AlphaFold compatibility is supported, but R19 regioselectivity, product redox state and ferredoxin/reductase electron transfer remain unresolved.",
+        "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_previous_PROTEIN_CLASS": "1.14.13.-",
+        "coq9_curation_scope": "Mixed pathway ECs are historical evidence only. Exact native catalyst and lumped redox chemistry remain unresolved; EC removal does not imply spontaneity.",
+        "coq9_reference_pathway_ec": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130"
+      },
+      "stoichiometry": {
+        "m63[C_mi]": -1.0,
+        "m64[C_mi]": -1.0,
+        "m26[C_mi]": 1.0,
+        "m59[C_mi]": 1.0
+      },
+      "species": {
+        "m63[C_mi]": {
+          "name": "2-methoxy-6-(all-trans-nonaprenyl)phenol_C52H80O2",
+          "formula": "C52H80O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m64[C_mi]": {
+          "name": "oxygen_O2",
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m26[C_mi]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m59[C_mi]": {
+          "name": "2-nonaprenyl-6-methoxy-1,4-benzoquinone_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R18",
+      "name": "2-nonaprenyl-6-methoxy-1,4-benzoquinone methyltransferase",
+      "gpr": "YALI1C25352g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m59[C_mi] + m60[C_mi] --> m61[C_mi] + m62[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.1.1.201"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.1.1.201",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1C25352g (COQ5 candidate; active UniProt Q6CBJ6), CoQ-ring C-methyltransferase. Cross-species step evidence: S. cerevisiae SAM-bound Coq5 structure 4OBW and reconstructed ancestral COQ5 activity.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_curation_scope": "EC denotes the COQ5 catalytic family. Encoded oxidized quinone is not asserted identical to the accepted quinol substrate."
+      },
+      "stoichiometry": {
+        "m59[C_mi]": -1.0,
+        "m60[C_mi]": -1.0,
+        "m61[C_mi]": 1.0,
+        "m62[C_mi]": 1.0
+      },
+      "species": {
+        "m59[C_mi]": {
+          "name": "2-nonaprenyl-6-methoxy-1,4-benzoquinone_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m60[C_mi]": {
+          "name": "S-adenosyl-L-methionine_C15H22N6O5S",
+          "formula": "C15H22N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m61[C_mi]": {
+          "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone_C53H80O3",
+          "formula": "C53H80O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m62[C_mi]": {
+          "name": "S-adenosyl-L-homocysteine_C14H20N6O5S",
+          "formula": "C14H20N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R695",
+      "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+      "gpr": "YALI1E18269g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m30[C_mi] + m61[C_mi] + m64[C_mi] --> m26[C_mi] + m27[C_mi] + m611[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "1.14.13.253"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "1.14.13.253",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_gpr_correction": "YALI1E18269g (COQ7 candidate; active UniProt Q6C5T9), demethoxyubiquinone hydroxylase. Cross-species step evidence: human COQ7:COQ9 structure 7SSS and reconstructed COQ7 activity.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_previous_ec_code": "1.14.15.45; 1.14.15.46; 1.14.99.60; 2.1.1.-; 2.1.1.114; 2.1.1.201; 2.1.1.64; 4.1.1.130",
+        "coq9_previous_PROTEIN_CLASS": "1.14.13.-",
+        "coq9_curation_scope": "EC denotes the COQ7 catalytic family; stored substrate forms and native substrate specificity are not newly validated."
+      },
+      "stoichiometry": {
+        "m30[C_mi]": -1.0,
+        "m61[C_mi]": -1.0,
+        "m64[C_mi]": -1.0,
+        "m26[C_mi]": 1.0,
+        "m27[C_mi]": 1.0,
+        "m611[C_mi]": 1.0
+      },
+      "species": {
+        "m30[C_mi]": {
+          "name": "NADH_C21H29N7O14P2",
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m61[C_mi]": {
+          "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone_C53H80O3",
+          "formula": "C53H80O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m64[C_mi]": {
+          "name": "oxygen_O2",
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m26[C_mi]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m27[C_mi]": {
+          "name": "NAD_C21H27N7O14P2",
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m611[C_mi]": {
+          "name": "3-demethylubiquinone-9_C53H80O4",
+          "formula": "C53H80O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R385",
+      "name": "3-demethylubiquinone-9 3-O-methyltransferase",
+      "gpr": "YALI1B20835g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m60[C_mi] + m611[C_mi] --> m468[C_mi] + m62[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.1.1.64",
+        "kegg.reaction": "R08781"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.1.1.64",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "terminal_redox_convention": "Balanced oxidized convention: SAM + 3-demethylubiquinone-9 -&gt; SAH + ubiquinone-9. Native Yarrowia terminal redox form is unresolved; KEGG R08781 is the closest neutral convention.",
+        "curated_gpr_correction": "YALI1B20835g (COQ3 candidate; active UniProt Q6CEG2), CoQ O-methyltransferase. Cross-species evidence supports the second CoQ O-methylation; the native Yarrowia substrate redox state remains unresolved.",
+        "gpr_evidence_status": "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+        "coq9_previous_PROTEIN_CLASS": "2.1.1.114",
+        "coq9_curation_scope": "EC denotes COQ3 terminal O-methylation. The model retains oxidized quinone; the native enzyme substrate oxidation state is unresolved."
+      },
+      "stoichiometry": {
+        "m60[C_mi]": -1.0,
+        "m611[C_mi]": -1.0,
+        "m468[C_mi]": 1.0,
+        "m62[C_mi]": 1.0
+      },
+      "species": {
+        "m60[C_mi]": {
+          "name": "S-adenosyl-L-methionine_C15H22N6O5S",
+          "formula": "C15H22N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m611[C_mi]": {
+          "name": "3-demethylubiquinone-9_C53H80O4",
+          "formula": "C53H80O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m468[C_mi]": {
+          "name": "ubiquinone-9_C54H82O4",
+          "formula": "C54H82O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m62[C_mi]": {
+          "name": "S-adenosyl-L-homocysteine_C14H20N6O5S",
+          "formula": "C14H20N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    }
+  ],
+  "genes": [
+    {
+      "gene_id": "YALI1C26017g",
+      "family_candidate": "COQ1",
+      "model_name": "COBRAProtein644",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "uniprot": "Q6CBH3",
+        "refseq": "XP_501989.1",
+        "ensembl": "CAG82309",
+        "kegg.genes": "yli:2909963",
+        "ec-code": "2.5.1.-"
+      },
+      "reactions": [
+        "R763"
+      ],
+      "static_KO_closes": [
+        "R763"
+      ]
+    },
+    {
+      "gene_id": "YALI1F08349g",
+      "family_candidate": "COQ2",
+      "model_name": "COQ2",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2907969",
+        "uniprot": [
+          "A0A1H6PM88",
+          "Q6C2S2"
+        ],
+        "kegg.genes": "yli:2907969",
+        "refseq": "XP_505040.1",
+        "ec-code": "2.5.1.39"
+      },
+      "reactions": [
+        "R407"
+      ],
+      "static_KO_closes": [
+        "R407"
+      ]
+    },
+    {
+      "gene_id": "YALI1B20835g",
+      "family_candidate": "COQ3",
+      "model_name": "COQ3",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2907025",
+        "uniprot": [
+          "A0A1D8N802",
+          "Q6CEG2"
+        ],
+        "kegg.genes": "yli:2907025",
+        "ec-code": [
+          "2.1.1.64",
+          "2.1.1.114"
+        ],
+        "refseq": "XP_500950.3"
+      },
+      "reactions": [
+        "R385",
+        "R715"
+      ],
+      "static_KO_closes": [
+        "R385",
+        "R715"
+      ]
+    },
+    {
+      "gene_id": "YALI1F34625g",
+      "family_candidate": "COQ4",
+      "model_name": "COBRAProtein29",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "uniprot": "Q6C074",
+        "refseq": "XP_505938.1",
+        "ensembl": "CAG78750",
+        "kegg.genes": "yli:2907824",
+        "ec-code": "4.1.1.130"
+      },
+      "reactions": [
+        "R40"
+      ],
+      "static_KO_closes": [
+        "R40"
+      ]
+    },
+    {
+      "gene_id": "YALI1C25352g",
+      "family_candidate": "COQ5",
+      "model_name": "COBRAProtein27",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2909994",
+        "uniprot": "A0A1D8NBN0",
+        "kegg.genes": "yli:2909994",
+        "refseq": "XP_501966.1",
+        "ec-code": "2.1.1.201"
+      },
+      "reactions": [
+        "R18"
+      ],
+      "static_KO_closes": [
+        "R18"
+      ]
+    },
+    {
+      "gene_id": "YALI1A08781g",
+      "family_candidate": "COQ6",
+      "model_name": "COBRAProtein24",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2906060",
+        "uniprot": "Q6H9P2",
+        "kegg.genes": "yli:2906060",
+        "refseq": "XP_499891.1",
+        "ec-code": [
+          "1.14.15.45",
+          "1.14.15.46"
+        ]
+      },
+      "reactions": [],
+      "static_KO_closes": []
+    },
+    {
+      "gene_id": "YALI1E18269g",
+      "family_candidate": "COQ7",
+      "model_name": "COBRAProtein28",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2911989",
+        "uniprot": "A0A1H6Q2E8",
+        "kegg.genes": "yli:2911989",
+        "refseq": "XP_503973.1",
+        "ec-code": "1.14.99.60"
+      },
+      "reactions": [
+        "R695"
+      ],
+      "static_KO_closes": [
+        "R695"
+      ]
+    },
+    {
+      "gene_id": "YALI1B20527g",
+      "family_candidate": "COQ8",
+      "model_name": "COBRAProtein25",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2906959",
+        "uniprot": "A0A1D8N7Z5",
+        "kegg.genes": "yli:2906959",
+        "refseq": "XP_500941.1"
+      },
+      "reactions": [],
+      "static_KO_closes": []
+    },
+    {
+      "gene_id": "YALI1F34675g",
+      "family_candidate": "COQ9",
+      "model_name": "COBRAProtein30",
+      "model_annotation": {
+        "sbo": "SBO:0000243",
+        "ncbigene": "2907842",
+        "uniprot": "A0A1D8NQ60",
+        "kegg.genes": "yli:2907842",
+        "refseq": "XP_505941.3"
+      },
+      "reactions": [],
+      "static_KO_closes": []
+    }
+  ],
+  "exact_signed_duplicates": [],
+  "direct_precursor_neighbors": [
+    {
+      "id": "R407",
+      "name": "4-hydroxybenzoate nonaprenyltransferase",
+      "gpr": "YALI1F08349g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m138[C_mi] + m640[C_mi] --> m204[C_mi] + m641[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.5.1.39",
+        "kegg.reaction": "R07273"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.5.1.39",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "curated_quinone_branch_cleanup": "Retained mitochondrial COQ2 reaction. Removed inert/mis-annotated R189 and R2242/R2247/R2248/R2249/R2250 branches; see docs/curation/quinone_branch_cleanup.md.",
+        "gpr_evidence_status": "curated_annotation",
+        "coq9_chain_status": "The formal pipeline has replaced the legacy CoQ6 identities with the curated, mass-balanced CoQ9 main-chain representation."
+      },
+      "stoichiometry": {
+        "m138[C_mi]": -1.0,
+        "m640[C_mi]": -1.0,
+        "m204[C_mi]": 1.0,
+        "m641[C_mi]": 1.0
+      },
+      "species": {
+        "m138[C_mi]": {
+          "name": "4-hydroxybenzoate_C7H6O3",
+          "formula": "C7H6O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m640[C_mi]": {
+          "name": "nonaprenyl diphosphate_C45H76O7P2",
+          "formula": "C45H76O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m204[C_mi]": {
+          "name": "diphosphate_H4O7P2",
+          "formula": "H4O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m641[C_mi]": {
+          "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R52",
+      "name": "4-hydroxybenzoate formation",
+      "gpr": "",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "m137[C_mi] + m26[C_mi] + 4.0 m28[C_mi] --> m138[C_mi] + m73[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "seed.reaction": "rxn13208",
+        "metanetx.reaction": "MNXR152692",
+        "seedr": "rxn13208"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "3.1.2.23"
+      },
+      "stoichiometry": {
+        "m26[C_mi]": -1.0,
+        "m137[C_mi]": -1.0,
+        "m28[C_mi]": -4.0,
+        "m73[C_mi]": 1.0,
+        "m138[C_mi]": 1.0
+      },
+      "species": {
+        "m26[C_mi]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m137[C_mi]": {
+          "name": "4-hydroxybenzoyl-CoA_",
+          "formula": "C28H36N7O18P3S",
+          "charge": -4,
+          "compartment": "C_mi"
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi"
+        },
+        "m73[C_mi]": {
+          "name": "coenzyme A_C21H36N7O16P3S",
+          "formula": "C21H36N7O16P3S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m138[C_mi]": {
+          "name": "4-hydroxybenzoate_C7H6O3",
+          "formula": "C7H6O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R763",
+      "name": "all-trans-nonaprenyl-diphosphate synthase (four-IPP lump)",
+      "gpr": "YALI1C26017g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "equation": "4.0 m984[C_mi] + m985[C_mi] --> 4.0 m204[C_mi] + m640[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "2.5.1.85"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.5.1.-",
+        "curated_coq9_chemistry": "Legacy C30/CoQ6 identities replaced with the balanced C45/CoQ9 main chain; GPRs, bounds, compartments and demand are unchanged.",
+        "coq9_stoichiometry_scope": "The four-IPP lump is balanced model bookkeeping; direct Yarrowia evidence supports Q9 chain length, not this exact lump."
+      },
+      "stoichiometry": {
+        "m984[C_mi]": -4.0,
+        "m985[C_mi]": -1.0,
+        "m204[C_mi]": 4.0,
+        "m640[C_mi]": 1.0
+      },
+      "species": {
+        "m984[C_mi]": {
+          "name": "isopentenyl diphosphate_C5H12O7P2",
+          "formula": "C5H12O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m985[C_mi]": {
+          "name": "pentaprenyl diphosphate_C25H44O7P2",
+          "formula": "C25H44O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m204[C_mi]": {
+          "name": "diphosphate_H4O7P2",
+          "formula": "H4O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m640[C_mi]": {
+          "name": "nonaprenyl diphosphate_C45H76O7P2",
+          "formula": "C45H76O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R865",
+      "name": "isopentenyl diphosphate transport",
+      "gpr": "",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "equation": "m491[C_cy] <=> m984[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000185",
+        "bigg.reaction": [
+          "IPDPth",
+          "IPDPtm",
+          "IPDPtr",
+          "IPDPtx",
+          "R_IPDPth",
+          "R_IPDPtm",
+          "R_IPDPtr",
+          "R_IPDPtx"
+        ],
+        "seed.reaction": [
+          "rxn13332",
+          "rxn32834",
+          "rxn34386"
+        ],
+        "vmhreaction": [
+          "IPDPtr",
+          "IPDPtx",
+          "R_IPDPtr",
+          "R_IPDPtx"
+        ],
+        "metanetx.reaction": "MNXR100876",
+        "biggr": [
+          "IPDPth",
+          "IPDPtm",
+          "IPDPtr",
+          "IPDPtx",
+          "R_IPDPth",
+          "R_IPDPtm",
+          "R_IPDPtr",
+          "R_IPDPtx"
+        ],
+        "seedr": [
+          "rxn13332",
+          "rxn32834",
+          "rxn34386"
+        ],
+        "vmhr": [
+          "IPDPtr",
+          "IPDPtx",
+          "R_IPDPtr",
+          "R_IPDPtx"
+        ]
+      },
+      "notes": {},
+      "stoichiometry": {
+        "m491[C_cy]": -1.0,
+        "m984[C_mi]": 1.0
+      },
+      "species": {
+        "m491[C_cy]": {
+          "name": "isopentenyl diphosphate_C5H12O7P2",
+          "formula": "C5H12O7P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m984[C_mi]": {
+          "name": "isopentenyl diphosphate_C5H12O7P2",
+          "formula": "C5H12O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R913",
+      "name": "pentaprenyl diphosphate transport",
+      "gpr": "",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "equation": "m548[C_cy] <=> m985[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000185",
+        "bigg.reaction": [
+          "PENDPtm",
+          "R_PENDPtm"
+        ],
+        "metanetx.reaction": "MNXR145937",
+        "biggr": [
+          "PENDPtm",
+          "R_PENDPtm"
+        ]
+      },
+      "notes": {},
+      "stoichiometry": {
+        "m548[C_cy]": -1.0,
+        "m985[C_mi]": 1.0
+      },
+      "species": {
+        "m548[C_cy]": {
+          "name": "pentaprenyl diphosphate_C25H44O7P2",
+          "formula": "C25H44O7P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m985[C_mi]": {
+          "name": "pentaprenyl diphosphate_C25H44O7P2",
+          "formula": "C25H44O7P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    },
+    {
+      "id": "R978",
+      "name": "4-hydroxybenzoate transport",
+      "gpr": "",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "equation": "m366[C_cy] <=> m138[C_mi]",
+      "annotation": {
+        "sbo": "SBO:0000185",
+        "bigg.reaction": [
+          "4HBZte",
+          "4HBZtex",
+          "4HBZtm",
+          "EX_4hbz_e",
+          "R_4HBZte",
+          "R_4HBZtex",
+          "R_4HBZtm",
+          "R_EX_4hbz_e"
+        ],
+        "sabiork.reaction": "12859",
+        "seed.reaction": [
+          "rxn09792",
+          "rxn12787"
+        ],
+        "vmhreaction": [
+          "4HBZte",
+          "4HBZtex",
+          "4HBZtm",
+          "R_4HBZte",
+          "R_4HBZtex",
+          "R_4HBZtm"
+        ],
+        "metanetx.reaction": "MNXR95013",
+        "biggr": [
+          "4HBZte",
+          "4HBZtex",
+          "4HBZtm",
+          "EX_4hbz_e",
+          "R_4HBZte",
+          "R_4HBZtex",
+          "R_4HBZtm",
+          "R_EX_4hbz_e"
+        ],
+        "sabiorkr": "12859",
+        "seedr": [
+          "rxn09792",
+          "rxn12787"
+        ],
+        "vmhr": [
+          "4HBZte",
+          "4HBZtex",
+          "4HBZtm",
+          "R_4HBZte",
+          "R_4HBZtex",
+          "R_4HBZtm"
+        ]
+      },
+      "notes": {},
+      "stoichiometry": {
+        "m366[C_cy]": -1.0,
+        "m138[C_mi]": 1.0
+      },
+      "species": {
+        "m366[C_cy]": {
+          "name": "4-hydroxybenzoate_C7H6O3",
+          "formula": "C7H6O3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m138[C_mi]": {
+          "name": "4-hydroxybenzoate_C7H6O3",
+          "formula": "C7H6O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "balance_residual": {}
+    }
+  ],
+  "q9_plus_q9h2_nonzero_row_sum": {
+    "R385": 1.0
+  },
+  "q9_pool_inference": "For this SBML steady-state network, sum of Q9 and Q9H2 balance rows gives v_R385 = 0. No pool dilution/turnover demand is encoded by those rows. This is not a new WT/KO growth solve."
+}

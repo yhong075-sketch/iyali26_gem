@@ -1,0 +1,369 @@
+{
+  "acceptance": {
+    "activation": "blocked",
+    "hpcc_candidate_file_validation_passed": false,
+    "human_gate_required": true,
+    "local_structural_validation_passed": true,
+    "production_apply_performed": false,
+    "production_gate_passed": false,
+    "ready_for_activation": false,
+    "scientific_frontiers_closed": false
+  },
+  "artifact_type": "strict_sn_lipid_core_candidate_model_export",
+  "candidate_model": {
+    "bytes": 17940939,
+    "dimensions": {
+      "genes": 1074,
+      "metabolites": 3008,
+      "reactions": 3415
+    },
+    "generated_metabolite_count": 1134,
+    "generated_reaction_count": 1134,
+    "path": "model_lipid_unlump_strict_sn_candidate_bc2aac8f_ad79e5d.xml",
+    "sha256": "5f500c6cab33fa2fee6666907657ceac860075c27c0b3e216ad0686c66fb4200",
+    "strict_source_contract_fingerprint": "0014b9e72094112f385c9ad41f122be7f254b1285c2148f31291346649e8af2c"
+  },
+  "cardiolipin_audit": {
+    "contract_sha256": "e16db37d6b19731fa8f608e177c10b8d646343e496b18ad609a2da29f35543d1",
+    "current_strict_model": {
+      "currently_instantiated_network_position_state_count": 0,
+      "evidence_supported_position_state_count": 0,
+      "included_position_metabolite_count": 0,
+      "included_position_reaction_count": 0,
+      "reachability_scope": "zero means no position-resolved cardiolipin state is instantiated in the current candidate; it does not prove all 2,401 envelope states biologically unreachable"
+    },
+    "forbidden_lossy_half_swap_fold": {
+      "count_formula": "49*50/2",
+      "state_count": 1225,
+      "status": "forbidden"
+    },
+    "not_adopted_modeling_envelope": {
+      "all_ids_sha256": "af34ecde5ef4a2823208c2ff7e81733b42d907034ca816fdafb9f9f1288f0ecb",
+      "all_state_count": 2401,
+      "different_half_ids_sha256": "3db29ba9826a80e5d9e777c98c1b2c635427b6dccf3817402629031601b5fcd9",
+      "different_half_state_count": 2352,
+      "same_half_ids_sha256": "3eb9cba676499fa5daa16077fd36282f22988970aeaa12c2e5f357fec7bb39b6",
+      "same_half_state_count": 49,
+      "status": "not_adopted"
+    }
+  },
+  "checks": {
+    "cardiolipin_1225_fold_forbidden": true,
+    "cardiolipin_2401_envelope_not_adopted": true,
+    "declared_bypasses_closed": true,
+    "dimensions_exact": true,
+    "generated_mass_charge_balanced": true,
+    "generated_metabolite_count_exact": true,
+    "generated_reaction_count_exact": true,
+    "generic_acyl_coa_metabolites_removed": true,
+    "generic_template_reactions_removed": true,
+    "groups_and_subsystems_preserved_exact": true,
+    "lp_roundtrip_preserved_under_contract": true,
+    "metadata_roundtrip_preserved_exact": true,
+    "objective_is_biomass_C": true,
+    "position_resolved_cardiolipin_not_instantiated": true,
+    "source_sha_unchanged": true,
+    "tracked_model_sha_unchanged": true
+  },
+  "evidence_role": "local_export_structural_cross_check_not_hpcc_acceptance",
+  "generated_at_utc": "2026-08-19T18:33:10.547181+00:00",
+  "git_commit": "ad79e5d7a427d538e5a6f2e73a10640438721148",
+  "roundtrip": {
+    "listed_metadata": {
+      "e_metadata_scope_limitation_remediated": true,
+      "expected_sha256": "24e98557d8b8b717663801e7e1636d283acffab4900da5e915e04772c51a2ca3",
+      "groups_and_subsystems_preserved_exact": true,
+      "groups_preserved_exact": true,
+      "observed_sha256": "24e98557d8b8b717663801e7e1636d283acffab4900da5e915e04772c51a2ca3",
+      "preserved_exact": true,
+      "reaction_subsystems_preserved_exact": true,
+      "scope": {
+        "groups": [
+          "id",
+          "name",
+          "kind",
+          "member_ids",
+          "annotation",
+          "notes"
+        ],
+        "reactions": [
+          "id",
+          "subsystem"
+        ]
+      }
+    },
+    "lp": {
+      "critical_exact_fields": {
+        "bounds_exact": true,
+        "objective_coefficients_exact": true,
+        "objective_direction_equal": true,
+        "reaction_ids_equal": true,
+        "stoichiometry_keys_equal": true
+      },
+      "exact_numeric_mismatches": {
+        "bound_mismatches": [],
+        "objective_coefficient_mismatches": []
+      },
+      "exact_sha256_equal": false,
+      "expected_exact_sha256": "91abd10fc88f346378cc2bd1eec1a39304dd0e14ae8ce41f3e8e83b39a7bfdc6",
+      "id_key_mismatches": {
+        "missing_reaction_ids": [],
+        "stoichiometry_key_mismatches": [],
+        "unexpected_reaction_ids": []
+      },
+      "observed_exact_sha256": "8c0eac05bd360d2da1634394f8e13e03dd50b63b50d78a2dd56e93886e312d38",
+      "preserved_under_contract": true,
+      "stoichiometric_coefficient_comparison": {
+        "exact_unequal_count": 555,
+        "maximum_absolute_delta": 4.912791094074942e-20,
+        "maximum_relative_delta": 4.821755164748113e-15,
+        "nonfinite_mismatch_count": 0,
+        "tolerance_mismatch_count": 0,
+        "tolerance_mismatches": [],
+        "top_exact_differences": [
+          {
+            "absolute_delta": 4.912791094074942e-20,
+            "expected": -1.161344154130745e-05,
+            "nonfinite": false,
+            "observed": -1.16134415413075e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__palmitoyl__sn2__palmitoyl[C_lp]",
+            "relative_delta": 4.230262904067484e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 4.743384504624082e-20,
+            "expected": -1.2739720179427048e-05,
+            "nonfinite": false,
+            "observed": -1.2739720179427e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__linoleoyl__sn2__linoleoyl[C_lp]",
+            "relative_delta": 3.723303524581346e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 4.0657581468206416e-20,
+            "expected": -2.258324202660656e-05,
+            "nonfinite": false,
+            "observed": -2.25832420266066e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pe_lp__sn1__linoleoyl__sn2__oleoyl[C_lp]",
+            "relative_delta": 1.8003429897401538e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 4.0657581468206416e-20,
+            "expected": -2.258324202660656e-05,
+            "nonfinite": false,
+            "observed": -2.25832420266066e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pe_lp__sn1__oleoyl__sn2__linoleoyl[C_lp]",
+            "relative_delta": 1.8003429897401538e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 3.3881317890172014e-20,
+            "expected": -1.8494958405480533e-05,
+            "nonfinite": false,
+            "observed": -1.84949584054805e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pi_em__sn1__oleoyl__sn2__oleoyl[C_em]",
+            "relative_delta": 1.8319218214695797e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.710505431213761e-20,
+            "expected": -3.2969627600024774e-05,
+            "nonfinite": false,
+            "observed": -3.29696276000248e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__linoleoyl__sn2__oleoyl[C_lp]",
+            "relative_delta": 8.221219432917471e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.710505431213761e-20,
+            "expected": -3.2969627600024774e-05,
+            "nonfinite": false,
+            "observed": -3.29696276000248e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__oleoyl__sn2__linoleoyl[C_lp]",
+            "relative_delta": 8.221219432917471e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.710505431213761e-20,
+            "expected": -8.532340811061687e-05,
+            "nonfinite": false,
+            "observed": -8.53234081106169e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__oleoyl__sn2__oleoyl[C_lp]",
+            "relative_delta": 3.1767430430108305e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.710505431213761e-20,
+            "expected": -2.8655236735177972e-05,
+            "nonfinite": false,
+            "observed": -2.8655236735178e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_tag_lp__sn1__oleoyl__sn2__oleoyl__sn3__oleoyl[C_lp]",
+            "relative_delta": 9.459022992074137e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.541098841762901e-20,
+            "expected": -1.2163551930106226e-05,
+            "nonfinite": false,
+            "observed": -1.21635519301062e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__linoleoyl__sn2__palmitoyl[C_lp]",
+            "relative_delta": 2.0891092144502475e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 2.371692252312041e-20,
+            "expected": -1.2163551930106225e-05,
+            "nonfinite": false,
+            "observed": -1.21635519301062e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__palmitoyl__sn2__linoleoyl[C_lp]",
+            "relative_delta": 1.9498352668202313e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.6940658945086007e-20,
+            "expected": -2.1561889372136916e-05,
+            "nonfinite": false,
+            "observed": -2.15618893721369e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pe_lp__sn1__oleoyl__sn2__palmitoyl[C_lp]",
+            "relative_delta": 7.85675997715551e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.5246593050577406e-20,
+            "expected": -1.1072606039418285e-05,
+            "nonfinite": false,
+            "observed": -1.10726060394183e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_tag_lp__sn1__linoleoyl__sn2__oleoyl__sn3__oleoyl[C_lp]",
+            "relative_delta": 1.376965187445465e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.5246593050577406e-20,
+            "expected": -1.1072606039418285e-05,
+            "nonfinite": false,
+            "observed": -1.10726060394183e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_tag_lp__sn1__oleoyl__sn2__linoleoyl__sn3__oleoyl[C_lp]",
+            "relative_delta": 1.376965187445465e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.5246593050577406e-20,
+            "expected": -1.1072606039418285e-05,
+            "nonfinite": false,
+            "observed": -1.10726060394183e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_tag_lp__sn1__oleoyl__sn2__oleoyl__sn3__linoleoyl[C_lp]",
+            "relative_delta": 1.376965187445465e-15,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.3552527156068805e-20,
+            "expected": -1.4302767833571613e-05,
+            "nonfinite": false,
+            "observed": -1.43027678335716e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pa_lp__sn1__oleoyl__sn2__oleoyl[C_lp]",
+            "relative_delta": 9.475457697256448e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.3552527156068805e-20,
+            "expected": -1.4261008506834913e-05,
+            "nonfinite": false,
+            "observed": -1.42610085068349e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__oleoyl__sn2__palmitoleoyl[C_lp]",
+            "relative_delta": 9.503203893030039e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.3552527156068805e-20,
+            "expected": -3.1478538914596514e-05,
+            "nonfinite": false,
+            "observed": -3.14785389145965e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pc_lp__sn1__oleoyl__sn2__palmitoyl[C_lp]",
+            "relative_delta": 4.3053228082909957e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.3552527156068805e-20,
+            "expected": -5.8444068561318486e-05,
+            "nonfinite": false,
+            "observed": -5.84440685613185e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pe_lp__sn1__oleoyl__sn2__oleoyl[C_lp]",
+            "relative_delta": 2.3188883816070623e-16,
+            "within_tolerance": true
+          },
+          {
+            "absolute_delta": 1.3552527156068805e-20,
+            "expected": -2.1561889372136913e-05,
+            "nonfinite": false,
+            "observed": -2.15618893721369e-05,
+            "path": "reaction/biomass_C/stoichiometry/ul_pe_lp__sn1__palmitoyl__sn2__oleoyl[C_lp]",
+            "relative_delta": 6.285407981724409e-16,
+            "within_tolerance": true
+          }
+        ]
+      },
+      "stoichiometric_coefficient_tolerance": {
+        "absolute": 1e-18,
+        "relative": 1e-12,
+        "scope": "stoichiometric coefficient values only; bounds and objective coefficients remain exact"
+      }
+    },
+    "metadata": {
+      "categories": {
+        "genes": {
+          "field_mismatch_count": 0,
+          "field_mismatches": [],
+          "missing_ids": [],
+          "unexpected_ids": []
+        },
+        "metabolites": {
+          "field_mismatch_count": 0,
+          "field_mismatches": [],
+          "missing_ids": [],
+          "unexpected_ids": []
+        },
+        "reactions": {
+          "field_mismatch_count": 0,
+          "field_mismatches": [],
+          "missing_ids": [],
+          "unexpected_ids": []
+        }
+      },
+      "exact_sha256_equal": true,
+      "expected_exact_sha256": "79053a17631e81159b0a8eb17b198c29d33f817142310863c3085a692865326c",
+      "model_field_mismatches": {},
+      "observed_exact_sha256": "79053a17631e81159b0a8eb17b198c29d33f817142310863c3085a692865326c",
+      "preserved_exact": true
+    }
+  },
+  "schema_version": 1,
+  "scope": {
+    "excluded": [
+      "complete_coa",
+      "D_union",
+      "R2076_decision",
+      "R1521_migration",
+      "cardiolipin_2401_state_expansion",
+      "cardiolipin_1225_lossy_fold",
+      "new_GPR_assignments"
+    ],
+    "included": [
+      "strict_sn_lipid_core_candidate"
+    ]
+  },
+  "source_model": {
+    "bytes": 14039307,
+    "dimensions": {
+      "genes": 1074,
+      "metabolites": 1877,
+      "reactions": 2313
+    },
+    "local_export_input_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model.xml",
+    "logical_id": "model_bc2aac8fecd8f2f5.xml",
+    "model_snapshot_fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "strict_source_contract_fingerprint": "426e1753cc51fda5bbba63ec336524af805126c75741e059d58964b6f1acc121"
+  },
+  "unbalanced_generated_reactions": {}
+}

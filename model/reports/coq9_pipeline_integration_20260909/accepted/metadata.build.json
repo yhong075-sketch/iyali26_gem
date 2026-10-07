@@ -1,0 +1,335 @@
+{
+  "started_at_utc": "2026-09-09T22:14:03.998669+00:00",
+  "completed_at_utc": "2026-09-09T22:15:08.068409+00:00",
+  "argv": [
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/scripts/gem_annotate/__main__.py",
+    "--coq9-curation",
+    "metadata",
+    "--offline",
+    "--no-solve",
+    "--mnx-dir",
+    "artifacts/r608_engineering_20260907/research/reference/metanetx",
+    "--cache-dir",
+    "artifacts/coq9_pipeline_integration_20260909/cache",
+    "--output-model",
+    "artifacts/coq9_pipeline_integration_20260909/accepted/metadata.xml"
+  ],
+  "options": {
+    "starting_model": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyli21.xml",
+    "output_model": "artifacts/coq9_pipeline_integration_20260909/accepted/metadata.xml",
+    "coq9_curation": "metadata",
+    "offline": true,
+    "no_solve": true,
+    "mnx_dir": "artifacts/r608_engineering_20260907/research/reference/metanetx",
+    "cache_dir": "artifacts/coq9_pipeline_integration_20260909/cache"
+  },
+  "input": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyli21.xml",
+    "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631"
+  },
+  "input_unchanged": true,
+  "output": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq9_pipeline_integration_20260909/accepted/metadata.xml",
+    "sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+  },
+  "head": "994b09bf5f0e86b548094ff7bbb94296d37c4536",
+  "dirty_status": "M README.md\n M data/lipid_unlump_sn_core_curation.json\n M scripts/gem_annotate/annotate_reactions_extended.py\n M scripts/gem_annotate/biomass.py\n M scripts/gem_annotate/main.py\n M scripts/gem_annotate/metabolites.py\n M scripts/gem_annotate/reactions.py\n M scripts/lp_sn12_candidate.py\n M tests/test_er_vlcfa_stereochemistry.py\n M tests/test_lp_sn12_candidate.py\n?? .codex/\n?? .mcp.json\n?? .tmp/\n?? 09012026.pptx\n?? AGENTS.md\n?? PROJECT_STATE.md\n?? artifacts/c7_revision1_independent_followup_20260907/\n?? artifacts/cfsa_lipid_unlump_20260908/\n?? artifacts/cfsa_lipid_unlump_figure_20260909/\n?? artifacts/cfsa_multichain_20260908/\n?? artifacts/cfsa_pfba_cap_20260908/\n?? artifacts/cfsa_sampling_candidate_n1_20260908/\n?? artifacts/cfsa_tag_max_20260908/\n?? artifacts/cfsa_test_20260908/\n?? artifacts/closed_bounds_69_20260909/\n?? artifacts/coq9_dt_pair_local_20260907T175236Z/\n?? artifacts/coq9_dt_quarter_wt_20260907/\n?? artifacts/coq9_pipeline_20260909/\n?? artifacts/coq9_pipeline_integration_20260909/\n?? artifacts/coq9_reserve_depletion_20260908/\n?? artifacts/coq9_supply_mechanism_20260908/\n?? artifacts/coq9_wp2_proposal_only_20260905T2000Z/\n?? artifacts/coq9_wp2_proposal_v2_20260905/\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip\n?? artifacts/coq9_wp2_proposal_v2_20260906.zip.sha256\n?? artifacts/coq9_wp2_proposals_for_review_20260905.zip\n?? artifacts/decision_evidence_audit_20260908/\n?? artifacts/dfba_consistent_integrator_n2_20260908/\n?? artifacts/dfba_event_resolve_gate_20260909T062014Z/\n?? artifacts/escher_atlas_20260909/\n?? artifacts/figures/\n?? artifacts/identity_construct_followup_20260907/\n?? artifacts/iyali26_vs_iyali21_slide_20260907/\n?? artifacts/lipid_charge_fix_20260908/\n?? artifacts/methylcitrate_evidence_followup_20260907/\n?? artifacts/n1_n4_decision_audit_20260908/\n?? artifacts/n1_n4_handoff_20260908/\n?? artifacts/next_evidence_independent_audit_20260908/\n?? artifacts/polyamine_chemistry_wp2_20260907/\n?? artifacts/polyamine_demand_identifiability_n3_20260908/\n?? artifacts/polyamine_transport_evidence_20260907/\n?? artifacts/polyamine_transport_evidence_revision1_20260908/\n?? artifacts/r608_c7_ablation_20260908/\n?? artifacts/r608_c7_model_test_20260907/\n?? artifacts/r608_engineering_20260907/\n?? artifacts/r608_engineering_wp2_20260907/\n?? artifacts/r608_nonessential_mechanism_20260908/\n?? artifacts/r795_escher_20260909/\n?? artifacts/static_mini_replay_20260905T190318Z/\n?? artifacts/tag_max_growth_20260909/\n?? data/_adv_landscape.json\n?? data/_adversarial_microspecies_canon_findings.json\n?? data/_biomass_diag.json\n?? data/_bypass_rxn_facts.json\n?? data/_critique_broken.json\n?? data/_critique_broken2.json\n?? data/_critique_fixed.json\n?? data/_critique_imb.json\n?? data/_critique_proposed.json\n?? data/_deprotonate_safe_candidates.json\n?? data/_deprotonate_strategy_summary.json\n?? data/_final_admit.json\n?? data/_minsafe_engine.py\n?? data/_no_inchi_charge0.json\n?? data/_sdleu_fn.json\n?? data/_synth_landscape.json\n?? data/blocked_reactions.csv\n?? data/charge0_classification.json\n?? data/charge_already_deprotonated_strategy.json\n?? data/charge_attribution.json\n?? data/charge_dH_eligible.json\n?? data/charge_dH_eligible_full.json\n?? data/charge_factpack.json\n?? data/charge_fullscan.json\n?? data/charge_only_cobra.json\n?? data/charge_only_recomputed.json\n?? data/charge_stage2_factpack.json\n?? data/charge_strategy_frame.json\n?? data/charge_twin_safe.json\n?? data/charge_vote_phosphate.json\n?? data/coa_adversarial_check.py\n?? data/coa_family_split_check.py\n?? data/coa_groundtruth_check.py\n?? data/coa_repair_check.py\n?? data/convention_flip_by_family.json\n?? data/coq9_curation.json\n?? data/coq9_gene_evidence.tsv\n?? data/ec_verification.csv\n?? data/expasy\n?? data/fg_closure_result.json\n?? data/fg_rule_engine.py\n?? data/fg_strategy_summary.json\n?? data/fmn_stage2_assessment_scratch.json\n?? data/formula_charge_audit.csv\n?? data/gap_fill_direction_curation.csv\n?? data/lacking_metabolites.csv\n?? data/memote_diff.csv\n?? data/memote_offenders.csv\n?? data/memote_summary.csv\n?? data/metabolite_microspecies.csv\n?? data/metanetx\n?? data/microspecies_canon_strategy.json\n?? data/quinone_pipeline_provenance.json\n?? experiments\n?? external_models\n?? iYali26_August_2026_Executive_Summary.pdf\n?? iYali26_August_2026_Executive_Summary.pptx\n?? iYali26_August_2026_Executive_Summary_Biomass_Framework.pptx\n?? iYali26_August_2026_Executive_Summary_HPCC_Results.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx\n?? iYali26_August_2026_Executive_Summary_Revised.pptx.inspect.ndjson\n?? identity_support_next_20260906.md\n?? outputs/\n?? results\n?? scripts/gem_annotate/coq9.py\n?? scripts/gem_annotate/quinone.py\n?? tests/fixtures/\n?? tests/test_coq9_curation.py\n?? tests/test_quinone_pipeline.py\n?? ~$09012026.pptx",
+  "source_sha256": {
+    "scripts/gem_annotate/__init__.py": "9e9179b22a13b231f7b923b4178e79d6dc2010b96db8e72e86b8cb571ab59264",
+    "scripts/gem_annotate/__main__.py": "bc143cdb7df8917d3a2260db1653c582205188b2229f0364df3f0a86cea177be",
+    "scripts/gem_annotate/add_sbo_terms.py": "4f603da89b52be3d46e66a0d5f84d4b6cb24bb8b0777230ecc1b6420a3769320",
+    "scripts/gem_annotate/annotate_reactions_extended.py": "abfa2dc481d8063b08e33860b05d0dbbd4c3bb6d2641bf9bde9212b9c3ba5c15",
+    "scripts/gem_annotate/biomass.py": "4c44e8e0530c9b500ebbb34248cb791d73dbf661f537b5d341f1426650d5f6e7",
+    "scripts/gem_annotate/config.py": "b0acd15d41b4e6f38051211f6b514dbe628ad08fd469d377b4256497b1ff3366",
+    "scripts/gem_annotate/coq9.py": "b587b3867a488fd992a9a9411a93cac8eec954bb1e59dbc35f9f0cea7e78cab5",
+    "scripts/gem_annotate/ec_annotation.py": "2cc4a815d5b20f39e7a4db12396c3bc58081ea748d401c6c8b866c2abb894147",
+    "scripts/gem_annotate/exchange.py": "0e4fa804a92b57403c9122eaddbeb23595faa25d7fc07dd889c17c53c927410f",
+    "scripts/gem_annotate/gap_fill_prioritize.py": "894833a5f3222264a60ed2d72d48ebc8f54095b7a7796352efafe4ae5e0618ea",
+    "scripts/gem_annotate/gaps.py": "71dd42e7176342124e0e7f92b3d7424150fb7ef416ceb685eb9519ca6004138e",
+    "scripts/gem_annotate/genes.py": "f5d19b807ee2b79199386a387383085aa20e0e8fd8caeb445ad63b10ffd392c2",
+    "scripts/gem_annotate/http_utils.py": "bc96303ba88ec613e38f91752679dbfb91f60033e0508fa2afdb2bb1992bef81",
+    "scripts/gem_annotate/idmapping.py": "b87b851fe1e578955e3f085eb94eb1c020e297ca49c785d9e3b38f04769cb7f0",
+    "scripts/gem_annotate/io.py": "c5b6b5739d0216cc1b66d9fd49a1bb6e15355d81fbf00ea8916a2b34f7121088",
+    "scripts/gem_annotate/main.py": "0e4adfb48bef18e659ac0e628d28e545c95acbe8f1e117d37498e11333f2f6a9",
+    "scripts/gem_annotate/metabolites.py": "e4542aa75086a7216a6e183022fdbfd7d1412d6a36e75e189c399ae24d3c8bc8",
+    "scripts/gem_annotate/patches.py": "b689ed14f7bf8672d2c31ab0d7f59c6eb530ce57658c3b42ca2449cc7f5c364c",
+    "scripts/gem_annotate/quinone.py": "22df99c978aabd850640a782bf96ed05fa37c063c1e51d5d3d584113ada7d151",
+    "scripts/gem_annotate/reactions.py": "f2b44ef07b4f74e335a22174c52258d4845920f995354dd6fb1b547e7be965fd",
+    "scripts/gem_annotate/validate_essential_genes.py": "f80f0195b993d44f6c61cb42b0987bc4491097de71080841e0e5e2662b4ce100",
+    "scripts/gem_annotate/vlcfa_stereochemistry.py": "0c039ce5fd3d67800153292f119afdc2720ea65d5aa0832756ad813cca60d7f0"
+  },
+  "source_unchanged_during_build": true,
+  "data_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyli21.xml": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/coq9_curation.json": "28638e331534c65359426084f38e7cb12b99497225deb1f5be123df55257ded2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/coq9_gene_evidence.tsv": "2edacc114c24689a0913d531b498a3c9a4fe31823abf06fca1f0bfe8f3fee566",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/quinone_pipeline_provenance.json": "0424db6805ee16ac8597e94e740d1619bf5d71b3b503f665ddd34c0218dcef39",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/er_vlcfa_3r_stereochemistry.json": "eab4c640e7a3a6759317cce45fdd08698bc515b559afb1c6e4c15316add21043",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/ec_overload_audit.csv": "b073e252c141640eb181f7e3e6436d73087821ac6f58ee2be013a35644c2dbfd",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/gpr_isozyme_additions.csv": "162c32c77c82d278513c078cfcb5ce04e2e7c69ba8df9eda74effc557e1ea16f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/missing_formula_fill.csv": "ab40f30d4cb8dd1b021c7a06cf2626afe5151be0da818187f9c607504c29707e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/gap_fill_prioritized.csv": "9412dd06ea17b5592d704aec6a528394266cbf285e5325c10c3e023f497f2035",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/ncbi/clib89_feature_table.txt": "15a15c73ca0817d2fe64d055101a627084278fbdd1ae004eb78ee98978c0a7f2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/kegg/yli_genes.tsv": "33cb8ae3689f9774f66e2c22e4c3caeab9fa55db89941fd4aa791be5c0d5bf4f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/research/reference/metanetx/chem_xref.tsv": "ba2451ffd9ba3342f8a64a966f8540d08ca82d9f70a28ee84a03aeb0bf6ed135",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/research/reference/metanetx/chem_prop.tsv": "8463f8ee94a1eaec6d6820a05bf09455675a9eb41ac72230dd0d85c9d6c800d2",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/research/reference/metanetx/reac_xref.tsv": "2610e2998f582043a4e9d1a8ce42b7a8f4e2480e54d03ded26a7e83fd401f229",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/research/reference/metanetx/reac_prop.tsv": "8582cc187d03ce127f8e914f8f298282ac9036f1448918117af044ac55b980db",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_engineering_20260907/research/reference/metanetx/chem_depr.tsv": "de0778d39df767eec7620f318e58e5828902795c48b8f8b388e6f17fdccc6d0d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq9_pipeline_integration_20260909/cache/mnxm_to_bigg_metabolite.json": "777db05e1f019ff854b9abffc19cf50fce66eff2e2cd4eff5771370a0a24b81f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq9_pipeline_integration_20260909/cache/gene_locus_tag_map.json": "9fb8dfffba2f0b280f221e4f5376c5e49d966ea7eaa892b40df6ecc4d507f582"
+  },
+  "runtime_strain_overlay": null,
+  "medium": "existing set_exchange_bounds/configure_medium",
+  "solver": "optlang.gurobi_interface",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]",
+  "diagnostic_solves": "skipped by --no-solve",
+  "network_gene_enrichment": "skipped by --offline",
+  "metanetx_available": true,
+  "coq9": {
+    "mode": "metadata",
+    "reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "requested_mode_complete": true,
+    "items": [
+      {
+        "item": "R305",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "name",
+            "status": "applied",
+            "before": "ferrocytochrome-c:oxygen oxidoreductase",
+            "target": "ubiquinol-9:cytochrome-c reductase (complex III)"
+          },
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "7.1.1.8"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.10.2.2",
+            "target": "7.1.1.8"
+          }
+        ]
+      },
+      {
+        "item": "R385",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "2.1.1.114",
+            "target": "2.1.1.64"
+          }
+        ]
+      },
+      {
+        "item": "R18",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "2.1.1.201"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "2.1.1.201",
+            "target": "2.1.1.201"
+          }
+        ]
+      },
+      {
+        "item": "R695",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [],
+            "target": [
+              "1.14.13.253"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": "1.14.13.253"
+          }
+        ]
+      },
+      {
+        "item": "R570",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "applied",
+            "before": [
+              "1.6.99.3"
+            ],
+            "target": [
+              "1.6.5.9"
+            ]
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "already_correct",
+            "before": "1.6.5.9",
+            "target": "1.6.5.9"
+          }
+        ]
+      },
+      {
+        "item": "R19",
+        "status": "applied",
+        "fields": [
+          {
+            "field": "ec-code",
+            "status": "already_correct",
+            "before": [],
+            "target": []
+          },
+          {
+            "field": "PROTEIN_CLASS",
+            "status": "applied",
+            "before": "1.14.13.-",
+            "target": null
+          }
+        ]
+      },
+      {
+        "item": "R2062",
+        "status": "applied",
+        "before_occurrences": 47,
+        "after_occurrences": 28,
+        "unique_genes": 28,
+        "reason": "逻辑去重完成；不证明复合体I的28基因生物学规则"
+      },
+      {
+        "item": "R305_qcycle",
+        "status": "deferred",
+        "reason": "explicit qcycle mode required"
+      },
+      {
+        "id": "CIII-GENE",
+        "reaction": "R305",
+        "status": "deferred",
+        "operation": "Separate YALI1D11769g cytochrome-c carrier dependency from enzyme-composition GPR; preserve gene and carrier requirement",
+        "evidence": "S05;S06;S08;input_XML",
+        "limitations": "Do not simply remove carrier requirement and claim CYC1 dispensable; exact mandatory membership of all accessory subunits not proven",
+        "reference_status": "gene_dependency_separation_spec_only"
+      },
+      {
+        "id": "CI-ARCH",
+        "reaction": "R1889;R2062",
+        "status": "deferred",
+        "operation": "Use one gene-associated pumping complex-I representation; retire or explicitly reclassify unsupported active nonpumping duplicate R2062 once CI GPR rebuilt",
+        "evidence": "S07;S09;S10;S17;input_XML",
+        "limitations": "Do not copy the current 28-gene AND. NDH2 is not a CI subunit; all remaining Boolean requirements need role-specific evidence",
+        "reference_status": "scientific_rebinding_spec_not_applied"
+      },
+      {
+        "id": "CI-NDH2",
+        "reaction": "R570;R573",
+        "status": "deferred",
+        "operation": "Retain R570 external NDH2 assignment; retain R573 bounds0,0 in native reference; engineered internal NDH2 only explicit construct-specific overlay",
+        "evidence": "S09;S10;S11;input_XML",
+        "limitations": "R573 is ALREADY disabled; not a new intervention. R2062 remains open0,1000",
+        "reference_status": "existing_native_orientation_decision_confirmed"
+      },
+      {
+        "id": "CI-PROTON",
+        "reaction": "R1889;R570",
+        "status": "deferred",
+        "operation": "Under frozen neutral NAD species only: R1889 consume4 not5 matrixH; R570 omit extra cytosolicH. Alternative is consistent charged NAD microspecies revision across all affected reactions",
+        "evidence": "exact_arithmetic;S17;S11",
+        "limitations": "Neither numerical balancing choice alone proves native proton convention. Do not edit shared NAD species in isolation",
+        "reference_status": "conditional_bookkeeping_not_applied"
+      },
+      {
+        "id": "COQ6-C5",
+        "reaction": "R39;R969;R808",
+        "status": "deferred",
+        "operation": "Create a mitochondrial C5 hydroxylation with proper electron supply; replace the cytosolic R39 detour as one coherent topology/redox edit; use YALI1A08781g as curated COQ6 candidate rather than attaching it to the current formal R39 unchanged",
+        "evidence": "S12;S13;archived_gene_evidence",
+        "limitations": "Exact Yarrowia ferredoxin/reductase identities not newly resolved; no invented GPR for donors",
+        "reference_status": "joint_reaction_candidate_spec_not_applied"
+      },
+      {
+        "id": "C1-BRANCH",
+        "reaction": "R40;R19",
+        "status": "deferred",
+        "operation": "Keep mutually distinguishable COQ4 oxidative-decarboxylation and COQ4-plus-COQ6 sequential candidates; do not assert both are obligatory native steps",
+        "evidence": "S13;S14",
+        "limitations": "Primary studies differ in systems; no native Yarrowia branch adjudication obtained",
+        "reference_status": "two_mechanisms_explicitly_unresolved"
+      },
+      {
+        "id": "COQ8-ROLE",
+        "gene": "YALI1B20527g",
+        "status": "deferred",
+        "operation": "Retain accessory ATPase/kinase-like role in gene evidence; do not add all-steps AND or arbitrary per-CoQ ATP cost",
+        "evidence": "S15;S13",
+        "limitations": "Native role/necessity remains candidate level; metabolic GPR absence is not evidence of nonessentiality",
+        "reference_status": "representation_decision"
+      },
+      {
+        "id": "COQ9-ROLE",
+        "gene": "YALI1F34675g",
+        "status": "deferred",
+        "operation": "Retain lipid-binding/substrate-presentation role; no universal synthome AND; optional explicit COQ7 accessory-dependency hypothesis only with appropriate evidence",
+        "evidence": "S16;S13",
+        "limitations": "Noncatalytic proteins may belong in specific obligatory-complex GPRs, but that obligation has not been shown for this native locus",
+        "reference_status": "representation_decision"
+      },
+      {
+        "item": "R573_retained",
+        "status": "already_correct",
+        "actual_bounds": [
+          0.0,
+          0.0
+        ],
+        "reason": "Observed only; already closed in reference, not a new repair. Different overlays are preserved."
+      }
+    ]
+  },
+  "existing_quinone_chain": [
+    {
+      "item": "replace_coq6_route_with_coq9",
+      "status": "applied",
+      "changed_objects": 27
+    },
+    {
+      "item": "correct_external_ndh2_gpr_and_remove_duplicate",
+      "status": "applied",
+      "changed_objects": 2
+    },
+    {
+      "item": "remove_spurious_quinone_branches",
+      "status": "applied",
+      "changed_objects": 6
+    },
+    {
+      "item": "apply_reviewed_quinone_step_gprs",
+      "status": "applied",
+      "changed_objects": 6
+    }
+  ],
+  "requested_build_complete": true,
+  "gene_evidence": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq9_pipeline_integration_20260909/accepted/metadata.coq9_genes.tsv",
+    "sha256": "0981aae96439fabada082803f935d96ba6a21982064e87c114bc336b6ffcf7da"
+  }
+}

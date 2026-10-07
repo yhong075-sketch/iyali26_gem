@@ -1,0 +1,14 @@
+# ATP candidate repair execution contract — 2026-09-24
+
+User explicitly authorizes candidate build/field-priority repairs, evidence-supported direction/stoichiometry patches, independent XML versions E0/E1/E2/E3, cumulative closed-energy diagnosis, actual culture regression and behavior tests. Formal baseline and default build remain unchanged. No GPR/media/biomass mutation, cluster, commits/pushes or outside-workspace research access.
+
+1. Pin historical XML SHA aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f and current loader/media/profile, snapshot dirty files.
+2. Independently audit current species chemistry and primary enzyme evidence. Trace executable early gap-fill/direction and later metadata selection using local inputs; label a narrowed replay honestly.
+3. Add default-disabled candidate patches with exact preconditions, atomic conflict failure, idempotence, durable priority protection and XML roundtrip validation. Build E0/E1/E2/E3 separately. No current formal promotion.
+4. All optimizations share persistent budget.json: <=150 actual optimize calls including new behavior tests, <=1800 s measured call wall time,60 s per call,1 thread,1e-7 feasibility/optimality tolerances,Presolve0. Refuse another call when <60s remains. Failed calls count with finally-measured time. No historical result reuse; saved new results used for analysis only.
+5. Close every single-sided boundary plus six biomass columns; retain all real mass balances and release only original xMAINTENANCE lower bound. Verify zero flux by LP. Max original balanced dissipation, then D=1 L1 witness if positive. Alternative smaller D only when explicitly recorded above tolerance. Real culture checked independently with existing loader and NGAM7.8625.
+6. Continue from strongest exported cumulative candidate. Interventions are isolated and never promoted without source/chemical support. Stop ATP iteration only upon max<=1e-7, budget exhaustion, or explicit remaining evidence gap with full witness. Distinguish evidence_supported_fixes and diagnostic_blocks.
+7. ATP plus balanced GTP/UTP/CTP checks where species identity permits. No claim of all-energy/thermodynamic completeness. Regression tests preserve normal growth as positive control; no tuning to historical growth.
+8. Independent reviewer audits full fluxes and net ledgers without additional solve calls, build/default/source protection, finite claim set and remaining gaps. Report implementation, results, limits and actual changed files; update PROJECT_STATE.
+
+Roles: root owns optimization runner, iteration decisions, behavior tests, report/state; atp_build_fix owns candidate build code/data/roundtrip/static tests; atp_chemistry owns independent primary-source chemical audit; atp_result_audit owns independent computational/artifact audit. Agents instructed not to optimize outside root budget.

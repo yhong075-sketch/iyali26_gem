@@ -1,0 +1,695 @@
+{
+  "bounds": {
+    "R1363": [
+      0,
+      0.04
+    ],
+    "R795": [
+      0,
+      0.04
+    ],
+    "R871": [
+      0,
+      0.01
+    ],
+    "R876": [
+      0,
+      0.01
+    ]
+  },
+  "checks": {
+    "R1363": {
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "",
+      "name": "water diffusion",
+      "stoichiometry": {
+        "m1384[C_va]": 1.0,
+        "m32[C_cy]": -1.0
+      }
+    },
+    "R2021": {
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1067[C_va]": 1.0,
+        "m1384[C_va]": -1.0,
+        "m1863[C_va]": 1.0,
+        "m1871[C_va]": -1.0
+      }
+    },
+    "R2029": {
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1071[C_va]": 1.0,
+        "m1384[C_va]": -1.0,
+        "m1862[C_va]": -1.0,
+        "m1863[C_va]": 1.0
+      }
+    },
+    "R2030": {
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "Glycine transport (vacuole)",
+      "stoichiometry": {
+        "m1007[C_va]": 1.0,
+        "m10[C_cy]": -1.0,
+        "m1863[C_va]": 1.0,
+        "m272[C_cy]": -1.0
+      }
+    },
+    "R2034": {
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1384[C_va]": -1.0,
+        "m1863[C_va]": 1.0,
+        "m1878[C_va]": -1.0,
+        "m1879[C_va]": 1.0
+      }
+    },
+    "R2035": {
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "L-alanine transport (vacuole)",
+      "stoichiometry": {
+        "m114[C_cy]": -1.0,
+        "m1879[C_va]": 1.0
+      }
+    },
+    "R2039": {
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "cytosol nonspecific dipeptidase",
+      "stoichiometry": {
+        "m1384[C_va]": -1.0,
+        "m1863[C_va]": 1.0,
+        "m1866[C_va]": -1.0,
+        "m1867[C_va]": 1.0
+      }
+    },
+    "R2040": {
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "",
+      "name": "proline transport (vacuole)",
+      "stoichiometry": {
+        "m1007[C_va]": 1.0,
+        "m10[C_cy]": -1.0,
+        "m1867[C_va]": 1.0,
+        "m765[C_cy]": -1.0
+      }
+    },
+    "R795": {
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+      "name": "V-ATPase, vacuole",
+      "stoichiometry": {
+        "m1007[C_va]": 2.0,
+        "m10[C_cy]": -2.0,
+        "m141[C_cy]": -1.0,
+        "m143[C_cy]": 1.0,
+        "m32[C_cy]": -1.0,
+        "m35[C_cy]": 1.0
+      }
+    },
+    "R871": {
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "YALI1D14670g",
+      "name": "L-aspartate transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1067[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m267[C_cy]": 1.0
+      }
+    },
+    "R876": {
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "YALI1D14670g",
+      "name": "L-glutamate transport",
+      "stoichiometry": {
+        "m1007[C_va]": -1.0,
+        "m1071[C_va]": -1.0,
+        "m10[C_cy]": 1.0,
+        "m50[C_cy]": 1.0
+      }
+    }
+  },
+  "curation_id": "E5_vacuole_connections_20260924",
+  "enabled_by_default": false,
+  "energy_protected_definitions": {
+    "R72": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          0,
+          1000
+        ],
+        "gpr": "YALI1B17927g or YALI1A04817g",
+        "stoichiometry": {
+          "m140[C_cy]": 1.0,
+          "m170[C_cy]": -1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0
+        }
+      },
+      "reaction_id": "R72",
+      "schema_version": 1,
+      "species": {
+        "m140[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C6H18O24P6",
+          "name": "myo-inositol hexakisphosphate_C6H18O24P6"
+        },
+        "m170[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C6H19O27P7",
+          "name": "6-diphospho-1D-myo-inositol pentakisphosphate_C6H19O27P7"
+        },
+        "m32[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        },
+        "m35[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H3O4P",
+          "name": "phosphate_H3O4P"
+        }
+      },
+      "variant": "E5"
+    },
+    "R_CAT2p": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          0,
+          1000
+        ],
+        "gpr": "YALI1E40671g",
+        "stoichiometry": {
+          "m173[C_cy]": 1.0,
+          "m222[C_pe]": -1.0,
+          "m275[C_cy]": -1.0,
+          "m375[C_pe]": 2.0
+        }
+      },
+      "reaction_id": "R_CAT2p",
+      "schema_version": 1,
+      "species": {
+        "m173[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C2H4O",
+          "name": "acetaldehyde_C2H4O"
+        },
+        "m222[C_pe]": {
+          "charge": 0,
+          "compartment": "C_pe",
+          "formula": "H2O2",
+          "name": "hydrogen peroxide_H2O2"
+        },
+        "m275[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C2H6O",
+          "name": "ethanol_C2H6O"
+        },
+        "m375[C_pe]": {
+          "charge": 0,
+          "compartment": "C_pe",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        }
+      },
+      "variant": "E5"
+    },
+    "R_NDP1": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          -1000,
+          0
+        ],
+        "gpr": "YALI1E41893g",
+        "stoichiometry": {
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m86[C_cy]": -1.0
+        }
+      },
+      "reaction_id": "R_NDP1",
+      "schema_version": 1,
+      "species": {
+        "m10[C_cy]": {
+          "charge": 1,
+          "compartment": "C_cy",
+          "formula": "H",
+          "name": "H+_p+1"
+        },
+        "m143[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C10H15N5O10P2",
+          "name": "ADP_C10H15N5O10P2"
+        },
+        "m32[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        },
+        "m35[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H3O4P",
+          "name": "phosphate_H3O4P"
+        },
+        "m86[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C10H14N5O7P",
+          "name": "AMP_C10H14N5O7P"
+        }
+      },
+      "variant": "E5"
+    },
+    "R_NTP3pp": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          -1000,
+          0
+        ],
+        "gpr": "YALI1E41893g",
+        "stoichiometry": {
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0
+        }
+      },
+      "reaction_id": "R_NTP3pp",
+      "schema_version": 1,
+      "species": {
+        "m10[C_cy]": {
+          "charge": 1,
+          "compartment": "C_cy",
+          "formula": "H",
+          "name": "H+_p+1"
+        },
+        "m266[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C10H16N5O14P3",
+          "name": "GTP_C10H16N5O14P3"
+        },
+        "m268[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C10H15N5O11P2",
+          "name": "GDP_C10H15N5O11P2"
+        },
+        "m32[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        },
+        "m35[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H3O4P",
+          "name": "phosphate_H3O4P"
+        }
+      },
+      "variant": "E5"
+    },
+    "R_NTP7": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          0,
+          1000
+        ],
+        "gpr": "YALI1E41893g",
+        "stoichiometry": {
+          "m11[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m439[C_cy]": -1.0
+        }
+      },
+      "reaction_id": "R_NTP7",
+      "schema_version": 1,
+      "species": {
+        "m10[C_cy]": {
+          "charge": 1,
+          "compartment": "C_cy",
+          "formula": "H",
+          "name": "H+_p+1"
+        },
+        "m11[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C9H14N2O12P2",
+          "name": "UDP_C9H14N2O12P2"
+        },
+        "m32[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        },
+        "m35[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H3O4P",
+          "name": "phosphate_H3O4P"
+        },
+        "m439[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C9H15N2O15P3",
+          "name": "UTP_C9H15N2O15P3"
+        }
+      },
+      "variant": "E5"
+    },
+    "R_OAADCm": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          -1000,
+          0
+        ],
+        "gpr": "YALI1E22303g",
+        "stoichiometry": {
+          "m44[C_mi]": -1.0,
+          "m6[C_mi]": -1.0,
+          "m77[C_mi]": 1.0
+        }
+      },
+      "reaction_id": "R_OAADCm",
+      "schema_version": 1,
+      "species": {
+        "m28[C_mi]": {
+          "charge": 1,
+          "compartment": "C_mi",
+          "formula": "H",
+          "name": "H+_p+1"
+        },
+        "m44[C_mi]": {
+          "charge": 0,
+          "compartment": "C_mi",
+          "formula": "CO2",
+          "name": "carbon dioxide_CO2"
+        },
+        "m6[C_mi]": {
+          "charge": 0,
+          "compartment": "C_mi",
+          "formula": "C3H4O3",
+          "name": "pyruvate_C3H4O3"
+        },
+        "m77[C_mi]": {
+          "charge": 0,
+          "compartment": "C_mi",
+          "formula": "C4H4O5",
+          "name": "oxaloacetate_C4H4O5"
+        }
+      },
+      "variant": "E5"
+    },
+    "R_PGAM1_PhosHydro": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          -1000,
+          0
+        ],
+        "gpr": "YALI1E41893g",
+        "stoichiometry": {
+          "m107[C_cy]": 1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m4[C_cy]": -1.0
+        }
+      },
+      "reaction_id": "R_PGAM1_PhosHydro",
+      "schema_version": 1,
+      "species": {
+        "m107[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C3H5O6P",
+          "name": "phosphoenolpyruvate_C3H5O6P"
+        },
+        "m32[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        },
+        "m35[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H3O4P",
+          "name": "phosphate_H3O4P"
+        },
+        "m4[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C3H4O3",
+          "name": "pyruvate_C3H4O3"
+        }
+      },
+      "variant": "E5"
+    },
+    "r0242": {
+      "curation_id": "ATP-CANDIDATE-20260924",
+      "definition": {
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr": "YALI1E41893g",
+        "stoichiometry": {
+          "m10[C_cy]": 2,
+          "m1881[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        }
+      },
+      "reaction_id": "r0242",
+      "schema_version": 1,
+      "species": {
+        "m10[C_cy]": {
+          "charge": 1,
+          "compartment": "C_cy",
+          "formula": "H",
+          "name": "H+_p+1"
+        },
+        "m1881[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "C3H6O3",
+          "name": "Dihydroxy-Acetone"
+        },
+        "m32[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H2O",
+          "name": "H2O_H2O"
+        },
+        "m35[C_cy]": {
+          "charge": 0,
+          "compartment": "C_cy",
+          "formula": "H3O4P",
+          "name": "phosphate_H3O4P"
+        },
+        "m456[C_cy]": {
+          "charge": -2,
+          "compartment": "C_cy",
+          "formula": "C3H5O6P",
+          "name": "dihydroxyacetone phosphate_C3H5O6P"
+        }
+      },
+      "variant": "E5"
+    }
+  },
+  "schema_version": 1,
+  "source_path": "artifacts/atp_candidate_repair_20260924/candidates/E5.xml",
+  "source_sha256": "43042d16f874a91d61f12f9f2b65838cbc264821d98bcf6e108300bf787007be",
+  "species": {
+    "m1007[C_va]": {
+      "charge": 1,
+      "compartment": "C_va",
+      "formula": "H",
+      "name": "H+_p+1"
+    },
+    "m1067[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": "C4H7NO4",
+      "name": "L-aspartate_C4H7NO4"
+    },
+    "m1071[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": "C5H9NO4",
+      "name": "L-glutamate_C5H9NO4"
+    },
+    "m10[C_cy]": {
+      "charge": 1,
+      "compartment": "C_cy",
+      "formula": "H",
+      "name": "H+_p+1"
+    },
+    "m114[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C3H7NO2",
+      "name": "L-alanine_C3H7NO2"
+    },
+    "m1384[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": "H2O",
+      "name": "H2O_H2O"
+    },
+    "m141[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C10H16N5O13P3",
+      "name": "ATP_C10H16N5O13P3"
+    },
+    "m143[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C10H15N5O10P2",
+      "name": "ADP_C10H15N5O10P2"
+    },
+    "m1862[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": null,
+      "name": "Gly_Glu"
+    },
+    "m1863[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": null,
+      "name": "L-glycine"
+    },
+    "m1866[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": null,
+      "name": "Gly-Pro"
+    },
+    "m1867[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": "C5H9NO2",
+      "name": "L-proline"
+    },
+    "m1871[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": null,
+      "name": "Gly-Asp"
+    },
+    "m1878[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": null,
+      "name": "Ala-Gly"
+    },
+    "m1879[C_va]": {
+      "charge": 0,
+      "compartment": "C_va",
+      "formula": "C3H7NO2",
+      "name": "L-alanine"
+    },
+    "m267[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C4H7NO4",
+      "name": "L-aspartate_C4H7NO4"
+    },
+    "m272[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C2H5NO2",
+      "name": "L-glycine_C2H5NO2"
+    },
+    "m32[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "H2O",
+      "name": "H2O_H2O"
+    },
+    "m35[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "H3O4P",
+      "name": "phosphate_H3O4P"
+    },
+    "m50[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C5H9NO4",
+      "name": "L-glutamate_C5H9NO4"
+    },
+    "m765[C_cy]": {
+      "charge": 0,
+      "compartment": "C_cy",
+      "formula": "C5H9NO2",
+      "name": "L-proline_C5H9NO2"
+    }
+  },
+  "status": "bounded mechanistic candidate; not a biological validation or default model release",
+  "supply": "No dipeptide source or exchange bound changes in the exported candidate; finite supply is diagnostic only."
+}

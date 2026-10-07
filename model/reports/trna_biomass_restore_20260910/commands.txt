@@ -1,0 +1,7 @@
+# Working directory: authorized iyali26_gem workspace.
+.venv/bin/python -m unittest tests.test_reaction_selection tests.test_coq9_curation tests.test_reference_reactions
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation metadata --output-model model_metadata_trna.xml
+.venv/bin/python artifacts/trna_biomass_restore_20260910/validate.py
+.venv/bin/python artifacts/trna_biomass_restore_20260910/static_check.py
+# One full metadata build; off/metadata/qcycle checked locally on the rebuilt model.
+# Two static optimizations, no additional KO, scans, or dynamics.

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "hypothesis_id": "VATPASE-COMMON-AND-3-20260911",
+  "status": "provisional_hypothesis",
+  "authorization": "User explicitly chose: 把 D00581、E16192、F38820 都设为共同 AND，作为待验证假设版",
+  "required_genes": [
+    "YALI1D00581g",
+    "YALI0E16192g",
+    "YALI1F38820g"
+  ],
+  "evidence_limits": "D is a supported V1 D component candidate. The CLIB122 F candidate YALI0E16192g has an unresolved W29 pseudogene/active-locus conflict. YALI1F38820g is a Vph1-like V0 a candidate; native compartment and lack of alternatives remain unconfirmed. This three-gene constraint is a user-selected hypothesis, not a completed complex GPR or confirmed essentiality.",
+  "sources": [
+    "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/REPORT.md",
+    "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/REPORT.md",
+    "data/reference_build/curation/gene_function_annotations.json"
+  ],
+  "gene_functions": {
+    "YALI1D00581g": "Native symbol unverified; V1 D central-rotor subunit candidate, sequence/AlphaFold prediction support",
+    "YALI0E16192g": "Native symbol unverified; CLIB122 V1 F central-rotor subunit candidate, sequence/AlphaFold prediction support; W29 functional-locus unresolved",
+    "YALI1F38820g": "Native symbol unverified; Vph1-like V0 a proton-translocation/assembly subunit candidate, sequence/AlphaFold prediction support; experimental confirmation required"
+  },
+  "reactions": {
+    "R794": {
+      "before_gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+      "after_gpr": "YALI1D00581g and YALI0E16192g and YALI1F38820g and ((YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g))",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "stoichiometry": {
+        "m10[C_cy]": -2.0,
+        "m32[C_cy]": -1.0,
+        "m141[C_cy]": -1.0,
+        "m35[C_cy]": 1.0,
+        "m143[C_cy]": 1.0,
+        "m293[C_go]": 2.0
+      },
+      "species": {
+        "m10[C_cy]": {
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m141[C_cy]": {
+          "formula": "C10H16N5O13P3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m143[C_cy]": {
+          "formula": "C10H15N5O10P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m293[C_go]": {
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_go"
+        }
+      }
+    },
+    "R795": {
+      "before_gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+      "after_gpr": "YALI1D00581g and YALI0E16192g and YALI1F38820g and ((YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g))",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "stoichiometry": {
+        "m10[C_cy]": -2.0,
+        "m32[C_cy]": -1.0,
+        "m141[C_cy]": -1.0,
+        "m35[C_cy]": 1.0,
+        "m143[C_cy]": 1.0,
+        "m1007[C_va]": 2.0
+      },
+      "species": {
+        "m10[C_cy]": {
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m32[C_cy]": {
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m141[C_cy]": {
+          "formula": "C10H16N5O13P3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m35[C_cy]": {
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m143[C_cy]": {
+          "formula": "C10H15N5O10P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m1007[C_va]": {
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_va"
+        }
+      }
+    }
+  }
+}

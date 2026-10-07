@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "merge_id": "R153-R2176-MERGE-20260915",
+  "authorization": "用户明确要求将R2176和R153合并、并入管线，只保留一条±1000容量。",
+  "source_model": {
+    "path": "model_metadata_trna_r153_single_gpr.xml",
+    "sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f"
+  },
+  "before": {
+    "R153": {
+      "name": "argininosuccinate synthase",
+      "stoichiometry": {
+        "m141[C_cy]": -1.0,
+        "m267[C_cy]": -1.0,
+        "m313[C_cy]": -1.0,
+        "m86[C_cy]": 1.0,
+        "m203[C_cy]": 1.0,
+        "m312[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1D17462g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "ARGSS",
+          "ARGSS2",
+          "ARGSS_1",
+          "R_ARGSS",
+          "R_ARGSS2",
+          "R_ARGSS_1"
+        ],
+        "kegg.reaction": "R01954",
+        "metacyc.reaction": "ARGSUCCINSYN-RXN",
+        "rh": [
+          "10932",
+          "10933",
+          "10934",
+          "10935"
+        ],
+        "rhea": [
+          "10932",
+          "10933",
+          "10934",
+          "10935"
+        ],
+        "sabiork.reaction": "572",
+        "seed.reaction": [
+          "rxn01434",
+          "rxn27717",
+          "rxn29991"
+        ],
+        "metanetx.reaction": "MNXR138060",
+        "ec-code": "6.3.4.5",
+        "biggr": [
+          "ARGSS",
+          "ARGSS2",
+          "ARGSS_1",
+          "R_ARGSS",
+          "R_ARGSS2",
+          "R_ARGSS_1"
+        ],
+        "keggr": "R01954",
+        "metacycr": "ARGSUCCINSYN-RXN",
+        "sabiorkr": "572",
+        "seedr": [
+          "rxn01434",
+          "rxn27717",
+          "rxn29991"
+        ]
+      },
+      "notes": {
+        "PROTEIN_CLASS": "6.3.4.5",
+        "curated_gpr_assignment": "R153-USER-SINGLE-GPR-20260915",
+        "gpr_evidence_status": "user_authorized_provisional_assignment_with_conflicting_function_evidence",
+        "gpr_evidence_basis": "Explicit user instruction; existing sequence and AlphaFold evidence supports an alternative protein function",
+        "gpr_evidence_label": "用户指定赋值；功能证据冲突，未实验确认",
+        "gpr_experimental_confirmation": "required_not_confirmed",
+        "r153_previous_gpr": "YALIUNK2",
+        "r153_authorization": "2026-09-15: 用户先要求将YALI1D17462g补充进R153并接入管线，随后明确要求去除YALIUNK2。Use YALI1D17462g alone and remove the placeholder gene entry only if no other reaction associations remain.",
+        "r153_gene_function": "YALI1D17462g; native gene symbol unverified; AOW04049.1 / A0A1D8NEI7, 384 aa; A1-family aspartyl endopeptidase function candidate based on sequence and AlphaFold prediction; not experimentally verified as argininosuccinate synthase.",
+        "r153_placeholder_identity": "Removed YALIUNK2 had no established name or molecular identity and carried a model-only synthase role. Its removal does not establish that it was biologically identical to YALI1D17462g.",
+        "r153_model_interpretation": "User-specified single-gene assignment for cytosolic argininosuccinate synthesis; YALIUNK2 removed. Deleting YALI1D17462g disables both R153 and the unchanged R2176. Static GPR dependence is not experimental evidence of synthase activity or growth essentiality.",
+        "r153_conflicting_evidence": "2026-09-11 fixed-panel sequence and structural comparisons strongly support A1 aspartyl peptidase for YALI1D17462g. Query-normalized TM: 0.74282 to experimental peptidase 1DPJ versus 0.26708/0.27714 to synthases 2NZ2/1K97. These results oppose the assigned synthase function; they are not supporting synthase evidence.",
+        "r153_alphafold_provenance": "Existing sequence-identical AlphaFold prediction AF-A0A1D8NEI7-F1, Monomer v2.0 pipeline, file v6; target sequence SHA256 bf9ffec20d0feb2f68a19fa10b102240dc138035b1997fa81b1c159fe0c192b3. Reused 2026-09-11; no new prediction or structural comparison in this assignment.",
+        "r153_evidence_sources": "artifacts/argininosuccinate_identity_20260911/REPORT.md; artifacts/argininosuccinate_identity_20260911/SOURCE_AUDIT.md; artifacts/argininosuccinate_identity_20260911/identity_and_sites.json; artifacts/argininosuccinate_identity_20260911/structure_results.json",
+        "r153_scope_limits": "R153 GPR/evidence notes and the unreferenced YALIUNK2 gene entry only. R2176, reaction chemistry, bounds, compartments and other GPRs unchanged. W29 terminal synthase coding identity remains unresolved; no phenotype improvement or native synthase function established.",
+        "r153_superseded_assignment": "The earlier 2026-09-15 OR assignment YALIUNK2 or YALI1D17462g is superseded by the explicit remove-YALIUNK2 instruction. Historical OR output and curation bytes are preserved."
+      }
+    },
+    "R2176": {
+      "name": "L-Citrulline:L-aspartate ligase (AMP-forming)",
+      "stoichiometry": {
+        "m141[C_cy]": -1.0,
+        "m267[C_cy]": -1.0,
+        "m313[C_cy]": -1.0,
+        "m86[C_cy]": 1.0,
+        "m203[C_cy]": 1.0,
+        "m312[C_cy]": 1.0
+      },
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1D17462g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "ARGSS",
+          "ARGSS2",
+          "ARGSS_1",
+          "R_ARGSS",
+          "R_ARGSS2",
+          "R_ARGSS_1"
+        ],
+        "kegg.reaction": "R01954",
+        "metacyc.reaction": "ARGSUCCINSYN-RXN",
+        "rh": [
+          "10932",
+          "10933",
+          "10934",
+          "10935"
+        ],
+        "rhea": [
+          "10932",
+          "10933",
+          "10934",
+          "10935"
+        ],
+        "sabiork.reaction": "572",
+        "seed.reaction": [
+          "rxn01434",
+          "rxn27717",
+          "rxn29991"
+        ],
+        "metanetx.reaction": "MNXR138060",
+        "ec-code": "6.3.4.5",
+        "biggr": [
+          "ARGSS",
+          "ARGSS2",
+          "ARGSS_1",
+          "R_ARGSS",
+          "R_ARGSS2",
+          "R_ARGSS_1"
+        ],
+        "keggr": "R01954",
+        "metacycr": "ARGSUCCINSYN-RXN",
+        "sabiorkr": "572",
+        "seedr": [
+          "rxn01434",
+          "rxn27717",
+          "rxn29991"
+        ]
+      },
+      "notes": {}
+    }
+  },
+  "species": {
+    "m141[C_cy]": {
+      "formula": "C10H16N5O13P3",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m267[C_cy]": {
+      "formula": "C4H7NO4",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m313[C_cy]": {
+      "formula": "C6H13N3O3",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m86[C_cy]": {
+      "formula": "C10H14N5O7P",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m203[C_cy]": {
+      "formula": "H4O7P2",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m312[C_cy]": {
+      "formula": "C10H18N4O6",
+      "charge": 0,
+      "compartment": "C_cy"
+    }
+  },
+  "notes": {
+    "reaction_merge_id": "R153-R2176-MERGE-20260915",
+    "merged_reaction_ids": "R2176",
+    "merged_reaction_name": "L-Citrulline:L-aspartate ligase (AMP-forming)",
+    "merged_reaction_source_sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f",
+    "merged_reaction_original_record": "data/reference_build/curation/r153_r2176_merge.json#/before/R2176",
+    "reaction_merge_capacity": "User-authorized single [-1000,1000] bound; former summed interval [-2000,2000]. Not a globally equivalent feasible set.",
+    "reaction_merge_evidence": "Exact same stoichiometry, compartments, bounds and GPR in fixed input; existing conflicting GPR function evidence remains unconfirmed.",
+    "reaction_merge_supersedes": "Earlier R153 notes describing preserved R2176 apply to the pre-merge build. R2176 is now merged into R153; no new gene-function validation."
+  }
+}

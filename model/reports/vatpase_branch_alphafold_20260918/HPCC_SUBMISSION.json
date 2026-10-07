@@ -1,0 +1,36 @@
+{
+  "recorded_utc": "2026-09-18T22:03:44.594904+00:00",
+  "remote_directory": "/bigdata/iwheeldonlab/yhong075/iyali26_vatpase_branches_20260918_98d0979430",
+  "commands": [
+    {
+      "args": [
+        "scp",
+        "artifacts/vatpase_branch_alphafold_20260918/submit.sha256",
+        "artifacts/vatpase_branch_alphafold_20260918/sequence_manifest.json",
+        "artifacts/vatpase_branch_alphafold_20260918/RUN_MANIFEST.json",
+        "artifacts/vatpase_branch_alphafold_20260918/DESIGN_REVIEW.md",
+        "artifacts/vatpase_branch_alphafold_20260918/SEQUENCE_REVIEW.md",
+        "ucr-hpcc:/bigdata/iwheeldonlab/yhong075/iyali26_vatpase_branches_20260918_98d0979430/"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=12",
+        "ucr-hpcc",
+        "bash",
+        "-l",
+        "-s"
+      ],
+      "returncode": 0,
+      "stdout": "branch_A.json: OK\nbranch_B.json: OK\nrun_branch.sbatch: OK\nengine.sha256: OK\nsequence_manifest.json: OK\nRUN_MANIFEST.json: OK\nTASK.md: OK\nDESIGN_REVIEW.md: OK\nSEQUENCE_REVIEW.md: OK\nA\t28896409\nB\t28896410\nJOBID NAME STATE TIME START_TIME NODELIST(REASON)\n28896410 vatpase_B_2 PENDING 0:00 N/A (Priority)\n28896409 vatpase_A_12 PENDING 0:00 N/A (Priority)\n",
+      "stderr": ""
+    }
+  ]
+}

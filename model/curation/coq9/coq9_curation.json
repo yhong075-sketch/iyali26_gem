@@ -1,0 +1,585 @@
+{
+  "version": "2026-09-09",
+  "reference_sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+  "input_evidence_sha256": {
+    "reaction_audit.json": "6069ec328702069ce0848f89025aacbdbd6f1d663a42b36eb06c1906ae5b2f90",
+    "applied_metadata_changes.json": "eea676e901a0e3fb751e1c8cfad9150949dbd4447a7f30e3d5aefd0a347bfb3a",
+    "scientific_change_spec.json": "229d44036f99e97271f500f3fff41f38d145c6e5897127544a4aab6064062c1a",
+    "gene_identity_and_roles.tsv": "bd05ffa136fa60541e93d32721edcca1e18d1455d537b8e97d07798624acae49",
+    "source_inventory.tsv": "3cd6c0907560413de6050d242c67654293fc58e363ff5fe9580f19a07012638e",
+    "audit_and_build.py": "d650c022299def6888b8161bbec1476b835e786ab56131afbdd6710939213f0e"
+  },
+  "rules": {
+    "R305": {
+      "species": {
+        "m2[C_mi]": {
+          "coefficient": -2.0,
+          "formula": "C42H52FeN8O6S2",
+          "charge": 1,
+          "compartment": "C_mi"
+        },
+        "m28[C_mi]": {
+          "coefficient": -1.5,
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi"
+        },
+        "m471[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C54H84O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m3[C_mi]": {
+          "coefficient": 2.0,
+          "formula": "C42H52FeN8O6S2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m10[C_cy]": {
+          "coefficient": 1.5,
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m468[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C54H82O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "(YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g)",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "fields": {
+        "name": {
+          "before": "ferrocytochrome-c:oxygen oxidoreductase",
+          "after": "ubiquinol-9:cytochrome-c reductase (complex III)"
+        },
+        "ec-code": {
+          "before": [
+            "3.4.24.64",
+            "7.1.1.8"
+          ],
+          "after": [
+            "7.1.1.8"
+          ],
+          "before_variants": [
+            []
+          ],
+          "variant_provenance": "Current data/iyli21.xml offline build after integrated Q9 chain has the same locally audited species, stoichiometry, bounds and GPR. Missing reaction ECs are unfilled annotation fields; R570 1.6.99.3 is a member of the supplied legacy EC set. R305 erroneous name-based MNXR151780 enrichment is excluded upstream in metadata/qcycle."
+        },
+        "PROTEIN_CLASS": {
+          "before": "1.10.2.2",
+          "after": "7.1.1.8"
+        }
+      },
+      "scope": "Current GPR includes a cytochrome-c carrier dependency; native subunit-only AND membership is not certified."
+    },
+    "R385": {
+      "species": {
+        "m60[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C15H22N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m611[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C53H80O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m468[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C54H82O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m62[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C14H20N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1B20835g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "fields": {
+        "PROTEIN_CLASS": {
+          "before": "2.1.1.114",
+          "after": "2.1.1.64"
+        }
+      },
+      "scope": "EC denotes COQ3 terminal O-methylation. The model retains oxidized quinone; the native enzyme substrate oxidation state is unresolved."
+    },
+    "R18": {
+      "species": {
+        "m59[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m60[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C15H22N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m61[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C53H80O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m62[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C14H20N6O5S",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1C25352g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "fields": {
+        "ec-code": {
+          "before": [
+            "1.14.15.45",
+            "1.14.15.46",
+            "1.14.99.60",
+            "2.1.1.-",
+            "2.1.1.114",
+            "2.1.1.201",
+            "2.1.1.64",
+            "4.1.1.130"
+          ],
+          "after": [
+            "2.1.1.201"
+          ],
+          "before_variants": [
+            []
+          ],
+          "variant_provenance": "Current data/iyli21.xml offline build after integrated Q9 chain has the same locally audited species, stoichiometry, bounds and GPR. Missing reaction ECs are unfilled annotation fields; R570 1.6.99.3 is a member of the supplied legacy EC set. R305 erroneous name-based MNXR151780 enrichment is excluded upstream in metadata/qcycle."
+        },
+        "PROTEIN_CLASS": {
+          "before": "2.1.1.201",
+          "after": "2.1.1.201"
+        }
+      },
+      "scope": "EC denotes the COQ5 catalytic family. Encoded oxidized quinone is not asserted identical to the accepted quinol substrate."
+    },
+    "R695": {
+      "species": {
+        "m30[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m61[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C53H80O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m64[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m26[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m27[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m611[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C53H80O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1E18269g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "fields": {
+        "ec-code": {
+          "before": [
+            "1.14.15.45",
+            "1.14.15.46",
+            "1.14.99.60",
+            "2.1.1.-",
+            "2.1.1.114",
+            "2.1.1.201",
+            "2.1.1.64",
+            "4.1.1.130"
+          ],
+          "after": [
+            "1.14.13.253"
+          ],
+          "before_variants": [
+            []
+          ],
+          "variant_provenance": "Current data/iyli21.xml offline build after integrated Q9 chain has the same locally audited species, stoichiometry, bounds and GPR. Missing reaction ECs are unfilled annotation fields; R570 1.6.99.3 is a member of the supplied legacy EC set. R305 erroneous name-based MNXR151780 enrichment is excluded upstream in metadata/qcycle."
+        },
+        "PROTEIN_CLASS": {
+          "before": "1.14.13.-",
+          "after": "1.14.13.253"
+        }
+      },
+      "scope": "EC denotes the COQ7 catalytic family; stored substrate forms and native substrate specificity are not newly validated."
+    },
+    "R570": {
+      "species": {
+        "m10[C_cy]": {
+          "coefficient": -1.0,
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m123[C_cy]": {
+          "coefficient": -1.0,
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m468[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C54H82O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m122[C_cy]": {
+          "coefficient": 1.0,
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m471[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C54H84O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "YALI1F32476g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "fields": {
+        "ec-code": {
+          "before": [
+            "1.6.5.9",
+            "1.6.99.3",
+            "7.1.1.2"
+          ],
+          "after": [
+            "1.6.5.9"
+          ],
+          "before_variants": [
+            [
+              "1.6.99.3"
+            ]
+          ],
+          "variant_provenance": "Current data/iyli21.xml offline build after integrated Q9 chain has the same locally audited species, stoichiometry, bounds and GPR. Missing reaction ECs are unfilled annotation fields; R570 1.6.99.3 is a member of the supplied legacy EC set. R305 erroneous name-based MNXR151780 enrichment is excluded upstream in metadata/qcycle."
+        },
+        "PROTEIN_CLASS": {
+          "before": "1.6.5.9",
+          "after": "1.6.5.9"
+        }
+      },
+      "scope": "External NDH2 assignment retained only when the curated local identity matches; no proton bookkeeping changes."
+    },
+    "R19": {
+      "species": {
+        "m63[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C52H80O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m64[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "O2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m26[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m59[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C52H78O3",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "fields": {
+        "ec-code": {
+          "before": [
+            "1.14.15.45",
+            "1.14.15.46",
+            "1.14.99.60",
+            "2.1.1.-",
+            "2.1.1.114",
+            "2.1.1.201",
+            "2.1.1.64",
+            "4.1.1.130"
+          ],
+          "after": []
+        },
+        "PROTEIN_CLASS": {
+          "before": "1.14.13.-",
+          "after": null
+        }
+      },
+      "scope": "Mixed pathway ECs are historical evidence only. Exact native catalyst and lumped redox chemistry remain unresolved; EC removal does not imply spontaneity."
+    },
+    "R2062": {
+      "species": {
+        "m30[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m468[C_mi]": {
+          "coefficient": -1.0,
+          "formula": "C54H82O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m27[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi"
+        },
+        "m471[C_mi]": {
+          "coefficient": 1.0,
+          "formula": "C54H84O4",
+          "charge": 0,
+          "compartment": "C_mi"
+        }
+      },
+      "gpr": "(YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 and YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E06573g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1F32476g)",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "scope": "Logical deduplication only; this does not validate the biological 28-gene complex-I rule."
+    }
+  },
+  "qcycle_coefficients": {
+    "m28[C_mi]": -2.0,
+    "m10[C_cy]": 4.0
+  },
+  "qcycle_scope": "Q-cycle mechanism candidate; existing cytosolic H is a P-side/intermembrane proxy, not a new compartment. No native stoichiometric measurement is claimed. Full GPR and bounds retained.",
+  "deferred": [
+    {
+      "id": "CIII-CHEM",
+      "reaction": "R305",
+      "status": "isolated_candidate_written",
+      "operation": "matrix_H_consumption 1.5 -> 2; P_side_H_production 1.5 -> 4",
+      "evidence": "S04;S05;exact_arithmetic",
+      "limitations": "P-side is represented by existing cytosol-H proxy; no genome-wide energy or phenotype validation; GPR unchanged"
+    },
+    {
+      "id": "CIII-GENE",
+      "reaction": "R305",
+      "status": "gene_dependency_separation_spec_only",
+      "operation": "Separate YALI1D11769g cytochrome-c carrier dependency from enzyme-composition GPR; preserve gene and carrier requirement",
+      "evidence": "S05;S06;S08;input_XML",
+      "limitations": "Do not simply remove carrier requirement and claim CYC1 dispensable; exact mandatory membership of all accessory subunits not proven"
+    },
+    {
+      "id": "CI-ARCH",
+      "reaction": "R1889;R2062",
+      "status": "scientific_rebinding_spec_not_applied",
+      "operation": "Use one gene-associated pumping complex-I representation; retire or explicitly reclassify unsupported active nonpumping duplicate R2062 once CI GPR rebuilt",
+      "evidence": "S07;S09;S10;S17;input_XML",
+      "limitations": "Do not copy the current 28-gene AND. NDH2 is not a CI subunit; all remaining Boolean requirements need role-specific evidence"
+    },
+    {
+      "id": "CI-NDH2",
+      "reaction": "R570;R573",
+      "status": "existing_native_orientation_decision_confirmed",
+      "operation": "Retain R570 external NDH2 assignment; retain R573 bounds0,0 in native reference; engineered internal NDH2 only explicit construct-specific overlay",
+      "evidence": "S09;S10;S11;input_XML",
+      "limitations": "R573 is ALREADY disabled; not a new intervention. R2062 remains open0,1000"
+    },
+    {
+      "id": "CI-PROTON",
+      "reaction": "R1889;R570",
+      "status": "conditional_bookkeeping_not_applied",
+      "operation": "Under frozen neutral NAD species only: R1889 consume4 not5 matrixH; R570 omit extra cytosolicH. Alternative is consistent charged NAD microspecies revision across all affected reactions",
+      "evidence": "exact_arithmetic;S17;S11",
+      "limitations": "Neither numerical balancing choice alone proves native proton convention. Do not edit shared NAD species in isolation"
+    },
+    {
+      "id": "COQ6-C5",
+      "reaction": "R39;R969;R808",
+      "status": "joint_reaction_candidate_spec_not_applied",
+      "operation": "Create a mitochondrial C5 hydroxylation with proper electron supply; replace the cytosolic R39 detour as one coherent topology/redox edit; use YALI1A08781g as curated COQ6 candidate rather than attaching it to the current formal R39 unchanged",
+      "evidence": "S12;S13;archived_gene_evidence",
+      "limitations": "Exact Yarrowia ferredoxin/reductase identities not newly resolved; no invented GPR for donors"
+    },
+    {
+      "id": "C1-BRANCH",
+      "reaction": "R40;R19",
+      "status": "two_mechanisms_explicitly_unresolved",
+      "operation": "Keep mutually distinguishable COQ4 oxidative-decarboxylation and COQ4-plus-COQ6 sequential candidates; do not assert both are obligatory native steps",
+      "evidence": "S13;S14",
+      "limitations": "Primary studies differ in systems; no native Yarrowia branch adjudication obtained"
+    },
+    {
+      "id": "COQ8-ROLE",
+      "gene": "YALI1B20527g",
+      "status": "representation_decision",
+      "operation": "Retain accessory ATPase/kinase-like role in gene evidence; do not add all-steps AND or arbitrary per-CoQ ATP cost",
+      "evidence": "S15;S13",
+      "limitations": "Native role/necessity remains candidate level; metabolic GPR absence is not evidence of nonessentiality"
+    },
+    {
+      "id": "COQ9-ROLE",
+      "gene": "YALI1F34675g",
+      "status": "representation_decision",
+      "operation": "Retain lipid-binding/substrate-presentation role; no universal synthome AND; optional explicit COQ7 accessory-dependency hypothesis only with appropriate evidence",
+      "evidence": "S16;S13",
+      "limitations": "Noncatalytic proteins may belong in specific obligatory-complex GPRs, but that obligation has not been shown for this native locus"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S01",
+      "source": "IUBMB EC2.1.1.64",
+      "URL": "https://iubmb.qmul.ac.uk/enzyme/EC2/1/1/64.html",
+      "scope": "COQ3 terminal O-methylation; accepted quinol reaction; not native Yarrowia substrate proof"
+    },
+    {
+      "source_id": "S02",
+      "source": "IUBMB EC2.1.1.201",
+      "URL": "https://iubmb.qmul.ac.uk/enzyme/EC2/1/1/201.html",
+      "scope": "COQ5 C-methylation; accepted quinol substrate"
+    },
+    {
+      "source_id": "S03",
+      "source": "IUBMB EC1.14.13.253",
+      "URL": "https://iubmb.qmul.ac.uk/enzyme/EC1/14/13/253.html",
+      "scope": "Eukaryotic COQ7 NADH-dependent quinone hydroxylase; created2024"
+    },
+    {
+      "source_id": "S04",
+      "source": "IUBMB EC7.1.1.8",
+      "URL": "https://iubmb.qmul.ac.uk/enzyme/EC7/1/1/8.html",
+      "scope": "ComplexIII electron transfer and proton translocation; do not infer unique coupling from balance alone"
+    },
+    {
+      "source_id": "S05",
+      "source": "Wieferig and Kuehlbrandt2023 native Yarrowia CIII",
+      "URL": "https://journals.iucr.org/m/issues/2023/01/00/rq5008/index.html",
+      "scope": "DOI10.1107/S2052252522010570; native CIII structures and modified Q-cycle"
+    },
+    {
+      "source_id": "S06",
+      "source": "PDB8ABF",
+      "URL": "https://www.rcsb.org/structure/8ABF",
+      "scope": "Native Yarrowia CIII; entity5 YALI0A14806p/Q6CGY9; ten unique proteins"
+    },
+    {
+      "source_id": "S07",
+      "source": "PDB6YJ4",
+      "URL": "https://www.rcsb.org/structure/6YJ4",
+      "scope": "Native Yarrowia CI; entity24 NUPM/Q6CGB4; this page alone does not prove every current YALI1 alias"
+    },
+    {
+      "source_id": "S08",
+      "source": "PROSITE PS51007",
+      "URL": "https://prosite.expasy.org/PS51007",
+      "scope": "Cytochrome-c family; CYC_YARLI/Q6C9Q0"
+    },
+    {
+      "source_id": "S09",
+      "source": "Kerscher etal1999",
+      "URL": "https://pubmed.ncbi.nlm.nih.gov/10381390/",
+      "scope": "Native Yarrowia NDH2 is external; DOI10.1242/jcs.112.14.2347"
+    },
+    {
+      "source_id": "S10",
+      "source": "Kerscher etal2001",
+      "URL": "https://pubmed.ncbi.nlm.nih.gov/11719558/",
+      "scope": "Engineered internal NDH2 rescues CI deficiency; native external does not; DOI10.1242/jcs.114.21.3915"
+    },
+    {
+      "source_id": "S11",
+      "source": "ENZYME EC1.6.5.9",
+      "URL": "https://enzyme.expasy.org/EC/1.6.5.9",
+      "scope": "Non-electrogenic NDH2; F2Z699 NDH2_YARLI"
+    },
+    {
+      "source_id": "S12",
+      "source": "IUBMB EC1.14.15.45",
+      "URL": "https://iubmb.qmul.ac.uk/enzyme/EC1/14/15/45.html",
+      "scope": "COQ6 C5 monooxygenase requires reduced ferredoxin; not native locus validation"
+    },
+    {
+      "source_id": "S13",
+      "source": "Nicoll etal2024",
+      "URL": "https://www.nature.com/articles/s41929-023-01087-z",
+      "scope": "DOI10.1038/s41929-023-01087-z; ancestral tetrapod in-vitro reconstruction; separate C1 decarboxylation and hydroxylation; not native Yarrowia"
+    },
+    {
+      "source_id": "S14",
+      "source": "Pelosi etal2024",
+      "URL": "https://pubmed.ncbi.nlm.nih.gov/38295803/",
+      "scope": "DOI10.1016/j.molcel.2024.01.003; COQ4 oxidative decarboxylation in cells/heterologous systems; alternative C1 mechanism"
+    },
+    {
+      "source_id": "S15",
+      "source": "Stefely etal2016",
+      "URL": "https://www.sciencedirect.com/science/article/pii/S109727651630288X",
+      "scope": "DOI10.1016/j.molcel.2016.06.030; COQ8 ATPase and complex stability; no arbitrary stoichiometric ATP/CoQ coefficient"
+    },
+    {
+      "source_id": "S16",
+      "source": "Lohman etal2014",
+      "URL": "https://pubmed.ncbi.nlm.nih.gov/25339443/",
+      "scope": "DOI10.1073/pnas.1413128111; human COQ9 lipid binding and COQ7 interaction; mouse phenotype; not native Yarrowia obligatory GPR"
+    },
+    {
+      "source_id": "S17",
+      "source": "IUBMB EC7.1.1.2",
+      "URL": "https://iubmb.qmul.ac.uk/enzyme/EC7/1/1/2.html",
+      "scope": "Pumping complexI physiological reaction; microspecies bookkeeping must be consistent"
+    }
+  ]
+}

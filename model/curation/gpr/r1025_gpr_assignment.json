@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "assignment_id": "R1025-CA-GPR-20260912",
+  "status": "user_authorized_provisional_assignment",
+  "reaction_id": "R1025",
+  "before_gpr": "",
+  "after_gpr": "YALI1F28274g",
+  "gene_annotation": {"uniprot": "A0A1H6PNW2", "refseq": "XP_505708.1"},
+  "source_urls": [
+    "https://alphafold.ebi.ac.uk/entry/A0A1H6PNW2",
+    "https://rest.uniprot.org/unisave/A0A1H6PNW2?format=txt&versions=32",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC2775743/",
+    "https://yeastgfp.yeastgenome.org/getOrf.php?orf=YNL036W"
+  ],
+  "bounds": [-1000.0, 1000.0],
+  "stoichiometry": {"m626[C_nu]": -1.0, "m1174[C_nu]": -1.0, "m627[C_nu]": 1.0, "m1175[C_nu]": 1.0},
+  "species": {
+    "m626[C_nu]": {"formula": "H2O", "charge": 0, "compartment": "C_nu"},
+    "m1174[C_nu]": {"formula": "CO2", "charge": 0, "compartment": "C_nu"},
+    "m627[C_nu]": {"formula": "H", "charge": 1, "compartment": "C_nu"},
+    "m1175[C_nu]": {"formula": "CHO3", "charge": -1, "compartment": "C_nu"}
+  },
+  "alphafold": {
+    "model_id": "AF-A0A1H6PNW2-F1",
+    "pipeline": "AlphaFold Monomer v2.0",
+    "file_version": 6,
+    "created_at_utc": "2022-06-01T00:00:00Z",
+    "original_retrieved_at_utc": "2026-09-11T21:46:11.919405+00:00",
+    "reuse_verified_date": "2026-09-12",
+    "new_prediction": false,
+    "target_entry_version": 32,
+    "target_sequence_version": 1,
+    "target_length": 222,
+    "target_sequence_sha256": "61eeba8a4906133208f71371cc8334cc79404bb12bfe8253ed1c09a07829b454",
+    "pdb_sha256": "98b0185f925144e2249ae3623548650c332f34601e04cd103f879ee775ec8e5a",
+    "pae_sha256": "77a5543b31c2f0f8d8b49543f803aadcb17d9c0b943c02afe0005307eac25da3",
+    "mean_plddt": 94.48968468468469,
+    "mean_pae_angstrom": 4.402321240159078,
+    "max_pae_angstrom": 29.0
+  },
+  "notes": {
+    "curated_gpr_assignment": "R1025-CA-GPR-20260912",
+    "gpr_evidence_status": "user_authorized_provisional_assignment",
+    "gpr_evidence_basis": "AlphaFold prediction",
+    "gpr_evidence_label": "AlphaFold 预测支持，仍需实验验证",
+    "gpr_experimental_confirmation": "required_not_confirmed",
+    "r1025_previous_gpr": "empty",
+    "r1025_gene_function": "YALI1F28274g; native gene symbol unverified; Nce103-like beta-carbonic anhydrase candidate catalyzing reversible CO2 hydration; function candidate based on AlphaFold prediction, homology and automatic annotation; experimental validation required.",
+    "r1025_model_interpretation": "User-authorized provisional enzymatic nuclear bicarbonate formation. The model GPR is assigned; native nuclear catalysis is not experimentally confirmed. This does not assign a gene to a separately measured spontaneous reaction.",
+    "r1025_alphafold_provenance": "Reused sequence-identical AF-A0A1H6PNW2-F1; AlphaFold Monomer v2.0 pipeline, file v6, created 2022-06-01, retrieved 2026-09-11 UTC; 222 residues; mean pLDDT 94.49, mean PAE 4.40 A, maximum PAE 29 A; no new AlphaFold prediction in this assignment.",
+    "r1025_evidence_limits": "AlphaFold structure and similarity to experimental beta-carbonic anhydrase support a function candidate, not native nuclear localization, oligomeric activity or sufficient catalytic capacity. The yeast homolog has GFP nuclear and independent mitochondrial intermembrane-space localization evidence; cross-species localization is not confirmation in Yarrowia. Native target activity and localization require experimental validation.",
+    "r1025_prior_scope_note": "This 2026-09-12 assignment updates R1025 GPR and evidence notes only; transports remain unchanged. R1026 notes retain the historical 2026-09-11 assignment scope, whose statement that R1025 was unchanged does not describe the present R1025 assignment.",
+    "r1025_authorization": "2026-09-12: user explicitly requested marking the candidate as AlphaFold prediction still requiring experimental validation, adding its GPR and integrating it into the pipeline.",
+    "r1025_evidence_sources": "artifacts/r1025_gpr_search_20260912/REPORT.md; artifacts/r1025_gpr_search_20260912/SOURCE_AUDIT.md; artifacts/r1025_alphafold_review_20260912/REPORT.md; artifacts/r1025_alphafold_review_20260912/SOURCE_AUDIT.md; https://pmc.ncbi.nlm.nih.gov/articles/PMC2775743/"
+  }
+}

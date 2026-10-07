@@ -1,0 +1,2150 @@
+{
+  "acceptance": {
+    "activation": "blocked",
+    "expected_fail_closed_state_reproduced": true,
+    "frontier_closed": false,
+    "hpcc_computational_validation_gate_passed": true,
+    "human_gate_required": true,
+    "production_apply_performed": false,
+    "production_gate_passed": false,
+    "ready_for_activation": false
+  },
+  "accounting": {
+    "Account": "iwheeldonlab",
+    "AllocCPU": 2,
+    "AllocatedNodes": 1,
+    "AllocatedTRES": "cpu=2,mem=8G,node=1,billing=4",
+    "Elapsed": "00:08:48",
+    "ElapsedRawSeconds": 528,
+    "End": "2026-08-18T17:33:35",
+    "ExitCode": "0:0",
+    "JobID": "27553188",
+    "JobName": "dcoa_1bd719e",
+    "MaxRSS": "1312504K",
+    "MaxVM": "1279132K",
+    "Node": "x02",
+    "Partition": "short",
+    "ReqCPU": 1,
+    "ReqMem": "8G",
+    "RequestedCPUsPerTask": 1,
+    "RequestedTasks": 1,
+    "Restarts": 0,
+    "Start": "2026-08-18T17:24:47",
+    "State": "COMPLETED",
+    "Submit": "2026-08-18T17:24:46",
+    "Timelimit": "00:30:00",
+    "sacct_rows": [
+      {
+        "Account": "iwheeldonlab",
+        "AllocCPUS": "2",
+        "Elapsed": "00:08:48",
+        "ElapsedRaw": "528",
+        "End": "2026-08-18T17:33:35",
+        "ExitCode": "0:0",
+        "JobID": "27553188",
+        "JobName": "dcoa_1bd719e",
+        "MaxRSS": "",
+        "MaxVMSize": "",
+        "NodeList": "x02",
+        "Partition": "short",
+        "ReqCPUS": "1",
+        "ReqMem": "8G",
+        "Start": "2026-08-18T17:24:47",
+        "State": "COMPLETED",
+        "Submit": "2026-08-18T17:24:46",
+        "Timelimit": "00:30:00"
+      },
+      {
+        "Account": "iwheeldonlab",
+        "AllocCPUS": "2",
+        "Elapsed": "00:08:48",
+        "ElapsedRaw": "528",
+        "End": "2026-08-18T17:33:35",
+        "ExitCode": "0:0",
+        "JobID": "27553188.batch",
+        "JobName": "batch",
+        "MaxRSS": "1312504K",
+        "MaxVMSize": "1279132K",
+        "NodeList": "x02",
+        "Partition": "",
+        "ReqCPUS": "2",
+        "ReqMem": "",
+        "Start": "2026-08-18T17:24:47",
+        "State": "COMPLETED",
+        "Submit": "2026-08-18T17:24:47",
+        "Timelimit": ""
+      },
+      {
+        "Account": "iwheeldonlab",
+        "AllocCPUS": "2",
+        "Elapsed": "00:08:48",
+        "ElapsedRaw": "528",
+        "End": "2026-08-18T17:33:35",
+        "ExitCode": "0:0",
+        "JobID": "27553188.extern",
+        "JobName": "extern",
+        "MaxRSS": "0",
+        "MaxVMSize": "0",
+        "NodeList": "x02",
+        "Partition": "",
+        "ReqCPUS": "2",
+        "ReqMem": "",
+        "Start": "2026-08-18T17:24:47",
+        "State": "COMPLETED",
+        "Submit": "2026-08-18T17:24:47",
+        "Timelimit": ""
+      }
+    ]
+  },
+  "accounting_source": {
+    "field_sources": {
+      "batch_step_row": [
+        "MaxRSS",
+        "MaxVMSize"
+      ],
+      "root_job_row": [
+        "JobID",
+        "JobName",
+        "State",
+        "ExitCode",
+        "Elapsed",
+        "ElapsedRaw",
+        "ReqCPUS",
+        "AllocCPUS",
+        "ReqMem",
+        "Partition",
+        "Account",
+        "NodeList",
+        "Submit",
+        "Start",
+        "End",
+        "Timelimit"
+      ],
+      "scontrol_job_record": [
+        "Restarts",
+        "NumTasks",
+        "CPUs/Task",
+        "NumNodes",
+        "AllocTRES"
+      ]
+    },
+    "sacct_columns": [
+      "JobID",
+      "JobName",
+      "Partition",
+      "Account",
+      "State",
+      "ExitCode",
+      "Elapsed",
+      "ElapsedRaw",
+      "AllocCPUS",
+      "ReqCPUS",
+      "ReqMem",
+      "MaxRSS",
+      "MaxVMSize",
+      "NodeList",
+      "Submit",
+      "Start",
+      "End",
+      "Timelimit"
+    ],
+    "sacct_raw": {
+      "bytes": 438,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/sacct_raw.txt",
+      "sha256": "dd0f0f5f0007e5717f290cf1aa0b6f22b3ea7ca1bdf866a5e9429c6b98e42ef7"
+    },
+    "scontrol_raw": {
+      "bytes": 1527,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/scontrol_raw.txt",
+      "sha256": "e5458a15ad7748700bdff8f86209b564f99d637359aace7697acedd4f2c0e2a9"
+    }
+  },
+  "artifact_type": "hpcc_d_r1708_r2004_postflight_manifest",
+  "candidates": {
+    "complete_coa_candidate": {
+      "apply_counts_on_copy": {
+        "annotations": 25,
+        "identity_corrections": 4,
+        "metabolites": 127,
+        "reaction_corrections": 2
+      },
+      "dimensions": {
+        "genes": 1074,
+        "metabolites": 1877,
+        "reactions": 2313
+      },
+      "fingerprint": "42772084dc1248149c85a7fd6e968d3109a12cfc433934b4149701e4bd9f03af",
+      "focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {
+          "H": 4.0,
+          "charge": 4.0
+        },
+        "R613": {
+          "H": -1.0,
+          "charge": -1.0
+        }
+      },
+      "lp_sha256": "d06d1680ff9f8ac4fec7b15fc44a470304f8916471c617dc3c3108ab84ae225f",
+      "production_apply": false
+    },
+    "d_union_tuple_candidate": {
+      "dimensions": {
+        "genes": 1074,
+        "metabolites": 1877,
+        "reactions": 2313
+      },
+      "explicit_h_patch_used": false,
+      "fingerprint": "618eb3177dd9e56abddcd421c90e0be626c3cb6bdf8cde6495b2c3379b9d1636",
+      "focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {},
+        "R613": {
+          "H": -5.0,
+          "charge": -5.0
+        }
+      },
+      "lp_sha256": "93e7b7d5dfad75277f254fde68aa4898eb8f7f658c77864b28c55965942d5b29",
+      "migrated_metabolite_count": 25,
+      "migrated_metabolite_ids_sha256": "c3c31b2b3ac519abca4cceb688f410aaf5014f42617c5f84a2da9d76ec30a370"
+    },
+    "source": {
+      "dimensions": {
+        "genes": 1074,
+        "metabolites": 1877,
+        "reactions": 2313
+      },
+      "fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+      "focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {},
+        "R613": {}
+      },
+      "lp_sha256": "93e7b7d5dfad75277f254fde68aa4898eb8f7f658c77864b28c55965942d5b29"
+    }
+  },
+  "collected_at_utc": "2026-08-19T00:36:17.988565+00:00",
+  "commands": {
+    "driver": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/metrics.py --repo /rhome/yhong075/iyali26_gem_lipid_unlump_a014 --model /rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml --run-dir /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S --output /rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/metrics.json",
+    "full_fva": "COBRA flux_variability_analysis(all reactions, fraction_of_optimum=1.0, processes=1)",
+    "tests": "in-process unittest.TextTestRunner: tests.test_coa_protonation_curation tests.test_fatty_acyl_coa_handoff tests.test_r1521_current_snapshot_handoff tests.test_lp_sn12_candidate"
+  },
+  "cuts": {
+    "R1708": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.3875914754870897,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.004867637263305564,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -2.369215934550084e-13,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "R539": 1.499796421964263e-13,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "biomass_C": 1.3875914754870897,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.005308219479927825,
+          "xPOOL_FA_LP": -0.004867637263305564
+        }
+      },
+      "objective": 1.3875914754870897,
+      "pfba": "optimal"
+    },
+    "R2003": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.3875914754870897,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.004867637263305564,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -2.369215934550084e-13,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "R539": 1.499796421964263e-13,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "biomass_C": 1.3875914754870897,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.005308219479927825,
+          "xPOOL_FA_LP": -0.004867637263305564
+        }
+      },
+      "objective": 1.3875914754870897,
+      "pfba": "optimal"
+    },
+    "R2004": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.365174738167619,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.0047889998917452275,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -0.022416737319707725,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 0.0,
+          "R2121": 0.0028855734996574515,
+          "R539": -1.2957124483723714e-43,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R2121": 0.0028855734996574515,
+          "biomass_C": 1.3651747381676176,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.0052224644402892335,
+          "xPOOL_FA_LP": -0.0047889998917452275
+        }
+      },
+      "objective": 1.365174738167619,
+      "pfba": "optimal"
+    },
+    "R2121": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.3651591146805848,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.004788945085416978,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -0.022432360806741825,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 1.034841900746065e-13,
+          "R2003": 0.0,
+          "R2004": 0.0,
+          "R2121": 0.0,
+          "R539": 8.207196906211042e-14,
+          "R88": 0.0028855404762551974
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R88": 0.0028855404762551974,
+          "biomass_C": 1.3651591146805822,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.005222404673014215,
+          "xPOOL_FA_LP": -0.004788945085416978
+        }
+      },
+      "objective": 1.3651591146805848,
+      "pfba": "optimal"
+    },
+    "R88": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.3875914754870897,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.004867637263305564,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -2.369215934550084e-13,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "R539": 1.499796421964263e-13,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "biomass_C": 1.3875914754870897,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.005308219479927825,
+          "xPOOL_FA_LP": -0.004867637263305564
+        }
+      },
+      "objective": 1.3875914754870897,
+      "pfba": "optimal"
+    },
+    "R88+R2003+R2004+R2121": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": -5.237233101552818e-12,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": -8.986987036482407e-16,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": 3.943196365634733e-15,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -1.3875914754925638,
+        "maintenance_flux": 22.445913461701885,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": -6.848086387584173e-16,
+          "R2003": 0.0,
+          "R2004": 0.0,
+          "R2121": 0.0,
+          "R539": -5.470397065246421e-16,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "xMAINTENANCE": 7.8625
+        }
+      },
+      "objective": -5.237233101552818e-12,
+      "pfba": "optimal"
+    },
+    "R88+R89+R1708+R2003+R2004+R2121": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": -5.237233101552818e-12,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": -5.1063009354918106e-15,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": 7.347817977477092e-15,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -1.3875914754925638,
+        "maintenance_flux": 22.445913461701885,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 0.0,
+          "R2121": 0.0,
+          "R539": -1.386065686113427e-15,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "xMAINTENANCE": 7.8625
+        }
+      },
+      "objective": -5.237233101552818e-12,
+      "pfba": "optimal"
+    },
+    "R89": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.3875914754870897,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.004867637263305564,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -2.369215934550084e-13,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "R539": 1.499796421964263e-13,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "biomass_C": 1.3875914754870897,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.005308219479927825,
+          "xPOOL_FA_LP": -0.004867637263305564
+        }
+      },
+      "objective": 1.3875914754870897,
+      "pfba": "optimal"
+    },
+    "R89+R1708": {
+      "fba": "optimal",
+      "impact": {
+        "biomass_flux": 1.3875914754870897,
+        "fatty_acid_pool_pfba_fluxes": {
+          "xPOOL_FA_EM": 0.0,
+          "xPOOL_FA_EN": 0.0,
+          "xPOOL_FA_LP": -0.004867637263305564,
+          "xPOOL_FA_MI": 0.0,
+          "xPOOL_FA_MM": 0.0
+        },
+        "growth_delta_from_source": -2.369215934550084e-13,
+        "maintenance_flux": 7.8625,
+        "malonyl_related_pfba_fluxes": {
+          "R1575": 0.0,
+          "R2003": 0.0,
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "R539": 1.499796421964263e-13,
+          "R88": 0.0
+        },
+        "nonzero_selected_bypasses_pfba": {
+          "R2004": 10.068539387973422,
+          "R2121": 10.071472343790672,
+          "biomass_C": 1.3875914754870897,
+          "xMAINTENANCE": 7.8625,
+          "xPOOL_AC_LP": 0.005308219479927825,
+          "xPOOL_FA_LP": -0.004867637263305564
+        }
+      },
+      "objective": 1.3875914754870897,
+      "pfba": "optimal"
+    }
+  },
+  "d_contract": {
+    "canonical_audit_sha256": "03ccd1391dc6d1e54e08b025af2723d79964b176bac32c918284328c9ef47f8a",
+    "complete_coa_candidate_focal_balances": {
+      "R1708": {},
+      "R2004": {},
+      "R2076": {
+        "H": 4.0,
+        "charge": 4.0
+      },
+      "R613": {
+        "H": -1.0,
+        "charge": -1.0
+      }
+    },
+    "d_focal_h_patch_used": false,
+    "d_only_union_focal_balances": {
+      "R1708": {},
+      "R2004": {},
+      "R2076": {},
+      "R613": {
+        "H": -5.0,
+        "charge": -5.0
+      }
+    },
+    "gene_evidence": {
+      "R1708": {
+        "database_conflict": "UniProt Q6C3Z9 calls the protein acetyl-CoA hydrolase with EC 3.1.2.1, but marks protein existence and catalytic details as homology/by-similarity evidence.",
+        "direct_protein_localization": "unverified",
+        "established_name": "ACH1",
+        "evidence_status": "experimentally_supported_function_direct_protein_localization_unverified",
+        "function_evidence_interpretation": "experimentally supported in the tested Yarrowia system",
+        "functional_evidence": "Crude-extract activity favored acetate:succinate CoA transfer over hydrolase activity, and Ylach deletion strongly reduced acetate formation; these experiments support the function in the tested engineered Y. lipolytica background.",
+        "legacy_systematic_identifier": "YALI0E30965g",
+        "localization_evidence": "The mitochondrial assignment is pathway-level and condition-specific; no direct protein-localization experiment was verified, so localization remains unverified/conflicting.",
+        "model_gpr": "YALI1E36437g",
+        "protein_function": "acetate:succinate CoA-transferase",
+        "systematic_identifier": "YALI1E36437g",
+        "uniprot_accession": "Q6C3Z9"
+      },
+      "R2004": {
+        "established_name": null,
+        "evidence_status": "unverified_no_direct_yarrowia_evidence",
+        "model_gpr": null,
+        "protein_function": null,
+        "search_interpretation": "Exact UniProt, KEGG, NCBI Protein, PubMed, and Rhea searches found no direct Yarrowia assignment. Zero hits mean no evidence was found by these bounded queries, not that the activity is biologically absent.",
+        "search_provenance": {
+          "accessed_on": "2026-08-18",
+          "positive_controls": [
+            {
+              "database": "UniProtKB",
+              "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+              "hit_count": 2,
+              "query": "(organism_id:4952 OR organism_id:284591) AND protein_name:\"pyruvate carboxylase\""
+            },
+            {
+              "database": "KEGG",
+              "endpoint": "https://rest.kegg.jp/link/yli/K01958",
+              "hit_count": 1,
+              "query": "link/yli/K01958"
+            },
+            {
+              "database": "NCBI Protein",
+              "database_parameter": "protein",
+              "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+              "hit_count": 12,
+              "query": "Yarrowia lipolytica[Organism] AND pyruvate carboxylase[Protein Name]"
+            },
+            {
+              "database": "PubMed",
+              "database_parameter": "pubmed",
+              "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+              "hit_count": 9,
+              "query": "Yarrowia lipolytica AND pyruvate carboxylase"
+            },
+            {
+              "database": "Rhea",
+              "endpoint": "https://www.rhea-db.org/rhea",
+              "hit_count": 1,
+              "query": "kegg:R00930",
+              "result": "RHEA:20764; EC 2.1.3.1"
+            }
+          ],
+          "zero_hit_searches": [
+            {
+              "database": "UniProtKB",
+              "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+              "hit_count": 0,
+              "query": "(organism_id:4952 OR organism_id:284591) AND (ec:2.1.3.1 OR protein_name:\"methylmalonyl-CoA carboxytransferase\" OR protein_name:transcarboxylase)"
+            },
+            {
+              "database": "UniProtKB",
+              "endpoint": "https://rest.uniprot.org/uniprotkb/search",
+              "hit_count": 0,
+              "query": "(organism_id:4952 OR organism_id:284591) AND cc_catalytic_activity:\"rhea:20764\""
+            },
+            {
+              "database": "KEGG",
+              "endpoint": "https://rest.kegg.jp/link/yli/K03416+K17489+K17490",
+              "hit_count": 0,
+              "query": "link/yli/K03416+K17489+K17490"
+            },
+            {
+              "database": "NCBI Protein",
+              "database_parameter": "protein",
+              "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+              "hit_count": 0,
+              "query": "Yarrowia lipolytica[Organism] AND (\"methylmalonyl-CoA carboxytransferase\"[Protein Name] OR transcarboxylase[Protein Name])"
+            },
+            {
+              "database": "PubMed",
+              "database_parameter": "pubmed",
+              "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+              "hit_count": 0,
+              "query": "(Yarrowia lipolytica OR Yarrowia)[Title/Abstract] AND (\"methylmalonyl-CoA carboxytransferase\" OR transcarboxylase)[Title/Abstract]"
+            },
+            {
+              "database": "Rhea",
+              "endpoint": "https://www.rhea-db.org/rhea",
+              "hit_count": 0,
+              "query": "kegg:R00353"
+            }
+          ]
+        },
+        "source_model_gene_reaction_rule": "",
+        "systematic_identifier": null
+      }
+    },
+    "ledgers": {
+      "r1708": {
+        "incident_reaction_count": 100,
+        "ledger_sha256": "076b4c3f9cdcb80d7dc60ed8be54335280ec2c4722d73d805461c1243acc79ed",
+        "newly_unbalanced_count": 64,
+        "unassessable_reaction_count": 16
+      },
+      "r2004": {
+        "incident_reaction_count": 119,
+        "ledger_sha256": "8c3499d76f0999ce6b98c819ac8e6a7ff1a5329b785c5cef29dff0b8dcdd287a",
+        "newly_unbalanced_count": 78,
+        "unassessable_reaction_count": 19
+      },
+      "union": {
+        "incident_reaction_count": 155,
+        "ledger_sha256": "731707e29d8385cdccb8188e77f8778f2435cdd6618da1fd339d94da92e28839",
+        "newly_unbalanced_count": 95,
+        "unassessable_reaction_count": 22
+      }
+    },
+    "two_audits_identical": true
+  },
+  "forced_flux_statuses": {
+    "complete_coa_candidate": {
+      "R1708_+1": "optimal",
+      "R1708_-1": "optimal",
+      "R2004_+1": "optimal",
+      "R2004_-1": "optimal"
+    },
+    "d_union_tuple_candidate": {
+      "R1708_+1": "optimal",
+      "R1708_-1": "optimal",
+      "R2004_+1": "optimal",
+      "R2004_-1": "optimal"
+    },
+    "source": {
+      "R1708_+1": "optimal",
+      "R1708_-1": "optimal",
+      "R2004_+1": "optimal",
+      "R2004_-1": "optimal"
+    }
+  },
+  "formal_evidence_scope": "HPCC Slurm job 27553188 only",
+  "full_fva": {
+    "comparisons_to_source": {
+      "complete_coa_candidate": {
+        "blocked_sets_equal": true,
+        "candidate_only_reactions": [],
+        "maximum_absolute_range_delta": 1.3822045730194077e-09,
+        "newly_blocked": [],
+        "newly_unblocked": [],
+        "shared_reaction_count": 2313,
+        "source_only_reactions": [],
+        "tolerance": 1e-08
+      },
+      "d_union_tuple_candidate": {
+        "blocked_sets_equal": true,
+        "candidate_only_reactions": [],
+        "maximum_absolute_range_delta": 1.3826593203702942e-09,
+        "newly_blocked": [],
+        "newly_unblocked": [],
+        "shared_reaction_count": 2313,
+        "source_only_reactions": [],
+        "tolerance": 1e-08
+      }
+    },
+    "runs": {
+      "complete_coa_candidate": {
+        "blocked_count": 1771,
+        "blocked_ids_sha256": "11b265e858458d92c39d1e374d54072a509f1d7e0ee03dabdcab2c75b6d52bfd",
+        "focal_ranges": {
+          "R1708": {
+            "maximum": 1.40514666581264e-10,
+            "minimum": 7.232460744813408e-11
+          },
+          "R2003": {
+            "maximum": 0.0,
+            "minimum": 1.4609964082018113e-12
+          },
+          "R2004": {
+            "maximum": 10.886785308639046,
+            "minimum": 10.068539388013043
+          },
+          "R2121": {
+            "maximum": 10.071472343810612,
+            "minimum": 10.071472343675351
+          },
+          "R88": {
+            "maximum": 0.8182459207204502,
+            "minimum": 0.0
+          },
+          "R89": {
+            "maximum": 1.3133221314130455e-10,
+            "minimum": 0.0
+          }
+        },
+        "reaction_count": 2313,
+        "results_sha256": "be9edfe0a6003dc814dafef1ea45f9ab65d450ccf0a41252b7ef317abb029d7a",
+        "runtime_seconds": 35.07461024681106
+      },
+      "d_union_tuple_candidate": {
+        "blocked_count": 1771,
+        "blocked_ids_sha256": "11b265e858458d92c39d1e374d54072a509f1d7e0ee03dabdcab2c75b6d52bfd",
+        "focal_ranges": {
+          "R1708": {
+            "maximum": 2.5282026011846476e-10,
+            "minimum": 8.345661023862657e-11
+          },
+          "R2003": {
+            "maximum": 0.0,
+            "minimum": -1.6045115856814773e-12
+          },
+          "R2004": {
+            "maximum": 10.886785308640397,
+            "minimum": 10.068539387929683
+          },
+          "R2121": {
+            "maximum": 10.071472343814085,
+            "minimum": 10.071472343943976
+          },
+          "R88": {
+            "maximum": 0.8182459205163167,
+            "minimum": 0.0
+          },
+          "R89": {
+            "maximum": 9.24513355921481e-14,
+            "minimum": 0.0
+          }
+        },
+        "reaction_count": 2313,
+        "results_sha256": "a60094fe33a145417c95b21e466744d93d8182bad19e43e248939c29b23b94d0",
+        "runtime_seconds": 34.30606078915298
+      },
+      "source": {
+        "blocked_count": 1771,
+        "blocked_ids_sha256": "11b265e858458d92c39d1e374d54072a509f1d7e0ee03dabdcab2c75b6d52bfd",
+        "focal_ranges": {
+          "R1708": {
+            "maximum": 3.0583950320938555e-10,
+            "minimum": 2.3823123900730583e-10
+          },
+          "R2003": {
+            "maximum": 0.0,
+            "minimum": 9.308305355587596e-12
+          },
+          "R2004": {
+            "maximum": 10.886785308769646,
+            "minimum": 10.068539388252853
+          },
+          "R2121": {
+            "maximum": 10.0714723440088,
+            "minimum": 10.071472343872406
+          },
+          "R88": {
+            "maximum": 0.8182459209475799,
+            "minimum": 0.0
+          },
+          "R89": {
+            "maximum": 2.02101307637445e-10,
+            "minimum": 0.0
+          }
+        },
+        "reaction_count": 2313,
+        "results_sha256": "1424f15e4678bbb78d81e56ccfba09dfd826cd4b68e1492eed7c20dec7106e51",
+        "runtime_seconds": 36.739858366083354
+      }
+    }
+  },
+  "git": {
+    "head": "1bd719e884a9610194c023f2c058e9ebf08d661a",
+    "live_remote": "1bd719e884a9610194c023f2c058e9ebf08d661a",
+    "origin_ref": "1bd719e884a9610194c023f2c058e9ebf08d661a",
+    "repository": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014",
+    "tracked_clean": true,
+    "unchanged": true,
+    "untracked_count": 0
+  },
+  "manifest_revision": 2,
+  "metrics_runtime_seconds": 489.7361059188843,
+  "model": {
+    "bytes": 14039307,
+    "fingerprint_from_metrics_after": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "fingerprint_from_metrics_before": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "mode": "0444",
+    "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml",
+    "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "unchanged": true
+  },
+  "network_scenarios": {
+    "ach1_gene_knockout": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "complete_coa_candidate": {
+      "fba": "optimal",
+      "objective": 1.387591475487091,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870877
+    },
+    "d_union_tuple_candidate": {
+      "fba": "optimal",
+      "objective": 1.3875914754870926,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "r1708_forward_only": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "r1708_knockout": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "r1708_reverse_only": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "r2004_forward_only": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "r2004_removed": {
+      "fba": "optimal",
+      "objective": 1.3651747381676251,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3651747381676218
+    },
+    "r2004_reverse_only": {
+      "fba": "optimal",
+      "objective": 1.365174738167619,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3651747381676176
+    },
+    "r89_knockout": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "r89_r1708_joint_knockout": {
+      "fba": "optimal",
+      "objective": 1.3875914754870897,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    },
+    "source": {
+      "fba": "optimal",
+      "objective": 1.3875914754870862,
+      "pfba": "optimal",
+      "pfba_biomass": 1.3875914754870897
+    }
+  },
+  "performance": {
+    "iterations": 5,
+    "median_seconds": {
+      "complete_coa_candidate": {
+        "fba": 0.12744144815951586,
+        "pfba": 0.981630336958915
+      },
+      "d_union_tuple_candidate": {
+        "fba": 0.12566008977591991,
+        "pfba": 0.9722374710254371
+      },
+      "source": {
+        "fba": 0.13447779091075063,
+        "pfba": 0.9681893549859524
+      }
+    },
+    "runs": {
+      "complete_coa_candidate": [
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754872172,
+            "runtime_seconds": 0.023890883661806583,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.886785308549413,
+              "R2044": 0.0,
+              "R2121": 10.071472343790175,
+              "R539": 0.0,
+              "R88": 0.8182459205793289,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754872172,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219478139149,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637261453599,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.3875914754872154,
+            "error": null,
+            "runtime_seconds": 0.9595814747735858,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539388080454,
+              "R2044": 0.0,
+              "R2121": 10.071472343898002,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754872154,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732788,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914967,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117626171
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.12744144815951586,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.9567367802374065,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.13175633596256375,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.9870869037695229,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.13142191106453538,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.981630336958915,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.12021679105237126,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 1.466893156990409,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        }
+      ],
+      "d_union_tuple_candidate": [
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.387591475487186,
+            "runtime_seconds": 0.023769037798047066,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.886785308551023,
+              "R2044": 0.0,
+              "R2121": 10.071472343792102,
+              "R539": 0.0,
+              "R88": 0.8182459205808712,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487186,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.0053082194781390295,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637261453489,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.3875914754871834,
+            "error": null,
+            "runtime_seconds": 0.9722374710254371,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539388050114,
+              "R2044": 0.0,
+              "R2121": 10.071472343867732,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754871834,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732667,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914855,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117622655
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.12566008977591991,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.9546614321880043,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.12843316001817584,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.9847141210921109,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.12944704759866,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.9837299343198538,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.3875914754870826,
+            "runtime_seconds": 0.11465608095750213,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973214,
+              "R2044": 0.0,
+              "R2121": 10.071472343790568,
+              "R539": 4.0311677141382336e-32,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.3875914754870826,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": -3.168426562795632e-18,
+              "xPOOL_AC_LP": 0.005308219479732276,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914494,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487105,
+            "error": null,
+            "runtime_seconds": 0.8961744043044746,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387972935,
+              "R2044": 0.0,
+              "R2121": 10.071472343790294,
+              "R539": 7.596831235922296e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487105,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732365,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.0048676372629145774,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117614699
+          }
+        }
+      ],
+      "source": [
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.387591475487081,
+            "runtime_seconds": 0.127957530785352,
+            "selected_fluxes": {
+              "R1575": 3.348054060189732e-17,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973228,
+              "R2044": 0.0,
+              "R2121": 10.071472343790608,
+              "R539": 3.3479503975399113e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487081,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 3.01000523465585e-17,
+              "xPOOL_AC_LP": 0.005308219479732298,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914544,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487085,
+            "error": null,
+            "runtime_seconds": 0.9546364569105208,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.06853938797109,
+              "R2044": 0.0,
+              "R2121": 10.071472343788466,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487085,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732291,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914511,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117613825
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.387591475487081,
+            "runtime_seconds": 0.13188765104860067,
+            "selected_fluxes": {
+              "R1575": 3.348054060189732e-17,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973228,
+              "R2044": 0.0,
+              "R2121": 10.071472343790608,
+              "R539": 3.3479503975399113e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487081,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 3.01000523465585e-17,
+              "xPOOL_AC_LP": 0.005308219479732298,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914544,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487085,
+            "error": null,
+            "runtime_seconds": 1.5082766120322049,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.06853938797109,
+              "R2044": 0.0,
+              "R2121": 10.071472343788466,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487085,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732291,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914511,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117613825
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.387591475487081,
+            "runtime_seconds": 0.13447779091075063,
+            "selected_fluxes": {
+              "R1575": 3.348054060189732e-17,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973228,
+              "R2044": 0.0,
+              "R2121": 10.071472343790608,
+              "R539": 3.3479503975399113e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487081,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 3.01000523465585e-17,
+              "xPOOL_AC_LP": 0.005308219479732298,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914544,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487085,
+            "error": null,
+            "runtime_seconds": 0.9681893549859524,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.06853938797109,
+              "R2044": 0.0,
+              "R2121": 10.071472343788466,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487085,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732291,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914511,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117613825
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.387591475487081,
+            "runtime_seconds": 0.13563002087175846,
+            "selected_fluxes": {
+              "R1575": 3.348054060189732e-17,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973228,
+              "R2044": 0.0,
+              "R2121": 10.071472343790608,
+              "R539": 3.3479503975399113e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487081,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 3.01000523465585e-17,
+              "xPOOL_AC_LP": 0.005308219479732298,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914544,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487085,
+            "error": null,
+            "runtime_seconds": 1.520768349058926,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.06853938797109,
+              "R2044": 0.0,
+              "R2121": 10.071472343788466,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487085,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732291,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914511,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117613825
+          }
+        },
+        {
+          "fba": {
+            "error": null,
+            "objective": 1.387591475487081,
+            "runtime_seconds": 0.13474969705566764,
+            "selected_fluxes": {
+              "R1575": 3.348054060189732e-17,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.068539387973228,
+              "R2044": 0.0,
+              "R2121": 10.071472343790608,
+              "R539": 3.3479503975399113e-17,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487081,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 3.01000523465585e-17,
+              "xPOOL_AC_LP": 0.005308219479732298,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914544,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal"
+          },
+          "pfba": {
+            "biomass_flux": 1.387591475487085,
+            "error": null,
+            "runtime_seconds": 0.9228008319623768,
+            "selected_fluxes": {
+              "R1575": 0.0,
+              "R1708": 0.0,
+              "R2003": 0.0,
+              "R2004": 10.06853938797109,
+              "R2044": 0.0,
+              "R2121": 10.071472343788466,
+              "R539": 0.0,
+              "R88": 0.0,
+              "R89": 0.0,
+              "biomass_C": 1.387591475487085,
+              "xMAINTENANCE": 7.8625,
+              "xPOOL_AC_EM": 0.0,
+              "xPOOL_AC_LP": 0.005308219479732291,
+              "xPOOL_AC_MM": 0.0,
+              "xPOOL_FA_EM": 0.0,
+              "xPOOL_FA_EN": 0.0,
+              "xPOOL_FA_LP": -0.004867637262914511,
+              "xPOOL_FA_MI": 0.0,
+              "xPOOL_FA_MM": 0.0
+            },
+            "status": "optimal",
+            "total_absolute_flux": 969.5058117613825
+          }
+        }
+      ]
+    }
+  },
+  "raw_files": {
+    "d_audit_1.json": {
+      "bytes": 54957,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/d_audit_1.json",
+      "sha256": "62df58bf33787cc5630253409fe71825eef0881191b05f61e611325acc1d059e"
+    },
+    "d_audit_2.json": {
+      "bytes": 54957,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/d_audit_2.json",
+      "sha256": "62df58bf33787cc5630253409fe71825eef0881191b05f61e611325acc1d059e"
+    },
+    "fva_complete_coa_candidate.json": {
+      "bytes": 235523,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/fva_complete_coa_candidate.json",
+      "sha256": "9305ea43fef8211aea980a57aa424dcbba83fc07a0d5d9c9e1ec7a6a82a28882"
+    },
+    "fva_d_union_tuple_candidate.json": {
+      "bytes": 235245,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/fva_d_union_tuple_candidate.json",
+      "sha256": "a5d3ef7292b20864422e5ed471b9a31369beff0042c7514fcb21e2efd2464b14"
+    },
+    "fva_source.json": {
+      "bytes": 236008,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/fva_source.json",
+      "sha256": "bb87a5adb29e116f804bcfb5888c9d032b2e382761b20fd7c480b8864f4d37ff"
+    },
+    "job.sh": {
+      "bytes": 3142,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/job.sh",
+      "sha256": "e2d4e7478c0314876f50ee15eb629f27ce0adfcc30f5d35df8d5de12ca7ee939"
+    },
+    "metrics.json": {
+      "bytes": 133567,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/metrics.json",
+      "sha256": "fe92e30c821fc8036992143d94d570bb43fb1bf4d9f9f806ed2ef89c24199725"
+    },
+    "metrics.partial.json": {
+      "bytes": 131133,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/metrics.partial.json",
+      "sha256": "f4d032af2236e1e14ef43e437b45c7ee5400f76899ad38954703fde7fa7e5205"
+    },
+    "metrics.py": {
+      "bytes": 41854,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/metrics.py",
+      "sha256": "078bc09087e38e0461c9929f7089af8c3b75af02da065fe8bb06f4d6fe751b95"
+    },
+    "metrics_driver.log": {
+      "bytes": 98914,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/metrics_driver.log",
+      "sha256": "25f9ae4e21b861b814fa27644af411a402c1ce16826f7282601931c1ff0a999d"
+    },
+    "postflight_collect.py": {
+      "bytes": 11111,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/postflight_collect.py",
+      "sha256": "2e80b8abf768f1b8c1c6fdb989e72af5b40d35d03b013d4e2049473a9dd2fca5"
+    },
+    "sacct_raw.txt": {
+      "bytes": 438,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/sacct_raw.txt",
+      "sha256": "dd0f0f5f0007e5717f290cf1aa0b6f22b3ea7ca1bdf866a5e9429c6b98e42ef7"
+    },
+    "scontrol_raw.txt": {
+      "bytes": 1527,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/scontrol_raw.txt",
+      "sha256": "e5458a15ad7748700bdff8f86209b564f99d637359aace7697acedd4f2c0e2a9"
+    },
+    "slurm-27553188.err": {
+      "bytes": 0,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/slurm-27553188.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "slurm-27553188.out": {
+      "bytes": 287,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/slurm-27553188.out",
+      "sha256": "f64462697065cecba9ce5b8367d0feed659089a440481f43a6296f9803e6600b"
+    },
+    "snapshot_after.json": {
+      "bytes": 811,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/snapshot_after.json",
+      "sha256": "bd5eee09c06859c82099480d50792c4a437c6fb0c0084d23c709e3e94be8c3f0"
+    },
+    "snapshot_before.json": {
+      "bytes": 811,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/snapshot_before.json",
+      "sha256": "bd5eee09c06859c82099480d50792c4a437c6fb0c0084d23c709e3e94be8c3f0"
+    },
+    "test_summary.json": {
+      "bytes": 404,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/test_summary.json",
+      "sha256": "30c3eb9505235c520c7ce637c62a1149b41e001da4e97a4910f80ddc7e063270"
+    },
+    "unittest.log": {
+      "bytes": 12984,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/unittest.log",
+      "sha256": "acea37c21ce7bac954da1d78f55779697807c59a1a1d3cc28e14a5d07a7c947e"
+    }
+  },
+  "sbml_roundtrip": {
+    "complete_coa_candidate": {
+      "bytes": 14006785,
+      "dimensions_preserved": true,
+      "focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {
+          "H": 4.0,
+          "charge": 4.0
+        },
+        "R613": {
+          "H": -1.0,
+          "charge": -1.0
+        }
+      },
+      "focal_balances_preserved": true,
+      "lp_structure_preserved": true,
+      "production_sbml": false,
+      "read_seconds": 4.11390127055347,
+      "sha256": "e2920378771c53e3ac468e6fbc67130bc38277686a0cf23537e748eee5b3acc2",
+      "solve": {
+        "fba": {
+          "error": null,
+          "objective": 1.3875914754870862,
+          "runtime_seconds": 0.21011493308469653,
+          "selected_fluxes": {
+            "R1575": -6.574012682389945e-16,
+            "R1708": 0.0,
+            "R2003": 0.0,
+            "R2004": 10.068539387973246,
+            "R2044": 0.0,
+            "R2121": 10.071472343790562,
+            "R539": 0.0,
+            "R88": 0.0,
+            "R89": 0.0,
+            "biomass_C": 1.3875914754870862,
+            "xMAINTENANCE": 7.8625,
+            "xPOOL_AC_EM": 0.0,
+            "xPOOL_AC_LP": 0.005308219479735406,
+            "xPOOL_AC_MM": 0.0,
+            "xPOOL_FA_EM": 0.0,
+            "xPOOL_FA_EN": 0.0,
+            "xPOOL_FA_LP": -0.004867637262920743,
+            "xPOOL_FA_MI": 0.0,
+            "xPOOL_FA_MM": 0.0
+          },
+          "status": "optimal"
+        },
+        "pfba": {
+          "biomass_flux": 1.3875914754870897,
+          "error": null,
+          "runtime_seconds": 0.9262855420820415,
+          "selected_fluxes": {
+            "R1575": 1.3981015204618701e-14,
+            "R1708": 0.0,
+            "R2003": 0.0,
+            "R2004": 10.068539387973312,
+            "R2044": 0.0,
+            "R2121": 10.071472343790598,
+            "R539": 2.3922643019499497e-14,
+            "R88": 0.0,
+            "R89": 0.0,
+            "biomass_C": 1.3875914754870897,
+            "xMAINTENANCE": 7.8625,
+            "xPOOL_AC_EM": 0.0,
+            "xPOOL_AC_LP": 0.005308219479830621,
+            "xPOOL_AC_MM": 0.0,
+            "xPOOL_FA_EM": 0.0,
+            "xPOOL_FA_EN": 0.0,
+            "xPOOL_FA_LP": -0.004867637263111155,
+            "xPOOL_FA_MI": 0.0,
+            "xPOOL_FA_MM": 0.0
+          },
+          "status": "optimal",
+          "total_absolute_flux": 969.5058117613671
+        }
+      },
+      "temporary_candidate_only": true,
+      "temporary_deleted_after_validation": true,
+      "tuple_count_checked": 129,
+      "tuples_preserved": true,
+      "write_seconds": 2.952939859125763
+    },
+    "d_union_tuple_candidate": {
+      "bytes": 14039645,
+      "dimensions_preserved": true,
+      "focal_balances": {
+        "R1708": {},
+        "R2004": {},
+        "R2076": {},
+        "R613": {
+          "H": -5.0,
+          "charge": -5.0
+        }
+      },
+      "focal_balances_preserved": true,
+      "lp_structure_preserved": true,
+      "production_sbml": false,
+      "read_seconds": 3.6451366120018065,
+      "sha256": "843fb1fdb295cba229ff7b77a428bbed0d9ccaf4020b941af0c004e9e6320dcd",
+      "solve": {
+        "fba": {
+          "error": null,
+          "objective": 1.3875914754870862,
+          "runtime_seconds": 0.21385800000280142,
+          "selected_fluxes": {
+            "R1575": -6.574012682389945e-16,
+            "R1708": 0.0,
+            "R2003": 0.0,
+            "R2004": 10.068539387973246,
+            "R2044": 0.0,
+            "R2121": 10.071472343790562,
+            "R539": 0.0,
+            "R88": 0.0,
+            "R89": 0.0,
+            "biomass_C": 1.3875914754870862,
+            "xMAINTENANCE": 7.8625,
+            "xPOOL_AC_EM": 0.0,
+            "xPOOL_AC_LP": 0.005308219479735406,
+            "xPOOL_AC_MM": 0.0,
+            "xPOOL_FA_EM": 0.0,
+            "xPOOL_FA_EN": 0.0,
+            "xPOOL_FA_LP": -0.004867637262920743,
+            "xPOOL_FA_MI": 0.0,
+            "xPOOL_FA_MM": 0.0
+          },
+          "status": "optimal"
+        },
+        "pfba": {
+          "biomass_flux": 1.3875914754870897,
+          "error": null,
+          "runtime_seconds": 0.9256099071353674,
+          "selected_fluxes": {
+            "R1575": 1.398101520461869e-14,
+            "R1708": 0.0,
+            "R2003": 0.0,
+            "R2004": 10.068539387973312,
+            "R2044": 0.0,
+            "R2121": 10.071472343790598,
+            "R539": 2.3922643019499507e-14,
+            "R88": 0.0,
+            "R89": 0.0,
+            "biomass_C": 1.3875914754870897,
+            "xMAINTENANCE": 7.8625,
+            "xPOOL_AC_EM": 0.0,
+            "xPOOL_AC_LP": 0.005308219479830621,
+            "xPOOL_AC_MM": 0.0,
+            "xPOOL_FA_EM": 0.0,
+            "xPOOL_FA_EN": 0.0,
+            "xPOOL_FA_LP": -0.004867637263111155,
+            "xPOOL_FA_MI": 0.0,
+            "xPOOL_FA_MM": 0.0
+          },
+          "status": "optimal",
+          "total_absolute_flux": 969.5058117613671
+        }
+      },
+      "temporary_candidate_only": true,
+      "temporary_deleted_after_validation": true,
+      "tuple_count_checked": 25,
+      "tuples_preserved": true,
+      "write_seconds": 3.090318031143397
+    }
+  },
+  "schema_version": 1,
+  "scientific_gate_interpretation": {
+    "computational_validation_only": true,
+    "frontier_is_not_scientifically_closed": true,
+    "production_activation_remains_human_blocked": true
+  },
+  "slurm_environment": {
+    "SLURMD_NODENAME": "x02",
+    "SLURM_CPUS_PER_TASK": "1",
+    "SLURM_JOB_ACCOUNT": "iwheeldonlab",
+    "SLURM_JOB_ID": "27553188",
+    "SLURM_JOB_NAME": "dcoa_1bd719e",
+    "SLURM_JOB_NODELIST": "x02",
+    "SLURM_JOB_PARTITION": "short",
+    "SLURM_MEM_PER_NODE": "8192",
+    "SLURM_SUBMIT_HOST": "skylark"
+  },
+  "software": {
+    "cobra": "0.30.0",
+    "glpk": "5.0",
+    "libsbml": "5.21.1",
+    "numpy": "2.4.3",
+    "optlang": "1.8.3",
+    "pandas": "2.3.3",
+    "platform": "Linux-4.18.0-553.144.1.el8_10.x86_64-x86_64-with-glibc2.28",
+    "python": "3.11.15",
+    "scipy": "1.17.1",
+    "solver_interface": "optlang.glpk_interface",
+    "swiglpk": null
+  },
+  "source_contract_idempotency_rollback": {
+    "blocked_apply_attempts": [
+      {
+        "blocked_before_write": true,
+        "exception": "CoAProtonationActivationBlocked"
+      },
+      {
+        "blocked_before_write": true,
+        "exception": "CoAProtonationActivationBlocked"
+      }
+    ],
+    "complete_coa_fresh_copy_deterministic": true,
+    "complete_coa_same_copy_idempotent": true,
+    "complete_coa_second_apply_counts": {
+      "annotations": 0,
+      "identity_corrections": 0,
+      "metabolites": 0,
+      "reaction_corrections": 0
+    },
+    "d_union_fresh_copy_deterministic": true,
+    "production_apply_performed": false,
+    "rollback_exception": "CoAProtonationCurationError",
+    "source_fingerprint_unchanged": true,
+    "transaction_rollback_verified": true
+  },
+  "source_manifest_v1": {
+    "bytes": 67846,
+    "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/postflight_manifest.json",
+    "sha256": "dbd68ab0241545531c099724faf9d4ba726fe862495aaf1f384e18fecd4424c1"
+  },
+  "submission": {
+    "automatic_resubmission": false,
+    "job_id": "27553188",
+    "job_script_sha256": "e2d4e7478c0314876f50ee15eb629f27ce0adfcc30f5d35df8d5de12ca7ee939",
+    "metrics_script_sha256": "078bc09087e38e0461c9929f7089af8c3b75af02da065fe8bb06f4d6fe751b95",
+    "run_directory": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S",
+    "sacct_raw": {
+      "bytes": 438,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/sacct_raw.txt",
+      "sha256": "dd0f0f5f0007e5717f290cf1aa0b6f22b3ea7ca1bdf866a5e9429c6b98e42ef7"
+    },
+    "scontrol_raw": {
+      "bytes": 1527,
+      "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/d_coa_1bd719e_R2jTfl7S/scontrol_raw.txt",
+      "sha256": "e5458a15ad7748700bdff8f86209b564f99d637359aace7697acedd4f2c0e2a9"
+    },
+    "slurm_version": "slurm 24.11.1",
+    "submission_count": 1
+  },
+  "tests": {
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "modules": [
+      "tests.test_coa_protonation_curation",
+      "tests.test_fatty_acyl_coa_handoff",
+      "tests.test_r1521_current_snapshot_handoff",
+      "tests.test_lp_sn12_candidate"
+    ],
+    "passed": 67,
+    "ran": 67,
+    "requested": 67,
+    "runtime_seconds": 258.7072996152565,
+    "skipped": 0,
+    "successful": true,
+    "unexpected_successes": 0
+  }
+}

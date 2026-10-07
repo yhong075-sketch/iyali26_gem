@@ -1,0 +1,143 @@
+{
+  "status": "proposal_only_no_model_changes",
+  "input_sha256": "9e09e96e92a95b6ba9c079b00d9bee670a69f85dea32ab33dbffccb7fa03ccae",
+  "script_sha256": "868fb16874a8eaeb02be8b69c18787e81b02bc47cd1223ff9be20bfbe3c043d7",
+  "species": {
+    "m63[C_mi]": {
+      "formula": "C52H80O2",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "m59[C_mi]": {
+      "formula": "C52H78O3",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "m64[C_mi]": {
+      "formula": "O2",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "m26[C_mi]": {
+      "formula": "H2O",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "m30[C_mi]": {
+      "formula": "C21H29N7O14P2",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "m27[C_mi]": {
+      "formula": "C21H27N7O14P2",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "m111[C_mi]": {
+      "formula": "C53H79O4",
+      "charge": -1,
+      "status": "existing_model_species"
+    },
+    "m28[C_mi]": {
+      "formula": "H",
+      "charge": 1,
+      "status": "existing_model_species"
+    },
+    "m44[C_mi]": {
+      "formula": "CO2",
+      "charge": 0,
+      "status": "existing_model_species"
+    },
+    "proposal_DDMQ9H2": {
+      "formula": "C52H80O3",
+      "charge": 0,
+      "status": "formal_quinol_not_added"
+    },
+    "proposal_H2O2": {
+      "formula": "H2O2",
+      "charge": 0,
+      "status": "formal_product_not_added"
+    }
+  },
+  "reactions": {
+    "legacy_R19": {
+      "m63[C_mi]": "-1.0",
+      "m64[C_mi]": "-1.0",
+      "m26[C_mi]": "1.0",
+      "m59[C_mi]": "1.0"
+    },
+    "NADH_coupled_C1_hydroxylation": {
+      "m63[C_mi]": "-1",
+      "m64[C_mi]": "-1",
+      "m30[C_mi]": "-1",
+      "proposal_DDMQ9H2": "1",
+      "m27[C_mi]": "1",
+      "m26[C_mi]": "1"
+    },
+    "formal_regeneration_needed_to_recover_legacy": {
+      "proposal_DDMQ9H2": "-1",
+      "m27[C_mi]": "-1",
+      "m59[C_mi]": "1",
+      "m30[C_mi]": "1"
+    },
+    "formal_oxidation_O2_to_water": {
+      "proposal_DDMQ9H2": "-1",
+      "m64[C_mi]": "-1/2",
+      "m59[C_mi]": "1",
+      "m26[C_mi]": "1"
+    },
+    "formal_oxidation_O2_to_peroxide": {
+      "proposal_DDMQ9H2": "-1",
+      "m64[C_mi]": "-1",
+      "m59[C_mi]": "1",
+      "proposal_H2O2": "1"
+    },
+    "net_hydroxylation_plus_O2_to_water": {
+      "m63[C_mi]": "-1",
+      "m64[C_mi]": "-3/2",
+      "m30[C_mi]": "-1",
+      "m27[C_mi]": "1",
+      "m26[C_mi]": "2",
+      "m59[C_mi]": "1"
+    },
+    "net_hydroxylation_plus_O2_to_peroxide": {
+      "m63[C_mi]": "-1",
+      "m64[C_mi]": "-2",
+      "m30[C_mi]": "-1",
+      "m27[C_mi]": "1",
+      "m26[C_mi]": "1",
+      "m59[C_mi]": "1",
+      "proposal_H2O2": "1"
+    },
+    "legacy_R40_plus_R19": {
+      "m28[C_mi]": "-1",
+      "m111[C_mi]": "-1",
+      "m44[C_mi]": "1",
+      "m64[C_mi]": "-1",
+      "m26[C_mi]": "1",
+      "m59[C_mi]": "1"
+    }
+  },
+  "exact_atom_charge_residuals": {
+    "legacy_R19": {},
+    "NADH_coupled_C1_hydroxylation": {},
+    "formal_regeneration_needed_to_recover_legacy": {},
+    "formal_oxidation_O2_to_water": {},
+    "formal_oxidation_O2_to_peroxide": {},
+    "net_hydroxylation_plus_O2_to_water": {},
+    "net_hydroxylation_plus_O2_to_peroxide": {},
+    "legacy_R40_plus_R19": {}
+  },
+  "hydroxylation_catalytic_gene_candidate": "YALI1A08781g",
+  "hypothetical_lumped_donor_gpr": "YALI1A08781g and YALI1B03314g and YALI1B19490g",
+  "alternative_combined_C1_module_gene_candidate": "YALI1F34625g",
+  "no_OR_between_alternative_mechanisms": true,
+  "unassigned_step": "Quinol oxidation: acceptor, enzyme or nonenzymatic mechanism unresolved.",
+  "legacy_regeneration_status": "Algebraic implication only; no evidence that intermediate quinol regenerates NADH from NAD in vivo.",
+  "formal_oxygen_oxidation_status": "Stoichiometric alternatives only; product partition, kinetics, enzyme and physiological role not established.",
+  "NADH_status": "Provisional carrier option reused from previous donor hypothesis, not native preference or direct C1 reconstitution.",
+  "execution_attempts": {
+    "optimization": 0,
+    "network": 0
+  }
+}

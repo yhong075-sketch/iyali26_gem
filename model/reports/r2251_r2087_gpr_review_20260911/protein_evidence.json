@@ -1,0 +1,697 @@
+{
+  "checked_at_utc": "2026-09-11T22:28:52.892187+00:00",
+  "script_sha256": "a06c665653e67e01e894fe7cee45ced650d581aa0dba3b9641768e14b79cc06c",
+  "cache_source": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/cache/data/uniprot_UP000182444.json",
+    "sha256": "e5b0a04874079b4057ffe25dadcb6b812cba8c96b227f41187187b27715753a3"
+  },
+  "targets": [
+    {
+      "model_gene": "YALI1E14619g",
+      "source_gene": "YALI1_E14619g",
+      "accession": "A0A1D8NI23",
+      "entry_audit": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 23,
+        "sequenceVersion": 1
+      },
+      "protein_existence": "3: Inferred from homology",
+      "protein_description": {
+        "submissionNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "RDW27460.1"
+                }
+              ],
+              "value": "Amidase signature domain-containing protein"
+            }
+          }
+        ]
+      },
+      "comments": [
+        {
+          "texts": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00009199"
+                }
+              ],
+              "value": "Belongs to the amidase family"
+            }
+          ],
+          "commentType": "SIMILARITY"
+        }
+      ],
+      "sequence_length": 540,
+      "sequence_sha256": "a3c09c01edafe295fa2d8dd61b120b48fa05fed1fcae9b01f97ce69e1a325cd0",
+      "current_record_status": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8NI23",
+        "uniProtkbId": "A0A1D8NI23_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI000870E2E3"
+        }
+      },
+      "sequence_source_url": "https://rest.uniprot.org/unisave/A0A1D8NI23?format=txt&versions=23",
+      "cross_strain_comparison": {
+        "accession": "Q6C676",
+        "gene": [
+          {
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "CAG79429.1"
+                  }
+                ],
+                "value": "YALI0_E11847g"
+              }
+            ]
+          }
+        ],
+        "entry_audit": {
+          "firstPublicDate": "2004-08-16",
+          "lastAnnotationUpdateDate": "2026-09-02",
+          "lastSequenceUpdateDate": "2004-08-16",
+          "entryVersion": 105,
+          "sequenceVersion": 1
+        },
+        "sequence_sha256": "87635447d4fda8358d7d68889851328b4dbe04da12aa1556c1a95a5062d3ea33",
+        "differences": [
+          {
+            "position": 342,
+            "target": "Y",
+            "counterpart": "N"
+          }
+        ],
+        "identical_residues": 539,
+        "exact_match": false,
+        "limit": "CLIB122 reference comparison does not establish the sequence of the paper YB-392 clone."
+      },
+      "alphafold": {
+        "label": "既有 AlphaFold 预测，非本次新预测；基于 AlphaFold 预测的功能候选",
+        "model_id": "AF-A0A1D8NI23-F1",
+        "tool": "AlphaFold Monomer v2.0 pipeline",
+        "file_version": 6,
+        "created": "2022-06-01T00:00:00Z",
+        "sequence_exact_match": true,
+        "mean_plddt_CA": 94.04272222222222,
+        "api_global_metric": 94.06,
+        "min_plddt_CA": 35.62,
+        "positions_lt70": [
+          533,
+          534,
+          535,
+          536,
+          537,
+          538,
+          539,
+          540
+        ],
+        "pae_mean_A": 4.087119341563786,
+        "pae_max_A": 29,
+        "predicted_active_sites": [
+          {
+            "position": 130,
+            "aa": "K",
+            "plddt_CA": 98.38,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 130,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 130,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Charge relay system",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          },
+          {
+            "position": 206,
+            "aa": "S",
+            "plddt_CA": 96.88,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 206,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 206,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Charge relay system",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          },
+          {
+            "position": 230,
+            "aa": "S",
+            "plddt_CA": 97.69,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 230,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 230,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Acyl-ester intermediate",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          }
+        ],
+        "limits": [
+          "Single chain prediction, no experimental ligand or complex evidence.",
+          "No new BLAST, structure alignment, substrate docking, kinetic assay or localization prediction.",
+          "Confident predicted residues do not establish substrate specificity or catalytic activity."
+        ]
+      }
+    },
+    {
+      "model_gene": "YALI1E41276g",
+      "source_gene": "YALI1_E41276g",
+      "accession": "A0A1D8NL97",
+      "entry_audit": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 28,
+        "sequenceVersion": 1
+      },
+      "protein_existence": "3: Inferred from homology",
+      "protein_description": {
+        "submissionNames": [
+          {
+            "fullName": {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000313",
+                  "source": "EMBL",
+                  "id": "AOW06400.1"
+                }
+              ],
+              "value": "Uncharacterized protein"
+            }
+          }
+        ]
+      },
+      "comments": [
+        {
+          "texts": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00009199"
+                }
+              ],
+              "value": "Belongs to the amidase family"
+            }
+          ],
+          "commentType": "SIMILARITY"
+        }
+      ],
+      "sequence_length": 539,
+      "sequence_sha256": "6108dfd127107f203f872532796a523f4fb6ca96c7b44f43a1a005476af5e092",
+      "current_record_status": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8NL97",
+        "uniProtkbId": "A0A1D8NL97_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BCB01"
+        }
+      },
+      "sequence_source_url": "https://rest.uniprot.org/unisave/A0A1D8NL97?format=txt&versions=28",
+      "cross_strain_comparison": {
+        "accession": "Q6C3H6",
+        "gene": [
+          {
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "CAG80393.1"
+                  }
+                ],
+                "value": "YALI0_E34771g"
+              }
+            ]
+          }
+        ],
+        "entry_audit": {
+          "firstPublicDate": "2004-08-16",
+          "lastAnnotationUpdateDate": "2026-09-02",
+          "lastSequenceUpdateDate": "2004-08-16",
+          "entryVersion": 104,
+          "sequenceVersion": 1
+        },
+        "sequence_sha256": "6108dfd127107f203f872532796a523f4fb6ca96c7b44f43a1a005476af5e092",
+        "differences": [],
+        "identical_residues": 539,
+        "exact_match": true,
+        "limit": "CLIB122 reference comparison does not establish the sequence of the paper YB-392 clone."
+      },
+      "alphafold": {
+        "label": "既有 AlphaFold 预测，非本次新预测；基于 AlphaFold 预测的功能候选",
+        "model_id": "AF-A0A1D8NL97-F1",
+        "tool": "AlphaFold Monomer v2.0 pipeline",
+        "file_version": 6,
+        "created": "2022-06-01T00:00:00Z",
+        "sequence_exact_match": true,
+        "mean_plddt_CA": 95.9743413729128,
+        "api_global_metric": 96.0,
+        "min_plddt_CA": 60.38,
+        "positions_lt70": [
+          1,
+          2,
+          263,
+          264,
+          265
+        ],
+        "pae_mean_A": 3.4816002973967457,
+        "pae_max_A": 28,
+        "predicted_active_sites": [
+          {
+            "position": 136,
+            "aa": "K",
+            "plddt_CA": 98.56,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 136,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 136,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Charge relay system",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          },
+          {
+            "position": 211,
+            "aa": "S",
+            "plddt_CA": 97.75,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 211,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 211,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Charge relay system",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          },
+          {
+            "position": 235,
+            "aa": "S",
+            "plddt_CA": 98.19,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 235,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 235,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Acyl-ester intermediate",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          }
+        ],
+        "limits": [
+          "Single chain prediction, no experimental ligand or complex evidence.",
+          "No new BLAST, structure alignment, substrate docking, kinetic assay or localization prediction.",
+          "Confident predicted residues do not establish substrate specificity or catalytic activity."
+        ]
+      }
+    },
+    {
+      "model_gene": "YALI1F21875g",
+      "source_gene": "YALI1_F21875g",
+      "accession": "A0A1D8NNQ1",
+      "entry_audit": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 29,
+        "sequenceVersion": 1
+      },
+      "protein_existence": "3: Inferred from homology",
+      "protein_description": {
+        "recommendedName": {
+          "fullName": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00012922"
+              }
+            ],
+            "value": "amidase"
+          },
+          "ecNumbers": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00012922"
+                }
+              ],
+              "value": "3.5.1.4"
+            }
+          ]
+        }
+      },
+      "comments": [
+        {
+          "commentType": "CATALYTIC ACTIVITY",
+          "reaction": {
+            "name": "a monocarboxylic acid amide + H2O = a monocarboxylate + NH4(+)",
+            "reactionCrossReferences": [
+              {
+                "database": "Rhea",
+                "id": "RHEA:12020"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:15377"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:28938"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:35757"
+              },
+              {
+                "database": "ChEBI",
+                "id": "CHEBI:83628"
+              }
+            ],
+            "ecNumber": "3.5.1.4",
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000256",
+                "source": "ARBA",
+                "id": "ARBA00001311"
+              }
+            ]
+          }
+        },
+        {
+          "texts": [
+            {
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "ARBA",
+                  "id": "ARBA00009199"
+                }
+              ],
+              "value": "Belongs to the amidase family"
+            }
+          ],
+          "commentType": "SIMILARITY"
+        }
+      ],
+      "sequence_length": 552,
+      "sequence_sha256": "bcb18dd33db365d088aa7d45b90e1cd273732b64da8ec63140cc134805fab1c3",
+      "current_record_status": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8NNQ1",
+        "uniProtkbId": "A0A1D8NNQ1_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BCDBB"
+        }
+      },
+      "sequence_source_url": "https://rest.uniprot.org/unisave/A0A1D8NNQ1?format=txt&versions=29",
+      "cross_strain_comparison": {
+        "accession": "Q6C1G7",
+        "gene": [
+          {
+            "orfNames": [
+              {
+                "evidences": [
+                  {
+                    "evidenceCode": "ECO:0000313",
+                    "source": "EMBL",
+                    "id": "CAG78304.1"
+                  }
+                ],
+                "value": "YALI0_F16401g"
+              }
+            ]
+          }
+        ],
+        "entry_audit": {
+          "firstPublicDate": "2004-08-16",
+          "lastAnnotationUpdateDate": "2026-09-02",
+          "lastSequenceUpdateDate": "2004-08-16",
+          "entryVersion": 107,
+          "sequenceVersion": 1
+        },
+        "sequence_sha256": "bcb18dd33db365d088aa7d45b90e1cd273732b64da8ec63140cc134805fab1c3",
+        "differences": [],
+        "identical_residues": 552,
+        "exact_match": true,
+        "limit": "CLIB122 reference comparison does not establish the sequence of the paper YB-392 clone."
+      },
+      "alphafold": {
+        "label": "既有 AlphaFold 预测，非本次新预测；基于 AlphaFold 预测的功能候选",
+        "model_id": "AF-A0A1D8NNQ1-F1",
+        "tool": "AlphaFold Monomer v2.0 pipeline",
+        "file_version": 6,
+        "created": "2022-06-01T00:00:00Z",
+        "sequence_exact_match": true,
+        "mean_plddt_CA": 96.33708333333334,
+        "api_global_metric": 96.31,
+        "min_plddt_CA": 70.81,
+        "positions_lt70": [],
+        "pae_mean_A": 3.3905823356437725,
+        "pae_max_A": 24,
+        "predicted_active_sites": [
+          {
+            "position": 107,
+            "aa": "K",
+            "plddt_CA": 98.75,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 107,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 107,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Charge relay system",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          },
+          {
+            "position": 182,
+            "aa": "S",
+            "plddt_CA": 97.5,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 182,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 182,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Charge relay system",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          },
+          {
+            "position": 206,
+            "aa": "S",
+            "plddt_CA": 97.88,
+            "annotation": {
+              "type": "Active site",
+              "location": {
+                "start": {
+                  "value": 206,
+                  "modifier": "EXACT"
+                },
+                "end": {
+                  "value": 206,
+                  "modifier": "EXACT"
+                }
+              },
+              "description": "Acyl-ester intermediate",
+              "evidences": [
+                {
+                  "evidenceCode": "ECO:0000256",
+                  "source": "PIRSR",
+                  "id": "PIRSR001221-1"
+                }
+              ]
+            }
+          }
+        ],
+        "limits": [
+          "Single chain prediction, no experimental ligand or complex evidence.",
+          "No new BLAST, structure alignment, substrate docking, kinetic assay or localization prediction.",
+          "Confident predicted residues do not establish substrate specificity or catalytic activity."
+        ]
+      }
+    }
+  ],
+  "retrieval_records": [
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_initial.json",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_curl.json",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_details.json"
+  ],
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/AF-A0A1D8NI23-F1-predicted_aligned_error_v6.json": "7a84d31cdfdec5c6661377c6c999fdfb923e2069f7c2ac7a19976f63081f4a17",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/12934_2020_1292_Fig4_HTML.png": "a6a3535feee916fa83eb3c76e93aa4f07f860c39f808af189a4dce4c522a8f82",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/PMC7003347.xml": "2839af8a62b3f8d2a80cefd808f89e2544ebe8c6b89fc74227b011025b92b1c9",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/AF-A0A1D8NI23-F1-model_v6.pdb": "f54758dee9136f6806a3e9397495a7785b13e2dbf2646670e09e3315818db881",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NNQ1_v29.txt": "0f3f8feea59da9ff07083a85d8e3b901bc81451be0cf7c4f74bf98bdbcf1a46e",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NNQ1_current.json": "1f51dacfed269c8b02ac940f8a1ef0283d7d14de861f0391a3825266bdb0e0a3",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_curl.json": "82a8821fd30fbc2f1216caf6937ae04e6bac00e7e8a638ee07374be9c53e861f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NL97_alphafold.json": "b964cf8f22c50621e57a6c8248fc5a0302f5354b4e66be7c7ccd73668ca65e89",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NNQ1_cached.json": "2ab6eef297a59f6ee299305d3a502f67380339aec4d6b9b8080057f1f7dfda06",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C1G7_current.json": "465b06a86bf5099e199d21b1c2af20a9d42a4a2c6c247e36e4c68054dd6cf166",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/kegg_R02540.txt": "4e1428ec900602d9a3dc1a8e993ecde202cd94e1493826b081f39bb5242c39ac",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C5W4_cached.json": "b4c822db6cba457f2d16138e469cc3e7cfb621a0a65299bcad17e03b212e34a8",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C676_cached.json": "c29643abda0affcb7fd8e6052e51a58f45b8389b0a6f030d4a8b4e324df80703",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C3H6_cached.json": "0111ee8a87fc0090785940b265cc90996aa6500ceac82e5a225662034766011b",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NI23_v23.txt": "9971dbf83962556d0a722532c27f73f8e3d857e202e1f3d0b9cdf2bf3c1ceb91",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C1G7_cached.json": "3281cf6f35d0e81c27055eb424a9f334015c378af0780aebd7f0a3876e275ada",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NI23_cached.json": "21d8e0d20eccf24ff8917f094c413494f7c03bbd4e670839d3dd24108f2a3cb9",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C3H6_current.json": "c9c1ca10857ea07c6acaa8676d46558a74f2a1833ca721e67c2ec604ee5bad39",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NL97_v28.txt": "b7b7c8f9c70a6876b21effbe01e3c3805bd760707b03317539b514b15ed2a314",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/AF-A0A1D8NL97-F1-predicted_aligned_error_v6.json": "c7fa970c3b943d00b150ff15d77388d57eeafab8cbe932f43f771576f7054106",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_figures.json": "f7fbb49b14f64ea0e7dc375154344fea3195bed363ef57322b885a452b4ce5de",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NL97_cached.json": "8910432ccc09e4fb1188f395fdb96974fd3511d45839c059917a3893933ca4db",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_initial.json": "cdf489dde12ea24d603cf5614f0de73df752d002da5389c2694a3253d16230d5",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/AF-A0A1D8NL97-F1-model_v6.pdb": "4887126c5cd85168884248ca00f68a29f278b58cdb5bf8e3be8bd78d0f641164",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NI23_current.json": "00ca66ab39f49441d052a1223fc1f271cda3efd34b1d120df9892f84d098ba39",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/Q6C676_current.json": "1d1e86cfd8e3eca1ebc82c92eb953bb6ad4533d80b722983bd30340760e57556",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/search_scope.json": "332088034041de1735c7bccc9aae20d31a74870225aed58fa78f97fdc92f1c70",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NI23_alphafold.json": "225c2398e2f0f0537137503ccb4238e0a5b91cc8a9a95c43d550c8aa6d8f4e83",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NNQ1_alphafold.json": "9340954da015b9a79d40f8235512c5eb55aa0785c9a11c7d4cb595b105250472",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/12934_2020_1292_Fig1_HTML.png": "7e24fb42a761861f126518171f8ff91925523f76a7f61a5eb7d1e4bc56456a83",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/AF-A0A1D8NNQ1-F1-predicted_aligned_error_v6.json": "15a4bcdd132b190edbb00bb6a614cb5a380016a84b5b2f23c07427bc85692f71",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/A0A1D8NL97_current.json": "5b925610ce109d2c814e45c71bda43ab1d6bc55ac2c7ca2bc38b6c14ed17899f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/retrieval_details.json": "7370c8e488fdca6b75c8ff9e3e6a5af470aa0eae0410c83682ffe880db13f0ad",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r2251_r2087_gpr_review_20260911/sources/AF-A0A1D8NNQ1-F1-model_v6.pdb": "eba29f0144c58c93f1d7fea609beb385f61268f0f57f46e4289f09fe4bfb29bb"
+  },
+  "new_prediction_jobs": 0,
+  "new_blast_jobs": 0,
+  "evidence_limit": "Exact sequences and predicted confidence verified; target-specific phenylacetamide activity and cytosolic localization remain unverified."
+}

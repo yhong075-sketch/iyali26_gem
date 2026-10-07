@@ -1,0 +1,107 @@
+{
+  "status": "reused prior exact-sequence AlphaFold prediction and prior audited analysis; not a new structural prediction or fit",
+  "source_analysis": "artifacts/glypro_function_localization_20260924/sequence/analysis.json",
+  "source_analysis_sha256": "f29e7e0a0162b17a89a646bd41c5e25fb6fb5e7dcc679b271c57d54d3c84b775",
+  "structural_evidence": {
+    "target_exact_sequence": true,
+    "source": "existing AlphaFold prediction, not a new prediction",
+    "target_CA_count": 454,
+    "mean_CA_pLDDT": 95.9633039647577,
+    "min_CA_pLDDT": 43.19,
+    "pLDDT_below70": 6,
+    "PAE_mean_A": 3.893094179976324,
+    "PAE_max_A": 30.0,
+    "reference": "experimental human PEPD P12955 / 5M4G chainA",
+    "reference_PDB_SHA256": "33e1c946847bbfe7045f01dba80acef4ba76c7eb75f0778a45a70665dd293285",
+    "AF_PDB_SHA256": "54ca2464650c09bab7ea571c1c6a4f3e739b439af6715004338312483802f786",
+    "alignment": "global sequence-guided CA Kabsch, no outlier trimming, not TM-align or docking",
+    "whole_aligned_CA_pairs": 441,
+    "whole_RMSD_A": 5.050519800972518,
+    "target_domain_159_427_aligned_CA_pairs": 268,
+    "domain_separate_fit_RMSD_A": 2.088834227847825,
+    "reference_site_mapping": [
+      {
+        "human_position": 255,
+        "human_aa": "H",
+        "human_role_MCSA1001": "substrate",
+        "target_position": 221,
+        "target_aa": "H",
+        "same_residue": true,
+        "target_pLDDT": 96.62,
+        "CA_distance_after_domain_fit_A": 2.033027051124095
+      },
+      {
+        "human_position": 276,
+        "human_aa": "D",
+        "human_role_MCSA1001": "metal",
+        "target_position": 238,
+        "target_aa": "D",
+        "same_residue": true,
+        "target_pLDDT": 98.88,
+        "CA_distance_after_domain_fit_A": 0.4100886336789413
+      },
+      {
+        "human_position": 287,
+        "human_aa": "D",
+        "human_role_MCSA1001": "metal",
+        "target_position": 249,
+        "target_aa": "D",
+        "same_residue": true,
+        "target_pLDDT": 98.88,
+        "CA_distance_after_domain_fit_A": 0.4967993835372242
+      },
+      {
+        "human_position": 370,
+        "human_aa": "H",
+        "human_role_MCSA1001": "metal",
+        "target_position": 333,
+        "target_aa": "H",
+        "same_residue": true,
+        "target_pLDDT": 98.88,
+        "CA_distance_after_domain_fit_A": 0.4276540920940218
+      },
+      {
+        "human_position": 377,
+        "human_aa": "H",
+        "human_role_MCSA1001": "substrate",
+        "target_position": 340,
+        "target_aa": "H",
+        "same_residue": true,
+        "target_pLDDT": 98.31,
+        "CA_distance_after_domain_fit_A": 0.5287770963480901
+      },
+      {
+        "human_position": 398,
+        "human_aa": "R",
+        "human_role_MCSA1001": "substrate",
+        "target_position": 359,
+        "target_aa": "R",
+        "same_residue": true,
+        "target_pLDDT": 98.5,
+        "CA_distance_after_domain_fit_A": 0.8232631580947214
+      },
+      {
+        "human_position": 412,
+        "human_aa": "E",
+        "human_role_MCSA1001": "metal_and_catalytic_acid_base",
+        "target_position": 373,
+        "target_aa": "E",
+        "same_residue": true,
+        "target_pLDDT": 98.88,
+        "CA_distance_after_domain_fit_A": 0.30062393379693847
+      },
+      {
+        "human_position": 452,
+        "human_aa": "E",
+        "human_role_MCSA1001": "metal",
+        "target_position": 412,
+        "target_aa": "E",
+        "same_residue": true,
+        "target_pLDDT": 98.94,
+        "CA_distance_after_domain_fit_A": 0.5804542224350718
+      }
+    ],
+    "limitations": "single-chain predicted backbone; no native metal occupancy, oligomer, substrate-specific kinetics or localization inference from RMSD alone"
+  },
+  "role_in_reference_selection": "Human PEPD/P12955/5M4G retained as experimental catalytic-domain reference; prioritize fungal P43590 and PepP for actual localization/biochemistry; conditional-negative bacterial PepQ retained to avoid equating family with Gly-Pro specificity. No structural score used as localization evidence."
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "authorization": "User approved marking YALI1F38820g as a Vph1-like a-subunit candidate requiring experimental confirmation and integrating this annotation into the pipeline; no GPR, compartment or essentiality decision is included.",
+  "genes": {
+    "YALI1F38820g": {
+      "display_name": "Vph1-like V0 a subunit (candidate; experimental confirmation required)",
+      "previous_names": ["COBRAProtein676"],
+      "expected_uniprot": "A0A1H6PMT1",
+      "notes": {
+        "function_candidate_id": "GFC-YALI1F38820g-v1",
+        "function_candidate": "Vph1-like V-type proton ATPase V0 subunit a; proton translocation and complex assembly candidate",
+        "function_candidate_zh": "偏 Vph1-like 的 V0 a 亚基候选，仍需实验确认",
+        "function_candidate_status": "provisional",
+        "function_established_gene_name": "not established in Yarrowia lipolytica",
+        "function_evidence_type": "curated annotation based on sequence homology and AlphaFold prediction; not experimentally verified in W29",
+        "function_experimental_confirmation": "required",
+        "function_compartment_status": "W29 vacuolar versus Golgi/endosomal localization unconfirmed",
+        "function_evidence_limits": "Sequence comparison favors Vph1; predicted fold is similar to both Vph1 and Stv1. One-to-one orthology, native compartment, functional interchangeability and growth essentiality remain unconfirmed.",
+        "function_evidence_sequence": "AOW07942.1; A0A1H6PMT1 sequence version 1; CLIB89(W29); 804 aa; SHA256 bbe56eb89a0ab7edad9e0e65450a1574c7dee90acd6695134b4008b6026a0083",
+        "function_evidence_sources": "https://www.ncbi.nlm.nih.gov/protein/AOW07942.1; https://www.uniprot.org/uniprotkb/A0A1H6PMT1/entry; https://doi.org/10.1073/pnas.1814818116",
+        "function_evidence_review": "artifacts/r794_r795_gpr_review_20260909/continuation_20260910/REPORT.md; artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/REPORT.md"
+      },
+      "evidence": {
+        "comparison_method": "Existing BLASTP 2.17.0+ Swiss-Prot results; existing sequence-matched AlphaFold prediction compared to experimental 6O7T/6O7U with US-align. No new sequence/structure computation for this annotation change.",
+        "Vph1_reference": "YOR270C / VPH1 / P32563; experimentally characterized vacuolar V0 a subunit in Saccharomyces cerevisiae",
+        "Stv1_reference": "YMR054W / STV1 / P37296; experimentally characterized Golgi/endosomal V0 a subunit in Saccharomyces cerevisiae",
+        "Vph1_reported_HSPs": {"identical_residues": 446, "alignment_columns": 832, "query_covered_residues": 790, "query_length": 804},
+        "Stv1_reported_nonoverlapping_HSPs": {"identical_residues": [297, 87], "alignment_columns": [681, 116], "query_covered_residues": 711, "query_length": 804},
+        "Vph1_structure": {"target_normalized_TM_score": 0.84079, "reference_normalized_TM_score": 0.91765, "aligned_residues": 715, "RMSD_angstrom": 2.51},
+        "Stv1_structure": {"target_normalized_TM_score": 0.83102, "reference_normalized_TM_score": 0.93202, "aligned_residues": 710, "RMSD_angstrom": 2.54},
+        "structural_limit": "The similar folds and normalization-dependent ranking do not resolve W29 compartment specificity. AlphaFold results are predictions, not target-organism experimental structures.",
+        "prior_independent_audit": "artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/independent_audit/claims.json; DF/a sequence comparisons and native compartment limitations retain their original evidence scope."
+      }
+    }
+  }
+}

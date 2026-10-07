@@ -1,0 +1,113 @@
+{
+  "recorded_utc": "2026-10-02T17:52:04.986015+00:00",
+  "scientific_status": "partial_literature_candidate_redox_gap",
+  "source_sha256": "9e09e96e92a95b6ba9c079b00d9bee670a69f85dea32ab33dbffccb7fa03ccae",
+  "output_sha256": "a154fc8f7b7f4cda93046deac3679a902aead4a19ce3755b67f837f84db57157",
+  "cobra_version": "0.30.0",
+  "source_missing_charge_fields_preserved": null,
+  "raw_XML_whitelist_pass": true,
+  "balance_residuals": {
+    "R19": {},
+    "R18": {},
+    "R39": {},
+    "R695": {},
+    "R385": {}
+  },
+  "adjacency": {
+    "coq_ddmq9h2[C_mi]": {
+      "R18": -1,
+      "R19": 1
+    },
+    "coq_dmq9h2[C_mi]": {
+      "R18": 1
+    },
+    "m59[C_mi]": {},
+    "m61[C_mi]": {
+      "R695": -1.0
+    }
+  },
+  "duplicates": {},
+  "structural_gap": "DMQ9H2 has only R18 production: steady-state v_R18=0, hence v_R19=0. Oxidized DMQ9 has only R695 consumption: v_R695=0. No biological essentiality inference.",
+  "q_pool_limit": "Only R385 produces net Q9+Q9H2; unchanged lack of dilution or turnover demand.",
+  "guards_rejected_without_mutation": [
+    "gpr",
+    "bounds",
+    "refseq",
+    "collision",
+    "formula",
+    "context",
+    "partial",
+    "notes",
+    "unbalanced",
+    "or_rule"
+  ],
+  "static_ko": {
+    "YALI1A08781g": {
+      "newly_disabled": [
+        "R19"
+      ],
+      "disabled_after": [
+        "R19",
+        "R39"
+      ]
+    },
+    "YALI1B03314g": {
+      "newly_disabled": [
+        "R19"
+      ],
+      "disabled_after": [
+        "R19",
+        "R383",
+        "R39"
+      ]
+    },
+    "YALI1B19490g": {
+      "newly_disabled": [
+        "R19"
+      ],
+      "disabled_after": [
+        "R19",
+        "R383",
+        "R39"
+      ]
+    },
+    "YALI1C25352g": {
+      "newly_disabled": [],
+      "disabled_after": [
+        "R18"
+      ]
+    },
+    "YALI1E18269g": {
+      "newly_disabled": [],
+      "disabled_after": [
+        "R695"
+      ]
+    },
+    "YALI1F34675g": {
+      "newly_disabled": [],
+      "disabled_after": [
+        "R695"
+      ]
+    }
+  },
+  "inherited_evidence": {
+    "artifacts/coq_reaction_first_20261001/reused_identity_structure.json": "33f5ef665c412f74dbbcc5092ddc9f6fa4148b527a1d1dee71a58a6141bc2718",
+    "artifacts/coq_reaction_first_20261001/reference_comparison.json": "2fcb997b28bc9ae28257adbbd09e340674fedb8f5469200599d60faff6a631dc",
+    "artifacts/coq_yeast_reference_20261001/donor_comparison.json": "2cbefe45dce956eefe33465c9b4728e6427955f3b5d7ecbb3322feb3e7cddfe8",
+    "artifacts/coq_yeast_reference_20261001/targetp/verification.json": "3a0e1b226016b04951bfa37bec2c8a86e3382e7531046389fac9d5042f63b76d",
+    "artifacts/coq_gpr_completion_20261001/targetp/verification.json": "b9da4a9c813ceed5343928eb3d69561306f8cdf8511921a48cf11ed6575841ea"
+  },
+  "attempts": {
+    "optimization": 0,
+    "network": 0
+  },
+  "files": {
+    "artifacts/coq_literature_revision_20261002/build_verify.py": "920e21f29dd554557f5574eef57ab8fa7f2a08dbcd49a78d45946a9729f87d1b",
+    "data/reference_build/curation/coq_literature_revision.json": "3e2ecd59d7ec5c2796eb520f0b335a071e4cfbde2027d6016d8ddc7413753f52",
+    "artifacts/coq_literature_revision_20261002/implementation_audit/xml_identity_verify.py": "b273222477634b62abd44d5235a8d04a69404a51d255c054dea0637cc9913734",
+    "scripts/gem_annotate/coq9.py": "7d30f2339527e63f98ea240f6249b2b14a51745572c0dd2b6a12f2fdc2bab953",
+    "scripts/gem_annotate/energy_candidates.py": "b478bc10d878f98836ae2b6bdc2b8a140018c546c1342299d932834db1254949",
+    "scripts/gem_annotate/sbml.py": "d59a88d3feb2961b2d2dda5f12a78775764d73b64f1a20f8f9b9f26bc2288d6f",
+    "scripts/gem_annotate/execution.py": "346a22b64ac35170a4d58d61f29a1b178e80b6376c8e27dd18affdff265ec760"
+  }
+}

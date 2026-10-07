@@ -1,0 +1,752 @@
+{
+  "audit_started_utc": "2026-09-09T22:53:50Z",
+  "checked_utc": "2026-09-09T23:00:06.389215+00:00",
+  "reviewer": "/root/audit_gpr",
+  "scope": "Independent read-only source audit; current published/provenance revision, 14 candidate identities, 7 literature claims, existing AF identities/statistics. No GEM/BLAST/AF run, scientific mutation or Git mutation.",
+  "coverage": {
+    "total": 23,
+    "audited": 23,
+    "supported": 20,
+    "unresolved": 3,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "claim_id": "PROV1",
+      "claim": "图源R794/R795与本地iYli21的GPR和各自边界相同。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "P1",
+        "P2"
+      ],
+      "locator": "XML reaction R_R794/R_R795 versus R794/R795; fbc:geneProductAssociation and bounds",
+      "evidence_type": "direct source audit",
+      "limitations": "只支持静态结构相同，不代表完整模型/历史优化问题等价。"
+    },
+    {
+      "claim_id": "PROV2",
+      "claim": "本仓最早可查2026-03-19提交内iYli21文件与当前P2字节相同。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "P2"
+      ],
+      "locator": "git log --reverse --all and git show 05ae6e16955a180cdb6416143312ad806ada0440:data/iyli21.xml",
+      "evidence_type": "direct source audit",
+      "limitations": "Git对象身份，不证明完整历史环境恢复。"
+    },
+    {
+      "claim_id": "PROV3",
+      "claim": "本地iYali v4.1.2两泵为13AND；按现存ID表，现分支移出原共同c-like候选并新增另一a候选。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "P3",
+        "P5",
+        "P2"
+      ],
+      "locator": "R_y001085/R_y001086; iyli21_genes_vs_S2.csv model_gene/yali0 columns",
+      "evidence_type": "direct source audit",
+      "limitations": "沿革成员集比较依赖给定ID表；不认证旧GPR生物学正确。"
+    },
+    {
+      "claim_id": "PROV4",
+      "claim": "本地Yeast-GEM两泵的OR分支大量共享成员，非本题不相交12/2结构。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "P4"
+      ],
+      "locator": "r_1085/r_1086 geneProductAssociation",
+      "evidence_type": "direct source audit",
+      "limitations": "共享是模型AND依赖，不是本轮证明每个亚基的生物学必要性；不能直接移植物种规则。"
+    },
+    {
+      "claim_id": "PROV5",
+      "claim": "旧模型诊断保存了全关联反应关闭后生长比值约1，并未形成已批准patch/回归结论。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "P6",
+        "P7",
+        "P8",
+        "P9"
+      ],
+      "locator": "EGC-4b3a988fa17f; 11 target FN rows; R794/R795 blocker rows; manifest inputs/git/solver",
+      "evidence_type": "direct source audit",
+      "limitations": "旧39f4与0f3a输入分开；runtime strain未知；只核实保存交付，不是本次GEM复现。"
+    },
+    {
+      "claim_id": "PROV6",
+      "claim": "出版商mmc6与本地iYli21字节相同，原文XML将mmc6列作该论文补充材料6。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "P15",
+        "sources/PMC9136261_fullText.xml"
+      ],
+      "locator": "article-id doi/pii; supplementary-material id=m000511 media href=mmc6.xml",
+      "evidence_type": "direct source audit",
+      "limitations": "原文提供相对文件名；CDN URL的PII对应已核，不因此补齐逐反应修订理由。"
+    },
+    {
+      "claim_id": "PROV7",
+      "claim": "已查到该GPR精确原始修订理由和生物学依据。",
+      "verdict": "unverified",
+      "audit_status": "audited",
+      "sources": [
+        "P3",
+        "P15",
+        "sources/PMC9136261_fullText.xml"
+      ],
+      "locator": "inspected reaction annotations and source report",
+      "evidence_type": "direct source audit",
+      "limitations": "未定位逐反应理由/责任人；文件存在及发表不等于规则已生物学验证。"
+    },
+    {
+      "claim_id": "L01",
+      "claim": "后组两位点的历史精确ORF条目描述V0组件候选，不是二蛋白完整ATPase。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/A0A1H6PMT1_snapshot.json",
+        "sources/A0A1D8NMN8_snapshot.json"
+      ],
+      "locator": "genes.orfNames; proteinDescription; comments[FUNCTION]; Pfam/InterPro",
+      "evidence_type": "direct source audit",
+      "limitations": "自动注释、protein existence 3；不是原生功能实验或独立两蛋白重构。"
+    },
+    {
+      "claim_id": "L02",
+      "claim": "旧位点名称来自同源注释，2011转录组本身没有认证原生泵功能或当前位点映射。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/GRYC_YALI0F31119g.html",
+        "sources/GRYC_YALI0F09405g.html",
+        "sources/PMC3222671.html"
+      ],
+      "locator": "GRYC Overview Description; Table 2 row and footnote; Methods strain/growth/functional classification",
+      "evidence_type": "direct source audit",
+      "limitations": "JMY1346表达实验；28C/pH5.8/氮限制条件，不能当泵重构/KO；后补序列相同证据不改变这篇论文的实验终点。"
+    },
+    {
+      "claim_id": "L03",
+      "claim": "2019 a亚型比较使用保留共同V1和其余V0组件的完整酵母复合体。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/PMC6462096.html"
+      ],
+      "locator": "ATPase Activity Assays; Fig.1 legend; Structure of Stv1-V1VO; Methods",
+      "evidence_type": "direct source audit",
+      "limitations": "S.cerevisiae非Yarrowia；n=6测量来自2个生物重复各3次；未将孤立V0结构当ATPase活性实验。"
+    },
+    {
+      "claim_id": "L04",
+      "claim": "1994 a亚型部分互补发生在保留共同亚基背景，且单/双缺失的条件性生长不同。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/7514599/"
+      ],
+      "locator": "Abstract paragraphs 1-6 (web lines231-236)",
+      "evidence_type": "direct source audit",
+      "limitations": "仅原始摘要；物种为S.cerevisiae；共纯化/部分补救不能证明本题二蛋白独立泵。"
+    },
+    {
+      "claim_id": "L05",
+      "claim": "1997 S.cerevisiae c-double-prime KO损失泵活性/装配，三个proteolipid并非简单冗余。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/pubmed_9030535_25546637_8385405.xml"
+      ],
+      "locator": "PubmedArticle PMID9030535 Abstract",
+      "evidence_type": "direct source audit",
+      "limitations": "仅摘要；亚基功能必需不等于所有条件下生长必需，不能直接认证Yarrowia位点。"
+    },
+    {
+      "claim_id": "L06",
+      "claim": "酵母亚基e可从已装配纯化酶中被去除而保留体外耦联泵H+，说明组件与催化必要性需分情境。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/pubmed_9030535_25546637_8385405.xml"
+      ],
+      "locator": "PubmedArticle PMID25546637 Abstract",
+      "evidence_type": "direct source audit",
+      "limitations": "e不在本题14位点内；仅一般反例，不可用来证明这14个中任一个非必需；不涉及活细胞装配必要性。"
+    },
+    {
+      "claim_id": "L07",
+      "claim": "1993 Yarrowia离体液泡具有ATPase/质子梯度等生理证据，但没有验证本题二基因分支。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/pubmed_9030535_25546637_8385405.xml"
+      ],
+      "locator": "PubmedArticle PMID8385405 Abstract",
+      "evidence_type": "direct source audit",
+      "limitations": "仅摘要；培养生长阶段条件明确，菌株未由摘要确立；没有位点身份/最小组件/基因必要性。"
+    },
+    {
+      "claim_id": "SEQ1",
+      "claim": "14位点的保留快照与各自原缓存对象、精确ORF字段和完整序列SHA一致。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "gene_sequences.json",
+        "sources/*_snapshot.json"
+      ],
+      "locator": "rows; genes.orfNames; sequence.value; two source_cache records",
+      "evidence_type": "direct source audit",
+      "limitations": "13个YALI1来自UP000182444；旧YALI0E16192g来自UP000001300/taxon284591，未建立其W29对应。所有名称/功能为自动注释候选。"
+    },
+    {
+      "claim_id": "SEQ2",
+      "claim": "后组804aa候选为a类、196aa候选为c-like类，前组825aa候选同为a类。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/A0A1H6PMT1_snapshot.json",
+        "sources/A0A1D8NMN8_snapshot.json",
+        "sources/A0A1D8NHU2_snapshot.json"
+      ],
+      "locator": "proteinDescription; PF01496/IPR002490 vs PF00137/IPR000245",
+      "evidence_type": "direct source audit",
+      "limitations": "仅支持亚基家族候选；不能由同a类直接定互换性、区室或精确GPR。"
+    },
+    {
+      "claim_id": "DB1",
+      "claim": "两个当前UniProt条目被标记DELETED，理由是Not part of a reference proteome。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/A0A1H6PMT1_current.json",
+        "sources/A0A1D8NMN8_current.json"
+      ],
+      "locator": "entryType and inactiveReason",
+      "evidence_type": "direct source audit",
+      "limitations": "这是数据库维护状态，不能推出基因/蛋白在生物学上不存在；AF旧referenceProteome标记不能覆盖当前状态。"
+    },
+    {
+      "claim_id": "AF1",
+      "claim": "已存在的两份AF单体模型/API序列与锁定旧快照序列完全一致。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/A0A1H6PMT1_alphafold.json",
+        "sources/A0A1D8NMN8_alphafold.json",
+        "sources/*_AF_v6_model.pdb"
+      ],
+      "locator": "API sequence; all chain A CA residues converted to one-letter sequence",
+      "evidence_type": "direct source audit",
+      "limitations": "AlphaFold预测，模型日期2022-06-01、v6、Monomer v2.0；不是本次预测、实验结构或完整复合体装配证据。"
+    },
+    {
+      "claim_id": "AF2",
+      "claim": "按PDB CA B因子与原PAE矩阵独立重算的统计匹配结构摘要；API总体指标单列。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "structure_summary.json",
+        "sources/*_AF_v6_model.pdb",
+        "sources/*_AF_v6_pae.json"
+      ],
+      "locator": "CA arithmetic mean/min/count<50/count<70; all PAE entries mean/max",
+      "evidence_type": "direct source audit",
+      "limitations": "CA均值82.0883457711/90.2660204082与API82.06/90.25不同；不推定差异原因；此条不包含结构拟合或BLAST。"
+    },
+    {
+      "claim_id": "ID01",
+      "claim": "3条版本明确的NCBI AOW蛋白序列与目标快照完全相同，GenPept源记录CLIB89(W29)及目标locus_tag。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "sources/ncbi_target_proteins.gp",
+        "identity_verification.json"
+      ],
+      "locator": "VERSION AOW07942.1/AOW06904.1/AOW05203.1; FEATURES source/CDS; ORIGIN",
+      "evidence_type": "direct source audit",
+      "limitations": "原文仍标hypothetical protein/conceptual translation；支持来源身份，不提升为实验功能。"
+    },
+    {
+      "claim_id": "ID02",
+      "claim": "两个后组候选与所映射旧位点蛋白序列相同；前组a候选与旧蛋白长度/序列不同。",
+      "verdict": "supported",
+      "audit_status": "audited",
+      "sources": [
+        "cross_version_sequence_comparison.json",
+        "sources/Q6BZT1_old_locus_snapshot.json",
+        "sources/Q6C2A7_old_locus_snapshot.json",
+        "sources/Q6C6F6_old_locus_snapshot.json"
+      ],
+      "locator": "UP000001300 cache sequence.value vs target snapshot sequence.value",
+      "evidence_type": "direct source audit",
+      "limitations": "804/196aa配对相同不等于基因组位点/调控/表型等价；825aa与820aa差异保留，不替换。"
+    },
+    {
+      "claim_id": "SYN1",
+      "claim": "当前二基因分支已有证据证明能独立完成ATP水解和泵H+，足以替代前12成员复合体。",
+      "verdict": "unsupported",
+      "audit_status": "audited",
+      "sources": [
+        "L01",
+        "L03",
+        "L04",
+        "L05",
+        "SEQ2"
+      ],
+      "locator": "audited component annotations and original complete-complex experiments",
+      "evidence_type": "source-grounded inference",
+      "limitations": "限定检索没有此项直接证据，且与所支持V1/V0分工不符；不宣称已实验排除任何未知Yarrowia机制。"
+    },
+    {
+      "claim_id": "SYN2",
+      "claim": "现有资料足以唯一确定可立即实施的完整14位点新GPR。",
+      "verdict": "unverified",
+      "audit_status": "audited",
+      "sources": [
+        "PROV3",
+        "L02",
+        "L03",
+        "SEQ1",
+        "SEQ2"
+      ],
+      "locator": "missing native subunit/compartment/interchangeability and requirement evidence",
+      "evidence_type": "evidence sufficiency audit",
+      "limitations": "可支持提案方向为共同组件AND有依据的同类亚型OR；不能直接14AND、删除两基因或套用另一物种规则。"
+    }
+  ],
+  "source_identities": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/provenance.md": {
+      "sha256": "28dea81005e3bf6dda7aa23378dde8e42e595228cb10e928b3bfcc56ac314994",
+      "size_bytes": 8682
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/provenance_sources.json": {
+      "sha256": "6cbef986533311d683cf1919b2bfc5041579074c6a4d3f17ed56c3a43c2746ad",
+      "size_bytes": 63197
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/gene_sequences.json": {
+      "sha256": "eee16034d17366185b74f29f83189fa2cf3fed24481fb2d7229568e23927d968",
+      "size_bytes": 175979
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/literature.md": {
+      "sha256": "faaeb889690f87e0fec0099343e476d5b5710ba3be60718c44b5e9c4035442b4",
+      "size_bytes": 9213
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/literature_sources.json": {
+      "sha256": "d01d1cce02b81712ac4ca7c289bc631ee6dc8d076af0a701db7eb578aa8aa320",
+      "size_bytes": 17510
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/structure_summary.json": {
+      "sha256": "6f01755ab2299634e2a54af5d2b169fc1ef1443ed04186d4fc08e86cf6b3f466",
+      "size_bytes": 2159
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/identity_verification.json": {
+      "sha256": "71afd936bde11dcc2c4d5e038358aa6f1e067677806cb152bbb8cb4c9836f05d",
+      "size_bytes": 1544
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/cross_version_sequence_comparison.json": {
+      "sha256": "63c214c3dd943ad565eb3e60fb990aed2d2edc7f639a8afb8ea7ea6186bc808f",
+      "size_bytes": 2943
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r608_c7_model_test_20260907/inputs/reference.xml": {
+      "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+      "size_bytes": 14039307
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyli21.xml": {
+      "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631",
+      "size_bytes": 2614400
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/chalmers_iyali/iYali.xml": {
+      "sha256": "c0b54165301bfba7edc7083efee1106309f049494f3a3f35fb436306d4fc86ae",
+      "size_bytes": 3721334
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/Yeast-GEM.xml": {
+      "sha256": "9fd2c572cace73c2ea835205617313554d1bf89f4ef077f49defbdfa219a4ad7",
+      "size_bytes": 11695193
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/yali1_yali0_map/iyli21_genes_vs_S2.csv": {
+      "sha256": "7c68b3cb244f07848b7ad99d7ed0f95768c9812ddd80311e1cdffa06fff4bae9",
+      "size_bytes": 55659
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/isozyme_resolution_ledger.csv": {
+      "sha256": "6b2a38afba6fecdc9bd9e945a676993f2acd8cec9bdb84dd686d31839ccf6628",
+      "size_bytes": 25683
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/current_sha_diagnosis/essentiality_fn_diagnosis.tsv": {
+      "sha256": "0c4045835e5e0ad32354bee1f7b2ecb340e19008ab742fb3f99b90016efdf9d8",
+      "size_bytes": 96375
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/current_sha_diagnosis/inactive_reaction_blockers.tsv": {
+      "sha256": "7a6b9550e90449fec619d3e7b94e5a522533ce3384b640eaf04da3295eb99749",
+      "size_bytes": 160856
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/current_sha_diagnosis/run_manifest.json": {
+      "sha256": "7e96cded288cdfd01fc2725f6b219957ce4338dbcec48ccd32ef78694db1c08f",
+      "size_bytes": 1687
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/results/essentiality/campaign189_0f3a6c2b_20260806_review/current_sha_diagnosis/essentiality_isozyme_resolution.tsv": {
+      "sha256": "721d82a0f95af5b57d53d8bbfddf6ccd29eb8896aace7b98a916221034fd4697",
+      "size_bytes": 16571
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/gpr_isozyme_additions.csv": {
+      "sha256": "162c32c77c82d278513c078cfcb5ce04e2e7c69ba8df9eda74effc557e1ea16f",
+      "size_bytes": 1242
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/curation/gpr_isozyme_additions.csv": {
+      "sha256": "162c32c77c82d278513c078cfcb5ce04e2e7c69ba8df9eda74effc557e1ea16f",
+      "size_bytes": 1242
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/reference_build/essentiality/curated_model_patches.csv": {
+      "sha256": "c5443fb62da3dc2afb39b784018ef647fdfd70ab8d8a5d573971aee819ed9153",
+      "size_bytes": 799
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/scripts/update_model.py": {
+      "sha256": "de64147076c234da6fced1a149d7f78b962950a9ceda9987954e2db229546a7b",
+      "size_bytes": 64603
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/published_mmc6.xml": {
+      "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631",
+      "size_bytes": 2614400
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json": {
+      "sha256": "e5b0a04874079b4057ffe25dadcb6b812cba8c96b227f41187187b27715753a3",
+      "size_bytes": 65352405
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000001300.json": {
+      "sha256": "89f2dc9c77ff1aa5f1b4c245567285e5e98bebc0916ab94ed25b43e6210a3a4b",
+      "size_bytes": 63627531
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/ncbi_target_proteins.gp": {
+      "sha256": "e105e1b3ab2be40f1aff21760f7eb363388e6d902152956358c605d85c2a9a47",
+      "size_bytes": 10973
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NK63_snapshot.json": {
+      "sha256": "c771644027faa8387b52f6da2f94159d98c7d62f4f5ce0f4a56e4046e1df4ede",
+      "size_bytes": 22298
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6C2A7_old_locus_snapshot.json": {
+      "sha256": "e6b8da5b378eacd7041d5d4fcb8396fce99b70a7f98e1f4e31cb8985adb574f1",
+      "size_bytes": 21070
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NHU2_snapshot.json": {
+      "sha256": "cdd58466d8b00d40451daa75b5b0923e7e4e846925177c0de5e21bc89903dd28",
+      "size_bytes": 18460
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NI06_snapshot.json": {
+      "sha256": "ee8c41474607506d7cd9bcc9d0b7f3e8f383ae023fce52cb8be23feefea10e63",
+      "size_bytes": 14430
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity1.json": {
+      "sha256": "56f367cad1bf2eb113bc516a41ba5365601e26184d7c0c5565ed18c0fc5f3b84",
+      "size_bytes": 25243
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_AF_v6_pae.json": {
+      "sha256": "870dc5d2fb97e3fa92ee4eabbf6d23e646af96b0b433d4415aa22b43cc10fa3d",
+      "size_bytes": 1697550
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC6462096.html": {
+      "sha256": "bc670498ba7be831a46b5b7db3ed6e307f1c7dbec09aff6f55ba9d6eacd55f3d",
+      "size_bytes": 206665
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NCM2_snapshot.json": {
+      "sha256": "f62a78131e6bd479c33c3af829825a8881dcca1b256bc2a65ae8284060fa1bdb",
+      "size_bytes": 15883
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC3222671.html": {
+      "sha256": "589b9671863aec4c55b24c3526e9d7cbc03f6f475d52f78fe7e7d6e49224f031",
+      "size_bytes": 271999
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/PMC9136261_fullText.xml": {
+      "sha256": "613e8fca1e3335d3c66a43ac97bbb641219af104e93edd8a1a4d67c269e3f207",
+      "size_bytes": 110419
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PZG0_snapshot.json": {
+      "sha256": "bd02c0be421ce4d9efeee6f75faef7b36320aee80cff34f88392c36396271bf9",
+      "size_bytes": 15678
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity6.json": {
+      "sha256": "fdfc7c0d5192c1493cdc800c2f8fa02193c6d1fdcde7c6df9e1cd14e0f1f63af",
+      "size_bytes": 20793
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_AF_v6_model.pdb": {
+      "sha256": "f89d6f7393b458c40ffcf8a6e997dd1cef38dd72fa573011cd9931af8d9c2f39",
+      "size_bytes": 120608
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_AF_v6_model.pdb": {
+      "sha256": "460c11ab152cab9f7c115764dce62dd5c9e2afc94074a5b8264f8cd77b632e9c",
+      "size_bytes": 529901
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_AF_v6_pae.json": {
+      "sha256": "1b4f05d8a88edb25746f7704f4d7d8eee268962f7a9ea6dbdb99b217866a2a1f",
+      "size_bytes": 86197
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/GRYC_YALI0F09405g.html": {
+      "sha256": "effa4c8c79528132f5f31f8a49aaa445fb7f077c46662ba988a74fcedb29875c",
+      "size_bytes": 32461
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entry.json": {
+      "sha256": "bad5ac50e82640b08c5fc0fb7e17392fdebf0a977f272d726ee00d1e14d82636",
+      "size_bytes": 11893
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity7.json": {
+      "sha256": "8f5d5ac24628f7ed156616a83e5c4591c77ea50d66b96bae5a265bc630d13890",
+      "size_bytes": 23563
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_snapshot.json": {
+      "sha256": "381cfd3d5b6f4d03bf6df65467c3fb42a5b6653b8d3315d58abd05bf809f6d9f",
+      "size_bytes": 18677
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pubmed_9030535_25546637_8385405.xml": {
+      "sha256": "ac37914432b828606e76b0c351271db94f38ee94d65b24fd169303762dcef5ac",
+      "size_bytes": 21323
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NPS9_snapshot.json": {
+      "sha256": "d1986eb9c86a282a39aec148ae9aa9cc72773080748daff12c83bb5d0113158e",
+      "size_bytes": 22593
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_alphafold.json": {
+      "sha256": "7160a1520ed52b16f3d951d5ee3144ac9cda1a8c6944a97381f5ad43ac99fbaa",
+      "size_bytes": 3135
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6Q1E3_snapshot.json": {
+      "sha256": "fabcdb06af45d7e3b993ebc4a1493fa4adfc2ff3ec97464e266f83d647ac2c8a",
+      "size_bytes": 13032
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity4.json": {
+      "sha256": "7457f94ed20fa062e5da5a4ee7c7c6f3c44b2cc061f2ade2a0500e7e594d65d5",
+      "size_bytes": 39061
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6C6F6_old_locus_snapshot.json": {
+      "sha256": "31b974229086a97fd59910ed126b95f310665d5edef6e1127278c7c707e8d047",
+      "size_bytes": 18408
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity8.json": {
+      "sha256": "2c6e890487ee38db03460687ebe9fa65122f34f5f16d0e219286fc31821554cf",
+      "size_bytes": 27958
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity9.json": {
+      "sha256": "1914d79e3ab543e25fd68ecf878c00d6415332a8ce2981c94cda62ff47ceeff6",
+      "size_bytes": 39166
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/GRYC_YALI0F31119g.html": {
+      "sha256": "87570648d45f6d64c4e19c47f50496442c14bed86a6c6a2d46b1be72d85713d1",
+      "size_bytes": 38883
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pmc_oa_record.xml": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity5.json": {
+      "sha256": "7f824c39cb6a67365d4e5914169ec051de242f0a916b7bd263c1368cf1024584",
+      "size_bytes": 28184
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PTA8_snapshot.json": {
+      "sha256": "e88268e2ca069e490184fd5f9529b87b721510388220c264b1065e16a6953b4c",
+      "size_bytes": 13149
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6C5Q2_snapshot.json": {
+      "sha256": "364cce381ba2bae6595b330d6b72b2ea607bf4f24988673a9929de62af10928c",
+      "size_bytes": 16358
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity10.json": {
+      "sha256": "878ce4cfc59a0cab49e3e71f187d544b93c7d8f4c768fe391bfe8ffb5c551ddc",
+      "size_bytes": 27133
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8N4B6_snapshot.json": {
+      "sha256": "1ce9f96cf021522b2fb3c88e8203653070786a60f5e1df27f79abf13f01c4e2f",
+      "size_bytes": 23420
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_current.json": {
+      "sha256": "4bf338b1dcfbd897e35108fad437ae08868802758e9b3b3f4357cf611256ba76",
+      "size_bytes": 260
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NKR8_snapshot.json": {
+      "sha256": "f7cd7de5a7b0d8d0ec2cd638e7a4639667cec54e8f4fa68e93d169d72e5ffb70",
+      "size_bytes": 18220
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity2.json": {
+      "sha256": "47bc505b5130a38db8bff918dcc27d4faa777fd411923928eab87c7a6f8d1b70",
+      "size_bytes": 21665
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NNL2_snapshot.json": {
+      "sha256": "7be1ee4799540829ac11b79b4bd743cb364076813d31fc58234ab69aed9e5679",
+      "size_bytes": 12511
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1D8NMN8_alphafold.json": {
+      "sha256": "ace3255febf18e77153baa6d9d2075c4550b62a0f262f385e8d5947a441a6b92",
+      "size_bytes": 1944
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity3.json": {
+      "sha256": "def23fbdc848511983cfdcf742bc038df8d6a2bcabeb36d08a38243a7e6e7fc1",
+      "size_bytes": 44231
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_current.json": {
+      "sha256": "6b0f417fec5fd6564203d01062b11f9e64e6e08e13b4816be32e2798545a586f",
+      "size_bytes": 260
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/pdb3j9t_entity11.json": {
+      "sha256": "cd9973b80a3fa16a83968f87d1694dd4202e4040bbfc042a713e7ceeea04430a",
+      "size_bytes": 27228
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/A0A1H6PMT1_snapshot.json": {
+      "sha256": "5e5571a899d358575efc986c7f42ad35e22550d741d06d23fea88391a98b9fe5",
+      "size_bytes": 20043
+    },
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/sources/Q6BZT1_old_locus_snapshot.json": {
+      "sha256": "e3236174a7aa65f118ffef8f3823286971a3e359fe17c8709e91c7c55e043261",
+      "size_bytes": 19662
+    }
+  },
+  "per_gene_identity_checks": [
+    {
+      "gene_id": "YALI1A11258g",
+      "accession": "A0A1H6Q1E3",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "a16d2810b79d270eadade0c748f3fc8652d3558378fcc25f91052401144c043b",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1E14125g",
+      "accession": "A0A1D8NI06",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "9ccdca5e29a88dcd20b242dbc9561d71db590cf44400f0c48daa2a9c68a14307",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1D00581g",
+      "accession": "A0A1D8NCM2",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "793b868d431f0b036e2309f2f378784b5ae64efa99971ea51217700ae6d5bfb5",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1E10492g",
+      "accession": "A0A1H6PTA8",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "34093dea0e632116148785c92707cd540b2ba73ded0448889e121401f73f1a4a",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1A09766g",
+      "accession": "A0A1D8N4B6",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "66d86ce2d0bf97ec0dd436998682b85ee2a339e80d2112cbece657316cdb9dc8",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1F20965g",
+      "accession": "A0A1D8NNL2",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "5e0227dea97826716d381e700081d5282e49b86c2351411347fdd0610a56f1ce",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI0E16192g",
+      "accession": "Q6C5Q2",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "77656c06617ff3afd81db0fd47b5bac184ecfa565236de96f1e5b02069ec3518",
+      "taxon_id": 284591,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000001300.json"
+    },
+    {
+      "gene_id": "YALI1F31854g",
+      "accession": "A0A1D8NPS9",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "d19d543fa50e052978b0fc8e5d652d52a68deea85c52bb4047a05f92d2a236a6",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1F21690g",
+      "accession": "A0A1H6PZG0",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "3f6dfe57bf1ac5dd6af4d23e3c9b405d1568472eeaa7834ecde41261cc8d87f1",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1E37063g",
+      "accession": "A0A1D8NKR8",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "3e0c777347d7b3b615a78503c069d12328bc6e4293aef728d6aab42bc657b5e8",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1E32332g",
+      "accession": "A0A1D8NK63",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "108889196f8632097f3da962535f2ee2a333ef3b60f1cedf72919a43876e67c8",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1E12482g",
+      "accession": "A0A1D8NHU2",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "c464853ed35c33c57f436a7d4d6a95a33c6953890f10ee892d97b14239301954",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1F38820g",
+      "accession": "A0A1H6PMT1",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "bbe56eb89a0ab7edad9e0e65450a1574c7dee90acd6695134b4008b6026a0083",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    },
+    {
+      "gene_id": "YALI1F13017g",
+      "accession": "A0A1D8NMN8",
+      "snapshot_matches_cache": true,
+      "orf_exact": true,
+      "sequence_sha256": "00f894c0314271b5f90338c3bfdc86698b718bd0ba9acc590b015494b98af34d",
+      "taxon_id": 4952,
+      "source_cache": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/cache/data/uniprot_UP000182444.json"
+    }
+  ],
+  "corrections_verified": [
+    "Q6C5Q2 provenance split to UP000001300; no guessed W29/YALI1 mapping",
+    "PDB CA mean separated from API globalMetricValue",
+    "PROV6 updated from unavailable attachment to verified published byte identity; PROV7 rationale remains unresolved"
+  ],
+  "not_audited_in_this_snapshot": [
+    "pending BLAST result and any later structure fitting outputs",
+    "native target biochemical assays",
+    "unique final GPR/essentiality effects"
+  ],
+  "failed_auditor_fetches": {
+    "method": "5 curl URL requests in sandbox",
+    "exit_code": 6,
+    "meaning": "DNS failure; empty files under independent_audit/sources are failed artifacts, not cited evidence",
+    "recovery": "Opened preserved raw public-source snapshots and official web primary pages; no network escalation/bypass"
+  },
+  "scientific_solver_calls": 0,
+  "model_mutations": 0
+}

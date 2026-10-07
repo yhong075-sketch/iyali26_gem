@@ -1,0 +1,15 @@
+Working directory: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem
+
+Actual bounded execution:
+.venv/bin/python -m scripts.glypro_compartment_candidates --source artifacts/dipeptide_chemistry_routes_20260924/E5_vacuole_open_chemistry.xml --source-sha256 a0307b9b00c1ed6e981d605f65ba15a0e313fe95e0e664dc05cfb95ef4291848 --output-dir artifacts/glypro_compartment_hypotheses_20260928/candidates
+.venv/bin/python -m scripts.validate_glypro_compartments --source artifacts/dipeptide_chemistry_routes_20260924/E5_vacuole_open_chemistry.xml --candidates artifacts/glypro_compartment_hypotheses_20260928/candidates --config artifacts/glypro_compartment_hypotheses_20260928/config.json --output artifacts/glypro_compartment_hypotheses_20260928/run --budget artifacts/glypro_compartment_hypotheses_20260928/budget.json
+
+Rebuild and rerun into a NEW parent directory (not yet executed):
+.venv/bin/python -m scripts.glypro_compartment_candidates --source artifacts/dipeptide_chemistry_routes_20260924/E5_vacuole_open_chemistry.xml --source-sha256 a0307b9b00c1ed6e981d605f65ba15a0e313fe95e0e664dc05cfb95ef4291848 --output-dir artifacts/glypro_compartment_recheck_new/candidates
+.venv/bin/python -m scripts.validate_glypro_compartments --source artifacts/dipeptide_chemistry_routes_20260924/E5_vacuole_open_chemistry.xml --candidates artifacts/glypro_compartment_recheck_new/candidates --config artifacts/glypro_compartment_hypotheses_20260928/config.json --output artifacts/glypro_compartment_recheck_new/run --budget artifacts/glypro_compartment_recheck_new/budget.json
+
+Existing artifact directories are never overwritten. The original config pins the chemistry input, media and strain identities; mismatches fail explicitly. Each rerun has its own ledger, limited to 180 solves and 1800 solver-call seconds.
+
+Reproduce offline audits into fresh destinations (no optimization):
+.venv/bin/python -m scripts.audit_glypro_routes --source artifacts/dipeptide_chemistry_routes_20260924/E5_vacuole_open_chemistry.xml --source-sha256 a0307b9b00c1ed6e981d605f65ba15a0e313fe95e0e664dc05cfb95ef4291848 --output artifacts/glypro_compartment_static_audit_new
+.venv/bin/python -m scripts.audit_glypro_computation --run artifacts/glypro_compartment_hypotheses_20260928/run --output artifacts/glypro_compartment_hypotheses_20260928/numerical_audit_new

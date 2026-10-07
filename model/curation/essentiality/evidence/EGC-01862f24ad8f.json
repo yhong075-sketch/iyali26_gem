@@ -1,0 +1,313 @@
+{
+  "adversarial_review": {
+    "findings": [],
+    "status": "not_run",
+    "verdict": ""
+  },
+  "case_id": "EGC-01862f24ad8f",
+  "chemistry_fingerprint": "sha256:ed6cf027bf2c4a4d882cd0cc9f5af3d01914c44d8a92ad6f40527e898179cf46",
+  "claim_under_review": "A modelled metabolic bypass may explain survival even though the experimental gene is essential.",
+  "confidence": "none",
+  "contradictions": [],
+  "experimental_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+  "human_decision": {
+    "approved_at": "",
+    "approved_by": "",
+    "decision": "pending"
+  },
+  "identity_crosschecks": [],
+  "media_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+  "model_context": {
+    "diagnostics": [
+      {
+        "all_linked_reactions_closed_growth": 1.4530307616,
+        "all_linked_reactions_closed_growth_ratio": 0.999277734725,
+        "category": "metabolic_bypass",
+        "gene_id": "YALI1E08382g",
+        "gpr": "YALI1E08382g | YALI1E08382g",
+        "isozyme_interpretation": "not_applicable",
+        "ko_capacity": 0.0,
+        "ko_growth": 1.4530307616,
+        "ko_growth_ratio": 0.999277734725,
+        "model_causal_isozyme": false,
+        "n_reactions": 2,
+        "n_verified_single_bypasses": 0,
+        "reaction_ids": "R581;R582",
+        "reaction_names": "nicotinate-nucleotide diphosphorylase (carboxylating);nicotinate-nucleotide diphosphorylase (carboxylating)",
+        "verified_single_bypasses": "",
+        "wt_capacity": 0.0189179095393
+      }
+    ],
+    "genes": [
+      {
+        "annotations": {
+          "ec-code": "2.4.2.19",
+          "kegg.genes": "yli:2912425",
+          "ncbigene": "2912425",
+          "refseq": "XP_503651.1",
+          "sbo": "SBO:0000243",
+          "uniprot": "Q6C6R1"
+        },
+        "gene_id": "YALI1E08382g",
+        "gpr_partners": [],
+        "name": "COBRAProtein539",
+        "reaction_ids": [
+          "R581",
+          "R582"
+        ]
+      }
+    ],
+    "medium": {
+      "leucine_exchange": "R1219",
+      "leucine_uptake_open": false,
+      "num_open_uptakes": 35,
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv",
+      "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85"
+    },
+    "model_id": "M_iYali26",
+    "primary_cutoff_fraction_of_wt": 0.1,
+    "reactions": [
+      {
+        "annotations": {
+          "bigg.reaction": [
+            "NNDPR",
+            "NNDPRm",
+            "R_NNDPR",
+            "R_NNDPRm"
+          ],
+          "biggr": [
+            "NNDPR",
+            "NNDPRm",
+            "R_NNDPR",
+            "R_NNDPRm"
+          ],
+          "ec-code": "2.4.2.19",
+          "kegg.reaction": "R03348",
+          "keggr": "R03348",
+          "metacyc.reaction": "QUINOPRIBOTRANS-RXN",
+          "metacycr": "QUINOPRIBOTRANS-RXN",
+          "metanetx.reaction": "MNXR188515",
+          "rh": [
+            "12733",
+            "12734",
+            "12735",
+            "12736"
+          ],
+          "rhea": [
+            "12733",
+            "12734",
+            "12735",
+            "12736"
+          ],
+          "sabiork.reaction": "3155",
+          "sabiorkr": "3155",
+          "sbo": "SBO:0000176",
+          "seed.reaction": [
+            "rxn02402",
+            "rxn20663",
+            "rxn30194"
+          ],
+          "seedr": [
+            "rxn02402",
+            "rxn20663",
+            "rxn30194"
+          ],
+          "vmhr": [
+            "NNDPR",
+            "R_NNDPR"
+          ],
+          "vmhreaction": [
+            "NNDPR",
+            "R_NNDPR"
+          ]
+        },
+        "compartments": [
+          "C_cy"
+        ],
+        "ec_codes": "2.4.2.19",
+        "equation": "2.0 m10[C_cy] + m253[C_cy] + m833[C_cy] --> m203[C_cy] + m825[C_cy] + m82[C_cy]",
+        "gpr": "YALI1E08382g",
+        "gpr_gene_ids": [
+          "YALI1E08382g"
+        ],
+        "lower_bound": 0.0,
+        "mass_balance": {
+          "H": 3.0,
+          "charge": 2.0
+        },
+        "mass_balance_error": "",
+        "metabolite_chemistry": {
+          "m10[C_cy]": {
+            "charge": 1,
+            "compartment": "C_cy",
+            "formula": "H"
+          },
+          "m203[C_cy]": {
+            "charge": -3,
+            "compartment": "C_cy",
+            "formula": "H4O7P2"
+          },
+          "m253[C_cy]": {
+            "charge": -5,
+            "compartment": "C_cy",
+            "formula": "C5H8O14P3"
+          },
+          "m825[C_cy]": {
+            "charge": 0,
+            "compartment": "C_cy",
+            "formula": "C11H14NO9P"
+          },
+          "m82[C_cy]": {
+            "charge": 0,
+            "compartment": "C_cy",
+            "formula": "CO2"
+          },
+          "m833[C_cy]": {
+            "charge": -2,
+            "compartment": "C_cy",
+            "formula": "C7H5NO4"
+          }
+        },
+        "name": "nicotinate-nucleotide diphosphorylase (carboxylating)",
+        "reaction_id": "R581",
+        "stoichiometry": {
+          "m10[C_cy]": -2.0,
+          "m203[C_cy]": 1.0,
+          "m253[C_cy]": -1.0,
+          "m825[C_cy]": 1.0,
+          "m82[C_cy]": 1.0,
+          "m833[C_cy]": -1.0
+        },
+        "subsystem": "Nicotinate and nicotinamide metabolism",
+        "upper_bound": 1000.0
+      },
+      {
+        "annotations": {
+          "bigg.reaction": [
+            "NNDPR",
+            "NNDPRm",
+            "R_NNDPR",
+            "R_NNDPRm"
+          ],
+          "biggr": [
+            "NNDPR",
+            "NNDPRm",
+            "R_NNDPR",
+            "R_NNDPRm"
+          ],
+          "ec-code": "2.4.2.19",
+          "kegg.reaction": "R03348",
+          "keggr": "R03348",
+          "metacyc.reaction": "QUINOPRIBOTRANS-RXN",
+          "metacycr": "QUINOPRIBOTRANS-RXN",
+          "metanetx.reaction": "MNXR188515",
+          "rh": [
+            "12733",
+            "12734",
+            "12735",
+            "12736"
+          ],
+          "rhea": [
+            "12733",
+            "12734",
+            "12735",
+            "12736"
+          ],
+          "sabiork.reaction": "3155",
+          "sabiorkr": "3155",
+          "sbo": "SBO:0000176",
+          "seed.reaction": [
+            "rxn02402",
+            "rxn20663",
+            "rxn30194"
+          ],
+          "seedr": [
+            "rxn02402",
+            "rxn20663",
+            "rxn30194"
+          ],
+          "vmhr": [
+            "NNDPR",
+            "R_NNDPR"
+          ],
+          "vmhreaction": [
+            "NNDPR",
+            "R_NNDPR"
+          ]
+        },
+        "compartments": [
+          "C_mi"
+        ],
+        "ec_codes": "2.4.2.19",
+        "equation": "2.0 m28[C_mi] + m827[C_mi] + m834[C_mi] --> m204[C_mi] + m44[C_mi] + m828[C_mi]",
+        "gpr": "YALI1E08382g",
+        "gpr_gene_ids": [
+          "YALI1E08382g"
+        ],
+        "lower_bound": 0.0,
+        "mass_balance": {
+          "H": 1.0
+        },
+        "mass_balance_error": "",
+        "metabolite_chemistry": {
+          "m204[C_mi]": {
+            "charge": -3,
+            "compartment": "C_mi",
+            "formula": "H4O7P2"
+          },
+          "m28[C_mi]": {
+            "charge": 1,
+            "compartment": "C_mi",
+            "formula": "H"
+          },
+          "m44[C_mi]": {
+            "charge": 0,
+            "compartment": "C_mi",
+            "formula": "CO2"
+          },
+          "m827[C_mi]": {
+            "charge": -5,
+            "compartment": "C_mi",
+            "formula": "C5H8O14P3"
+          },
+          "m828[C_mi]": {
+            "charge": -2,
+            "compartment": "C_mi",
+            "formula": "C11H12NO9P"
+          },
+          "m834[C_mi]": {
+            "charge": -2,
+            "compartment": "C_mi",
+            "formula": "C7H5NO4"
+          }
+        },
+        "name": "nicotinate-nucleotide diphosphorylase (carboxylating)",
+        "reaction_id": "R582",
+        "stoichiometry": {
+          "m204[C_mi]": 1.0,
+          "m28[C_mi]": -2.0,
+          "m44[C_mi]": 1.0,
+          "m827[C_mi]": -1.0,
+          "m828[C_mi]": 1.0,
+          "m834[C_mi]": -1.0
+        },
+        "subsystem": "Nicotinate and nicotinamide metabolism",
+        "upper_bound": 1000.0
+      }
+    ],
+    "verified_bypasses": [],
+    "wt_growth": 1.4540809938125028
+  },
+  "model_sha256": "b3f60933aa9503ab63ab5d8bca58a9525b8c81534d3eac72cf66d2769ff44f48",
+  "primary_sources": [],
+  "proposed_operation": {},
+  "reused_literature_provenance": {
+    "previous_experimental_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+    "previous_media_sha256": "9ff1dafc2841b79cae20ad5ca6065d5328ad06b9cf36799092348814c9216c52",
+    "previous_model_sha256": "b3f60933aa9503ab63ab5d8bca58a9525b8c81534d3eac72cf66d2769ff44f48",
+    "refreshed_at": "2026-08-06T07:21:19+00:00"
+  },
+  "schema_version": "2.0",
+  "target_fingerprint": "sha256:01dd7afa988351449d29b01b47b1146827b1bce78ee957015e5ed8569f4e25c0",
+  "verdict": "needs_more_evidence"
+}

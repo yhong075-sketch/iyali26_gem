@@ -1,0 +1,1359 @@
+{
+  "checked_utc": "2026-09-18T18:35:14.637222+00:00",
+  "scope": "9 fixed candidates vs 9 yeast COQ family references plus ERG20/BTS1 alternative prenyltransferase controls. Not a whole-proteome or exhaustive paralog search; E-values are for this small panel.",
+  "program_version": "blastp: 2.17.0+\n Package: blast 2.17.0, build Jul  1 2025 08:59:26",
+  "command": [
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp",
+    "-task",
+    "blastp",
+    "-query",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/native_sequences.fasta",
+    "-subject",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/reference_panel.fasta",
+    "-evalue",
+    "1e-5",
+    "-matrix",
+    "BLOSUM62",
+    "-seg",
+    "yes",
+    "-soft_masking",
+    "false",
+    "-comp_based_stats",
+    "2",
+    "-gapopen",
+    "11",
+    "-gapextend",
+    "1",
+    "-word_size",
+    "3",
+    "-num_threads",
+    "1",
+    "-outfmt",
+    "6 qseqid sseqid pident nident length qstart qend sstart send evalue bitscore qlen slen qseq sseq",
+    "-out",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/coq_system_gpr_review_20260918/native_vs_reviewed.blast.tsv"
+  ],
+  "tool_sha256": "753f0695a39ba19b2d351b0bb851b6051169b8b9e22c095fd634cc2a93cddf55",
+  "query_sha256": "1cf36461c5216a25a695e6601465d970c95244565d1dac67b023479a85172d57",
+  "panel_sha256": "5fb1aa03f6fcdfea7b78f661001efb31f3d9f2cdc00db2f296b05ecc571745d5",
+  "reference_versions": {
+    "P27697": {
+      "firstPublicDate": "1992-08-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1992-08-01",
+      "entryVersion": 188,
+      "sequenceVersion": 1
+    },
+    "Q12051": {
+      "firstPublicDate": "2006-03-21",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-11-01",
+      "entryVersion": 185,
+      "sequenceVersion": 1
+    },
+    "P08524": {
+      "firstPublicDate": "1988-08-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1991-11-01",
+      "entryVersion": 206,
+      "sequenceVersion": 2
+    },
+    "O13525": {
+      "firstPublicDate": "1998-07-15",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2002-10-19",
+      "entryVersion": 162,
+      "sequenceVersion": 2
+    },
+    "P27680": {
+      "firstPublicDate": "1992-08-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2006-04-04",
+      "entryVersion": 187,
+      "sequenceVersion": 2
+    },
+    "P53318": {
+      "firstPublicDate": "1996-10-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-10-01",
+      "entryVersion": 207,
+      "sequenceVersion": 1
+    },
+    "P49017": {
+      "firstPublicDate": "1996-02-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-02-01",
+      "entryVersion": 193,
+      "sequenceVersion": 1
+    },
+    "P41735": {
+      "firstPublicDate": "1995-11-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "2005-11-22",
+      "entryVersion": 197,
+      "sequenceVersion": 2
+    },
+    "P18900": {
+      "firstPublicDate": "1990-11-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1990-11-01",
+      "entryVersion": 209,
+      "sequenceVersion": 1
+    },
+    "Q05779": {
+      "firstPublicDate": "2006-03-21",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1996-11-01",
+      "entryVersion": 165,
+      "sequenceVersion": 1
+    },
+    "P32378": {
+      "firstPublicDate": "1993-10-01",
+      "lastAnnotationUpdateDate": "2026-09-02",
+      "lastSequenceUpdateDate": "1993-10-01",
+      "entryVersion": 194,
+      "sequenceVersion": 1
+    }
+  },
+  "all_hits": [
+    {
+      "qseqid": "YALI1C26017g",
+      "sseqid": "P18900",
+      "pident": 54.066,
+      "nident": 246,
+      "length": 455,
+      "qstart": 49,
+      "qend": 452,
+      "sstart": 25,
+      "send": 473,
+      "evalue": 1.39e-156,
+      "bitscore": 442.0,
+      "qlen": 452,
+      "slen": 473,
+      "qseq": "WSGAVKQASRLVETDTPIRDPFSIVSQEMSTLANNIGSLIGSGHPTLNKVATYYFQSEGKHVRPLIVLLLSRALSAIPESERDRGTFDASDVTENVGELNPEPSIND-------PLSPIEILHGINPDIVLNPLSRPSDPLPYES----NGILPKQRRLAEIVEMIHTASLLHDDVIDNSATRRGSPTGNVAFGNKMAILAGDFLLGRASVAIARLRNAEVIELLSTTIANLVEGEFMQLKNTIVD---------------------------------------NSEIANKATFEYYIHKTYLKTASLMSKSCRAAAVLSGARNPIVDASYKFGKNLGLCFQVVDDMLDYSEGESHLGKPAGADLKLGLATAPVLFAWEKYPELGDMIKRKFDGPGDVERARFLVQQADGLSRTRELAQKYCDEAVANL-DLLPYSESREALRNLTMKMMNRSK",
+      "sseq": "FAVALNAASKLVTPKILWNNPISLVSKEMNTLAKNIVALIGSGHPVLNKVTSYYFETEGKKVRPLLVLLLSRALSEIPMTERNHLKIDKSDVPED--PIYSKPSQNQLFQRPASSISPLHILHGIKP---LNPLTKGPEPLPEETFDKQRGILPKQRRLAEIVEMIHTASLLHDDVIDHSDTRRGRPSGNAAFTNKMAVLAGDFLLGRATVSISRLHNPEVVELMSNSIANLVEGEFMQLKNTSIDADIDTIENGHKLLPVPSKKLEVKEHDFRVPSRQQGLQLSHDQIIETA-FEYYIHKTYLKTAALISKSCRCAAILSGASPAVIDECYDFGRNLGICFQLVDDMLDFTVSGKDLGKPSGADLKLGIATAPVLFAWKEDPSLGPLISRNFSERGDVEKTIDSVRLHNGIAKTKILAEEYRDKALQNLRDSLPESDARSALEFLTNSILTRRK",
+      "query_coverage": 0.8938053097345132,
+      "reference_coverage": 0.9492600422832981,
+      "reference_gene": "COQ1"
+    },
+    {
+      "qseqid": "YALI1C26017g",
+      "sseqid": "Q12051",
+      "pident": 26.531,
+      "nident": 52,
+      "length": 196,
+      "qstart": 190,
+      "qend": 376,
+      "sstart": 52,
+      "send": 241,
+      "evalue": 5.95e-13,
+      "bitscore": 58.9,
+      "qlen": 452,
+      "slen": 335,
+      "qseq": "LPKQRR--LAEIVEMIHTASLLHDDVIDNSATRRGSPTGNVAFGNKMAILAGDFLLGRASVAIARLRNAE-----VIELLSTTIANLVEGEFMQL--KNTIVDNSEIANKATFEYYIHKTYLKTASLMSKSCRAAAVLSGARNPIVDASYKFGKNLGLCFQVVDDMLDYSEGESHLGKPAGADLKLGLATAPVLFA",
+      "sseq": "LPKDQLAIVSQIVELLHNSSLLIDDIEDNAPLRRGQTTSHLIFGVPSTINTANYMYFRAMQLVSQLTTKEPLYHNLITIFNEELINLHRGQGLDIYWRDFL---PEII--PTQEMYLNMVMNKTGGLFRLTLRLMEALSPSSHH-GHSLVPFINLLGIIYQIRDDYLNLKDFQMSSEKGFAEDITEGKLSFPIVHA",
+      "query_coverage": 0.413716814159292,
+      "reference_coverage": 0.5671641791044776,
+      "reference_gene": "BTS1"
+    },
+    {
+      "qseqid": "YALI1F08349g",
+      "sseqid": "P32378",
+      "pident": 55.385,
+      "nident": 180,
+      "length": 325,
+      "qstart": 74,
+      "qend": 396,
+      "sstart": 50,
+      "send": 371,
+      "evalue": 1.64e-125,
+      "bitscore": 357.0,
+      "qlen": 397,
+      "slen": 372,
+      "qseq": "ATIDLKTQFQAAREAELAAMTLPERFVYSLPKSMIPYARLMRMEKPVGTWLLFNPGVWSIGMAAYMSHAAVAPTLYTLSLFGIGAFIMRSAGCTINDILDRKLDAQVARTFDRPIAAGDVSVKQAVAFLGAQCAAGLGILMLLPMNCWWLGALSMPFVMTYPLFKRFTYYPQAILSLCFTWAALLGPPAMGVWCWPVMLSLWGSNFLWCMVYDTIYAHQDKVFDVEAGIKSTALAWGDNSKSIMTVLTLGQLGLLFGAGVYADM--GPGFYSAFTWVSYRLGKMIKTVDLDDPVDCGKHFRSNINTGHIMSAGILADWGMRLAGF",
+      "sseq": "APVFTSKELEVARKERLDGL---GPFVSRLPKKWIPYAELMRLEKPVGTWLLYLPCSWSILMGAMMQGATLSATAGMLGIFGVGALVMRGAGCTINDFLDRKLDQRVIRSVERPIASGRVSPRRALVFLGAQTLVGMGVLSLLPAQCWWLGLASLPIVFTYPLFKRFTYYPQAALSACFNWGALLGFPAMGVMSWPTMIPLYLSSYLWCMTYDTIYAHQDKKFDIKAGIKSTALAWGPRTKSIMKAMSASQIALLAVAGLNSGLLWGPGFIGGLGVFAYRLFSMIKKVDLDNPKNCWKYFNANINTGLYFTYALAVDYILRLFGF",
+      "query_coverage": 0.8136020151133502,
+      "reference_coverage": 0.8655913978494624,
+      "reference_gene": "COQ2"
+    },
+    {
+      "qseqid": "YALI1B20835g",
+      "sseqid": "P27680",
+      "pident": 47.143,
+      "nident": 132,
+      "length": 280,
+      "qstart": 98,
+      "qend": 365,
+      "sstart": 33,
+      "send": 310,
+      "evalue": 1.46e-82,
+      "bitscore": 244.0,
+      "qlen": 367,
+      "slen": 312,
+      "qseq": "STSASEEEMKHFKQLAATWWDTNGPQRILHKMNLLRMDFMNENLKVLQQNTSQSAVKPAGVSLDILP----DSDPRKTN-AIQLTDKKR----VLDIGCGGGILAEHMARLPWTSSVDGIDMSPDVLQVAVEHAKKDASLTKKLNYRRIALEDLPRDEKFDIVTMYEVLEHITYPAEFMKHALSKVNP-GGWVFLSTINRTPISWFTTIFVAEHLMRLVPPGTHTYSKYINEEEIRDFFATQKDWEF--VDSKGCMYVPGCGWVWTPNERMGNYMMAFRK",
+      "sseq": "STDASEDEVKHFQELAPTWWDTDGSQRILHKMNLTRLDFVQRTVRNQVKIQNPEIFVPGFNYKEFLPEYVCDNIQREMQESIETNLDKRPEVSVLDVGCGGGILSESLARLKWVKNVQGIDLTRDCIMVAKEHAKKDPMLEGKINYECKALEDVT--GQFDIITCMEMLEHVDMPSEILRHCWSRLNPEKGILFLSTINRDLISWFTTIFMGENVLKIVPKGTHHLSKYINSKEILAWFNDNYSGQFRLLDLKGTMYLPYQGWVEHDCSDVGNYFMAIQR",
+      "query_coverage": 0.7302452316076294,
+      "reference_coverage": 0.8910256410256411,
+      "reference_gene": "COQ3"
+    },
+    {
+      "qseqid": "YALI1F34625g",
+      "sseqid": "O13525",
+      "pident": 51.293,
+      "nident": 119,
+      "length": 232,
+      "qstart": 28,
+      "qend": 259,
+      "sstart": 84,
+      "send": 315,
+      "evalue": 1.4e-88,
+      "bitscore": 257.0,
+      "qlen": 262,
+      "slen": 335,
+      "qseq": "YPEHVPLTCLGRAVLAVGSGFGTFFDSRRGDLVATLGEATAQPYFIYKLREQMLKDPTGRRLLREQPRMTSKSLDLDKLRNMKVGSIGRTYVEWLDKEGVSPDTRAQVRYIDDPECAYVMQRYRESHDFYHALTGLPIIMEGELALKAFEWANTGLPMSGLGMVLTPLKFKPKQRKRYFDVYLPWALYNGFRSKPVINVYWEEVLEKDAEELRRDLGIEQPPDLRQMKKDMA",
+      "sseq": "YNGHVPLHRYEKLLLFAISGWNSFFHPEDGYNIVQLGEATALPVFLENLKQTMLSDSSGRRILKEQPNITTEILHMDKLAKLPHNTFGYVYYQWLKRENVSPDTRAPVKFIDDPMHAYIFKRYRQCHDFYHAITNMPIIIEGEITIKALEGANLGVPMAILGGILAPLRLKKVQRKRLYNIYLPWAVRTGLSCKPLINVYWEEMLEKDVTALRKELKITLPPDLRTMRKERA",
+      "query_coverage": 0.8854961832061069,
+      "reference_coverage": 0.6925373134328359,
+      "reference_gene": "COQ4"
+    },
+    {
+      "qseqid": "YALI1C25352g",
+      "sseqid": "P49017",
+      "pident": 56.507,
+      "nident": 165,
+      "length": 292,
+      "qstart": 14,
+      "qend": 299,
+      "sstart": 19,
+      "send": 307,
+      "evalue": 3.56e-120,
+      "bitscore": 338.0,
+      "qlen": 299,
+      "slen": 307,
+      "qseq": "LSATRSQLHRLRAFSTSGSCLN------DDKSTHFGFKTVDKDSKESLVGQVFSSVASKYDIMNDVMSFGIHRLWKDEFVNTLNPGRRAGSNEQLSFLDVAGGSGDIAFRILDNAKRRHGDVSSNMTVVDINPNMLAEGEKRAAAHPEYANDPRIKFLVQNAETLDQIPDESQDLYTVAFGIRNFTNIPKALETAHRVLKPGGVFACLEFSKVDNFILDQVYTQYSFNVIPMMGQIVAGDRDSYQYLVESIVRFPTQEKFAQMIQDAGFTLAGDGYKNLTFGVAAVHIGVKL",
+      "sseq": "LSRCFTQAHRACKEEEVNSPLSSAAEQPEQKYTHFGSKTVLKSTKQKLVGDVFSSVANRYDLMNDVMSLGIHRLWKDHFINKLDAGKRPNSTTPLNFIDVAGGSGDIAFGLLDHAESKFGDTESTMDIVDINPDMLKEGEKRAMEQGKYFKDPRVRFLVSNGEKLEEIDSDSKDIYTVSFGIRNFTDIQKGLNTAYRVLKPGGIFYCLEFSKIENPLMDFAYQQWA-KVLPVMGSMIANDYDSYQYLVESIERFPDQETFKSMIEKAGFKSA--GYESLTFGICAIHWGIKV",
+      "query_coverage": 0.9565217391304348,
+      "reference_coverage": 0.9413680781758957,
+      "reference_gene": "COQ5"
+    },
+    {
+      "qseqid": "YALI1A08781g",
+      "sseqid": "P53318",
+      "pident": 41.722,
+      "nident": 189,
+      "length": 453,
+      "qstart": 36,
+      "qend": 461,
+      "sstart": 29,
+      "send": 471,
+      "evalue": 8.6e-102,
+      "bitscore": 303.0,
+      "qlen": 465,
+      "slen": 479,
+      "qseq": "DIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSL-DNLKTW---GPDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLA----NKPNLTILDKTKVEGVERTPESH--NKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANE--QQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVE-------HPDEIMTDAPYR-------LSQRSSNPDV-PCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLM",
+      "sseq": "DVLIVGGGPAGLTLAASIKNSPQLKDLKTTLVDMVDLKDKLSDFYNSPPDY--FTNRIVSVTPRSIHFLEN-NAGATLMHDRIQSYDGLYVTDGCSKATLDLARDSMLC-------MIEIINIQASLYNRISQYDSKKDSIDIIDNTKVVNIKHSDPNDPLSWPLVTLSNGEVYKTRLLVGADGFNSPTRRFSQIPSRGWMYNAYGVVASMKLEYPPFKLRGWQRFLPTGPIAHLPMPENNATLVWSSSERLSRLLLSLPPESFTALINAAFVLEDADMNYYYRTLEDGSMDTDKLIEDIKFRTEEIYATLKDESDIDEIYPPRVVSIIDKTRARFPLKLTHADRYCTDRVALVGDAAHTTHPLAGQGLNMGQTDVHGLVYALEKAMERGLDIGSSLSLEPFWAERYPSNNVLLGMADKLFKLYHTNFPPVVALRTFGLNLTNKIGPVKNMII",
+      "query_coverage": 0.9161290322580645,
+      "reference_coverage": 0.9248434237995825,
+      "reference_gene": "COQ6"
+    },
+    {
+      "qseqid": "YALI1E18269g",
+      "sseqid": "P41735",
+      "pident": 58.421,
+      "nident": 111,
+      "length": 190,
+      "qstart": 6,
+      "qend": 192,
+      "sstart": 44,
+      "send": 233,
+      "evalue": 2.44e-75,
+      "bitscore": 217.0,
+      "qlen": 192,
+      "slen": 233,
+      "qseq": "LSKAEASFITKLIRVDQAGELGADLIYRGQYMVLSRTKPEIEPLIKHMWEQEQHHRRTFNELQQKYRVRPSLLTPIWKVAATGLGCATALLGQEGAMACTEAVETVIGGHYNTQLRWLHENFP---PKEERSKDEEITSLKSIVKQFRDEELEHLEIAVENDSHEARPYWLLTETIKAGCRGAIWVAERV",
+      "sseq": "LSDAQAAFLDRVIRVDQAGELGADYIYAGQYFVLAHRYPHLKPVLKHIWDQEIHHHNTFNNLQLKRRVRPSLLTPLWKAGAFAMGAGTALISPEAAMACTEAVETVIGGHYNGQLRNLANQFNLERTDGTKGPSEEIKSLTSTIQQFRDDELEHLDTAIKHDSYMAVPYTVITEGIKTICRVAIWSAERI",
+      "query_coverage": 0.9739583333333334,
+      "reference_coverage": 0.8154506437768241,
+      "reference_gene": "CAT5"
+    },
+    {
+      "qseqid": "YALI1B20527g",
+      "sseqid": "P27697",
+      "pident": 56.306,
+      "nident": 250,
+      "length": 444,
+      "qstart": 145,
+      "qend": 586,
+      "sstart": 58,
+      "send": 498,
+      "evalue": 1.14e-165,
+      "bitscore": 472.0,
+      "qlen": 591,
+      "slen": 501,
+      "qseq": "EKEIREEMMSSAVPSGRFERLFHYGTLATGLGVGALGEGFRRLTGDNSHA-GSLVLTPGNVERLVKSLSQMRGAALKIGQQLSFQDSRVFPPEIQQIFSRVQNSANYMPAEQLHKVLTKELGQGWRNEFFSSFEDKPIAAASIGQVNTAVLRDSYEPVAIKIQYPGVADSIDSDLNNLMILMTASSMLPEGLFLDKTVANARVELKWECDYIREAQNLERFQELLADYPDYVVPKVYHEASTDKVLTMQRLRGQDIVKGP-WDQDTKNWIATRIMELCLLEIAKFKFMQTDPNWANFLYNPKTHKLELLDFGASRGYSDQFINDYLNCLRAAVRKDRASCEKYSLELGYLTGLESKAMLNAHIDSMITLGEPFNGENGGGDFNFANQTVTDRVRENIGVMLKERLTPPPEETYGLHRKLSGAFLLCAKLNAEVPCQKLFEDIVG",
+      "sseq": "EEEKKDTLKSSSVPTSRISRLFHYGSLAAGVGMNAAAKGISEVAKGNSPTWKSLILSDSNIDRITNKFSKMRGVALKIGQLLSFQDEKVLPKELYEILSRVQNSANHMPQRQLEKVMAKELGANWKTKF-SKFDKIPMAAASIGQVHAAEL-PSGQRVVVKIQYPGVKESIDSDLNSLLMLLTASSLLPKGLFLDKTIANARTELKWECDYNREARALQKFEALLKDDPAFEVPHVFPEYTTDNIITMTRMEGTEIMKLPKASQETKNFISENIMRLCLEEIATFKYMQTDPNWANFLYNGRTKKIELLDFGASRPFAEDFILKYRKLLTYATLRDRKGAYEMSVQLGYLTGLESQSMKDAHVDSVLTLGEPFRGDVDKSFDFK-DQTVSDRIRGNIGLMLNERLCPPPEETYSLHRKFSGIFLLCARMGASVHCAKLFKEIFA",
+      "query_coverage": 0.7478849407783418,
+      "reference_coverage": 0.8802395209580839,
+      "reference_gene": "COQ8"
+    },
+    {
+      "qseqid": "YALI1F34675g",
+      "sseqid": "Q05779",
+      "pident": 23.985,
+      "nident": 65,
+      "length": 271,
+      "qstart": 8,
+      "qend": 257,
+      "sstart": 3,
+      "send": 259,
+      "evalue": 9.46e-21,
+      "bitscore": 78.6,
+      "qlen": 258,
+      "slen": 260,
+      "qseq": "CAVALPTRASTLRAYHSINLINTKPTE-------DYNPKTKKLLDAAMDLVPSLGFTDQALTLASRRLGYTDT--TPLVLPEGP---------LDLIVYHLRREREKLAVASETAPADPPAAPTTPDFRTKDQRLDDACHELIVQRLKGNIPVIEHLDNALALMVQPQNM--AESLSELGALSDEIVHQAGHRSS-DFDWYTRRASISAVYAASEVYMCQDKSKNFEDTWKFVKSSLEARRGLQEGVGNVGQWVSFQGIASVMVIRSLMTR",
+      "sseq": "CRNTARTGCKFFRLYHSNPIEHVKPIHIKPLTYGKESPQYKVLSLALQKFVPEHGFSERSIVESLNELGYPSSMISSIGAPNSPSFFHSSTAVMELIKFQLVDKRYRLTEGINPDV-------------TPQYKLPSLEH-LLLKRLEMDKPIGGHLSELMSQLAIPSAFLFETAIPELHRLSDDMIYFSNEKDHHDSAWYAKRLAVSSTYIGSKLFMAQDKSHNYKETFTFAKDKLHRVMRLGEYYNNTEEFAWYTLMSTVNLIKSQLVR",
+      "query_coverage": 0.9689922480620154,
+      "reference_coverage": 0.9884615384615385,
+      "reference_gene": "COQ9"
+    }
+  ],
+  "identities": [
+    {
+      "gene_id": "YALI1C26017g",
+      "versioned_accession": "XP_501989.1",
+      "sequence_length": 452,
+      "sequence_sha256": "725725e5bdb2d5d52361b6158a3d32c14dd5cbf852b66f601baf615699c3c092",
+      "official_record_sha256": "b259766bed118125a6e581acfe33a9806448680fd951604a833dee0ecb0fbad5",
+      "native_locus": [
+        "YALI1_C26017g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1H6PW85",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 39,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1H6PW85",
+        "uniProtkbId": "A0A1H6PW85_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BC04A"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR008949",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Isoprenoid_synthase_dom_sf"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR000092",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Polyprenyl_synt"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR033749",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Polyprenyl_synt_CS"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF00348",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "polyprenyl_synt"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1C26017g",
+        "sseqid": "P18900",
+        "pident": 54.066,
+        "nident": 246,
+        "length": 455,
+        "qstart": 49,
+        "qend": 452,
+        "sstart": 25,
+        "send": 473,
+        "evalue": 1.39e-156,
+        "bitscore": 442.0,
+        "qlen": 452,
+        "slen": 473,
+        "qseq": "WSGAVKQASRLVETDTPIRDPFSIVSQEMSTLANNIGSLIGSGHPTLNKVATYYFQSEGKHVRPLIVLLLSRALSAIPESERDRGTFDASDVTENVGELNPEPSIND-------PLSPIEILHGINPDIVLNPLSRPSDPLPYES----NGILPKQRRLAEIVEMIHTASLLHDDVIDNSATRRGSPTGNVAFGNKMAILAGDFLLGRASVAIARLRNAEVIELLSTTIANLVEGEFMQLKNTIVD---------------------------------------NSEIANKATFEYYIHKTYLKTASLMSKSCRAAAVLSGARNPIVDASYKFGKNLGLCFQVVDDMLDYSEGESHLGKPAGADLKLGLATAPVLFAWEKYPELGDMIKRKFDGPGDVERARFLVQQADGLSRTRELAQKYCDEAVANL-DLLPYSESREALRNLTMKMMNRSK",
+        "sseq": "FAVALNAASKLVTPKILWNNPISLVSKEMNTLAKNIVALIGSGHPVLNKVTSYYFETEGKKVRPLLVLLLSRALSEIPMTERNHLKIDKSDVPED--PIYSKPSQNQLFQRPASSISPLHILHGIKP---LNPLTKGPEPLPEETFDKQRGILPKQRRLAEIVEMIHTASLLHDDVIDHSDTRRGRPSGNAAFTNKMAVLAGDFLLGRATVSISRLHNPEVVELMSNSIANLVEGEFMQLKNTSIDADIDTIENGHKLLPVPSKKLEVKEHDFRVPSRQQGLQLSHDQIIETA-FEYYIHKTYLKTAALISKSCRCAAILSGASPAVIDECYDFGRNLGICFQLVDDMLDFTVSGKDLGKPSGADLKLGIATAPVLFAWKEDPSLGPLISRNFSERGDVEKTIDSVRLHNGIAKTKILAEEYRDKALQNLRDSLPESDARSALEFLTNSILTRRK",
+        "query_coverage": 0.8938053097345132,
+        "reference_coverage": 0.9492600422832981,
+        "reference_gene": "COQ1"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1H6PW85-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "cf12af28be0d948896443941f714f033731ebb1a391c5bd7ef4d9e72cfe0746b",
+        "mean_pLDDT": 76.58776548672566,
+        "fraction_pLDDT_below_50": 0.19469026548672566,
+        "mean_PAE": 13.011380100242775,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1F08349g",
+      "versioned_accession": "XP_505040.1",
+      "sequence_length": 397,
+      "sequence_sha256": "36364db3c45f9e00e430b1d656003e4b3432046d198d2b43cbdc168cff258b0c",
+      "official_record_sha256": "b1e1b240dcdbded000c65fdac74c5046926537597a7897e14dc65b3193def392",
+      "native_locus": [
+        "YALI1_F08349g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1H6PM88",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 33,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1H6PM88",
+        "uniProtkbId": "A0A1H6PM88_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BCBF8"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR006370",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "HB_polyprenyltransferase-like"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR039653",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Prenyltransferase"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR000537",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiA_prenyltransferase"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR030470",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiA_prenylTrfase_CS"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR044878",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiA_sf"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF01040",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiA"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1F08349g",
+        "sseqid": "P32378",
+        "pident": 55.385,
+        "nident": 180,
+        "length": 325,
+        "qstart": 74,
+        "qend": 396,
+        "sstart": 50,
+        "send": 371,
+        "evalue": 1.64e-125,
+        "bitscore": 357.0,
+        "qlen": 397,
+        "slen": 372,
+        "qseq": "ATIDLKTQFQAAREAELAAMTLPERFVYSLPKSMIPYARLMRMEKPVGTWLLFNPGVWSIGMAAYMSHAAVAPTLYTLSLFGIGAFIMRSAGCTINDILDRKLDAQVARTFDRPIAAGDVSVKQAVAFLGAQCAAGLGILMLLPMNCWWLGALSMPFVMTYPLFKRFTYYPQAILSLCFTWAALLGPPAMGVWCWPVMLSLWGSNFLWCMVYDTIYAHQDKVFDVEAGIKSTALAWGDNSKSIMTVLTLGQLGLLFGAGVYADM--GPGFYSAFTWVSYRLGKMIKTVDLDDPVDCGKHFRSNINTGHIMSAGILADWGMRLAGF",
+        "sseq": "APVFTSKELEVARKERLDGL---GPFVSRLPKKWIPYAELMRLEKPVGTWLLYLPCSWSILMGAMMQGATLSATAGMLGIFGVGALVMRGAGCTINDFLDRKLDQRVIRSVERPIASGRVSPRRALVFLGAQTLVGMGVLSLLPAQCWWLGLASLPIVFTYPLFKRFTYYPQAALSACFNWGALLGFPAMGVMSWPTMIPLYLSSYLWCMTYDTIYAHQDKKFDIKAGIKSTALAWGPRTKSIMKAMSASQIALLAVAGLNSGLLWGPGFIGGLGVFAYRLFSMIKKVDLDNPKNCWKYFNANINTGLYFTYALAVDYILRLFGF",
+        "query_coverage": 0.8136020151133502,
+        "reference_coverage": 0.8655913978494624,
+        "reference_gene": "COQ2"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1H6PM88-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "939df1cad93d9c653497040fc7014eeb2656253d197686a7706422cbb2e8fec3",
+        "mean_pLDDT": 83.27420654911839,
+        "fraction_pLDDT_below_50": 0.12342569269521411,
+        "mean_PAE": 11.352771732578724,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1B20835g",
+      "versioned_accession": "AOW01767.1",
+      "sequence_length": 367,
+      "sequence_sha256": "6e968848ccfdf9ebad65969d75001a0cdd0ffb0665403c7232e05ccc2209c051",
+      "official_record_sha256": "6e11c3fa0fc03139f5d2b01ebac405646b9dfaaa5ec4aa61fab09c7242b57843",
+      "native_locus": [
+        "YALI1_B20835g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1D8N802",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 33,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8N802",
+        "uniProtkbId": "A0A1D8N802_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BBC4A"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR029063",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "SAM-dependent_MTases_sf"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR010233",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiG_MeTrfase"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF13489",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Methyltransf_23"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1B20835g",
+        "sseqid": "P27680",
+        "pident": 47.143,
+        "nident": 132,
+        "length": 280,
+        "qstart": 98,
+        "qend": 365,
+        "sstart": 33,
+        "send": 310,
+        "evalue": 1.46e-82,
+        "bitscore": 244.0,
+        "qlen": 367,
+        "slen": 312,
+        "qseq": "STSASEEEMKHFKQLAATWWDTNGPQRILHKMNLLRMDFMNENLKVLQQNTSQSAVKPAGVSLDILP----DSDPRKTN-AIQLTDKKR----VLDIGCGGGILAEHMARLPWTSSVDGIDMSPDVLQVAVEHAKKDASLTKKLNYRRIALEDLPRDEKFDIVTMYEVLEHITYPAEFMKHALSKVNP-GGWVFLSTINRTPISWFTTIFVAEHLMRLVPPGTHTYSKYINEEEIRDFFATQKDWEF--VDSKGCMYVPGCGWVWTPNERMGNYMMAFRK",
+        "sseq": "STDASEDEVKHFQELAPTWWDTDGSQRILHKMNLTRLDFVQRTVRNQVKIQNPEIFVPGFNYKEFLPEYVCDNIQREMQESIETNLDKRPEVSVLDVGCGGGILSESLARLKWVKNVQGIDLTRDCIMVAKEHAKKDPMLEGKINYECKALEDVT--GQFDIITCMEMLEHVDMPSEILRHCWSRLNPEKGILFLSTINRDLISWFTTIFMGENVLKIVPKGTHHLSKYINSKEILAWFNDNYSGQFRLLDLKGTMYLPYQGWVEHDCSDVGNYFMAIQR",
+        "query_coverage": 0.7302452316076294,
+        "reference_coverage": 0.8910256410256411,
+        "reference_gene": "COQ3"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1D8N802-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "11b6cc4cba44cea815d25f8469802c91e859bdfddbe006ff3d9bd30dad07aa26",
+        "mean_pLDDT": 67.82716621253405,
+        "fraction_pLDDT_below_50": 0.3133514986376022,
+        "mean_PAE": 16.043715522425735,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1F34625g",
+      "versioned_accession": "XP_505938.1",
+      "sequence_length": 262,
+      "sequence_sha256": "2d7fc4589ef709501bcba4be7f2baef1d2ba9bb0a4ec51aa720ec9e1b97b5b9b",
+      "official_record_sha256": "428947b27ea28c385e8a228092f103614914a7592735dde859cb7af8df4ad108",
+      "native_locus": [
+        "YALI1_F34625g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1H6PN93",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 33,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1H6PN93",
+        "uniProtkbId": "A0A1H6PN93_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BCF6D"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR007715",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Coq4"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR027540",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Coq4_euk"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF05019",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Coq4"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1F34625g",
+        "sseqid": "O13525",
+        "pident": 51.293,
+        "nident": 119,
+        "length": 232,
+        "qstart": 28,
+        "qend": 259,
+        "sstart": 84,
+        "send": 315,
+        "evalue": 1.4e-88,
+        "bitscore": 257.0,
+        "qlen": 262,
+        "slen": 335,
+        "qseq": "YPEHVPLTCLGRAVLAVGSGFGTFFDSRRGDLVATLGEATAQPYFIYKLREQMLKDPTGRRLLREQPRMTSKSLDLDKLRNMKVGSIGRTYVEWLDKEGVSPDTRAQVRYIDDPECAYVMQRYRESHDFYHALTGLPIIMEGELALKAFEWANTGLPMSGLGMVLTPLKFKPKQRKRYFDVYLPWALYNGFRSKPVINVYWEEVLEKDAEELRRDLGIEQPPDLRQMKKDMA",
+        "sseq": "YNGHVPLHRYEKLLLFAISGWNSFFHPEDGYNIVQLGEATALPVFLENLKQTMLSDSSGRRILKEQPNITTEILHMDKLAKLPHNTFGYVYYQWLKRENVSPDTRAPVKFIDDPMHAYIFKRYRQCHDFYHAITNMPIIIEGEITIKALEGANLGVPMAILGGILAPLRLKKVQRKRLYNIYLPWAVRTGLSCKPLINVYWEEMLEKDVTALRKELKITLPPDLRTMRKERA",
+        "query_coverage": 0.8854961832061069,
+        "reference_coverage": 0.6925373134328359,
+        "reference_gene": "COQ4"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1H6PN93-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "f591b1b668bd30ed05937ed499198b9303318b728fb6bb62081346438d1e0249",
+        "mean_pLDDT": 90.14179389312977,
+        "fraction_pLDDT_below_50": 0.08015267175572519,
+        "mean_PAE": 6.94704562671173,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1C25352g",
+      "versioned_accession": "XP_501966.1",
+      "sequence_length": 299,
+      "sequence_sha256": "3ec67f1e73f40d903b4c071516bca2f6e5cb54e4042063899a5263b110732dcf",
+      "official_record_sha256": "12fd7bd03586b3ae5c830a427ce9169c1f7ffba046d55ef9722c5c7f29a99341",
+      "native_locus": [
+        "YALI1_C25352g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1D8NBN0",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 32,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8NBN0",
+        "uniProtkbId": "A0A1D8NBN0_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BC033"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR029063",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "SAM-dependent_MTases_sf"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR004033",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiE/COQ5_MeTrFase"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR023576",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiE/COQ5_MeTrFase_CS"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF01209",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Ubie_methyltran"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1C25352g",
+        "sseqid": "P49017",
+        "pident": 56.507,
+        "nident": 165,
+        "length": 292,
+        "qstart": 14,
+        "qend": 299,
+        "sstart": 19,
+        "send": 307,
+        "evalue": 3.56e-120,
+        "bitscore": 338.0,
+        "qlen": 299,
+        "slen": 307,
+        "qseq": "LSATRSQLHRLRAFSTSGSCLN------DDKSTHFGFKTVDKDSKESLVGQVFSSVASKYDIMNDVMSFGIHRLWKDEFVNTLNPGRRAGSNEQLSFLDVAGGSGDIAFRILDNAKRRHGDVSSNMTVVDINPNMLAEGEKRAAAHPEYANDPRIKFLVQNAETLDQIPDESQDLYTVAFGIRNFTNIPKALETAHRVLKPGGVFACLEFSKVDNFILDQVYTQYSFNVIPMMGQIVAGDRDSYQYLVESIVRFPTQEKFAQMIQDAGFTLAGDGYKNLTFGVAAVHIGVKL",
+        "sseq": "LSRCFTQAHRACKEEEVNSPLSSAAEQPEQKYTHFGSKTVLKSTKQKLVGDVFSSVANRYDLMNDVMSLGIHRLWKDHFINKLDAGKRPNSTTPLNFIDVAGGSGDIAFGLLDHAESKFGDTESTMDIVDINPDMLKEGEKRAMEQGKYFKDPRVRFLVSNGEKLEEIDSDSKDIYTVSFGIRNFTDIQKGLNTAYRVLKPGGIFYCLEFSKIENPLMDFAYQQWA-KVLPVMGSMIANDYDSYQYLVESIERFPDQETFKSMIEKAGFKSA--GYESLTFGICAIHWGIKV",
+        "query_coverage": 0.9565217391304348,
+        "reference_coverage": 0.9413680781758957,
+        "reference_gene": "COQ5"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1D8NBN0-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "c8465056398adc6188e60c3af8d8be5856491617bc2c772fc3852afcd3c0fafc",
+        "mean_pLDDT": 83.09488294314382,
+        "fraction_pLDDT_below_50": 0.11705685618729098,
+        "mean_PAE": 10.316338743414503,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1A08781g",
+      "versioned_accession": "XP_499891.1",
+      "sequence_length": 465,
+      "sequence_sha256": "b56186d7549c7b4972ea07f16772108b7ddc12226f576d71816efccd8cd896ee",
+      "official_record_sha256": "a41fff489ef4f3ec71bd3a7ec6667a1d239c2bf55c74548f1965c691c3e171b7",
+      "native_locus": [
+        "YALI1_A08781g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "Q6H9P2",
+      "cached_entry_version": {
+        "firstPublicDate": "2004-07-19",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2004-07-19",
+        "entryVersion": 121,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "Q6H9P2",
+        "uniProtkbId": "Q6H9P2_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003B1276"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR002938",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "FAD-bd"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR036188",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "FAD/NAD-bd_sf"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR018168",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Ubi_Hdrlase_CS"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR010971",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiH/COQ6"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR051205",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbiH/COQ6_monooxygenase"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR000689",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "UbQ_mOase_COQ6"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF01494",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "FAD_binding_3"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1A08781g",
+        "sseqid": "P53318",
+        "pident": 41.722,
+        "nident": 189,
+        "length": 453,
+        "qstart": 36,
+        "qend": 461,
+        "sstart": 29,
+        "send": 471,
+        "evalue": 8.6e-102,
+        "bitscore": 303.0,
+        "qlen": 465,
+        "slen": 479,
+        "qseq": "DIVVVGGGPAGLTIAAALKHYPETVNKSVTLVEFGSL-DNLKTW---GPDMERFENRVSSLTPSSVEYLTKIGVWEHVNRDRVQAYRHMTAWDGVSGSKVQFNTTQLMGEGRDIAYMTENFNLQNGLLKQLA----NKPNLTILDKTKVEGVERTPESH--NKPLVKLSNGSTISTDLLIGADGANSPVRTFSGIEARGWDYNTHGLVATVRLANE--QQSAWQRFLPTGPIALLPLPNRFGSLVWSTTPKMAAQLKQLTPEQFVMMVNCAFNLEPTDIEYLVE-------HPDEIMTDAPYR-------LSQRSSNPDV-PCPIVAVQDKSRASFPLKMKHADTYIAENVALVGDAAHTTHPLAGQGLNMGQGDAQSLAIAIRNAAGRGADIGSTLTLEPYWADQYFKNHKLLGVVDKLHKLYSTRNPLVVGLRSLGLDAVNSVKPVKDFLM",
+        "sseq": "DVLIVGGGPAGLTLAASIKNSPQLKDLKTTLVDMVDLKDKLSDFYNSPPDY--FTNRIVSVTPRSIHFLEN-NAGATLMHDRIQSYDGLYVTDGCSKATLDLARDSMLC-------MIEIINIQASLYNRISQYDSKKDSIDIIDNTKVVNIKHSDPNDPLSWPLVTLSNGEVYKTRLLVGADGFNSPTRRFSQIPSRGWMYNAYGVVASMKLEYPPFKLRGWQRFLPTGPIAHLPMPENNATLVWSSSERLSRLLLSLPPESFTALINAAFVLEDADMNYYYRTLEDGSMDTDKLIEDIKFRTEEIYATLKDESDIDEIYPPRVVSIIDKTRARFPLKLTHADRYCTDRVALVGDAAHTTHPLAGQGLNMGQTDVHGLVYALEKAMERGLDIGSSLSLEPFWAERYPSNNVLLGMADKLFKLYHTNFPPVVALRTFGLNLTNKIGPVKNMII",
+        "query_coverage": 0.9161290322580645,
+        "reference_coverage": 0.9248434237995825,
+        "reference_gene": "COQ6"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-Q6H9P2-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "b0070787086d13e6bb1233b271052ba8167387f6f168feca3e6b7055d1a4740f",
+        "mean_pLDDT": 84.14436559139784,
+        "fraction_pLDDT_below_50": 0.1032258064516129,
+        "mean_PAE": 9.278557058619494,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1E18269g",
+      "versioned_accession": "XP_503973.1",
+      "sequence_length": 192,
+      "sequence_sha256": "432a36d195604bd597ec025baa8b33c0c54dedf53c8d7c52f6b8bac5a9abb412",
+      "official_record_sha256": "8587b4cb0b0def89a3c4962244abe174f8af27245afe09f738ef8e9252f8aabc",
+      "native_locus": [
+        "YALI1_E18269g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1H6Q2E8",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 36,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1H6Q2E8",
+        "uniProtkbId": "A0A1H6Q2E8_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BC7E4"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR009078",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Ferritin-like_SF"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR011566",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Ubq_synth_Coq7"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF03232",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "COQ7"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1E18269g",
+        "sseqid": "P41735",
+        "pident": 58.421,
+        "nident": 111,
+        "length": 190,
+        "qstart": 6,
+        "qend": 192,
+        "sstart": 44,
+        "send": 233,
+        "evalue": 2.44e-75,
+        "bitscore": 217.0,
+        "qlen": 192,
+        "slen": 233,
+        "qseq": "LSKAEASFITKLIRVDQAGELGADLIYRGQYMVLSRTKPEIEPLIKHMWEQEQHHRRTFNELQQKYRVRPSLLTPIWKVAATGLGCATALLGQEGAMACTEAVETVIGGHYNTQLRWLHENFP---PKEERSKDEEITSLKSIVKQFRDEELEHLEIAVENDSHEARPYWLLTETIKAGCRGAIWVAERV",
+        "sseq": "LSDAQAAFLDRVIRVDQAGELGADYIYAGQYFVLAHRYPHLKPVLKHIWDQEIHHHNTFNNLQLKRRVRPSLLTPLWKAGAFAMGAGTALISPEAAMACTEAVETVIGGHYNGQLRNLANQFNLERTDGTKGPSEEIKSLTSTIQQFRDDELEHLDTAIKHDSYMAVPYTVITEGIKTICRVAIWSAERI",
+        "query_coverage": 0.9739583333333334,
+        "reference_coverage": 0.8154506437768241,
+        "reference_gene": "CAT5"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1H6Q2E8-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "ed81237197ecf414ad406f98e891b503a2fe3946375a741bcecb9db53b34a384",
+        "mean_pLDDT": 93.44036458333333,
+        "fraction_pLDDT_below_50": 0.010416666666666666,
+        "mean_PAE": 3.8458658854166665,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1B20527g",
+      "versioned_accession": "XP_500941.1",
+      "sequence_length": 591,
+      "sequence_sha256": "2dc4c3320d02e520ed722f30ff44332ba31219f9412e3861feb0089216f10b1c",
+      "official_record_sha256": "1518bed0e56c8b08bb27e1ea4569b4e94c0e6a32d0d4f8c61383fa54dc13eadf",
+      "native_locus": [
+        "YALI1_B20527g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1D8N7Z5",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 31,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8N7Z5",
+        "uniProtkbId": "A0A1D8N7Z5_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BBC41"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR004147",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "ABC1_dom"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR034646",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "ADCK3_dom"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR051409",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Atypical_kinase_ADCK"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR011009",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Kinase-like_dom_sf"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF03109",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "ABC1"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1B20527g",
+        "sseqid": "P27697",
+        "pident": 56.306,
+        "nident": 250,
+        "length": 444,
+        "qstart": 145,
+        "qend": 586,
+        "sstart": 58,
+        "send": 498,
+        "evalue": 1.14e-165,
+        "bitscore": 472.0,
+        "qlen": 591,
+        "slen": 501,
+        "qseq": "EKEIREEMMSSAVPSGRFERLFHYGTLATGLGVGALGEGFRRLTGDNSHA-GSLVLTPGNVERLVKSLSQMRGAALKIGQQLSFQDSRVFPPEIQQIFSRVQNSANYMPAEQLHKVLTKELGQGWRNEFFSSFEDKPIAAASIGQVNTAVLRDSYEPVAIKIQYPGVADSIDSDLNNLMILMTASSMLPEGLFLDKTVANARVELKWECDYIREAQNLERFQELLADYPDYVVPKVYHEASTDKVLTMQRLRGQDIVKGP-WDQDTKNWIATRIMELCLLEIAKFKFMQTDPNWANFLYNPKTHKLELLDFGASRGYSDQFINDYLNCLRAAVRKDRASCEKYSLELGYLTGLESKAMLNAHIDSMITLGEPFNGENGGGDFNFANQTVTDRVRENIGVMLKERLTPPPEETYGLHRKLSGAFLLCAKLNAEVPCQKLFEDIVG",
+        "sseq": "EEEKKDTLKSSSVPTSRISRLFHYGSLAAGVGMNAAAKGISEVAKGNSPTWKSLILSDSNIDRITNKFSKMRGVALKIGQLLSFQDEKVLPKELYEILSRVQNSANHMPQRQLEKVMAKELGANWKTKF-SKFDKIPMAAASIGQVHAAEL-PSGQRVVVKIQYPGVKESIDSDLNSLLMLLTASSLLPKGLFLDKTIANARTELKWECDYNREARALQKFEALLKDDPAFEVPHVFPEYTTDNIITMTRMEGTEIMKLPKASQETKNFISENIMRLCLEEIATFKYMQTDPNWANFLYNGRTKKIELLDFGASRPFAEDFILKYRKLLTYATLRDRKGAYEMSVQLGYLTGLESQSMKDAHVDSVLTLGEPFRGDVDKSFDFK-DQTVSDRIRGNIGLMLNERLCPPPEETYSLHRKFSGIFLLCARMGASVHCAKLFKEIFA",
+        "query_coverage": 0.7478849407783418,
+        "reference_coverage": 0.8802395209580839,
+        "reference_gene": "COQ8"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1D8N7Z5-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "67a503b8209b766b03fc8658e29bad0fb55e45798129471e1605d53738bfb192",
+        "mean_pLDDT": 69.39126903553299,
+        "fraction_pLDDT_below_50": 0.2673434856175973,
+        "mean_PAE": 17.317457863439465,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    },
+    {
+      "gene_id": "YALI1F34675g",
+      "versioned_accession": "XP_505941.3",
+      "sequence_length": 258,
+      "sequence_sha256": "df1b6ff58d1b47dbf8d401993e17ec70ac930625ddf05d004e1c6b47033c459b",
+      "official_record_sha256": "7f3ecd3aa230b32c94595ab60158dfc86f9a080d11c04e26821532a6f4bc714d",
+      "native_locus": [
+        "YALI1_F34675g"
+      ],
+      "strain": [
+        "CLIB89(W29)"
+      ],
+      "cached_uniprot": "A0A1D8NQ60",
+      "cached_entry_version": {
+        "firstPublicDate": "2017-01-18",
+        "lastAnnotationUpdateDate": "2026-01-28",
+        "lastSequenceUpdateDate": "2017-01-18",
+        "entryVersion": 33,
+        "sequenceVersion": 1
+      },
+      "live_uniprot": {
+        "entryType": "Inactive",
+        "primaryAccession": "A0A1D8NQ60",
+        "uniProtkbId": "A0A1D8NQ60_YARLL",
+        "annotationScore": 0.0,
+        "inactiveReason": {
+          "inactiveReasonType": "DELETED",
+          "deletedReason": "Not part of a reference proteome"
+        },
+        "extraAttributes": {
+          "uniParcId": "UPI00003BCF70"
+        }
+      },
+      "domain_annotations": [
+        {
+          "database": "InterPro",
+          "id": "IPR013718",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "COQ9_C"
+            }
+          ]
+        },
+        {
+          "database": "InterPro",
+          "id": "IPR012762",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "Ubiq_biosynth_COQ9"
+            }
+          ]
+        },
+        {
+          "database": "Pfam",
+          "id": "PF08511",
+          "properties": [
+            {
+              "key": "EntryName",
+              "value": "COQ9"
+            },
+            {
+              "key": "MatchStatus",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "best_reference_match": {
+        "qseqid": "YALI1F34675g",
+        "sseqid": "Q05779",
+        "pident": 23.985,
+        "nident": 65,
+        "length": 271,
+        "qstart": 8,
+        "qend": 257,
+        "sstart": 3,
+        "send": 259,
+        "evalue": 9.46e-21,
+        "bitscore": 78.6,
+        "qlen": 258,
+        "slen": 260,
+        "qseq": "CAVALPTRASTLRAYHSINLINTKPTE-------DYNPKTKKLLDAAMDLVPSLGFTDQALTLASRRLGYTDT--TPLVLPEGP---------LDLIVYHLRREREKLAVASETAPADPPAAPTTPDFRTKDQRLDDACHELIVQRLKGNIPVIEHLDNALALMVQPQNM--AESLSELGALSDEIVHQAGHRSS-DFDWYTRRASISAVYAASEVYMCQDKSKNFEDTWKFVKSSLEARRGLQEGVGNVGQWVSFQGIASVMVIRSLMTR",
+        "sseq": "CRNTARTGCKFFRLYHSNPIEHVKPIHIKPLTYGKESPQYKVLSLALQKFVPEHGFSERSIVESLNELGYPSSMISSIGAPNSPSFFHSSTAVMELIKFQLVDKRYRLTEGINPDV-------------TPQYKLPSLEH-LLLKRLEMDKPIGGHLSELMSQLAIPSAFLFETAIPELHRLSDDMIYFSNEKDHHDSAWYAKRLAVSSTYIGSKLFMAQDKSHNYKETFTFAKDKLHRVMRLGEYYNNTEEFAWYTLMSTVNLIKSQLVR",
+        "query_coverage": 0.9689922480620154,
+        "reference_coverage": 0.9884615384615385,
+        "reference_gene": "COQ9"
+      },
+      "alphafold_prediction": {
+        "entry": "AF-A0A1D8NQ60-F1",
+        "created": "2022-06-01T00:00:00Z",
+        "retrieved_date": "2026-09-18",
+        "sequence_exact": true,
+        "pdb_sha256": "057c73f718b455c2418a5520663a3e46f4b8fe131d932a969bb64c06c14f30c3",
+        "mean_pLDDT": 77.30829457364341,
+        "fraction_pLDDT_below_50": 0.16666666666666666,
+        "mean_PAE": 11.76859864190854,
+        "limits": "Existing monomer AlphaFold prediction; no new prediction, structure alignment, ligand/active-site certification, oligomer validation or native localization test.",
+        "afdb_file_release": 6,
+        "algorithm": "AlphaFold Monomer v2.0 pipeline"
+      }
+    }
+  ]
+}

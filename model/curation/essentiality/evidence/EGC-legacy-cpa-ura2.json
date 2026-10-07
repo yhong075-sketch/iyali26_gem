@@ -1,0 +1,60 @@
+{
+  "adversarial_review": {
+    "findings": [
+      "Legacy patch predates the schema-v2 independent skeptic gate."
+    ],
+    "status": "not_run",
+    "verdict": ""
+  },
+  "case_id": "EGC-legacy-cpa-ura2",
+  "claim_under_review": "URA2 channeling and the CPA1/CPA2 arginine complex require separate carbamoyl-phosphate representations.",
+  "confidence": "legacy_unverified",
+  "contradictions": [],
+  "experimental_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+  "human_decision": {
+    "approved_at": "2026-07-13T00:00:00-07:00",
+    "approved_by": "legacy_human",
+    "decision": "legacy_accepted"
+  },
+  "identity_crosschecks": [
+    {
+      "accession": "Q6C6H5",
+      "database": "UniProt",
+      "gene_id": "YALI1E11768g",
+      "status": "match",
+      "url": "https://www.uniprot.org/uniprotkb/Q6C6H5/entry"
+    }
+  ],
+  "media_sha256": "9ff1dafc2841b79cae20ad5ca6065d5328ad06b9cf36799092348814c9216c52",
+  "model_context": {
+    "genes": [
+      "YALI1C33005g",
+      "YALI1D09420g",
+      "YALI1E11768g"
+    ],
+    "reactions": [
+      {
+        "reaction_id": "R159"
+      },
+      {
+        "reaction_id": "R190"
+      },
+      {
+        "reaction_id": "R607"
+      }
+    ]
+  },
+  "model_sha256": "0eb99eaf4aa1bcfde2392aee47c45856ce9ba4eb306d6ac785a0ff897b726d1d",
+  "primary_sources": [],
+  "proposed_operation": {
+    "operation": "partition_cpa_ura2",
+    "target_reaction_ids": [
+      "R159",
+      "R190",
+      "R607"
+    ]
+  },
+  "schema_version": "1.0-legacy",
+  "target_fingerprint": "legacy-not-recorded",
+  "verdict": "needs_more_evidence"
+}

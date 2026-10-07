@@ -1,0 +1,72 @@
+{
+  "date_utc": "2026-09-14T18:44:48.974768+00:00",
+  "target": "AOW05630.1",
+  "sequence_sha256": "4330de351517f9142cef7f2d0213894a4aa48e5050915096fe74790e736415ea",
+  "remote_dir": "/bigdata/iwheeldonlab/yhong075/iyali26_pe_pld_20260914_4330de35",
+  "authorized_by": "AGENTS.md: HPCC AlphaFold standing authorization",
+  "job_id": "28375032",
+  "attempts": 1,
+  "files": {
+    "AOW05630.1.fasta": "135523590ed18bde211f75d786a6ae715a81dd20918a3169cb9599a4a9185165",
+    "w29_spo14_monomer.sbatch": "a538fd1737023cc5adea2dcf1e6e3041d845634274f90bb2ac7314c33c979eb6"
+  },
+  "events": [
+    {
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=12",
+        "ucr-hpcc",
+        "mkdir /bigdata/iwheeldonlab/yhong075/iyali26_pe_pld_20260914_4330de35"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scp",
+        "-o",
+        "BatchMode=yes",
+        "artifacts/pe_pld_w29_comparison_20260914/sources/AOW05630.1.fasta",
+        "artifacts/pe_pld_w29_comparison_20260914/w29_spo14_monomer.sbatch",
+        "ucr-hpcc:/bigdata/iwheeldonlab/yhong075/iyali26_pe_pld_20260914_4330de35/"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=12",
+        "ucr-hpcc",
+        "cd /bigdata/iwheeldonlab/yhong075/iyali26_pe_pld_20260914_4330de35 && sha256sum AOW05630.1.fasta w29_spo14_monomer.sbatch"
+      ],
+      "returncode": 0,
+      "stdout": "135523590ed18bde211f75d786a6ae715a81dd20918a3169cb9599a4a9185165  AOW05630.1.fasta\na538fd1737023cc5adea2dcf1e6e3041d845634274f90bb2ac7314c33c979eb6  w29_spo14_monomer.sbatch\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=12",
+        "ucr-hpcc",
+        "bash -lc 'cd /bigdata/iwheeldonlab/yhong075/iyali26_pe_pld_20260914_4330de35 && sbatch --parsable w29_spo14_monomer.sbatch'"
+      ],
+      "returncode": 0,
+      "stdout": "28375032\n",
+      "stderr": ""
+    }
+  ],
+  "remote_sha_verified": true,
+  "submission_state": "submitted"
+}

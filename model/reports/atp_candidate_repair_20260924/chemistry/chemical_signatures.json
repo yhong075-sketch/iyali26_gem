@@ -1,0 +1,1234 @@
+{
+  "date_utc": "2026-09-24T21:41:28.621918+00:00",
+  "scope": "Independent static chemistry/source review. No model/source/curation edits, no optimizer. E0/E1/E2/E3 signatures below are expected definitions, NOT generated or executed models.",
+  "baseline": {
+    "file": "model_metadata_trna_r1159_leak.xml",
+    "sha256": "aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f",
+    "reactions": 2314,
+    "metabolites": 1877
+  },
+  "species": {
+    "m10[C_cy]": {
+      "name": "H+_p+1",
+      "compartment": "C_cy",
+      "formula": "H",
+      "charge": 1,
+      "notes": [
+        "microspecies_convention: proton: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15378"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00080",
+        "https://identifiers.org/inchi/InChI=1S/p+1",
+        "https://identifiers.org/inchikey/GPRLSGONYQIRFK-UHFFFAOYSA-N",
+        "https://identifiers.org/chebi/CHEBI:15378"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:15378",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m32[C_cy]": {
+      "name": "H2O_H2O",
+      "compartment": "C_cy",
+      "formula": "H2O",
+      "charge": 0,
+      "notes": [
+        "microspecies_convention: water: Rhea/ChEBI major microspecies at pH 7.3; https://www.ebi.ac.uk/chebi/CHEBI:15377"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00001",
+        "https://identifiers.org/inchi/InChI=1S/H2O/h1H2",
+        "https://identifiers.org/inchikey/XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+        "https://identifiers.org/chebi/CHEBI:15377"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:15377",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m35[C_cy]": {
+      "name": "phosphate_H3O4P",
+      "compartment": "C_cy",
+      "formula": "H3O4P",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"H3O4P\",\"mnxm_id\":\"MNXM9\",\"proposed_charge\":-2,\"proposed_formula\":\"HO4P\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00009",
+        "https://identifiers.org/inchi/InChI=1S/H3O4P/c1-5(2,3)4/h(H3,1,2,3,4)/p-2",
+        "https://identifiers.org/inchikey/NBIIXXVUZAFLBC-UHFFFAOYSA-L",
+        "https://identifiers.org/chebi/CHEBI:14791",
+        "https://identifiers.org/chebi/CHEBI:18367",
+        "https://identifiers.org/chebi/CHEBI:26020",
+        "https://identifiers.org/chebi/CHEBI:26078",
+        "https://identifiers.org/chebi/CHEBI:29137",
+        "https://identifiers.org/chebi/CHEBI:29139",
+        "https://identifiers.org/chebi/CHEBI:35780",
+        "https://identifiers.org/chebi/CHEBI:39739",
+        "https://identifiers.org/chebi/CHEBI:39745",
+        "https://identifiers.org/chebi/CHEBI:43470",
+        "https://identifiers.org/chebi/CHEBI:43474",
+        "https://identifiers.org/chebi/CHEBI:45024",
+        "https://identifiers.org/chebi/CHEBI:7793"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:26078",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m266[C_cy]": {
+      "name": "GTP_C10H16N5O14P3",
+      "compartment": "C_cy",
+      "formula": "C10H16N5O14P3",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C10H16N5O14P3\",\"mnxm_id\":\"MNXM1103553\",\"proposed_charge\":-4,\"proposed_formula\":\"C10H12N5O14P3\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00044",
+        "https://identifiers.org/inchi/InChI=1S/C10H16N5O14P3/c11-10-13-7-4(8(18)14-10)12-2-15(7)9-6(17)5(16)3(27-9)1-26-31(22,23)29-32(24,25)28-30(19,20)21/h2-3,5-6,9,16-17H,1H2,(H,22,23)(H,24,25)(H2,19,20,21)(H3,11,13,14,18)/p-4/t3-,5-,6-,9-/m1/s1",
+        "https://identifiers.org/inchikey/XKMLYUALXHKNFT-UUOKFMHZSA-J",
+        "https://identifiers.org/chebi/CHEBI:13342",
+        "https://identifiers.org/chebi/CHEBI:15996",
+        "https://identifiers.org/chebi/CHEBI:24451",
+        "https://identifiers.org/chebi/CHEBI:37565",
+        "https://identifiers.org/chebi/CHEBI:42934",
+        "https://identifiers.org/chebi/CHEBI:5234",
+        "https://identifiers.org/chebi/CHEBI:57600"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:15996",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m268[C_cy]": {
+      "name": "GDP_C10H15N5O11P2",
+      "compartment": "C_cy",
+      "formula": "C10H15N5O11P2",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C10H15N5O11P2\",\"mnxm_id\":\"MNXM1103285\",\"proposed_charge\":-3,\"proposed_formula\":\"C10H12N5O11P2\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00035",
+        "https://identifiers.org/inchi/InChI=1S/C10H15N5O11P2/c11-10-13-7-4(8(18)14-10)12-2-15(7)9-6(17)5(16)3(25-9)1-24-28(22,23)26-27(19,20)21/h2-3,5-6,9,16-17H,1H2,(H,22,23)(H2,19,20,21)(H3,11,13,14,18)/p-3/t3-,5-,6-,9-/m1/s1",
+        "https://identifiers.org/inchikey/QGWNDRXFNXRZMB-UUOKFMHZSA-K",
+        "https://identifiers.org/chebi/CHEBI:13327",
+        "https://identifiers.org/chebi/CHEBI:14379",
+        "https://identifiers.org/chebi/CHEBI:17552",
+        "https://identifiers.org/chebi/CHEBI:24448",
+        "https://identifiers.org/chebi/CHEBI:42738",
+        "https://identifiers.org/chebi/CHEBI:5212",
+        "https://identifiers.org/chebi/CHEBI:58189",
+        "https://identifiers.org/chebi/CHEBI:65180"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:17552",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m439[C_cy]": {
+      "name": "UTP_C9H15N2O15P3",
+      "compartment": "C_cy",
+      "formula": "C9H15N2O15P3",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C9H15N2O15P3\",\"mnxm_id\":\"MNXM1101474\",\"proposed_charge\":-4,\"proposed_formula\":\"C9H11N2O15P3\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00075",
+        "https://identifiers.org/inchi/InChI=1S/C9H15N2O15P3/c12-5-1-2-11(9(15)10-5)8-7(14)6(13)4(24-8)3-23-28(19,20)26-29(21,22)25-27(16,17)18/h1-2,4,6-8,13-14H,3H2,(H,19,20)(H,21,22)(H,10,12,15)(H2,16,17,18)/p-4/t4-,6-,7-,8-/m1/s1",
+        "https://identifiers.org/inchikey/PGAVKCOVUIYSFO-XVFCMESISA-J",
+        "https://identifiers.org/chebi/CHEBI:13510",
+        "https://identifiers.org/chebi/CHEBI:15713",
+        "https://identifiers.org/chebi/CHEBI:27233",
+        "https://identifiers.org/chebi/CHEBI:37567",
+        "https://identifiers.org/chebi/CHEBI:46397",
+        "https://identifiers.org/chebi/CHEBI:46398",
+        "https://identifiers.org/chebi/CHEBI:57481",
+        "https://identifiers.org/chebi/CHEBI:9850"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:15713",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m11[C_cy]": {
+      "name": "UDP_C9H14N2O12P2",
+      "compartment": "C_cy",
+      "formula": "C9H14N2O12P2",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C9H14N2O12P2\",\"mnxm_id\":\"MNXM1102128\",\"proposed_charge\":-3,\"proposed_formula\":\"C9H11N2O12P2\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00015",
+        "https://identifiers.org/inchi/InChI=1S/C9H14N2O12P2/c12-5-1-2-11(9(15)10-5)8-7(14)6(13)4(22-8)3-21-25(19,20)23-24(16,17)18/h1-2,4,6-8,13-14H,3H2,(H,19,20)(H,10,12,15)(H2,16,17,18)/p-3/t4-,6-,7-,8-/m1/s1",
+        "https://identifiers.org/inchikey/XCCTYIAWTASOJW-XVFCMESISA-K",
+        "https://identifiers.org/chebi/CHEBI:13445",
+        "https://identifiers.org/chebi/CHEBI:17659",
+        "https://identifiers.org/chebi/CHEBI:27230",
+        "https://identifiers.org/chebi/CHEBI:46402",
+        "https://identifiers.org/chebi/CHEBI:58223",
+        "https://identifiers.org/chebi/CHEBI:9802"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:17659",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m1881[C_cy]": {
+      "name": "Dihydroxy-Acetone",
+      "compartment": "C_cy",
+      "formula": "C3H6O3",
+      "charge": 0,
+      "notes": [],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00184",
+        "https://identifiers.org/inchi/InChI=1S/C3H6O3/c4-1-3(6)2-5/h4-5H,1-2H2",
+        "https://identifiers.org/inchikey/RXKJFZQQPQGTFL-UHFFFAOYSA-N",
+        "https://identifiers.org/chebi/CHEBI:14340",
+        "https://identifiers.org/chebi/CHEBI:16016",
+        "https://identifiers.org/chebi/CHEBI:24354",
+        "https://identifiers.org/chebi/CHEBI:39809",
+        "https://identifiers.org/chebi/CHEBI:5453"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:16016",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m456[C_cy]": {
+      "name": "dihydroxyacetone phosphate_C3H5O6P",
+      "compartment": "C_cy",
+      "formula": "C3H5O6P",
+      "charge": -2,
+      "notes": [],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00111",
+        "https://identifiers.org/inchi/InChI=1S/C3H7O6P/c4-1-3(5)2-9-10(6,7)8/h4H,1-2H2,(H2,6,7,8)/p-2",
+        "https://identifiers.org/inchikey/GNGACRATGGDKBX-UHFFFAOYSA-L",
+        "https://identifiers.org/chebi/CHEBI:14341",
+        "https://identifiers.org/chebi/CHEBI:14342",
+        "https://identifiers.org/chebi/CHEBI:16108",
+        "https://identifiers.org/chebi/CHEBI:24355",
+        "https://identifiers.org/chebi/CHEBI:39571",
+        "https://identifiers.org/chebi/CHEBI:5454",
+        "https://identifiers.org/chebi/CHEBI:57642"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:57642",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m141[C_cy]": {
+      "name": "ATP_C10H16N5O13P3",
+      "compartment": "C_cy",
+      "formula": "C10H16N5O13P3",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C10H16N5O13P3\",\"mnxm_id\":\"MNXM3\",\"proposed_charge\":-4,\"proposed_formula\":\"C10H12N5O13P3\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00002",
+        "https://identifiers.org/inchi/InChI=1S/C10H16N5O13P3/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(26-10)1-25-30(21,22)28-31(23,24)27-29(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H,23,24)(H2,11,12,13)(H2,18,19,20)/p-4/t4-,6-,7-,10-/m1/s1",
+        "https://identifiers.org/inchikey/ZKHQWZAMYRWXGA-KQYNXXCUSA-J",
+        "https://identifiers.org/chebi/CHEBI:10789",
+        "https://identifiers.org/chebi/CHEBI:10841",
+        "https://identifiers.org/chebi/CHEBI:13236",
+        "https://identifiers.org/chebi/CHEBI:15422",
+        "https://identifiers.org/chebi/CHEBI:22249",
+        "https://identifiers.org/chebi/CHEBI:2359",
+        "https://identifiers.org/chebi/CHEBI:237958",
+        "https://identifiers.org/chebi/CHEBI:30616",
+        "https://identifiers.org/chebi/CHEBI:40938",
+        "https://identifiers.org/chebi/CHEBI:57299"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:15422",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m143[C_cy]": {
+      "name": "ADP_C10H15N5O10P2",
+      "compartment": "C_cy",
+      "formula": "C10H15N5O10P2",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C10H15N5O10P2\",\"mnxm_id\":\"MNXM40333\",\"proposed_charge\":-3,\"proposed_formula\":\"C10H12N5O10P2\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00008",
+        "https://identifiers.org/inchi/InChI=1S/C10H15N5O10P2/c11-8-5-9(13-2-12-8)15(3-14-5)10-7(17)6(16)4(24-10)1-23-27(21,22)25-26(18,19)20/h2-4,6-7,10,16-17H,1H2,(H,21,22)(H2,11,12,13)(H2,18,19,20)/p-3/t4-,6-,7-,10-/m1/s1",
+        "https://identifiers.org/inchikey/XTWYTFMLZFPYCI-KQYNXXCUSA-K",
+        "https://identifiers.org/chebi/CHEBI:13222",
+        "https://identifiers.org/chebi/CHEBI:16761",
+        "https://identifiers.org/chebi/CHEBI:22244",
+        "https://identifiers.org/chebi/CHEBI:2342",
+        "https://identifiers.org/chebi/CHEBI:40553",
+        "https://identifiers.org/chebi/CHEBI:456216",
+        "https://identifiers.org/chebi/CHEBI:87518"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:16761",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m406[C_cy]": {
+      "name": "CTP_C9H16N3O14P3",
+      "compartment": "C_cy",
+      "formula": "C9H16N3O14P3",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C9H16N3O14P3\",\"mnxm_id\":\"MNXM1103718\",\"proposed_charge\":-4,\"proposed_formula\":\"C9H12N3O14P3\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00063",
+        "https://identifiers.org/inchi/InChI=1S/C9H16N3O14P3/c10-5-1-2-12(9(15)11-5)8-7(14)6(13)4(24-8)3-23-28(19,20)26-29(21,22)25-27(16,17)18/h1-2,4,6-8,13-14H,3H2,(H,19,20)(H,21,22)(H2,10,11,15)(H2,16,17,18)/p-4/t4-,6-,7-,8-/m1/s1",
+        "https://identifiers.org/inchikey/PCDQPRRSZKQHHS-XVFCMESISA-J",
+        "https://identifiers.org/chebi/CHEBI:13286",
+        "https://identifiers.org/chebi/CHEBI:17677",
+        "https://identifiers.org/chebi/CHEBI:23522",
+        "https://identifiers.org/chebi/CHEBI:3285",
+        "https://identifiers.org/chebi/CHEBI:37563",
+        "https://identifiers.org/chebi/CHEBI:41675",
+        "https://identifiers.org/chebi/CHEBI:58231"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:17677",
+      "source_read_status": "web opened 2026-09-24"
+    },
+    "m500[C_cy]": {
+      "name": "CDP_C9H15N3O11P2",
+      "compartment": "C_cy",
+      "formula": "C9H15N3O11P2",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C9H15N3O11P2\",\"mnxm_id\":\"MNXM1102191\",\"proposed_charge\":-3,\"proposed_formula\":\"C9H12N3O11P2\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00112",
+        "https://identifiers.org/inchi/InChI=1S/C9H15N3O11P2/c10-5-1-2-12(9(15)11-5)8-7(14)6(13)4(22-8)3-21-25(19,20)23-24(16,17)18/h1-2,4,6-8,13-14H,3H2,(H,19,20)(H2,10,11,15)(H2,16,17,18)/p-3/t4-,6-,7-,8-/m1/s1",
+        "https://identifiers.org/inchikey/ZWIADYZPOWUWEW-XVFCMESISA-K",
+        "https://identifiers.org/chebi/CHEBI:13254",
+        "https://identifiers.org/chebi/CHEBI:17239",
+        "https://identifiers.org/chebi/CHEBI:23519",
+        "https://identifiers.org/chebi/CHEBI:3260",
+        "https://identifiers.org/chebi/CHEBI:41451",
+        "https://identifiers.org/chebi/CHEBI:58069"
+      ],
+      "authoritative_species_source": "https://www.ebi.ac.uk/chebi/CHEBI:17239",
+      "source_read_status": "ChEBI inaccessible; KEGG C00112 formula opened; stored charge from explicit preserved pair"
+    },
+    "m107[C_cy]": {
+      "name": "phosphoenolpyruvate_C3H5O6P",
+      "compartment": "C_cy",
+      "formula": "C3H5O6P",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C3H5O6P\",\"mnxm_id\":\"MNXM73\",\"proposed_charge\":-3,\"proposed_formula\":\"C3H2O6P\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00074",
+        "https://identifiers.org/inchi/InChI=1S/C3H5O6P/c1-2(3(4)5)9-10(6,7)8/h1H2,(H,4,5)(H2,6,7,8)/p-3",
+        "https://identifiers.org/inchikey/DTBNBXWJWCWCIK-UHFFFAOYSA-K",
+        "https://identifiers.org/chebi/CHEBI:14812",
+        "https://identifiers.org/chebi/CHEBI:18021",
+        "https://identifiers.org/chebi/CHEBI:26054",
+        "https://identifiers.org/chebi/CHEBI:26055",
+        "https://identifiers.org/chebi/CHEBI:44894",
+        "https://identifiers.org/chebi/CHEBI:44897",
+        "https://identifiers.org/chebi/CHEBI:58702",
+        "https://identifiers.org/chebi/CHEBI:8147"
+      ],
+      "authoritative_species_source": null,
+      "source_read_status": "local signature; PEP phosphatase reaction audited"
+    },
+    "m4[C_cy]": {
+      "name": "pyruvate_C3H4O3",
+      "compartment": "C_cy",
+      "formula": "C3H4O3",
+      "charge": 0,
+      "notes": [
+        "metanetx_formula_charge_conflict: {\"action\":\"preserved_existing_pair\",\"existing_charge\":0,\"existing_formula\":\"C3H4O3\",\"mnxm_id\":\"MNXM23\",\"proposed_charge\":-1,\"proposed_formula\":\"C3H3O3\",\"source\":\"MetaNetX\"}"
+      ],
+      "chemical_identity_refs": [
+        "https://identifiers.org/kegg.compound/C00022",
+        "https://identifiers.org/inchi/InChI=1S/C3H4O3/c1-2(4)3(5)6/h1H3,(H,5,6)/p-1",
+        "https://identifiers.org/inchikey/LCTONWCANYUPML-UHFFFAOYSA-M",
+        "https://identifiers.org/chebi/CHEBI:14987",
+        "https://identifiers.org/chebi/CHEBI:15361",
+        "https://identifiers.org/chebi/CHEBI:177913",
+        "https://identifiers.org/chebi/CHEBI:26462",
+        "https://identifiers.org/chebi/CHEBI:26466",
+        "https://identifiers.org/chebi/CHEBI:32816",
+        "https://identifiers.org/chebi/CHEBI:45253",
+        "https://identifiers.org/chebi/CHEBI:8685"
+      ],
+      "authoritative_species_source": null,
+      "source_read_status": "local signature; PEP phosphatase reaction audited"
+    }
+  },
+  "expected_variants": {
+    "E0": {
+      "R_PGAM1_PhosHydro": {
+        "stoichiometry": {
+          "m107[C_cy]": 1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m4[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_PGAM1_PhosHydro",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00208",
+          "metadata_previous_gap_fill_direction_rationale: Encode phosphoenolpyruvate phosphatase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00208.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP3pp": {
+        "stoichiometry": {
+          "m10[C_cy]": -1.0,
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP3pp",
+        "element_charge_residual": {
+          "H": -1.0,
+          "charge": -1.0
+        },
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00335",
+          "metadata_previous_gap_fill_direction_rationale: Encode GTP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00335.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP7": {
+        "stoichiometry": {
+          "m10[C_cy]": 1.0,
+          "m11[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m439[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP7",
+        "element_charge_residual": {
+          "H": 1.0,
+          "charge": 1.0
+        },
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: keep",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00159",
+          "metadata_previous_gap_fill_direction_rationale: The generated equation already encodes UTP hydrolysis; disallow the thermodynamically unsupported reverse phosphorylation.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "r0242": {
+        "stoichiometry": {
+          "m1881[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "r0242",
+        "element_charge_residual": {
+          "H": -2.0,
+          "charge": -2.0
+        },
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: legacy_unreviewed",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R694": {
+        "stoichiometry": {
+          "m107[C_cy]": -1.0,
+          "m141[C_cy]": 1.0,
+          "m143[C_cy]": -1.0,
+          "m4[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12842g"
+        ],
+        "name": "pyruvate kinase",
+        "element_charge_residual": {},
+        "notes": [
+          "PROTEIN_CLASS: 2.7.1.40"
+        ]
+      },
+      "R594": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside diphosphate kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R603": {
+        "stoichiometry": {
+          "m11[C_cy]": -1.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m439[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside-diphosphate kinase (ATP:UDP)",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R2010": {
+        "stoichiometry": {
+          "m10[C_cy]": 2.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m1881[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Dihydroxyacetone kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "xMAINTENANCE": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0
+        },
+        "bounds": [
+          7.8625,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Non-growth associated maintenance (NGAM)",
+        "element_charge_residual": {},
+        "notes": []
+      }
+    },
+    "E1": {
+      "R_PGAM1_PhosHydro": {
+        "stoichiometry": {
+          "m107[C_cy]": 1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m4[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_PGAM1_PhosHydro",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00208",
+          "metadata_previous_gap_fill_direction_rationale: Encode phosphoenolpyruvate phosphatase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00208.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP3pp": {
+        "stoichiometry": {
+          "m10[C_cy]": -1.0,
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP3pp",
+        "element_charge_residual": {
+          "H": -1.0,
+          "charge": -1.0
+        },
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00335",
+          "metadata_previous_gap_fill_direction_rationale: Encode GTP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00335.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP7": {
+        "stoichiometry": {
+          "m10[C_cy]": 1.0,
+          "m11[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m439[C_cy]": -1.0
+        },
+        "bounds": [
+          0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP7",
+        "element_charge_residual": {
+          "H": 1.0,
+          "charge": 1.0
+        },
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: keep",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00159",
+          "metadata_previous_gap_fill_direction_rationale: The generated equation already encodes UTP hydrolysis; disallow the thermodynamically unsupported reverse phosphorylation.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "r0242": {
+        "stoichiometry": {
+          "m1881[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "r0242",
+        "element_charge_residual": {
+          "H": -2.0,
+          "charge": -2.0
+        },
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: legacy_unreviewed",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R694": {
+        "stoichiometry": {
+          "m107[C_cy]": -1.0,
+          "m141[C_cy]": 1.0,
+          "m143[C_cy]": -1.0,
+          "m4[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12842g"
+        ],
+        "name": "pyruvate kinase",
+        "element_charge_residual": {},
+        "notes": [
+          "PROTEIN_CLASS: 2.7.1.40"
+        ]
+      },
+      "R594": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside diphosphate kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R603": {
+        "stoichiometry": {
+          "m11[C_cy]": -1.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m439[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside-diphosphate kinase (ATP:UDP)",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R2010": {
+        "stoichiometry": {
+          "m10[C_cy]": 2.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m1881[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Dihydroxyacetone kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "xMAINTENANCE": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0
+        },
+        "bounds": [
+          7.8625,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Non-growth associated maintenance (NGAM)",
+        "element_charge_residual": {},
+        "notes": []
+      }
+    },
+    "E2": {
+      "R_PGAM1_PhosHydro": {
+        "stoichiometry": {
+          "m107[C_cy]": 1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m4[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_PGAM1_PhosHydro",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00208",
+          "metadata_previous_gap_fill_direction_rationale: Encode phosphoenolpyruvate phosphatase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00208.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP3pp": {
+        "stoichiometry": {
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP3pp",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00335",
+          "metadata_previous_gap_fill_direction_rationale: Encode GTP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00335.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP7": {
+        "stoichiometry": {
+          "m11[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m439[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP7",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: keep",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00159",
+          "metadata_previous_gap_fill_direction_rationale: The generated equation already encodes UTP hydrolysis; disallow the thermodynamically unsupported reverse phosphorylation.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "r0242": {
+        "stoichiometry": {
+          "m1881[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m456[C_cy]": 1.0,
+          "m10[C_cy]": 2.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "r0242",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: legacy_unreviewed",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R694": {
+        "stoichiometry": {
+          "m107[C_cy]": -1.0,
+          "m141[C_cy]": 1.0,
+          "m143[C_cy]": -1.0,
+          "m4[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12842g"
+        ],
+        "name": "pyruvate kinase",
+        "element_charge_residual": {},
+        "notes": [
+          "PROTEIN_CLASS: 2.7.1.40"
+        ]
+      },
+      "R594": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside diphosphate kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R603": {
+        "stoichiometry": {
+          "m11[C_cy]": -1.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m439[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside-diphosphate kinase (ATP:UDP)",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R2010": {
+        "stoichiometry": {
+          "m10[C_cy]": 2.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m1881[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Dihydroxyacetone kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "xMAINTENANCE": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0
+        },
+        "bounds": [
+          7.8625,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Non-growth associated maintenance (NGAM)",
+        "element_charge_residual": {},
+        "notes": []
+      }
+    },
+    "E3": {
+      "R_PGAM1_PhosHydro": {
+        "stoichiometry": {
+          "m107[C_cy]": 1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m4[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_PGAM1_PhosHydro",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00208",
+          "metadata_previous_gap_fill_direction_rationale: Encode phosphoenolpyruvate phosphatase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00208.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP3pp": {
+        "stoichiometry": {
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP3pp",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: reverse",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00335",
+          "metadata_previous_gap_fill_direction_rationale: Encode GTP phosphohydrolase in its hydrolysis direction; the generated candidate equation is reversed relative to KEGG R00335.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R_NTP7": {
+        "stoichiometry": {
+          "m11[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0,
+          "m439[C_cy]": -1.0
+        },
+        "bounds": [
+          0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "R_NTP7",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: active",
+          "metadata_previous_gap_fill_stoichiometry_action: keep",
+          "metadata_previous_gap_fill_direction_evidence: https://www.kegg.jp/entry/R00159",
+          "metadata_previous_gap_fill_direction_rationale: The generated equation already encodes UTP hydrolysis; disallow the thermodynamically unsupported reverse phosphorylation.",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: bounds; stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "r0242": {
+        "stoichiometry": {
+          "m1881[C_cy]": -1.0,
+          "m32[C_cy]": 1.0,
+          "m35[C_cy]": -1.0,
+          "m456[C_cy]": 1.0,
+          "m10[C_cy]": 2.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1E41893g"
+        ],
+        "name": "r0242",
+        "element_charge_residual": {},
+        "notes": [
+          "metadata_previous_gap_fill_direction_status: legacy_unreviewed",
+          "metadata_reaction_selection: metadata_reaction_fields_preserve_trna_20260910",
+          "metadata_selected_fields: stoichiometry",
+          "metadata_selection_source_sha256: 33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+          "metadata_selection_evidence_status: User-selected model version; not new validation of chemistry or native gene function"
+        ]
+      },
+      "R694": {
+        "stoichiometry": {
+          "m107[C_cy]": -1.0,
+          "m141[C_cy]": 1.0,
+          "m143[C_cy]": -1.0,
+          "m4[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12842g"
+        ],
+        "name": "pyruvate kinase",
+        "element_charge_residual": {},
+        "notes": [
+          "PROTEIN_CLASS: 2.7.1.40"
+        ]
+      },
+      "R594": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m266[C_cy]": 1.0,
+          "m268[C_cy]": -1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside diphosphate kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R603": {
+        "stoichiometry": {
+          "m11[C_cy]": -1.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m439[C_cy]": 1.0
+        },
+        "bounds": [
+          -1000.0,
+          1000.0
+        ],
+        "gpr_genes": [
+          "YALI1F12874g"
+        ],
+        "name": "nucleoside-diphosphate kinase (ATP:UDP)",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "R2010": {
+        "stoichiometry": {
+          "m10[C_cy]": 2.0,
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m1881[C_cy]": -1.0,
+          "m456[C_cy]": 1.0
+        },
+        "bounds": [
+          0.0,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Dihydroxyacetone kinase",
+        "element_charge_residual": {},
+        "notes": []
+      },
+      "xMAINTENANCE": {
+        "stoichiometry": {
+          "m141[C_cy]": -1.0,
+          "m143[C_cy]": 1.0,
+          "m32[C_cy]": -1.0,
+          "m35[C_cy]": 1.0
+        },
+        "bounds": [
+          7.8625,
+          1000.0
+        ],
+        "gpr_genes": [],
+        "name": "Non-growth associated maintenance (NGAM)",
+        "element_charge_residual": {},
+        "notes": []
+      }
+    }
+  },
+  "balanced_diagnostic_equations": {
+    "ATP": {
+      "stoichiometry": {
+        "m141[C_cy]": -1,
+        "m143[C_cy]": 1,
+        "m32[C_cy]": -1,
+        "m35[C_cy]": 1
+      },
+      "element_charge_residual": {},
+      "Hplus_coefficient": 0,
+      "scope": "chemically checked proposed diagnostic only; no optimization or model mutation in this audit"
+    },
+    "GTP": {
+      "stoichiometry": {
+        "m266[C_cy]": -1,
+        "m268[C_cy]": 1,
+        "m32[C_cy]": -1,
+        "m35[C_cy]": 1
+      },
+      "element_charge_residual": {},
+      "Hplus_coefficient": 0,
+      "scope": "chemically checked proposed diagnostic only; no optimization or model mutation in this audit"
+    },
+    "UTP": {
+      "stoichiometry": {
+        "m439[C_cy]": -1,
+        "m11[C_cy]": 1,
+        "m32[C_cy]": -1,
+        "m35[C_cy]": 1
+      },
+      "element_charge_residual": {},
+      "Hplus_coefficient": 0,
+      "scope": "chemically checked proposed diagnostic only; no optimization or model mutation in this audit"
+    },
+    "CTP": {
+      "stoichiometry": {
+        "m406[C_cy]": -1,
+        "m500[C_cy]": 1,
+        "m32[C_cy]": -1,
+        "m35[C_cy]": 1
+      },
+      "element_charge_residual": {},
+      "Hplus_coefficient": 0,
+      "scope": "chemically checked proposed diagnostic only; no optimization or model mutation in this audit"
+    }
+  },
+  "source_file_sha256": {
+    "model_metadata_trna_r1159_leak.xml": "aad701126d12d113816fda4b872333b614b4469ee1b6d8ab8c419231c89e965f",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/cached_candidate_proteins.json": "67db6b43610f1ed2940453fbbc28c1a03e1886b4ac45926f84d77509f47bbe03",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/download_manifest.json": "88d1194ae59e940db7d2a1e45455a73aa7d6966c7ee552cc03d4638ceacbeddc",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/ec3.6.1.39.html": "ffe001185a99972b26134c3a3151a8bb46060f31f8942a85845ad39155baad52",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/ec2.7.1.40.html": "f108d31981b19d31180feaa7242c1b2abf6689148c33bf93a41d90b007e5853c",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/REPORT.md": "d0bc162dd81ae72cd4d4f07d77cbe9ecbd981bdb87bddc0e5c671dadf71c3876",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/ec2.7.4.6.html": "056e698ded056c6c2d49970f9c83123b25ac385b712f094d2aeaff7add617f6a",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/R00208.kegg": "a7af6438b38c86247f398374befe24144a877081e2384e33da8ce5567a0dca5f",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/R00335.kegg": "93bb84a5847b1b7e5c2b843b05a79643b4ace413f6eec1052d801e06f01b6300",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/R00159.kegg": "2bd715134aa2fcd9ce67b2bd99b6afb7e1a3ac6288b9378690ab03339d6446bb",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/local_provenance.json": "be3ac3c10c3a64fd8e99aab5315cd5b7fb680a0a78834bd8cdce9d78606335ea",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/check_provenance.py": "7af404208a50f35d7fffadc6ce9e3a8a4e6e8e489a9d4179ecc94dbeda22d5cd",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/R01010.kegg": "4b2172ad01fe02f84d72889938ec8f9b72a135f948753a3db3692223d9364bea",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/pep_phosphatase_PMC1061789.html": "01338738d7055b7ae25a7f129946036c2afe72ecf85ea16715c72d9e848f4c07",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/ec3.1.3.60.html": "fcadf2f58b3fea2c02e96c8e0c1de06132c3534b066ee067841556ebeef57bcc",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/ec3.1.3.2.html": "59e66e0ae9ddb90fdb125ce43130c467d5a6a04894ba2a61f3b55765bd4d78b8",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/file_manifest.json": "eed88a7b01d807e3222826588c2f78c63fbba270d3601d76003e38bb49e582d7",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/ec3.6.1.5.html": "0543da2f8b6c3470c7db2fb1513c387af3d6ab59231e998912c6396d1f359c0e",
+    "artifacts/dipeptide_energy_audit_20260924/energy_sources/download_manifest_utp.json": "0339a3d12d7ffddcc090f21531fa0f2243d87ffac726107f241081718096ce62"
+  },
+  "warnings": [
+    "Neutral NTP/NDP/Pi formula/charge pairs were explicitly preserved while several InChI annotations point to charged species. Treat chemicalFormula+charge as effective model representation; do not claim annotation coherence or physiological microspecies validation.",
+    "r0242 +2 H+ follows DHAP dianion versus neutral phosphoric acid representation. It is not a proton pump or measured proton coupling.",
+    "No shared-metabolite formula or charge change proposed.",
+    "r0242 direction has not been restricted by this E2/E3 chemistry audit. DHAP hydrolysis is supported; free reverse synthesis would require separate evidence adjudication if it appears in a new witness.",
+    "KEGG/ChEBI identities and IUBMB reaction definitions do not validate native enzyme substrate spectrum or compartment."
+  ]
+}

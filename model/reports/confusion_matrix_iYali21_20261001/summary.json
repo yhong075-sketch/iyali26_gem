@@ -1,0 +1,58 @@
+{
+  "completed_utc": "2026-10-02T00:09:39.326983+00:00",
+  "status": "complete",
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/data/iyli21.xml",
+    "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631"
+  },
+  "model_label": "iYali21",
+  "primary_cutoff": 0.15,
+  "rule": "Strict unrounded KO/WT < 0.15",
+  "WT": 1.4021214047133883,
+  "model_genes": 1058,
+  "reference_positives": 320,
+  "reference_negatives": 738,
+  "TP": 61,
+  "FN": 259,
+  "FP": 28,
+  "TN": 710,
+  "metrics": {
+    "recall": 0.190625,
+    "precision": 0.6853932584269663,
+    "accuracy": 0.7287334593572778,
+    "specificity": 0.962059620596206,
+    "F1": 0.2982885085574572
+  },
+  "user_selected_scope": "Only use the consensus essential list; negative reference is its complement within the model",
+  "reference_definition": "Positive: in consensus essential list. Negative: screened model gene absent from that list.",
+  "limitations": "List-membership reference, not independently established experimental negative calls or independent model validation",
+  "normalization": "Remove underscore after YALI0/1/2 prefix only; no cross-version mapping",
+  "assays_used": [],
+  "new_model_optimizations": 1059,
+  "model_predicted_essential": 89,
+  "unresolved_KOs": 0,
+  "original_labels_preserved": true,
+  "source_workbook": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/screen_test_metadata_trna_20260910/inputs/42003_2023_4996_MOESM10_ESM.xlsx",
+    "original_user_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/raw/assays/42003_2023_4996_MOESM10_ESM.xlsx",
+    "sha256": "50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda",
+    "sheet": "Sheet1",
+    "range": "A2:B1613",
+    "raw_records": 1612,
+    "label_basis": "User-designated essential gene list; workbook contains IDs and putative functions only",
+    "normalization": "Remove underscore immediately after YALI0/1/2 prefix; no aliases or cross-version mapping"
+  },
+  "consensus_positives_outside_model": 1292,
+  "consensus_positive_coverage": 0.19851116625310175,
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/confusion_matrix_iYali21_20261001/screen_predictions.json": "cfbdcd0d2ec042306cceab67e69d02cfc33a2aaf1676eb05af4a23b62205bb57",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/confusion_matrix_iYali21_20261001/run_manifest.json": "09f6cfa11e494ce89a5bce9967fa0b581ab361cee0be5aeb7cc54ac9a3c3d238",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/confusion_matrix_iYali21_20261001/build_matrix.py": "5860036dcab8deeb4000794008019e64cb2482e575ee1260c7750ebfb68241b0"
+  },
+  "output_sha256": {
+    "reference_gene_comparison.tsv": "f53b00faa047037a0adbb89e9e3ae12046c7ea15b5af55b6a37c8b5f832e6c51",
+    "confusion_matrix_15pct.pdf": "b33a65f0ea6cd1dd97421df84e44ab021fa218d8c1cd1430484a737a5ce86a54",
+    "confusion_matrix_15pct.svg": "9eed10d0b7838b6ed6e3d68dfa3902ada65d9109dc894383064df7b6fc2d18ba",
+    "confusion_matrix_15pct.png": "a4609e590766bb744c9f281c7a5c247330703d7662801029efbf9fb0b66cfdaa"
+  }
+}

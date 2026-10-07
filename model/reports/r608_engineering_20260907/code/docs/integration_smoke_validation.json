@@ -1,0 +1,84 @@
+{
+  "baseline": {
+    "path": "/private/tmp/iyali26-final-end-to-end/baseline.xml",
+    "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
+  },
+  "baseline_validation": {
+    "imbalanced_reaction_count": 331,
+    "incomplete_formula_count": 337,
+    "metabolites": 1877,
+    "objective": {
+      "biomass_C": 1.0
+    },
+    "objective_direction": "max",
+    "objective_value": 1.3875914754870777,
+    "reactions": 2313,
+    "solver_status": "optimal",
+    "uncheckable_reaction_count": 449
+  },
+  "candidate": {
+    "path": "/private/tmp/iyali26-final-end-to-end/candidate.xml",
+    "sha256": "d5bc83aadf07bfbd3e56b81188b30c96ee9c0858b4434020174b769aefff29e1"
+  },
+  "candidate_validation": {
+    "imbalanced_reaction_count": 328,
+    "incomplete_formula_count": 333,
+    "metabolites": 3006,
+    "objective": {
+      "biomass_C": 1.0
+    },
+    "objective_direction": "max",
+    "objective_value": 1.386113657777711,
+    "reactions": 3413,
+    "solver_status": "optimal",
+    "uncheckable_reaction_count": 425
+  },
+  "dfba_pilot": {
+    "evaluated_gene_count": 1,
+    "final_scientific_gate_passed": true,
+    "new_false_negative_count": 0,
+    "production_gate_passed": false,
+    "settings": {
+      "growth_cutoff": 0.01,
+      "hours": 0.1,
+      "initial_biomass_gdw_l": 0.05,
+      "solver": "glpk",
+      "step_hours": 0.1
+    },
+    "status": "complete"
+  },
+  "input_records": {
+    "baseline_model": {
+      "path": "/private/tmp/iyali26-final-end-to-end/baseline.xml",
+      "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee"
+    },
+    "candidate_model": {
+      "path": "/private/tmp/iyali26-final-end-to-end/candidate.xml",
+      "sha256": "d5bc83aadf07bfbd3e56b81188b30c96ee9c0858b4434020174b769aefff29e1"
+    },
+    "dynamic_medium": {
+      "path": "/private/tmp/iyali26-final-pipeline/data/media/po1f_csm_leu_dfba.csv",
+      "sha256": "7e189e312ddbae7cea711c5dfabbfbc6d0b10803f82a689e6d589d11b7ec5ec4"
+    },
+    "essentiality_loader": {
+      "path": "/private/tmp/iyali26-final-pipeline/scripts/gem_annotate/validate_essential_genes.py",
+      "sha256": "32015c9d931b7f0cb4397f793696c1edefdd14fa5d1173bc4943103841460c94"
+    },
+    "experimental": {
+      "path": "/private/tmp/iyali26-integration-pilot-reference.csv",
+      "sha256": "408a7ce472d60f79e0f476ccc7048b56210494bab3a27ae31209a845fd199157"
+    },
+    "fingerprint_helper": {
+      "path": "/private/tmp/iyali26-final-pipeline/scripts/lp_sn12_candidate.py",
+      "sha256": "302b40409434e8081b70777d32f083eafb57758b020c9aa5dbff7b152a8424cd"
+    },
+    "runner_script": {
+      "path": "/private/tmp/iyali26-final-pipeline/scripts/dfba_new_fn_essentiality.py",
+      "sha256": "f6a300b7d14d9a77635a08d3b3957b3fc5c4ddcad9ceef6b61d49d5248bd38dc"
+    }
+  },
+  "kind": "integration_smoke_not_production_acceptance",
+  "pipeline_status": "complete",
+  "repeated_candidate_bytes_equal": true,
+  "repeated_raw_rebuild_bytes_equal": true
+}

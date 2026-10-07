@@ -1,0 +1,213 @@
+{
+  "scope": "Source/chemical review only; no solver outcome acceptance",
+  "coverage": {
+    "total_claims": 25,
+    "audited": 25,
+    "supported": 22,
+    "unresolved": 3,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "目标 NTP/NDP/Pi 在执行模型中采用明确保存的中性分子式/电荷；DHAP 为二价阴离子",
+      "verdict": "supported",
+      "sources": "固定 XML fbc:chemicalFormula/fbc:charge 及 preserved_existing_pair notes；对应 ChEBI/KEGG 物种页面",
+      "limitations": "只确认本模型表示，不确认胞质主要物种；多处 InChI 注释仍指向其他质子化形式",
+      "audited": true
+    },
+    {
+      "id": "C02",
+      "claim": "R_NTP3pp 移除反应物 H+ 与明确的中性 GTP/GDP/Pi 水解化学一致",
+      "verdict": "supported",
+      "sources": "ChEBI:15996/17552/26078/15377；IUBMB EC3.6.1.5；KEGG R00335 缓存原文",
+      "limitations": "不确认原生 GPR 精确活性",
+      "audited": true
+    },
+    {
+      "id": "C03",
+      "claim": "R_NTP7 移除产物 H+ 与明确的中性 UTP/UDP/Pi 水解化学一致",
+      "verdict": "supported",
+      "sources": "ChEBI:15713/17659/26078/15377；IUBMB EC3.6.1.5；KEGG R00159 缓存原文",
+      "limitations": "不确认原生 GPR 精确活性",
+      "audited": true
+    },
+    {
+      "id": "C04",
+      "claim": "r0242 正向增加产物 2H+ 是 DHAP 二价阴离子和中性 DHA/Pi 约定间必要的配平",
+      "verdict": "supported",
+      "sources": "ChEBI:57642/16108/16016/26078/15378/15377；KEGG R01010 缓存原文",
+      "limitations": "酸碱形式记账，不是测得泵耦联或该反应生理方向验证",
+      "audited": true
+    },
+    {
+      "id": "C05",
+      "claim": "R_PGAM1_PhosHydro 保留负向 PEP 水解、禁止无耦联正向合成可作为有证据方向候选",
+      "verdict": "supported",
+      "sources": "IUBMB EC3.1.3.60；Duff et al 1989 PMC1061789 缓存摘要；固定 XML",
+      "limitations": "对磷酸酶类别的条件性方向候选；未获得 W29 实际 ΔG 或精确酶活",
+      "audited": true
+    },
+    {
+      "id": "C06",
+      "claim": "R_NTP3pp 保留负向 GTP 水解、禁止无耦联正向合成可作为有证据方向候选",
+      "verdict": "supported",
+      "sources": "IUBMB EC3.6.1.5；KEGG R00335 缓存原文；固定 XML",
+      "limitations": "类别证据，不是任意条件热力学不可逆的证明",
+      "audited": true
+    },
+    {
+      "id": "C07",
+      "claim": "R_NTP7 保留正向 UTP 水解、禁止无耦联逆向合成可作为有证据方向候选",
+      "verdict": "supported",
+      "sources": "IUBMB EC3.6.1.5；KEGG R00159 缓存原文；固定 XML",
+      "limitations": "类别证据，不是任意条件热力学不可逆的证明",
+      "audited": true
+    },
+    {
+      "id": "C08",
+      "claim": "现有 xMAINTENANCE 在模型中性 ATP/ADP/Pi 约定下已完整配平，无需 H+ 修订",
+      "verdict": "supported",
+      "sources": "固定 XML；ChEBI:15422/16761/26078/15377；独立逐元素计算",
+      "limitations": "仅当前表示；不证明全网可生产 ATP 是否合理",
+      "audited": true
+    },
+    {
+      "id": "C09",
+      "claim": "GTP/UTP/CTP 到 NDP+Pi 的诊断水解无需 H+，在当前表示下可完整配平",
+      "verdict": "supported",
+      "sources": "固定 XML；ChEBI:15996/17552/15713/17659/17677；KEGG C00112；逐元素计算",
+      "limitations": "CDP ChEBI 页面本次不可用，公式由 KEGG 确认、charge=0 由 XML 明确保存；本子任务未执行优化",
+      "audited": true
+    },
+    {
+      "id": "C10",
+      "claim": "R694/R594/R603/R2010 当前九对象审查范围内逐列配平，不能因见证参与而判错删除",
+      "verdict": "supported",
+      "sources": "固定 XML 的完整计量与分子式、电荷；逐元素计算；既有 IUBMB EC2.7.1.40/2.7.4.6 缓存原文",
+      "limitations": "守恒通过不是全部方向或原生功能通过",
+      "audited": true
+    },
+    {
+      "id": "C11",
+      "claim": "当前物种注释存在保存的中性公式与部分带电 InChI 的来源冲突",
+      "verdict": "supported",
+      "sources": "固定 XML notes、InChI /p−n 与 fbc formula/charge 的逐项对照",
+      "limitations": "此次不改共享物种，不能称全模型化学语义已统一",
+      "audited": true
+    },
+    {
+      "id": "C12",
+      "claim": "四条新增磷酸酶的同一 GPR 已在 W29 对精确底物和胞质定位获得实验证实",
+      "verdict": "unverified",
+      "sources": "上一轮缓存 UniProt 候选和已打开官方反应定义均不提供该实验；本轮不执行新蛋白推断",
+      "limitations": "原生酶、底物谱和区室保持未决，不能从化学修复升级为 GPR 接纳",
+      "audited": true
+    },
+    {
+      "id": "C13",
+      "claim": "R_NDP1 去掉反应物 H+ 与当前中性 AMP/ADP/Pi 约定下的水解化学一致",
+      "verdict": "supported",
+      "sources": "固定 XML；ChEBI:16027/16761/26078/15377；KEGG R00122",
+      "limitations": "不新增共享物种修改",
+      "audited": true
+    },
+    {
+      "id": "C14",
+      "claim": "R_NDP1 限定 v≤0 保留 ADP 水解、禁止无能量耦联 AMP→ADP 合成，是有据方向候选",
+      "verdict": "supported",
+      "sources": "IUBMB EC3.6.1.5；KEGG R00122",
+      "limitations": "不确认同一泛酸性磷酸酶 GPR 的原生精确活性",
+      "audited": true
+    },
+    {
+      "id": "C15",
+      "claim": "R_NDP1 的早期水解单向整理被 metadata 字段选择恢复双向并添加消耗 H+",
+      "verdict": "supported",
+      "sources": "gap_fill_direction_curation.csv；metadata_reaction_selection.json；实际 XML",
+      "limitations": "静态逐字段追踪；运行时阶段追踪由主任务交付",
+      "audited": true
+    },
+    {
+      "id": "C16",
+      "claim": "按实际 R72 水解计量保留正向并禁止逆向无能量耦联合成，可作为方向候选",
+      "verdict": "supported",
+      "sources": "IUBMB EC3.6.1.52；Safrany et al 1999 PMID10419486 摘要；实际 XML",
+      "limitations": "仅化学类别方向；原生具体异构体偏好未确认",
+      "audited": true
+    },
+    {
+      "id": "C17",
+      "claim": "R72 的 EC2.7.4.24 注释与当前无 ATP/ADP 的水解列不符，不能用此注释证明逆向免费合成",
+      "verdict": "supported",
+      "sources": "IUBMB EC2.7.4.24；实际 XML stoichiometry/PROTEIN_CLASS",
+      "limitations": "不自动删除或重指派 GPR；保留注释冲突",
+      "audited": true
+    },
+    {
+      "id": "C18",
+      "claim": "R72 两个当前 OR 基因的原生精确底物与互相替代已经实验确认",
+      "verdict": "unverified",
+      "sources": "工作区 UniProt 注释和跨物种酶学研究不足以支持",
+      "limitations": "不作新蛋白功能推断；m140 无化学结构注释，6-位/现代命名亦不静默替换",
+      "audited": true
+    },
+    {
+      "id": "C19",
+      "claim": "R_CAT2p 是 ethanol+H2O2→acetaldehyde+2H2O 的 peroxidatic 活性；保留正向 LB0 有化学类别依据",
+      "verdict": "supported",
+      "sources": "固定 XML；IUBMB EC1.11.1.6；Oshino 1973 PMID4720713 原始摘要",
+      "limitations": "不是 catalase dismutation；原始实验来自大鼠肝脏，不能当作 W29 实验",
+      "audited": true
+    },
+    {
+      "id": "C20",
+      "claim": "R_CAT2p 早期单向整理被 metadata bounds 选择恢复双向",
+      "verdict": "supported",
+      "sources": "gap_fill_direction_curation.csv；metadata_reaction_selection.json；固定 XML",
+      "limitations": "实际前后字段核对，不猜测作者动机",
+      "audited": true
+    },
+    {
+      "id": "C21",
+      "claim": "R_OAADCm 移除产物 H+ 符合已保存的中性 pyruvate/OAA/CO2 物种，非仅残差抵消",
+      "verdict": "supported",
+      "sources": "固定 XML preserved_existing_pair；ChEBI30744/32816/16526",
+      "limitations": "中性公式不等于生理主要离子物种；不修改共享物种",
+      "audited": true
+    },
+    {
+      "id": "C22",
+      "claim": "R_OAADCm 保留负向 OAA 脱羧、UB0 是有依据的方向候选",
+      "verdict": "supported",
+      "sources": "IUBMB EC1.1.1.38/4.1.1.112；KEGG R00217；Sender 2004 PMID15251467；EC6.4.1.1/7.2.4.2 机制对照",
+      "limitations": "未取得 W29 实际浓度和 ΔG；数据库双箭头不是生理双向证明",
+      "audited": true
+    },
+    {
+      "id": "C23",
+      "claim": "R_OAADCm EC1.1.1.38 可包含无 NAD 的 OAA 脱羧侧反应；metadata 添加 H+ 与原中性物种不相容",
+      "verdict": "supported",
+      "sources": "IUBMB EC1.1.1.38 reaction2；metadata_reaction_selection.json；固定 XML",
+      "limitations": "不能将该 EC 简单称错配或凭此确认原生基因全部活性",
+      "audited": true
+    },
+    {
+      "id": "C24",
+      "claim": "R_CAT2p 混合 cy/pe 区室的原生精确活性以及 R_OAADCm 原生精确侧活性已有 W29 实验",
+      "verdict": "unverified",
+      "sources": "工作区 UniProt 自动/同源注释与跨物种原始酶学",
+      "limitations": "CAT2p 候选自动定位为 cytoplasm；未作新蛋白推断或定位验证",
+      "audited": true
+    },
+    {
+      "id": "C25",
+      "claim": "当前 E4 见证涉及的 R305/R1889 分别保留 H/charge=-2/-2 与-1/-1 残差",
+      "verdict": "supported",
+      "sources": "固定 XML 元素/电荷独立逐列计算；E4 提供见证",
+      "limitations": "仅静态化学观察；不裁决 CoQ 方案，不以整体无 ATP 见证替代全网配平审核",
+      "audited": true
+    }
+  ]
+}

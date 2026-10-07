@@ -1,0 +1,195 @@
+{
+  "audited_at_utc": "2026-09-15T21:47:04.047725+00:00",
+  "reviewer": "independent audit_three_reaction_ko subagent",
+  "scope": "Exactly four requested claims. XML parsing and arithmetic on two saved flux vectors. No solver calls. Older-input R153 run excluded from latest-model result.",
+  "counts": {
+    "total_claims": 4,
+    "audited": 4,
+    "supported": 4,
+    "unresolved": 0,
+    "contradicted": 0,
+    "unchecked": 0
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "claim": "Actual model identity matches the latest model explicitly selected in TASK/state and its passed build validation; same declared SD-Leu/PO1f inputs.",
+      "sources": [
+        "TASK.md",
+        "PROJECT_STATE.md: latest R153 single-GPR build entry",
+        "build_validation.json#/model",
+        "run_manifest.json#/model",
+        "actual XML/media/profile"
+      ],
+      "verdict": "supported"
+    },
+    {
+      "claim_id": "C02",
+      "claim": "Two saved conditions differ only by R153 zero bounds; all 4630 fluxes are complete, finite, feasible against independently reconstructed XML/medium/profile and match biomass objective.",
+      "sources": [
+        "run_manifest.json#/results",
+        "run_manifest.json#/base_bounds",
+        "actual XML speciesReference/flux bounds/objective",
+        "run_ko.py"
+      ],
+      "verdict": "supported"
+    },
+    {
+      "claim_id": "C03",
+      "claim": "Raw unrounded KO/WT ratio is 0.9999999999999998; strict15% classification false, also false at1/5/10%.",
+      "sources": [
+        "run_manifest.json#/results/*/raw_objective",
+        "run_manifest.json#/KO_WT_ratio",
+        "run_manifest.json#/audited_predictions"
+      ],
+      "verdict": "supported"
+    },
+    {
+      "claim_id": "C04",
+      "claim": "R153 and R2176 have identical actual stoichiometry in C_cy, identical single-member GPR and baseline bounds [-1000,1000]; saved WT flux uses R153 and saved KO flux uses R2176. This is a model flux witness only.",
+      "sources": [
+        "actual XML: R153/R2176 and species compartments",
+        "run_manifest.json#/results/*/fluxes"
+      ],
+      "verdict": "supported"
+    }
+  ],
+  "input_identity": {
+    "model": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r153_single_gpr.xml",
+      "expected_sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f",
+      "actual_sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f"
+    },
+    "medium": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+      "expected_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+      "actual_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85"
+    },
+    "strain_profile": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+      "expected_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "actual_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+    }
+  },
+  "source_sha256": {
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/__init__.py": "2f46a04779c9d914df862ace6af23c8888d94da07aad0e922b7afcd9eb06245d",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "artifacts/r608_engineering_20260907/code/scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+    "artifacts/r153_latest_single_ko_20260915/run_ko.py": "e1811cc2eef83fe7755deb765b940d495d2fc07877e71fd6678f9d9f88265cdb"
+  },
+  "audited_artifact_sha256": {
+    "artifacts/r153_latest_single_ko_20260915/TASK.md": "3c53310d6eeb14bd40d5dc512a7a6e4f856b0a715953fc73bea9060e76fc1b78",
+    "artifacts/r153_latest_single_ko_20260915/run_ko.py": "e1811cc2eef83fe7755deb765b940d495d2fc07877e71fd6678f9d9f88265cdb",
+    "artifacts/r153_latest_single_ko_20260915/run_manifest.json": "42d578a5191db6f5fd75da0b8023f36c07f302483ad119bed2906c36d9e5c249",
+    "artifacts/r153_latest_single_ko_20260915/execution.json": "9217f95b9d6e1be1ba0a319e7d3d0bd2df3589e93ff29cd9c1086c067b0fcc06",
+    "artifacts/r153_single_gpr_pipeline_20260915/build_validation.json": "a5525b9f82a2675e7377924863fad9c6850173670a1620b440edf8694d50dd79",
+    "artifacts/screen_test_metadata_trna_20260910/run_manifest.json": "1693c1d119ce58732e32be3f1596961eeca8ee05f581cf85eab0204f826bad10",
+    "artifacts/r153_latest_single_ko_20260915/REPORT.md": "386a6c258a91bfb57f43b170c70fdb3d87a8494de16d49ef92ec69324ff46aa4"
+  },
+  "state_sha256_when_relevant_entry_read": "81f72bd9ac08a68a4d06429eae848ddfebb76f344d0692911ee2b1f4ad3a36ed",
+  "state_changes_expected": "Parent concurrently updates PROJECT_STATE.md; not a scientific input and excluded from scientific-drift assertions.",
+  "reconstruction": {
+    "reaction_count": 2315,
+    "species_count": 1877,
+    "base_bounds_match": true,
+    "active_medium_match": true,
+    "objective_coefficients": {
+      "biomass_C": 1.0
+    },
+    "direction": "max",
+    "SBO_exchanges_equal_C_ex_single_species_boundaries": true
+  },
+  "conditions": {
+    "WT": {
+      "flux_count": 2315,
+      "all_finite": true,
+      "max_mass_residual_fsum": 6.780719648963318e-14,
+      "max_mass_residual_original_order": 9.237055564881302e-14,
+      "max_bound_violation": 0,
+      "changed_bounds": {},
+      "objective_recomputed": 1.8718823069402997,
+      "raw_status_recorded": "optimal",
+      "local_fluxes": {
+        "R153": 0.20917915810634485,
+        "R2176": 0.0
+      }
+    },
+    "KO_R153_reaction": {
+      "flux_count": 2315,
+      "all_finite": true,
+      "max_mass_residual_fsum": 1.8955540262433068e-13,
+      "max_mass_residual_original_order": 1.895554568344393e-13,
+      "max_bound_violation": 0,
+      "changed_bounds": {
+        "R153": [
+          0,
+          0
+        ]
+      },
+      "objective_recomputed": 1.8718823069402992,
+      "raw_status_recorded": "optimal",
+      "local_fluxes": {
+        "R153": 0.0,
+        "R2176": 0.2091791581063448
+      }
+    }
+  },
+  "ratios": {
+    "raw_KO_WT": 0.9999999999999998,
+    "raw_KO_minus_WT": -4.440892098500626e-16,
+    "strict_predictions": [
+      {
+        "cutoff": 0.01,
+        "essential": false
+      },
+      {
+        "cutoff": 0.05,
+        "essential": false
+      },
+      {
+        "cutoff": 0.1,
+        "essential": false
+      },
+      {
+        "cutoff": 0.15,
+        "essential": false
+      }
+    ]
+  },
+  "local_mechanism": {
+    "stoichiometry_identical": true,
+    "stoichiometry": {
+      "m141[C_cy]": -1.0,
+      "m267[C_cy]": -1.0,
+      "m313[C_cy]": -1.0,
+      "m86[C_cy]": 1.0,
+      "m203[C_cy]": 1.0,
+      "m312[C_cy]": 1.0
+    },
+    "compartments": [
+      "C_cy"
+    ],
+    "unchanged_R2176_bounds": [
+      -1000.0,
+      1000.0
+    ],
+    "KO_R2176_minus_WT_R153_flux": -5.551115123125783e-17,
+    "actual_XML_GPR_trees_identical": true,
+    "same_single_member_GPR": true,
+    "GPR_text_matches_both_manifest_entries": true,
+    "baseline_bounds_both": [
+      -1000,
+      1000
+    ]
+  },
+  "limits": [
+    "No optimization was rerun by auditor; optimal status is solver-reported and primal-feasibility checks are not an independent global-optimality certificate.",
+    "The result is a reaction-only knockout in the declared model and medium, not a gene knockout, experimental essentiality test, native enzyme confirmation, or proof of pathway uniqueness.",
+    "Latest denotes the explicitly selected, state-recorded validated input at this task; it does not redefine historical baselines.",
+    "This audit does not approve merging duplicate reactions or establish feasible-set preservation under a retained single-reaction capacity bound."
+  ],
+  "audit_solver_calls": 0,
+  "report_checked": "Read final REPORT.md: four scoped claims agree with independent XML/arithmetic checks and retain model-only flux-witness limits.",
+  "state_sha256_at_completion": "3fd756ff62fe857956a64b7967ec1deca699b429833449dd38b2f3beecea19e1",
+  "completed_at_utc": "2026-09-15T21:47:57.006724+00:00"
+}

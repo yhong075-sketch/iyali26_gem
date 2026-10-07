@@ -1,0 +1,63 @@
+{
+  "model": "artifacts/atp_candidate_repair_20260924/candidates/E5.xml",
+  "model_sha256": "43042d16f874a91d61f12f9f2b65838cbc264821d98bcf6e108300bf787007be",
+  "media": "artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv",
+  "strain_profile": "artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json",
+  "maintenance": "xMAINTENANCE",
+  "biomass_reactions": [
+    "R1372",
+    "R1387",
+    "R1710",
+    "xBIOMASS",
+    "biomass_C",
+    "newBiom"
+  ],
+  "tolerance": 1e-07,
+  "display_threshold": 1e-07,
+  "fixed_dissipation": 1.0,
+  "limits": {
+    "solves": 200,
+    "solve_wall_seconds": 1800,
+    "per_solve_seconds": 60
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  },
+  "candidate": "artifacts/vacuole_open_supply_20260924/E5_vacuole_open.xml",
+  "strict_growth_delta": 1e-06,
+  "pfba_growth_slack": 0.0,
+  "fva_fraction": 0.99,
+  "main_epsilon": 0.01,
+  "sensitivity_epsilon": [
+    0.0001,
+    0.001
+  ],
+  "connection_bounds": {
+    "R1363": [
+      0,
+      0.04
+    ],
+    "R795": [
+      0,
+      0.04
+    ],
+    "R871": [
+      0,
+      0.01
+    ],
+    "R876": [
+      0,
+      0.01
+    ]
+  },
+  "input_configuration_sha256": {
+    "artifacts/atp_candidate_repair_20260924/candidates/E5.xml": "43042d16f874a91d61f12f9f2b65838cbc264821d98bcf6e108300bf787007be",
+    "artifacts/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+    "artifacts/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  }
+}

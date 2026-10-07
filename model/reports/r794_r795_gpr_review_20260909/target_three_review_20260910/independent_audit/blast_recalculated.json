@@ -1,0 +1,129 @@
+{
+  "checked_utc": "2026-09-11T00:19:35.988811+00:00",
+  "auditor": "/root/audit_gpr",
+  "status": "PASS",
+  "scope": "Independently parsed completed local XML2, both full fixed FASTAs, every reported HSP; no BLAST rerun.",
+  "rows": [
+    {
+      "query": "YALI1D00581g|A0A1D8NCM2|sequence_version=1",
+      "subject": "P32610|V1D|sequence_version=1",
+      "query_length": 257,
+      "subject_length": 256,
+      "query_union_residues": 255,
+      "subject_union_residues": 255,
+      "query_union_coverage": 0.9922178988326849,
+      "subject_union_coverage": 0.99609375,
+      "parameters": {
+        "matrix": "BLOSUM62",
+        "expect": "1e-05",
+        "gap-open": "11",
+        "gap-extend": "1",
+        "filter": "L;",
+        "cbs": "2"
+      },
+      "statistics": {
+        "hsp-len": "31",
+        "eff-space": "141476",
+        "kappa": "0.041",
+        "lambda": "0.267",
+        "entropy": "0.14"
+      },
+      "hsps": [
+        {
+          "query_range": [
+            3,
+            257
+          ],
+          "subject_range": [
+            2,
+            256
+          ],
+          "alignment_columns": 255,
+          "identity": 186,
+          "identity_fraction": 0.7294117647058823,
+          "gap_columns": 0,
+          "positive_columns_as_midline": 213,
+          "evalue_original": "1.17432e-132",
+          "qseq_raw": "ANNREAVFPTRMTLGMMKGKLKGATQGHNLLKRKSEALTKRFRDITRKIDESKHKMGRVMQTAAFSLAEVTYATGDNINYQVQESVRSARLRVRAKEENVSGVKLPSFSSYYVEENSDFSLTGLGRGGQQVQKAKAVYSKAVETLVELASLQTAFVILDEVIKITNRRVNAIEHVIIPRTENTIKYINSELDELDREEFYRLKKVQDKKARDTaaqdaeqkkqaleaaareekVGHAEATESADLTADKDDDVIF",
+          "hseq_raw": "SGNREQVFPTRMTLGLMKTKLKGANQGYSLLKRKSEALTKRFRDITKRIDDAKQKMGRVMQTAAFSLAEVSYATGENIGYQVQESVSTARFKVRARQENVSGVYLSQFESYIDPEINDFRLTGLGRGGQQVQRAKEIYSRAVETLVELASLQTAFIILDEVIKVTNRRVNAIEHVIIPRTENTIAYINSELDELDREEFYRLKKVQEKKQNETAKLDAEMKLKRDRAEQDASEVAADEEPQGETLVADQEDDVIF",
+          "case_insensitive_fasta_match": true
+        }
+      ]
+    },
+    {
+      "query": "YALI0E16192g|Q6C5Q2|sequence_version=1",
+      "subject": "P39111|V1F|sequence_version=1",
+      "query_length": 122,
+      "subject_length": 118,
+      "query_union_residues": 114,
+      "subject_union_residues": 114,
+      "query_union_coverage": 0.9344262295081968,
+      "subject_union_coverage": 0.9661016949152542,
+      "parameters": {
+        "matrix": "BLOSUM62",
+        "expect": "1e-05",
+        "gap-open": "11",
+        "gap-extend": "1",
+        "filter": "L;",
+        "cbs": "2"
+      },
+      "statistics": {
+        "hsp-len": "25",
+        "eff-space": "62468",
+        "kappa": "0.041",
+        "lambda": "0.267",
+        "entropy": "0.14"
+      },
+      "hsps": [
+        {
+          "query_range": [
+            8,
+            121
+          ],
+          "subject_range": [
+            5,
+            118
+          ],
+          "alignment_columns": 114,
+          "identity": 71,
+          "identity_fraction": 0.6228070175438597,
+          "gap_columns": 0,
+          "positive_columns_as_midline": 87,
+          "evalue_original": "8.87596e-52",
+          "qseq_raw": "REFLAVIGDEDSVTGLLLAGIGNVSDDAEKKKNFFVVDAKTENEAIEKAFDEFTNTRKDIAILLINQHIADKIRFRVDTYTQAFPALLEIPSKDHPYVPEKDSVLRRVRRLFGD",
+          "hseq_raw": "RTLIAVIADEDTTTGLLLAGIGQITPETQEKNFFVYQEGKTTKEEITDKFNHFTEERDDIAILLINQHIAENIRARVDSFTNAFPAILEIPSKDHPYDPEKDSVLKRVRKLFGE",
+          "case_insensitive_fasta_match": true
+        }
+      ]
+    }
+  ],
+  "total_queries": 2,
+  "fixed_subjects": 3,
+  "all_reported_HSPs": 2,
+  "identity_denominator": "alignment columns, gaps included; low-complexity masking letter case ignored only for sequence equality",
+  "reference_lengths": [
+    256,
+    118,
+    345
+  ],
+  "remote_status_at_stop": "WAITING, not a negative result",
+  "remote_response_sha256": "c2a3dbd03c461a282e6d83bac72ac3c7b9c20c15330cdaa35e407ac151ae3611",
+  "source_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/local_blast.xml": "5d70ba2de23263bb33b7620bca21efc5a5b81821d3d6ac57febd1843e4353e13",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/queries.fasta": "806ca2b0437b513158675649acc3c03430ada3fd7bce90999e41388afa6ac5ab",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/experimental_reference_panel.fasta": "47221efb5b299cdf8d14787e4c08910cbf2f745ebb3cf4f77a6c39d497c3a527",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/parse_blast.py": "e686a28c228f54168031d0b88a0ca5178525d8b649b8af31cf614e0a32a9451d",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/local_blast_run.json": "2101f5f7d447f5c22bf24b9478469a98c92dc1b1575e6dc8ec0fbb1fb80d3467",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/blast_request.json": "8e030e4955ed4b8433b9b308367f97f6324e1910e896fbc8ca5b358206650c8f",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/blast_tool_provenance.json": "ac275595e5e338f8b68d184e9b0a0b686c39d34ffd1fadb2fa925302bf762d53",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/tools/ncbi-blast-2.17.0+/bin/blastp": "753f0695a39ba19b2d351b0bb851b6051169b8b9e22c095fd634cc2a93cddf55"
+  },
+  "archive_md5_matches_saved_official_digest": true,
+  "limitations": [
+    "Only three fixed reviewed experimental references; no completed Swiss-Prot or genome-wide query",
+    "E values use small reference panel search space; no full-database E-value claim",
+    "No reported E<=1e-5 hit to two alternative references is not proof of no homology",
+    "No native target activity, compartment or growth-essentiality inference"
+  ],
+  "audit_code_sha256": "34056332ae073f94b86a9b3936368869dc25e0be1f0701b149681da4f77485b4"
+}

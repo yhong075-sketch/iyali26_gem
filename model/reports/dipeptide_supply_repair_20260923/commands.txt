@@ -1,0 +1,13 @@
+# CWD: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem
+# Local working branch and dirty state are captured in before.json.
+.venv/bin/python -B -m unittest tests.test_dipeptide_supply tests.test_reaction_selection tests.test_reference_reactions tests.test_r1159_direction > artifacts/dipeptide_supply_repair_20260923/tests.log 2>&1
+.venv/bin/python -B -m scripts.diagnose_dipeptide_supply --output artifacts/dipeptide_supply_repair_20260923/run > artifacts/dipeptide_supply_repair_20260923/run.log 2>&1
+# The running source is frozen as diagnose_v1.py; its SHA matches run/run_manifest.json.
+# First batch stopped at its declared wall limit, 544 results. No completed LP repeated.
+.venv/bin/python -B -m unittest tests.test_dipeptide_supply > artifacts/dipeptide_supply_repair_20260923/tests_final.log 2>&1
+# Above preflight caught stale native matrix reads; solver.update was added before reading the matrix.
+.venv/bin/python -B -m unittest tests.test_dipeptide_supply > artifacts/dipeptide_supply_repair_20260923/tests_final2.log 2>&1
+.venv/bin/python -B -m scripts.diagnose_dipeptide_supply --output artifacts/dipeptide_supply_repair_20260923/run_complete --reuse-run artifacts/dipeptide_supply_repair_20260923/run > artifacts/dipeptide_supply_repair_20260923/continuation.log 2>&1
+.venv/bin/python -B -m unittest tests.test_dipeptide_supply > artifacts/dipeptide_supply_repair_20260923/tests_final3.log 2>&1
+.venv/bin/python -B artifacts/dipeptide_supply_repair_20260923/summarize.py artifacts/dipeptide_supply_repair_20260923/run_complete > artifacts/dipeptide_supply_repair_20260923/summary.log 2>&1
+# Protection/identity checks and planned-label/flux audit use the recorded files without new optimization.

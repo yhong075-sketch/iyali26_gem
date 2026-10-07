@@ -1,0 +1,159 @@
+{
+  "adversarial_review": {
+    "findings": [],
+    "status": "not_run",
+    "verdict": ""
+  },
+  "case_id": "EGC-41703ef278c1",
+  "chemistry_fingerprint": "sha256:a962077d4596519a9b4128590007125574b74310faaf1f955b0caf65b8ac387d",
+  "claim_under_review": "The current GPR may encode isozyme redundancy where the proteins are instead non-redundant complex subunits or differently localized enzymes.",
+  "confidence": "none",
+  "contradictions": [],
+  "experimental_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+  "human_decision": {
+    "approved_at": "",
+    "approved_by": "",
+    "decision": "pending"
+  },
+  "identity_crosschecks": [],
+  "media_sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85",
+  "model_context": {
+    "diagnostics": [
+      {
+        "all_linked_reactions_closed_growth": 0.0,
+        "all_linked_reactions_closed_growth_ratio": 0.0,
+        "category": "isozyme_redundancy",
+        "gene_id": "YALI1C08702g",
+        "gpr": "YALI1C08702g or YALI1E18171g",
+        "isozyme_interpretation": "model_causal_isozyme_candidate",
+        "ko_capacity": 0.34294354831,
+        "ko_growth": 1.45408099381,
+        "ko_growth_ratio": 1.0,
+        "model_causal_isozyme": true,
+        "n_reactions": 1,
+        "n_verified_single_bypasses": 0,
+        "reaction_ids": "R540",
+        "reaction_names": "mannose-1-phosphate guanylyltransferase",
+        "verified_single_bypasses": "",
+        "wt_capacity": 0.34294354831
+      }
+    ],
+    "genes": [
+      {
+        "annotations": {
+          "ec-code": "2.7.7.13",
+          "ensembl": "CAG81822",
+          "kegg.genes": "yli:2909316",
+          "refseq": "XP_501519.1",
+          "sbo": "SBO:0000243",
+          "uniprot": "Q6CCU3"
+        },
+        "gene_id": "YALI1C08702g",
+        "gpr_partners": [
+          "YALI1E18171g"
+        ],
+        "name": "COBRAProtein485",
+        "reaction_ids": [
+          "R540"
+        ]
+      }
+    ],
+    "medium": {
+      "leucine_exchange": "R1219",
+      "leucine_uptake_open": false,
+      "num_open_uptakes": 35,
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv",
+      "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85"
+    },
+    "model_id": "M_iYali26",
+    "primary_cutoff_fraction_of_wt": 0.1,
+    "reactions": [
+      {
+        "annotations": {
+          "ec-code": "2.7.7.13",
+          "metanetx.reaction": "MNXR206053",
+          "sbo": "SBO:0000176",
+          "vmhr": [
+            "MAN1PT",
+            "R_MAN1PT",
+            "R_r0208",
+            "r0208"
+          ],
+          "vmhreaction": [
+            "MAN1PT",
+            "R_MAN1PT",
+            "R_r0208",
+            "r0208"
+          ]
+        },
+        "compartments": [
+          "C_cy"
+        ],
+        "ec_codes": "2.7.7.13",
+        "equation": "m10[C_cy] + m266[C_cy] + m802[C_cy] --> m203[C_cy] + m343[C_cy]",
+        "gpr": "YALI1C08702g or YALI1E18171g",
+        "gpr_gene_ids": [
+          "YALI1C08702g",
+          "YALI1E18171g"
+        ],
+        "lower_bound": 0.0,
+        "mass_balance": {
+          "H": -3.0
+        },
+        "mass_balance_error": "",
+        "metabolite_chemistry": {
+          "m10[C_cy]": {
+            "charge": 1,
+            "compartment": "C_cy",
+            "formula": "H"
+          },
+          "m203[C_cy]": {
+            "charge": -3,
+            "compartment": "C_cy",
+            "formula": "H4O7P2"
+          },
+          "m266[C_cy]": {
+            "charge": -4,
+            "compartment": "C_cy",
+            "formula": "C10H16N5O14P3"
+          },
+          "m343[C_cy]": {
+            "charge": -2,
+            "compartment": "C_cy",
+            "formula": "C16H23N5O16P2"
+          },
+          "m802[C_cy]": {
+            "charge": -2,
+            "compartment": "C_cy",
+            "formula": "C6H13O9P"
+          }
+        },
+        "name": "mannose-1-phosphate guanylyltransferase",
+        "reaction_id": "R540",
+        "stoichiometry": {
+          "m10[C_cy]": -1.0,
+          "m203[C_cy]": 1.0,
+          "m266[C_cy]": -1.0,
+          "m343[C_cy]": 1.0,
+          "m802[C_cy]": -1.0
+        },
+        "subsystem": "Fructose and mannose metabolism",
+        "upper_bound": 1000.0
+      }
+    ],
+    "verified_bypasses": [],
+    "wt_growth": 1.4540809938125028
+  },
+  "model_sha256": "b3f60933aa9503ab63ab5d8bca58a9525b8c81534d3eac72cf66d2769ff44f48",
+  "primary_sources": [],
+  "proposed_operation": {},
+  "reused_literature_provenance": {
+    "previous_experimental_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+    "previous_media_sha256": "2916d9d23d208db9c738f8d44106e77794970190c4b0bca7e44eea9000e705cc",
+    "previous_model_sha256": "b3f60933aa9503ab63ab5d8bca58a9525b8c81534d3eac72cf66d2769ff44f48",
+    "refreshed_at": "2026-08-06T07:21:19+00:00"
+  },
+  "schema_version": "2.0",
+  "target_fingerprint": "sha256:5164d251a81ecf3a1d903fe651e8a0ff8be4ad5fbf9cfd20885d3a8a92164691",
+  "verdict": "needs_more_evidence"
+}

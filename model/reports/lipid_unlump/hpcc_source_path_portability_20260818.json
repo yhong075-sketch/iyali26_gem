@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "artifact_type": "hpcc_slurm_validation_batch",
+  "batch_id": "source_path_portability",
+  "recorded_at": "2026-08-18",
+  "cluster": {
+    "ssh_target": "yhong075@cluster.hpcc.ucr.edu",
+    "login_hostname": "skylark",
+    "slurm_version": "24.11.1",
+    "partition": "short",
+    "account": "iwheeldonlab"
+  },
+  "git": {
+    "remote_branch": "origin/lipid-unlump",
+    "baseline_commit": "e5535fbf56f6d2b45572e4ed66a265cbfcc331a7",
+    "source_path_commit": "ca535edf8db47d12062f76e41389350779598c06",
+    "portability_fix_commit": "4f7704edeeed542ccc2b6d126f07a6dd9d4f18d5",
+    "remote_repository": "https://github.com/yhong075-sketch/iyali26_gem.git",
+    "hpcc_repository": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014"
+  },
+  "model": {
+    "logical_source": "../iyali26_gem/model.xml",
+    "hpcc_snapshot": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml",
+    "sha256": "bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee",
+    "fingerprint": "62837c66fd89dd13a58599da94b2f07f6cdc2386dcc22661e0b5728964e5039b",
+    "bytes": 14039307,
+    "mode": "0444",
+    "sha_freshly_recomputed_for_this_task": true,
+    "unchanged_after_successful_job": true
+  },
+  "software": {
+    "python": "3.11.15",
+    "cobra": "0.30.0",
+    "optlang": "1.8.3",
+    "scipy": "1.17.1",
+    "swiglpk": "5.0.13",
+    "glpk": "5.0"
+  },
+  "test_command": "IYALI26_SOURCE_MODEL=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml /rhome/yhong075/iyali26_flow_phase2/.venv/bin/python -m unittest tests.test_coa_protonation_curation tests.test_fatty_acyl_coa_handoff tests.test_r1521_current_snapshot_handoff tests.test_lp_sn12_candidate",
+  "jobs": [
+    {
+      "job_id": "27545674",
+      "git_sha": "ca535edf8db47d12062f76e41389350779598c06",
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "node": "x02",
+      "elapsed": "00:00:43",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "batch_max_rss_kb": 207752,
+      "tests": {
+        "total": 0,
+        "result": "NOT_RUN"
+      },
+      "failure": "Metadata preamble accessed absent swiglpk.__version__; set -e stopped before fingerprint and tests.",
+      "stdout": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_ca535ed/slurm-27545674.out",
+        "sha256": "30d97614e8479ebc9904c903c6be7f8f38a653d7186b68546a29c7fb7f10cd6d"
+      },
+      "stderr": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_ca535ed/slurm-27545674.err",
+        "sha256": "308cef605d557e19f541732ee32f92328baaac3ddbac5b4c80165d1d74668d36"
+      }
+    },
+    {
+      "job_id": "27545693",
+      "git_sha": "ca535edf8db47d12062f76e41389350779598c06",
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "node": "x03",
+      "elapsed": "00:04:01",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "batch_max_rss_kb": 1024072,
+      "tests": {
+        "total": 52,
+        "failures": 3,
+        "errors": 9,
+        "runtime_seconds": 193.204,
+        "result": "FAILED"
+      },
+      "failure": "Nine macOS-only /private/tmp errors plus raw solver-float equality in two freshness artifacts and one repeated solve assertion.",
+      "stdout": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_ca535ed/slurm-27545693.out",
+        "sha256": "5da67a1a739eb82b5a348a2485eea686c007995cba3d46ed726b962685df54d3"
+      },
+      "stderr": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_ca535ed/slurm-27545693.err",
+        "sha256": "1fb26b4dd2c6bcab9cdb75b45173565d0f6ce01699719400438e631c55d847a6"
+      }
+    },
+    {
+      "job_id": "27546079",
+      "git_sha": "4f7704edeeed542ccc2b6d126f07a6dd9d4f18d5",
+      "run_directory": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_4f7704e",
+      "script": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_4f7704e/job.sbatch",
+      "script_sha256": "07db8a87d1c2b378c55dac8843ea1a512f908dcba450dffc1035b0156b4f4b4e",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "node": "x02",
+      "submit_time": "2026-08-18T12:29:51-07:00",
+      "start_time": "2026-08-18T12:29:52-07:00",
+      "end_time": "2026-08-18T12:34:18-07:00",
+      "elapsed": "00:04:26",
+      "requested": {
+        "cpus_per_task": 1,
+        "memory": "8G",
+        "time": "00:20:00"
+      },
+      "allocated_cpus": 2,
+      "batch_max_rss_kb": 919756,
+      "tests": {
+        "total": 52,
+        "failures": 0,
+        "errors": 0,
+        "runtime_seconds": 235.669,
+        "result": "OK"
+      },
+      "stdout": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_4f7704e/slurm-27546079.out",
+        "bytes": 790,
+        "sha256": "a244609c40fe9c4de5d8048d6e22f0fe2add5c0e6768d90cd9e953d1df881d6d"
+      },
+      "stderr": {
+        "path": "/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/source_path_portability_4f7704e/slurm-27546079.err",
+        "bytes": 19447,
+        "sha256": "ac880209e6f744798291f0e36af904b122e770e2ded6e2c69c9b4c1b4a491920"
+      }
+    }
+  ],
+  "warnings": [
+    "GLPK does not support setting the optimality tolerance through the active interface.",
+    "COBRA emitted two group-list UserWarnings; the 52-test result remained OK."
+  ],
+  "acceptance": {
+    "source_path_portability": "passed",
+    "full_fba_pfba_fva_acceptance": "not_run_in_this_batch",
+    "production_apply_performed": false,
+    "activation_state": "blocked",
+    "ready_for_activation": false
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "checked_at": "2026-09-15T23:18:11.023712+00:00",
+  "model_path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/model_metadata_trna_r153_merged.xml",
+  "model_sha256": "10a3baa1da5eb8afb80f93c4cf8a43c3613af7ebb92c8e3385dcda44b91695d0",
+  "git_head": "c31921d3ea3b1889383dfdb48510a09d85e4cae1",
+  "reactions": {
+    "R1931": {
+      "name": "L-Glutamate 5-semialdehyde:NAD+ oxidoreductase",
+      "equation": "m122[C_cy] + m32[C_cy] + m552[C_cy] <=> m123[C_cy] + m50[C_cy]",
+      "equation_names": "NAD_C21H27N7O14P2 + H2O_H2O + L-glutamic 5-semialdehyde_C5H9NO3 <=> NADH_C21H29N7O14P2 + L-glutamate_C5H9NO4",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1B12993g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "PUTA3",
+          "R_PUTA3",
+          "R_r0074",
+          "r0074"
+        ],
+        "kegg.reaction": "R00245",
+        "metacyc.reaction": "RXN-14116",
+        "rh": [
+          "30235",
+          "30236",
+          "30237",
+          "30238"
+        ],
+        "rhea": [
+          "30235",
+          "30236",
+          "30237",
+          "30238"
+        ],
+        "sabiork.reaction": "756",
+        "seed.reaction": [
+          "rxn00183",
+          "rxn33819",
+          "rxn33820"
+        ],
+        "vmhreaction": [
+          "PUTA3",
+          "R_PUTA3",
+          "R_r0074",
+          "r0074"
+        ],
+        "metanetx.reaction": "MNXR103352",
+        "ec-code": "1.2.1.88",
+        "biggr": [
+          "PUTA3",
+          "R_PUTA3",
+          "R_r0074",
+          "r0074"
+        ],
+        "keggr": "R00245",
+        "metacycr": "RXN-14116",
+        "sabiorkr": "756",
+        "seedr": [
+          "rxn00183",
+          "rxn33819",
+          "rxn33820"
+        ],
+        "vmhr": [
+          "PUTA3",
+          "R_PUTA3",
+          "R_r0074",
+          "r0074"
+        ]
+      },
+      "notes": {
+        "PROTEIN_CLASS": "1.5.1.12"
+      },
+      "mass_balance": {},
+      "species": {
+        "m32[C_cy]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m122[C_cy]": {
+          "name": "NAD_C21H27N7O14P2",
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m552[C_cy]": {
+          "name": "L-glutamic 5-semialdehyde_C5H9NO3",
+          "formula": "C5H9NO3",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m50[C_cy]": {
+          "name": "L-glutamate_C5H9NO4",
+          "formula": "C5H9NO4",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m123[C_cy]": {
+          "name": "NADH_C21H29N7O14P2",
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        }
+      }
+    },
+    "R9": {
+      "name": "1-pyrroline-5-carboxylate dehydrogenase",
+      "equation": "m25[C_mi] + 2.0 m26[C_mi] + m27[C_mi] + m28[C_mi] --> m29[C_mi] + m30[C_mi]",
+      "equation_names": "1-pyrroline-5-carboxylate_C5H6NO2 + 2.0 H2O_H2O + NAD_C21H27N7O14P2 + H+_p+1 --> L-glutamate_C5H9NO4 + NADH_C21H29N7O14P2",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1B12993g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "P5CD",
+          "P5CDm",
+          "R_P5CD",
+          "R_P5CDm"
+        ],
+        "kegg.reaction": "R00707",
+        "rh": [
+          "16417",
+          "16418",
+          "16419",
+          "16420"
+        ],
+        "rhea": [
+          "16417",
+          "16418",
+          "16419",
+          "16420"
+        ],
+        "sabiork.reaction": [
+          "1083",
+          "15086"
+        ],
+        "seed.reaction": [
+          "rxn00503",
+          "rxn20649",
+          "rxn32901"
+        ],
+        "vmhreaction": [
+          "P5CD",
+          "P5CDm",
+          "R_P5CD",
+          "R_P5CDm"
+        ],
+        "metanetx.reaction": "MNXR102301",
+        "ec-code": "1.2.1.88",
+        "biggr": [
+          "P5CD",
+          "P5CDm",
+          "R_P5CD",
+          "R_P5CDm"
+        ],
+        "keggr": "R00707",
+        "sabiorkr": [
+          "1083",
+          "15086"
+        ],
+        "seedr": [
+          "rxn00503",
+          "rxn20649",
+          "rxn32901"
+        ],
+        "vmhr": [
+          "P5CD",
+          "P5CDm",
+          "R_P5CD",
+          "R_P5CDm"
+        ]
+      },
+      "notes": {},
+      "mass_balance": {},
+      "species": {
+        "m25[C_mi]": {
+          "name": "1-pyrroline-5-carboxylate_C5H6NO2",
+          "formula": "C5H6NO2",
+          "charge": -1,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m26[C_mi]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -2.0
+        },
+        "m27[C_mi]": {
+          "name": "NAD_C21H27N7O14P2",
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m29[C_mi]": {
+          "name": "L-glutamate_C5H9NO4",
+          "formula": "C5H9NO4",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": 1.0
+        },
+        "m30[C_mi]": {
+          "name": "NADH_C21H29N7O14P2",
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": 1.0
+        }
+      }
+    },
+    "R500": {
+      "name": "L-1-pyrroline-3-hydroxy-5-carboxylate dehydrogenase",
+      "equation": "2.0 m26[C_mi] + m27[C_mi] + m28[C_mi] + m753[C_mi] --> m30[C_mi] + m754[C_mi]",
+      "equation_names": "2.0 H2O_H2O + NAD_C21H27N7O14P2 + H+_p+1 + 1-pyrroline-3-hydroxy-5-carboxylic acid_C5H6NO3 --> NADH_C21H29N7O14P2 + erythro-4-hydroxy-L-glutamic acid_C5H9NO5",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1B12993g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "PHCD",
+          "PHCDm",
+          "R_PHCD",
+          "R_PHCDm"
+        ],
+        "kegg.reaction": "R04444",
+        "metacyc.reaction": "HYDROXYPYRROLINEDEH-RXN",
+        "rh": [
+          "31155",
+          "31156",
+          "31157",
+          "31158"
+        ],
+        "rhea": [
+          "31155",
+          "31156",
+          "31157",
+          "31158"
+        ],
+        "seed.reaction": [
+          "rxn03071",
+          "rxn27940",
+          "rxn33582"
+        ],
+        "metanetx.reaction": "MNXR145234",
+        "ec-code": "1.2.1.88",
+        "biggr": [
+          "PHCD",
+          "PHCDm",
+          "R_PHCD",
+          "R_PHCDm"
+        ],
+        "keggr": "R04444",
+        "metacycr": "HYDROXYPYRROLINEDEH-RXN",
+        "seedr": [
+          "rxn03071",
+          "rxn27940",
+          "rxn33582"
+        ]
+      },
+      "notes": {},
+      "mass_balance": {},
+      "species": {
+        "m26[C_mi]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -2.0
+        },
+        "m27[C_mi]": {
+          "name": "NAD_C21H27N7O14P2",
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m753[C_mi]": {
+          "name": "1-pyrroline-3-hydroxy-5-carboxylic acid_C5H6NO3",
+          "formula": "C5H6NO3",
+          "charge": -1,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m28[C_mi]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m30[C_mi]": {
+          "name": "NADH_C21H29N7O14P2",
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": 1.0
+        },
+        "m754[C_mi]": {
+          "name": "erythro-4-hydroxy-L-glutamic acid_C5H9NO5",
+          "formula": "C5H9NO5",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": 1.0
+        }
+      }
+    },
+    "R501": {
+      "name": "L-4-hydroxyglutamate semialdehyde dehydrogenase",
+      "equation": "m26[C_mi] + m27[C_mi] + m755[C_mi] <=> m30[C_mi] + m754[C_mi]",
+      "equation_names": "H2O_H2O + NAD_C21H27N7O14P2 + L-4-hydroxyglutamic semialdehyde_C5H9NO4 <=> NADH_C21H29N7O14P2 + erythro-4-hydroxy-L-glutamic acid_C5H9NO5",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "YALI1B12993g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "ec-code": "1.2.1.88"
+      },
+      "notes": {
+        "PROTEIN_CLASS": "1.5.1.12"
+      },
+      "mass_balance": {},
+      "species": {
+        "m26[C_mi]": {
+          "name": "H2O_H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m27[C_mi]": {
+          "name": "NAD_C21H27N7O14P2",
+          "formula": "C21H27N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m755[C_mi]": {
+          "name": "L-4-hydroxyglutamic semialdehyde_C5H9NO4",
+          "formula": "C5H9NO4",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": -1.0
+        },
+        "m30[C_mi]": {
+          "name": "NADH_C21H29N7O14P2",
+          "formula": "C21H29N7O14P2",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": 1.0
+        },
+        "m754[C_mi]": {
+          "name": "erythro-4-hydroxy-L-glutamic acid_C5H9NO5",
+          "formula": "C5H9NO5",
+          "charge": 0,
+          "compartment": "C_mi",
+          "coefficient": 1.0
+        }
+      }
+    },
+    "R327": {
+      "name": "glutamate 5-kinase",
+      "equation": "m141[C_cy] + m50[C_cy] --> 2.0 m10[C_cy] + m143[C_cy] + m551[C_cy]",
+      "equation_names": "ATP_C10H16N5O13P3 + L-glutamate_C5H9NO4 --> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + L-gamma-glutamyl phosphate_C5H8NO7P",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1A20176g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "GLU5K",
+          "GLU5Km",
+          "R_GLU5K",
+          "R_GLU5Km"
+        ],
+        "kegg.reaction": "R00239",
+        "metacyc.reaction": "GLUTKIN-RXN",
+        "rh": [
+          "14877",
+          "14878",
+          "14879",
+          "14880"
+        ],
+        "rhea": [
+          "14877",
+          "14878",
+          "14879",
+          "14880"
+        ],
+        "sabiork.reaction": "752",
+        "seed.reaction": [
+          "rxn00179",
+          "rxn31391",
+          "rxn38122",
+          "rxn38123"
+        ],
+        "vmhreaction": [
+          "GLU5K",
+          "GLU5Km",
+          "R_GLU5K",
+          "R_GLU5Km"
+        ],
+        "metanetx.reaction": "MNXR100277",
+        "ec-code": "2.7.2.11",
+        "biggr": [
+          "GLU5K",
+          "GLU5Km",
+          "R_GLU5K",
+          "R_GLU5Km"
+        ],
+        "keggr": "R00239",
+        "metacycr": "GLUTKIN-RXN",
+        "sabiorkr": "752",
+        "seedr": [
+          "rxn00179",
+          "rxn31391",
+          "rxn38122",
+          "rxn38123"
+        ],
+        "vmhr": [
+          "GLU5K",
+          "GLU5Km",
+          "R_GLU5K",
+          "R_GLU5Km"
+        ]
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.7.2.11"
+      },
+      "mass_balance": {},
+      "species": {
+        "m50[C_cy]": {
+          "name": "L-glutamate_C5H9NO4",
+          "formula": "C5H9NO4",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m141[C_cy]": {
+          "name": "ATP_C10H16N5O13P3",
+          "formula": "C10H16N5O13P3",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m143[C_cy]": {
+          "name": "ADP_C10H15N5O10P2",
+          "formula": "C10H15N5O10P2",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m551[C_cy]": {
+          "name": "L-gamma-glutamyl phosphate_C5H8NO7P",
+          "formula": "C5H8NO7P",
+          "charge": -2,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy",
+          "coefficient": 2.0
+        }
+      }
+    },
+    "R332": {
+      "name": "glutamate-5-semialdehyde dehydrogenase",
+      "equation": "3.0 m10[C_cy] + m40[C_cy] + m551[C_cy] --> m35[C_cy] + m41[C_cy] + m552[C_cy]",
+      "equation_names": "3.0 H+_p+1 + NADPH_C21H30N7O17P3 + L-gamma-glutamyl phosphate_C5H8NO7P --> phosphate_H3O4P + NADP(+)_C21H28N7O17P3 + L-glutamic 5-semialdehyde_C5H9NO3",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1E35815g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "G5DHx",
+          "G5SD",
+          "G5SDym",
+          "R_G5DHx",
+          "R_G5SD",
+          "R_G5SDym"
+        ],
+        "kegg.reaction": "R03313",
+        "metacyc.reaction": "GLUTSEMIALDEHYDROG-RXN",
+        "rh": [
+          "19541",
+          "19542",
+          "19543",
+          "19544"
+        ],
+        "rhea": [
+          "19541",
+          "19542",
+          "19543",
+          "19544"
+        ],
+        "sabiork.reaction": "3127",
+        "seed.reaction": [
+          "rxn02373",
+          "rxn32479",
+          "rxn34566",
+          "rxn34567"
+        ],
+        "vmhreaction": [
+          "G5SD",
+          "G5SDr",
+          "G5SDym",
+          "R_G5SD",
+          "R_G5SDr",
+          "R_G5SDym"
+        ],
+        "metanetx.reaction": "MNXR99896",
+        "ec-code": "1.2.1.41",
+        "biggr": [
+          "G5DHx",
+          "G5SD",
+          "G5SDym",
+          "R_G5DHx",
+          "R_G5SD",
+          "R_G5SDym"
+        ],
+        "keggr": "R03313",
+        "metacycr": "GLUTSEMIALDEHYDROG-RXN",
+        "sabiorkr": "3127",
+        "seedr": [
+          "rxn02373",
+          "rxn32479",
+          "rxn34566",
+          "rxn34567"
+        ],
+        "vmhr": [
+          "G5SD",
+          "G5SDr",
+          "G5SDym",
+          "R_G5SD",
+          "R_G5SDr",
+          "R_G5SDym"
+        ]
+      },
+      "notes": {
+        "PROTEIN_CLASS": "1.2.1.41",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "stoichiometry",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "mass_balance": {
+        "charge": -1.0
+      },
+      "species": {
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy",
+          "coefficient": -3.0
+        },
+        "m40[C_cy]": {
+          "name": "NADPH_C21H30N7O17P3",
+          "formula": "C21H30N7O17P3",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m551[C_cy]": {
+          "name": "L-gamma-glutamyl phosphate_C5H8NO7P",
+          "formula": "C5H8NO7P",
+          "charge": -2,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m35[C_cy]": {
+          "name": "phosphate_H3O4P",
+          "formula": "H3O4P",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m41[C_cy]": {
+          "name": "NADP(+)_C21H28N7O17P3",
+          "formula": "C21H29N7O17P3",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m552[C_cy]": {
+          "name": "L-glutamic 5-semialdehyde_C5H9NO3",
+          "formula": "C5H9NO3",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        }
+      }
+    },
+    "R610": {
+      "name": "ornithine transaminase",
+      "equation": "m311[C_cy] + m51[C_cy] --> m10[C_cy] + m50[C_cy] + m552[C_cy]",
+      "equation_names": "ornithine_C5H13N2O2 + 2-oxoglutarate_C5H6O5 --> H+_p+1 + L-glutamate_C5H9NO4 + L-glutamic 5-semialdehyde_C5H9NO3",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "YALI1C05908g",
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "GLP5H",
+          "ORNTA",
+          "ORNTA_1",
+          "ORNTArm",
+          "R_GLP5H",
+          "R_ORNTA",
+          "R_ORNTA_1",
+          "R_ORNTArm"
+        ],
+        "kegg.reaction": "R00667",
+        "metacyc.reaction": "ORNITHINE-GLU-AMINOTRANSFERASE-RXN",
+        "rh": [
+          "25160",
+          "25161",
+          "25162",
+          "25163"
+        ],
+        "rhea": [
+          "25160",
+          "25161",
+          "25162",
+          "25163"
+        ],
+        "sabiork.reaction": "1047",
+        "seed.reaction": [
+          "rxn00467",
+          "rxn20496",
+          "rxn33315"
+        ],
+        "vmhreaction": [
+          "ORNTA",
+          "ORNTArm",
+          "R_ORNTA",
+          "R_ORNTArm"
+        ],
+        "metanetx.reaction": "MNXR102220",
+        "ec-code": "2.6.1.13",
+        "biggr": [
+          "GLP5H",
+          "ORNTA",
+          "ORNTA_1",
+          "ORNTArm",
+          "R_GLP5H",
+          "R_ORNTA",
+          "R_ORNTA_1",
+          "R_ORNTArm"
+        ],
+        "keggr": "R00667",
+        "metacycr": "ORNITHINE-GLU-AMINOTRANSFERASE-RXN",
+        "sabiorkr": "1047",
+        "seedr": [
+          "rxn00467",
+          "rxn20496",
+          "rxn33315"
+        ],
+        "vmhr": [
+          "ORNTA",
+          "ORNTArm",
+          "R_ORNTA",
+          "R_ORNTArm"
+        ]
+      },
+      "notes": {
+        "PROTEIN_CLASS": "2.6.1.13",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "stoichiometry",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "mass_balance": {
+        "charge": 1.0
+      },
+      "species": {
+        "m51[C_cy]": {
+          "name": "2-oxoglutarate_C5H6O5",
+          "formula": "C5H6O5",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m311[C_cy]": {
+          "name": "ornithine_C5H13N2O2",
+          "formula": "C5H13N2O2",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": -1.0
+        },
+        "m50[C_cy]": {
+          "name": "L-glutamate_C5H9NO4",
+          "formula": "C5H9NO4",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m552[C_cy]": {
+          "name": "L-glutamic 5-semialdehyde_C5H9NO3",
+          "formula": "C5H9NO3",
+          "charge": 0,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        },
+        "m10[C_cy]": {
+          "name": "H+_p+1",
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy",
+          "coefficient": 1.0
+        }
+      }
+    }
+  }
+}

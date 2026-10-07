@@ -1,0 +1,76 @@
+{
+  "checked_utc": "2026-09-11T00:16:06.296513+00:00",
+  "cedar_protein_groups": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/biology/sources/cedar_GB20_proteinGroups.txt",
+    "sha256": "7892fb25d594cb2744d38263f26ec8bac37f16d627bede99fed4d4ee2cdc22fd",
+    "headers_first_four": [
+      [
+        "",
+        "unique peptides",
+        "coverage",
+        "protein length"
+      ],
+      [
+        "Identifiers",
+        "unique peptides",
+        "coverage",
+        "protein length"
+      ]
+    ],
+    "target_rows": [
+      {
+        "row": 2408,
+        "values": [
+          "Q6BZT1",
+          "50",
+          "53.1",
+          "804"
+        ]
+      },
+      {
+        "row": 3323,
+        "values": [
+          "Q6CAR5",
+          "26",
+          "74.3",
+          "257"
+        ]
+      },
+      {
+        "row": 3327,
+        "values": [
+          "Q6C5Q2",
+          "17",
+          "86.9",
+          "122"
+        ]
+      }
+    ],
+    "scope": "author protein-group output, no raw-spectra re-search; only the three identifiers assessed"
+  },
+  "genpept": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/r794_r795_gpr_review_20260909/target_three_review_20260910/df_identity_structure/sources/AOW03384.1_CAG79603.1_genpept.gb",
+    "sha256": "567863c24ffa10f5b986adb3211093224b1b4e5bcf5fe2009edcb94f0d966cbb",
+    "records": {
+      "AOW03384.1": {
+        "length": 257,
+        "sha256": "793b868d431f0b036e2309f2f378784b5ae64efa99971ea51217700ae6d5bfb5",
+        "strain": [
+          "CLIB89(W29)"
+        ],
+        "frozen_target_sequence_exact": true,
+        "sequence": "MSANNREAVFPTRMTLGMMKGKLKGATQGHNLLKRKSEALTKRFRDITRKIDESKHKMGRVMQTAAFSLAEVTYATGDNINYQVQESVRSARLRVRAKEENVSGVKLPSFSSYYVEENSDFSLTGLGRGGQQVQKAKAVYSKAVETLVELASLQTAFVILDEVIKITNRRVNAIEHVIIPRTENTIKYINSELDELDREEFYRLKKVQDKKARDTAAQDAEQKKQALEAAAREEKVGHAEATESADLTADKDDDVIF"
+      },
+      "CAG79603.1": {
+        "length": 122,
+        "sha256": "77656c06617ff3afd81db0fd47b5bac184ecfa565236de96f1e5b02069ec3518",
+        "strain": [
+          "CLIB122"
+        ],
+        "frozen_target_sequence_exact": true,
+        "sequence": "MATTQKDREFLAVIGDEDSVTGLLLAGIGNVSDDAEKKKNFFVVDAKTENEAIEKAFDEFTNTRKDIAILLINQHIADKIRFRVDTYTQAFPALLEIPSKDHPYVPEKDSVLRRVRRLFGDN"
+      }
+    }
+  },
+  "parser_note": "Initial attempt used naive // splitting and failed before saving; corrected to GenBank record-terminator newline split; successful independent sequence equality assertions above."
+}

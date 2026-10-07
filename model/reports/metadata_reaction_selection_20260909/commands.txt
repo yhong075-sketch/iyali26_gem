@@ -1,0 +1,16 @@
+# All commands executed from the authorized iyali26_gem workspace.
+# Initial metadata attempt: 205 applied, 2 serialization-precondition conflicts.
+# Its output and source/data identity are retained in metadata_initial.*.
+# Exact pre-export states were then recorded; final commands follow.
+
+.venv/bin/python -m unittest tests.test_reaction_selection tests.test_coq9_curation tests.test_quinone_pipeline tests.test_er_vlcfa_stereochemistry tests.test_reference_reactions
+# 39 passed; added serialization case and reran the five affected tests:
+.venv/bin/python -m unittest tests.test_reaction_selection
+
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation metadata --output-model model_metadata_reaction_selection.xml
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation off --output-model artifacts/metadata_reaction_selection_20260909/off.xml
+.venv/bin/python -m scripts.gem_annotate --research-root artifacts/reference_pipeline_restore_20260909/research --offline --no-solve --coq9-curation qcycle --output-model artifacts/metadata_reaction_selection_20260909/qcycle.xml
+
+.venv/bin/python artifacts/metadata_reaction_selection_20260909/validate.py
+.venv/bin/python artifacts/metadata_reaction_selection_20260909/static_pair.py before metadata
+.venv/bin/python artifacts/metadata_reaction_selection_20260909/static_pair.py qcycle

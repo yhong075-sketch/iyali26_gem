@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "user_authorized_isolated_candidate_not_native_validation",
+  "source": "artifacts/coq_biomass_candidate_20261005/E5_coq9_biomass_alpha_1e-4_validated.xml",
+  "source_sha256": "be0be8dd5621f4e2cfcd4483eaf472f82582283ca642b00de08625cf67b51c39",
+  "alpha_mmol_per_gDW": 0.0001,
+  "reaction": "R305",
+  "before": {"m28[C_mi]": -1.5, "m10[C_cy]": 1.5},
+  "final_coefficients": {"m28[C_mi]": -2.0, "m10[C_cy]": 4.0},
+  "note_key": "coq9_proton_state",
+  "note_before": "Original audited proton stoichiometry retained; Q-cycle candidate not applied.",
+  "note_after": "User-authorized R305-only Q-cycle candidate applied: final signed H+ coefficients m28[C_mi]=-2 and m10[C_cy]=+4. CoQ9 biomass alpha=0.0001 mmol/gDW unchanged. C_cy remains cytoplasm under the existing compartment approximation; native coupling and intermembrane-space localization are not established by this edit.",
+  "previous_tests": "artifacts/coq_candidate_checks_20261005",
+  "scope": "Only the two final R305 coefficients and its proton-state note. Preserve all other XML fields. Four candidate optimizations; no control optimization or follow-up LPs."
+}

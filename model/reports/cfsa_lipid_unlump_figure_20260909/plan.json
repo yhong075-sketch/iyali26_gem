@@ -1,0 +1,41 @@
+{
+  "authorization": "User requested replacing the three-panel CFSA test with the latest lipid-unlump model; prior explicit product choice is all TAG.",
+  "remote_lipid_unlump_commit": "68687778eedcce279a1660cb257fde5fd95419a8",
+  "inputs": {
+    "artifacts/lipid_charge_fix_20260908/model_lipid_unlump_charge_fixed.xml": "50f086e5d12d80c09f3c3fc989e7198dbe7e01109f247b46fdeb82cb53974433",
+    "artifacts/tag_max_growth_20260909/effective_model.json.gz": "1597c986a6364a3a74d4b1a9bba1003a5e7b60ab85459fd04ec6e9ca7bace43c"
+  },
+  "effective_context": "Reuse the verified corrected snapshot with SD-Leu/PO1f bounds and 343 neutral TAG demands. Provenance: artifacts/tag_max_growth_20260909/completed_result.json.",
+  "growth_floor_h_inverse": 0.14650760568106092,
+  "target": "Sum of 343 TAG demand net fluxes times formula_weight/1000, g gDW^-1 h^-1; free composition, hypothetical removal, not validated secretion.",
+  "scenarios": [
+    "Growing: growth >= 0.9*maximum growth, cap",
+    "Slow growth: growth <= maximum growth at 0.9*maximum TAG, cap",
+    "Producing: TAG >= 0.9*maximum TAG, no cap"
+  ],
+  "cap_definition": "1.25 times minimum forward+reverse sum at the scenario maximum growth; same CFSA semantics as original figure.",
+  "samples_per_scenario": 500,
+  "thinning": 100,
+  "processes": 1,
+  "seeds": [
+    20260911,
+    20260912,
+    20260913
+  ],
+  "acceptance_tolerance": 1e-07,
+  "wall_budget_seconds": 1200,
+  "backend_budget": 30000,
+  "solver_parameters": {
+    "Threads": 1,
+    "Method": 0,
+    "Presolve": 0,
+    "Seed": 0,
+    "FeasibilityTol": 1e-09,
+    "OptimalityTol": 1e-09,
+    "TimeLimit": 120,
+    "OutputFlag": 0
+  },
+  "numerical_policy": "Tighter solver precision declared upfront; acceptance remains 1e-7. Preserve coefficients on sampler copy using optlang JSON and assert exact native matrix/bound equality. No target relaxation or failed-scenario retry.",
+  "stop": "Stop affected scenario on nonoptimal solver, nonfinite values, residual failure or exception. Stop whole package on input mismatch or budget. Preserve all raw draws; never replace invalid draws.",
+  "interpretation": "Single-chain CFSA pilot; feasible draws do not establish convergence or biological validation."
+}

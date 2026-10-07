@@ -1,0 +1,324 @@
+{
+  "$schema": "./module-agent-workflow.schema.json",
+  "schema_version": 1,
+  "workflow_id": "iyali26-metabolic-module-agents-v1",
+  "description": "Dependency-aware multi-agent orchestration for the M00-M11 metabolic modules.",
+  "runtime": {
+    "max_active_agents": 5,
+    "primary_agent_slots": 1,
+    "module_team_slots": 4,
+    "execution_strategy": "single_module_team",
+    "review_sequence": "implementation_then_independent_review"
+  },
+  "model_policy": {
+    "baseline_model": "model.xml",
+    "canonical_source_model": "data/iyali26.xml",
+    "direct_model_edits_allowed": false,
+    "baseline_sha256_required": true,
+    "canonical_rebuild_required_for_model_changes": true
+  },
+  "scope_policy": {
+    "reaction_membership_status": "conceptual_only",
+    "resolution_method": "explicit_work_packet",
+    "sbml_subsystem_groups_authoritative": false,
+    "unmapped_target_policy": "escalate_to_global_orchestrator",
+    "default_mode": "read_only_inventory",
+    "write_activation_requires": [
+      "explicit_user_change_request",
+      "bounded_work_packet",
+      "baseline_model_sha256",
+      "exclusive_file_ownership",
+      "acceptance_gates"
+    ]
+  },
+  "roles": {
+    "lead": {
+      "agent": "metabolic-module-lead",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "ultra",
+      "sandbox_mode": "read-only"
+    },
+    "coordinator": {
+      "agent": "metabolic-workflow-coordinator",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high",
+      "sandbox_mode": "read-only"
+    },
+    "implementer": {
+      "agent": "metabolic-module-implementer",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "high",
+      "sandbox_mode": "workspace-write"
+    },
+    "reviewer": {
+      "agent": "metabolic-module-reviewer",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "high",
+      "sandbox_mode": "read-only"
+    }
+  },
+  "handoff_contract": {
+    "transport": "parent_agent_message",
+    "required_fields": [
+      "workflow_id",
+      "workflow_sha256",
+      "baseline_model_sha256",
+      "from_module",
+      "to_module",
+      "dependency_kind",
+      "finding",
+      "evidence_status",
+      "requested_action",
+      "blocking",
+      "unresolved_questions"
+    ]
+  },
+  "report_contract": {
+    "required_fields": [
+      "module_id",
+      "baseline_model_sha256",
+      "objective",
+      "scope",
+      "files_changed",
+      "model_entities_changed",
+      "tests",
+      "cross_module_handoffs",
+      "unresolved_risks",
+      "reviewer_verdict",
+      "recommendation"
+    ]
+  },
+  "precedence": {
+    "essentiality_false_negative": {
+      "instruction_source": "AGENTS.md",
+      "takes_precedence": true,
+      "generic_workflow_may_accept": false,
+      "generic_workflow_may_modify_model": false
+    }
+  },
+  "modules": {
+    "M00": {
+      "name_zh": "biomass/维护",
+      "name_en": "Biomass and maintenance",
+      "mission": "Integrate biomass composition, polymer demands, and ATP maintenance as the final acceptance module.",
+      "scope_hints": [
+        "biomass pseudo-reactions",
+        "growth-associated maintenance",
+        "non-growth-associated maintenance"
+      ],
+      "depends_on": [
+        {"module": "M04", "kind": "energy", "model_coupling": "explicit", "label": "ATP and respiratory capacity"},
+        {"module": "M07", "kind": "biosynthetic", "model_coupling": "explicit", "label": "complex lipid demand"},
+        {"module": "M08", "kind": "biosynthetic", "model_coupling": "explicit", "label": "amino-acid demand"},
+        {"module": "M10", "kind": "biosynthetic", "model_coupling": "explicit", "label": "nucleotide and tRNA demand"},
+        {"module": "M11", "kind": "biosynthetic", "model_coupling": "explicit", "label": "glycan and cell-surface demand"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "growth_regression_pass",
+        "canonical_rebuild_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M01": {
+      "name_zh": "边界交换",
+      "name_en": "Boundary exchange",
+      "mission": "Own extracellular exchange availability, direction, and medium-facing bounds.",
+      "scope_hints": ["exchange reactions", "medium uptake", "secretion bounds"],
+      "depends_on": [],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M02": {
+      "name_zh": "区室运输",
+      "name_en": "Compartment transport",
+      "mission": "Own transport across extracellular, cytosolic, mitochondrial, and peroxisomal boundaries.",
+      "scope_hints": ["transport reactions", "compartment identity", "directionality"],
+      "depends_on": [
+        {"module": "M01", "kind": "material", "model_coupling": "explicit", "label": "exchanged material enters compartment transport"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M03": {
+      "name_zh": "中心碳",
+      "name_en": "Central carbon metabolism",
+      "mission": "Own the central carbon hub and its carbon, redox, and precursor interfaces.",
+      "scope_hints": ["glycolysis", "pentose phosphate pathway", "TCA cycle", "gluconeogenesis"],
+      "depends_on": [
+        {"module": "M02", "kind": "material", "model_coupling": "explicit", "label": "transported primary substrates"},
+        {"module": "M05", "kind": "material", "model_coupling": "explicit", "label": "alternative carbon entry"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M04": {
+      "name_zh": "能量/呼吸",
+      "name_en": "Energy and respiration",
+      "mission": "Own oxidative phosphorylation, respiratory electron transfer, ATP supply, and redox coupling.",
+      "scope_hints": ["respiratory chain", "oxidative phosphorylation", "ATP synthesis", "redox shuttles"],
+      "depends_on": [
+        {"module": "M03", "kind": "energy", "model_coupling": "explicit", "label": "reducing equivalents and central-carbon supply"},
+        {"module": "M09", "kind": "biological_advisory", "model_coupling": "not_guaranteed", "label": "real prosthetic-group dependence may be absent from stoichiometry"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "energy_cycle_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M05": {
+      "name_zh": "其他碳源",
+      "name_en": "Alternative carbon sources",
+      "mission": "Own assimilation routes that deliver non-primary carbon sources into central carbon metabolism.",
+      "scope_hints": ["glycerol assimilation", "acetate assimilation", "non-primary carbon entry"],
+      "depends_on": [],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M06": {
+      "name_zh": "脂肪酸",
+      "name_en": "Fatty acids",
+      "mission": "Own fatty-acid synthesis, elongation, desaturation, activation, and degradation interfaces.",
+      "scope_hints": ["fatty-acid synthesis", "beta oxidation", "acyl-CoA pools"],
+      "depends_on": [
+        {"module": "M03", "kind": "precursor", "model_coupling": "explicit", "label": "acetyl-CoA, malonyl-CoA, and NADPH"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M07": {
+      "name_zh": "复合脂质",
+      "name_en": "Complex lipids",
+      "mission": "Own phospholipid, triacylglycerol, sphingolipid, and membrane-lipid assembly.",
+      "scope_hints": ["phospholipids", "triacylglycerols", "sphingolipids", "lipid pools"],
+      "depends_on": [
+        {"module": "M06", "kind": "precursor", "model_coupling": "explicit", "label": "fatty-acyl building blocks"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M08": {
+      "name_zh": "氨基酸/氮硫",
+      "name_en": "Amino acids and nitrogen/sulfur",
+      "mission": "Own nitrogen and sulfur assimilation plus amino-acid biosynthesis and degradation.",
+      "scope_hints": ["amino-acid metabolism", "nitrogen assimilation", "sulfur assimilation"],
+      "depends_on": [
+        {"module": "M03", "kind": "precursor", "model_coupling": "explicit", "label": "central-carbon skeletons and reducing power"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M09": {
+      "name_zh": "辅因子/卟啉",
+      "name_en": "Cofactors and porphyrins",
+      "mission": "Own cofactor, prosthetic-group, porphyrin, and heme biosynthesis plus missing coupling risks.",
+      "scope_hints": ["heme", "porphyrins", "vitamin-derived cofactors", "prosthetic groups"],
+      "depends_on": [
+        {"module": "M03", "kind": "precursor", "model_coupling": "explicit", "label": "central-carbon precursor supply"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M10": {
+      "name_zh": "核苷酸/tRNA",
+      "name_en": "Nucleotides and tRNA",
+      "mission": "Own purine, pyrimidine, nucleotide-sugar activation interfaces, and tRNA charging or carrier conservation.",
+      "scope_hints": ["purines", "pyrimidines", "tRNA charging", "nucleotide activation"],
+      "depends_on": [
+        {"module": "M03", "kind": "precursor", "model_coupling": "explicit", "label": "ribose and central-carbon precursors"},
+        {"module": "M08", "kind": "precursor", "model_coupling": "explicit", "label": "amino-acid and nitrogen donors"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    },
+    "M11": {
+      "name_zh": "糖链/细胞表面",
+      "name_en": "Glycans and cell surface",
+      "mission": "Own activated-sugar use in glycans, glycoproteins, cell wall, and cell-surface structures.",
+      "scope_hints": ["nucleotide sugars", "cell wall", "glycosylation", "surface glycans"],
+      "depends_on": [
+        {"module": "M10", "kind": "precursor", "model_coupling": "explicit", "label": "activated nucleotide-sugar supply"}
+      ],
+      "completion_gates": [
+        "scope_resolved",
+        "baseline_sha_verified",
+        "targeted_tests_pass",
+        "mass_charge_balance_pass",
+        "growth_regression_pass",
+        "independent_review_pass",
+        "cross_module_handoffs_closed"
+      ]
+    }
+  }
+}
