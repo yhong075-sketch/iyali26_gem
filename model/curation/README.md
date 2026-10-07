@@ -3,6 +3,8 @@
 Every biological decision the build applies lives in this folder as data, grouped by topic
 (`chemistry/`, `gpr/`, `direction/`, `coq9/`, `selection/`, `gapfill/`, `annotation/`,
 `essentiality/`, `candidates/`, `lipid_unlump/`). The builder finds each file by its unique name.
+`evidence/` holds supporting documents that model notes cite as `docs/curation/...` (ported from
+`main` on 2026-10-07).
 
 The sections below were moved unchanged from the former top-level README (2026-10-07);
 only paths were updated to the new layout. Commands run from `platform/`. Newer decisions
