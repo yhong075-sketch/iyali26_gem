@@ -14,7 +14,7 @@ from tempfile import TemporaryDirectory
 
 from cobra.io import read_sbml_model
 
-from .coq9 import CURATION_PATH, GENE_EVIDENCE_PATH, apply_coq9_curation, apply_coq9_functional_gpr, apply_coq_c5_gpr, apply_coq_literature_revision, gene_evidence
+from .coq9 import CURATION_PATH, GENE_EVIDENCE_PATH, apply_coq9_biomass_dilution, apply_coq9_curation, apply_coq9_functional_gpr, apply_coq_c5_gpr, apply_coq_literature_revision, gene_evidence
 from .biomass import fix_biomass_reaction
 from .config import (
     CACHE_DIR,
@@ -75,6 +75,8 @@ def build_reference_chain(
     coq9_functional_gpr: bool = False,
     coq_c5_gpr: bool = False,
     coq_literature_revision: bool = False,
+    coq9_biomass_dilution: bool = False,
+    coq9_respiratory_package: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -92,10 +94,19 @@ def build_reference_chain(
         or r608_curation_path is not None
     ):
         raise ValueError("CoQ GPR hypotheses require a separate offline/no-solve metadata build")
-    if energy_candidate != "E0" and (not no_solve or allow_network or coq9_mode != "metadata"
+    if energy_candidate != "E0" and (not no_solve or allow_network
+            or coq9_mode not in (("metadata", "qcycle") if energy_candidate == "E5" else ("metadata",))
             or vatpase_gpr_hypothesis or provisional_capacity_path is not None
             or r608_curation_path is not None):
-        raise ValueError("Energy candidates require a separate offline/no-solve metadata build")
+        raise ValueError("Energy candidates require a separate offline/no-solve metadata build (qcycle only with E5)")
+    if coq9_biomass_dilution and energy_candidate != "E5":
+        raise ValueError("The curated CoQ9 biomass dilution is defined on the E5 energy candidate")
+    if coq9_respiratory_package and not (
+            energy_candidate == "E5" and coq9_mode == "qcycle" and coq9_biomass_dilution
+            and not (coq9_functional_gpr or coq_c5_gpr or coq_literature_revision)
+            and trna_biomass_mode is None):
+        raise ValueError("The CoQ9/respiratory package requires E5, qcycle and the CoQ9 biomass "
+                         "dilution, without other CoQ hypotheses")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -664,7 +675,20 @@ def build_reference_chain(
     if energy_candidate != "E0":
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply energy candidate to an incomplete reference build")
+        # Candidate stages start from the serialized reference, as the published E5 did.
+        # SBML writes float coefficients and unknown charges in normalized form; applying
+        # candidates to the reloaded reference keeps export/reload checks exact.
+        with TemporaryDirectory(prefix="iyali26-candidate-reference-") as directory:
+            reference_path = Path(directory) / "reference.xml"
+            write_deterministic_sbml_model(model, reference_path)
+            selection["candidate_stage_reference_sha256"] = sha256_file(reference_path)
+            model = read_sbml_model(reference_path)
         selection["energy_candidate"] = apply_energy_candidate(model, energy_candidate)
+    if coq9_biomass_dilution:
+        selection["coq9_biomass_dilution"] = apply_coq9_biomass_dilution(model)
+    if coq9_respiratory_package:
+        from .coq9_respiratory_package import apply_coq9_respiratory_package
+        selection["coq9_respiratory_package"] = apply_coq9_respiratory_package(model)
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -746,6 +770,8 @@ def build_model(args):
         coq9_functional_gpr=getattr(args, "coq9_functional_gpr", False),
         coq_c5_gpr=getattr(args, "coq_c5_gpr", False),
         coq_literature_revision=getattr(args, "coq_literature_revision", False),
+        coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
+        coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

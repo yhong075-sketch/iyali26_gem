@@ -10,6 +10,19 @@ The sections below were moved unchanged from the former top-level README (2026-1
 only paths were updated to the new layout. Commands run from `platform/`. Newer decisions
 are recorded in [../STATE.md](../STATE.md).
 
+## CoQ9 biomass term and CoQ9/respiratory package (2026-10-08)
+
+- `coq9/coq9_biomass_dilution.json`: the user-selected, uncalibrated alpha = 1e-4 mmol/gDW CoQ9
+  term in `biomass_C` (an assumption), applied by `--coq9-biomass-dilution` on the E5 stage.
+- `coq9/coq9_respiratory_package.json`: items A1, A2, B1, B3, C1, C3 and C4 with exact
+  before/after definitions, gene membership and evidence; applied by
+  `--coq9-respiratory-package` (requires `--energy-candidate E5 --coq9-curation qcycle
+  --coq9-biomass-dilution`). Report: `../reports/coq9_respiratory_package_20261008/REPORT.md`.
+- Candidate stages (`--energy-candidate` other than E0) now start from the serialized reference,
+  as the published E5 did, so export/reload checks stay exact. Before this, a single-pass E5 build
+  failed that check (observed 2026-10-08). The same reference-stage noise would affect E1–E4
+  (inferred, not run). `--coq9-curation qcycle` may combine only with E5.
+
 ## Reference pipeline and CoQ9 curation
 
 `python -m scripts.gem_annotate` and `python tools/update_model.py` (both run from `platform/`) use the

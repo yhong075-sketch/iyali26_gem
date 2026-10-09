@@ -1,0 +1,673 @@
+{
+  "schema_version": 1,
+  "package_id": "COQ9-RESP-PKG-20261008",
+  "status": "user_authorized_candidate_not_native_validation",
+  "authorization": "User, 2026-10-08 (conversation): items 1-5 package; decisions A (complex I Option 1 minus non-subunits, structure-checked), B skip FAO, C skip R132, D cited complex IV pass, E push to restructure/model-platform. See reports/coq9_respiratory_package_20261008/TASK.md.",
+  "baseline": "Step 0 build: --energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution (reports/coq9_respiratory_package_20261008/TASK.md)",
+  "not_applied": {
+    "fatty_alcohol_oxidase_relocation": "Skipped by user decision B. Gatter et al. 2014 FEMS Yeast Res (doi:10.1111/1567-1364.12176) does not test FAO1 localization; the peroxisomal statement there is second-hand background (reviewer-opened). R1882-R1884/R2255/R2259/R2263 unchanged.",
+    "R132_direction": "Skipped by user decision C (direction changes need enzymology/thermodynamics). Open hypothesis: an ethanol-acetaldehyde shuttle consuming matrix NADH is documented in S. cerevisiae (Bakker et al. 2000 J Bacteriol, PMC111347, reviewer-opened); no Y. lipolytica evidence located."
+  },
+  "items": [
+    {
+      "id": "A1",
+      "title": "R39 C5 hydroxylation in the mitochondrion with COQ6 and COQ8; remove the cytosolic excursion",
+      "set": {
+        "R39": {
+          "before": {
+            "stoichiometry": {
+              "m108[C_cy]": -1.0,
+              "m109[C_cy]": -0.5,
+              "m110[C_cy]": 1.0,
+              "m10[C_cy]": 1.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": ""
+          },
+          "after": {
+            "stoichiometry": {
+              "m641[C_mi]": -1.0,
+              "m64[C_mi]": -0.5,
+              "m28[C_mi]": 1.0,
+              "m939[C_mi]": 1.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": "YALI1A08781g and YALI1B20527g"
+          },
+          "after_species": {
+            "m641[C_mi]": {
+              "formula": "C52H78O3",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m64[C_mi]": {
+              "formula": "O2",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m28[C_mi]": {
+              "formula": "H",
+              "charge": 1,
+              "compartment": "C_mi"
+            },
+            "m939[C_mi]": {
+              "formula": "C52H77O4",
+              "charge": -1,
+              "compartment": "C_mi"
+            }
+          }
+        }
+      },
+      "remove": {
+        "R969": {
+          "stoichiometry": {
+            "m108[C_cy]": -1.0,
+            "m641[C_mi]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "gpr": ""
+        },
+        "R808": {
+          "stoichiometry": {
+            "m110[C_cy]": -1.0,
+            "m939[C_mi]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "gpr": ""
+        }
+      },
+      "remove_orphan_metabolites": [
+        "m108[C_cy]",
+        "m110[C_cy]"
+      ],
+      "genes": {
+        "YALI1A08781g": {
+          "refseq": "XP_499891.1"
+        },
+        "YALI1B20527g": {
+          "refseq": "XP_500941.1"
+        }
+      },
+      "note": "2026-10-08 package A1: C5 hydroxylation moved to the mitochondrion (R969/R808 cytosolic excursion removed, as in the human-approved lipid-line R39 topology); GPR COQ6 candidate AND COQ8 candidate. COQ8 is a complex-stability co-requirement (S. cerevisiae coq8/abc1 nulls arrest at HHB, Do et al. 2001 JBC PMID 11279158), not a catalytic claim. The 0.5 O2 lump without Yah1/Arh1 electron donor is retained.",
+      "evidence_tier": "cross_species_genetics_plus_human_approved_topology",
+      "evidence": [
+        {
+          "claim": "R39 mitochondrial topology without R969/R808 was human-approved on the lipid line",
+          "source": "model/candidates/lipid_unlump/model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.xml, R39 note curated_compartment_topology",
+          "url": null,
+          "tier": "verified_local_file",
+          "reviewer": "Claude (this task)"
+        },
+        {
+          "claim": "S. cerevisiae abc1/coq8 null mutants accumulate 3-hexaprenyl-4-hydroxybenzoate (HHB, the R39 substrate) as the predominant intermediate",
+          "source": "Do et al. 2001 J Biol Chem, PMID 11279158",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A11279158%20AND%20SRC%3AMED&format=json&resultType=core",
+          "tier": "verified_opened_this_session",
+          "reviewer": "Claude (this task)",
+          "caveat": "S. cerevisiae; every coq3-coq9 null arrests at HHB because the Coq complex is unstable (Xie et al. 2012 JBC, PMC3390632, reviewer-opened). Supports co-requirement for the first ring modification, not a catalytic role."
+        },
+        {
+          "claim": "Coq6 performs the C5 hydroxylation of the HHB ring",
+          "source": "Ozeir et al. 2011 Chem Biol PMID 21944752; Ozeir et al. 2015 JBC PMC4591803",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4591803/",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent citation reviewer (subagent)",
+          "caveat": "S. cerevisiae; Yarrowia COQ6 candidate assignment is by homology."
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "title": "R695 COQ7 and COQ9 (existing curated coq9_functional_gpr.json)",
+      "uses": "coq9_functional_gpr.json",
+      "evidence_tier": "existing_provisional_functional_dependency",
+      "evidence": [
+        {
+          "claim": "R695 COQ7 AND COQ9 functional dependency",
+          "source": "model/curation/coq9/coq9_functional_gpr.json (2026-10-01 provisional hypothesis: Lohman 2014 PNAS, Lohman 2019 Mol Cell, Manicki 2022 Mol Cell, Nicoll 2024 Nat Catal)",
+          "url": null,
+          "tier": "existing_curation_reused",
+          "reviewer": "earlier project review; DOIs resolved by subagent, publisher pages not re-read",
+          "caveat": "Cross-species; counterevidence of COQ7 activity without COQ9 in detergent systems is retained in that file."
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "title": "Single complex I reaction: merge R1889 into R2062 with 4 H+ pumped; structure-checked GPR without NDH2 and YALI1E06573g",
+      "set": {
+        "R2062": {
+          "before": {
+            "stoichiometry": {
+              "m30[C_mi]": -1.0,
+              "m468[C_mi]": -1.0,
+              "m27[C_mi]": 1.0,
+              "m471[C_mi]": 1.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 and YALI1E06573g and YALI1F32476g"
+          },
+          "after": {
+            "stoichiometry": {
+              "m30[C_mi]": -1.0,
+              "m468[C_mi]": -1.0,
+              "m28[C_mi]": -4.0,
+              "m27[C_mi]": 1.0,
+              "m471[C_mi]": 1.0,
+              "m10[C_cy]": 4.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29"
+          },
+          "after_species": {
+            "m30[C_mi]": {
+              "formula": "C21H29N7O14P2",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m468[C_mi]": {
+              "formula": "C54H82O4",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m28[C_mi]": {
+              "formula": "H",
+              "charge": 1,
+              "compartment": "C_mi"
+            },
+            "m27[C_mi]": {
+              "formula": "C21H27N7O14P2",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m471[C_mi]": {
+              "formula": "C54H84O4",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m10[C_cy]": {
+              "formula": "H",
+              "charge": 1,
+              "compartment": "C_cy"
+            }
+          }
+        }
+      },
+      "remove": {
+        "R1889": {
+          "stoichiometry": {
+            "m28[C_mi]": -5.0,
+            "m30[C_mi]": -1.0,
+            "m468[C_mi]": -1.0,
+            "m10[C_cy]": 4.0,
+            "m27[C_mi]": 1.0,
+            "m471[C_mi]": 1.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "gpr": "YALI1B26679g and YALI1D07089g and YALI1F09003g and YALI1F22993g"
+        }
+      },
+      "set_notes": {
+        "R570": {
+          "key": "complex_i_scope",
+          "before": "R1889 is curated separately via data/reference_build/curation/r1889_gpr_assignment.json; structural presence alone does not establish required Boolean membership.",
+          "after": "R1889 was merged into R2062 (single complex I reaction, 4 H+ pumped) by the 2026-10-08 CoQ9/respiratory package; see curation/coq9/coq9_respiratory_package.json item B1."
+        }
+      },
+      "note": "2026-10-08 package B1: single complex I reaction (R1889 merged here), 4 H+ pumped per NADH (Y. lipolytica 3.6-3.8 H+/2e-, Galkin et al. 2006 BBA PMID 17094937). GPR = model complex-I genes matched to PDB 6YJ4 subunits (22 at protein level; 4 at locus level whose W29 protein records are opposite-strand ORFs); NDH2 (YALI1F32476g) and NDH-2-family YALI1E06573g removed (not in 6YJ4).",
+      "evidence_tier": "yarrowia_genetics_and_structure",
+      "evidence": [
+        {
+          "claim": "Deficiencies in nuclear genes for central complex I subunits are lethal in Y. lipolytica; only a matrix-facing (internal) NDH2 rescues them",
+          "source": "Kerscher et al. 2001 J Cell Sci 114:3915, PMID 11719558",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A11719558%20AND%20SRC%3AMED&format=json&resultType=core",
+          "tier": "verified_opened_this_session",
+          "reviewer": "Claude (this task)"
+        },
+        {
+          "claim": "Y. lipolytica NDH2 (YALI0F25135g) is external and the only alternative NADH dehydrogenase gene; ndh2 deletions are fully viable",
+          "source": "Kerscher, Okun & Brandt 1999 J Cell Sci 112:2347, PMID 10381390; UniProt F2Z699",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A10381390%20AND%20SRC%3AMED&format=json&resultType=core",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent citation reviewer (subagent)"
+        },
+        {
+          "claim": "Y. lipolytica complex I translocates about 4 H+ per NADH (3.8 in mitochondria, 3.6 reconstituted)",
+          "source": "Galkin, Droese & Brandt 2006 BBA 1757:1575, PMID 17094937",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AUTH%3A%22Galkin%22%20AND%20TITLE%3A%22stoichiometry%22%20AND%20%22complex%20I%22&format=json&resultType=core",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent citation reviewer (subagent)",
+          "caveat": "Wikstrom & Hummer 2012 PNAS (PMID 22392981) argue 3 H+/2e-."
+        },
+        {
+          "claim": "Every retained R2062 gene corresponds to a subunit of Y. lipolytica complex I PDB 6YJ4 (22 matched at protein level, 4 at locus level only); NDH2 and YALI1E06573g (NDH-2 family) do not",
+          "source": "RCSB data API 6YJ4 polymer entities 1-42, UniProt and NCBI protein records, in-memory alignment",
+          "url": "https://data.rcsb.org/rest/v1/core/entry/6YJ4",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent structure reviewer (subagent)",
+          "caveat": "YALI1D00766g (NUHM), YALI1F03371g (NUGM), YALI1D32550g (NUEM), YALI1E27218g (NUFM): the YALI0 locus encodes the subunit, but the W29 GenBank protein record is an opposite-strand ORF; locus-level membership retained, identity_review not verified. YALI1M00338r is ND5 (AOW08010.1, gene nad5), not an RNA gene, and is retained. 6YJ4 subunits with no model gene in the rule (e.g. ACPM2 YALI1D32594g) are not added."
+        }
+      ],
+      "gene_membership": {
+        "structure": "PDB 6YJ4 (Y. lipolytica complex I, 42 polymer entities)",
+        "retained": {
+          "YALI1A21711g": {
+            "subunit": "NUPM",
+            "entity_chain": "24/X",
+            "verdict": "subunit"
+          },
+          "YALI1B00908g": {
+            "subunit": "N7BM",
+            "entity_chain": "32/f",
+            "verdict": "subunit"
+          },
+          "YALI1B19507g": {
+            "subunit": "NUYM",
+            "entity_chain": "17/Q",
+            "verdict": "subunit"
+          },
+          "YALI1B26679g": {
+            "subunit": "NUBM",
+            "entity_chain": "6/F",
+            "verdict": "subunit"
+          },
+          "YALI1C04281g": {
+            "subunit": "NI8M",
+            "entity_chain": "19/S",
+            "verdict": "subunit"
+          },
+          "YALI1D00766g": {
+            "subunit": "NUHM",
+            "entity_chain": "5/E",
+            "verdict": "locus_is_subunit_W29_protein_record_conflict"
+          },
+          "YALI1D06302g": {
+            "subunit": "NIAM",
+            "entity_chain": "38/l",
+            "verdict": "subunit"
+          },
+          "YALI1D07089g": {
+            "subunit": "NUAM",
+            "entity_chain": "7/G",
+            "verdict": "subunit"
+          },
+          "YALI1D09203g": {
+            "subunit": "NI2M",
+            "entity_chain": "40/n",
+            "verdict": "subunit"
+          },
+          "YALI1D18037g": {
+            "subunit": "ACPM1",
+            "entity_chain": "20/T",
+            "verdict": "subunit"
+          },
+          "YALI1D24109g": {
+            "subunit": "NUMM",
+            "entity_chain": "18/R",
+            "verdict": "subunit"
+          },
+          "YALI1D32550g": {
+            "subunit": "NUEM",
+            "entity_chain": "16/P",
+            "verdict": "locus_is_subunit_W29_protein_record_conflict"
+          },
+          "YALI1E27218g": {
+            "subunit": "NUFM",
+            "entity_chain": "22/V",
+            "verdict": "locus_is_subunit_W29_protein_record_conflict"
+          },
+          "YALI1E37603g": {
+            "subunit": "NB8M",
+            "entity_chain": "41/o",
+            "verdict": "subunit"
+          },
+          "YALI1F01456g": {
+            "subunit": "NUIM",
+            "entity_chain": "9/I",
+            "verdict": "subunit"
+          },
+          "YALI1F03371g": {
+            "subunit": "NUGM",
+            "entity_chain": "3/C",
+            "verdict": "locus_is_subunit_W29_protein_record_conflict"
+          },
+          "YALI1F09003g": {
+            "subunit": "NUKM",
+            "entity_chain": "2/B",
+            "verdict": "subunit"
+          },
+          "YALI1F22993g": {
+            "subunit": "NUCM",
+            "entity_chain": "4/D",
+            "verdict": "subunit"
+          },
+          "YALI1F24343g": {
+            "subunit": "NIPM",
+            "entity_chain": "31/e",
+            "verdict": "subunit"
+          },
+          "YALI1M00056g": {
+            "subunit": "ND6",
+            "entity_chain": "10/J",
+            "verdict": "subunit"
+          },
+          "YALI1M00064g": {
+            "subunit": "ND1",
+            "entity_chain": "8/H",
+            "verdict": "subunit"
+          },
+          "YALI1M00296g": {
+            "subunit": "ND4",
+            "entity_chain": "13/M",
+            "verdict": "subunit"
+          },
+          "YALI1M00335g": {
+            "subunit": "ND4L",
+            "entity_chain": "11/K",
+            "verdict": "subunit"
+          },
+          "YALI1M00338r": {
+            "subunit": "ND5",
+            "entity_chain": "12/L",
+            "verdict": "subunit: GenBank AOW08010.1 /gene=nad5 (ND5); 655/655 identical residues to 6YJ4 entity 12 chain L by the reviewer's alignment; retained although first proposed for removal as an RNA-type ID"
+          },
+          "YALI1M00458g": {
+            "subunit": "ND2",
+            "entity_chain": "14/N",
+            "verdict": "subunit"
+          },
+          "YALIfMp29": {
+            "subunit": "ND3",
+            "entity_chain": "1/A",
+            "verdict": "subunit"
+          }
+        },
+        "removed": {
+          "YALI1F32476g": "NDH2, external alternative NADH dehydrogenase (UniProt F2Z699); not in 6YJ4",
+          "YALI1E06573g": "NDH-2 family protein (UniProt Q6C6X0, YALI0E05599g); not in 6YJ4; restore only if a later check identifies it as a subunit"
+        },
+        "not_added": "6YJ4 subunits without a gene in the current rule (ACPM2 YALI1D32594g is the only one present in the model) are not added in this package."
+      }
+    },
+    {
+      "id": "B3",
+      "title": "Single complex IV reaction: merge R2206 into R304 with 4 H+ pumped; per-subunit cited GPR",
+      "set": {
+        "R304": {
+          "before": {
+            "stoichiometry": {
+              "m3[C_mi]": -4.0,
+              "m28[C_mi]": -6.0,
+              "m64[C_mi]": -1.0,
+              "m2[C_mi]": 4.0,
+              "m10[C_cy]": 2.0,
+              "m26[C_mi]": 2.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": "YALI1D23237g and YALI1M00325g and YALI1M00277g and YALI0F04114g and YALI1E23635g and YALI1F04455g and YALI1E12730g and YALI1E19902g and YALI1F06236g and YALI1E15606g and YALI1D11769g and YALI1F05089g"
+          },
+          "after": {
+            "stoichiometry": {
+              "m28[C_mi]": -8.0,
+              "m3[C_mi]": -4.0,
+              "m64[C_mi]": -1.0,
+              "m10[C_cy]": 4.0,
+              "m26[C_mi]": 2.0,
+              "m2[C_mi]": 4.0
+            },
+            "bounds": [
+              0.0,
+              1000.0
+            ],
+            "gpr": "YALI1M00131g and YALI1M00325g and YALI1M00277g and YALI1E23635g and YALI1F05089g and YALI1E12730g and YALI1E15606g and YALI0F04114g and YALI1E19902g"
+          },
+          "after_species": {
+            "m28[C_mi]": {
+              "formula": "H",
+              "charge": 1,
+              "compartment": "C_mi"
+            },
+            "m3[C_mi]": {
+              "formula": "C42H52FeN8O6S2",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m64[C_mi]": {
+              "formula": "O2",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m10[C_cy]": {
+              "formula": "H",
+              "charge": 1,
+              "compartment": "C_cy"
+            },
+            "m26[C_mi]": {
+              "formula": "H2O",
+              "charge": 0,
+              "compartment": "C_mi"
+            },
+            "m2[C_mi]": {
+              "formula": "C42H52FeN8O6S2",
+              "charge": 1,
+              "compartment": "C_mi"
+            }
+          }
+        }
+      },
+      "remove": {
+        "R2206": {
+          "stoichiometry": {
+            "m3[C_mi]": -4.0,
+            "m64[C_mi]": -1.0,
+            "m28[C_mi]": -4.0,
+            "m2[C_mi]": 4.0,
+            "m26[C_mi]": 2.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "gpr": "YALI1M00131g and YalifMp05 and YalifMp06"
+        }
+      },
+      "note": "2026-10-08 package B3: single complex IV reaction (non-pumping R2206 merged here), 4 H+ pumped plus 4 chemical H+ per O2 (Wikstrom, Krab & Sharma 2018 Chem Rev, PMC6203177). GPR by per-subunit yeast deletion evidence: COX1-3, Cox4, Cox5, Cox6, Cox7, Cox9, Cox12 kept; PTR2 and cytochrome c removed as non-members; Cox13 and Cox8 removed as dispensable; COX1 intron ORFs not added. See coq9_respiratory_package.json.",
+      "evidence_tier": "cross_species_genetics_per_subunit",
+      "evidence": [
+        {
+          "claim": "Cytochrome c oxidase takes up 4 substrate H+ from the N-side and pumps 4 H+ per O2",
+          "source": "Wikstrom, Krab & Sharma 2018 Chem Rev",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6203177/",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent citation reviewer (subagent)",
+          "caveat": "Effective mitochondrial pumping efficiency reported near 86-90% of 1 H+/e-."
+        },
+        {
+          "claim": "Per-subunit membership and yeast deletion phenotypes",
+          "source": "see gene_membership",
+          "url": "https://rest.kegg.jp/link/sce/K02265",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent complex IV reviewer (subagent)",
+          "caveat": "S. cerevisiae deletion data; Y. lipolytica complex IV structure not available; Cox9 YALI1 ID unresolved."
+        }
+      ],
+      "gene_membership": {
+        "rule": "User decision D (2026-10-08): keep subunits whose yeast deletion abolishes complex IV assembly or activity; remove proven non-members; keep mtDNA-encoded catalytic core (out of benchmark scope); settle R2206 genes before merging.",
+        "retained": {
+          "YALI1M00131g": "COX1 (YalifMp03, Q9B6E7, reviewed COX1_YARLI); catalytic core, missing from R304 before; added from R2206",
+          "YALI1M00325g": "COX2 (YalifMp18, Q9B6D5); mtDNA core",
+          "YALI1M00277g": "COX3 (YalifMp14, Q9B6D8); mtDNA core",
+          "YALI1E23635g": "Cox4 ortholog (Q6C5A3; KEGG K02265, mammalian COX5B); cox4 null: no activity, no assembly (Dowhan 1985 PMID 2990892)",
+          "YALI1F05089g": "Cox5 ortholog (Q6C309; KEGG K02263, mammalian COX4); some form of subunit V required (Trueblood & Poyton 1987 PMID 2824990)",
+          "YALI1E12730g": "Cox6 ortholog (Q6C6E6; KEGG K02264, mammalian COX5A); cox6 null respiratory growth absent, assembly-defective (Glerum & Tzagoloff 1997 PMID 9276437; SGD)",
+          "YALI1E15606g": "Cox7 ortholog (B5FVH7; Pfam COX7a); cox7 null: no activity, no assembly (Aggeler & Capaldi 1990 PMID 2168889)",
+          "YALI0F04114g": "Cox9 ortholog (B5RSK7, 60 aa; PANTHER PTHR28264); cox9 null lacks functional holoenzyme (Wright 1986 PMID 3023385). Gene ID unresolved: legacy CLIB122 ID; CLIB89 YALI1_F06244g is annotated as a pseudogene; not in the screen library.",
+          "YALI1E19902g": "Cox12 ortholog (Q6C5M8; KEGG K02267, mammalian COX6B); null keeps 5-15% activity but no respiratory growth at 37 C (LaMarche 1992 PMID 1331057); kept as functional abolition (judgment)"
+        },
+        "removed": {
+          "YALI1D23237g": "Proton-dependent oligopeptide transporter PTR2 (UniParc UPI0008710D6C, 595 aa, Pfam PF00854, PROSITE PS01023; CLIB122 Q6C8M0; KEGG yli:2911123 'Peptide transporter PTR2'); not a complex IV subunit",
+          "YALI1D11769g": "Cytochrome c (reviewed CYC_YARLI Q6C9Q0); electron donor already represented as metabolites m2/m3, not a subunit; remains in complex III R305 and the lactate:cytochrome c reactions",
+          "YALI1F04455g": "Cox13 ortholog (Q6C325; mammalian COX6A); null enzyme fully assembled and active (Taanman & Capaldi 1993 PMID 8395517): dispensable",
+          "YALI1F06236g": "Cox8 ortholog (Q6C2Y3; KEGG K02272, mammalian COX7C); needed only for maximal activity (Patterson & Poyton 1986 PMID 3023386); dispensable, provisional (residual activity value not verified)"
+        },
+        "not_added": {
+          "YalifMp05": "cox1-i7 intron-encoded LAGLIDADG endonuclease fused to upstream COX1 exons (Q9B6E5; NC_002659.1 CDS note); not a subunit; possible splicing role unresolved",
+          "YalifMp06": "cox1-i5 intron-encoded LAGLIDADG endonuclease (Q9B6E6); not a subunit; possible splicing role unresolved"
+        },
+        "sources": "Independent complex IV reviewer (subagent) opened UniProt, UniParc, KEGG KO links, NCBI NC_002659.1, PubMed records via E-utilities and SGD phenotype APIs on 2026-10-08; ortholog calls by KEGG KO membership, shared Pfam/PANTHER and alignment."
+      }
+    },
+    {
+      "id": "C1",
+      "title": "R_CYSS_m is a mixed-compartment, reversible, H+-short copy of cytosolic cysteine synthase R247",
+      "duplicate": {
+        "reaction": "R_CYSS_m",
+        "duplicate_of": "R247",
+        "species_map": {
+          "m201[C_mi]": "m202[C_cy]"
+        },
+        "add": {
+          "m10[C_cy]": -1.0
+        },
+        "normalized_bounds": [
+          0.0,
+          1000.0
+        ]
+      },
+      "remove": {
+        "R_CYSS_m": {
+          "stoichiometry": {
+            "m445[C_cy]": -1.0,
+            "m446[C_cy]": -1.0,
+            "m201[C_mi]": 1.0,
+            "m443[C_cy]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "gpr": "YALI1E10364g"
+        }
+      },
+      "note": "2026-10-08 package C1: reaction removed; see coq9_respiratory_package.json.",
+      "evidence_tier": "local_stoichiometric_duplicate",
+      "evidence": [
+        {
+          "claim": "R_CYSS_m normalized to one compartment (acetate m201[C_mi] -> m202[C_cy]), made irreversible and H+-balanced is identical to R247, whose GPR contains the same gene YALI1E10364g",
+          "source": "Step 0 model stoichiometry; checked in code by the package step",
+          "url": null,
+          "tier": "verified_local_stoichiometry",
+          "reviewer": "Claude (this task)",
+          "caveat": "Removal is duplicate removal, not a claim that cysteine synthase is absent."
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Remove GPR-less bacterial-type malonyl-CoA:pyruvate carboxytransferase R2004",
+      "remove": {
+        "R2004": {
+          "stoichiometry": {
+            "m4[C_cy]": -1.0,
+            "m200[C_cy]": -1.0,
+            "m68[C_cy]": 1.0,
+            "m328[C_cy]": 1.0
+          },
+          "bounds": [
+            -1000.0,
+            1000.0
+          ],
+          "gpr": ""
+        }
+      },
+      "note": "2026-10-08 package C3: reaction removed; see coq9_respiratory_package.json.",
+      "evidence_tier": "absence_of_records_no_gene",
+      "evidence": [
+        {
+          "claim": "EC 2.1.3.1 is the biotin-dependent methylmalonyl-CoA carboxytransferase (transcarboxylase) described from Propionibacterium; its Swiss-Prot entries are the three _PROFR subunits",
+          "source": "ExPASy ENZYME EC 2.1.3.1",
+          "url": "https://enzyme.expasy.org/EC/2.1.3.1",
+          "tier": "verified_opened_this_session",
+          "reviewer": "Claude (this task)"
+        },
+        {
+          "claim": "No fungal UniProt entry carries EC 2.1.3.1; BRENDA lists bacteria plus one Canis activity record, no yeast",
+          "source": "UniProt query ec:2.1.3.1 AND taxonomy_id:4751 (0 entries); BRENDA EC 2.1.3.1",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=(ec:2.1.3.1)%20AND%20(taxonomy_id:4751)&fields=accession,id,protein_name,organism_name,reviewed&format=tsv&size=50",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent citation reviewer (subagent)",
+          "caveat": "Absence of records, not proof of biological absence. R2004 has no GPR in the model."
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "title": "Remove the matrix copy R349 of NAD-dependent glycerol-3-phosphate dehydrogenase; cytosolic R348 keeps the enzyme",
+      "remove": {
+        "R349": {
+          "stoichiometry": {
+            "m28[C_mi]": -2.0,
+            "m30[C_mi]": -1.0,
+            "m565[C_mi]": -1.0,
+            "m27[C_mi]": 1.0,
+            "m564[C_mi]": 1.0
+          },
+          "bounds": [
+            0.0,
+            1000.0
+          ],
+          "gpr": "YALI1B04433g"
+        }
+      },
+      "retained_counterparts": {
+        "R348": [
+          "YALI1B04433g"
+        ]
+      },
+      "note": "2026-10-08 package C4: reaction removed; see coq9_respiratory_package.json.",
+      "evidence_tier": "yarrowia_phenotype_inference_localization_unverified",
+      "evidence": [
+        {
+          "claim": "Y. lipolytica has no internal NADH dehydrogenase able to replace complex I (central complex I deletions lethal; NDH2 external)",
+          "source": "Kerscher et al. 2001 J Cell Sci PMID 11719558; Kerscher et al. 1999 PMID 10381390",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A11719558%20AND%20SRC%3AMED&format=json&resultType=core",
+          "tier": "verified_opened_this_session",
+          "reviewer": "Claude (this task)",
+          "caveat": "Phenotype-level inference: R349 + R347 + R1977 forms an internal NADH:quinone route in the model that the lethality argues against."
+        },
+        {
+          "claim": "Y. lipolytica GPD1 (Q9UVF4, YALI0B02948g) is annotated cytoplasmic",
+          "source": "UniProt Q9UVF4",
+          "url": "https://rest.uniprot.org/uniprotkb/search?query=(gene:YALI0B02948g)&fields=accession,id,gene_names,protein_name,organism_name,cc_subcellular_location,lit_pubmed_id,xref_refseq&format=tsv",
+          "tier": "reviewer_opened_this_session",
+          "reviewer": "independent citation reviewer (subagent)",
+          "caveat": "Curator inference (ECO:0000305), no experimental localization located. Counterpoint: S. cerevisiae Gpd2p is partly mitochondrial (Valadi et al. 2004 JBC PMID 15210723). The YALI1B04433g <-> YALI0B02948g mapping is the model's own annotation. The enzyme is retained as cytosolic R348."
+        }
+      ]
+    }
+  ]
+}

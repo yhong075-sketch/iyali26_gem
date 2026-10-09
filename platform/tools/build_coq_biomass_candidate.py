@@ -7,7 +7,6 @@ from datetime import datetime, timezone
 import hashlib
 import html
 import json
-import math
 from pathlib import Path
 import subprocess
 import sys
@@ -17,49 +16,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.gem_annotate.config import resolve_recorded_path
 
 from cobra.io import read_sbml_model
+from scripts.gem_annotate.coq9 import (BIOMASS, BIOMASS_DILUTION_NOTE as NOTE, Q9, Q9H2,
+                                       apply_coq_biomass, pool_balance)
 from scripts.gem_annotate.energy_candidates import export_candidate, model_definition
 from scripts.gem_annotate.execution import execution_limits
 
 from scripts.gem_annotate.model_layout import MODEL, PLATFORM_ROOT
 SPEC_PATH = MODEL.curation_file("coq_biomass_candidate.json")
-BIOMASS = "biomass_C"
-Q9, Q9H2 = "m468[C_mi]", "m471[C_mi]"
-NOTE = "coq9_growth_dilution_candidate"
-
-
-def pool_balance(model):
-    """Sum the two existing steady-state rows; introduce no new constraint."""
-    q, qh = (model.metabolites.get_by_id(mid) for mid in (Q9, Q9H2))
-    return {r.id: c for r in model.reactions
-            if (c := r.metabolites.get(q, 0) + r.metabolites.get(qh, 0)) != 0}
-
-
-def apply_coq_biomass(model, alpha, alpha_source):
-    if isinstance(alpha, bool) or not isinstance(alpha, (int, float)) or not math.isfinite(alpha) or alpha <= 0:
-        raise ValueError("alpha must be an explicit finite positive number in mmol/gDW")
-    if not isinstance(alpha_source, str) or not alpha_source.strip():
-        raise ValueError("alpha_source must identify the measurement or provisional assumption")
-    bio = model.reactions.get_by_id(BIOMASS)
-    q = model.metabolites.get_by_id(Q9)
-    qh = model.metabolites.get_by_id(Q9H2)
-    if q.compartment != "C_mi" or q.formula != "C54H82O4" or q.charge != 0:
-        raise ValueError("Expected the existing neutral mitochondrial Q9 identity")
-    original = {"R385": 1.0}
-    target = {"R385": 1.0, BIOMASS: -alpha}
-    if pool_balance(model) not in (original, target):
-        raise ValueError("Unexpected combined Q9/Q9H2 pool balance; no edits applied")
-    if bio.metabolites.get(q, 0) not in (0, -alpha):
-        raise ValueError("Conflicting pre-existing Q9 biomass coefficient; no edits applied")
-    if bio.metabolites.get(qh, 0) != 0:
-        raise ValueError("Pre-existing Q9H2 biomass term; no edits applied")
-    record = {"alpha_mmol_per_gDW": alpha, "alpha_source": alpha_source.strip(),
-              "status": "candidate_not_physiologically_calibrated_by_this_build",
-              "interpretation": "Q9 retained in newly formed biomass; not consumption per electron transfer",
-              "pool_balance": target, "R385_lower_bound_changed": False}
-    # Adding the delta also supports COBRA contexts when Q9 was absent.
-    bio.add_metabolites({q: -alpha - bio.metabolites.get(q, 0)})
-    bio.notes[NOTE] = json.dumps(record, sort_keys=True)
-    return record
 
 
 def build_candidate_file(source, output, alpha, alpha_source):
@@ -80,6 +43,7 @@ def build_candidate_file(source, output, alpha, alpha_source):
     if input_sha != spec["source_sha256"]:
         raise ValueError("Source SHA differs from the pinned E5 candidate")
     implementation = [Path(__file__), SPEC_PATH,
+                      PLATFORM_ROOT / "scripts/gem_annotate/coq9.py",
                       PLATFORM_ROOT / "scripts/gem_annotate/energy_candidates.py",
                       PLATFORM_ROOT / "scripts/gem_annotate/reaction_selection.py",
                       PLATFORM_ROOT / "scripts/gem_annotate/sbml.py",

@@ -1,0 +1,113 @@
+{
+  "model": "model/candidates/E5_coq9_respiratory_package_20261008.xml",
+  "model_sha256": "0ac2addfa0cb6de2d89393e433766fb04325ffe42c2d131eaefaca3bcec29dba",
+  "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "faf4a87223e6f65745b0a2f040d9832b9509487211256169417b2e8bd3a6967d",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  },
+  "closure_changes": 190,
+  "static_checks": {
+    "R39": {
+      "equation": "m641[C_mi] + 0.5 m64[C_mi] --> m28[C_mi] + m939[C_mi]",
+      "compartments": [
+        "C_mi"
+      ],
+      "gpr": "YALI1A08781g and YALI1B20527g",
+      "exact_residual": {}
+    },
+    "R695": {
+      "equation": "m30[C_mi] + m61[C_mi] + m64[C_mi] --> m26[C_mi] + m27[C_mi] + m611[C_mi]",
+      "compartments": [
+        "C_mi"
+      ],
+      "gpr": "YALI1E18269g and YALI1F34675g",
+      "exact_residual": {}
+    },
+    "R2062": {
+      "equation": "4.0 m28[C_mi] + m30[C_mi] + m468[C_mi] --> 4.0 m10[C_cy] + m27[C_mi] + m471[C_mi]",
+      "compartments": [
+        "C_cy",
+        "C_mi"
+      ],
+      "gpr": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29",
+      "exact_residual": {}
+    },
+    "R304": {
+      "equation": "8.0 m28[C_mi] + 4.0 m3[C_mi] + m64[C_mi] --> 4.0 m10[C_cy] + 2.0 m26[C_mi] + 4.0 m2[C_mi]",
+      "compartments": [
+        "C_cy",
+        "C_mi"
+      ],
+      "gpr": "YALI1M00131g and YALI1M00325g and YALI1M00277g and YALI1E23635g and YALI1F05089g and YALI1E12730g and YALI1E15606g and YALI0F04114g and YALI1E19902g",
+      "exact_residual": {}
+    }
+  },
+  "results": {
+    "WT": {
+      "status": "optimal",
+      "objective": 1.4308057353528467,
+      "growth": 1.4308057353528467,
+      "fluxes": {
+        "R385": 0.0001430805735352847,
+        "R2062": 24.6102800198022,
+        "R304": 14.05415464425727,
+        "R305": 28.10830928851454,
+        "R39": 0.0001430805735352847,
+        "R171": 54.84094536242273
+      }
+    },
+    "R385_off": {
+      "status": "optimal",
+      "objective": 0.0,
+      "growth": 0.0,
+      "fluxes": {
+        "R385": 0.0,
+        "R2062": 4.319104715574683,
+        "R304": 2.16717268787621,
+        "R305": 4.33434537575242,
+        "R39": 0.0,
+        "R171": 8.24937677928858
+      }
+    },
+    "ATP_closed_C_cy": {
+      "status": "optimal",
+      "objective": 0.0,
+      "growth": 0.0,
+      "fluxes": {
+        "R385": 0.0,
+        "R2062": 0.0,
+        "R304": 0.0,
+        "R305": 0.0,
+        "R39": 0.0,
+        "R171": 0.0
+      }
+    },
+    "ATP_closed_C_mi": {
+      "status": "optimal",
+      "objective": 0.0,
+      "growth": 0.0,
+      "fluxes": {
+        "R385": 0.0,
+        "R2062": 0.0,
+        "R304": 0.0,
+        "R305": 0.0,
+        "R39": 0.0,
+        "R171": 0.0
+      }
+    }
+  },
+  "optimization_calls": 4
+}
