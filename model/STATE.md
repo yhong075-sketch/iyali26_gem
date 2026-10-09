@@ -83,6 +83,20 @@ class; this is a development reference, not independent validation):
 
 Full write-up: [REPORT.md](reports/coq9_respiratory_package_20261008/REPORT.md).
 
+## 2026-10-08: Latest CoQ9/R305 candidate screened once
+
+Authorized by the user's “对我们的最新模型进行一次screen test”. Executed the previously delivered [CoQ9 alpha=1e-4/R305 candidate](reports/coq_r305_candidate_20261005/E5_coq9_alpha_1e-4_R305_qcycle.xml), SHA-256 `33468b94f378f0ab7f29f05e4356fd93b6d3eff23bc112d566cf16d6e4d6041c`, on branch `restructure/model-platform`, HEAD `ea5b639dd55cf833d5a880cf2d55551b12bc4677`. Fresh static PO1f/SD-Leu screen: exactly 1,074 optimizations, WT growth 1.4445584333 h⁻¹ plus 1,073 native-gene KOs, all optimal and scorable. At the primary 15% cutoff: 120 predicted essential; TP=83, FN=239, FP=37, TN=714; recall=25.78%, precision=69.17%. Unlisted model genes form the user-defined negative class. Positive coverage=322/1,612; 1,290 absent direct IDs are out of scope, not FN. This is a development reference, not independent validation.
+
+An orphan-gene flag restoration guard stopped the initial process after 41 completed calls. Original files were preserved; a solver-free check confirmed the cause, and continuation reused those calls under identical effective-model conditions, solving only the remaining 1,033 KOs. No repeated optimization or biological constraint relaxation. Independent read-only audit verified provenance, all call IDs/raw rows, four cutoff summaries and coverage; zero additional optimization. See [REPORT.md](reports/screen_coq_r305_20261008/REPORT.md), [final manifest](reports/screen_coq_r305_20261008/manifest_continued.json) and linked raw tables under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/screen_coq_r305_20261008/`. No model edit/export, dFBA/FVA/energy rerun, repair loop, commit or push.
+
+## 2026-10-07: Located the experimental essential-gene workbook
+
+At the user's request, located the original workbook at `$IYALI26_RESEARCH_ROOT/raw/assays/42003_2023_4996_MOESM10_ESM.xlsx`; the copy under `state/essentiality/repository/` is byte-identical. Both have SHA-256 `50d9ce1814e8e1ac2e9d0cd18a5633cc3a68624abfd44fea5f9337dc93bf4fda`, matching the [recorded source identity](expected/baseline_manifest_20260905.json). The normalized `state/essentiality/repository/consensus_essential_genes.csv` also matches its recorded SHA-256 `1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b`. The existing workbook audit identifies 1,612 experimental-positive IDs and function descriptions on Sheet1; that content finding is reused, not re-audited here. File lookup and byte checks only; no label edits or model calculations.
+
+## 2026-10-07: Located the latest CoQ9/R305 delivery after folder reorganization
+
+At the user's request, checked the reorganized paths and candidate index on `restructure/model-platform`, HEAD `ea5b639dd55cf833d5a880cf2d55551b12bc4677`. The latest tested/published candidate on this work line remains [E5_coq9_alpha_1e-4_R305_qcycle.xml](reports/coq_r305_candidate_20261005/E5_coq9_alpha_1e-4_R305_qcycle.xml), SHA-256 `33468b94f378f0ab7f29f05e4356fd93b6d3eff23bc112d566cf16d6e4d6041c`: byte-identical to the 2026-10-06 delivery in commit `954de2c`. It retains alpha = 1e-4 and the R305 correction. Its [existing four-test report](reports/coq_r305_candidate_20261005/REPORT.md) is historical evidence, not a new reproduction. The [candidate index](candidates/README.md) distinguishes this file from the separately documented default build (`b4ce0974…`); no scientific reference is designated. Read-only identity checking and this state entry only; no rebuild, optimization, model change, commit or push.
+
 ## 2026-10-06：CoQ9 生物量与 R305 修正候选已推送
 
 按用户在确认工作仓库／分支后的“推送最新的模型”，将先前CoQ9生物量提交 `fcf42d2` 及R305独立候选提交 `954de2c3cccb4e13a06e5827e49938fbfab720be` 正常快进推送到 `https://github.com/yhong075-sketch/iyali26_gem.git` 的 `codex/r989-gpr-main-worktree`。远端分支完整SHA已核实与本地一致。交付为[最新R305候选XML](reports/coq_r305_candidate_20261005/E5_coq9_alpha_1e-4_R305_qcycle.xml)及[报告／四项测试记录](reports/coq_r305_candidate_20261005/REPORT.md)。本轮仅核对文件身份与提交范围，无新增优化；未合并main、改变默认构建或夹带其他未提交工作。原生机制及区室近似的限制保持。
