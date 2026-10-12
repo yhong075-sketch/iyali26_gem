@@ -1,0 +1,966 @@
+{
+ "model": "Step 0 build (E5 + qcycle + CoQ9 biomass dilution), see TASK.md; scratch build output",
+ "sha256": "d868f83b8e5d68d9d44f01bc594bf086e5b5bbe8c5b00965eece499216adbef7",
+ "reactions": {
+  "R39": {
+   "name": "nonaprenyl 4-hydroxybenzoate hydroxylase",
+   "equation": "m108[C_cy] + 0.5 m109[C_cy] --> m10[C_cy] + m110[C_cy]",
+   "stoichiometry": {
+    "m108[C_cy]": -1.0,
+    "m109[C_cy]": -0.5,
+    "m110[C_cy]": 1.0,
+    "m10[C_cy]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "compartments": [
+    "C_cy"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m108[C_cy]": {
+     "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+     "formula": "C52H78O3",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m109[C_cy]": {
+     "name": "oxygen_O2",
+     "formula": "O2",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m110[C_cy]": {
+     "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+     "formula": "C52H77O4",
+     "charge": -1,
+     "compartment": "C_cy"
+    },
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    }
+   }
+  },
+  "R969": {
+   "name": "nonaprenyl 4-hydroxybenzoate transport",
+   "equation": "m108[C_cy] <=> m641[C_mi]",
+   "stoichiometry": {
+    "m108[C_cy]": -1.0,
+    "m641[C_mi]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m108[C_cy]": {
+     "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+     "formula": "C52H78O3",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m641[C_mi]": {
+     "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+     "formula": "C52H78O3",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R808": {
+   "name": "3-nonaprenyl-4,5-dihydroxybenzoate transport",
+   "equation": "m110[C_cy] <=> m939[C_mi]",
+   "stoichiometry": {
+    "m110[C_cy]": -1.0,
+    "m939[C_mi]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m110[C_cy]": {
+     "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+     "formula": "C52H77O4",
+     "charge": -1,
+     "compartment": "C_cy"
+    },
+    "m939[C_mi]": {
+     "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+     "formula": "C52H77O4",
+     "charge": -1,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R695": {
+   "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+   "equation": "m30[C_mi] + m61[C_mi] + m64[C_mi] --> m26[C_mi] + m27[C_mi] + m611[C_mi]",
+   "stoichiometry": {
+    "m30[C_mi]": -1.0,
+    "m61[C_mi]": -1.0,
+    "m64[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m27[C_mi]": 1.0,
+    "m611[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E18269g",
+   "compartments": [
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m30[C_mi]": {
+     "name": "NADH_C21H29N7O14P2",
+     "formula": "C21H29N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m61[C_mi]": {
+     "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone_C53H80O3",
+     "formula": "C53H80O3",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m64[C_mi]": {
+     "name": "oxygen_O2",
+     "formula": "O2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m26[C_mi]": {
+     "name": "H2O_H2O",
+     "formula": "H2O",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m27[C_mi]": {
+     "name": "NAD_C21H27N7O14P2",
+     "formula": "C21H27N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m611[C_mi]": {
+     "name": "3-demethylubiquinone-9_C53H80O4",
+     "formula": "C53H80O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R1889": {
+   "name": "NADH dehydrogenase (complex I)",
+   "equation": "5.0 m28[C_mi] + m30[C_mi] + m468[C_mi] --> 4.0 m10[C_cy] + m27[C_mi] + m471[C_mi]",
+   "stoichiometry": {
+    "m28[C_mi]": -5.0,
+    "m30[C_mi]": -1.0,
+    "m468[C_mi]": -1.0,
+    "m10[C_cy]": 4.0,
+    "m27[C_mi]": 1.0,
+    "m471[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B26679g and YALI1D07089g and YALI1F09003g and YALI1F22993g",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {
+    "charge": -1.0,
+    "H": -1.0
+   },
+   "species": {
+    "m28[C_mi]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m30[C_mi]": {
+     "name": "NADH_C21H29N7O14P2",
+     "formula": "C21H29N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m468[C_mi]": {
+     "name": "ubiquinone-9_C54H82O4",
+     "formula": "C54H82O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    },
+    "m27[C_mi]": {
+     "name": "NAD_C21H27N7O14P2",
+     "formula": "C21H27N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m471[C_mi]": {
+     "name": "ubiquinol-9_C54H84O4",
+     "formula": "C54H84O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R2062": {
+   "name": "NADH:ubiquinone oxidoreductase",
+   "equation": "m30[C_mi] + m468[C_mi] --> m27[C_mi] + m471[C_mi]",
+   "stoichiometry": {
+    "m30[C_mi]": -1.0,
+    "m468[C_mi]": -1.0,
+    "m27[C_mi]": 1.0,
+    "m471[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 and YALI1E06573g and YALI1F32476g",
+   "compartments": [
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m30[C_mi]": {
+     "name": "NADH_C21H29N7O14P2",
+     "formula": "C21H29N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m468[C_mi]": {
+     "name": "ubiquinone-9_C54H82O4",
+     "formula": "C54H82O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m27[C_mi]": {
+     "name": "NAD_C21H27N7O14P2",
+     "formula": "C21H27N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m471[C_mi]": {
+     "name": "ubiquinol-9_C54H84O4",
+     "formula": "C54H84O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R304": {
+   "name": "ferrocytochrome-c:oxygen oxidoreductase",
+   "equation": "6.0 m28[C_mi] + 4.0 m3[C_mi] + m64[C_mi] --> 2.0 m10[C_cy] + 2.0 m26[C_mi] + 4.0 m2[C_mi]",
+   "stoichiometry": {
+    "m3[C_mi]": -4.0,
+    "m28[C_mi]": -6.0,
+    "m64[C_mi]": -1.0,
+    "m2[C_mi]": 4.0,
+    "m10[C_cy]": 2.0,
+    "m26[C_mi]": 2.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23237g and YALI1M00325g and YALI1M00277g and YALI0F04114g and YALI1E23635g and YALI1F04455g and YALI1E12730g and YALI1E19902g and YALI1F06236g and YALI1E15606g and YALI1D11769g and YALI1F05089g",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m3[C_mi]": {
+     "name": "ferrocytochrome c_",
+     "formula": "C42H52FeN8O6S2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m28[C_mi]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m64[C_mi]": {
+     "name": "oxygen_O2",
+     "formula": "O2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m2[C_mi]": {
+     "name": "ferricytochrome c_",
+     "formula": "C42H52FeN8O6S2",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    },
+    "m26[C_mi]": {
+     "name": "H2O_H2O",
+     "formula": "H2O",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R2206": {
+   "name": "Ferrocytochrome-c:oxygen oxidoreductase",
+   "equation": "4.0 m28[C_mi] + 4.0 m3[C_mi] + m64[C_mi] --> 2.0 m26[C_mi] + 4.0 m2[C_mi]",
+   "stoichiometry": {
+    "m3[C_mi]": -4.0,
+    "m64[C_mi]": -1.0,
+    "m28[C_mi]": -4.0,
+    "m2[C_mi]": 4.0,
+    "m26[C_mi]": 2.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1M00131g and YalifMp05 and YalifMp06",
+   "compartments": [
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m3[C_mi]": {
+     "name": "ferrocytochrome c_",
+     "formula": "C42H52FeN8O6S2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m64[C_mi]": {
+     "name": "oxygen_O2",
+     "formula": "O2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m28[C_mi]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m2[C_mi]": {
+     "name": "ferricytochrome c_",
+     "formula": "C42H52FeN8O6S2",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m26[C_mi]": {
+     "name": "H2O_H2O",
+     "formula": "H2O",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R_CYSS_m": {
+   "name": "R_CYSS_m",
+   "equation": "m445[C_cy] + m446[C_cy] <=> m201[C_mi] + m443[C_cy]",
+   "stoichiometry": {
+    "m445[C_cy]": -1.0,
+    "m446[C_cy]": -1.0,
+    "m201[C_mi]": 1.0,
+    "m443[C_cy]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E10364g",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {
+    "charge": 1.0,
+    "H": 1.0
+   },
+   "species": {
+    "m445[C_cy]": {
+     "name": "hydrogen sulfide_HS",
+     "formula": "HS",
+     "charge": -1,
+     "compartment": "C_cy"
+    },
+    "m446[C_cy]": {
+     "name": "O-acetyl-L-serine_C5H9NO4",
+     "formula": "C5H9NO4",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m201[C_mi]": {
+     "name": "acetate_C2H4O2",
+     "formula": "C2H4O2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m443[C_cy]": {
+     "name": "L-cysteine_C3H7NO2S",
+     "formula": "C3H7NO2S",
+     "charge": 0,
+     "compartment": "C_cy"
+    }
+   }
+  },
+  "R247": {
+   "name": "cysteine synthase",
+   "equation": "m10[C_cy] + m445[C_cy] + m446[C_cy] --> m202[C_cy] + m443[C_cy]",
+   "stoichiometry": {
+    "m445[C_cy]": -1.0,
+    "m446[C_cy]": -1.0,
+    "m10[C_cy]": -1.0,
+    "m202[C_cy]": 1.0,
+    "m443[C_cy]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E10364g or YALI1F18920g or YALI1D33380g",
+   "compartments": [
+    "C_cy"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m445[C_cy]": {
+     "name": "hydrogen sulfide_HS",
+     "formula": "HS",
+     "charge": -1,
+     "compartment": "C_cy"
+    },
+    "m446[C_cy]": {
+     "name": "O-acetyl-L-serine_C5H9NO4",
+     "formula": "C5H9NO4",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    },
+    "m202[C_cy]": {
+     "name": "acetate_C2H4O2",
+     "formula": "C2H4O2",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m443[C_cy]": {
+     "name": "L-cysteine_C3H7NO2S",
+     "formula": "C3H7NO2S",
+     "charge": 0,
+     "compartment": "C_cy"
+    }
+   }
+  },
+  "R2004": {
+   "name": "malonyl-CoA:pyruvate carboxytransferase",
+   "equation": "m200[C_cy] + m4[C_cy] <=> m328[C_cy] + m68[C_cy]",
+   "stoichiometry": {
+    "m4[C_cy]": -1.0,
+    "m200[C_cy]": -1.0,
+    "m68[C_cy]": 1.0,
+    "m328[C_cy]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "compartments": [
+    "C_cy"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m4[C_cy]": {
+     "name": "pyruvate_C3H4O3",
+     "formula": "C3H4O3",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m200[C_cy]": {
+     "name": "malonyl-CoA_C24H38N7O19P3S",
+     "formula": "C24H38N7O19P3S",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m68[C_cy]": {
+     "name": "acetyl-CoA_C23H38N7O17P3S",
+     "formula": "C23H38N7O17P3S",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m328[C_cy]": {
+     "name": "oxaloacetate_C4H4O5",
+     "formula": "C4H4O5",
+     "charge": 0,
+     "compartment": "C_cy"
+    }
+   }
+  },
+  "R349": {
+   "name": "glycerol-3-phosphate dehydrogenase (NAD)",
+   "equation": "2.0 m28[C_mi] + m30[C_mi] + m565[C_mi] --> m27[C_mi] + m564[C_mi]",
+   "stoichiometry": {
+    "m28[C_mi]": -2.0,
+    "m30[C_mi]": -1.0,
+    "m565[C_mi]": -1.0,
+    "m27[C_mi]": 1.0,
+    "m564[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B04433g",
+   "compartments": [
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m28[C_mi]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m30[C_mi]": {
+     "name": "NADH_C21H29N7O14P2",
+     "formula": "C21H29N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m565[C_mi]": {
+     "name": "dihydroxyacetone phosphate_C3H5O6P",
+     "formula": "C3H5O6P",
+     "charge": -2,
+     "compartment": "C_mi"
+    },
+    "m27[C_mi]": {
+     "name": "NAD_C21H27N7O14P2",
+     "formula": "C21H27N7O14P2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m564[C_mi]": {
+     "name": "glycerol 3-phosphate_C3H9O6P",
+     "formula": "C3H9O6P",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R348": {
+   "name": "glycerol-3-phosphate dehydrogenase (NAD)",
+   "equation": "2.0 m10[C_cy] + m123[C_cy] + m456[C_cy] --> m122[C_cy] + m562[C_cy]",
+   "stoichiometry": {
+    "m10[C_cy]": -2.0,
+    "m123[C_cy]": -1.0,
+    "m456[C_cy]": -1.0,
+    "m122[C_cy]": 1.0,
+    "m562[C_cy]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B04433g",
+   "compartments": [
+    "C_cy"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    },
+    "m123[C_cy]": {
+     "name": "NADH_C21H29N7O14P2",
+     "formula": "C21H29N7O14P2",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m456[C_cy]": {
+     "name": "dihydroxyacetone phosphate_C3H5O6P",
+     "formula": "C3H5O6P",
+     "charge": -2,
+     "compartment": "C_cy"
+    },
+    "m122[C_cy]": {
+     "name": "NAD_C21H27N7O14P2",
+     "formula": "C21H27N7O14P2",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m562[C_cy]": {
+     "name": "glycerol 3-phosphate_C3H9O6P",
+     "formula": "C3H9O6P",
+     "charge": 0,
+     "compartment": "C_cy"
+    }
+   }
+  },
+  "R1384": {
+   "name": "proton leak",
+   "equation": "m10[C_cy] --> m28[C_mi]",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m28[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    },
+    "m28[C_mi]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R305": {
+   "name": "ubiquinol-9:cytochrome-c reductase (complex III)",
+   "equation": "2.0 m28[C_mi] + 2.0 m2[C_mi] + m471[C_mi] --> 4.0 m10[C_cy] + 2.0 m3[C_mi] + m468[C_mi]",
+   "stoichiometry": {
+    "m2[C_mi]": -2.0,
+    "m28[C_mi]": -2.0,
+    "m471[C_mi]": -1.0,
+    "m3[C_mi]": 2.0,
+    "m10[C_cy]": 4.0,
+    "m468[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g",
+   "compartments": [
+    "C_cy",
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m2[C_mi]": {
+     "name": "ferricytochrome c_",
+     "formula": "C42H52FeN8O6S2",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m28[C_mi]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m471[C_mi]": {
+     "name": "ubiquinol-9_C54H84O4",
+     "formula": "C54H84O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m3[C_mi]": {
+     "name": "ferrocytochrome c_",
+     "formula": "C42H52FeN8O6S2",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m10[C_cy]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_cy"
+    },
+    "m468[C_mi]": {
+     "name": "ubiquinone-9_C54H82O4",
+     "formula": "C54H82O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "R385": {
+   "name": "3-demethylubiquinone-9 3-O-methyltransferase",
+   "equation": "m60[C_mi] + m611[C_mi] --> m468[C_mi] + m62[C_mi]",
+   "stoichiometry": {
+    "m60[C_mi]": -1.0,
+    "m611[C_mi]": -1.0,
+    "m468[C_mi]": 1.0,
+    "m62[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B20835g",
+   "compartments": [
+    "C_mi"
+   ],
+   "mass_charge_residual": {},
+   "species": {
+    "m60[C_mi]": {
+     "name": "S-adenosyl-L-methionine_C15H22N6O5S",
+     "formula": "C15H22N6O5S",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m611[C_mi]": {
+     "name": "3-demethylubiquinone-9_C53H80O4",
+     "formula": "C53H80O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m468[C_mi]": {
+     "name": "ubiquinone-9_C54H82O4",
+     "formula": "C54H82O4",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m62[C_mi]": {
+     "name": "S-adenosyl-L-homocysteine_C14H20N6O5S",
+     "formula": "C14H20N6O5S",
+     "charge": 0,
+     "compartment": "C_mi"
+    }
+   }
+  },
+  "biomass_C": {
+   "Q9_coefficient": -0.0001
+  }
+ },
+ "metabolites": {
+  "m108[C_cy]": {
+   "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+   "formula": "C52H78O3",
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions": [
+    "R39",
+    "R969"
+   ]
+  },
+  "m110[C_cy]": {
+   "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+   "formula": "C52H77O4",
+   "charge": -1,
+   "compartment": "C_cy",
+   "reactions": [
+    "R39",
+    "R808"
+   ]
+  },
+  "m641[C_mi]": {
+   "name": "nonaprenyl 4-hydroxybenzoate_C52H78O3",
+   "formula": "C52H78O3",
+   "charge": 0,
+   "compartment": "C_mi",
+   "reactions": [
+    "R407",
+    "R969"
+   ]
+  },
+  "m939[C_mi]": {
+   "name": "3-nonaprenyl-4,5-dihydroxybenzoate_C52H77O4",
+   "formula": "C52H77O4",
+   "charge": -1,
+   "compartment": "C_mi",
+   "reactions": [
+    "R715",
+    "R808"
+   ]
+  }
+ },
+ "genes": {
+  "YALI1A08781g": {
+   "reactions": [],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2906060",
+    "uniprot": "Q6H9P2",
+    "kegg.genes": "yli:2906060",
+    "refseq": "XP_499891.1",
+    "ec-code": [
+     "1.14.15.45",
+     "1.14.15.46"
+    ]
+   }
+  },
+  "YALI1B20527g": {
+   "reactions": [],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2906959",
+    "uniprot": "A0A1D8N7Z5",
+    "kegg.genes": "yli:2906959",
+    "refseq": "XP_500941.1"
+   }
+  },
+  "YALI1E18269g": {
+   "reactions": [
+    "R695"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2911989",
+    "uniprot": "A0A1H6Q2E8",
+    "kegg.genes": "yli:2911989",
+    "refseq": "XP_503973.1",
+    "ec-code": "1.14.99.60"
+   }
+  },
+  "YALI1F34675g": {
+   "reactions": [],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2907842",
+    "uniprot": "A0A1D8NQ60",
+    "kegg.genes": "yli:2907842",
+    "refseq": "XP_505941.3"
+   }
+  },
+  "YALI1F32476g": {
+   "reactions": [
+    "R2062",
+    "R570",
+    "R573"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "uniprot": "F2Z699",
+    "refseq": "XP_505856.1",
+    "ensembl": "CAG78667",
+    "kegg.genes": "yli:2908423",
+    "ec-code": "1.6.5.9"
+   }
+  },
+  "YALI1E06573g": {
+   "reactions": [
+    "R2062"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243"
+   }
+  },
+  "YALI1M00338r": {
+   "reactions": [
+    "R2062"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243"
+   }
+  },
+  "YALI1M00131g": {
+   "reactions": [
+    "R2206"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243"
+   }
+  },
+  "YalifMp05": {
+   "reactions": [
+    "R2206"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243"
+   }
+  },
+  "YalifMp06": {
+   "reactions": [
+    "R2206"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243"
+   }
+  },
+  "YALI1D23237g": {
+   "reactions": [
+    "R304"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2911123",
+    "uniprot": "A0A1D8NF56",
+    "kegg.genes": "yli:2911123",
+    "refseq": "XP_502992.3"
+   }
+  },
+  "YALI1E10364g": {
+   "reactions": [
+    "R2198",
+    "R247",
+    "R_CYSS_m",
+    "R_CYST_II"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243"
+   }
+  },
+  "YALI1B04433g": {
+   "reactions": [
+    "R348",
+    "R349"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "uniprot": "Q9UVF4",
+    "ensembl": "CAG82664",
+    "kegg.genes": "yli:2906777",
+    "ec-code": "1.1.1.8"
+   }
+  }
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "counts": {
+  "a": [
+   2314,
+   1877,
+   1073
+  ],
+  "b": [
+   2314,
+   1877,
+   1073
+  ]
+ },
+ "reactions": {
+  "only_in_a": [],
+  "only_in_b": [],
+  "changed": {
+   "R1889": {
+    "gpr": [
+     "",
+     "YALI1B26679g and YALI1D07089g and YALI1F09003g and YALI1F22993g"
+    ],
+    "notes": {
+     "gpr_evidence_status": [
+      null,
+      "partial experimentally supported complex-I dependency map with sequence-verified W29 identities"
+     ],
+     "gpr_required_subunits": [
+      null,
+      "YALI1D07089g=NUAM; YALI1B26679g=NUBM; YALI1F22993g=NUCM; YALI1F09003g=NUKM"
+     ],
+     "gpr_bypass_scope": [
+      null,
+      "R2062 inherited GPR and non-pumping route retained; no essentiality or pathway-closure claim."
+     ],
+     "gpr_chemistry_scope": [
+      null,
+      "Existing R1889 stoichiometry, bounds and compartment conventions retained. Known H/charge residual not repaired by this GPR assignment."
+     ],
+     "gpr_deferred_identity": [
+      null,
+      "NUHM deletion dependence is supported, but its W29 mapping remains unresolved; legacy YALI1D00766g not assigned as NUHM. NUGM mapping also unresolved."
+     ],
+     "gpr_curation_id": [
+      null,
+      "R1889-PARTIAL-CORE-GPR-20261005"
+     ],
+     "gpr_scope_limit": [
+      null,
+      "Four necessary subunits represented; not a complete subunit inventory or sufficient minimal enzyme. Omitted subunits are not established dispensable. Native W29 knockout phenotypes not tested."
+     ],
+     "gpr_evidence_sources": [
+      null,
+      "https://doi.org/10.1074/jbc.M411488200; https://doi.org/10.1093/hmg/ddy247"
+     ]
+    }
+   },
+   "R305": {
+    "notes": {
+     "coq9_proton_state": [
+      "User-authorized R305-only Q-cycle candidate applied: final signed H+ coefficients m28[C_mi]=-2 and m10[C_cy]=+4. CoQ9 biomass alpha=0.0001 mmol/gDW unchanged. C_cy remains cytoplasm under the existing compartment approximation; native coupling and intermembrane-space localization are not established by this edit.",
+      "Q-cycle candidate present; Q-cycle mechanism candidate; existing cytosolic H is a P-side/intermembrane proxy, not a new compartment. No native stoichiometric measurement is claimed. Full GPR and bounds retained."
+     ]
+    }
+   },
+   "R570": {
+    "notes": {
+     "complex_i_scope": [
+      "R1889 has no GPR by design in this patch; see docs/curation/complex_i_gpr_evidence.csv before assigning a complex-I AND rule.",
+      "R1889 is curated separately via data/reference_build/curation/r1889_gpr_assignment.json; structural presence alone does not establish required Boolean membership."
+     ]
+    }
+   }
+  }
+ },
+ "metabolites": {
+  "only_in_a": [],
+  "only_in_b": [],
+  "changed": {}
+ },
+ "genes": {
+  "only_in_a": [],
+  "only_in_b": [],
+  "changed": {}
+ },
+ "objective": [
+  {
+   "biomass_C": 1.0
+  },
+  {
+   "biomass_C": 1.0
+  }
+ ],
+ "objective_direction": [
+  "max",
+  "max"
+ ],
+ "compartments": [
+  {
+   "C_cy": "cytoplasm",
+   "C_mi": "mitochondria",
+   "C_en": "endosome",
+   "C_vm": "vacuolar membrane",
+   "C_er": "endoplasmic reticulum",
+   "C_pe": "peroxisome",
+   "C_nu": "nucleus",
+   "C_ex": "extracellular",
+   "C_em": "endosomal membrane",
+   "C_go": "Golgi apparatus",
+   "C_mm": "mitochondrial membrane",
+   "C_lp": "lipid particle",
+   "C_gm": "Golgi membrane",
+   "C_va": "vacuole"
+  },
+  {
+   "C_cy": "cytoplasm",
+   "C_mi": "mitochondria",
+   "C_en": "endosome",
+   "C_vm": "vacuolar membrane",
+   "C_er": "endoplasmic reticulum",
+   "C_pe": "peroxisome",
+   "C_nu": "nucleus",
+   "C_ex": "extracellular",
+   "C_em": "endosomal membrane",
+   "C_go": "Golgi apparatus",
+   "C_mm": "mitochondrial membrane",
+   "C_lp": "lipid particle",
+   "C_gm": "Golgi membrane",
+   "C_va": "vacuole"
+  }
+ ],
+ "groups_changed": {}
+}

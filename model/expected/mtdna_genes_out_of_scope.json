@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "decided": "2026-10-08",
+  "authorization": "User, 2026-10-08: 'all 16 mitochondrially encoded model genes count as negatives in your benchmark, but a nuclear CRISPR screen can't target them. They should be out of scope.'",
+  "rule": "Model genes encoded in the mitochondrial genome are out of scope for the nuclear CRISPR essentiality benchmark: they are excluded from TP/FN/FP/TN and reported separately. They stay in the model and in GPRs.",
+  "identification": "YALI1M* (W29 mitochondrial locus tags) and YalifMp* (CLIB122 mitochondrial locus tags) in the model; crosswalk from $IYALI26_RESEARCH_ROOT/reference/locus_map/iyli21_genes_vs_S2.csv and reference/kegg/yli_genes.tsv (location MT).",
+  "genes": [
+    "YALI1M00056g", "YALI1M00064g", "YALI1M00131g", "YALI1M00260g",
+    "YALI1M00267g", "YALI1M00277g", "YALI1M00296g", "YALI1M00318g",
+    "YALI1M00325g", "YALI1M00335g", "YALI1M00338r", "YALI1M00390g",
+    "YALI1M00458g", "YALIfMp29", "YalifMp05", "YalifMp06"
+  ]
+}

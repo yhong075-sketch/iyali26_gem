@@ -31,6 +31,10 @@ def parse_args(argv=None):
     parser.add_argument("--r608-curation", type=Path, help="Existing explicit R608 candidate; disabled by default")
     parser.add_argument("--vatpase-gpr-hypothesis", action="store_true",
                         help="Test three common AND dependencies in R794/R795; unvalidated hypothesis, requires offline/no-solve and a new output path")
+    parser.add_argument("--coq9-biomass-dilution", action="store_true",
+                        help="Add the curated CoQ9 growth-dilution term (alpha is a user-selected, uncalibrated assumption); requires --energy-candidate E5")
+    parser.add_argument("--coq9-respiratory-package", action="store_true",
+                        help="Apply the curated 2026-10-08 CoQ9/respiratory-chain package; requires --energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

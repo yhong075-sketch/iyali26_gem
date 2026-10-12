@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "condition_id": "PROTON_LEAK_MIN_8_ASSUMPTION",
+  "status": "assumption",
+  "label": "ASSUMPTION - uncalibrated minimum mitochondrial proton leak",
+  "reaction": "R1384",
+  "reaction_equation": "m10[C_cy] --> m28[C_mi] (proton leak)",
+  "field": "lower_bound",
+  "value": 8.0,
+  "unit": "mmol/gDW/h",
+  "applied_as": "in-memory growth condition for screens; never written to model XML",
+  "rationale": "Represents a minimum proton re-entry needed to keep the mitochondrial membrane potential, so the respiratory chain must carry some flux. Proposed range 4-8; 8 was the value analysed by the user.",
+  "calibration": "Uncalibrated. Needs respiration or proton-leak measurements for Y. lipolytica before it can be used as a physiological parameter.",
+  "authorization": "User, 2026-10-08: 'this is a assumption. we can put it but need to mark it as \"assumption\"'.",
+  "evidence_tier": "assumption"
+}

@@ -1,0 +1,384 @@
+{
+  "status": "stopped",
+  "label": "package",
+  "started_utc": "2026-10-08T23:57:57.044891+00:00",
+  "command": "python -B model/reports/coq9_respiratory_package_20261008/run_screen.py package model/candidates/E5_coq9_respiratory_package_20261008.xml 5fada204a6186e34d822a942a5d930d59274e271b844df80a5aff7504bdc9ffc",
+  "branch": "claude/coq9-respiratory-package",
+  "head": "ea5b639dd55cf833d5a880cf2d55551b12bc4677",
+  "git_status_before": "M platform/scripts/gem_annotate/cli.py\n M platform/scripts/gem_annotate/coq9.py\n M platform/scripts/gem_annotate/main.py\n M platform/tools/build_coq_biomass_candidate.py\n?? model/candidates/E5_coq9_alpha_1e-4_qcycle_pipeline.build.json\n?? model/candidates/E5_coq9_alpha_1e-4_qcycle_pipeline.coq9_genes.tsv\n?? model/candidates/E5_coq9_alpha_1e-4_qcycle_pipeline.xml\n?? model/candidates/E5_coq9_respiratory_package_20261008.build.json\n?? model/candidates/E5_coq9_respiratory_package_20261008.coq9_genes.tsv\n?? model/candidates/E5_coq9_respiratory_package_20261008.xml\n?? model/conditions/assumptions/\n?? model/curation/coq9/coq9_biomass_dilution.json\n?? model/curation/coq9/coq9_respiratory_package.json\n?? model/expected/mtdna_genes_out_of_scope.json\n?? model/reports/coq9_respiratory_package_20261008/\n?? platform/scripts/gem_annotate/coq9_respiratory_package.py\n?? platform/tests/test_coq9_respiratory_package.py",
+  "inputs": {
+    "model": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/model/candidates/E5_coq9_respiratory_package_20261008.xml",
+      "sha256": "5fada204a6186e34d822a942a5d930d59274e271b844df80a5aff7504bdc9ffc"
+    },
+    "medium": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/media/sd_leu.csv",
+      "sha256": "ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85"
+    },
+    "profile": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+      "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+    },
+    "experimental": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+      "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b"
+    },
+    "mtdna_scope_rule": {
+      "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/model/expected/mtdna_genes_out_of_scope.json",
+      "sha256": "16b3e9b4418f24821b8775936fd377ae21f77afa8e8af2b8949a246f62c44996"
+    }
+  },
+  "growth_condition_assumption": null,
+  "code_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/model/expected/benchmark.md": "1b154538ab7281640f2875c4c8e25b35caf97ce65785ec70308bb1e50361cd31",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/model/reports/coq9_respiratory_package_20261008/run_screen.py": "fbdf88c8c68c2c9293f563ce9ee16fdbacf6907b07f6afdebbbbf295b0c8b8ec",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/scripts/gem_annotate/__init__.py": "f1ad9494aa26830ad22cf1f51045d8e5c72813259f6af33bd154e93719817991",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/scripts/gem_annotate/config.py": "64116a3a5c4146d3f02ec0984bb03495aff8d0460e8adb27f0a6cfd9eb20e3f1",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/scripts/gem_annotate/essentiality_simulation_context.py": "fc78ee8c0126fd6f5a3aff9ecd9233a9df4168b8800442c6f38dd9914cd65d7b",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/scripts/gem_annotate/model_layout.py": "01b55f73f581728fd04cda97f93a397fba3b1b6f2428c466ea5cc70b3fc9b803",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/scripts/gem_annotate/strain_overlay.py": "bd434c5a29c69333c914116cd62189559cd9e9a5894c257547257d8aaa888ca5",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/scripts/gem_annotate/validate_essential_genes.py": "f80f0195b993d44f6c61cb42b0987bc4491097de71080841e0e5e2662b4ce100",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/tools/dfba_new_fn_essentiality.py": "25f0636da695b9538e6a165fdbc3c99efe81d65829d9d76a5c5e23f19b0c4198",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/tools/diagnose_closed_energy.py": "827b696c84aa529a350fc41b32246ff5e089c36f2daaeb5f63a21c168ce0cea6",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/tools/diagnose_dipeptide_supply.py": "410f155f9fe403d6bacc59cb36bdb363fb027165e258da3ae4d686f626eeb7ac",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/coq-system-problem-75cb14/platform/tools/lipid/lp_sn12_candidate.py": "c895faf2450911ea6ab6b803b1167b2b96d45ef3522fefba86fb496bf2f3d6b9"
+  },
+  "reference_model": null,
+  "outputs": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/coq9_respiratory_package_20261008/screen_package",
+  "versions": {
+    "python": "3.13.5",
+    "cobra": "0.30.0",
+    "gurobi": [
+      13,
+      0,
+      1
+    ]
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60.0,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  },
+  "call_limit": 1074,
+  "wall_limit_seconds": 900,
+  "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "85b95351fef32d2b0e861bff3680bd5f64d17d6f12a786a95a70a02b5a1303f4",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+  },
+  "active_medium": {
+    "R946": 1000.0,
+    "R971": 1000.0,
+    "R1003": 0.00489,
+    "R1016": 1000.0,
+    "R1029": 1000.0,
+    "R1030": 1000.0,
+    "R1070": 10.0,
+    "R1127": 1000.0,
+    "R1164": 1000.0,
+    "R1189": 6.67e-05,
+    "R1202": 0.02586,
+    "R1204": 0.05414,
+    "R1215": 0.00859,
+    "R1217": 0.03434,
+    "R1220": 0.02466,
+    "R1222": 0.01207,
+    "R1223": 0.02727,
+    "R1231": 0.07562,
+    "R1232": 0.02205,
+    "R1233": 0.02486,
+    "R1234": 0.10765,
+    "R1263": 1000.0,
+    "R1268": 1000.0,
+    "R1287": 1000.0,
+    "R1296": 1000.0,
+    "R1298": 1000.0,
+    "R1305": 1000.0,
+    "R1314": 1000.0,
+    "R1323": 1000.0,
+    "R1333": 1000.0,
+    "R1340": 1000.0,
+    "R1354": 1000.0,
+    "R1364": 1000.0,
+    "R2061": 1000.0,
+    "R2270": 1000.0
+  },
+  "strain_overlay": {
+    "schema_version": "1.0",
+    "workflow": "po1f_runtime_strain_overlay",
+    "profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain": {
+      "name": "PO1f",
+      "reference_background": "W29/CLIB89",
+      "genotype": "MatA, leu2-270, ura3-302, xpr2-322, axp-2",
+      "assay_background": "Cas9/Cas12a fitness screen with intact NHEJ; LEU2-marked sgRNA plasmid selected in SD-Leu"
+    },
+    "operations": [
+      {
+        "type": "disable_reaction",
+        "reaction_id": "R612",
+        "locus": "URA3",
+        "gene_id": "YALI1E31685g",
+        "legacy_gene_id": "YALI0E26741g",
+        "allele": "ura3-302",
+        "protein_function": "orotidine-5'-phosphate decarboxylase; de novo UMP biosynthesis",
+        "evidence_status": "PO1f genotype is directly reported; enzyme identity is curated; current GEM lacks this gene and R612 has no GPR",
+        "before": {
+          "lower_bound": 0.0,
+          "upper_bound": 1000.0
+        },
+        "after": {
+          "lower_bound": 0.0,
+          "upper_bound": 0.0
+        },
+        "changed": true
+      },
+      {
+        "type": "plasmid_complement",
+        "reaction_id": "R45",
+        "locus": "LEU2",
+        "gene_id": "YALI1C00464g",
+        "legacy_gene_id": "YALI0C00407g",
+        "allele": "leu2-270",
+        "complement_source": "pCas9yl-GW/pLbCas12ayl-GW library plasmid backbone carrying the LEU2 selectable marker",
+        "protein_function": "3-isopropylmalate dehydrogenase; leucine biosynthesis",
+        "evidence_status": "PO1f genotype, pCRISPRyl LEU2 marker, derivative library-vector construction, and SD-Leu selection are directly reported",
+        "pseudo_gene": "PO1f_plasmid_LEU2",
+        "before": {
+          "gene_reaction_rule": "YALI1C00464g"
+        },
+        "after": {
+          "gene_reaction_rule": "PO1f_plasmid_LEU2"
+        },
+        "changed": true
+      }
+    ],
+    "medium": {
+      "assertions_checked": {
+        "R1219": 0.0,
+        "R1354": 0.01607
+      },
+      "runtime_uptake_overrides": {
+        "R1354": 1000.0
+      },
+      "active_medium_before": {
+        "R1003": 0.00489,
+        "R1016": 1000.0,
+        "R1029": 1000.0,
+        "R1030": 1000.0,
+        "R1070": 10.0,
+        "R1127": 1000.0,
+        "R1164": 1000.0,
+        "R1189": 6.67e-05,
+        "R1202": 0.02586,
+        "R1204": 0.05414,
+        "R1215": 0.00859,
+        "R1217": 0.03434,
+        "R1219": 0.0,
+        "R1220": 0.02466,
+        "R1222": 0.01207,
+        "R1223": 0.02727,
+        "R1231": 0.07562,
+        "R1232": 0.02205,
+        "R1233": 0.02486,
+        "R1234": 0.10765,
+        "R1263": 1000.0,
+        "R1268": 1000.0,
+        "R1287": 1000.0,
+        "R1296": 1000.0,
+        "R1298": 1000.0,
+        "R1305": 1000.0,
+        "R1314": 1000.0,
+        "R1323": 1000.0,
+        "R1333": 1000.0,
+        "R1340": 1000.0,
+        "R1354": 0.01607,
+        "R1364": 1000.0,
+        "R2061": 1000.0,
+        "R2270": 1000.0,
+        "R946": 1000.0,
+        "R971": 1000.0
+      },
+      "active_medium": {
+        "R1003": 0.00489,
+        "R1016": 1000.0,
+        "R1029": 1000.0,
+        "R1030": 1000.0,
+        "R1070": 10.0,
+        "R1127": 1000.0,
+        "R1164": 1000.0,
+        "R1189": 6.67e-05,
+        "R1202": 0.02586,
+        "R1204": 0.05414,
+        "R1215": 0.00859,
+        "R1217": 0.03434,
+        "R1219": 0.0,
+        "R1220": 0.02466,
+        "R1222": 0.01207,
+        "R1223": 0.02727,
+        "R1231": 0.07562,
+        "R1232": 0.02205,
+        "R1233": 0.02486,
+        "R1234": 0.10765,
+        "R1263": 1000.0,
+        "R1268": 1000.0,
+        "R1287": 1000.0,
+        "R1296": 1000.0,
+        "R1298": 1000.0,
+        "R1305": 1000.0,
+        "R1314": 1000.0,
+        "R1323": 1000.0,
+        "R1333": 1000.0,
+        "R1340": 1000.0,
+        "R1354": 1000.0,
+        "R1364": 1000.0,
+        "R2061": 1000.0,
+        "R2270": 1000.0,
+        "R946": 1000.0,
+        "R971": 1000.0
+      },
+      "formulation": {
+        "uracil_mg_per_l": 20.0,
+        "uracil_millimolar": 0.1784280489,
+        "uracil_molecular_weight_g_per_mol": 112.09,
+        "glucose_g_per_l": 20.0,
+        "glucose_molecular_weight_g_per_mol": 180.156,
+        "glucose_uptake": 10.0,
+        "supply_ratio_surrogate_uptake": 0.0160724418,
+        "supply_ratio_surrogate_status": "concentration_ratio_surrogate_not_measured_vmax",
+        "runtime_override_status": "static_fba_nonlimiting_not_measured_vmax"
+      }
+    },
+    "active_medium": {
+      "R1003": 0.00489,
+      "R1016": 1000.0,
+      "R1029": 1000.0,
+      "R1030": 1000.0,
+      "R1070": 10.0,
+      "R1127": 1000.0,
+      "R1164": 1000.0,
+      "R1189": 6.67e-05,
+      "R1202": 0.02586,
+      "R1204": 0.05414,
+      "R1215": 0.00859,
+      "R1217": 0.03434,
+      "R1219": 0.0,
+      "R1220": 0.02466,
+      "R1222": 0.01207,
+      "R1223": 0.02727,
+      "R1231": 0.07562,
+      "R1232": 0.02205,
+      "R1233": 0.02486,
+      "R1234": 0.10765,
+      "R1263": 1000.0,
+      "R1268": 1000.0,
+      "R1287": 1000.0,
+      "R1296": 1000.0,
+      "R1298": 1000.0,
+      "R1305": 1000.0,
+      "R1314": 1000.0,
+      "R1323": 1000.0,
+      "R1333": 1000.0,
+      "R1340": 1000.0,
+      "R1354": 1000.0,
+      "R1364": 1000.0,
+      "R2061": 1000.0,
+      "R2270": 1000.0,
+      "R946": 1000.0,
+      "R971": 1000.0
+    },
+    "assay_confounded_loci": [
+      "URA3",
+      "LEU2"
+    ],
+    "provenance_only_variants": [
+      "xpr2-322 and axp-2 are recorded but have no current small-molecule GEM reaction",
+      "Cas9/Cas12a expression cassettes integrated at A08 are assay provenance only",
+      "KU70 is intact in the fitness screen; delta-KU70 strains were used only for guide cutting-score calibration"
+    ],
+    "sources": [
+      "https://www.nature.com/articles/s42003-023-04996-8",
+      "https://sunrisescience.com/shop/growth-media/amino-acid-supplement-mixtures/csm-formulations/csm-leu-powder-10-grams/",
+      "https://www.addgene.org/70007/"
+    ],
+    "overlay_already_applied": false,
+    "model_layer_modified_in_memory": true,
+    "canonical_sbml_written": false
+  },
+  "excluded_runtime_genes": [
+    "PO1f_plasmid_LEU2"
+  ],
+  "reference_metadata": {
+    "mode": "positive_only_consensus",
+    "positive_only": true,
+    "row_count": 1612,
+    "positive_gene_count": 1612,
+    "negative_label_count": 0,
+    "positive_gene_id_sha256": "3d4910f94430b7ab9006fdd26571379bf036c3974de6b8161169c6dde37997fe",
+    "source": "https://doi.org/10.1038/s42003-023-04996-8",
+    "confidence_definition": "consensus_essential_in_at_least_2_of_3_screens",
+    "listed_gene_semantics": "experimentally_essential",
+    "unlisted_gene_semantics": "unknown_not_nonessential",
+    "source_gene_id_normalization": "remove_the_underscore_after_YALI1"
+  },
+  "scoring_negative_class": "user_defined_native_model_genes_absent_from_positive_list",
+  "validation_status": "development_reference_not_independent_validation",
+  "gene_count": 1073,
+  "experimental_positive_count": 1612,
+  "in_model_positive_count": 322,
+  "out_of_scope_positive_count": 1290,
+  "mtdna_genes": [
+    "YALI1M00056g",
+    "YALI1M00064g",
+    "YALI1M00131g",
+    "YALI1M00260g",
+    "YALI1M00267g",
+    "YALI1M00277g",
+    "YALI1M00296g",
+    "YALI1M00318g",
+    "YALI1M00325g",
+    "YALI1M00335g",
+    "YALI1M00338r",
+    "YALI1M00390g",
+    "YALI1M00458g",
+    "YALIfMp29",
+    "YalifMp05",
+    "YalifMp06"
+  ],
+  "mtdna_genes_on_positive_list": [],
+  "negative_growth_policy": "unresolved_no_clipping",
+  "numerical_tolerance": 1e-06,
+  "WT": {
+    "label": "WT",
+    "solver_status": "optimal",
+    "native_status": 2,
+    "raw_growth": 1.4308057353528467,
+    "raw_growth_repr": "1.4308057353528467",
+    "seconds": 0.05171770800370723,
+    "max_mass_residual": 7.105427357601002e-14,
+    "max_bound_violation": 0.0,
+    "warnings": [],
+    "scorable": true
+  },
+  "error": "AssertionError: ",
+  "finished_utc": "2026-10-08T23:58:10.376355+00:00",
+  "calls_used": 1074,
+  "genes_completed": 1073,
+  "elapsed_seconds": 13.2743241249118,
+  "status_counts": {
+    "optimal": 1073
+  },
+  "unresolved_genes": [],
+  "output_sha256": {
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/coq9_respiratory_package_20261008/screen_package/WT_fluxes.tsv": "87643bacf80b83692029f0b435b1241e3a676fec182012ca37fa67b68dd2a3e8",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/coq9_respiratory_package_20261008/screen_package/gene_screen.tsv": "4009440d5ca733b5132ea7972499fe294de979dab377e4dba87e13b266c733de",
+    "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/coq9_respiratory_package_20261008/screen_package/solver_calls.jsonl": "04d34f35e5582bea02c47e73737ceb7d381adaad084d855c2a29ca29e7cb61e3"
+  }
+}

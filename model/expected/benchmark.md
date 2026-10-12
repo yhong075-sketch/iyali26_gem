@@ -28,6 +28,13 @@ research-workspace files above.
 
 This replaces the earlier positive-only rule ("unlabelled genes are not negatives; no FP/TN").
 
+**Mitochondrially encoded genes (decided 2026-10-08):** the 16 model genes encoded in the
+mitochondrial genome ([mtdna_genes_out_of_scope.json](mtdna_genes_out_of_scope.json)) are out of
+scope, because the nuclear CRISPR screens cannot target them. They are excluded from TP, FN, FP
+and TN and reported separately; they stay in the model and in GPRs. Reports made before this
+date counted them as negatives; when comparing with those, also give the scores without this
+exclusion.
+
 ## Classification
 
 - Essential when the unrounded ratio `KO growth / WT growth` is **strictly below** the cutoff;

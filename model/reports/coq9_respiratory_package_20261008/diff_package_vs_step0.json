@@ -1,0 +1,657 @@
+{
+ "counts": {
+  "a": [
+   2314,
+   1877,
+   1073
+  ],
+  "b": [
+   2307,
+   1875,
+   1073
+  ]
+ },
+ "reactions": {
+  "only_in_a": [
+   "R1889",
+   "R2004",
+   "R2206",
+   "R349",
+   "R808",
+   "R969",
+   "R_CYSS_m"
+  ],
+  "only_in_b": [],
+  "changed": {
+   "R2062": {
+    "stoichiometry": {
+     "m28[C_mi]": [
+      null,
+      -4.0
+     ],
+     "m10[C_cy]": [
+      null,
+      4.0
+     ]
+    },
+    "gpr": [
+     "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 and YALI1E06573g and YALI1F32476g",
+     "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29"
+    ],
+    "notes": {
+     "coq9_respiratory_package": [
+      null,
+      "2026-10-08 package B1: single complex I reaction (R1889 merged here), 4 H+ pumped per NADH (Y. lipolytica 3.6-3.8 H+/2e-, Galkin et al. 2006 BBA PMID 17094937). GPR = model complex-I genes matched to PDB 6YJ4 subunits (22 at protein level; 4 at locus level whose W29 protein records are opposite-strand ORFs); NDH2 (YALI1F32476g) and NDH-2-family YALI1E06573g removed (not in 6YJ4)."
+     ]
+    }
+   },
+   "R304": {
+    "stoichiometry": {
+     "m28[C_mi]": [
+      -6.0,
+      -8.0
+     ],
+     "m10[C_cy]": [
+      2.0,
+      4.0
+     ]
+    },
+    "gpr": [
+     "YALI1D23237g and YALI1M00325g and YALI1M00277g and YALI0F04114g and YALI1E23635g and YALI1F04455g and YALI1E12730g and YALI1E19902g and YALI1F06236g and YALI1E15606g and YALI1D11769g and YALI1F05089g",
+     "YALI1M00131g and YALI1M00325g and YALI1M00277g and YALI1E23635g and YALI1F05089g and YALI1E12730g and YALI1E15606g and YALI0F04114g and YALI1E19902g"
+    ],
+    "notes": {
+     "PROTEIN_CLASS": [
+      "1.9.3.1",
+      null
+     ],
+     "metadata_selection_evidence_status": [
+      "User-selected model version; not new validation of chemistry or native gene function",
+      null
+     ],
+     "metadata_selected_fields": [
+      "stoichiometry",
+      null
+     ],
+     "metadata_reaction_selection": [
+      "metadata_reaction_fields_preserve_trna_20260910",
+      null
+     ],
+     "metadata_selection_source_sha256": [
+      "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+      null
+     ]
+    }
+   },
+   "R39": {
+    "stoichiometry": {
+     "m28[C_mi]": [
+      null,
+      1.0
+     ],
+     "m110[C_cy]": [
+      1.0,
+      null
+     ],
+     "m64[C_mi]": [
+      null,
+      -0.5
+     ],
+     "m939[C_mi]": [
+      null,
+      1.0
+     ],
+     "m641[C_mi]": [
+      null,
+      -1.0
+     ],
+     "m109[C_cy]": [
+      -0.5,
+      null
+     ],
+     "m108[C_cy]": [
+      -1.0,
+      null
+     ],
+     "m10[C_cy]": [
+      1.0,
+      null
+     ]
+    },
+    "gpr": [
+     "",
+     "YALI1A08781g and YALI1B20527g"
+    ],
+    "notes": {
+     "coq9_respiratory_package": [
+      null,
+      "2026-10-08 package A1: C5 hydroxylation moved to the mitochondrion (R969/R808 cytosolic excursion removed, as in the human-approved lipid-line R39 topology); GPR COQ6 candidate AND COQ8 candidate. COQ8 is a complex-stability co-requirement (S. cerevisiae coq8/abc1 nulls arrest at HHB, Do et al. 2001 JBC PMID 11279158), not a catalytic claim. The 0.5 O2 lump without Yah1/Arh1 electron donor is retained."
+     ]
+    }
+   },
+   "R570": {
+    "notes": {
+     "complex_i_scope": [
+      "R1889 is curated separately via data/reference_build/curation/r1889_gpr_assignment.json; structural presence alone does not establish required Boolean membership.",
+      "R1889 was merged into R2062 (single complex I reaction, 4 H+ pumped) by the 2026-10-08 CoQ9/respiratory package; see curation/coq9/coq9_respiratory_package.json item B1."
+     ]
+    }
+   },
+   "R695": {
+    "gpr": [
+     "YALI1E18269g",
+     "YALI1E18269g and YALI1F34675g"
+    ],
+    "notes": {
+     "coq9_previous_gpr": [
+      null,
+      "YALI1E18269g"
+     ],
+     "gpr_evidence_status": [
+      "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified",
+      "provisional_functional_dependency; native_yarrowia_requiredness_unverified"
+     ],
+     "coq9_functional_structure": [
+      null,
+      "\u57fa\u4e8e AlphaFold \u9884\u6d4b\u7684\u529f\u80fd\u5019\u9009\uff1b\u590d\u7528\u4e0e\u7248\u672c\u5316 W29 \u5e8f\u5217\u4e00\u81f4\u7684\u5df2\u6709 AlphaFold \u9884\u6d4b\uff0c\u4e0d\u662f\u672c\u6b21\u9884\u6d4b\u6216\u539f\u751f\u5b9e\u9a8c\u9a8c\u8bc1\u3002"
+     ],
+     "coq9_functional_sources": [
+      null,
+      "DOI 10.1073/pnas.1413128111; 10.1016/j.molcel.2018.11.033; 10.1016/j.molcel.2022.10.003; 10.1038/s41929-023-01087-z; artifacts/coq_gpr_completion_20261001/REPORT.md"
+     ],
+     "coq9_functional_roles": [
+      null,
+      "YALI1E18269g: COQ7-family demethoxyubiquinone hydroxylase candidate; YALI1F34675g: COQ9-family lipid-binding/substrate-presentation auxiliary candidate. Native established symbols and biochemical localization unverified."
+     ],
+     "coq9_functional_limits": [
+      null,
+      "Cross-species inference; native Yarrowia COQ7-COQ9 obligatory pairing, localization and substrate access remain unverified. No growth essentiality claim; unchanged static Q9/Q9H2 pool has no net synthesis demand. COQ8 and COQ6 are not assigned by this hypothesis."
+     ],
+     "coq9_functional_counterevidence": [
+      null,
+      "Nicoll et al. 2024 Fig. 5b: ancestral COQ7 alone is active with nonprenylated substrate in detergent; COQ9 increases efficiency about 1.5-fold. A universal intrinsic catalytic AND is not supported."
+     ],
+     "coq9_previous_gpr_evidence_status": [
+      null,
+      "cross_species_experimental_plus_alphafold_compatible; native_yarrowia_biochemistry_unverified"
+     ],
+     "coq9_functional_assumption": [
+      null,
+      "Conditional model hypothesis: native membrane-embedded long-chain substrate access requires the COQ9-family auxiliary protein for the represented COQ7 step. AND encodes functional dependence, not proof that both proteins catalyse hydroxylation."
+     ],
+     "coq9_functional_hypothesis": [
+      null,
+      "COQ9-R695-FUNCTIONAL-20261001"
+     ]
+    }
+   }
+  }
+ },
+ "metabolites": {
+  "only_in_a": [
+   "m108[C_cy]",
+   "m110[C_cy]"
+  ],
+  "only_in_b": [],
+  "changed": {}
+ },
+ "genes": {
+  "only_in_a": [],
+  "only_in_b": [],
+  "changed": {}
+ },
+ "objective": [
+  {
+   "biomass_C": 1.0
+  },
+  {
+   "biomass_C": 1.0
+  }
+ ],
+ "objective_direction": [
+  "max",
+  "max"
+ ],
+ "compartments": [
+  {
+   "C_cy": "cytoplasm",
+   "C_mi": "mitochondria",
+   "C_en": "endosome",
+   "C_vm": "vacuolar membrane",
+   "C_er": "endoplasmic reticulum",
+   "C_pe": "peroxisome",
+   "C_nu": "nucleus",
+   "C_ex": "extracellular",
+   "C_em": "endosomal membrane",
+   "C_go": "Golgi apparatus",
+   "C_mm": "mitochondrial membrane",
+   "C_lp": "lipid particle",
+   "C_gm": "Golgi membrane",
+   "C_va": "vacuole"
+  },
+  {
+   "C_cy": "cytoplasm",
+   "C_mi": "mitochondria",
+   "C_en": "endosome",
+   "C_vm": "vacuolar membrane",
+   "C_er": "endoplasmic reticulum",
+   "C_pe": "peroxisome",
+   "C_nu": "nucleus",
+   "C_ex": "extracellular",
+   "C_em": "endosomal membrane",
+   "C_go": "Golgi apparatus",
+   "C_mm": "mitochondrial membrane",
+   "C_lp": "lipid particle",
+   "C_gm": "Golgi membrane",
+   "C_va": "vacuole"
+  }
+ ],
+ "groups_changed": {
+  "group99": [
+   [
+    "R1004",
+    "R1006",
+    "R1018",
+    "R1019",
+    "R1052",
+    "R1064",
+    "R1094",
+    "R1096",
+    "R1098",
+    "R1099",
+    "R1114",
+    "R1116",
+    "R1129",
+    "R1142",
+    "R1144",
+    "R1145",
+    "R1152",
+    "R1155",
+    "R1169",
+    "R1172",
+    "R1175",
+    "R1192",
+    "R1197",
+    "R1205",
+    "R1207",
+    "R1218",
+    "R1225",
+    "R1237",
+    "R1251",
+    "R1266",
+    "R1275",
+    "R1277",
+    "R1291",
+    "R1295",
+    "R1299",
+    "R1300",
+    "R1309",
+    "R1311",
+    "R1312",
+    "R1315",
+    "R1318",
+    "R1321",
+    "R1345",
+    "R1350",
+    "R1351",
+    "R1357",
+    "R1360",
+    "R1384",
+    "R1386",
+    "R1709",
+    "R1890",
+    "R1996",
+    "R2025",
+    "R2113",
+    "R2118",
+    "R2167",
+    "R2216",
+    "R2219",
+    "R2222",
+    "R2225",
+    "R2228",
+    "R2231",
+    "R2234",
+    "R2236",
+    "R2238",
+    "R2240",
+    "R2265",
+    "R2266",
+    "R807",
+    "R808",
+    "R815",
+    "R817",
+    "R822",
+    "R823",
+    "R825",
+    "R831",
+    "R832",
+    "R833",
+    "R834",
+    "R835",
+    "R836",
+    "R841",
+    "R842",
+    "R847",
+    "R860",
+    "R863",
+    "R865",
+    "R875",
+    "R885",
+    "R902",
+    "R903",
+    "R904",
+    "R905",
+    "R906",
+    "R909",
+    "R911",
+    "R913",
+    "R915",
+    "R921",
+    "R928",
+    "R929",
+    "R933",
+    "R938",
+    "R939",
+    "R958",
+    "R959",
+    "R962",
+    "R963",
+    "R967",
+    "R968",
+    "R969",
+    "R973",
+    "R974",
+    "R975",
+    "R976",
+    "R978",
+    "R988",
+    "R997"
+   ],
+   [
+    "R1004",
+    "R1006",
+    "R1018",
+    "R1019",
+    "R1052",
+    "R1064",
+    "R1094",
+    "R1096",
+    "R1098",
+    "R1099",
+    "R1114",
+    "R1116",
+    "R1129",
+    "R1142",
+    "R1144",
+    "R1145",
+    "R1152",
+    "R1155",
+    "R1169",
+    "R1172",
+    "R1175",
+    "R1192",
+    "R1197",
+    "R1205",
+    "R1207",
+    "R1218",
+    "R1225",
+    "R1237",
+    "R1251",
+    "R1266",
+    "R1275",
+    "R1277",
+    "R1291",
+    "R1295",
+    "R1299",
+    "R1300",
+    "R1309",
+    "R1311",
+    "R1312",
+    "R1315",
+    "R1318",
+    "R1321",
+    "R1345",
+    "R1350",
+    "R1351",
+    "R1357",
+    "R1360",
+    "R1384",
+    "R1386",
+    "R1709",
+    "R1890",
+    "R1996",
+    "R2025",
+    "R2113",
+    "R2118",
+    "R2167",
+    "R2216",
+    "R2219",
+    "R2222",
+    "R2225",
+    "R2228",
+    "R2231",
+    "R2234",
+    "R2236",
+    "R2238",
+    "R2240",
+    "R2265",
+    "R2266",
+    "R807",
+    "R815",
+    "R817",
+    "R822",
+    "R823",
+    "R825",
+    "R831",
+    "R832",
+    "R833",
+    "R834",
+    "R835",
+    "R836",
+    "R841",
+    "R842",
+    "R847",
+    "R860",
+    "R863",
+    "R865",
+    "R875",
+    "R885",
+    "R902",
+    "R903",
+    "R904",
+    "R905",
+    "R906",
+    "R909",
+    "R911",
+    "R913",
+    "R915",
+    "R921",
+    "R928",
+    "R929",
+    "R933",
+    "R938",
+    "R939",
+    "R958",
+    "R959",
+    "R962",
+    "R963",
+    "R967",
+    "R968",
+    "R973",
+    "R974",
+    "R975",
+    "R976",
+    "R978",
+    "R988",
+    "R997"
+   ]
+  ],
+  "group34": [
+   [
+    "R1721",
+    "R1722",
+    "R1723",
+    "R1724",
+    "R1725",
+    "R1726",
+    "R1727",
+    "R1728",
+    "R1730",
+    "R1731",
+    "R1732",
+    "R1733",
+    "R1734",
+    "R1735",
+    "R1736",
+    "R1737",
+    "R1739",
+    "R1742",
+    "R1743",
+    "R1835",
+    "R1836",
+    "R1839",
+    "R1841",
+    "R1842",
+    "R1844",
+    "R1845",
+    "R1902",
+    "R196",
+    "R197",
+    "R2080",
+    "R212",
+    "R213",
+    "R2187",
+    "R293",
+    "R347",
+    "R348",
+    "R349",
+    "R350",
+    "R351",
+    "R352",
+    "R354",
+    "R530",
+    "R629",
+    "R630",
+    "R631",
+    "R635"
+   ],
+   [
+    "R1721",
+    "R1722",
+    "R1723",
+    "R1724",
+    "R1725",
+    "R1726",
+    "R1727",
+    "R1728",
+    "R1730",
+    "R1731",
+    "R1732",
+    "R1733",
+    "R1734",
+    "R1735",
+    "R1736",
+    "R1737",
+    "R1739",
+    "R1742",
+    "R1743",
+    "R1835",
+    "R1836",
+    "R1839",
+    "R1841",
+    "R1842",
+    "R1844",
+    "R1845",
+    "R1902",
+    "R196",
+    "R197",
+    "R2080",
+    "R212",
+    "R213",
+    "R2187",
+    "R293",
+    "R347",
+    "R348",
+    "R350",
+    "R351",
+    "R352",
+    "R354",
+    "R530",
+    "R629",
+    "R630",
+    "R631",
+    "R635"
+   ]
+  ],
+  "group52": [
+   [
+    "R171",
+    "R1889",
+    "R1977",
+    "R2062",
+    "R2206",
+    "R303",
+    "R304",
+    "R305",
+    "R419",
+    "R420",
+    "R570",
+    "R573"
+   ],
+   [
+    "R171",
+    "R1977",
+    "R2062",
+    "R303",
+    "R304",
+    "R305",
+    "R419",
+    "R420",
+    "R570",
+    "R573"
+   ]
+  ],
+  "group24": [
+   [
+    "R1394",
+    "R1395",
+    "R1396",
+    "R1397",
+    "R1398",
+    "R1399",
+    "R1400",
+    "R1401",
+    "R1402",
+    "R1403",
+    "R1404",
+    "R1405",
+    "R2003",
+    "R2004",
+    "R539",
+    "R78",
+    "R87",
+    "R88"
+   ],
+   [
+    "R1394",
+    "R1395",
+    "R1396",
+    "R1397",
+    "R1398",
+    "R1399",
+    "R1400",
+    "R1401",
+    "R1402",
+    "R1403",
+    "R1404",
+    "R1405",
+    "R2003",
+    "R539",
+    "R78",
+    "R87",
+    "R88"
+   ]
+  ]
+ }
+}

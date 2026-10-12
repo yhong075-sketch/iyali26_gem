@@ -4,6 +4,7 @@ import ast
 import copy
 import csv
 import json
+import math
 from fractions import Fraction
 from html import unescape
 
@@ -17,6 +18,59 @@ GENE_EVIDENCE_PATH = MODEL.curation_file("coq9_gene_evidence.tsv")
 FUNCTIONAL_GPR_PATH = MODEL.curation_file("coq9_functional_gpr.json")
 C5_GPR_PATH = MODEL.curation_file("coq_c5_gpr.json")
 LITERATURE_PATH = C5_GPR_PATH.with_name("coq_literature_revision.json")
+BIOMASS_DILUTION_PATH = C5_GPR_PATH.with_name("coq9_biomass_dilution.json")
+BIOMASS = "biomass_C"
+Q9, Q9H2 = "m468[C_mi]", "m471[C_mi]"
+BIOMASS_DILUTION_NOTE = "coq9_growth_dilution_candidate"
+
+
+def pool_balance(model):
+    """Sum the two existing steady-state rows; introduce no new constraint."""
+    q, qh = (model.metabolites.get_by_id(mid) for mid in (Q9, Q9H2))
+    return {r.id: c for r in model.reactions
+            if (c := r.metabolites.get(q, 0) + r.metabolites.get(qh, 0)) != 0}
+
+
+def apply_coq_biomass(model, alpha, alpha_source):
+    if isinstance(alpha, bool) or not isinstance(alpha, (int, float)) or not math.isfinite(alpha) or alpha <= 0:
+        raise ValueError("alpha must be an explicit finite positive number in mmol/gDW")
+    if not isinstance(alpha_source, str) or not alpha_source.strip():
+        raise ValueError("alpha_source must identify the measurement or provisional assumption")
+    bio = model.reactions.get_by_id(BIOMASS)
+    q = model.metabolites.get_by_id(Q9)
+    qh = model.metabolites.get_by_id(Q9H2)
+    if q.compartment != "C_mi" or q.formula != "C54H82O4" or q.charge != 0:
+        raise ValueError("Expected the existing neutral mitochondrial Q9 identity")
+    original = {"R385": 1.0}
+    target = {"R385": 1.0, BIOMASS: -alpha}
+    if pool_balance(model) not in (original, target):
+        raise ValueError("Unexpected combined Q9/Q9H2 pool balance; no edits applied")
+    if bio.metabolites.get(q, 0) not in (0, -alpha):
+        raise ValueError("Conflicting pre-existing Q9 biomass coefficient; no edits applied")
+    if bio.metabolites.get(qh, 0) != 0:
+        raise ValueError("Pre-existing Q9H2 biomass term; no edits applied")
+    record = {"alpha_mmol_per_gDW": alpha, "alpha_source": alpha_source.strip(),
+              "status": "candidate_not_physiologically_calibrated_by_this_build",
+              "interpretation": "Q9 retained in newly formed biomass; not consumption per electron transfer",
+              "pool_balance": target, "R385_lower_bound_changed": False}
+    # Adding the delta also supports COBRA contexts when Q9 was absent.
+    bio.add_metabolites({q: -alpha - bio.metabolites.get(q, 0)})
+    bio.notes[BIOMASS_DILUTION_NOTE] = json.dumps(record, sort_keys=True)
+    return record
+
+
+def apply_coq9_biomass_dilution(model, spec=None):
+    """Curated CoQ9 growth-dilution term (user-selected, uncalibrated alpha)."""
+    spec = json.loads(BIOMASS_DILUTION_PATH.read_text()) if spec is None else spec
+    if (spec.get("schema_version") != 1 or spec.get("biomass_reaction") != BIOMASS
+            or spec.get("metabolite") != Q9 or spec.get("reduced_metabolite") != Q9H2
+            or spec.get("evidence_tier") != "assumption"):
+        raise ValueError("Unexpected CoQ9 biomass dilution curation scope")
+    before = model.reactions.get_by_id(BIOMASS).metabolites.get(model.metabolites.get_by_id(Q9), 0)
+    record = apply_coq_biomass(model, spec["alpha_mmol_per_gDW"], spec["alpha_source"])
+    return {"curation_id": spec["curation_id"],
+            "status": "already_correct" if before == -spec["alpha_mmol_per_gDW"] else "applied",
+            **record}
 
 
 def apply_coq_literature_revision(model, enabled=False, spec=None):

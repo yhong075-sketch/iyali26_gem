@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "curation_id": "E5_CoQ9_growth_dilution_alpha_1e-4",
+  "status": "user_selected_assumption_uncalibrated",
+  "evidence_tier": "assumption",
+  "authorization": "User reply 'using the 10^-4' on 2026-10-05 (reports/coq_biomass_candidate_20261005/REPORT.md). Moved from tools/build_coq_biomass_candidate.py into the builder on 2026-10-08 so the CoQ9/respiratory package can be built through the pipeline.",
+  "biomass_reaction": "biomass_C",
+  "metabolite": "m468[C_mi]",
+  "reduced_metabolite": "m471[C_mi]",
+  "alpha_mmol_per_gDW": 0.0001,
+  "alpha_source": "User selected 1e-4 mmol/gDW on 2026-10-05; uncalibrated provisional assumption, not a measured physiological value.",
+  "scope": "Add only -alpha Q9 to biomass_C. No fixed synthesis lower bound, no extra demand reaction, R385 bounds unchanged.",
+  "evidence": "Whole-cell CoQ9+CoQ9H2 in mmol/gDCW for W29/CLIB89 or PO1f was NOT LOCATED by the bounded review in reports/quinone_gpr_synthome_2026-08-17/review_report.md; alpha is a modelling assumption."
+}

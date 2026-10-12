@@ -15,6 +15,8 @@ so older reports and commits still identify them.
 | [model_metadata_trna_r1931_forward.xml](model_metadata_trna_r1931_forward.xml) | `d417f1de` | 2026-10-07 `80a6e27` | R1931 restricted to the forward direction. |
 | [model_metadata_trna_r1159_leak.xml](model_metadata_trna_r1159_leak.xml) | `aad70112` | 2026-09-24 `5a3c094` | R1159 conditional Golgi proton leak; the default build matched this file until R1889 (below). |
 | [lipid_unlump/](lipid_unlump/) | | 2026-08-19 to 08-27 | Five strict-sn lipid candidates from the lipid-unlump line (owned by a colleague; review only), with provenance JSON files. |
+| [E5_coq9_alpha_1e-4_qcycle_pipeline.xml](E5_coq9_alpha_1e-4_qcycle_pipeline.xml) | `d868f83b` | 2026-10-08 | The CoQ9/R305 candidate (`33468b94`) rebuilt by the builder: `--energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution`. Differs from `33468b94` only in the R1889 four-subunit GPR (default since 2026-10-05) and two note texts. |
+| [E5_coq9_respiratory_package_20261008.xml](E5_coq9_respiratory_package_20261008.xml) | `0ac2addf` | 2026-10-08 | The rebuilt CoQ9/R305 candidate plus the 2026-10-08 CoQ9/respiratory-chain package (`--coq9-respiratory-package`); see [the report](../reports/coq9_respiratory_package_20261008/REPORT.md). |
 
 Candidates published inside their task report folders:
 
