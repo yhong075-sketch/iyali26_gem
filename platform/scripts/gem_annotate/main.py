@@ -77,6 +77,7 @@ def build_reference_chain(
     coq_literature_revision: bool = False,
     coq9_biomass_dilution: bool = False,
     coq9_respiratory_package: bool = False,
+    r132_mito_adh: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -107,6 +108,8 @@ def build_reference_chain(
             and trna_biomass_mode is None):
         raise ValueError("The CoQ9/respiratory package requires E5, qcycle and the CoQ9 biomass "
                          "dilution, without other CoQ hypotheses")
+    if r132_mito_adh and not coq9_respiratory_package:
+        raise ValueError("The R132 removal is defined on the CoQ9/respiratory package candidate")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -689,6 +692,9 @@ def build_reference_chain(
     if coq9_respiratory_package:
         from .coq9_respiratory_package import apply_coq9_respiratory_package
         selection["coq9_respiratory_package"] = apply_coq9_respiratory_package(model)
+    if r132_mito_adh:
+        from .r132_mito_adh import apply_r132_mito_adh
+        selection["r132_mito_adh"] = apply_r132_mito_adh(model)
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -772,6 +778,7 @@ def build_model(args):
         coq_literature_revision=getattr(args, "coq_literature_revision", False),
         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
+        r132_mito_adh=getattr(args, "r132_mito_adh", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
