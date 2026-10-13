@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "change_id": "R132-MITO-ADH-20261013",
+  "status": "user_authorized_candidate_not_native_validation",
+  "action": "remove_reaction",
+  "reaction": "R132",
+  "authorization": "User, 2026-10-13 (conversation): Task B of claude_code_prompt_w29_tasks_20261012.md; code plan approved; after the fixed decision rule selected Branch 2 and the start-codon check, the user chose 'Remove R132'. This is a user amendment made after seeing the predictor scores, not the outcome of the fixed rule. See reports/r132_mito_adh_20261012/TASK.md.",
+  "baseline": {
+    "path": "model/candidates/E5_coq9_respiratory_package_20261008.xml",
+    "sha256": "0ac2addfa0cb6de2d89393e433766fb04325ffe42c2d131eaefaca3bcec29dba"
+  },
+  "before": {
+    "name": "mitochondrial alcohol dehydrogenase",
+    "equation": "acetaldehyde[C_mi] + NADH[C_mi] <=> ethanol[C_mi] + NAD+[C_mi]",
+    "stoichiometry": {
+      "m278[C_mi]": -1.0,
+      "m30[C_mi]": -1.0,
+      "m279[C_mi]": 1.0,
+      "m27[C_mi]": 1.0
+    },
+    "bounds": [-1000.0, 1000.0],
+    "gpr": "YALI1D02041g or YALI1C08017g or YALI1E15452g or YALI1A15227g or YALI1F32330g or YALI1F11481g or YALI1B11402g or YALI1E23809g or YALI1F37194g"
+  },
+  "kept_reactions": {
+    "R1114": {
+      "role": "ethanol diffusion cytosol <-> matrix; no GPR; kept as instructed",
+      "stoichiometry": {"m275[C_cy]": -1.0, "m279[C_mi]": 1.0},
+      "bounds": [-1000.0, 1000.0],
+      "gpr": ""
+    },
+    "R997": {
+      "role": "acetaldehyde diffusion matrix <-> cytosol; no GPR; kept as instructed",
+      "stoichiometry": {"m278[C_mi]": -1.0, "m173[C_cy]": 1.0},
+      "bounds": [-1000.0, 1000.0],
+      "gpr": ""
+    }
+  },
+  "metabolite_usage": {
+    "m279[C_mi]": {
+      "name": "ethanol (matrix)",
+      "before": ["R1114", "R132"],
+      "after": ["R1114"],
+      "consequence": "Kept. After removal it is used only by R1114, so R1114 becomes a dead end (blocked)."
+    }
+  },
+  "genes": {
+    "YALI1D02041g": {"refseq": "XP_502298.1", "model_refseq": "XP_502298.1", "only_in_r132": true},
+    "YALI1C08017g": {"refseq": "XP_501506.1", "model_refseq": "XP_501506.1", "only_in_r132": true},
+    "YALI1E15452g": {"refseq": "XP_503864.3", "model_refseq": null, "only_in_r132": false},
+    "YALI1A15227g": {"refseq": "XP_500087.1", "model_refseq": null, "only_in_r132": false},
+    "YALI1F32330g": {"refseq": "XP_505850.1", "model_refseq": "XP_505850.1", "only_in_r132": true},
+    "YALI1F11481g": {"refseq": "XP_505149.2", "model_refseq": "XP_505149.2", "only_in_r132": true},
+    "YALI1B11402g": {"refseq": "XP_500640.3", "model_refseq": "XP_500640.3", "only_in_r132": true},
+    "YALI1E23809g": {"refseq": "XP_504165.1", "model_refseq": "XP_504165.1", "only_in_r132": true},
+    "YALI1F37194g": {"refseq": "XP_506018.1", "model_refseq": "XP_506018.1", "only_in_r132": true}
+  },
+  "genes_note": "Genes are kept. The seven genes with only_in_r132=true keep no reaction, as 15 genes already do in the baseline; their knockout effect is unchanged (none), because R132 was an OR rule. RefSeq IDs for YALI1E15452g and YALI1A15227g come from the NCBI CLIB89 feature table (GCF_001761485.1), because the model gene has no refseq annotation.",
+  "decision_rule": {
+    "fixed_before_scores": "2026-10-13T19:10Z, in TASK.md",
+    "rule": "A gene counts as predicted mitochondrial if TargetP-2.0 mTP >= 0.5 or MitoFates >= 0.385. None -> remove R132. Some -> restrict the GPR to those genes with per-gene ADH citations; with no such citation, stop and report.",
+    "outcome": "Branch 2 (YALI1F11481g only); no gene-level ADH citation, so the run stopped before any code.",
+    "user_amendment": "Remove R132, decided by the user after the start-codon check showed that the only mitochondrial call depends on an upstream start with no gene-specific transcript support."
+  },
+  "predictions": {
+    "settings": "Full RefSeq sequences; TargetP-2.0 Non-Plant long output; MitoFates fungi; DeepLoc 2.0 High-quality (Slow), long output. Official web servers, 2026-10-13.",
+    "jobs": {
+      "targetp2": "6ACE82AE0001C6E02ECCAE2B",
+      "mitofates": "20261014.040043.60854",
+      "deeploc2.0": "6ACE830B0001C7579B8DCFFC",
+      "targetp2_XP_505149.1": "6ACE85BD000205EB36B9E16C",
+      "mitofates_XP_505149.1": "20261014.041314.61132",
+      "deeploc2.0_XP_505149.1": "6ACE85CF0002060E8916CA0E"
+    },
+    "per_gene": {
+      "YALI1D02041g": {"targetp_mtp": 0.000797, "mitofates": 0.0, "deeploc_mito": 0.1311, "deeploc_call": "Cytoplasm"},
+      "YALI1C08017g": {"targetp_mtp": 0.001787, "mitofates": 0.002, "deeploc_mito": 0.1533, "deeploc_call": "Peroxisome"},
+      "YALI1E15452g": {"targetp_mtp": 0.000054, "mitofates": 0.0, "deeploc_mito": 0.1916, "deeploc_call": "Cytoplasm"},
+      "YALI1A15227g": {"targetp_mtp": 0.000095, "mitofates": 0.0, "deeploc_mito": 0.1837, "deeploc_call": "Cytoplasm"},
+      "YALI1F32330g": {"targetp_mtp": 0.000347, "mitofates": 0.0, "deeploc_mito": 0.4434, "deeploc_call": "Cytoplasm"},
+      "YALI1F11481g": {"targetp_mtp": 0.502811, "mitofates": 0.197, "deeploc_mito": 0.6242, "deeploc_call": "Mitochondrion",
+                       "XP_505149.1_340aa": {"targetp_mtp": 0.000138, "mitofates": 0.001, "deeploc_mito": 0.3923, "deeploc_call": "Cytoplasm|Endoplasmic reticulum"}},
+      "YALI1B11402g": {"targetp_mtp": 0.000044, "mitofates": 0.0, "deeploc_mito": 0.1761, "deeploc_call": "Cytoplasm"},
+      "YALI1E23809g": {"targetp_mtp": 0.000327, "mitofates": 0.001, "deeploc_mito": 0.055, "deeploc_call": "Nucleus"},
+      "YALI1F37194g": {"targetp_mtp": 0.010418, "mitofates": 0.006, "deeploc_mito": 0.1154, "deeploc_call": "Cytoplasm"}
+    },
+    "deeploc_mitochondrion_threshold": 0.622,
+    "tier": "computational prediction; not experimental localization",
+    "raw_outputs": "$IYALI26_RESEARCH_ROOT/artifacts/tasks/r132_mito_adh_20261012/predictors/"
+  },
+  "evidence": [
+    {
+      "claim": "In Y. lipolytica, complex I deficiency is lethal and is rescued by NDH2 redirected to the matrix side but not by the native external NDH2; the authors conclude that shuttles moving redox equivalents from the matrix to the cytosolic side are insufficient.",
+      "source": "Kerscher SJ, Eschemann A, Okun PM, Brandt U. J Cell Sci 2001;114(Pt 21):3915-3921. PMID 11719558",
+      "url": "https://doi.org/10.1242/jcs.114.21.3915",
+      "tier": "verified_opened_this_session (abstract, Europe PMC record)",
+      "reviewer": "Claude (this task)",
+      "caveat": "Shows insufficiency of matrix-to-cytosol shuttling at complex I-replacing capacity; does not test an ethanol-acetaldehyde shuttle specifically."
+    },
+    {
+      "claim": "Y. lipolytica is a non-fermenting yeast that neither grows anaerobically nor produces ethanol; ADH1, ADH2 or ADH3 is required for ethanol utilization (eight ADH genes tested).",
+      "source": "Gatter M, Ottlik S, Kovesi Z, Bauer B, Matthaus F, Barth G. Fungal Genet Biol 2016;95:30-38. PMID 27486067",
+      "url": "https://doi.org/10.1016/j.fgb.2016.07.012",
+      "tier": "verified_opened_this_session (abstract, Europe PMC record)",
+      "reviewer": "Claude (this task)",
+      "caveat": "Full text not opened (paywalled). The ADH1/ADH2/ADH3 to YALI1D33961g/YALI1E21128g/YALI1A16292g mapping is recalled from the task prompt, not verified. The abstract does not report ADH localization."
+    },
+    {
+      "claim": "In S. cerevisiae, the mitochondrial alcohol dehydrogenase Adh3 runs an ethanol-acetaldehyde redox shuttle that moves matrix NADH to the cytosol (required for respiratory growth of ndi1 mutants).",
+      "source": "Bakker BM et al. J Bacteriol 2000;182(17):4730-4737. PMID 10940011, PMC111347",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC111347/",
+      "tier": "verified_opened_this_session (abstract, Europe PMC record)",
+      "reviewer": "Claude (this task)",
+      "caveat": "Cross-species context for why R132 exists in yeast models; not Y. lipolytica evidence."
+    },
+    {
+      "claim": "S. cerevisiae Adh3 carries a mitochondrial transit peptide at residues 1-24 (mature chain 25-375).",
+      "source": "UniProtKB P07246 (ADH3_YEAST), feature 'Transit peptide 1-24', evidence ECO:0000305 citing PubMed 2188098",
+      "url": "https://rest.uniprot.org/uniprotkb/P07246.json",
+      "tier": "verified_opened_this_session",
+      "reviewer": "Claude (this task)",
+      "caveat": "The task prompt gave a 27-residue presequence string; UniProt annotates 1-24."
+    },
+    {
+      "claim": "No Adh3-type ortholog with a presequence: YALI1A15227g (R132) and the R130 genes YALI1D33961g, YALI1E21128g, YALI1A16292g are 67.6-71.1 % identical to the mitochondrial ADHs Sc Adh3, Kl ADH3 and Kl ADH4, but their local alignments start at mitochondrial-ADH residue 26-30, so no residue aligns to the transit peptide. For the other eight R132 genes, the best-scoring hit among Sc Adh1-5, Sfa1, Adh6, Adh7, Bdh1 and Kl ADH3/ADH4 is 22.5-31.1 % identical (local alignments of 61-365 columns).",
+      "source": "Local Smith-Waterman (Gotoh affine gaps, BLOSUM62, gap open 11 / extend 1), RefSeq and UniProt sequences fetched 2026-10-13",
+      "url": null,
+      "tier": "verified_computed_this_session",
+      "reviewer": "Claude (this task)",
+      "artifact": "$IYALI26_RESEARCH_ROOT/artifacts/tasks/r132_mito_adh_20261012/sw_results.tsv (sha256 423ab6866fedc9d887d244f74287b921b70996d6d3cf0ad27cddc81b27a869b3)"
+    },
+    {
+      "claim": "The only predicted-mitochondrial R132 gene, YALI1F11481g, has no gene-level alcohol dehydrogenase evidence: RefSeq XP_505149.1 and KEGG yli:2908523 name it 'NADPH-dependent alkenal/one oxidoreductase' (MDR superfamily, Pfam PF08240/PF13602); one paper lists YALI0F08129g among 11 BLAST-identified 'putative' ADH genes with no deletion phenotype; another calls it a mitochondrial inner membrane protease without experimental support.",
+      "source": "NCBI protein XP_505149.1; KEGG yli:2908523; UniProtKB Q6C2G3; PMC6201493 (Microb Cell Fact 2018); PMC13640256 (Microb Cell Fact 2026)",
+      "url": "https://www.ncbi.nlm.nih.gov/protein/XP_505149.1",
+      "tier": "verified_opened_this_session",
+      "reviewer": "Claude (this task)"
+    },
+    {
+      "claim": "The mitochondrial call for YALI1F11481g depends on a 61-residue N-terminal extension present only in the CLIB89 gene model (XP_505149.2, 401 aa). The DNA is identical in CLIB89 and CLIB122; the CLIB122 model (XP_505149.1, 340 aa) starts at the downstream ATG and is predicted non-mitochondrial by all three tools. No gene-specific transcript evidence for the upstream start was found.",
+      "source": "NCBI NC_090775.1 and NC_006072.1; XM_505149.3 (provisional RefSeq, 'incomplete on both ends'); Magnan et al. 2016 PLoS ONE 11:e0162363 (PMC5014426), CDS selection 'based on size and RNA-Seq support'",
+      "url": "https://doi.org/10.1371/journal.pone.0162363",
+      "tier": "verified_opened_this_session",
+      "reviewer": "Claude (this task)"
+    }
+  ],
+  "evidence_of_absence_summary": "No R132 gene combines ADH evidence with a mitochondrial targeting signal. Y. lipolytica neither produces ethanol nor grows anaerobically, and its matrix-to-cytosol redox shuttles cannot replace complex I. This is indirect evidence; no Y. lipolytica measurement of mitochondrial ADH activity was found or made.",
+  "not_changed": "R1114 and R997 (diffusion, no GPR) stay as instructed. All genes and all metabolites are kept. No other reaction, bound, GPR or note changes."
+}
