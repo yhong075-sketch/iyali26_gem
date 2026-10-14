@@ -21,6 +21,12 @@ the user chose this pairing after being told.
 Compared like for like, the gain is MCC 0.254 → 0.319 under the benchmark rule, or 0.266 → 0.331 in
 the lethal view.
 
+**Like-for-like companion (user request, same day):**
+[confusion_matrices_15pct_like_for_like.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_like_for_like.png),
+drawn by `make_figure_like_for_like.py`. Both models are shown under iYali21's conditions: no overlay,
+benchmark rule. That gives 58 / 255 / 25 / 694 (10 left out) against 82 / 229 / 33 / 697 (16 left
+out).
+
 ## 2026-10-14: a56f3649 screened under Task A's diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (computation only)
 
 **Authorization.** The user asked for the conditions of Task A's `0ac2addf` overlay row (in-memory
