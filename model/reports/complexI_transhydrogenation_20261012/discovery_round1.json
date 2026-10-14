@@ -1,0 +1,5252 @@
+{
+ "started_utc": "2026-10-14T06:55:33.646275+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "r825": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/r825_reversible_20261013.json",
+   "sha256": "e45cab424c30ee9aec00823cb67392742ac6c36ba7091664249765a2533efcaa"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/complexI_transhydrogenation_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "round": 1,
+ "parts_definition_sha256": "b3a1b4ca6ef18cd9236e3bd3f6862cb3b7e70100a5e9d2c17aa7c52db7b5c524",
+ "parts_applied": [
+  "MTHFD",
+  "GDH",
+  "ALD_cyt",
+  "ALD_mito",
+  "IDH_mito_reductive",
+  "R1708",
+  "HMG-CoA_route",
+  "NADP_transport_lp",
+  "R1936"
+ ],
+ "closures": {
+  "R549": "fwd",
+  "R550": "rev",
+  "R329": "fwd",
+  "R1378": "fwd",
+  "R136": "fwd",
+  "R1385": "rev",
+  "R1708": "whole",
+  "R412": "whole",
+  "R1172": "whole",
+  "R1628": "fwd",
+  "R1629": "rev",
+  "R1936": "fwd"
+ },
+ "WT": 0.28079549028006245,
+ "WT_status": "optimal",
+ "KO": 0.15150248991392717,
+ "KO_status": "optimal",
+ "KO_over_WT": 0.5395474470149795,
+ "nodes_KO": {
+  "NADH_cy": {
+   "produced": 658.002,
+   "terms": [
+    [
+     "R570",
+     -657.996
+    ],
+    [
+     "R534",
+     217.393
+    ],
+    [
+     "R344",
+     170.607
+    ],
+    [
+     "R641",
+     170.093
+    ],
+    [
+     "R1931",
+     77.724
+    ],
+    [
+     "R45",
+     19.377
+    ],
+    [
+     "R718",
+     1.479
+    ],
+    [
+     "R389",
+     0.505
+    ],
+    [
+     "R308",
+     0.447
+    ],
+    [
+     "R417",
+     0.377
+    ],
+    [
+     "R348",
+     -0.006
+    ]
+   ]
+  },
+  "NADPH_cy": {
+   "produced": 247.162,
+   "terms": [
+    [
+     "R330",
+     -190.174
+    ],
+    [
+     "R134",
+     162.741
+    ],
+    [
+     "R742",
+     82.199
+    ],
+    [
+     "R332",
+     -42.008
+    ],
+    [
+     "R410",
+     -2.894
+    ],
+    [
+     "R550",
+     1.731
+    ],
+    [
+     "R505",
+     -1.479
+    ],
+    [
+     "R719",
+     -1.479
+    ],
+    [
+     "R689",
+     -1.295
+    ],
+    [
+     "R164",
+     -0.947
+    ],
+    [
+     "R399",
+     -0.947
+    ],
+    [
+     "R251",
+     -0.721
+    ],
+    [
+     "R185",
+     -0.721
+    ],
+    [
+     "R745",
+     -0.538
+    ],
+    [
+     "R1265",
+     -0.461
+    ],
+    [
+     "R755",
+     -0.431
+    ],
+    [
+     "R60",
+     -0.386
+    ],
+    [
+     "R724",
+     -0.257
+    ],
+    [
+     "R179",
+     0.24
+    ],
+    [
+     "R180",
+     -0.24
+    ],
+    [
+     "R181",
+     -0.24
+    ],
+    [
+     "R182",
+     -0.24
+    ],
+    [
+     "R183",
+     -0.24
+    ],
+    [
+     "R184",
+     -0.24
+    ],
+    [
+     "R739",
+     -0.24
+    ],
+    [
+     "R176",
+     -0.24
+    ],
+    [
+     "R178",
+     0.24
+    ],
+    [
+     "R186",
+     -0.221
+    ],
+    [
+     "R177",
+     -0.221
+    ],
+    [
+     "R499",
+     -0.207
+    ],
+    [
+     "R271",
+     -0.065
+    ],
+    [
+     "R1392",
+     -0.027
+    ],
+    [
+     "R671",
+     0.011
+    ]
+   ]
+  },
+  "NADH_mi": {
+   "produced": 19.635,
+   "terms": [
+    [
+     "R533",
+     -19.635
+    ],
+    [
+     "R1968",
+     18.156
+    ],
+    [
+     "R398",
+     1.479
+    ],
+    [
+     "R695",
+     -0.001
+    ]
+   ]
+  },
+  "NADPH_mi": {
+   "produced": 88.564,
+   "terms": [
+    [
+     "R1385",
+     88.564
+    ],
+    [
+     "R560",
+     -37.541
+    ],
+    [
+     "R2230",
+     -31.408
+    ],
+    [
+     "R76",
+     -19.385
+    ],
+    [
+     "R497",
+     -0.225
+    ],
+    [
+     "R2233",
+     -0.006
+    ]
+   ]
+  }
+ },
+ "nodes_WT": {
+  "NADH_cy": {
+   "produced": 195.841,
+   "terms": [
+    [
+     "R570",
+     -195.807
+    ],
+    [
+     "R344",
+     143.454
+    ],
+    [
+     "R534",
+     37.085
+    ],
+    [
+     "R641",
+     7.665
+    ],
+    [
+     "R718",
+     2.952
+    ],
+    [
+     "R45",
+     2.263
+    ],
+    [
+     "R389",
+     1.082
+    ],
+    [
+     "R417",
+     0.699
+    ],
+    [
+     "R308",
+     0.641
+    ],
+    [
+     "R348",
+     -0.031
+    ],
+    [
+     "R1593",
+     -0.004
+    ]
+   ]
+  },
+  "NADPH_cy": {
+   "produced": 82.767,
+   "terms": [
+    [
+     "R134",
+     62.442
+    ],
+    [
+     "R330",
+     -49.326
+    ],
+    [
+     "R488",
+     7.7
+    ],
+    [
+     "R410",
+     -5.364
+    ],
+    [
+     "R639",
+     4.06
+    ],
+    [
+     "R325",
+     4.06
+    ],
+    [
+     "R550",
+     3.364
+    ],
+    [
+     "R505",
+     -2.952
+    ],
+    [
+     "R719",
+     -2.952
+    ],
+    [
+     "R164",
+     -2.796
+    ],
+    [
+     "R399",
+     -2.796
+    ],
+    [
+     "R689",
+     -2.401
+    ],
+    [
+     "R332",
+     -2.401
+    ],
+    [
+     "R185",
+     -1.336
+    ],
+    [
+     "R251",
+     -1.336
+    ],
+    [
+     "R745",
+     -1.307
+    ],
+    [
+     "R724",
+     -0.921
+    ],
+    [
+     "R755",
+     -0.902
+    ],
+    [
+     "R1265",
+     -0.855
+    ],
+    [
+     "R60",
+     -0.819
+    ],
+    [
+     "R182",
+     -0.445
+    ],
+    [
+     "R183",
+     -0.445
+    ],
+    [
+     "R184",
+     -0.445
+    ],
+    [
+     "R739",
+     -0.445
+    ],
+    [
+     "R176",
+     -0.445
+    ],
+    [
+     "R178",
+     0.445
+    ],
+    [
+     "R179",
+     0.445
+    ],
+    [
+     "R180",
+     -0.445
+    ],
+    [
+     "R181",
+     -0.445
+    ],
+    [
+     "R186",
+     -0.41
+    ],
+    [
+     "R177",
+     -0.41
+    ],
+    [
+     "R671",
+     0.232
+    ],
+    [
+     "R499",
+     -0.195
+    ],
+    [
+     "R271",
+     -0.12
+    ],
+    [
+     "R1392",
+     -0.049
+    ],
+    [
+     "R345",
+     0.019
+    ]
+   ]
+  },
+  "NADH_mi": {
+   "produced": 200.164,
+   "terms": [
+    [
+     "R2062",
+     -200.164
+    ],
+    [
+     "R693",
+     57.316
+    ],
+    [
+     "R533",
+     45.791
+    ],
+    [
+     "R361",
+     44.788
+    ],
+    [
+     "R487",
+     44.209
+    ],
+    [
+     "R538",
+     5.108
+    ],
+    [
+     "R398",
+     2.952
+    ],
+    [
+     "R695",
+     -0.001
+    ]
+   ]
+  },
+  "NADPH_mi": {
+   "produced": 5.108,
+   "terms": [
+    [
+     "R1385",
+     5.108
+    ],
+    [
+     "R76",
+     -3.196
+    ],
+    [
+     "R560",
+     -1.202
+    ],
+    [
+     "R497",
+     -0.71
+    ]
+   ]
+  }
+ },
+ "candidates": [
+  {
+   "reaction": "R1364",
+   "name": "water exchange",
+   "KO_pfba": 228.552,
+   "WT_pfba": -99.765,
+   "KO_opt": [
+    228.551,
+    228.552
+   ],
+   "WT_opt": [
+    -99.765,
+    -99.764
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H2O_H2O <=> "
+  },
+  {
+   "reaction": "R940",
+   "name": "water diffusion",
+   "KO_pfba": -228.552,
+   "WT_pfba": 99.765,
+   "KO_opt": [
+    -228.552,
+    -228.551
+   ],
+   "WT_opt": [
+    99.764,
+    99.765
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F01981g",
+   "equation": "H2O_H2O <=> H2O_H2O"
+  },
+  {
+   "reaction": "R659",
+   "name": "phosphoserine phosphatase (L-serine)",
+   "KO_pfba": 170.07,
+   "WT_pfba": 573.751,
+   "KO_opt": [
+    0.0,
+    20882.896
+   ],
+   "WT_opt": [
+    0.0,
+    21291.029
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B26749g",
+   "equation": "2.0 H+_p+1 + H2O_H2O + 3-phospho-serine_C3H6NO6P --> phosphate_H3O4P + L-serine_C3H7NO3"
+  },
+  {
+   "reaction": "R511",
+   "name": "L-serine deaminase",
+   "KO_pfba": 166.098,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    166.098
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E12987g",
+   "equation": "L-serine_C3H7NO3 --> ammonium_H3N + pyruvate_C3H4O3"
+  },
+  {
+   "reaction": "R387",
+   "name": "hexokinase (D-glucose:ATP)",
+   "KO_pfba": 100.0,
+   "WT_pfba": 100.0,
+   "KO_opt": [
+    0.0,
+    100.0
+   ],
+   "WT_opt": [
+    0.0,
+    100.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B29133g or YALI1E18539g",
+   "equation": "ATP_C10H16N5O13P3 + D-glucose_C6H12O6 --> ADP_C10H15N5O10P2 + D-glucose 6-phosphate_C6H13O9P"
+  },
+  {
+   "reaction": "R216",
+   "name": "cis-aconitate(3-) to isocitrate",
+   "KO_pfba": 88.564,
+   "WT_pfba": 49.318,
+   "KO_opt": [
+    -41286.593,
+    41425.021
+   ],
+   "WT_opt": [
+    -41348.103,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D11984g or YALI1E17935g",
+   "equation": "H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7"
+  },
+  {
+   "reaction": "R238",
+   "name": "citrate to cis-aconitate(3-)",
+   "KO_pfba": 88.564,
+   "WT_pfba": 49.318,
+   "KO_opt": [
+    -41286.593,
+    41425.021
+   ],
+   "WT_opt": [
+    -41348.103,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D11984g or YALI1E17935g",
+   "equation": "citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6"
+  },
+  {
+   "reaction": "R313",
+   "name": "fructose-bisphosphate aldolase",
+   "KO_pfba": 85.709,
+   "WT_pfba": 71.503,
+   "KO_opt": [
+    0.0,
+    85.709
+   ],
+   "WT_opt": [
+    -0.0,
+    73.316
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E30886g",
+   "equation": "D-fructose 1,6-bisphosphate_C6H14O12P2 <=> 4.0 H+_p+1 + dihydroxyacetone phosphate_C3H5O6P + glyceraldehyde 3-phosphate_C3H5O6P"
+  },
+  {
+   "reaction": "R636",
+   "name": "phosphofructokinase",
+   "KO_pfba": 85.709,
+   "WT_pfba": 71.503,
+   "KO_opt": [
+    0.0,
+    85.709
+   ],
+   "WT_opt": [
+    0.0,
+    73.316
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D20222g",
+   "equation": "2.0 H+_p+1 + ATP_C10H16N5O13P3 + D-fructose 6-phosphate_C6H11O9P --> ADP_C10H15N5O10P2 + D-fructose 1,6-bisphosphate_C6H14O12P2"
+  },
+  {
+   "reaction": "R328",
+   "name": "glutamate decarboxylase",
+   "KO_pfba": 82.199,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    82.199,
+    82.199
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F11827g",
+   "equation": "L-glutamate_C5H9NO4 --> gamma-aminobutyrate_C4H9NO2 + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R50",
+   "name": "4-aminobutyrate transaminase",
+   "KO_pfba": 82.199,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    82.199,
+    82.199
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E21915g",
+   "equation": "gamma-aminobutyrate_C4H9NO2 + 2-oxoglutarate_C5H6O5 --> H+_p+1 + succinic semialdehyde_C4H5O3 + L-glutamate_C5H9NO4"
+  },
+  {
+   "reaction": "R742",
+   "name": "succinate-semialdehyde dehydrogenase (NADP)",
+   "KO_pfba": 82.199,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    82.199,
+    82.199
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F33681g",
+   "equation": "succinic semialdehyde_C4H5O3 + H2O_H2O + NADP(+)_C21H28N7O17P3 --> NADPH_C21H30N7O17P3 + succinate_C4H6O4"
+  },
+  {
+   "reaction": "R161",
+   "name": "aspartate transaminase",
+   "KO_pfba": -81.165,
+   "WT_pfba": -16.771,
+   "KO_opt": [
+    -289.27,
+    -33.059
+   ],
+   "WT_opt": [
+    -16.771,
+    1.373
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B03198g or YALI1F36966g",
+   "equation": "L-aspartate_C4H7NO4 + 2-oxoglutarate_C5H6O5 <=> oxaloacetate_C4H4O5 + L-glutamate_C5H9NO4"
+  },
+  {
+   "reaction": "R1931",
+   "name": "L-Glutamate 5-semialdehyde:NAD+ oxidoreductase",
+   "KO_pfba": 77.724,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    35.716,
+    243.822
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B12993g",
+   "equation": "NAD_C21H27N7O14P2 + H2O_H2O + L-glutamic 5-semialdehyde_C5H9NO3 --> NADH_C21H29N7O14P2 + L-glutamate_C5H9NO4"
+  },
+  {
+   "reaction": "R90",
+   "name": "acetyl-CoA synthetase",
+   "KO_pfba": 58.081,
+   "WT_pfba": 36.735,
+   "KO_opt": [
+    0.0,
+    58.081
+   ],
+   "WT_opt": [
+    0.0,
+    36.735
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F08845g",
+   "equation": "ATP_C10H16N5O13P3 + acetate_C2H4O2 + coenzyme A_C21H36N7O16P3S --> diphosphate_H4O7P2 + acetyl-CoA_C23H38N7O17P3S + AMP_C10H14N5O7P"
+  },
+  {
+   "reaction": "R1556",
+   "name": "cis-aconitate(3-) to isocitrate",
+   "KO_pfba": 49.864,
+   "WT_pfba": 28.883,
+   "KO_opt": [
+    -41286.593,
+    41425.021
+   ],
+   "WT_opt": [
+    -41348.103,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D11984g or YALI1E17935g",
+   "equation": "H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7"
+  },
+  {
+   "reaction": "R239",
+   "name": "citrate to cis-aconitate(3-), cytoplasmic",
+   "KO_pfba": 49.864,
+   "WT_pfba": 28.883,
+   "KO_opt": [
+    -41286.593,
+    41425.021
+   ],
+   "WT_opt": [
+    -41348.103,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D11984g",
+   "equation": "citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6"
+  },
+  {
+   "reaction": "R817",
+   "name": "AKG transporter, mitochonrial",
+   "KO_pfba": -49.544,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -49.544,
+    41354.362
+   ],
+   "WT_opt": [
+    -8.074,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B14382g",
+   "equation": "citrate_C6H8O7 + 2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5 + citrate_C6H8O7"
+  },
+  {
+   "reaction": "R536",
+   "name": "malate synthase",
+   "KO_pfba": 48.106,
+   "WT_pfba": 18.144,
+   "KO_opt": [
+    0.0,
+    48.106
+   ],
+   "WT_opt": [
+    0.0,
+    18.144
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D24249g or YALI1E18927g",
+   "equation": "glyoxylate_C2H2O3 + H2O_H2O + acetyl-CoA_C23H38N7O17P3S --> (S)-malate_C4H6O5 + coenzyme A_C21H36N7O16P3S"
+  },
+  {
+   "reaction": "R_OAADCm",
+   "name": "R_OAADCm",
+   "KO_pfba": -38.995,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -38.995,
+    0.0
+   ],
+   "WT_opt": [
+    -5.108,
+    0.0
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    0.0
+   ],
+   "gpr": "YALI1E22303g",
+   "equation": "carbon dioxide_CO2 + pyruvate_C3H4O3 <-- oxaloacetate_C4H4O5"
+  },
+  {
+   "reaction": "R610",
+   "name": "ornithine transaminase",
+   "KO_pfba": 37.011,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    37.011,
+    37.011
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C05908g",
+   "equation": "ornithine_C5H13N2O2 + 2-oxoglutarate_C5H6O5 --> H+_p+1 + L-glutamate_C5H9NO4 + L-glutamic 5-semialdehyde_C5H9NO3"
+  },
+  {
+   "reaction": "R1024",
+   "name": "bicarbonate formation",
+   "KO_pfba": 33.862,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    33.862,
+    33.862
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H2O_H2O + carbon dioxide_CO2 <=> bicarbonate_CHO3 + H+_p+1"
+  },
+  {
+   "reaction": "R831",
+   "name": "citrate transport",
+   "KO_pfba": 21.114,
+   "WT_pfba": -2.783,
+   "KO_opt": [
+    21.114,
+    41425.021
+   ],
+   "WT_opt": [
+    -3.158,
+    41421.863
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F33754g",
+   "equation": "citrate_C6H8O7 + (S)-malate_C4H6O5 <=> citrate_C6H8O7 + (S)-malate_C4H6O5"
+  },
+  {
+   "reaction": "R533",
+   "name": "malate dehydrogenase",
+   "KO_pfba": -19.635,
+   "WT_pfba": 45.791,
+   "KO_opt": [
+    -58.63,
+    -19.635
+   ],
+   "WT_opt": [
+    44.507,
+    52.252
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D20676g or YALI1E17214g",
+   "equation": "NAD_C21H27N7O14P2 + (S)-malate_C4H6O5 <=> NADH_C21H29N7O14P2 + oxaloacetate_C4H4O5"
+  },
+  {
+   "reaction": "R1933",
+   "name": "succinyl-CoA:acetoacetate CoA-transferase",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F34029g",
+   "equation": "succinyl-CoA_C25H40N7O19P3S + acetoacetate_ + H+_p+1 <=> acetoacetyl-CoA_C25H40N7O18P3S + succinate_C4H6O4"
+  },
+  {
+   "reaction": "R1968",
+   "name": "4-methyl-2-oxopentanoate dehydrogenase",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g",
+   "equation": "NAD_C21H27N7O14P2 + coenzyme A_C21H36N7O16P3S + 4-methyl-2-oxopentanoate_C6H10O3 --> 3-methylbutanoyl-CoA_C26H44N7O17P3S + NADH_C21H29N7O14P2 + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R1971",
+   "name": "3-methylbutanoyl-CoA dehydrogenase;",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI0D12573g",
+   "equation": "3-methylbutanoyl-CoA_C26H44N7O17P3S + FAD_C27H33N9O15P2 --> 3-methylcrotonyl-CoA_C26H42N7O17P3S + FADH2_C27H35N9O15P2"
+  },
+  {
+   "reaction": "R1972",
+   "name": "3-methylcrotonyl-CoA carboxylase",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B19217g",
+   "equation": "3-methylcrotonyl-CoA_C26H42N7O17P3S + bicarbonate_CHO3 + H+_p+1 + ATP_C10H16N5O13P3 --> 3-methylglutaconyl-CoA_C27H42N7O19P3S + ADP_C10H15N5O10P2 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R1973",
+   "name": "3-methylglutaconyl-CoA dehydratase",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "3-methylglutaconyl-CoA_C27H42N7O19P3S + H2O_H2O --> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S"
+  },
+  {
+   "reaction": "R1974",
+   "name": "hydroxymethylglutaryl-CoA lyase",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B29483g",
+   "equation": "3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S --> acetoacetate_ + H+_p+1 + acetyl-CoA_C23H38N7O17P3S"
+  },
+  {
+   "reaction": "R1977",
+   "name": "FAD:ubiquinone oxidoreductase",
+   "KO_pfba": 18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    18.156,
+    18.156
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F31153g",
+   "equation": "ubiquinone-9_C54H82O4 + FADH2_C27H35N9O15P2 --> ubiquinol-9_C54H84O4 + FAD_C27H33N9O15P2"
+  },
+  {
+   "reaction": "R741",
+   "name": "succinate-CoA ligase (ADP-forming)",
+   "KO_pfba": -18.156,
+   "WT_pfba": 44.788,
+   "KO_opt": [
+    -18.156,
+    -18.156
+   ],
+   "WT_opt": [
+    43.505,
+    46.142
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D05873g and YALI1E28575g",
+   "equation": "succinyl-CoA_C25H40N7O19P3S + ADP_C10H15N5O10P2 + phosphate_H3O4P <=> ATP_C10H16N5O13P3 + coenzyme A_C21H36N7O16P3S + succinate_C4H6O4"
+  },
+  {
+   "reaction": "R83",
+   "name": "acetyl-CoA C-acetyltransferase",
+   "KO_pfba": -18.156,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -18.156,
+    -18.156
+   ],
+   "WT_opt": [
+    -0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E13899g",
+   "equation": "2.0 acetyl-CoA_C23H38N7O17P3S <=> acetoacetyl-CoA_C25H40N7O18P3S + coenzyme A_C21H36N7O16P3S"
+  },
+  {
+   "reaction": "R100",
+   "name": "acyl-CoA oxidase (hexadecanoyl-CoA)",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D32754g",
+   "equation": "palmitoyl-CoA_C37H66N7O17P3S + oxygen_O2 --> hydrogen peroxide_H2O2 + hexadec-2-enoyl-CoA_C37H64N7O17P3S"
+  },
+  {
+   "reaction": "R1119",
+   "name": "myristate (n-C14:0) transport, cytoplasm-peroxisome",
+   "KO_pfba": -15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -15.706,
+    -15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C05386g",
+   "equation": "myristate_C14H28O2 <=> myristate_C14H28O2"
+  },
+  {
+   "reaction": "R1120",
+   "name": "palmitate (n-C16:0) transport, cytoplasm-peroxisome",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C05386g",
+   "equation": "palmitate_C16H32O2 <=> palmitate_C16H32O2"
+  },
+  {
+   "reaction": "R1502",
+   "name": "2-enoyl-CoA hydratase (3-hydroxyhexadecanoyl-CoA)",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E18441g",
+   "equation": "hexadec-2-enoyl-CoA_C37H64N7O17P3S + H2O_H2O --> (R)-3-hydroxypalmitoyl-CoA_"
+  },
+  {
+   "reaction": "R1519",
+   "name": "3-hydroxyacyl-CoA dehydrogenase (3-oxohexadecanoyl-CoA)",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E18441g",
+   "equation": "NAD_C21H27N7O14P2 + (R)-3-hydroxypalmitoyl-CoA_ <=> H+_p+1 + NADH_C21H29N7O14P2 + 3-oxopalmitoyl-CoA_C37H60N7O18P3S"
+  },
+  {
+   "reaction": "R2225",
+   "name": "fatty acyl ACP mitochondrial transport",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "Myristoyl_ACP <=> Myristoyl_ACP"
+  },
+  {
+   "reaction": "R2226",
+   "name": "fatty acyl ACP hydrolase",
+   "KO_pfba": -15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -15.706,
+    -15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B19844g and YALI1B25427g",
+   "equation": "Myristoyl_ACP + H2O_H2O <=> H+_p+1 + myristate_C14H28O2 + ACP"
+  },
+  {
+   "reaction": "R299",
+   "name": "fatty-acid--CoA ligase (hexadecanoate)",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    -0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E19172g",
+   "equation": "coenzyme A_C21H36N7O16P3S + ATP_C10H16N5O13P3 + palmitate_C16H32O2 --> palmitoyl-CoA_C37H66N7O17P3S + AMP_C10H14N5O7P + diphosphate_H4O7P2"
+  },
+  {
+   "reaction": "R535",
+   "name": "malate dehydrogenase, peroxisomal",
+   "KO_pfba": -15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -15.706,
+    -15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D20676g or YALI1E17214g",
+   "equation": "NAD_C21H27N7O14P2 + (S)-malate_C4H6O5 <=> NADH_C21H29N7O14P2 + oxaloacetate_C4H4O5"
+  },
+  {
+   "reaction": "R539",
+   "name": "malonyl-CoA-ACP transacylase",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22262g",
+   "equation": "ACP1_ + malonyl-CoA_C24H38N7O19P3S <=> coenzyme A_C21H36N7O16P3S + carboxyacetyl-ACP_C3H3O3SR"
+  },
+  {
+   "reaction": "R621",
+   "name": "peroxisomal acyl-CoA thioesterase",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F19697g",
+   "equation": "myristoyl-CoA_C35H62N7O17P3S + H2O_H2O --> coenzyme A_C21H36N7O16P3S + myristate_C14H28O2"
+  },
+  {
+   "reaction": "R81",
+   "name": "acetyl-CoA C-acyltransferase (myristoyl-CoA)",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22238g",
+   "equation": "4.0 H+_p+1 + coenzyme A_C21H36N7O16P3S + 3-oxopalmitoyl-CoA_C37H60N7O18P3S --> acetyl-CoA_C23H38N7O17P3S + myristoyl-CoA_C35H62N7O17P3S"
+  },
+  {
+   "reaction": "R87",
+   "name": "acetyl-Coa carboxylase",
+   "KO_pfba": 15.706,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.706,
+    15.706
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C15991g",
+   "equation": "bicarbonate_CHO3 + H+_p+1 + ATP_C10H16N5O13P3 + acetyl-CoA_C23H38N7O17P3S --> ADP_C10H15N5O10P2 + malonyl-CoA_C24H38N7O19P3S + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R2230",
+   "name": "fatty acyl ACP synthase n C160ACP mitochondrial",
+   "KO_pfba": 15.704,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.704,
+    15.704
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "equation": "2.0 NADPH_C21H30N7O17P3 + Myristoyl_ACP + 3.0 H+_p+1 + carboxyacetyl-ACP_C3H3O3SR --> 2.0 NADP(+)_C21H28N7O17P3 + ACP1_ + Palmitoyl_ACP + H2O_H2O + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R2231",
+   "name": "fatty acyl ACP mitochondrial transport",
+   "KO_pfba": -15.704,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -15.704,
+    -15.704
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "Palmitoyl_ACP <=> Palmitoyl_ACP"
+  },
+  {
+   "reaction": "R2232",
+   "name": "fatty acyl ACP hydrolase",
+   "KO_pfba": 15.704,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    15.704,
+    15.704
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B19844g and YALI1B25427g",
+   "equation": "Palmitoyl_ACP + H2O_H2O <=> H+_p+1 + palmitate_C16H32O2 + ACP"
+  },
+  {
+   "reaction": "R603",
+   "name": "nucleoside-diphosphate kinase (ATP:UDP)",
+   "KO_pfba": 11.773,
+   "WT_pfba": 21.82,
+   "KO_opt": [
+    -41425.021,
+    41425.021
+   ],
+   "WT_opt": [
+    -41425.021,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F12874g",
+   "equation": "UDP_C9H14N2O12P2 + ATP_C10H16N5O13P3 <=> ADP_C10H15N5O10P2 + UTP_C9H15N2O15P3"
+  },
+  {
+   "reaction": "R334",
+   "name": "glutamine synthetase",
+   "KO_pfba": 9.618,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    9.618
+   ],
+   "WT_opt": [
+    0.0,
+    18.203
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F00821g",
+   "equation": "ATP_C10H16N5O13P3 + ammonium_H3N + L-glutamate_C5H9NO4 --> L-glutamine_C5H10N2O3 + ADP_C10H15N5O10P2 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R1279",
+   "name": "O2 transport",
+   "KO_pfba": 7.853,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    7.853,
+    7.853
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "oxygen_O2 <=> oxygen_O2"
+  },
+  {
+   "reaction": "R195",
+   "name": "catalase",
+   "KO_pfba": 7.853,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    7.853,
+    7.853
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E40671g or YALI1E41251g or YALI1F38629g",
+   "equation": "2.0 hydrogen peroxide_H2O2 --> oxygen_O2 + 2.0 H2O_H2O"
+  },
+  {
+   "reaction": "R793",
+   "name": "UTP-glucose-1-phosphate uridylyltransferase",
+   "KO_pfba": 5.964,
+   "WT_pfba": 11.053,
+   "KO_opt": [
+    -41419.057,
+    5.964
+   ],
+   "WT_opt": [
+    -41413.967,
+    11.053
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1A02775g",
+   "equation": "UTP_C9H15N2O15P3 + D-glucose 1-phosphate_C6H13O9P <=> 2.0 H+_p+1 + diphosphate_H4O7P2 + UDP-D-glucose_C15H22N2O17P2"
+  },
+  {
+   "reaction": "R1157",
+   "name": "H+ diffusion",
+   "KO_pfba": -5.556,
+   "WT_pfba": -6.695,
+   "KO_opt": [
+    -41425.021,
+    41419.466
+   ],
+   "WT_opt": [
+    -41425.021,
+    41418.326
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H+_p+1 <=> H+_p+1"
+  },
+  {
+   "reaction": "R632",
+   "name": "phosphoacetylglucosamine mutase",
+   "KO_pfba": 5.45,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    -41419.571,
+    41425.021
+   ],
+   "WT_opt": [
+    -41414.92,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E35005g",
+   "equation": "N-acetyl-D-glucosamine 6-phosphate_C8H16NO9P <=> N-acetyl-alpha-D-glucosamine 1-phosphate_C8H16NO9P"
+  },
+  {
+   "reaction": "R773",
+   "name": "tyrosine transaminase",
+   "KO_pfba": 5.126,
+   "WT_pfba": 9.682,
+   "KO_opt": [
+    -41419.649,
+    41425.021
+   ],
+   "WT_opt": [
+    -41414.651,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "fwd"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E24922g",
+   "equation": "L-glutamate_C5H9NO4 + 3-(4-hydroxyphenyl)pyruvate_C9H8O4 <=> 2-oxoglutarate_C5H6O5 + L-tyrosine_C9H11NO3"
+  },
+  {
+   "reaction": "R1381",
+   "name": "tyrosine transaminase",
+   "KO_pfba": -5.115,
+   "WT_pfba": -9.45,
+   "KO_opt": [
+    -41425.01,
+    41419.66
+   ],
+   "WT_opt": [
+    -41424.789,
+    41414.883
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [
+    "rev"
+   ],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C06681g",
+   "equation": "L-alanine_C3H7NO2 + 3-(4-hydroxyphenyl)pyruvate_C9H8O4 <=> pyruvate_C3H4O3 + L-tyrosine_C9H11NO3"
+  },
+  {
+   "reaction": "R1360",
+   "name": "water diffusion",
+   "KO_pfba": -1596.401,
+   "WT_pfba": -972.495,
+   "KO_opt": [
+    -1596.401,
+    -1596.401
+   ],
+   "WT_opt": [
+    -977.628,
+    -967.082
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H2O_H2O <=> H2O_H2O"
+  },
+  {
+   "reaction": "R171",
+   "name": "ATP synthase",
+   "KO_pfba": 1062.591,
+   "WT_pfba": 746.572,
+   "KO_opt": [
+    1062.591,
+    1062.591
+   ],
+   "WT_opt": [
+    743.866,
+    749.139
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g",
+   "equation": "4.0 H+_p+1 + ADP_C10H15N5O10P2 + phosphate_H3O4P --> H2O_H2O + 4.0 H+_p+1 + ATP_C10H16N5O13P3"
+  },
+  {
+   "reaction": "R815",
+   "name": "ADP/ATP transporter",
+   "KO_pfba": 973.032,
+   "WT_pfba": 790.158,
+   "KO_opt": [
+    973.032,
+    973.032
+   ],
+   "WT_opt": [
+    788.805,
+    791.442
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1A10708g or YALI1D10535g or YALI1F26167g",
+   "equation": "ADP_C10H15N5O10P2 + ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3 + ADP_C10H15N5O10P2"
+  },
+  {
+   "reaction": "R305",
+   "name": "ubiquinol-9:cytochrome-c reductase (complex III)",
+   "KO_pfba": 808.215,
+   "WT_pfba": 461.944,
+   "KO_opt": [
+    808.215,
+    808.215
+   ],
+   "WT_opt": [
+    461.944,
+    461.944
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g",
+   "equation": "2.0 H+_p+1 + 2.0 ferricytochrome c_ + ubiquinol-9_C54H84O4 --> 4.0 H+_p+1 + 2.0 ferrocytochrome c_ + ubiquinone-9_C54H82O4"
+  },
+  {
+   "reaction": "R570",
+   "name": "NADH dehydrogenase, cytosolic/mitochondrial",
+   "KO_pfba": 657.996,
+   "WT_pfba": 195.807,
+   "KO_opt": [
+    657.996,
+    657.996
+   ],
+   "WT_opt": [
+    194.524,
+    197.161
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F32476g",
+   "equation": "H+_p+1 + NADH_C21H29N7O14P2 + ubiquinone-9_C54H82O4 --> NAD_C21H27N7O14P2 + ubiquinol-9_C54H84O4"
+  },
+  {
+   "reaction": "R915",
+   "name": "phosphate transport",
+   "KO_pfba": 535.143,
+   "WT_pfba": 514.511,
+   "KO_opt": [
+    535.143,
+    535.143
+   ],
+   "WT_opt": [
+    513.157,
+    515.794
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C07423g or YALI1F19090g",
+   "equation": "H+_p+1 + phosphate_H3O4P --> H+_p+1 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R1278",
+   "name": "O2 transport",
+   "KO_pfba": 415.429,
+   "WT_pfba": 236.837,
+   "KO_opt": [
+    415.429,
+    415.429
+   ],
+   "WT_opt": [
+    236.837,
+    236.837
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "oxygen_O2 <=> oxygen_O2"
+  },
+  {
+   "reaction": "R1287",
+   "name": "oxygen exchange",
+   "KO_pfba": -415.429,
+   "WT_pfba": -236.837,
+   "KO_opt": [
+    -415.429,
+    -415.429
+   ],
+   "WT_opt": [
+    -236.837,
+    -236.837
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "oxygen_O2 <=> "
+  },
+  {
+   "reaction": "R1030",
+   "name": "carbon dioxide exchange",
+   "KO_pfba": 414.538,
+   "WT_pfba": 236.789,
+   "KO_opt": [
+    414.538,
+    414.538
+   ],
+   "WT_opt": [
+    236.789,
+    236.789
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "carbon dioxide_CO2 <=> "
+  },
+  {
+   "reaction": "R1053",
+   "name": "CO2 transport",
+   "KO_pfba": 414.538,
+   "WT_pfba": 236.789,
+   "KO_opt": [
+    414.538,
+    414.538
+   ],
+   "WT_opt": [
+    236.789,
+    236.789
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "carbon dioxide_CO2 <=> carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R1277",
+   "name": "O2 transport",
+   "KO_pfba": 404.111,
+   "WT_pfba": 230.975,
+   "KO_opt": [
+    404.111,
+    404.111
+   ],
+   "WT_opt": [
+    230.975,
+    230.975
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "oxygen_O2 <=> oxygen_O2"
+  },
+  {
+   "reaction": "R304",
+   "name": "ferrocytochrome-c:oxygen oxidoreductase",
+   "KO_pfba": 404.108,
+   "WT_pfba": 230.972,
+   "KO_opt": [
+    404.108,
+    404.108
+   ],
+   "WT_opt": [
+    230.972,
+    230.972
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1M00131g and YALI1M00325g and YALI1M00277g and YALI1E23635g and YALI1F05089g and YALI1E12730g and YALI1E15606g and YALI0F04114g and YALI1E19902g",
+   "equation": "8.0 H+_p+1 + 4.0 ferrocytochrome c_ + oxygen_O2 --> 4.0 H+_p+1 + 2.0 H2O_H2O + 4.0 ferricytochrome c_"
+  },
+  {
+   "reaction": "xMAINTENANCE",
+   "name": "Non-growth associated maintenance (NGAM)",
+   "KO_pfba": 325.704,
+   "WT_pfba": 325.704,
+   "KO_opt": [
+    325.704,
+    325.704
+   ],
+   "WT_opt": [
+    325.704,
+    325.704
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    7.8625,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "ATP_C10H16N5O13P3 + H2O_H2O --> ADP_C10H15N5O10P2 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R1162",
+   "name": "H+ diffusion",
+   "KO_pfba": 272.456,
+   "WT_pfba": 52.2,
+   "KO_opt": [
+    272.456,
+    388.618
+   ],
+   "WT_opt": [
+    52.2,
+    125.671
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H+_p+1 <=> H+_p+1"
+  },
+  {
+   "reaction": "R420",
+   "name": "inorganic diphosphatase",
+   "KO_pfba": 218.944,
+   "WT_pfba": 137.824,
+   "KO_opt": [
+    218.944,
+    218.944
+   ],
+   "WT_opt": [
+    137.824,
+    137.824
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C16485g or YALI1F18105g",
+   "equation": "diphosphate_H4O7P2 + H2O_H2O --> 2.0 phosphate_H3O4P"
+  },
+  {
+   "reaction": "R1309",
+   "name": "pyrophosphate transport",
+   "KO_pfba": 218.941,
+   "WT_pfba": 137.818,
+   "KO_opt": [
+    218.941,
+    218.941
+   ],
+   "WT_opt": [
+    137.818,
+    137.818
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "diphosphate_H4O7P2 <=> diphosphate_H4O7P2"
+  },
+  {
+   "reaction": "R534",
+   "name": "malate dehydrogenase, cytoplasmic",
+   "KO_pfba": 217.393,
+   "WT_pfba": 37.085,
+   "KO_opt": [
+    217.393,
+    425.498
+   ],
+   "WT_opt": [
+    37.085,
+    37.085
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E17214g",
+   "equation": "NAD_C21H27N7O14P2 + (S)-malate_C4H6O5 <=> NADH_C21H29N7O14P2 + oxaloacetate_C4H4O5"
+  },
+  {
+   "reaction": "R121",
+   "name": "adenylate kinase",
+   "KO_pfba": 204.842,
+   "WT_pfba": 111.789,
+   "KO_opt": [
+    204.842,
+    204.842
+   ],
+   "WT_opt": [
+    111.789,
+    111.789
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B01136g or YALI1B29895g",
+   "equation": "ATP_C10H16N5O13P3 + AMP_C10H14N5O7P <=> 2.0 ADP_C10H15N5O10P2"
+  },
+  {
+   "reaction": "R330",
+   "name": "glutamate dehydrogenase (NADP)",
+   "KO_pfba": 190.174,
+   "WT_pfba": 49.326,
+   "KO_opt": [
+    24.077,
+    232.182
+   ],
+   "WT_opt": [
+    49.326,
+    49.326
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F23664g",
+   "equation": "H+_p+1 + ammonium_H3N + NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 --> H2O_H2O + NADP(+)_C21H28N7O17P3 + L-glutamate_C5H9NO4"
+  },
+  {
+   "reaction": "R344",
+   "name": "glyceraldehyde-3-phosphate dehydrogenase",
+   "KO_pfba": 170.607,
+   "WT_pfba": 143.454,
+   "KO_opt": [
+    170.607,
+    170.607
+   ],
+   "WT_opt": [
+    142.171,
+    144.808
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C08262g",
+   "equation": "NAD_C21H27N7O14P2 + phosphate_H3O4P + glyceraldehyde 3-phosphate_C3H5O6P <=> 2.0 H+_p+1 + NADH_C21H29N7O14P2 + 1,3-bisphospho-D-glycerate_C3H4O10P2"
+  },
+  {
+   "reaction": "R642",
+   "name": "phosphoglycerate kinase",
+   "KO_pfba": 170.607,
+   "WT_pfba": 143.454,
+   "KO_opt": [
+    170.607,
+    170.607
+   ],
+   "WT_opt": [
+    142.171,
+    144.808
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D15424g",
+   "equation": "H+_p+1 + ADP_C10H15N5O10P2 + 1,3-bisphospho-D-glycerate_C3H4O10P2 <=> ATP_C10H16N5O13P3 + 3-phosphoglycerate_C3H4O7P"
+  },
+  {
+   "reaction": "R641",
+   "name": "phosphoglycerate dehydrogenase",
+   "KO_pfba": 170.093,
+   "WT_pfba": 7.665,
+   "KO_opt": [
+    3.995,
+    170.093
+   ],
+   "WT_opt": [
+    7.665,
+    7.665
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F13505g",
+   "equation": "NAD_C21H27N7O14P2 + 3-phosphoglycerate_C3H4O7P --> NADH_C21H29N7O14P2 + 3-phospho-hydroxypyruvate_C3H2O7P"
+  },
+  {
+   "reaction": "R660",
+   "name": "phosphoserine transaminase",
+   "KO_pfba": 170.093,
+   "WT_pfba": 7.665,
+   "KO_opt": [
+    3.995,
+    170.093
+   ],
+   "WT_opt": [
+    7.665,
+    7.665
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F09598g",
+   "equation": "H+_p+1 + L-glutamate_C5H9NO4 + 3-phospho-hydroxypyruvate_C3H2O7P --> 2-oxoglutarate_C5H6O5 + 3-phospho-serine_C3H6NO6P"
+  },
+  {
+   "reaction": "R1052",
+   "name": "CO2 transport",
+   "KO_pfba": -168.026,
+   "WT_pfba": -165.653,
+   "KO_opt": [
+    -168.026,
+    -168.026
+   ],
+   "WT_opt": [
+    -169.503,
+    -161.593
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "carbon dioxide_CO2 <=> carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R134",
+   "name": "aldehyde dehydrogenase (acetaldehyde, NADP)",
+   "KO_pfba": 162.741,
+   "WT_pfba": 62.442,
+   "KO_opt": [
+    162.741,
+    162.741
+   ],
+   "WT_opt": [
+    62.442,
+    62.442
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g",
+   "equation": "acetaldehyde_C2H4O + H2O_H2O + NADP(+)_C21H28N7O17P3 --> H+_p+1 + acetate_C2H4O2 + NADPH_C21H30N7O17P3"
+  },
+  {
+   "reaction": "R691",
+   "name": "pyruvate decarboxylase",
+   "KO_pfba": 162.741,
+   "WT_pfba": 62.442,
+   "KO_opt": [
+    162.741,
+    162.741
+   ],
+   "WT_opt": [
+    62.442,
+    62.442
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D12832g",
+   "equation": "pyruvate_C3H4O3 --> acetaldehyde_C2H4O + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R1248",
+   "name": "malate/oxaloacetate shuttle",
+   "KO_pfba": 136.228,
+   "WT_pfba": 26.1,
+   "KO_opt": [
+    136.228,
+    184.334
+   ],
+   "WT_opt": [
+    26.1,
+    44.245
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "oxaloacetate_C4H4O5 + (S)-malate_C4H6O5 <=> oxaloacetate_C4H4O5 + (S)-malate_C4H6O5"
+  },
+  {
+   "reaction": "R1362",
+   "name": "water diffusion",
+   "KO_pfba": 136.228,
+   "WT_pfba": 26.1,
+   "KO_opt": [
+    136.228,
+    184.334
+   ],
+   "WT_opt": [
+    26.1,
+    44.245
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H2O_H2O <=> H2O_H2O"
+  },
+  {
+   "reaction": "R315",
+   "name": "fumarase, cytoplasmic",
+   "KO_pfba": 133.946,
+   "WT_pfba": 25.051,
+   "KO_opt": [
+    133.946,
+    342.051
+   ],
+   "WT_opt": [
+    25.051,
+    25.051
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C09033g",
+   "equation": "fumarate_C4H4O4 + H2O_H2O <=> (S)-malate_C4H6O5"
+  },
+  {
+   "reaction": "R740",
+   "name": "succinate dehydrogenase (ubiquinone-9)",
+   "KO_pfba": 132.063,
+   "WT_pfba": 65.972,
+   "KO_opt": [
+    132.063,
+    132.063
+   ],
+   "WT_opt": [
+    64.689,
+    67.325
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1A14721g and YALI1D14260g and YALI1E35082g and YALI1D30256g",
+   "equation": "ubiquinone-9_C54H82O4 + succinate_C4H6O4 <=> ubiquinol-9_C54H84O4 + fumarate_C4H4O4"
+  },
+  {
+   "reaction": "R929",
+   "name": "succinate-fumarate transport",
+   "KO_pfba": 132.063,
+   "WT_pfba": 21.184,
+   "KO_opt": [
+    132.063,
+    132.063
+   ],
+   "WT_opt": [
+    21.184,
+    21.184
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E41148g",
+   "equation": "fumarate_C4H4O4 + succinate_C4H6O4 --> fumarate_C4H4O4 + succinate_C4H6O4"
+  },
+  {
+   "reaction": "R1047",
+   "name": "citrate/malate antiport",
+   "KO_pfba": 120.522,
+   "WT_pfba": 26.1,
+   "KO_opt": [
+    120.522,
+    120.522
+   ],
+   "WT_opt": [
+    26.1,
+    26.1
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "citrate_C6H8O7 + (S)-malate_C4H6O5 <=> citrate_C6H8O7 + (S)-malate_C4H6O5"
+  },
+  {
+   "reaction": "R1100",
+   "name": "diphosphate transport",
+   "KO_pfba": -120.522,
+   "WT_pfba": -26.1,
+   "KO_opt": [
+    -178.603,
+    -120.522
+   ],
+   "WT_opt": [
+    -62.835,
+    -26.1
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "diphosphate_H4O7P2 <=> diphosphate_H4O7P2"
+  },
+  {
+   "reaction": "R237",
+   "name": "citrate synthase, peroxisomal",
+   "KO_pfba": 120.522,
+   "WT_pfba": 26.1,
+   "KO_opt": [
+    120.522,
+    120.522
+   ],
+   "WT_opt": [
+    26.1,
+    26.1
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E01019g or YALI1E03300g",
+   "equation": "acetyl-CoA_C23H38N7O17P3S + oxaloacetate_C4H4O5 + H2O_H2O --> coenzyme A_C21H36N7O16P3S + citrate_C6H8O7"
+  },
+  {
+   "reaction": "R821",
+   "name": "AMP/ATP transporter",
+   "KO_pfba": 120.522,
+   "WT_pfba": 26.1,
+   "KO_opt": [
+    120.522,
+    178.603
+   ],
+   "WT_opt": [
+    26.1,
+    62.835
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E03623g",
+   "equation": "H+_p+1 + ATP_C10H16N5O13P3 + AMP_C10H14N5O7P --> H+_p+1 + ATP_C10H16N5O13P3 + AMP_C10H14N5O7P"
+  },
+  {
+   "reaction": "R2268",
+   "name": "acetyl CoA synthetase",
+   "KO_pfba": 104.816,
+   "WT_pfba": 26.1,
+   "KO_opt": [
+    104.816,
+    162.897
+   ],
+   "WT_opt": [
+    26.1,
+    62.835
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F08845g",
+   "equation": "H+_p+1 + coenzyme A_C21H36N7O16P3S + Acetate + ATP_C10H16N5O13P3 --> acetyl-CoA_C23H38N7O17P3S + AMP_C10H14N5O7P + diphosphate_H4O7P2"
+  },
+  {
+   "reaction": "R2269",
+   "name": "Acetate transport",
+   "KO_pfba": -104.816,
+   "WT_pfba": -26.1,
+   "KO_opt": [
+    -162.897,
+    -104.816
+   ],
+   "WT_opt": [
+    -62.835,
+    -26.1
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H+_p+1 + Acetate <=> acetate_C2H4O2"
+  },
+  {
+   "reaction": "R1070",
+   "name": "D-glucose exchange",
+   "KO_pfba": -100.0,
+   "WT_pfba": -100.0,
+   "KO_opt": [
+    -100.0,
+    -100.0
+   ],
+   "WT_opt": [
+    -100.0,
+    -100.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -2.414,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "D-glucose_C6H12O6 <=> "
+  },
+  {
+   "reaction": "R851",
+   "name": "glucose transport",
+   "KO_pfba": 100.0,
+   "WT_pfba": 100.0,
+   "KO_opt": [
+    100.0,
+    100.0
+   ],
+   "WT_opt": [
+    100.0,
+    100.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D01234g or YALI1D23885g or YALI1D00094g or YALI1B02283g or YALI1E27441g or YALI1B00357g or YALI1A02335g or YALI1A08672g or YALI1F31381g or YALI1C23601g or YALI1C08523g or YALI1D00376g or YALI1F09965g or YALI1F25587g or YALI1E24245g or YALI1A14024g or YALI1F32841g or YALI1C06222g or YALI1F24031g or YALI1B08461g or YALI1B27645g or YALI1C12220g or YALI1B22321g",
+   "equation": "D-glucose_C6H12O6 --> D-glucose_C6H12O6"
+  },
+  {
+   "reaction": "R326",
+   "name": "glucose-6-phosphate isomerase",
+   "KO_pfba": 93.993,
+   "WT_pfba": 84.807,
+   "KO_opt": [
+    93.993,
+    93.993
+   ],
+   "WT_opt": [
+    80.957,
+    88.867
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F11049g",
+   "equation": "D-glucose 6-phosphate_C6H13O9P <=> 2.0 H+_p+1 + D-fructose 6-phosphate_C6H11O9P"
+  },
+  {
+   "reaction": "R1385",
+   "name": "isocitrate dehydrogenase",
+   "KO_pfba": 88.564,
+   "WT_pfba": 5.108,
+   "KO_opt": [
+    88.564,
+    88.564
+   ],
+   "WT_opt": [
+    5.108,
+    5.108
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": true,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F06197g",
+   "equation": "NADP(+)_C21H28N7O17P3 + isocitrate_C6H8O7 --> NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 + H+_p+1 + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R768",
+   "name": "triose-phosphate isomerase",
+   "KO_pfba": 85.703,
+   "WT_pfba": 71.932,
+   "KO_opt": [
+    85.703,
+    85.703
+   ],
+   "WT_opt": [
+    70.649,
+    73.305
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F07847g",
+   "equation": "dihydroxyacetone phosphate_C3H5O6P <=> glyceraldehyde 3-phosphate_C3H5O6P"
+  },
+  {
+   "reaction": "R162",
+   "name": "aspartate transaminase",
+   "KO_pfba": 76.536,
+   "WT_pfba": 6.31,
+   "KO_opt": [
+    76.536,
+    76.536
+   ],
+   "WT_opt": [
+    6.31,
+    6.31
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B03198g or YALI1F36966g",
+   "equation": "2-oxoglutarate_C5H6O5 + L-aspartate_C4H7NO4 <=> L-glutamate_C5H9NO4 + oxaloacetate_C4H4O5"
+  },
+  {
+   "reaction": "R822",
+   "name": "aspartate transport",
+   "KO_pfba": 76.536,
+   "WT_pfba": 6.31,
+   "KO_opt": [
+    76.536,
+    76.536
+   ],
+   "WT_opt": [
+    6.31,
+    6.31
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D34529g",
+   "equation": "H+_p+1 + L-aspartate_C4H7NO4 <=> H+_p+1 + L-aspartate_C4H7NO4"
+  },
+  {
+   "reaction": "R490",
+   "name": "isocitrate lyase",
+   "KO_pfba": 49.864,
+   "WT_pfba": 21.184,
+   "KO_opt": [
+    49.864,
+    49.864
+   ],
+   "WT_opt": [
+    21.184,
+    21.184
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C24124g or YALI1F39620g",
+   "equation": "isocitrate_C6H8O7 --> glyoxylate_C2H2O3 + succinate_C4H6O4"
+  },
+  {
+   "reaction": "R327",
+   "name": "glutamate 5-kinase",
+   "KO_pfba": 42.008,
+   "WT_pfba": 2.401,
+   "KO_opt": [
+    0.0,
+    208.106
+   ],
+   "WT_opt": [
+    2.401,
+    2.401
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A20176g",
+   "equation": "ATP_C10H16N5O13P3 + L-glutamate_C5H9NO4 --> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + L-gamma-glutamyl phosphate_C5H8NO7P"
+  },
+  {
+   "reaction": "R332",
+   "name": "glutamate-5-semialdehyde dehydrogenase",
+   "KO_pfba": 42.008,
+   "WT_pfba": 2.401,
+   "KO_opt": [
+    0.0,
+    208.106
+   ],
+   "WT_opt": [
+    2.401,
+    2.401
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E35815g",
+   "equation": "3.0 H+_p+1 + NADPH_C21H30N7O17P3 + L-gamma-glutamyl phosphate_C5H8NO7P --> phosphate_H3O4P + NADP(+)_C21H28N7O17P3 + L-glutamic 5-semialdehyde_C5H9NO3"
+  },
+  {
+   "reaction": "R560",
+   "name": "N-acetyl-g-glutamyl-phosphate reductase",
+   "KO_pfba": 37.541,
+   "WT_pfba": 1.202,
+   "KO_opt": [
+    37.541,
+    37.541
+   ],
+   "WT_opt": [
+    1.202,
+    1.202
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B22853g",
+   "equation": "NADPH_C21H30N7O17P3 + N-acetyl-L-gamma-glutamyl phosphate_C7H12NO8P --> NADP(+)_C21H28N7O17P3 + 2-acetamido-5-oxopentanoate_C7H10NO4 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R609",
+   "name": "ornithine transacetylase",
+   "KO_pfba": 37.541,
+   "WT_pfba": 1.202,
+   "KO_opt": [
+    37.541,
+    37.541
+   ],
+   "WT_opt": [
+    1.202,
+    1.202
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E16002g",
+   "equation": "N(2)-acetyl-L-ornithine_C7H14N2O3 + H+_p+1 + L-glutamate_C5H9NO4 --> N-acetyl-L-glutamate_C7H11NO5 + ornithine_C5H13N2O2"
+  },
+  {
+   "reaction": "R909",
+   "name": "ornithine transport",
+   "KO_pfba": 37.541,
+   "WT_pfba": 1.202,
+   "KO_opt": [
+    37.541,
+    37.541
+   ],
+   "WT_opt": [
+    1.202,
+    1.202
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D08734g",
+   "equation": "H+_p+1 + ornithine_C5H13N2O2 --> H+_p+1 + ornithine_C5H13N2O2"
+  },
+  {
+   "reaction": "R93",
+   "name": "acetylglutamate kinase",
+   "KO_pfba": 37.541,
+   "WT_pfba": 1.202,
+   "KO_opt": [
+    37.541,
+    37.541
+   ],
+   "WT_opt": [
+    1.202,
+    1.202
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B22853g",
+   "equation": "N-acetyl-L-glutamate_C7H11NO5 + ATP_C10H16N5O13P3 --> ADP_C10H15N5O10P2 + N-acetyl-L-gamma-glutamyl phosphate_C7H12NO8P"
+  },
+  {
+   "reaction": "R96",
+   "name": "acteylornithine transaminase",
+   "KO_pfba": 37.541,
+   "WT_pfba": 1.202,
+   "KO_opt": [
+    37.541,
+    37.541
+   ],
+   "WT_opt": [
+    1.202,
+    1.202
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D29419g",
+   "equation": "2-acetamido-5-oxopentanoate_C7H10NO4 + H+_p+1 + L-glutamate_C5H9NO4 --> 2-oxoglutarate_C5H6O5 + N(2)-acetyl-L-ornithine_C7H14N2O3"
+  },
+  {
+   "reaction": "R1016",
+   "name": "ammonium exchange",
+   "KO_pfba": -35.064,
+   "WT_pfba": -69.775,
+   "KO_opt": [
+    -35.064,
+    -35.064
+   ],
+   "WT_opt": [
+    -69.775,
+    -69.775
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "ammonium_H3N <=> "
+  },
+  {
+   "reaction": "R820",
+   "name": "ammonia transport",
+   "KO_pfba": 35.064,
+   "WT_pfba": 69.775,
+   "KO_opt": [
+    35.064,
+    35.064
+   ],
+   "WT_opt": [
+    69.775,
+    69.775
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E32180g or YALI1F17337g or YALI1C32609g or YALI1A20201g or YALI1F22568g or YALI1A02653g or YALI1B18292g",
+   "equation": "ammonium_H3N <=> ammonium_H3N"
+  },
+  {
+   "reaction": "R279",
+   "name": "dihydroxy-acid dehydratase (2,3-dihydroxy-3-methylbutanoate)",
+   "KO_pfba": 19.385,
+   "WT_pfba": 3.196,
+   "KO_opt": [
+    19.385,
+    19.385
+   ],
+   "WT_opt": [
+    3.196,
+    3.196
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C32276g",
+   "equation": "(R)-2,3-dihydroxy-3-methylbutanoate_C5H10O4 --> H2O_H2O + 3-methyl-2-oxobutanoate_C5H8O3"
+  },
+  {
+   "reaction": "R76",
+   "name": "acetohydroxy acid isomeroreductase",
+   "KO_pfba": 19.385,
+   "WT_pfba": 3.196,
+   "KO_opt": [
+    19.385,
+    19.385
+   ],
+   "WT_opt": [
+    3.196,
+    3.196
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D03952g",
+   "equation": "2-acetyllactic acid_C5H7O4 + NADPH_C21H30N7O17P3 + 2.0 H+_p+1 --> (R)-2,3-dihydroxy-3-methylbutanoate_C5H10O4 + NADP(+)_C21H28N7O17P3"
+  },
+  {
+   "reaction": "R77",
+   "name": "acetolactate synthase",
+   "KO_pfba": 19.385,
+   "WT_pfba": 3.196,
+   "KO_opt": [
+    19.385,
+    19.385
+   ],
+   "WT_opt": [
+    3.196,
+    3.196
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C00293g or (YALI1C13355g and YALI1C00293g)",
+   "equation": "2.0 pyruvate_C3H4O3 --> 2-acetyllactic acid_C5H7O4 + H+_p+1 + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R20",
+   "name": "2-isopropylmalate hydratase",
+   "KO_pfba": -19.377,
+   "WT_pfba": -2.263,
+   "KO_opt": [
+    -19.377,
+    -19.377
+   ],
+   "WT_opt": [
+    -2.263,
+    -2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B02345g",
+   "equation": "2.0 H+_p+1 + H2O_H2O + 2-isopropylmaleic acid_C7H8O4 <=> 2-isopropylmalate_C7H12O5"
+  },
+  {
+   "reaction": "R22",
+   "name": "2-isopropylmalate synthase",
+   "KO_pfba": 19.377,
+   "WT_pfba": 2.263,
+   "KO_opt": [
+    19.377,
+    19.377
+   ],
+   "WT_opt": [
+    2.263,
+    2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B09592g",
+   "equation": "H2O_H2O + 3-methyl-2-oxobutanoate_C5H8O3 + acetyl-CoA_C23H38N7O17P3S --> 2-isopropylmalate_C7H12O5 + coenzyme A_C21H36N7O16P3S"
+  },
+  {
+   "reaction": "R27",
+   "name": "2-oxo-4-methyl-3-carboxypentanoate decarboxylation",
+   "KO_pfba": 19.377,
+   "WT_pfba": 2.263,
+   "KO_opt": [
+    19.377,
+    19.377
+   ],
+   "WT_opt": [
+    2.263,
+    2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D01431g",
+   "equation": "(2S)-2-isopropyl-3-oxosuccinate_C7H10O5 --> carbon dioxide_CO2 + 4-methyl-2-oxopentanoate_C6H10O3"
+  },
+  {
+   "reaction": "R44",
+   "name": "3-isopropylmalate dehydratase",
+   "KO_pfba": -19.377,
+   "WT_pfba": -2.263,
+   "KO_opt": [
+    -19.377,
+    -19.377
+   ],
+   "WT_opt": [
+    -2.263,
+    -2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B02345g",
+   "equation": "(2R,3S)-3-isopropylmalate_C7H12O5 <=> 2.0 H+_p+1 + H2O_H2O + 2-isopropylmaleic acid_C7H8O4"
+  },
+  {
+   "reaction": "R45",
+   "name": "3-isopropylmalate dehydrogenase",
+   "KO_pfba": 19.377,
+   "WT_pfba": 2.263,
+   "KO_opt": [
+    19.377,
+    19.377
+   ],
+   "WT_opt": [
+    2.263,
+    2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "PO1f_plasmid_LEU2",
+   "equation": "(2R,3S)-3-isopropylmalate_C7H12O5 + NAD_C21H27N7O14P2 --> NADH_C21H29N7O14P2 + (2S)-2-isopropyl-3-oxosuccinate_C7H10O5"
+  },
+  {
+   "reaction": "R962",
+   "name": "2-isopropylmalate transport",
+   "KO_pfba": -19.377,
+   "WT_pfba": -2.263,
+   "KO_opt": [
+    -19.377,
+    -19.377
+   ],
+   "WT_opt": [
+    -2.263,
+    -2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "2-isopropylmalate_C7H12O5 <=> 2-isopropylmalate_C7H12O5"
+  },
+  {
+   "reaction": "R967",
+   "name": "3-carboxy-4-methyl-2-oxopentanoate transport",
+   "KO_pfba": 19.377,
+   "WT_pfba": 2.263,
+   "KO_opt": [
+    19.377,
+    19.377
+   ],
+   "WT_opt": [
+    2.263,
+    2.263
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "(2S)-2-isopropyl-3-oxosuccinate_C7H10O5 <=> (2S)-2-isopropyl-3-oxosuccinate_C7H10O5"
+  },
+  {
+   "reaction": "R236",
+   "name": "citrate synthase",
+   "KO_pfba": 17.906,
+   "WT_pfba": 52.101,
+   "KO_opt": [
+    17.906,
+    17.906
+   ],
+   "WT_opt": [
+    50.818,
+    53.454
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E01019g or YALI1E03300g",
+   "equation": "H2O_H2O + acetyl-CoA_C23H38N7O17P3S + oxaloacetate_C4H4O5 --> citrate_C6H8O7 + coenzyme A_C21H36N7O16P3S"
+  },
+  {
+   "reaction": "R1373",
+   "name": "growth",
+   "KO_pfba": 6.276,
+   "WT_pfba": 11.632,
+   "KO_opt": [
+    6.276,
+    6.276
+   ],
+   "WT_opt": [
+    11.632,
+    11.632
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "biomass_ --> "
+  },
+  {
+   "reaction": "biomass_C",
+   "name": "biomass_C",
+   "KO_pfba": 6.276,
+   "WT_pfba": 11.632,
+   "KO_opt": [
+    6.276,
+    6.276
+   ],
+   "WT_opt": [
+    11.632,
+    11.632
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "0.035251 ergosterol_C28H44O + 0.943397 (1-3)-beta-D-glucan_ + 0.235849 mannan_ + 23.09 ATP_C10H16N5O13P3 + 0.059363 UMP_C9H13N2O9P + 3.5e-05 phosphatidyl-L-serine_C8H11NO10PR2 + 0.000234 triglyceride + 7.5e-05 1-phosphatidyl-1D-myo-inositol + 0.000237 phosphatidylethanolamine_C7H12NO8PR2 + 0.000346 phosphatidylcholine_C10H18NO8PR2 + 5.8e-05 phosphatidate + 0.00686 trehalose_C12H22O11 + 23.09 H2O_H2O + 0.003029 zymosterol_C27H44O + 0.868358 chitin_H2O(C8H13NO5)n + 0.010436 dCMP_C9H14N3O7P + 0.009226 dGMP_C10H14N5O7P + 0.0001 ubiquinone-9_C54H82O4 + 0.010353 dTMP_C10H15N2O8P + 0.055401 AMP_C10H14N5O7P + 0.01007 dAMP_C10H14N5O6P + 0.050871 GMP_C10H14N5O8P + 0.05721 CMP_C9H14N3O8P + 0.02 sulphate_H2O4S + 0.567939 Protein-incorporated L-alanine_C3H7NO2 requirement (experimental B split) + 0.125563 Protein-incorporated L-arginine_C6H14N4O2 requirement (experimental B split) + 0.186498 Protein-incorporated L-asparagine_C4H8N2O3 requirement (experimental B split) + 0.186531 Protein-incorporated L-aspartate_C4H7NO4 requirement (experimental B split) + 0.003632 Protein-incorporated L-cysteine_C3H7NO2S requirement (experimental B split) + 0.243866 Protein-incorporated L-glutamine_C5H10N2O3 requirement (experimental B split) + 0.243904 Protein-incorporated L-glutamate_C5H9NO4 requirement (experimental B split) + 0.509943 Protein-incorporated L-glycine_C2H5NO2 requirement (experimental B split) + 0.053881 Protein-incorporated L-histidine_C6H9N3O2 requirement (experimental B split) + 0.090566 Protein-incorporated L-isoleucine_C6H13NO2 requirement (experimental B split) + 0.19455 Protein-incorporated L-leucine_C6H13NO2 requirement (experimental B split) + 0.275005 Protein-incorporated L-lysine_C6H14N2O2 requirement (experimental B split) + 0.044232 Protein-incorporated L-methionine_C5H11NO2S requirement (experimental B split) + 0.082571 Protein-incorporated L-phenylalanine_C9H11NO2 requirement (experimental B split) + 0.206372 Protein-incorporated L-proline_C5H9NO2 requirement (experimental B split) + 0.284699 Protein-incorporated L-serine_C3H7NO3 requirement (experimental B split) + 0.210543 Protein-incorporated L-threonine_C4H9NO3 requirement (experimental B split) + 0.002154 Protein-incorporated L-tryptophan_C11H12N2O2 requirement (experimental B split) + 0.041282 Protein-incorporated L-tyrosine_C9H11NO3 requirement (experimental B split) + 0.172773 Protein-incorporated L-valine_C5H11NO2 requirement (experimental B split) --> 23.09 H+_p+1 + biomass_ + 23.09 ADP_C10H15N5O10P2 + 23.09 phosphate_H3O4P"
+  },
+  {
+   "reaction": "R638",
+   "name": "phosphoglucomutase",
+   "KO_pfba": 5.964,
+   "WT_pfba": 11.053,
+   "KO_opt": [
+    5.964,
+    5.964
+   ],
+   "WT_opt": [
+    11.053,
+    11.053
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E02616g",
+   "equation": "D-glucose 6-phosphate_C6H13O9P <=> D-glucose 1-phosphate_C6H13O9P"
+  },
+  {
+   "reaction": "R4",
+   "name": "1,3-beta-glucan synthase",
+   "KO_pfba": 5.921,
+   "WT_pfba": 10.974,
+   "KO_opt": [
+    5.921,
+    5.921
+   ],
+   "WT_opt": [
+    10.974,
+    10.974
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C01944g or YALI1E25018g",
+   "equation": "47.0 H2O_H2O + UDP-D-glucose_C15H22N2O17P2 --> 92.0 H+_p+1 + UDP_C9H14N2O12P2 + (1-3)-beta-D-glucan_"
+  },
+  {
+   "reaction": "R942",
+   "name": "(1-3)-beta-D-glucan transport",
+   "KO_pfba": 5.921,
+   "WT_pfba": 10.974,
+   "KO_opt": [
+    5.921,
+    5.921
+   ],
+   "WT_opt": [
+    10.974,
+    10.974
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "(1-3)-beta-D-glucan_ <=> (1-3)-beta-D-glucan_"
+  },
+  {
+   "reaction": "R211",
+   "name": "chitin synthase",
+   "KO_pfba": 5.45,
+   "WT_pfba": 10.101,
+   "KO_opt": [
+    5.45,
+    5.45
+   ],
+   "WT_opt": [
+    10.101,
+    10.101
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B21313g or YALI1D34288g or YALI1D04055g or YALI1C33406g or YALI1E13223g or YALI1E26181g or YALI1F36415g",
+   "equation": "UDP-N-acetyl-alpha-D-glucosamine_C17H25N3O17P2 --> H+_p+1 + UDP_C9H14N2O12P2 + chitin_H2O(C8H13NO5)n"
+  },
+  {
+   "reaction": "R335",
+   "name": "glutamine-fructose-6-phosphate transaminase",
+   "KO_pfba": 5.45,
+   "WT_pfba": 10.101,
+   "KO_opt": [
+    5.45,
+    5.45
+   ],
+   "WT_opt": [
+    10.101,
+    10.101
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B27874g",
+   "equation": "2.0 H+_p+1 + L-glutamine_C5H10N2O3 + D-fructose 6-phosphate_C6H11O9P --> L-glutamate_C5H9NO4 + alpha-D-glucosamine 6-phosphate_C6H14NO8P"
+  },
+  {
+   "reaction": "R561",
+   "name": "N-acetylglucosamine-6-phosphate synthase",
+   "KO_pfba": 5.45,
+   "WT_pfba": 10.101,
+   "KO_opt": [
+    5.45,
+    5.45
+   ],
+   "WT_opt": [
+    10.101,
+    10.101
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D25450g",
+   "equation": "alpha-D-glucosamine 6-phosphate_C6H14NO8P + acetyl-CoA_C23H38N7O17P3S <=> coenzyme A_C21H36N7O16P3S + N-acetyl-D-glucosamine 6-phosphate_C8H16NO9P"
+  },
+  {
+   "reaction": "R778",
+   "name": "UDP-N-acetylglucosamine diphosphorylase",
+   "KO_pfba": 5.45,
+   "WT_pfba": 10.101,
+   "KO_opt": [
+    5.45,
+    5.45
+   ],
+   "WT_opt": [
+    10.101,
+    10.101
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E03762g",
+   "equation": "UTP_C9H15N2O15P3 + N-acetyl-alpha-D-glucosamine 1-phosphate_C8H16NO9P <=> 2.0 H+_p+1 + diphosphate_H4O7P2 + UDP-N-acetyl-alpha-D-glucosamine_C17H25N3O17P2"
+  },
+  {
+   "reaction": "R129",
+   "name": "alanyl-tRNA synthetase",
+   "KO_pfba": 3.564,
+   "WT_pfba": 6.606,
+   "KO_opt": [
+    3.564,
+    3.564
+   ],
+   "WT_opt": [
+    6.606,
+    6.606
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B05571g",
+   "equation": "L-alanine_C3H7NO2 + ATP_C10H16N5O13P3 + tRNA(Ala) --> diphosphate_H4O7P2 + Ala-tRNA(Ala)_C13H22NO11PR2(C5H8O6PR)n + AMP_C10H14N5O7P"
+  },
+  {
+   "reaction": "TRNA_BIOMASS_R129",
+   "name": "Biomass incorporation of L-alanine_C3H7NO2 through charged tRNA",
+   "KO_pfba": 3.564,
+   "WT_pfba": 6.606,
+   "KO_opt": [
+    3.564,
+    3.564
+   ],
+   "WT_opt": [
+    6.606,
+    6.606
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "Ala-tRNA(Ala)_C13H22NO11PR2(C5H8O6PR)n --> tRNA(Ala) + Protein-incorporated L-alanine_C3H7NO2 requirement (experimental B split)"
+  },
+  {
+   "reaction": "R368",
+   "name": "glycyl-tRNA synthetase",
+   "KO_pfba": 3.2,
+   "WT_pfba": 5.932,
+   "KO_opt": [
+    3.2,
+    3.2
+   ],
+   "WT_opt": [
+    5.932,
+    5.932
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E17574g",
+   "equation": "ATP_C10H16N5O13P3 + L-glycine_C2H5NO2 + tRNA(Gly) --> diphosphate_H4O7P2 + Gly-tRNA(Gly)_C12H20NO11PR2(C5H8O6PR)n + AMP_C10H14N5O7P"
+  },
+  {
+   "reaction": "TRNA_BIOMASS_R368",
+   "name": "Biomass incorporation of L-glycine_C2H5NO2 through charged tRNA",
+   "KO_pfba": 3.2,
+   "WT_pfba": 5.932,
+   "KO_opt": [
+    3.2,
+    3.2
+   ],
+   "WT_opt": [
+    5.932,
+    5.932
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "Gly-tRNA(Gly)_C12H20NO11PR2(C5H8O6PR)n --> tRNA(Gly) + Protein-incorporated L-glycine_C2H5NO2 requirement (experimental B split)"
+  },
+  {
+   "reaction": "R550",
+   "name": "methylenetetrahydrofolate dehydrogenase (NADP)",
+   "KO_pfba": 1.731,
+   "WT_pfba": 3.364,
+   "KO_opt": [
+    1.731,
+    1.731
+   ],
+   "WT_opt": [
+    3.364,
+    3.364
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": true,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E01589g or YALI1F38386g",
+   "equation": "5,10-methylenetetrahydrofolate_C20H23N7O6 + NADP(+)_C21H28N7O17P3 --> 2.0 H+_p+1 + 5,10-methenyl-THF_C20H20N7O6 + NADPH_C21H30N7O17P3"
+  },
+  {
+   "reaction": "R398",
+   "name": "homoisocitrate dehydrogenase",
+   "KO_pfba": 1.479,
+   "WT_pfba": 2.952,
+   "KO_opt": [
+    1.479,
+    1.479
+   ],
+   "WT_opt": [
+    2.952,
+    2.952
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D13238g",
+   "equation": "NAD_C21H27N7O14P2 + homoisocitrate_C7H10O7 --> 2.0 H+_p+1 + NADH_C21H29N7O14P2 + carbon dioxide_CO2 + 2-oxoadipic acid_C6H6O5"
+  },
+  {
+   "reaction": "R505",
+   "name": "L-aminoadipate-semialdehyde dehydrogenase (NADPH)",
+   "KO_pfba": 1.479,
+   "WT_pfba": 2.952,
+   "KO_opt": [
+    1.479,
+    1.479
+   ],
+   "WT_opt": [
+    2.952,
+    2.952
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E07676g and YALI1E11510g",
+   "equation": "H+_p+1 + NADPH_C21H30N7O17P3 + L-2-aminoadipate_C6H11NO4 <=> H2O_H2O + NADP(+)_C21H28N7O17P3 + L-allysine_C6H11NO3"
+  },
+  {
+   "reaction": "R718",
+   "name": "saccharopine dehydrogenase (NAD, L-lysine forming)",
+   "KO_pfba": 1.479,
+   "WT_pfba": 2.952,
+   "KO_opt": [
+    1.479,
+    1.479
+   ],
+   "WT_opt": [
+    2.952,
+    2.952
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B20289g",
+   "equation": "H+_p+1 + NAD_C21H27N7O14P2 + H2O_H2O + L-saccharopine_C11H20N2O6 <=> NADH_C21H29N7O14P2 + 2-oxoglutarate_C5H6O5 + L-lysine_C6H14N2O2"
+  },
+  {
+   "reaction": "R719",
+   "name": "saccharopine dehydrogenase (NADP, L-glutamate forming)",
+   "KO_pfba": 1.479,
+   "WT_pfba": 2.952,
+   "KO_opt": [
+    1.479,
+    1.479
+   ],
+   "WT_opt": [
+    2.952,
+    2.952
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D29481g",
+   "equation": "H+_p+1 + NADPH_C21H30N7O17P3 + L-glutamate_C5H9NO4 + L-allysine_C6H11NO3 <=> H2O_H2O + NADP(+)_C21H28N7O17P3 + L-saccharopine_C11H20N2O6"
+  },
+  {
+   "reaction": "R410",
+   "name": "hydroxymethylglutaryl CoA reductase",
+   "KO_pfba": 1.447,
+   "WT_pfba": 2.682,
+   "KO_opt": [
+    1.447,
+    1.447
+   ],
+   "WT_opt": [
+    2.682,
+    2.682
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E05731g",
+   "equation": "2.0 H+_p+1 + 2.0 NADPH_C21H30N7O17P3 + 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S --> 2.0 NADP(+)_C21H28N7O17P3 + (R)-mevalonate_C6H12O4 + coenzyme A_C21H36N7O16P3S"
+  },
+  {
+   "reaction": "R689",
+   "name": "pyrroline-5-carboxylate reductase",
+   "KO_pfba": 1.295,
+   "WT_pfba": 2.401,
+   "KO_opt": [
+    1.295,
+    1.295
+   ],
+   "WT_opt": [
+    2.401,
+    2.401
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B18955g",
+   "equation": "2.0 H+_p+1 + NADPH_C21H30N7O17P3 + 1-pyrroline-5-carboxylate_C5H6NO2 --> NADP(+)_C21H28N7O17P3 + L-proline_C5H9NO2"
+  },
+  {
+   "reaction": "R164",
+   "name": "aspartate-semialdehyde dehydrogenase",
+   "KO_pfba": 0.947,
+   "WT_pfba": 2.796,
+   "KO_opt": [
+    0.947,
+    0.947
+   ],
+   "WT_opt": [
+    2.796,
+    2.796
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D16809g",
+   "equation": "H+_p+1 + 4-phospho-L-aspartate_C4H8NO7P + NADPH_C21H30N7O17P3 --> L-aspartate 4-semialdehyde_C4H7NO3 + phosphate_H3O4P + NADP(+)_C21H28N7O17P3"
+  },
+  {
+   "reaction": "R399",
+   "name": "homoserine dehydrogenase (NADP)",
+   "KO_pfba": 0.947,
+   "WT_pfba": 2.796,
+   "KO_opt": [
+    0.947,
+    0.947
+   ],
+   "WT_opt": [
+    2.796,
+    2.796
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D01188g",
+   "equation": "H+_p+1 + L-aspartate 4-semialdehyde_C4H7NO3 + NADPH_C21H30N7O17P3 --> NADP(+)_C21H28N7O17P3 + L-homoserine_C4H9NO3"
+  },
+  {
+   "reaction": "R292",
+   "name": "enolase",
+   "KO_pfba": 0.514,
+   "WT_pfba": 135.789,
+   "KO_opt": [
+    0.514,
+    166.611
+   ],
+   "WT_opt": [
+    134.506,
+    137.142
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F22436g",
+   "equation": "3.0 H+_p+1 + 2-phospho-D-glyceric acid_C3H4O7P <=> phosphoenolpyruvate_C3H5O6P + H2O_H2O"
+  },
+  {
+   "reaction": "R643",
+   "name": "phosphoglycerate mutase",
+   "KO_pfba": 0.514,
+   "WT_pfba": 135.789,
+   "KO_opt": [
+    0.514,
+    166.611
+   ],
+   "WT_opt": [
+    134.506,
+    137.142
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B04138g",
+   "equation": "3-phosphoglycerate_C3H4O7P <=> 2-phospho-D-glyceric acid_C3H4O7P"
+  },
+  {
+   "reaction": "R1264",
+   "name": "NADP(+) transport",
+   "KO_pfba": -0.461,
+   "WT_pfba": -0.855,
+   "KO_opt": [
+    -0.461,
+    -0.461
+   ],
+   "WT_opt": [
+    -0.855,
+    -0.855
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3"
+  },
+  {
+   "reaction": "R1265",
+   "name": "NADPH transport",
+   "KO_pfba": 0.461,
+   "WT_pfba": 0.855,
+   "KO_opt": [
+    0.461,
+    0.461
+   ],
+   "WT_opt": [
+    0.855,
+    0.855
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3"
+  },
+  {
+   "reaction": "R389",
+   "name": "histidinol dehydrogenase",
+   "KO_pfba": 0.252,
+   "WT_pfba": 0.541,
+   "KO_opt": [
+    0.252,
+    0.252
+   ],
+   "WT_opt": [
+    0.541,
+    0.541
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A15879g",
+   "equation": "2.0 NAD_C21H27N7O14P2 + H2O_H2O + L-histidinol_C6H11N3O --> H+_p+1 + 2.0 NADH_C21H29N7O14P2 + L-histidine_C6H9N3O2"
+  },
+  {
+   "reaction": "R185",
+   "name": "C-4 sterol methyl oxidase (4,4-dimethylzymosterol)",
+   "KO_pfba": 0.24,
+   "WT_pfba": 0.445,
+   "KO_opt": [
+    0.24,
+    0.24
+   ],
+   "WT_opt": [
+    0.445,
+    0.445
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F14958g",
+   "equation": "3.0 oxygen_O2 + 3.0 H+_p+1 + 14-demethyllanosterol_C29H48O + 3.0 NADPH_C21H30N7O17P3 --> 4.0 H2O_H2O + 4beta-methylzymosterol-4alpha-carboxylic acid_C29H46O3 + 3.0 NADP(+)_C21H28N7O17P3"
+  },
+  {
+   "reaction": "R251",
+   "name": "cytochrome P450 lanosterol 14-alpha-demethylase (NADP)",
+   "KO_pfba": 0.24,
+   "WT_pfba": 0.445,
+   "KO_opt": [
+    0.24,
+    0.24
+   ],
+   "WT_opt": [
+    0.445,
+    0.445
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D05474g and YALI1B07094g and (YALI1D14199g or YALI1D06380g) and YALI1D15063g",
+   "equation": "3.0 oxygen_O2 + 3.0 H+_p+1 + 3.0 NADPH_C21H30N7O17P3 + lanosterol_C30H50O --> 4.0 H2O_H2O + formate_CH2O2 + 4,4-dimethyl-5alpha-cholesta-8,14,24-trien-3beta-ol_C29H46O + 3.0 NADP(+)_C21H28N7O17P3"
+  },
+  {
+   "reaction": "R738",
+   "name": "squalene epoxidase (NADP)",
+   "KO_pfba": 0.24,
+   "WT_pfba": 0.445,
+   "KO_opt": [
+    0.24,
+    0.24
+   ],
+   "WT_opt": [
+    0.445,
+    0.445
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E18961g",
+   "equation": "H+_p+1 + NADPH_C21H30N7O17P3 + oxygen_O2 + squalene_C30H50 --> NADP(+)_C21H28N7O17P3 + H2O_H2O + (S)-2,3-epoxysqualene_C30H50O"
+  },
+  {
+   "reaction": "R745",
+   "name": "sulfite reductase (NADPH2)",
+   "KO_pfba": 0.179,
+   "WT_pfba": 0.436,
+   "KO_opt": [
+    0.179,
+    0.179
+   ],
+   "WT_opt": [
+    0.436,
+    0.436
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D14058g and YALI1E19603g",
+   "equation": "2.0 H+_p+1 + 3.0 NADPH_C21H30N7O17P3 + sulphite_H2O3S --> 3.0 H2O_H2O + 3.0 NADP(+)_C21H28N7O17P3 + hydrogen sulfide_HS"
+  },
+  {
+   "reaction": "R_CYST_II",
+   "name": "R_CYST_II",
+   "KO_pfba": 0.023,
+   "WT_pfba": -566.086,
+   "KO_opt": [
+    -20712.803,
+    170.093
+   ],
+   "WT_opt": [
+    -21283.363,
+    7.665
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E10364g",
+   "equation": "H+_p+1 + hydrogen sulfide_HS + 3-phospho-serine_C3H6NO6P <=> phosphate_H3O4P + L-cysteine_C3H7NO2S"
+  },
+  {
+   "reaction": "R1026",
+   "name": "bicarbonate formation",
+   "KO_pfba": 0.0,
+   "WT_pfba": 7.013,
+   "KO_opt": [
+    -41425.021,
+    41425.021
+   ],
+   "WT_opt": [
+    -41425.021,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F28274g",
+   "equation": "H2O_H2O + carbon dioxide_CO2 <=> H+_p+1 + bicarbonate_CHO3"
+  },
+  {
+   "reaction": "R1172",
+   "name": "hydroxymethylglutaryl-CoA transport",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": true,
+   "watched": true,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "",
+   "equation": "3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S --> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S"
+  },
+  {
+   "reaction": "R1310",
+   "name": "pyruvate exchange",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "pyruvate_C3H4O3 --> "
+  },
+  {
+   "reaction": "R1311",
+   "name": "pyruvate transport",
+   "KO_pfba": 0.0,
+   "WT_pfba": 59.31,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    60.663
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "H+_p+1 + pyruvate_C3H4O3 --> H+_p+1 + pyruvate_C3H4O3"
+  },
+  {
+   "reaction": "R135",
+   "name": "aldehyde dehydrogenase (acetylaldehyde, NAD)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g",
+   "equation": "H2O_H2O + acetaldehyde_C2H4O + NAD_C21H27N7O14P2 --> acetate_C2H4O2 + NADH_C21H29N7O14P2"
+  },
+  {
+   "reaction": "R1590",
+   "name": "NADPH transport, cytoplasm-ER membrane",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3"
+  },
+  {
+   "reaction": "R1591",
+   "name": "NADP(+) transport, cytoplasm-ER membrane",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3"
+  },
+  {
+   "reaction": "R1593",
+   "name": "NADH transport, cytoplasm-ER membrane",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.004,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    0.004,
+    0.004
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADH_C21H29N7O14P2 <=> NADH_C21H29N7O14P2"
+  },
+  {
+   "reaction": "R1594",
+   "name": "NAD transport, cytoplasm-ER membrane",
+   "KO_pfba": 0.0,
+   "WT_pfba": -0.004,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    -0.004,
+    -0.004
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NAD_C21H27N7O14P2 <=> NAD_C21H27N7O14P2"
+  },
+  {
+   "reaction": "R2062",
+   "name": "NADH:ubiquinone oxidoreductase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 200.164,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    197.458,
+    202.73
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29",
+   "equation": "4.0 H+_p+1 + NADH_C21H29N7O14P2 + ubiquinone-9_C54H82O4 --> 4.0 H+_p+1 + NAD_C21H27N7O14P2 + ubiquinol-9_C54H84O4"
+  },
+  {
+   "reaction": "R2070",
+   "name": "Acetaldehyde:NAD+ oxidoreductase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g",
+   "equation": "H2O_H2O + acetaldehyde_C2H4O + NAD_C21H27N7O14P2 --> acetate_C2H4O2 + NADH_C21H29N7O14P2"
+  },
+  {
+   "reaction": "R2081",
+   "name": "L-Glutamate:ammonia ligase (ADP-forming)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 18.203,
+   "KO_opt": [
+    0.0,
+    9.618
+   ],
+   "WT_opt": [
+    0.0,
+    18.203
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D16151g or YALI1F00821g",
+   "equation": "ATP_C10H16N5O13P3 + ammonium_H3N + L-glutamate_C5H9NO4 --> L-glutamine_C5H10N2O3 + ADP_C10H15N5O10P2 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R2109",
+   "name": "N-Acetyl-D-glucosamine 1-phosphate 1,6-phosphomutase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 10.101,
+   "KO_opt": [
+    -41419.571,
+    41425.021
+   ],
+   "WT_opt": [
+    -41414.92,
+    41425.021
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E35005g",
+   "equation": "N-acetyl-D-glucosamine 6-phosphate_C8H16NO9P <=> N-acetyl-alpha-D-glucosamine 1-phosphate_C8H16NO9P"
+  },
+  {
+   "reaction": "R314",
+   "name": "fumarase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 44.788,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    43.505,
+    46.142
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C09033g",
+   "equation": "H2O_H2O + fumarate_C4H4O4 <=> (S)-malate_C4H6O5"
+  },
+  {
+   "reaction": "R325",
+   "name": "glucose 6-phosphate dehydrogenase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 4.06,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    7.909
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E26811g",
+   "equation": "D-glucose 6-phosphate_C6H13O9P + NADP(+)_C21H28N7O17P3 --> H+_p+1 + 6-O-phosphono-D-glucono-1,5-lactone_C6H11O9P + NADPH_C21H30N7O17P3"
+  },
+  {
+   "reaction": "R361",
+   "name": "glycine-cleavage complex (lipoamide)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 44.788,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    43.505,
+    46.142
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E00574g and YALI1F04082g and YALI1D26360g and YALI1A09694g",
+   "equation": "NAD_C21H27N7O14P2 + dihydrolipoamide_C8H17NOS2 --> NADH_C21H29N7O14P2 + lipoamide_C8H15NOS2"
+  },
+  {
+   "reaction": "R412",
+   "name": "hydroxymethylglutaryl CoA synthase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 0.0,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    0.0,
+    0.0
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": true,
+   "watched": true,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1F38116g",
+   "equation": "acetoacetyl-CoA_C25H40N7O18P3S + H2O_H2O + acetyl-CoA_C23H38N7O17P3S --> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S + coenzyme A_C21H36N7O16P3S"
+  },
+  {
+   "reaction": "R487",
+   "name": "isocitrate dehydrogenase (NAD+)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 44.209,
+   "KO_opt": [
+    0.0,
+    0.0
+   ],
+   "WT_opt": [
+    37.443,
+    50.626
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": true,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E06015g and YALI1D08082g",
+   "equation": "NAD_C21H27N7O14P2 + isocitrate_C6H8O7 --> 2-oxoglutarate_C5H6O5 + NADH_C21H29N7O14P2 + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R488",
+   "name": "isocitrate dehydrogenase (NADP)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 7.7,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    0.0,
+    15.819
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F06197g",
+   "equation": "NADP(+)_C21H28N7O17P3 + isocitrate_C6H8O7 --> H+_p+1 + NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 + carbon dioxide_CO2"
+  },
+  {
+   "reaction": "R538",
+   "name": "malic enzyme (NADP)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 5.108,
+   "KO_opt": [
+    0.0,
+    38.995
+   ],
+   "WT_opt": [
+    0.0,
+    5.108
+   ],
+   "escape_directions": [
+    "fwd"
+   ],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22303g",
+   "equation": "NAD_C21H27N7O14P2 + (S)-malate_C4H6O5 --> NADH_C21H29N7O14P2 + carbon dioxide_CO2 + pyruvate_C3H4O3"
+  },
+  {
+   "reaction": "R613",
+   "name": "oxoglutarate dehydrogenase (dihydrolipoamide S-succinyltransferase)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 44.788,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    43.505,
+    46.142
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E39693g and YALI1E20192g and YALI1D26360g",
+   "equation": "coenzyme A_C21H36N7O16P3S + S(8)-succinyldihydrolipoamide_C12H21NO4S2 --> succinyl-CoA_C25H40N7O19P3S + dihydrolipoamide_C8H17NOS2"
+  },
+  {
+   "reaction": "R614",
+   "name": "oxoglutarate dehydrogenase (lipoamide)",
+   "KO_pfba": 0.0,
+   "WT_pfba": 44.788,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    43.505,
+    46.142
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E39693g and YALI1E20192g and YALI1D26360g",
+   "equation": "2-oxoglutarate_C5H6O5 + lipoamide_C8H15NOS2 --> carbon dioxide_CO2 + S(8)-succinyldihydrolipoamide_C12H21NO4S2"
+  },
+  {
+   "reaction": "R639",
+   "name": "phosphogluconate dehydrogenase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 4.06,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    0.0,
+    7.909
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B20462g",
+   "equation": "6-phospho-D-gluconate_C6H13O10P + NADP(+)_C21H28N7O17P3 --> H+_p+1 + NADPH_C21H30N7O17P3 + carbon dioxide_CO2 + D-ribulose 5-phosphate_C5H11O8P"
+  },
+  {
+   "reaction": "R690",
+   "name": "pyruvate carboxylase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 5.786,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    5.786,
+    5.786
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C33152g or YALI1E08620g",
+   "equation": "H+_p+1 + ATP_C10H16N5O13P3 + bicarbonate_CHO3 + pyruvate_C3H4O3 --> ADP_C10H15N5O10P2 + oxaloacetate_C4H4O5 + phosphate_H3O4P"
+  },
+  {
+   "reaction": "R693",
+   "name": "pyruvate dehydrogenase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 57.316,
+   "KO_opt": [
+    0.0,
+    -0.0
+   ],
+   "WT_opt": [
+    56.033,
+    58.669
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E31947g and YALI1F27556g and YALI1D26360g and YALI1B13179g and YALI1D30618g",
+   "equation": "NAD_C21H27N7O14P2 + pyruvate_C3H4O3 + coenzyme A_C21H36N7O16P3S --> NADH_C21H29N7O14P2 + carbon dioxide_CO2 + acetyl-CoA_C23H38N7O17P3S"
+  },
+  {
+   "reaction": "R694",
+   "name": "pyruvate kinase",
+   "KO_pfba": 0.0,
+   "WT_pfba": 133.948,
+   "KO_opt": [
+    0.0,
+    166.098
+   ],
+   "WT_opt": [
+    132.665,
+    135.301
+   ],
+   "escape_directions": [],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F12842g",
+   "equation": "phosphoenolpyruvate_C3H5O6P + ADP_C10H15N5O10P2 --> ATP_C10H16N5O13P3 + pyruvate_C3H4O3"
+  },
+  {
+   "reaction": "r0210",
+   "name": "r0210",
+   "KO_pfba": 0.0,
+   "WT_pfba": 566.129,
+   "KO_opt": [
+    -170.07,
+    20712.983
+   ],
+   "WT_opt": [
+    -7.623,
+    21283.406
+   ],
+   "escape_directions": [
+    "fwd",
+    "rev"
+   ],
+   "wt_free_step": [],
+   "closed_in_round": false,
+   "watched": false,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E11255g",
+   "equation": "H+_p+1 + L-serine_C3H7NO3 + hydrogen sulfide_HS <=> H2O_H2O + L-cysteine_C3H7NO2S"
+  }
+ ],
+ "wt_free_steps": [
+  "R1364",
+  "R940",
+  "R659",
+  "R511",
+  "R387",
+  "R216",
+  "R238",
+  "R313",
+  "R636",
+  "R328",
+  "R50",
+  "R742",
+  "R161",
+  "R1931",
+  "R90",
+  "R1556",
+  "R239",
+  "R817",
+  "R536",
+  "R_OAADCm",
+  "R610",
+  "R1024",
+  "R831",
+  "R533",
+  "R1933",
+  "R1968",
+  "R1971",
+  "R1972",
+  "R1973",
+  "R1974",
+  "R1977",
+  "R741",
+  "R83",
+  "R100",
+  "R1119",
+  "R1120",
+  "R1502",
+  "R1519",
+  "R2225",
+  "R2226",
+  "R299",
+  "R535",
+  "R539",
+  "R621",
+  "R81",
+  "R87",
+  "R2230",
+  "R2231",
+  "R2232",
+  "R603",
+  "R334",
+  "R1279",
+  "R195",
+  "R793",
+  "R1157",
+  "R632",
+  "R773",
+  "R1381"
+ ],
+ "lps": 736,
+ "elapsed_seconds": 5.326776250032708
+}

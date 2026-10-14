@@ -5,6 +5,89 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: complex I transhydrogenation module (Task D), investigation only
+
+**Authorization.** The user authorized "Task D" of `claude_code_prompt_w29_tasks_20261012.md` on 2026-10-13. The
+approved plan and later decisions:
+- **Grouping:** hierarchical, with tier-1 2^k over ≤ 12 groups.
+- **Checkpoint:** continue after freezing the part table.
+- **Stop rule:** stop and report if every cut set costs > 2 % WT.
+- **Amendment 1:** keep 12 groups, with group 10 a family resolved by tier 2.
+- **Assumption files:** proposed only; none written.
+
+No model, condition or curation file was built or edited. Everything is uncommitted on `claude/task-d-78f16d`
+@ `4d97b82`. Details are in [TASK.md](reports/complexI_transhydrogenation_20261012/TASK.md) and
+[REPORT.md](reports/complexI_transhydrogenation_20261012/REPORT.md).
+
+**Inputs.**
+- Task B candidate `a56f3649…` (R132 removed).
+- Configuration A (Task A medium, PO1f, uptake ≤ 2.414) and V2 (W29-type defined), both with the holistic
+  overlay and 13C caps (diagnostic).
+- About 22,400 registered LPs.
+
+**Results** (verified this session unless marked):
+- **Escape reproduced:**
+  - complex I KO/WT 0.826 (A) and 0.827 (V2);
+  - PDH = CS = 0, G6PDH 221 / 208, NDH2 578 / 564 per 100 glucose;
+  - the MTHFD and GDH pairs are interchangeable NADPH → NADH converters (FVA up to 446).
+- **Discovery:**
+  - 4 rounds, 24 parts;
+  - KO/WT 0.826 → 0.540 → 0.436 → 0.406 → 0.077, at 0.50 % WT cost (the user-mandated HMG-CoA part).
+- **2^12 test (A and V2):** the minimal cut sets at 15 % are exactly {G3} and {G5}, at 0 % WT cost.
+  - G5: R533 matrix MDH, reductive direction closed.
+  - G3: resolves in tier 2 to R831 forward closed (citrate in, malate out).
+  - Both give KO/WT 0.077 (A; essential at 10/15 %, not at 1/5 %) and 0.000 (V2; all cutoffs).
+  - The 3,072 hits are exactly the sets containing G3 or G5. The cytosolic transhydrogenation module does not
+    decide the outcome.
+- **Mechanism:**
+  - without complex I, lysine-pathway homoisocitrate DH R398 (2.4 per 100 glucose) is the only forced matrix-NADH
+    source, and R533 reverse + R831 is its only outlet;
+  - opening lysine uptake rescues the blocked KO (V2 growth 0 → 0.227 h⁻¹);
+  - the result is independent of the overlay and the caps.
+- **13C ratio floors (step 5):**
+  - with R825 as supplied, the PDH and G6PDH floors cost WT > 2 % and are rejected;
+  - with the R825 ASSUMPTION every set is accepted, but the lowest KO/WT is 0.316 (V2, PDH + CS + G6PDH);
+  - no floor set makes complex I essential.
+- **Shuttle cap on R533 reverse (diagnostic):**
+  - without floors, 15 % is crossed only below ~0.24 (A) / 0.45 (V2) per 100 glucose;
+  - with floors, the KO has no solution below ~86.7 and is essential only up to ~87.
+- **Evidence** (reviewer subagents; key passages re-read):
+  - Kerscher 2001 and Garofano 2006 (*Y. lipolytica*, abstracts): complex I is required, external NDH2 does not
+    rescue, shuttles are insufficient; no capacity number.
+  - MDH reduction of OAA is thermodynamically favoured (eQuilibrator ΔrG′° +29.6 kJ/mol for malate oxidation, pH 7).
+  - Reconstituted *S. cerevisiae* Ctp1 does not exchange citrate for malate (Aluvila 2010), and Bakker 2001
+    rules out a malate–citrate shuttle. Counterpoint: Evans 1983 via Kaplan 1995 (weak malate substrate).
+  - YALI1E17214g is the truncated YlMDH2 (cytosolic/peroxisomal; Kabran 2012), yet it sits in the matrix MDH
+    GPR R533.
+
+**Step 4: user decision (2026-10-14): option (d).** No assumption file. Complex I essentiality in the model needs
+a capacity or regulatory assumption on matrix-to-cytosol NADH export, and none is adopted. The options were (REPORT §7):
+- (a) R533 lb 0;
+- (b) R831 ub 0;
+- (c) floors + cap;
+- (d) none.
+
+The recommended follow-up, a separate evidence review of R831's citrate/malate mode (it also affects Task C's 13C
+fit), is **not authorized yet**.
+
+**Gaps.**
+- **Limits a claim:**
+  - the benchmark side effects of (a) and (b) are untested;
+  - the matrix location of homoisocitrate DH is not verified for *Y. lipolytica*;
+  - Kerscher 2001's growth medium is unread.
+- **Affects another line:**
+  - R831's malate mode (Task C fit);
+  - YALI1E17214g in R533's GPR;
+  - the cytosolic MDH R534 depends only on a truncated gene model.
+
+**Audit.**
+- **Verdicts:** an independent read-only audit returned SUPPORTED for the computational claims and PARTIALLY
+  SUPPORTED for four items (capacity-step costs, shuttle-cap thresholds, evidence wording, disclosures).
+- **After the audit:** all four were corrected; `capacity_costs.py` and the fine cap grid were run then and were
+  not re-audited.
+- **Large file:** `combinatorial_tier1.csv` (1.9 MB) lives only in the research workspace (`fcd32946…`); the
+  repository copy was removed before commit (user-authorized, 2026-10-14).
+
 ## 2026-10-13: W29 13C consistency of mitochondrial carriers (Task C), investigation only
 
 **Authorization.** The user authorized Task C of `claude_code_prompt_w29_tasks_20261012.md`, with
