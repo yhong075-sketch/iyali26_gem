@@ -5,6 +5,45 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: confusion matrices for iYali21 and a56f3649 on PO1f + CSM-Leu, glucose 2.414 (computation only)
+
+**Authorization.** The user asked for "two confusion matrix" with iYali21 and the newest model on
+"PO1f + CSM-Leu, glucose uptake 2.414 (W29)". After the plan review they approved a fresh rerun of
+both models (2,133 LPs) using the research root `iyali26_gem_research`. No model change; uncommitted
+on `claude/confusion-matrices-iyali21-7e63ca` @ `4d97b82`. Details:
+[REPORT.md](reports/confusion_matrices_csmleu_w29_20261014/REPORT.md).
+
+**Inputs.**
+- Models: `model/source/iyli21.xml` (`6974b758…`) and the newest candidate
+  `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`). Newest is not the same as reference.
+- Medium `po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`), PO1f profile `35307853…`,
+  consensus list `1e887f5a…`.
+- A sibling session drew the SD-Leu version of the same two matrices today (commit `01beb03`,
+  branch `claude/confusion-matrices-iyali21-fc6ecb`, not merged here). Its scripts were reused,
+  with only the medium changed.
+
+**Results at 15 %** (verified this session; mtDNA out of scope; negatives are the user-defined
+class; development reference, not independent validation):
+- iYali21: WT 0.29821; 58 / 255 / 25 / 694 (TP/FN/FP/TN), 10 unresolved; MCC 0.254.
+- a56f3649: WT 0.31243; 82 / 229 / 33 / 697, 16 unresolved; MCC 0.319.
+- Labelled view counting "no solution" as lethal: 65 / 255 / 28 / 694 and 93 / 229 / 38 / 697.
+- The a56f3649 rerun reproduces Task B exactly: same WT, no status or call changes, growth within
+  8.3e-16.
+- **Unresolved knockouts:**
+  - All are in R305 (complex III by stoichiometry) in both models, plus R304 (complex IV) in
+    a56f3649 only.
+  - iYali21 grows at KO/WT 0.936 without R304; the bypass was not examined.
+  - The NGAM-shortfall cause is recalled from Task A/B, not re-checked.
+- **Versus SD-Leu (no solves):**
+  - The calls that change are the complex III/IV genes (now unresolved) and a group of 6 or 8
+    genes that moves from just under to just over 15 %.
+  - The model ranking holds: MCC 0.251 → 0.318 on SD-Leu.
+- **iYali21's R305 name:** it is labelled "ferrocytochrome-c:oxygen oxidoreductase", the same name
+  as R304, although its equation is complex III. Recorded only.
+
+**Limits.** No independent audit. Cause of the iYali21 complex IV bypass and of the near-cutoff
+group not examined.
+
 ## 2026-10-13: W29 13C consistency of mitochondrial carriers (Task C), investigation only
 
 **Authorization.** The user authorized Task C of `claude_code_prompt_w29_tasks_20261012.md`, with
