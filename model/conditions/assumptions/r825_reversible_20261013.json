@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "condition_id": "R825_REVERSIBLE_ASSUMPTION",
+  "status": "assumption",
+  "label": "ASSUMPTION - R825 reversible (Crc1 carnitine/acetylcarnitine antiport allowed to export acetylcarnitine from the matrix)",
+  "reaction": "R825",
+  "reaction_equation": "m370[C_cy] + m374[C_mi] --> m369[C_cy] + m373[C_mi] (O-acetylcarnitine cyt + carnitine mito -> carnitine cyt + O-acetylcarnitine mito; the reverse direction exports acetyl units)",
+  "gpr": "YALI1C03415g",
+  "field": "lower_bound",
+  "value": -1000.0,
+  "original_bounds": [0.0, 1000.0],
+  "unit": "mmol/gDW/h",
+  "applied_as": "In-memory condition for the W29 13C elastic fits and for Task D (complex I transhydrogenation module) only. Never written to model XML; not a screen, benchmark or default growth condition.",
+  "rationale": "There is no organism evidence for acetylcarnitine export from mitochondria in Y. lipolytica on glucose. Y. lipolytica data support the import direction: Ylcrc1 deletion fails on acetate, ethanol and oleate but grows on glucose (Messina et al. 2023). Export in vivo has been shown only in engineered and evolved S. cerevisiae with added carnitine (van Rossum et al. 2016). The mechanism allows both directions: reconstituted S. cerevisiae Crc1 is a carnitine/acylcarnitine exchanger (Palmieri et al. 1999), and carnitine acetyltransferase is near equilibrium (van Rossum et al. 2016). The fit improvement (total violation 6.52 -> 1.43, V2) is a match-rate argument and is not evidence. Use only for the 13C fits and Task D.",
+  "carnitine_dependence": "The model has no carnitine biosynthesis route and no carnitine uptake on the W29 (V1, V2) or PO1f + CSM-Leu media (maximum demand of every carnitine species = 0). The shuttle therefore runs only as a conserved carnitine pool and does not depend on a de novo route in the model; whether Y. lipolytica synthesises carnitine is not established by this model.",
+  "loop_check": "With R825 reversible, R825 (reverse) + R1275 + R1205 form a net-zero cycle. At the V2 elastic-fit state and at WT (V2 with and without the holistic overlay; PO1f + CSM-Leu), loopless FVA gives R1275 = R1205 = 0 and the pFBA point carries zero cycle flux. The fit total (1.433071), WT growth and complex I KO/WT under the PDH floor (0.680) are unchanged with R1275 and/or R1205 blocked, and the full-model loopless MILP gives the same fit total. The results do not depend on the loop. Source: model/reports/w29_13c_consistency_20261012/r825_loop_carnitine_check.json.",
+  "evidence": [
+    {"source": "Palmieri L et al. 1999 FEBS Lett 462:472-476", "doi": "10.1016/S0014-5793(99)01555-0", "finding": "reconstituted S. cerevisiae Crc1 exchanges carnitine with acetylcarnitine; slow uniport; authors infer import as the main role", "tier": "verified (opened this session)"},
+    {"source": "van Rossum HM et al. 2016 mBio 7:e00520-16", "doi": "10.1128/mBio.00520-16", "finding": "CAT reversible (dG0' -1.1 kJ/mol); export of mitochondrial acetyl units in glucose-grown S. cerevisiae needed added carnitine, constitutive shuttle genes and evolved mutations", "tier": "verified (opened this session)"},
+    {"source": "Messina E et al. 2023 Microb Cell Fact 22:128", "doi": "10.1186/s12934-023-02137-8", "finding": "YlCrc1 = YALI0C02431 (= YALI1C03415g); deletion phenotype supports import; no export or reconstitution data", "tier": "verified (opened this session)"},
+    {"source": "Worland AM et al. 2024 Metab Eng 85:1-13", "doi": "10.1016/j.ymben.2024.06.010", "finding": "abstract: carnitine shuttle regulates cytosolic acetyl-CoA in oleic acid and glycerol cultures; full text unread", "tier": "abstract only"}
+  ],
+  "report": "model/reports/w29_13c_consistency_20261012/REPORT.md",
+  "authorization": "User, 2026-10-13: 'R825: choose (iii). No XML change. Create a condition file \"R825 reversible\", labelled ASSUMPTION. Its rationale should state that there is no organism evidence for acetylcarnitine export on glucose and that it is used only for the 13C fits and Task D.'",
+  "evidence_tier": "assumption"
+}

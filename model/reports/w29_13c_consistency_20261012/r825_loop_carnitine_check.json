@@ -1,0 +1,806 @@
+{
+ "started_utc": "2026-10-14T03:47:48.659197+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/w29_13c_consistency_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "experimental": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+   "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b"
+  },
+  "mtdna_scope": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/expected/mtdna_genes_out_of_scope.json",
+   "sha256": "16b3e9b4418f24821b8775936fd377ae21f77afa8e8af2b8949a246f62c44996"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "command": "python -B model/reports/w29_13c_consistency_20261012/r825_loop_carnitine_check.py",
+ "fit_state_V2": {
+  "none": {
+   "blocked": [],
+   "total_violation": 1.433071041522241,
+   "status": "optimal",
+   "fva_per_100": {
+    "standard": {
+     "R825": [
+      -41425.020712510355,
+      -38.38143254693003
+     ],
+     "R1275": [
+      0.0,
+      41386.63927996344
+     ],
+     "R1205": [
+      0.0,
+      41386.63927996342
+     ]
+    },
+    "loopless": {
+     "R825": [
+      -46.01266476694857,
+      -38.381432545835594
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "pfba_point_per_100": {
+    "R825": -38.38165852073763,
+    "R1275": 0.0,
+    "R1205": 0.0
+   },
+   "cycle_flux_in_pfba_point_per_100": 0.0
+  },
+  "R1275": {
+   "blocked": [
+    "R1275"
+   ],
+   "total_violation": 1.4330710415221284,
+   "status": "optimal"
+  },
+  "R1205": {
+   "blocked": [
+    "R1205"
+   ],
+   "total_violation": 1.433071041522142,
+   "status": "optimal"
+  },
+  "both": {
+   "blocked": [
+    "R1275",
+    "R1205"
+   ],
+   "total_violation": 1.4330710415222319,
+   "status": "optimal"
+  },
+  "full_loopless_milp": {
+   "total_violation": 1.433071041379662,
+   "status": "optimal",
+   "seconds": 247.40898420801386,
+   "note": "add_loopless removes every internal cycle in the model"
+  }
+ },
+ "wt_states": {
+  "V2|overlay=True": {
+   "none": {
+    "blocked": [],
+    "growth": 0.2948726681299734,
+    "status": "optimal",
+    "fva_per_100": {
+     "standard": {
+      "R825": [
+       -41425.020712510355,
+       -10.63400744459664
+      ],
+      "R1275": [
+       0.0,
+       41414.38670506576
+      ],
+      "R1205": [
+       0.0,
+       41414.38670506576
+      ]
+     },
+     "loopless": {
+      "R825": [
+       -19.62398372093142,
+       -10.63400744459677
+      ],
+      "R1275": [
+       0.0,
+       0.0
+      ],
+      "R1205": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "pfba_point_per_100": {
+     "R825": -10.63400744459677,
+     "R1275": 0.0,
+     "R1205": 0.0
+    },
+    "cycle_flux_in_pfba_point_per_100": 0.0
+   },
+   "R1275": {
+    "blocked": [
+     "R1275"
+    ],
+    "growth": 0.29487266812997365,
+    "status": "optimal"
+   },
+   "R1205": {
+    "blocked": [
+     "R1205"
+    ],
+    "growth": 0.2948726681299728,
+    "status": "optimal"
+   },
+   "both": {
+    "blocked": [
+     "R1275",
+     "R1205"
+    ],
+    "growth": 0.2948726681299728,
+    "status": "optimal"
+   }
+  },
+  "V2|overlay=False": {
+   "none": {
+    "blocked": [],
+    "growth": 0.29570556570980266,
+    "status": "optimal",
+    "fva_per_100": {
+     "standard": {
+      "R825": [
+       -41425.020712510355,
+       -10.664044270703586
+      ],
+      "R1275": [
+       0.0,
+       41414.35666823964
+      ],
+      "R1205": [
+       0.0,
+       41414.35666823965
+      ]
+     },
+     "loopless": {
+      "R825": [
+       -50.74451688762076,
+       -10.664044270720455
+      ],
+      "R1275": [
+       0.0,
+       0.0
+      ],
+      "R1205": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "pfba_point_per_100": {
+     "R825": -10.66404427073149,
+     "R1275": 0.0,
+     "R1205": 0.0
+    },
+    "cycle_flux_in_pfba_point_per_100": 0.0
+   },
+   "R1275": {
+    "blocked": [
+     "R1275"
+    ],
+    "growth": 0.29570556570980283,
+    "status": "optimal"
+   },
+   "R1205": {
+    "blocked": [
+     "R1205"
+    ],
+    "growth": 0.29570556570980383,
+    "status": "optimal"
+   },
+   "both": {
+    "blocked": [
+     "R1275",
+     "R1205"
+    ],
+    "growth": 0.29570556570980383,
+    "status": "optimal"
+   }
+  },
+  "CSM|overlay=False": {
+   "none": {
+    "blocked": [],
+    "growth": 0.3136341440603395,
+    "status": "optimal",
+    "fva_per_100": {
+     "standard": {
+      "R825": [
+       -41425.020712510355,
+       -11.310603468163102
+      ],
+      "R1275": [
+       0.0,
+       41413.71010904219
+      ],
+      "R1205": [
+       0.0,
+       41413.71010904219
+      ]
+     },
+     "loopless": {
+      "R825": [
+       -47.96980562786247,
+       -11.310603468163096
+      ],
+      "R1275": [
+       0.0,
+       0.0
+      ],
+      "R1205": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "pfba_point_per_100": {
+     "R825": -11.310603468163102,
+     "R1275": 0.0,
+     "R1205": 0.0
+    },
+    "cycle_flux_in_pfba_point_per_100": 0.0
+   },
+   "R1275": {
+    "blocked": [
+     "R1275"
+    ],
+    "growth": 0.313634144060339,
+    "status": "optimal"
+   },
+   "R1205": {
+    "blocked": [
+     "R1205"
+    ],
+    "growth": 0.31363414406033857,
+    "status": "optimal"
+   },
+   "both": {
+    "blocked": [
+     "R1275",
+     "R1205"
+    ],
+    "growth": 0.31363414406033857,
+    "status": "optimal"
+   }
+  }
+ },
+ "complex_I_floor_caps_V2": {
+  "none": {
+   "blocked": [],
+   "WT": 0.2684814893994942,
+   "KO": 0.1825292132484603,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.679857720011606
+  },
+  "R1275": {
+   "blocked": [
+    "R1275"
+   ],
+   "WT": 0.26848148939949706,
+   "KO": 0.18252921324846036,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115989
+  },
+  "R1205": {
+   "blocked": [
+    "R1205"
+   ],
+   "WT": 0.26848148939949396,
+   "KO": 0.18252921324845928,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116028
+  },
+  "both": {
+   "blocked": [
+    "R1275",
+    "R1205"
+   ],
+   "WT": 0.2684814893994972,
+   "KO": 0.18252921324845958,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115958
+  }
+ },
+ "carnitine": {
+  "exchange_bounds": {
+   "V2": [
+    -0.0,
+    1000.0
+   ],
+   "V1": [
+    -0.0,
+    1000.0
+   ],
+   "CSM": [
+    -0.0,
+    1000.0
+   ]
+  },
+  "max_demand_per_gDW_h": {
+   "V2|R825=asis|m369[C_cy]": 0.0,
+   "V2|R825=asis|m374[C_mi]": 0.0,
+   "V2|R825=asis|m371[C_pe]": 0.0,
+   "V2|R825=asis|m1069[C_ex]": 0.0,
+   "V2|R825=rev|m369[C_cy]": 0.0,
+   "V2|R825=rev|m374[C_mi]": 0.0,
+   "V2|R825=rev|m371[C_pe]": 0.0,
+   "V2|R825=rev|m1069[C_ex]": 0.0,
+   "V1|R825=asis|m369[C_cy]": 0.0,
+   "V1|R825=asis|m374[C_mi]": 0.0,
+   "V1|R825=asis|m371[C_pe]": 0.0,
+   "V1|R825=asis|m1069[C_ex]": 0.0,
+   "V1|R825=rev|m369[C_cy]": 0.0,
+   "V1|R825=rev|m374[C_mi]": 0.0,
+   "V1|R825=rev|m371[C_pe]": 0.0,
+   "V1|R825=rev|m1069[C_ex]": 0.0,
+   "CSM|R825=asis|m369[C_cy]": 0.0,
+   "CSM|R825=asis|m374[C_mi]": 0.0,
+   "CSM|R825=asis|m371[C_pe]": 0.0,
+   "CSM|R825=asis|m1069[C_ex]": 0.0,
+   "CSM|R825=rev|m369[C_cy]": 0.0,
+   "CSM|R825=rev|m374[C_mi]": 0.0,
+   "CSM|R825=rev|m371[C_pe]": 0.0,
+   "CSM|R825=rev|m1069[C_ex]": 0.0
+  },
+  "producers": {
+   "m369[C_cy]": [
+    [
+     "R1031",
+     {
+      "name": "carnitine transport",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R1032",
+     {
+      "name": "carnitine-acetylcarnitine carrier",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R1205",
+     {
+      "name": "L-carnitine transport",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R191",
+     {
+      "name": "carnitine O-acetyltransferase",
+      "gpr": "YALI1F28064g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy"
+      ]
+     }
+    ],
+    [
+     "R825",
+     {
+      "name": "carnithine-acetylcarnithine carrier",
+      "gpr": "YALI1C03415g",
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R873",
+     {
+      "name": "L-carnitine transport",
+      "gpr": "YALI1C10232g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_ex"
+      ]
+     }
+    ]
+   ],
+   "m374[C_mi]": [
+    [
+     "R1205",
+     {
+      "name": "L-carnitine transport",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R193",
+     {
+      "name": "carnitine O-acetyltransferase",
+      "gpr": "YALI1B13948g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R825",
+     {
+      "name": "carnithine-acetylcarnithine carrier",
+      "gpr": "YALI1C03415g",
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ]
+   ],
+   "m371[C_pe]": [
+    [
+     "R1031",
+     {
+      "name": "carnitine transport",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R1032",
+     {
+      "name": "carnitine-acetylcarnitine carrier",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R192",
+     {
+      "name": "carnitine O-acetyltransferase",
+      "gpr": "YALI1B13948g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_pe"
+      ]
+     }
+    ]
+   ],
+   "m370[C_cy]": [
+    [
+     "R1002",
+     {
+      "name": "acetylcarnitine transport",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R1032",
+     {
+      "name": "carnitine-acetylcarnitine carrier",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R1275",
+     {
+      "name": "O-acetylcarnintine transport into mitochondria",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R191",
+     {
+      "name": "carnitine O-acetyltransferase",
+      "gpr": "YALI1F28064g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy"
+      ]
+     }
+    ],
+    [
+     "R825",
+     {
+      "name": "carnithine-acetylcarnithine carrier",
+      "gpr": "YALI1C03415g",
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ]
+   ],
+   "m372[C_pe]": [
+    [
+     "R1002",
+     {
+      "name": "acetylcarnitine transport",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R1032",
+     {
+      "name": "carnitine-acetylcarnitine carrier",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_pe"
+      ]
+     }
+    ],
+    [
+     "R192",
+     {
+      "name": "carnitine O-acetyltransferase",
+      "gpr": "YALI1B13948g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_pe"
+      ]
+     }
+    ]
+   ],
+   "m373[C_mi]": [
+    [
+     "R1275",
+     {
+      "name": "O-acetylcarnintine transport into mitochondria",
+      "gpr": null,
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R193",
+     {
+      "name": "carnitine O-acetyltransferase",
+      "gpr": "YALI1B13948g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_mi"
+      ]
+     }
+    ],
+    [
+     "R825",
+     {
+      "name": "carnithine-acetylcarnithine carrier",
+      "gpr": "YALI1C03415g",
+      "bounds": [
+       0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_mi"
+      ]
+     }
+    ]
+   ],
+   "m1069[C_ex]": [
+    [
+     "R873",
+     {
+      "name": "L-carnitine transport",
+      "gpr": "YALI1C10232g",
+      "bounds": [
+       -1000.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_cy",
+       "C_ex"
+      ]
+     }
+    ],
+    [
+     "R943",
+     {
+      "name": "(R)-carnitine exchange",
+      "gpr": null,
+      "bounds": [
+       -0.0,
+       1000.0
+      ],
+      "compartments": [
+       "C_ex"
+      ]
+     }
+    ]
+   ]
+  },
+  "name_scan": [
+   [
+    "m369[C_cy]",
+    "(R)-carnitine_C7H15NO3"
+   ],
+   [
+    "m370[C_cy]",
+    "O-acetylcarnitine_C9H17NO4"
+   ],
+   [
+    "m371[C_pe]",
+    "(R)-carnitine_C7H15NO3"
+   ],
+   [
+    "m372[C_pe]",
+    "O-acetylcarnitine_C9H17NO4"
+   ],
+   [
+    "m373[C_mi]",
+    "O-acetylcarnitine_C9H17NO4"
+   ],
+   [
+    "m374[C_mi]",
+    "(R)-carnitine_C7H15NO3"
+   ],
+   [
+    "m470[C_cy]",
+    "trimethylenediamine_C3H10N2"
+   ],
+   [
+    "m1069[C_ex]",
+    "(R)-carnitine_C7H15NO3"
+   ]
+  ],
+  "in_biomass": []
+ },
+ "lps": 113,
+ "elapsed_seconds": 265.27343308296986
+}

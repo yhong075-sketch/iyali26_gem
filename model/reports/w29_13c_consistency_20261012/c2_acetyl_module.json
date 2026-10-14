@@ -1,0 +1,2031 @@
+{
+ "started_utc": "2026-10-14T00:27:33.680599+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/w29_13c_consistency_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "experimental": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+   "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b"
+  },
+  "mtdna_scope": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/expected/mtdna_genes_out_of_scope.json",
+   "sha256": "16b3e9b4418f24821b8775936fd377ae21f77afa8e8af2b8949a246f62c44996"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "parts": [
+  "R825_export",
+  "R1172",
+  "R1996",
+  "R1894",
+  "isoprenoid_exch"
+ ],
+ "isoprenoid_exchanges": [
+  "R945",
+  "R1106",
+  "R1108",
+  "R1124",
+  "R1235",
+  "R1369",
+  "R1388",
+  "R1390"
+ ],
+ "cutoff": 0.15,
+ "rows": [
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [],
+   "WT": 0.29472541647989664,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484605,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913377
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export"
+   ],
+   "WT": 0.2926438008701758,
+   "WT_status": "optimal",
+   "KO": 0.07173873703339516,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.24514012195057666
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172"
+   ],
+   "WT": 0.29472541647989364,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845936,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913401
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1996"
+   ],
+   "WT": 0.2947254164798949,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484604,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913409
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1894"
+   ],
+   "WT": 0.2947254164798958,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484598,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.619319553191337
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29472541647989525,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846022,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913397
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172"
+   ],
+   "WT": 0.29166100755289365,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996"
+   ],
+   "WT": 0.2926438008701738,
+   "WT_status": "optimal",
+   "KO": 0.07173873703339483,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.2451401219505772
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1894"
+   ],
+   "WT": 0.28771817285629475,
+   "WT_status": "optimal",
+   "KO": 0.07173873703339513,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.24933682958297576
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2926438008701747,
+   "WT_status": "optimal",
+   "KO": 0.06685914558155674,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.22846595548154938
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.29472541647989564,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846041,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913395
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.29472541647989625,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845986,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913364
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29472541647989714,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845953,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913334
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2947254164798968,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846053,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913375
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2947254164798967,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484604,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913371
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.294725416479896,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846005,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913376
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.2916610075528947,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.28317964240601573,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2916610075528939,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.287718172856293,
+   "WT_status": "optimal",
+   "KO": 0.0717387370333953,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.2493368295829779
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29264380087017416,
+   "WT_status": "optimal",
+   "KO": 0.06685914558155674,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.22846595548154983
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2877181728562943,
+   "WT_status": "optimal",
+   "KO": 0.06685914558155705,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.23237720759109287
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.29472541647989586,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846122,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913418
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2947254164798953,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845942,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913368
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2947254164798969,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845914,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913325
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2947254164798948,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846003,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913399
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2831796424060158,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.291661007552894,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2831796424060146,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.28771817285629403,
+   "WT_status": "optimal",
+   "KO": 0.06685914558155712,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.23237720759109334
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2947254164798958,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845975,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6193195531913369
+  },
+  {
+   "caps": null,
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.28317964240601656,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [],
+   "WT": 0.2948726681299728,
+   "WT_status": "optimal",
+   "KO": 0.2224238606292145,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504132
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export"
+   ],
+   "WT": 0.29376991657747653,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090258,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863103
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172"
+   ],
+   "WT": 0.29487266812997315,
+   "WT_status": "optimal",
+   "KO": 0.2224238606292145,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504123
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1996"
+   ],
+   "WT": 0.29487266812997304,
+   "WT_status": "optimal",
+   "KO": 0.2224238606292154,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504158
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1894"
+   ],
+   "WT": 0.2948726681299712,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921563,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504212
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29487266812997326,
+   "WT_status": "optimal",
+   "KO": 0.2224238606292149,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504134
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172"
+   ],
+   "WT": 0.29289954432409965,
+   "WT_status": "optimal",
+   "KO": 0.22149618347535077,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7562189418439671
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996"
+   ],
+   "WT": 0.293769916577476,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090194,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863096
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1894"
+   ],
+   "WT": 0.2937699165774779,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090274,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863073
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2937699165774795,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090252,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863026
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.29487266812997204,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921451,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504153
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.2948726681299726,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921493,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504153
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29487266812997315,
+   "WT_status": "optimal",
+   "KO": 0.2224238606292149,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504138
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2948726681299735,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921568,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504155
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2948726681299724,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921396,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504124
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2948726681299719,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921427,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504148
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.29289954432409887,
+   "WT_status": "optimal",
+   "KO": 0.2214961834753507,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7562189418439688
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.2928995443240994,
+   "WT_status": "optimal",
+   "KO": 0.22149618347535086,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.756218941843968
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2928995443240974,
+   "WT_status": "optimal",
+   "KO": 0.2214961834753508,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7562189418439729
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2937699165774782,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090224,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863049
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29376991657747603,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090202,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863097
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29376991657747853,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090252,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.754887351586305
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.29487266812997365,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921543,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504143
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29487266812997237,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921554,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504179
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29487266812997187,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921443,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504154
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2948726681299735,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921513,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7543047717504137
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2928995443240983,
+   "WT_status": "optimal",
+   "KO": 0.22149618347535002,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.756218941843968
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2928995443240983,
+   "WT_status": "optimal",
+   "KO": 0.2214961834753513,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7562189418439723
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29289954432409776,
+   "WT_status": "optimal",
+   "KO": 0.22149618347534986,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7562189418439689
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29376991657747736,
+   "WT_status": "optimal",
+   "KO": 0.22176319430090205,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7548873515863064
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.29487266812997226,
+   "WT_status": "optimal",
+   "KO": 0.22242386062921635,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.754304771750421
+  },
+  {
+   "caps": null,
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2928995443240985,
+   "WT_status": "optimal",
+   "KO": 0.22149618347534986,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.756218941843967
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [],
+   "WT": 0.2684814893994933,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484595,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116054
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export"
+   ],
+   "WT": 0.2536152560855654,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172"
+   ],
+   "WT": 0.2684814893994959,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845936,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115983
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1996"
+   ],
+   "WT": 0.268481489399495,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846008,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116032
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1894"
+   ],
+   "WT": 0.2684814893994948,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484603,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116046
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "isoprenoid_exch"
+   ],
+   "WT": 0.268481489399496,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116003
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172"
+   ],
+   "WT": 0.2499507674032716,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996"
+   ],
+   "WT": 0.25361525608556434,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1894"
+   ],
+   "WT": 0.25361525608556384,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.25361525608556407,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.2684814893994969,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845964,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115967
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.26848148939949545,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846091,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116052
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949584,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846025,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116017
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2684814893994959,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484598,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115998
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994959,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846008,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116009
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949595,
+   "WT_status": "optimal",
+   "KO": 0.18252921324846116,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116048
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.24995076740326858,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.24995076740326852,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.24995076740326863,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.25361525608556207,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2536152702315247,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2536152560855646,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.26848148939949423,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845833,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115986
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949584,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484603,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116018
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994945,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484607,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200116067
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994973,
+   "WT_status": "optimal",
+   "KO": 0.18252921324845942,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.679857720011595
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.24995076740326974,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.24995076740326888,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.24995076740326938,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.25361525608556357,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949595,
+   "WT_status": "optimal",
+   "KO": 0.1825292132484594,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6798577200115982
+  },
+  {
+   "caps": "module",
+   "pdh_floor": true,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.24995076740326883,
+   "WT_status": "optimal",
+   "KO": null,
+   "KO_status": "infeasible",
+   "KO_over_WT": null
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [],
+   "WT": 0.2684814893994942,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650482,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970111
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export"
+   ],
+   "WT": 0.26270863691515695,
+   "WT_status": "optimal",
+   "KO": 0.2171783845326722,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088512
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172"
+   ],
+   "WT": 0.2684814893994946,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650438,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.824753793797008
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1996"
+   ],
+   "WT": 0.268481489399496,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650438,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970038
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1894"
+   ],
+   "WT": 0.2684814893994959,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650444,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970043
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994949,
+   "WT_status": "optimal",
+   "KO": 0.2214311269465044,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970073
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172"
+   ],
+   "WT": 0.26140492497277495,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975912,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881632
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996"
+   ],
+   "WT": 0.2627086369151556,
+   "WT_status": "optimal",
+   "KO": 0.21717838453267252,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088566
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1894"
+   ],
+   "WT": 0.26270863691515534,
+   "WT_status": "optimal",
+   "KO": 0.2171783845326729,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.826689168208859
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2627086369151553,
+   "WT_status": "optimal",
+   "KO": 0.21717838453267269,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088583
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.2684814893994941,
+   "WT_status": "optimal",
+   "KO": 0.221431126946504,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970081
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.2684814893994942,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650485,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970112
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949557,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650458,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970059
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.26848148939949595,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650516,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970069
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949396,
+   "WT_status": "optimal",
+   "KO": 0.221431126946504,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970086
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994953,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650408,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970049
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996"
+   ],
+   "WT": 0.2614049249727761,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975884,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881584
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894"
+   ],
+   "WT": 0.261404924972775,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975815,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881593
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26140492497277584,
+   "WT_status": "optimal",
+   "KO": 0.21621830680976264,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881739
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.26270863691515695,
+   "WT_status": "optimal",
+   "KO": 0.21717838453267252,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088524
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26270863691515506,
+   "WT_status": "optimal",
+   "KO": 0.21717838453267224,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088573
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26270863691515667,
+   "WT_status": "optimal",
+   "KO": 0.21717838453267305,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088553
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.26848148939949584,
+   "WT_status": "optimal",
+   "KO": 0.2214311269465008,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937969909
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994954,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650435,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970055
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2684814893994947,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650446,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970082
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949457,
+   "WT_status": "optimal",
+   "KO": 0.2214311269465044,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970083
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894"
+   ],
+   "WT": 0.2614049249727752,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975884,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881614
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.2614049249727757,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975856,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881588
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26140492497277606,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975923,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881601
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26270863691515534,
+   "WT_status": "optimal",
+   "KO": 0.2171783845326738,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088624
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26848148939949595,
+   "WT_status": "optimal",
+   "KO": 0.22143112694650746,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8247537937970154
+  },
+  {
+   "caps": "module",
+   "pdh_floor": false,
+   "closed": [
+    "R825_export",
+    "R1172",
+    "R1996",
+    "R1894",
+    "isoprenoid_exch"
+   ],
+   "WT": 0.26140492497277634,
+   "WT_status": "optimal",
+   "KO": 0.21621830680975845,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8271393770881563
+  }
+ ],
+ "analysis": {
+  "caps=None|floor=True": {
+   "reference_all_open": {
+    "caps": null,
+    "pdh_floor": true,
+    "closed": [],
+    "WT": 0.29472541647989664,
+    "WT_status": "optimal",
+    "KO": 0.1825292132484605,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.6193195531913377
+   },
+   "minimal_cut_sets": [
+    {
+     "closed": [
+      "R1172",
+      "R825_export"
+     ],
+     "WT": 0.29166100755289365,
+     "WT_cost": 0.01039750478124113,
+     "KO_over_WT": null,
+     "KO_status": "infeasible"
+    }
+   ],
+   "full_set": {
+    "caps": null,
+    "pdh_floor": true,
+    "closed": [
+     "R825_export",
+     "R1172",
+     "R1996",
+     "R1894",
+     "isoprenoid_exch"
+    ],
+    "WT": 0.28317964240601656,
+    "WT_status": "optimal",
+    "KO": null,
+    "KO_status": "infeasible",
+    "KO_over_WT": null
+   },
+   "leave_one_out": {
+    "R825_export": {
+     "KO_over_WT": 0.6193195531913369,
+     "KO_status": "optimal",
+     "WT": 0.2947254164798958
+    },
+    "R1172": {
+     "KO_over_WT": 0.23237720759109334,
+     "KO_status": "optimal",
+     "WT": 0.28771817285629403
+    },
+    "R1996": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.2831796424060146
+    },
+    "R1894": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.291661007552894
+    },
+    "isoprenoid_exch": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.2831796424060158
+    }
+   }
+  },
+  "caps=None|floor=False": {
+   "reference_all_open": {
+    "caps": null,
+    "pdh_floor": false,
+    "closed": [],
+    "WT": 0.2948726681299728,
+    "WT_status": "optimal",
+    "KO": 0.2224238606292145,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.7543047717504132
+   },
+   "minimal_cut_sets": [],
+   "full_set": {
+    "caps": null,
+    "pdh_floor": false,
+    "closed": [
+     "R825_export",
+     "R1172",
+     "R1996",
+     "R1894",
+     "isoprenoid_exch"
+    ],
+    "WT": 0.2928995443240985,
+    "WT_status": "optimal",
+    "KO": 0.22149618347534986,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.756218941843967
+   },
+   "leave_one_out": {
+    "R825_export": {
+     "KO_over_WT": 0.754304771750421,
+     "KO_status": "optimal",
+     "WT": 0.29487266812997226
+    },
+    "R1172": {
+     "KO_over_WT": 0.7548873515863064,
+     "KO_status": "optimal",
+     "WT": 0.29376991657747736
+    },
+    "R1996": {
+     "KO_over_WT": 0.7562189418439689,
+     "KO_status": "optimal",
+     "WT": 0.29289954432409776
+    },
+    "R1894": {
+     "KO_over_WT": 0.7562189418439723,
+     "KO_status": "optimal",
+     "WT": 0.2928995443240983
+    },
+    "isoprenoid_exch": {
+     "KO_over_WT": 0.756218941843968,
+     "KO_status": "optimal",
+     "WT": 0.2928995443240983
+    }
+   }
+  },
+  "caps=module|floor=True": {
+   "reference_all_open": {
+    "caps": "module",
+    "pdh_floor": true,
+    "closed": [],
+    "WT": 0.2684814893994933,
+    "WT_status": "optimal",
+    "KO": 0.1825292132484595,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.6798577200116054
+   },
+   "minimal_cut_sets": [
+    {
+     "closed": [
+      "R825_export"
+     ],
+     "WT": 0.2536152560855654,
+     "WT_cost": 0.055371539196906516,
+     "KO_over_WT": null,
+     "KO_status": "infeasible"
+    }
+   ],
+   "full_set": {
+    "caps": "module",
+    "pdh_floor": true,
+    "closed": [
+     "R825_export",
+     "R1172",
+     "R1996",
+     "R1894",
+     "isoprenoid_exch"
+    ],
+    "WT": 0.24995076740326883,
+    "WT_status": "optimal",
+    "KO": null,
+    "KO_status": "infeasible",
+    "KO_over_WT": null
+   },
+   "leave_one_out": {
+    "R825_export": {
+     "KO_over_WT": 0.6798577200115982,
+     "KO_status": "optimal",
+     "WT": 0.26848148939949595
+    },
+    "R1172": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.25361525608556357
+    },
+    "R1996": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.24995076740326938
+    },
+    "R1894": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.24995076740326888
+    },
+    "isoprenoid_exch": {
+     "KO_over_WT": null,
+     "KO_status": "infeasible",
+     "WT": 0.24995076740326974
+    }
+   }
+  },
+  "caps=module|floor=False": {
+   "reference_all_open": {
+    "caps": "module",
+    "pdh_floor": false,
+    "closed": [],
+    "WT": 0.2684814893994942,
+    "WT_status": "optimal",
+    "KO": 0.22143112694650482,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.8247537937970111
+   },
+   "minimal_cut_sets": [],
+   "full_set": {
+    "caps": "module",
+    "pdh_floor": false,
+    "closed": [
+     "R825_export",
+     "R1172",
+     "R1996",
+     "R1894",
+     "isoprenoid_exch"
+    ],
+    "WT": 0.26140492497277634,
+    "WT_status": "optimal",
+    "KO": 0.21621830680975845,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.8271393770881563
+   },
+   "leave_one_out": {
+    "R825_export": {
+     "KO_over_WT": 0.8247537937970154,
+     "KO_status": "optimal",
+     "WT": 0.26848148939949595
+    },
+    "R1172": {
+     "KO_over_WT": 0.8266891682088624,
+     "KO_status": "optimal",
+     "WT": 0.26270863691515534
+    },
+    "R1996": {
+     "KO_over_WT": 0.8271393770881601,
+     "KO_status": "optimal",
+     "WT": 0.26140492497277606
+    },
+    "R1894": {
+     "KO_over_WT": 0.8271393770881588,
+     "KO_status": "optimal",
+     "WT": 0.2614049249727757
+    },
+    "isoprenoid_exch": {
+     "KO_over_WT": 0.8271393770881614,
+     "KO_status": "optimal",
+     "WT": 0.2614049249727752
+    }
+   }
+  }
+ },
+ "note": "KO with no solution counts as a hit here only to locate the constraint conflict; under the benchmark rule it is unresolved, not lethal.",
+ "lps": 256,
+ "elapsed_seconds": 12.1398205839796
+}
