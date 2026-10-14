@@ -5,6 +5,56 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: benchmark side effects of Task D options (a)/(b), and homoisocitrate DH location (diagnostic)
+
+**Authorization.** User, 2026-10-14: "commit. ok. run (a) and (b), check. review." Read back and approved:
+- commit Task D after removing the repository copy of `combinatorial_tier1.csv` (done: `8718b75`);
+- screen (a) R533 reductive closed and (b) R831 forward closed, each in memory only, in a benchmark context and in
+  Task D's diagnostic context;
+- check the location of homoisocitrate DH;
+- independent read-only audit.
+
+No model, condition or assumption file was written. Uncommitted on `claude/task-d-78f16d`. Details:
+[REPORT.md](reports/complexI_shuttle_assumption_screen_20261014/REPORT.md).
+
+**Results** (verified this session unless marked):
+- **Setup:** Task B candidate `a56f3649…`, Task A medium, PO1f profile; 7,308 + 66 LPs. Task B's and Task D's
+  numbers reproduced.
+- **Side effects:** (a) and (b) are identical. Each changes only the 26 complex I (R2062) genes, KO/WT
+  0.758 → 0.069; 7 of them are mtDNA. 15 %: 82/33/229/697 (MCC 0.319) → 96/38/215/692 (MCC 0.351),
+  i.e. +14 TP and +5 FP; 16 unresolved. Same in the overlay + caps context (MCC 0.327 → 0.360).
+- **The essential call depends on lysine:** under (a)/(b) the KO cannot make lysine (R398's NADH has no outlet)
+  and grows only on medium lysine. KO growth is linear in the R1220 cap; KO/WT crosses 15 % between 2.1× and
+  2.2× the Task A cap (about 2.17×).
+  On the bound-10 medium (4.14× the cap) it is non-essential by extrapolation (inferred, not run).
+- **Homoisocitrate DH (YALI1D13238g):**
+  - the W29 genome encodes XP_502662.2 through a 165-nt `GTGAGT…TACTAAC…CAG` intron;
+  - the model's annotated protein XP_502662.3 starts inside that intron. The gene structure is verified; that
+    the annotation is wrong is inferred (no transcript evidence);
+  - XP_502662.2 is predicted mitochondrial: TargetP mTP 0.989, MitoFates 0.992, DeepLoc 0.933;
+  - the model's R398 matrix placement is therefore supported at prediction level only.
+
+**Decision status.** Option (d) stands; nothing is adopted.
+
+**Gaps.**
+- **Limits a claim:**
+  - the bound-10 medium was not run;
+  - the HIDH start codon (M1 vs M13) has no transcript evidence;
+  - the other five capped amino acids were not swept;
+  - Kerscher 2001's medium is still unread.
+- **Affects another line:**
+  - YALI1D13238g's RefSeq annotation (XP_502662.3) is wrong for sequence-based work;
+  - the 5 new complex I FPs belong in a GPR review;
+  - R807 (2-oxoadipate/malate exchange) has unreviewed carrier evidence.
+
+**Audit.** An independent read-only audit found all computational claims SUPPORTED (C1–C7). Its wording fixes
+were applied. The user then authorized fixes for the four defects it found in Task D's files (2026-10-14):
+- `shuttle_cap.py` now labels no-solution KOs "unresolved". Its outputs were regenerated, with values identical
+  and the fine grid extended.
+- The band wording is corrected to ~0.24 (A) and ~0.46 (V2).
+- R361 is renamed glycine cleavage (lipoamide).
+- R315 V2 now reads 0.810.
+
 ## 2026-10-14: complex I transhydrogenation module (Task D), investigation only
 
 **Authorization.** The user authorized "Task D" of `claude_code_prompt_w29_tasks_20261012.md` on 2026-10-13. The
@@ -50,7 +100,8 @@ No model, condition or curation file was built or edited. Everything is uncommit
   - no floor set makes complex I essential.
 - **Shuttle cap on R533 reverse (diagnostic):**
   - without floors, 15 % is crossed only below ~0.24 (A) / 0.45 (V2) per 100 glucose;
-  - with floors, the KO has no solution below ~86.7 and is essential only up to ~87.
+  - with floors, the KO has no solution below 86.66 and is essential only up to ~86.9 (A) or ~87.1 (V2)
+    (corrected after the second audit; no-solution rows are now labelled unresolved).
 - **Evidence** (reviewer subagents; key passages re-read):
   - Kerscher 2001 and Garofano 2006 (*Y. lipolytica*, abstracts): complex I is required, external NDH2 does not
     rescue, shuttles are insufficient; no capacity number.
