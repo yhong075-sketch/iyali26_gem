@@ -1,0 +1,38 @@
+{
+  "sources": {
+    "iyali21_overlay": {
+      "path": "reports/screen_iyali21_overlay_w29_20261014/summary.json",
+      "sha256": "3394996746d0e47dea9a4297e705e58d9e45c0d0226970de222ccbb53794c92d"
+    },
+    "a56f3649_overlay": {
+      "path": "reports/screen_a56f3649_overlay_w29_20261014/summary.json",
+      "sha256": "9e90e9c869fd77b1704b579d02efecbdaa952e95d5621e6b26d5b64f3560c8f3"
+    }
+  },
+  "panels": [
+    {
+      "title": "iYali21 (iyli21.xml, 6974b758)",
+      "condition": "Diagnostic overlay (assumed caps) \u00b7 21 no-solution KOs counted as lethal",
+      "counts": {
+        "TP": 74,
+        "FN": 246,
+        "FP": 30,
+        "TN": 692
+      }
+    },
+    {
+      "title": "iYali26 newest candidate (a56f3649)",
+      "condition": "Diagnostic overlay (assumed caps) \u00b7 27 no-solution KOs counted as lethal",
+      "counts": {
+        "TP": 102,
+        "FN": 220,
+        "FP": 40,
+        "TN": 695
+      }
+    }
+  ],
+  "figure": {
+    "confusion_matrices_15pct_overlay_lethal.png": "291e3ea20e5e61b6afcfc600ae518466f215cd056ead485294bf064465bcdd9f",
+    "confusion_matrices_15pct_overlay_lethal.pdf": "b3dc15e8334136ff667a794288f1658443d7fec79632e94ebed5665ec345eeb6"
+  }
+}

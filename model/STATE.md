@@ -5,6 +5,26 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: iYali21 screened under the adapted diagnostic overlay; figure with both models under iYali26's panel conditions
+
+**Authorization.** The user asked for both panels "under iYali26 condition" and approved a screen of
+iYali21 under the overlay with two adaptations (R2069 rewritten from iYali21's starting form to the
+same KEGG R01752 equation; R_MDHy and R_ALCDH_nadp_hi absent, so not closed), the 4 controls and the
+NGAM diagnostic, at most 1,213 LPs (1,144 used). In memory only; no model change.
+Details: [REPORT.md](reports/screen_iyali21_overlay_w29_20261014/REPORT.md).
+
+**Results** (verified this session; 15 %; mtDNA out of scope; user-defined negatives; development
+reference; overlay results diagnostic):
+- iYali21 + overlay: WT 0.2982130 (unchanged). Benchmark rule 58 / 246 / 25 / 692, 21 unresolved,
+  MCC 0.261. Lethal view 74 / 246 / 30 / 692, MCC 0.292. All 27 no-solution knockouts "cannot meet
+  maintenance".
+- The overlay changes only the 14 ATP synthase (R171) gene calls, as in a56f3649.
+- Figure [confusion_matrices_15pct_overlay_lethal.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_overlay_lethal.png):
+  iYali21 74 / 246 / 30 / 692 (MCC 0.292) vs a56f3649 102 / 220 / 40 / 695 (MCC 0.354).
+
+**Limits.** The caps were set for iYali26; iYali21's R171 moves 3 H⁺ per ATP (4 in a56f3649). No
+independent audit.
+
 ## 2026-10-14: paired figure, iYali21 vs a56f3649 (figure only, no solves)
 
 The user asked for a figure that copies their mock-up:
