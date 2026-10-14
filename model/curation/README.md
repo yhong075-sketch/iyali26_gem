@@ -10,6 +10,13 @@ The sections below were moved unchanged from the former top-level README (2026-1
 only paths were updated to the new layout. Commands run from `platform/`. Newer decisions
 are recorded in [../STATE.md](../STATE.md).
 
+## R132 removal (2026-10-13)
+
+- `r132_mito_adh/r132_mito_adh.json`: removes R132 (matrix acetaldehyde + NADH <=> ethanol + NAD+) with its exact
+  before-state, the kept diffusion reactions R1114/R997, gene RefSeqs, predictor scores and cited evidence;
+  applied by `--r132-mito-adh` (requires `--coq9-respiratory-package`). The removal is a user decision made after
+  the fixed predictor rule selected a GPR restriction. Report: `../reports/r132_mito_adh_20261012/REPORT.md`.
+
 ## CoQ9 biomass term and CoQ9/respiratory package (2026-10-08)
 
 - `coq9/coq9_biomass_dilution.json`: the user-selected, uncalibrated alpha = 1e-4 mmol/gDW CoQ9

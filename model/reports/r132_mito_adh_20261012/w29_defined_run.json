@@ -1,0 +1,1319 @@
+{
+ "started_utc": "2026-10-13T20:13:54.062484+00:00",
+ "command": "python -B model/reports/r132_mito_adh_20261012/run_w29_defined.py",
+ "head": "7dc9511600cb1ad935cc70944d9cd5f82afaf42c",
+ "overlay_source_sha256": "f28cef1670fc07ad8e6a2a66616c4db693fe1635cd660ba5a308ae5f367a6392",
+ "overlay_module_sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4",
+ "medium_definition": "Task A medium (+ PO1f profile) -> close R1003 + 11 amino acids, restore R612 (0,1000), fix uptake at measured; V2 uracil closed, V1 uracil 1000; CSM = PO1f + CSM-Leu sensitivity (uptake <= measured, amino acids present)",
+ "expected": {
+  "V2": {
+   "holistic_overlay": [
+    1.103,
+    1.279,
+    1.138
+   ],
+   "holistic_shuttles": [
+    0.916,
+    1.054,
+    0.983
+   ]
+  },
+  "V1": {
+   "holistic_overlay": [
+    1.116,
+    1.293,
+    1.151
+   ],
+   "holistic_shuttles": [
+    0.928,
+    1.068,
+    0.994
+   ]
+  }
+ },
+ "step5": [
+  {
+   "medium": "V2",
+   "substrate": "glucose",
+   "variant": "as_supplied",
+   "model": "baseline",
+   "overlay": false,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.2945807648295998,
+   "predicted_over_measured": 1.1061988915869312,
+   "fva_per_100": {
+    "R570": [
+     0.0,
+     0.0
+    ],
+    "R2062": [
+     314.01973705740676,
+     314.01973705741045
+    ],
+    "R614": [
+     47.82746366447849,
+     47.827463664476575
+    ],
+    "R690": [
+     41.570418743190864,
+     41.57041874315758
+    ]
+   }
+  },
+  {
+   "medium": "V2",
+   "substrate": "glucose",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.293769916577478,
+   "predicted_over_measured": 1.1031540239484716,
+   "fva_per_100": {
+    "R570": [
+     0.0,
+     0.0
+    ],
+    "R2062": [
+     323.59544519410673,
+     323.5954451941184
+    ],
+    "R614": [
+     40.55881292405797,
+     40.55881292408784
+    ],
+    "R690": [
+     41.455994091532496,
+     41.45599409161425
+    ]
+   }
+  },
+  {
+   "medium": "V2",
+   "substrate": "glucose",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.29376991657747764,
+   "predicted_over_measured": 1.1031540239484703,
+   "fva_per_100": {
+    "R570": [
+     0.0,
+     0.0
+    ],
+    "R2062": [
+     323.5954451941096,
+     323.5954451941159
+    ],
+    "R614": [
+     40.558812924088556,
+     40.55881292408597
+    ],
+    "R690": [
+     41.45599409159091,
+     41.455994091605675
+    ]
+   }
+  },
+  {
+   "medium": "V2",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_R361": 0.002078
+   },
+   "status": "optimal",
+   "growth": 0.243485220123674,
+   "predicted_over_measured": 0.9143267747790987,
+   "fva_per_100": {
+    "R570": [
+     256.6907049326782,
+     256.6907049327668
+    ],
+    "R2062": [
+     176.31349878822627,
+     176.31349878858626
+    ],
+    "R614": [
+     0.20779999999607143,
+     0.20779999999999998
+    ],
+    "R690": [
+     5.786199999995578,
+     5.7862
+    ]
+   }
+  },
+  {
+   "medium": "V2",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_R361_looser": 0.008764
+   },
+   "status": "optimal",
+   "growth": 0.24388994514266596,
+   "predicted_over_measured": 0.9158465833370859,
+   "fva_per_100": {
+    "R570": [
+     255.32824851323772,
+     255.32824851320984
+    ],
+    "R2062": [
+     176.73348574566916,
+     176.73348574566782
+    ],
+    "R614": [
+     0.8764000000012517,
+     0.8763999999999998
+    ],
+    "R690": [
+     5.786200000003654,
+     5.7862
+    ]
+   }
+  },
+  {
+   "medium": "V2",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_module": 0.002078
+   },
+   "status": "optimal",
+   "growth": 0.26270863691515695,
+   "predicted_over_measured": 0.9865138449686706,
+   "fva_per_100": {
+    "R570": [
+     202.6062840455253,
+     206.43767475587936
+    ],
+    "R2062": [
+     181.8016085096326,
+     189.4643899303027
+    ],
+    "R614": [
+     38.6709255148355,
+     42.50231622518382
+    ],
+    "R690": [
+     5.786200000003502,
+     5.7862
+    ]
+   }
+  },
+  {
+   "medium": "V2",
+   "substrate": "glycerol",
+   "variant": "as_supplied",
+   "model": "baseline",
+   "overlay": false,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.45781397054434225,
+   "predicted_over_measured": 1.2788099735875482
+  },
+  {
+   "medium": "V2",
+   "substrate": "glycerol",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.45781397054433964,
+   "predicted_over_measured": 1.278809973587541
+  },
+  {
+   "medium": "V2",
+   "substrate": "glycerol",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.4578139705443426,
+   "predicted_over_measured": 1.278809973587549
+  },
+  {
+   "medium": "V2",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_R361": 0.001422
+   },
+   "status": "optimal",
+   "growth": 0.37751219799437635,
+   "predicted_over_measured": 1.0545033463530067
+  },
+  {
+   "medium": "V2",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_R361_looser": 0.000949
+   },
+   "status": "optimal",
+   "growth": 0.37743908368665346,
+   "predicted_over_measured": 1.054299116443166
+  },
+  {
+   "medium": "V2",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_module": 0.001422
+   },
+   "status": "optimal",
+   "growth": 0.38878812944663665,
+   "predicted_over_measured": 1.086000361582784
+  },
+  {
+   "medium": "V2",
+   "substrate": "oleic_acid",
+   "variant": "as_supplied",
+   "model": "baseline",
+   "overlay": false,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.3035403559470885,
+   "predicted_over_measured": 1.164774965261276
+  },
+  {
+   "medium": "V2",
+   "substrate": "oleic_acid",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.2964785112153923,
+   "predicted_over_measured": 1.1376765587697326
+  },
+  {
+   "medium": "V2",
+   "substrate": "oleic_acid",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.29647851121539304,
+   "predicted_over_measured": 1.1376765587697353
+  },
+  {
+   "medium": "V2",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_R361": 0.108917
+   },
+   "status": "optimal",
+   "growth": 0.2566978936121762,
+   "predicted_over_measured": 0.9850264528479517
+  },
+  {
+   "medium": "V2",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_R361_looser": 0.015284
+   },
+   "status": "optimal",
+   "growth": 0.2561387099803885,
+   "predicted_over_measured": 0.9828806983130794
+  },
+  {
+   "medium": "V2",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_module": 0.108917
+   },
+   "status": "optimal",
+   "growth": 0.2651120757005201,
+   "predicted_over_measured": 1.0173141815062168
+  },
+  {
+   "medium": "V1",
+   "substrate": "glucose",
+   "variant": "as_supplied",
+   "model": "baseline",
+   "overlay": false,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.29797875367028986,
+   "predicted_over_measured": 1.1189588947438598
+  },
+  {
+   "medium": "V1",
+   "substrate": "glucose",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.297171799647468,
+   "predicted_over_measured": 1.1159286505725423
+  },
+  {
+   "medium": "V1",
+   "substrate": "glucose",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.29717179964747037,
+   "predicted_over_measured": 1.1159286505725512
+  },
+  {
+   "medium": "V1",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_R361": 0.002078
+   },
+   "status": "optimal",
+   "growth": 0.24673907140633972,
+   "predicted_over_measured": 0.9265455178608326
+  },
+  {
+   "medium": "V1",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_R361_looser": 0.008764
+   },
+   "status": "optimal",
+   "growth": 0.2471492050288632,
+   "predicted_over_measured": 0.9280856366085739
+  },
+  {
+   "medium": "V1",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_module": 0.002078
+   },
+   "status": "optimal",
+   "growth": 0.26640230276745613,
+   "predicted_over_measured": 1.0003841636029145
+  },
+  {
+   "medium": "V1",
+   "substrate": "glycerol",
+   "variant": "as_supplied",
+   "model": "baseline",
+   "overlay": false,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.4630281380319568,
+   "predicted_over_measured": 1.2933746872401028
+  },
+  {
+   "medium": "V1",
+   "substrate": "glycerol",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.46302813803195836,
+   "predicted_over_measured": 1.2933746872401073
+  },
+  {
+   "medium": "V1",
+   "substrate": "glycerol",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.4630281380319574,
+   "predicted_over_measured": 1.2933746872401046
+  },
+  {
+   "medium": "V1",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_R361": 0.001422
+   },
+   "status": "optimal",
+   "growth": 0.3824737118364203,
+   "predicted_over_measured": 1.0683623235654198
+  },
+  {
+   "medium": "V1",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_R361_looser": 0.000949
+   },
+   "status": "optimal",
+   "growth": 0.3823996366123338,
+   "predicted_over_measured": 1.0681554095316586
+  },
+  {
+   "medium": "V1",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_module": 0.001422
+   },
+   "status": "optimal",
+   "growth": 0.3944241276582557,
+   "predicted_over_measured": 1.101743373347083
+  },
+  {
+   "medium": "V1",
+   "substrate": "oleic_acid",
+   "variant": "as_supplied",
+   "model": "baseline",
+   "overlay": false,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.3068902218020827,
+   "predicted_over_measured": 1.1776294006219596
+  },
+  {
+   "medium": "V1",
+   "substrate": "oleic_acid",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.29991015542282334,
+   "predicted_over_measured": 1.1508448020829751
+  },
+  {
+   "medium": "V1",
+   "substrate": "oleic_acid",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.2999101554228176,
+   "predicted_over_measured": 1.1508448020829534
+  },
+  {
+   "medium": "V1",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_R361": 0.108917
+   },
+   "status": "optimal",
+   "growth": 0.25960868863166187,
+   "predicted_over_measured": 0.99619604233178
+  },
+  {
+   "medium": "V1",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_R361_looser": 0.015284
+   },
+   "status": "optimal",
+   "growth": 0.25904316420405427,
+   "predicted_over_measured": 0.9940259562703541
+  },
+  {
+   "medium": "V1",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_module": 0.108917
+   },
+   "status": "optimal",
+   "growth": 0.2681787429210955,
+   "predicted_over_measured": 1.0290818991599981
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glucose",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.3117523150525423,
+   "predicted_over_measured": 1.1706808676400389
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glucose",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.31175231505254236,
+   "predicted_over_measured": 1.170680867640039
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_R361": 0.002078
+   },
+   "status": "optimal",
+   "growth": 0.26059852444167386,
+   "predicted_over_measured": 0.9785900279447011
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_R361_looser": 0.008764
+   },
+   "status": "optimal",
+   "growth": 0.26100886662318756,
+   "predicted_over_measured": 0.9801309298655185
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glucose",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.057862,
+    "cap_malate": 0.061103,
+    "cap_gcv_module": 0.002078
+   },
+   "status": "optimal",
+   "growth": 0.28221631193924995,
+   "predicted_over_measured": 1.0597683512551632
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glycerol",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.47741607265582003,
+   "predicted_over_measured": 1.333564448759274
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glycerol",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.47741607265581815,
+   "predicted_over_measured": 1.3335644487592686
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_R361": 0.001422
+   },
+   "status": "optimal",
+   "growth": 0.3962176522501,
+   "predicted_over_measured": 1.1067532185756985
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_R361_looser": 0.000949
+   },
+   "status": "optimal",
+   "growth": 0.39614353884045767,
+   "predicted_over_measured": 1.1065461978783735
+  },
+  {
+   "medium": "CSM",
+   "substrate": "glycerol",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.035355,
+    "cap_malate": 0.003057,
+    "cap_gcv_module": 0.001422
+   },
+   "status": "optimal",
+   "growth": 0.4100756921842288,
+   "predicted_over_measured": 1.145462827330248
+  },
+  {
+   "medium": "CSM",
+   "substrate": "oleic_acid",
+   "variant": "holistic_overlay",
+   "model": "baseline",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.31523725818054543,
+   "predicted_over_measured": 1.209659471145608
+  },
+  {
+   "medium": "CSM",
+   "substrate": "oleic_acid",
+   "variant": "candidate_overlay_no_caps",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {},
+   "status": "optimal",
+   "growth": 0.31523725818054954,
+   "predicted_over_measured": 1.2096594711456237
+  },
+  {
+   "medium": "CSM",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_R361",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_R361": 0.108917
+   },
+   "status": "optimal",
+   "growth": 0.274185280482053,
+   "predicted_over_measured": 1.0521307769840866
+  },
+  {
+   "medium": "CSM",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_R361_looser",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_R361_looser": 0.015284
+   },
+   "status": "optimal",
+   "growth": 0.2736194418060805,
+   "predicted_over_measured": 1.0499594850578684
+  },
+  {
+   "medium": "CSM",
+   "substrate": "oleic_acid",
+   "variant": "holistic_shuttles_gcv_module",
+   "model": "candidate",
+   "overlay": true,
+   "caps": {
+    "cap_pc": 0.623378,
+    "cap_malate": 1.410555,
+    "cap_gcv_module": 0.108917
+   },
+   "status": "optimal",
+   "growth": 0.2831428232646982,
+   "predicted_over_measured": 1.08650354284228
+  }
+ ],
+ "route": {
+  "V2|baseline|WT": {
+   "growth": 0.2945807648295998,
+   "status": "optimal",
+   "fva_per_100": {
+    "R132": [
+     -121.98524973894479,
+     41301.647284475446
+    ],
+    "R1114": [
+     -41301.647284475184,
+     121.98524973886695
+    ],
+    "R997": [
+     -41301.647284475366,
+     121.98524973835137
+    ],
+    "R690": [
+     41.57041874316814,
+     41.57041874311507
+    ],
+    "R534": [
+     -41425.020712510355,
+     41378.61951815987
+    ],
+    "R533": [
+     55.45453063756286,
+     41425.020712510355
+    ],
+    "R693": [
+     78.27795028413698,
+     78.27795028412467
+    ],
+    "R570": [
+     0.0,
+     0.0
+    ],
+    "R2062": [
+     314.019737057436,
+     314.01973705731626
+    ],
+    "R691": [
+     0.0,
+     -1.343196962336489e-10
+    ],
+    "R136": [
+     0.0,
+     -2.1615784047554688e-10
+    ],
+    "R1311": [
+     0.0,
+     81.22815101721079
+    ]
+   },
+   "net_malate_import_per_100": [
+    14.746937255798413,
+    41384.313124569875
+   ]
+  },
+  "V2|baseline|complex_I_KO": {
+   "growth": 0.25067519869830257,
+   "status": "optimal",
+   "fva_per_100": {
+    "R132": [
+     252.83939698959549,
+     41425.020712510355
+    ],
+    "R1114": [
+     -41425.020712510355,
+     -252.83939698956746
+    ],
+    "R997": [
+     -41425.020712510355,
+     -252.83939698956746
+    ],
+    "R690": [
+     35.374587286595045,
+     35.37458728661088
+    ],
+    "R534": [
+     -41425.020712510355,
+     41415.34419683936
+    ],
+    "R533": [
+     76.99820022416333,
+     41255.23821276362
+    ],
+    "R693": [
+     96.41992064160831,
+     96.41992064167415
+    ],
+    "R570": [
+     416.2611438132682,
+     416.2611438132614
+    ],
+    "R2062": [
+     0.0,
+     0.0
+    ],
+    "R691": [
+     0.0,
+     0.0
+    ],
+    "R136": [
+     0.0,
+     0.0
+    ],
+    "R1311": [
+     0.0,
+     98.9304109497735
+    ]
+   },
+   "net_malate_import_per_100": [
+    12.548991788012156,
+    41184.730312340194
+   ]
+  },
+  "V2|candidate|WT": {
+   "growth": 0.2945807648296001,
+   "status": "optimal",
+   "fva_per_100": {
+    "R1114": [
+     0.0,
+     0.0
+    ],
+    "R997": [
+     0.0,
+     0.0
+    ],
+    "R690": [
+     41.570418743234036,
+     41.57041874312266
+    ],
+    "R534": [
+     -41425.020712510355,
+     41256.634268421476
+    ],
+    "R533": [
+     123.37342803448819,
+     184.5596534668724
+    ],
+    "R693": [
+     78.27795028413784,
+     78.27795028413753
+    ],
+    "R570": [
+     0.0,
+     0.0
+    ],
+    "R2062": [
+     314.0197370574,
+     314.01973705738885
+    ],
+    "R691": [
+     -4.2686557593448174e-11,
+     0.0
+    ],
+    "R136": [
+     0.0,
+     0.0
+    ],
+    "R1311": [
+     0.0,
+     81.22815101714859
+    ]
+   },
+   "net_malate_import_per_100": [
+    82.66582640662736,
+    136.73220123735476
+   ]
+  },
+  "V2|candidate|complex_I_KO": {
+   "growth": 0.22176319430090213,
+   "status": "optimal",
+   "fva_per_100": {
+    "R1114": [
+     0.0,
+     0.0
+    ],
+    "R997": [
+     -10.668288679623174,
+     -10.668288679021838
+    ],
+    "R690": [
+     33.07288183297823,
+     33.904870459838016
+    ],
+    "R534": [
+     -41410.17416607915,
+     41425.020712510355
+    ],
+    "R533": [
+     -9.257272126212156,
+     -2.525427130459382
+    ],
+    "R693": [
+     0.0,
+     0.0
+    ],
+    "R570": [
+     562.3114849242368,
+     562.3114849250344
+    ],
+    "R2062": [
+     0.0,
+     0.0
+    ],
+    "R691": [
+     28.404223963911345,
+     29.236212592093004
+    ],
+    "R136": [
+     10.66828867838055,
+     10.668288679778147
+    ],
+    "R1311": [
+     0.0,
+     0.8490021086192319
+    ]
+   },
+   "net_malate_import_per_100": [
+    -2.5254376708030946,
+    -2.525427057229426
+   ]
+  },
+  "V1|baseline|WT": {
+   "growth": 0.29797875367028986,
+   "status": "optimal",
+   "fva_per_100": {
+    "R132": [
+     -122.16948139003821,
+     41301.44704019121
+    ],
+    "R1114": [
+     -41301.44704018903,
+     122.16948139007673
+    ],
+    "R997": [
+     -41301.44704018903,
+     122.16948139013039
+    ],
+    "R690": [
+     40.35436771687896,
+     40.35436771884327
+    ],
+    "R534": [
+     -41425.020712510355,
+     41379.16841214872
+    ],
+    "R533": [
+     55.48276455134175,
+     41425.020712510355
+    ],
+    "R693": [
+     78.56945232132212,
+     78.56945232270499
+    ],
+    "R570": [
+     0.0,
+     8.840085679644438e-11
+    ],
+    "R2062": [
+     314.5847842040272,
+     314.5847842040493
+    ],
+    "R691": [
+     4.0918720588982137e-10,
+     -3.4379201133711556e-10
+    ],
+    "R136": [
+     0.0,
+     -7.577393290654174e-10
+    ],
+    "R1311": [
+     0.0,
+     81.55368361832615
+    ]
+   },
+   "net_malate_import_per_100": [
+    14.917043195194928,
+    41384.45499659468
+   ]
+  },
+  "V1|baseline|complex_I_KO": {
+   "growth": 0.2534987509898353,
+   "status": "optimal",
+   "fva_per_100": {
+    "R132": [
+     253.25644735888113,
+     41425.020712510355
+    ],
+    "R1114": [
+     -41425.020712510355,
+     -253.25644735898766
+    ],
+    "R997": [
+     -41425.020712510355,
+     -253.25644735894997
+    ],
+    "R690": [
+     34.33057453841457,
+     34.33057453820095
+    ],
+    "R534": [
+     -41425.020712510355,
+     41415.86737422029
+    ],
+    "R533": [
+     77.05519862919995,
+     41254.946404678056
+    ],
+    "R693": [
+     96.6956811877424,
+     96.69568118753982
+    ],
+    "R570": [
+     416.8983560956355,
+     416.89835609567245
+    ],
+    "R2062": [
+     0.0,
+     0.0
+    ],
+    "R691": [
+     0.0,
+     1.6829419083579433e-10
+    ],
+    "R136": [
+     0.0,
+     0.0
+    ],
+    "R1311": [
+     0.0,
+     99.2344491263671
+    ]
+   },
+   "net_malate_import_per_100": [
+    12.690340991146334,
+    41184.45461117448
+   ]
+  },
+  "V1|candidate|WT": {
+   "growth": 0.29797875367029014,
+   "status": "optimal",
+   "fva_per_100": {
+    "R1114": [
+     0.0,
+     0.0
+    ],
+    "R997": [
+     0.0,
+     0.0
+    ],
+    "R690": [
+     40.35436771882685,
+     40.354367718530526
+    ],
+    "R534": [
+     -41425.020712510355,
+     41256.998930759095
+    ],
+    "R533": [
+     123.57367232133215,
+     184.85424676111072
+    ],
+    "R693": [
+     78.5694523219425,
+     78.56945232199503
+    ],
+    "R570": [
+     0.0,
+     0.0
+    ],
+    "R2062": [
+     314.58478420405595,
+     314.58478420404066
+    ],
+    "R691": [
+     6.961923903061372e-10,
+     4.143606198286168e-10
+    ],
+    "R136": [
+     0.0,
+     0.0
+    ],
+    "R1311": [
+     0.0,
+     81.55368361397902
+    ]
+   },
+   "net_malate_import_per_100": [
+    83.00794271839547,
+    137.08653882738645
+   ]
+  },
+  "V1|candidate|complex_I_KO": {
+   "growth": 0.22417805424177953,
+   "status": "optimal",
+   "fva_per_100": {
+    "R1114": [
+     0.0,
+     0.0
+    ],
+    "R997": [
+     -10.784459548512771,
+     -10.784459548366533
+    ],
+    "R690": [
+     32.15740117524157,
+     32.998449628576196
+    ],
+    "R534": [
+     -41409.82580967591,
+     41425.020712510355
+    ],
+    "R533": [
+     -9.358077924412749,
+     -2.5529274234190726
+    ],
+    "R693": [
+     0.0,
+     7.181496491102659e-11
+    ],
+    "R570": [
+     562.8345158399517,
+     562.8345158402722
+    ],
+    "R2062": [
+     0.0,
+     0.0
+    ],
+    "R691": [
+     28.90021484080089,
+     29.741263294140776
+    ],
+    "R136": [
+     10.784459548366533,
+     10.784459548699928
+    ],
+    "R1311": [
+     0.0,
+     0.8582472004853524
+    ]
+   },
+   "net_malate_import_per_100": [
+    -2.552937963768802,
+    -2.552927420866142
+   ]
+  }
+ },
+ "v1_stop_checks": [
+  {
+   "variant": "holistic_overlay",
+   "substrate": "glucose",
+   "expected": 1.116,
+   "observed": 1.1159286505725423,
+   "relative_difference": -6.39331787256614e-05,
+   "within_2pct": true
+  },
+  {
+   "variant": "holistic_overlay",
+   "substrate": "glycerol",
+   "expected": 1.293,
+   "observed": 1.2933746872401073,
+   "relative_difference": 0.00028978131485479786,
+   "within_2pct": true
+  },
+  {
+   "variant": "holistic_overlay",
+   "substrate": "oleic_acid",
+   "expected": 1.151,
+   "observed": 1.1508448020829751,
+   "relative_difference": -0.0001348374604908109,
+   "within_2pct": true
+  },
+  {
+   "variant": "holistic_shuttles_R361_looser",
+   "substrate": "glucose",
+   "expected": 0.928,
+   "observed": 0.9280856366085739,
+   "relative_difference": 9.228082820467165e-05,
+   "within_2pct": true
+  },
+  {
+   "variant": "holistic_shuttles_R361_looser",
+   "substrate": "glycerol",
+   "expected": 1.068,
+   "observed": 1.0681554095316586,
+   "relative_difference": 0.0001455145427513571,
+   "within_2pct": true
+  },
+  {
+   "variant": "holistic_shuttles_R361_looser",
+   "substrate": "oleic_acid",
+   "expected": 0.994,
+   "observed": 0.9940259562703541,
+   "relative_difference": 2.6112948042333883e-05,
+   "within_2pct": true
+  }
+ ],
+ "v1_stop_fired": false,
+ "lps": 337,
+ "elapsed_seconds": 129.6137940409826,
+ "outputs": {
+  "pfba_vectors.json": "10bbcaea6d00c26b1edcad28997d759a19fc9bf4f44606f541257a4f69069907"
+ }
+}

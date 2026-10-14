@@ -17,6 +17,7 @@ so older reports and commits still identify them.
 | [lipid_unlump/](lipid_unlump/) | | 2026-08-19 to 08-27 | Five strict-sn lipid candidates from the lipid-unlump line (owned by a colleague; review only), with provenance JSON files. |
 | [E5_coq9_alpha_1e-4_qcycle_pipeline.xml](E5_coq9_alpha_1e-4_qcycle_pipeline.xml) | `d868f83b` | 2026-10-08 | The CoQ9/R305 candidate (`33468b94`) rebuilt by the builder: `--energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution`. Differs from `33468b94` only in the R1889 four-subunit GPR (default since 2026-10-05) and two note texts. |
 | [E5_coq9_respiratory_package_20261008.xml](E5_coq9_respiratory_package_20261008.xml) | `0ac2addf` | 2026-10-08 | The rebuilt CoQ9/R305 candidate plus the 2026-10-08 CoQ9/respiratory-chain package (`--coq9-respiratory-package`); see [the report](../reports/coq9_respiratory_package_20261008/REPORT.md). |
+| [E5_coq9_resp_pkg_r132_20261012.xml](E5_coq9_resp_pkg_r132_20261012.xml) | `a56f3649` | 2026-10-13 | The respiratory package candidate (`0ac2addf`) with R132 (matrix alcohol dehydrogenase) removed by `--r132-mito-adh` (user decision after the predictor screen); see [the report](../reports/r132_mito_adh_20261012/REPORT.md). |
 
 Candidates published inside their task report folders:
 

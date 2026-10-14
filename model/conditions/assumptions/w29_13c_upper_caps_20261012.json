@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "condition_id": "W29_13C_UPPER_CAPS_DIAGNOSTIC",
+  "status": "assumption",
+  "label": "ASSUMPTION (diagnostic) - W29 13C-MFA flux bounds used as WT-state caps",
+  "applied_as": "In-memory linear constraints for the Task B step-5 calibration diagnostic only. Never written to model XML; not a screen condition; not used for knockout calls.",
+  "cap_form": "sum_i(coefficient_i * v_i) <= fraction * substrate_uptake, where substrate_uptake = -v(exchange) (the actual uptake flux).",
+  "source": {
+    "data": "$IYALI26_RESEARCH_ROOT/reference/w29_worland2024/glucose_central_fluxes.csv",
+    "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f",
+    "repository": "github.com/garrettroell/yarrrowia_eflux2 commit 8361e5536aa97d83d95b77cacf0f982a154f9df0 (BSD-3)",
+    "paper": "Worland AM et al. 2024 Metab Eng 85:1-13 doi:10.1016/j.ymben.2024.06.010; link between the repository and the paper inferred, pending user confirmation",
+    "units": "MFA fluxes per 100 mol substrate with 95 % confidence bounds (<substrate>_LB / <substrate>_UB columns); fraction = bound / 100",
+    "medium_caveat": "The MFA medium was not checked against the paper's methods; these runs use the PO1f + CSM-Leu medium chosen by the user."
+  },
+  "substrates": {
+    "glucose": {"exchange": "R1070", "medium": "po1f_csm_leu_w29uptake_20261012.csv", "measured_growth": 0.2663, "measured_uptake": 2.414},
+    "glycerol": {"exchange": "R1141", "medium": "po1f_csm_leu_w29glycerol_20261012.csv", "measured_growth": 0.3580, "measured_uptake": 6.2666},
+    "oleic_acid": {"exchange": "R1440", "medium": "po1f_csm_leu_w29oleate_20261012.csv", "measured_growth": 0.2606, "measured_uptake": 0.7630}
+  },
+  "caps": {
+    "pyruvate_carboxylase": {
+      "mfa_row": "R31 (PYRcyt + CO2 + ATP -> OAAcyt), column <substrate>_UB",
+      "reactions": {"R690": 1},
+      "module_note": "R690 is the only carboxylation of pyruvate to oxaloacetate; R_OAADCm (matrix) is bounded to the decarboxylation direction only.",
+      "fraction": {"glucose": 0.057862, "glycerol": 0.035355, "oleic_acid": 0.623378}
+    },
+    "net_malate_import": {
+      "mfa_row": "R47 (MALcyt -> MALmit), column <substrate>_UB",
+      "reactions": {"R807": 1, "R831": -1, "R902": 1, "R1386": 1},
+      "definition": "Net matrix malate gained through every cytosol<->matrix carrier, i.e. the signed coefficient of m538[C_mi] in each: R807 2-oxoadipate/malate, R831 citrate/malate, R902 malate/phosphate, R1386 2-oxoglutarate/malate. Upper bound only, as specified.",
+      "fraction": {"glucose": 0.061103, "glycerol": 0.003057, "oleic_acid": 1.410555}
+    },
+    "glycine_cleavage_R361_as_specified": {
+      "mfa_row": "R51 net (CO2 + MTHF + NADH <-> GLY): cleavage is the reverse direction, so the cleavage cap is -<substrate>_LB",
+      "reactions": {"R361": 1},
+      "fraction": {"glucose": 0.002078, "glycerol": 0.001422, "oleic_acid": 0.108917},
+      "looser_fraction_used_earlier": {"glucose": 0.008764, "glycerol": 0.000949, "oleic_acid": 0.015284},
+      "looser_fraction_note": "<substrate>_UB of R51 net, i.e. the glycine-synthesis side of the MFA interval, not a cleavage bound. The earlier run used 0.009 for glucose.",
+      "warning": "R361 is the dihydrolipoamide dehydrogenase step (NAD + dihydrolipoamide -> NADH + lipoamide). In this model it also re-oxidizes the dihydrolipoamide made by 2-oxoglutarate dehydrogenase (R614 -> R613), the only matrix 2-OGDH route, so capping R361 also caps 2-OGDH. Glycine cleavage can bypass R361 through R357 (lumped) and R362-R364 (lipoylprotein)."
+    },
+    "glycine_cleavage_module": {
+      "mfa_row": "R51 net, cleavage cap -<substrate>_LB",
+      "reactions": {"R357": 1, "R360": 1, "R362": 1},
+      "definition": "Every glycine-consuming entry step of the three parallel glycine-cleavage representations (lumped R357; lipoamide R360-R365-R361; lipoylprotein R362-R363-R364). Added because rule 1 of the task requires listing all parts of a redundant module.",
+      "fraction": {"glucose": 0.002078, "glycerol": 0.001422, "oleic_acid": 0.108917}
+    }
+  },
+  "authorization": "User, 2026-10-13: Task B step 5 of claude_code_prompt_w29_tasks_20261012.md ('Diagnostic only, not a model change: apply the W29 13C upper bounds as WT-state caps in a condition file'); medium choice 'PO1f + CSM-Leu-'.",
+  "evidence_tier": "assumption"
+}

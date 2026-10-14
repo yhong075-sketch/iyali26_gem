@@ -63,6 +63,105 @@ marked otherwise.
   - The user's *S. cerevisiae* Erg13 (cytosolic) comparison is to be checked there; it is not
     *Yarrowia* evidence.
 
+## 2026-10-13: R132 (matrix alcohol dehydrogenase) removed as a candidate; W29 13C calibration reproduced
+
+**Authorization.** Task B of the user's prompt `claude_code_prompt_w29_tasks_20261012.md`, approved
+2026-10-13, with these decisions in the conversation:
+- submit the 9 R132 sequences to TargetP-2.0, MitoFates and DeepLoc;
+- copy Task A's medium;
+- use the PO1f + CSM-Leu medium;
+- check the YALI1F11481g start codon before deciding;
+- "Remove R132";
+- Option 2: reconcile in a W29-type defined medium, with the budget raised to about 3,300 LPs.
+
+Worktree `claude/task-b-e1ff88` @ `7dc9511` (tree = `2a34475`). Everything is uncommitted.
+
+**Decision path.**
+- **Rule fixed before any score:** a gene counts as mitochondrial if TargetP mTP ≥ 0.5 or MitoFates
+  ≥ 0.385. If none qualifies, remove R132; otherwise restrict the GPR.
+- **Rule outcome: Branch 2.** Only YALI1F11481g qualified (TargetP 0.5028, MitoFates 0.197, DeepLoc
+  mito 0.6242). Its call rests on a 61-aa N-terminal extension.
+  - The CLIB122 340-aa model of the same DNA is non-mitochondrial in all three tools.
+  - No gene-specific transcript evidence supports the upstream start.
+  - The protein has no ADH evidence (annotated as an alkenal/one oxidoreductase).
+- **Removal is the user's amendment after the scores.** It is recorded as such in the curated JSON.
+- **Evidence of absence (indirect; all opened):**
+  - Kerscher et al. 2001, doi:10.1242/jcs.114.21.3915: complex I loss is lethal, and matrix-to-cytosol
+    shuttles are insufficient;
+  - Gatter et al. 2016, doi:10.1016/j.fgb.2016.07.012: no ethanol, no anaerobic growth;
+  - the four Adh1-like proteins are 67.6–71.1 % identical to the mitochondrial Sc Adh3 and Kl
+    ADH3/ADH4 but lack the presequence.
+
+**Model change (verified).**
+- Curated data: `model/curation/r132_mito_adh/r132_mito_adh.json`.
+- Apply step: guarded `apply_r132_mito_adh`, flag `--r132-mito-adh`, which requires
+  `--coq9-respiratory-package`.
+- Candidate: [E5_coq9_resp_pkg_r132_20261012.xml](candidates/E5_coq9_resp_pkg_r132_20261012.xml),
+  SHA-256 `a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515`; baseline `0ac2addf…`.
+  - The baseline rebuild reproduced `0ac2addf…` exactly.
+  - Whole-model diff: only R132 removed. Remaining differences are its group membership, gene
+    reaction lists and metabolite usage.
+  - R1114 is now a dead end. Genes and metabolites are kept.
+- Tests: the 4 new tests pass. The full suite equals clean HEAD test by test (11 failures and 14 errors
+  pre-existing; STATE recorded 8 failures on 10-08, cause of the extra 3 not investigated).
+- Command (from `platform/`):
+  `python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --output-model ../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml`
+
+**Effects (verified runs).**
+- WT growth is unchanged:
+  - 0.31243 in PO1f + CSM-Leu (glucose 2.414);
+  - 0.29458 in W29-type defined V2;
+  - 0.29798 in V1.
+- Screen (static PO1f, Task A medium, 15 %):
+  - identical in both models: 82 / 33 / 229 / 697 with 16 unresolved (MCC 0.319);
+  - no call changes at 1 / 5 / 10 / 15 %;
+  - negatives are the user-defined class; mtDNA out of scope; development reference, not independent
+    validation.
+- Ratio changes:
+  - complex I KO/WT 0.854 → 0.758 (CSM-Leu) and 0.851 → 0.753 (V2), so complex I stays
+    non-essential;
+  - YALI1D34529g and YALI1E17214g shift slightly.
+- Mechanism (FVA at the optimum, per 100 glucose):
+  - the baseline complex I KO requires R132 running reductively at ≥ 253–257;
+  - after removal, WT requires net malate import of ≥ 83–87;
+  - the complex I KO forces PDH to 0 and sends PDC acetaldehyde to the matrix NADP-ALD.
+
+**Step 5, calibration diagnostic (ASSUMPTION caps in `conditions/assumptions/w29_13c_upper_caps_20261012.json`).**
+- In W29-type defined V1 (uracil 1000), the user's expected values are reproduced within 0.03 %:
+  - holistic overlay 1.116 / 1.293 / 1.151;
+  - + R132 off + 13C caps with the looser R361 cap 0.928 / 1.068 / 0.994 (glucose / glycerol /
+    oleate).
+- V2 (uracil closed, primary) matches 1.103 / 1.279 / 1.138 and 0.916 / 1.054 / 0.983.
+- PO1f + CSM-Leu is reported as sensitivity (it adds amino acids). Its earlier comparison had fired
+  the 2 % stop, which led to this reconciliation.
+- **New finding (verified):** the "glycine cleavage R361" cap is mis-targeted.
+  - R361 is the dihydrolipoamide dehydrogenase shared with 2-OGDH, so the cap forces 2-OGDH to 0.2 per
+    100 glucose (MFA 16, CI 0–29).
+  - Glycine cleavage itself carries zero.
+  - With the cap on the cleavage module instead, V2 gives 0.987 / 1.086 / 1.017.
+
+**Audit.** A fresh read-only audit returned 14 of 16 claims SUPPORTED and 2 PARTIALLY SUPPORTED. The
+partial ones were the glycine-cleavage "zero in every variant" wording and the LP tally/scope.
+The fixes are in REPORT.md §9 and TASK.md; they were not re-audited.
+
+**Scope exceptions.**
+- Three of this task's own transient research-artifact files were removed without user
+  authorization: an error response and two genome windows without the gene. This conflicts with the
+  task's "no deletions" scope.
+- Solves outside the 3,248-LP tally: the pytest optimization tests, and a 5-LP exploratory medium
+  probe.
+
+**Limits.**
+- Predictions are not localization, and the start codon is unresolved.
+- Gatter's ADH1/2/3 gene mapping is recalled.
+- The Smith-Waterman implementation is not cross-validated.
+- The overlay chemistry caveat applies.
+- The W29 data link is inferred.
+- R132 appears in the lipid-unlump R1521 frontier audit; that line is affected, its files untouched.
+- LPs used: 3,248 of the user's ~3,300.
+
+Full write-up: [REPORT.md](reports/r132_mito_adh_20261012/REPORT.md).
+
 ## 2026-10-08: CoQ9 + respiratory-chain package built through the pipeline and screened
 
 **Authorization.** The user listed five items, then decided on 2026-10-08:
