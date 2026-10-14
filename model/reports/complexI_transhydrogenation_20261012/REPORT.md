@@ -37,8 +37,8 @@ before the scored runs. Everything is uncommitted on worktree branch `claude/tas
 - **Step 5 (13C ratio floors):** no accepted floor set makes complex I essential (lowest KO/WT 0.316, V2, with
   PDH + CS + G6PDH and the R825 ASSUMPTION).
   - The floors raise the KO's matrix-NADH export to 89–116 per 100 glucose at its optimum (FVA).
-  - With a shuttle cap the KO has no solution below about 86.7. It is essential only in a band about 0.5 wide
-    above that (§7, §8).
+  - With a shuttle cap the KO has no solution below 86.66 (the PDH-floor NADH). It is essential only in a band
+    about 0.24 wide (A) or 0.46 wide (V2) above that (§7, §8).
 
 ## 1. Inputs and identities (verified; every LP script checks them before running)
 
@@ -122,14 +122,14 @@ the open state:
 | R134 NADP-ALD | 1.9 % / 2.2 % | 0.842 / 0.845 |
 | R330 NADP-GDH | 1.3 % / 1.6 % | 0.810 / 0.809 |
 | R691 PDC | 8.0 % / 9.3 % | 0.732 / 0.714 |
-| R361 lipoamide DH | 7.7 % / 7.4 % | 0.895 / 0.892 |
+| R361 glycine cleavage (lipoamide) | 7.7 % / 7.4 % | 0.895 / 0.892 |
 | R534 cytosolic MDH | 49.7 % / 62.4 % | 0.544 / 0.424 |
 | R641 / R660 serine pathway | 3.7 % / 4.0 % | 0.825 / 0.825 |
 | R659 phosphoserine phosphatase | 0 / 0 | 0.826 / 0.827 |
 | R740 SDH | 17.8 % / 19.7 % | 0.946 / 0.943 |
 | R929 succinate/fumarate carrier | 4.5 % / 6.1 % | 0.814 / 0.806 |
 | R490 ICL | 4.5 % / 5.5 % | 0.815 / 0.812 |
-| R315 cytosolic fumarase | 9.9 % / 10.9 % | 0.819 / 0.811 |
+| R315 cytosolic fumarase | 9.9 % / 10.9 % | 0.819 / 0.810 |
 | R1385 matrix NADP-IDH | 0.1 % / 0.2 % | 0.825 / 0.827 |
 | R570 NDH2 | 3.3 % / 3.7 % | 0.634 / 0.630 |
 | R325 G6PDH | 0 / 0 | 0.793 / 0.794 |
@@ -430,29 +430,48 @@ export, but give no number.
 | Cap on R533 reverse | A, no floors | V2, no floors | A, PDH+CS+G6PDH + R825 ASSUMPTION | V2, same |
 |---|---:|---:|---|---|
 | 0 | 0.077 | 0.000 | no solution | no solution |
+| 0.2357 | 0.15003 (just above cutoff) | 0.079 | no solution | no solution |
 | 0.236 | **0.150** | 0.079 | no solution | no solution |
+| 0.449 | 0.216 | **0.1501** | no solution | no solution |
 | 0.45 | 0.217 | **0.150** | no solution | no solution |
 | 0.5 | 0.232 | 0.167 | no solution | no solution |
 | 1 | 0.388 | 0.334 | no solution | no solution |
 | 2 | 0.699 | 0.669 | no solution | no solution |
 | 2.5 | 0.826 | 0.827 | no solution | no solution |
-| 80 – 86.5 | 0.826 | 0.827 | no solution | no solution |
+| 80 – 86.66 | 0.826 | 0.827 | no solution | no solution |
+| 86.67 | 0.826 | 0.827 | **0.078** | **0.002** |
 | 86.7 | 0.826 | 0.827 | **0.088** | **0.012** |
+| 86.8 | 0.826 | 0.827 | **0.118** | **0.045** |
+| 86.9 | 0.826 | 0.827 | **0.149** | **0.078** |
 | 87 | 0.826 | 0.827 | 0.180 | **0.111** |
+| 87.1 | 0.826 | 0.827 | 0.211 | **0.144** |
+| 87.2 | 0.826 | 0.827 | 0.242 | 0.177 |
 | 88 | 0.826 | 0.827 | 0.319 | 0.278 |
 | 100 | 0.826 | 0.827 | 0.342 | 0.299 |
 | 120 or none | 0.826 | 0.827 | 0.361 | 0.316 |
 
-With floors, every cap ≤ 86.5 gives "no solution". That is a constraint conflict (the floors force PDH flux the
-KO cannot reoxidise): **unresolved, not lethal**. WT cost is 0 at every cap. The first grid jumped from 80 to
-100. The audit found the 86.7 threshold, and the fine grid confirms it.
+With floors, every cap ≤ 86.66 gives "no solution". That is a constraint conflict (the floors force PDH flux
+the KO cannot reoxidise): **unresolved, not lethal**. WT cost is 0 at every cap. The first grid jumped from 80
+to 100. The first audit found the ~86.7 threshold, and the fine grid confirms it.
+
+The second audit (2026-10-14) found two problems, both now fixed:
+- `shuttle_cap.py` labelled no-solution KOs `essential_15 = True`, against benchmark.md. They are now
+  `"unresolved"`.
+- The band was overstated.
+
+Both CSV/JSON pairs were regenerated, and the fine grid gained the boundary points 0.2357, 0.449 and
+86.66–87.2. Every value at the earlier grid points reproduced exactly; only the 30 no-solution labels changed.
 
 **Reading.**
 - **Without the 13C floors:** essentiality at 15 % needs the shuttle capped below about 0.24 (A) or 0.45 (V2)
   per 100 glucose, i.e. 0.006–0.011 mmol gDW⁻¹ h⁻¹. That is in effect closed.
-- **With the floors:** the KO has no solution below about 86.7, which is the PDH-floor NADH. It is essential only
-  between about 86.7 and 87 (A) or 87.2 (V2), and has KO/WT ≥ 0.28 from 88. Any essential call from this
-  combination sits on a knife edge.
+- **With the floors:** the KO has no solution below 86.66, which is the PDH-floor NADH (86.663 per 100 glucose,
+  audit).
+  - It is essential at 15 % only from 86.67 to about 86.9 (A; 0.149 at 86.9, 0.180 at 87.0), a band about 0.24
+    wide.
+  - For V2 the band runs to about 87.1 (0.144 at 87.1, 0.177 at 87.2), about 0.46 wide.
+  - KO/WT is ≥ 0.28 from 88.
+  - Any essential call from this combination sits on a knife edge.
 
 **Options.** **User decision (2026-10-14): option (d).** No ASSUMPTION file is written (TASK.md Amendment 2).
 
@@ -460,7 +479,7 @@ KO cannot reoxidise): **unresolved, not lethal**. WT cost is 0 at every cap. The
 |---|---|---|---|
 | (a) ASSUMPTION file "matrix MDH oxidative only" | R533 lb 0 (forward kept), in memory; never in the XML | complex I KO/WT 0.077 (A; essential at 10/15 %) and 0 (V2; all cutoffs); WT cost 0 | Kerscher 2001 (qualitative, *Yarrowia*). Against it: thermodynamics favours the closed direction. Its effect on the other benchmark calls is **untested** and should be screened before any use |
 | (b) ASSUMPTION file "R831 malate export closed" | R831 ub 0 (citrate in / malate out) | same as (a) | better supported than (a): reconstituted *S. cerevisiae* Ctp1 does not exchange citrate for malate (Aluvila 2010, §6.2), and Kerscher 2001 supports a limited shuttle. Limits: cross-species evidence; benchmark side effects untested |
-| (c) 13C floors + a shuttle cap | condition pair | below ~86.7 the KO has no solution; essential only in a ~0.5-wide band | a call that hinges on an unmeasured number; diagnostic only |
+| (c) 13C floors + a shuttle cap | condition pair | below 86.66 the KO has no solution; essential only in a band ~0.24 (A) / ~0.46 (V2) wide | a call that hinges on an unmeasured number; diagnostic only |
 | (d) no assumption now | record that the model needs a shuttle assumption to reproduce complex I lethality | none | the evidence-level default |
 
 **Recommendation (inferred).**
