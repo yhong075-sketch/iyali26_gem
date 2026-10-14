@@ -5,6 +5,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-13: W29 13C consistency of mitochondrial carriers (Task C), investigation only
+
+**Authorization.** The user authorized Task C of `claude_code_prompt_w29_tasks_20261012.md`, with
+these decisions:
+- base model: the Task B candidate `a56f3649…` (from `e985dcd`, not merged);
+- media: W29 V2 (primary) and V1;
+- stop before any curation run.
+
+After the 2 % stop fired, the user kept the pre-registered setup and replaced the recalled targets
+(Amendment 1 in [TASK.md](reports/w29_13c_consistency_20261012/TASK.md)). No model was built or edited.
+Uncommitted on `claude/task-c-9ffd14`.
+
+**Results** ([REPORT.md](reports/w29_13c_consistency_20261012/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Elastic fit** (22 MFA ranges, holistic overlay, μ 0.2663, glucose 2.414):
+  - total violation V2 / V1 = 6.52 / 5.47 with R825 import-only; 1.43 / 1.21 with R825 reversible;
+  - all eight Amendment-1 targets are within 0.5 %. This is a consistency check: the targets were set
+    after these values were reported. The independent audit re-ran the V2 totals and got identical
+    values.
+  - The recalled 6.94 / 1.14 / 2.72 / 0.68 reproduce only with R132 present and glycine cleavage mapped
+    to R361. That mapping caps 2-OGDH and is not used.
+- **C1:**
+  - YALI1F33754g ↔ Ctp1, YALI1B14382g ↔ Yhm2 and YALI1C03415g ↔ Crc1 are reciprocal best hits in the
+    whole mitochondrial-carrier family.
+  - No carrier change proposed.
+  - Flag: the citrate/malate mode of R831 rests on homology and UniProt "by similarity", not on yeast
+    reconstitution.
+- **C2: R825 reversible, in memory:**
+  - WT +0.4 %; no essentiality call changes at 1, 5, 10 or 15 %.
+  - Complex I KO/WT 0.825 → 0.680 under the PDH ≥ 0.867 floor (V2, overlay, caps). With R825 as
+    supplied, the floor leaves the KO with no solution (unresolved, not lethal).
+  - Module test (2^5): under the floor without caps, the KO needs acetylcarnitine export or HMG-CoA
+    export (R412 → R1172; no evidence found for either the mitochondrial HMGS or HMG-CoA transport).
+    With 13C caps, only acetylcarnitine export rescues it. R945 carries 0.
+  - No direction evidence for export in *Y. lipolytica* on glucose was found; it is shown only in
+    engineered *S. cerevisiae* (van Rossum 2016). **Recommendation:** option (iii), a labelled
+    assumption variant and no XML change.
+  - Reversing R825 opens a net-zero R825/R1275/R1205 loop.
+
+**Limits.**
+- The Worland 2024 full text is unread (abstract only).
+- The MFA → model mapping is inferred.
+- Glycerol and oleate fits were not run.
+- **Independent read-only audit:** SUPPORTED, with minor wording corrections, all applied (REPORT §11).
+
+**Amendment 2 (user, 2026-10-13): R825 option (iii).**
+- **New file:** [r825_reversible_20261013.json](conditions/assumptions/r825_reversible_20261013.json)
+  (`e45cab42…`), labelled ASSUMPTION, for the 13C fits and Task D only. No XML change.
+- **Loop check, before use (verified):** loopless FVA gives R1275 = R1205 = 0 at the fit and WT
+  states, and the cycle flux is 0. Blocking the loop, or a full-model loopless MILP, leaves the fit
+  total (1.433071), WT and complex I KO/WT (0.680) unchanged. The stop did not fire.
+- **Carnitine (verified):** the model has no carnitine biosynthesis and no uptake on the W29 or PO1f
+  media (max demand 0). The shuttle runs as a conserved pool and does not depend on a de novo route.
+- **Task D handoff:**
+  - R412 + R1172 (mitochondrial HMG-CoA route) go in as one closure part, and R1708 stays a part.
+  - The user's *S. cerevisiae* Erg13 (cytosolic) comparison is to be checked there; it is not
+    *Yarrowia* evidence.
+
 ## 2026-10-08: CoQ9 + respiratory-chain package built through the pipeline and screened
 
 **Authorization.** The user listed five items, then decided on 2026-10-08:

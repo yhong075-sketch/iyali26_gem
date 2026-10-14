@@ -1,0 +1,198 @@
+{
+ "sw_impl": {
+  "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/r132_mito_adh_20261012/sw_blosum62_gotoh.py",
+  "sha256": "04a1f73fc18b96b0d7b3179e62380c438a98cf86574d37b2fb06bec0cb66398c"
+ },
+ "fasta": {
+  "queries": {
+   "file": "yali_queries_refseq.fasta",
+   "sha256": "130eab03173d6e57a02e89f1db1b80ec2cf75bba2a32082759a93e50987c4bbd"
+  },
+  "sc": {
+   "file": "sc_mcf_reviewed.fasta",
+   "sha256": "842e9e594307368c016fc8009173adb27c71539d2aec5ed463d9baf6cb6e5aa1"
+  },
+  "yl": {
+   "file": "yl_clib122_mcf.fasta",
+   "sha256": "027a613b88610e2e1da4aa5f8ca3a5d165c2f99371310c80802b2aeeae43f7ae"
+  }
+ },
+ "refseq_to_clib122": {
+  "XP_505902.1": {
+   "clib122_entry": "tr|Q6C0B0|Q6C0B0_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  },
+  "XP_500732.1": {
+   "clib122_entry": "tr|Q6CF30|Q6CF30_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  },
+  "XP_501359.1": {
+   "clib122_entry": "tr|Q6CDA3|Q6CDA3_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  }
+ },
+ "pairs": {
+  "YALI1F33754g": {
+   "refseq": "XP_505902.1",
+   "expected_sc_ortholog": "CTP1",
+   "forward_top3": [
+    {
+     "subject": "sp|P38152|TXTP_YEAST",
+     "score": 1006,
+     "identity": 0.6722,
+     "q_cov": 1.0,
+     "s_cov": 0.997
+    },
+    {
+     "subject": "sp|P33303|SFC1_YEAST",
+     "score": 374,
+     "identity": 0.3072,
+     "q_cov": 0.997,
+     "s_cov": 0.944
+    },
+    {
+     "subject": "sp|P43617|YFL5_YEAST",
+     "score": 332,
+     "identity": 0.2987,
+     "q_cov": 0.979,
+     "s_cov": 0.971
+    }
+   ],
+   "reverse_top3": [
+    {
+     "subject": "tr|Q6C0B0|Q6C0B0_YARLI",
+     "score": 1006,
+     "identity": 0.6722,
+     "q_cov": 0.997,
+     "s_cov": 1.0
+    },
+    {
+     "subject": "tr|Q6C3I0|Q6C3I0_YARLI",
+     "score": 336,
+     "identity": 0.3299,
+     "q_cov": 0.923,
+     "s_cov": 0.884
+    },
+    {
+     "subject": "tr|Q6C0X5|Q6C0X5_YARLI",
+     "score": 274,
+     "identity": 0.3121,
+     "q_cov": 0.763,
+     "s_cov": 0.875
+    }
+   ],
+   "forward_best_is_expected": true,
+   "reverse_best_is_this_gene": true
+  },
+  "YALI1B14382g": {
+   "refseq": "XP_500732.1",
+   "expected_sc_ortholog": "YHM2",
+   "forward_top3": [
+    {
+     "subject": "sp|Q04013|YHM2_YEAST",
+     "score": 1197,
+     "identity": 0.769,
+     "q_cov": 0.968,
+     "s_cov": 0.962
+    },
+    {
+     "subject": "sp|P33303|SFC1_YEAST",
+     "score": 153,
+     "identity": 0.2192,
+     "q_cov": 0.859,
+     "s_cov": 0.873
+    },
+    {
+     "subject": "sp|P32332|OAC1_YEAST",
+     "score": 149,
+     "identity": 0.2368,
+     "q_cov": 0.556,
+     "s_cov": 0.552
+    }
+   ],
+   "reverse_top3": [
+    {
+     "subject": "tr|Q6CF30|Q6CF30_YARLI",
+     "score": 1197,
+     "identity": 0.769,
+     "q_cov": 0.962,
+     "s_cov": 0.968
+    },
+    {
+     "subject": "tr|Q6CAH9|Q6CAH9_YARLI",
+     "score": 134,
+     "identity": 0.2415,
+     "q_cov": 0.882,
+     "s_cov": 0.943
+    },
+    {
+     "subject": "tr|Q6C5J8|Q6C5J8_YARLI",
+     "score": 131,
+     "identity": 0.2182,
+     "q_cov": 0.822,
+     "s_cov": 0.859
+    }
+   ],
+   "forward_best_is_expected": true,
+   "reverse_best_is_this_gene": true
+  },
+  "YALI1C03415g": {
+   "refseq": "XP_501359.1",
+   "expected_sc_ortholog": "CRC1",
+   "forward_top3": [
+    {
+     "subject": "sp|Q12289|CRC1_YEAST",
+     "score": 765,
+     "identity": 0.5131,
+     "q_cov": 0.939,
+     "s_cov": 0.911
+    },
+    {
+     "subject": "sp|P32331|YMC1_YEAST",
+     "score": 426,
+     "identity": 0.3714,
+     "q_cov": 0.876,
+     "s_cov": 0.886
+    },
+    {
+     "subject": "sp|P38087|YMC2_YEAST",
+     "score": 396,
+     "identity": 0.339,
+     "q_cov": 0.885,
+     "s_cov": 0.869
+    }
+   ],
+   "reverse_top3": [
+    {
+     "subject": "tr|Q6CDA3|Q6CDA3_YARLI",
+     "score": 765,
+     "identity": 0.5131,
+     "q_cov": 0.911,
+     "s_cov": 0.939
+    },
+    {
+     "subject": "tr|Q6C4B3|Q6C4B3_YARLI",
+     "score": 345,
+     "identity": 0.3059,
+     "q_cov": 0.902,
+     "s_cov": 0.993
+    },
+    {
+     "subject": "tr|Q6C5J8|Q6C5J8_YARLI",
+     "score": 334,
+     "identity": 0.3007,
+     "q_cov": 0.881,
+     "s_cov": 0.951
+    }
+   ],
+   "forward_best_is_expected": true,
+   "reverse_best_is_this_gene": true
+  }
+ }
+}

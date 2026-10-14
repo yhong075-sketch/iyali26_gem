@@ -1,0 +1,381 @@
+{
+ "started_utc": "2026-10-14T00:11:18.008894+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/w29_13c_consistency_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "experimental": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+   "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b"
+  },
+  "mtdna_scope": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/expected/mtdna_genes_out_of_scope.json",
+   "sha256": "16b3e9b4418f24821b8775936fd377ae21f77afa8e8af2b8949a246f62c44996"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "parent_model": {
+  "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_respiratory_package_20261008.xml",
+  "sha256": "0ac2addfa0cb6de2d89393e433766fb04325ffe42c2d131eaefaca3bcec29dba"
+ },
+ "medium": "V1",
+ "overlay": true,
+ "results": [
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "module",
+   "setup": "overlay",
+   "total": 3.531160581449335,
+   "recalled_V1": 6.94,
+   "relative_difference": -0.49118723610240134,
+   "violations": {
+    "PDH": -3.28,
+    "IDH_total": 1.94,
+    "OGDH": 0.89,
+    "pyruvate_import": -31.26,
+    "malate_import": 5.7
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "module",
+   "setup": "overlay_no_malate",
+   "total": 1.1312515641250933,
+   "recalled_V1": 1.14,
+   "relative_difference": -0.007674066556935588,
+   "violations": {
+    "CS": 10.42,
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "module",
+   "setup": "R825_rev",
+   "total": 1.195796075029929,
+   "recalled_V1": 2.72,
+   "relative_difference": -0.5603690900625261,
+   "violations": {
+    "pyruvate_import": -16.51
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "module",
+   "setup": "R825_rev_no_malate",
+   "total": 0.679123568940328,
+   "recalled_V1": 0.68,
+   "relative_difference": -0.0012888692054000561,
+   "violations": {
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "minus_R361",
+   "setup": "overlay",
+   "total": 7.087280855632652,
+   "recalled_V1": 6.94,
+   "relative_difference": 0.021222025307298553,
+   "violations": {
+    "PDH": -13.62,
+    "pyruvate_import": -27.73,
+    "malate_import": 21.85,
+    "PC_minus_ME": 6.55
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "minus_R361",
+   "setup": "overlay_no_malate",
+   "total": 1.1456505349922321,
+   "recalled_V1": 1.14,
+   "relative_difference": 0.00495660964230904,
+   "violations": {
+    "CS": 10.75,
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "minus_R361",
+   "setup": "R825_rev",
+   "total": 2.7283077282883634,
+   "recalled_V1": 2.72,
+   "relative_difference": 0.003054311870721804,
+   "violations": {
+    "CS": -9.3,
+    "MDH_mito": -14.1,
+    "pyruvate_import": -23.65
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "minus_R361",
+   "setup": "R825_rev_no_malate",
+   "total": 0.6791235689403599,
+   "recalled_V1": 0.68,
+   "relative_difference": -0.0012888692053532047,
+   "violations": {
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "plus_R361",
+   "setup": "overlay",
+   "total": 6.972927186552949,
+   "recalled_V1": 6.94,
+   "relative_difference": 0.004744551376505646,
+   "violations": {
+    "PDH": -13.6,
+    "pyruvate_import": -27.71,
+    "malate_import": 21.18,
+    "PC_minus_ME": 6.53
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "plus_R361",
+   "setup": "overlay_no_malate",
+   "total": 1.1439519151103033,
+   "recalled_V1": 1.14,
+   "relative_difference": 0.003466592202020502,
+   "violations": {
+    "CS": 10.71,
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "plus_R361",
+   "setup": "R825_rev",
+   "total": 2.667576915358936,
+   "recalled_V1": 2.72,
+   "relative_difference": -0.019273192882744095,
+   "violations": {
+    "CS": -8.63,
+    "MDH_mito": -13.52,
+    "pyruvate_import": -23.56
+   }
+  },
+  {
+   "model": "parent_R132_present",
+   "gcv_form": "plus_R361",
+   "setup": "R825_rev_no_malate",
+   "total": 0.6791235689403585,
+   "recalled_V1": 0.68,
+   "relative_difference": -0.001288869205355203,
+   "violations": {
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "module",
+   "setup": "overlay",
+   "total": 5.464701058974394,
+   "recalled_V1": 6.94,
+   "relative_difference": -0.2125790981304908,
+   "violations": {
+    "PGI": 14.0,
+    "CS": 8.5,
+    "OGDH": 10.67,
+    "SDH": 9.78,
+    "MS": -2.83,
+    "pyruvate_import": -22.82,
+    "malate_import": 9.93
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "module",
+   "setup": "overlay_no_malate",
+   "total": 2.069632760492059,
+   "recalled_V1": 1.14,
+   "relative_difference": 0.8154673337649643,
+   "violations": {
+    "CS": 26.1,
+    "pyruvate_import": -12.94
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "module",
+   "setup": "R825_rev",
+   "total": 1.211624364824282,
+   "recalled_V1": 2.72,
+   "relative_difference": -0.5545498658734258,
+   "violations": {
+    "pyruvate_import": -16.73
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "module",
+   "setup": "R825_rev_no_malate",
+   "total": 0.6791235689402974,
+   "recalled_V1": 0.68,
+   "relative_difference": -0.0012888692054451312,
+   "violations": {
+    "pyruvate_import": -9.38
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "minus_R361",
+   "setup": "overlay",
+   "total": 12.686089398490854,
+   "recalled_V1": 6.94,
+   "relative_difference": 0.8279667721168376,
+   "violations": {
+    "PGI": 11.44,
+    "PDH": -16.02,
+    "CS": 34.54,
+    "pyruvate_import": -13.88,
+    "malate_import": 44.89,
+    "PC_minus_ME": 12.76
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "minus_R361",
+   "setup": "overlay_no_malate",
+   "total": 3.8915807376231686,
+   "recalled_V1": 1.14,
+   "relative_difference": 2.413667313704534,
+   "violations": {
+    "PDH": -4.02,
+    "CS": 36.45,
+    "MDH_mito": 16.39,
+    "ICL": 2.64,
+    "pyruvate_import": -6.74,
+    "succinate_import": 6.28
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "minus_R361",
+   "setup": "R825_rev",
+   "total": 4.488296547490699,
+   "recalled_V1": 2.72,
+   "relative_difference": 0.6501090248127568,
+   "violations": {
+    "PDH": -6.36,
+    "ICL": 3.29,
+    "MS": 0.65,
+    "pyruvate_import": -15.3,
+    "succinate_import": 3.29,
+    "malate_import": 12.64,
+    "PC_minus_ME": 2.34
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "minus_R361",
+   "setup": "R825_rev_no_malate",
+   "total": 1.101069664845089,
+   "recalled_V1": 0.68,
+   "relative_difference": 0.619220095360425,
+   "violations": {
+    "PDH": -1.76,
+    "ICL": 2.64,
+    "pyruvate_import": -6.74,
+    "succinate_import": 2.64
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "plus_R361",
+   "setup": "overlay",
+   "total": 12.490943597565046,
+   "recalled_V1": 6.94,
+   "relative_difference": 0.799847780628969,
+   "violations": {
+    "PGI": 11.01,
+    "PDH": -15.35,
+    "CS": 34.4,
+    "pyruvate_import": -14.69,
+    "malate_import": 44.22,
+    "PC_minus_ME": 11.95
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "plus_R361",
+   "setup": "overlay_no_malate",
+   "total": 3.791158592705814,
+   "recalled_V1": 1.14,
+   "relative_difference": 2.325577712899837,
+   "violations": {
+    "PDH": -4.02,
+    "CS": 36.45,
+    "MDH_mito": 15.5,
+    "ICL": 2.64,
+    "pyruvate_import": -6.74,
+    "succinate_import": 5.62
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "plus_R361",
+   "setup": "R825_rev",
+   "total": 4.311311795326094,
+   "recalled_V1": 2.72,
+   "relative_difference": 0.5850411012228285,
+   "violations": {
+    "PDH": -6.36,
+    "ICL": 2.96,
+    "MS": 0.32,
+    "pyruvate_import": -15.62,
+    "succinate_import": 2.96,
+    "malate_import": 11.98,
+    "PC_minus_ME": 2.34
+   }
+  },
+  {
+   "model": "taskB_candidate_R132_removed",
+   "gcv_form": "plus_R361",
+   "setup": "R825_rev_no_malate",
+   "total": 1.0375554356533805,
+   "recalled_V1": 0.68,
+   "relative_difference": 0.5258168171373241,
+   "violations": {
+    "PDH": -0.87,
+    "ICL": 2.64,
+    "pyruvate_import": -6.74,
+    "succinate_import": 2.64
+   }
+  }
+ ],
+ "all_four_within_2pct": {
+  "parent_R132_present|module": false,
+  "parent_R132_present|minus_R361": false,
+  "parent_R132_present|plus_R361": true,
+  "taskB_candidate_R132_removed|module": false,
+  "taskB_candidate_R132_removed|minus_R361": false,
+  "taskB_candidate_R132_removed|plus_R361": false
+ },
+ "lps": 24,
+ "elapsed_seconds": 6.165108166984282
+}

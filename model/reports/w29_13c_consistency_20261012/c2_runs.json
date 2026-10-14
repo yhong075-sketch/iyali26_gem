@@ -1,0 +1,6728 @@
+{
+ "started_utc": "2026-10-14T00:24:26.237587+00:00",
+ "command": "python -B model/reports/w29_13c_consistency_20261012/c2_runs.py",
+ "head": "7dc9511600cb1ad935cc70944d9cd5f82afaf42c",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/inputs/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/w29_13c_consistency_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "experimental": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+   "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b"
+  },
+  "mtdna_scope": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/expected/mtdna_genes_out_of_scope.json",
+   "sha256": "16b3e9b4418f24821b8775936fd377ae21f77afa8e8af2b8949a246f62c44996"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "solver": {
+  "Threads": 1,
+  "TimeLimit": 60.0,
+  "Presolve": 0,
+  "FeasibilityTol": 1e-07,
+  "OptimalityTol": 1e-07,
+  "IntFeasTol": 1e-07
+ },
+ "versions": {
+  "python": "3.13.5",
+  "cobra": "0.30.0",
+  "gurobi": [
+   13,
+   0,
+   1
+  ]
+ },
+ "pdh_floor_fraction": 0.866629,
+ "scoring": "mtDNA genes out of scope (benchmark.md 2026-10-08); negatives are model genes absent from the positive list (user-defined class); benchmark rule: no solution = unresolved; second view counts no solution as lethal (labelled); development reference, not independent validation",
+ "simulation_context": {
+  "V2": {
+   "simulation_context_fingerprint_version": "1",
+   "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+   "strain_overlay_enabled": true,
+   "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+   "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+   "strain_overlay_effect_fingerprint_version": "1",
+   "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+  },
+  "V1": {
+   "simulation_context_fingerprint_version": "1",
+   "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+   "strain_overlay_enabled": true,
+   "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+   "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+   "strain_overlay_effect_fingerprint_version": "1",
+   "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+  },
+  "CSM": {
+   "simulation_context_fingerprint_version": "1",
+   "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+   "strain_overlay_enabled": true,
+   "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+   "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+   "strain_overlay_effect_fingerprint_version": "1",
+   "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+  }
+ },
+ "wt_growth": [
+  {
+   "medium": "V2",
+   "overlay": false,
+   "R825": "as supplied",
+   "growth": 0.2945807648296001,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "R825": "reversible",
+   "growth": 0.29570556570980255,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "R825": "as supplied",
+   "growth": 0.29376991657747725,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "R825": "reversible",
+   "growth": 0.2948726681299726,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "CSM",
+   "overlay": false,
+   "R825": "as supplied",
+   "growth": 0.3124267446456666,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "CSM",
+   "overlay": false,
+   "R825": "reversible",
+   "growth": 0.31363414406033735,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "CSM",
+   "overlay": true,
+   "R825": "as supplied",
+   "growth": 0.3117523150525438,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  },
+  {
+   "medium": "CSM",
+   "overlay": true,
+   "R825": "reversible",
+   "growth": 0.31293680350724395,
+   "status": "optimal",
+   "glucose_uptake": 2.414
+  }
+ ],
+ "benchmark": {
+  "as_supplied": {
+   "WT": 0.31242674464566944,
+   "controls": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.2367727464577085,
+     "status": "optimal",
+     "ratio": 0.7578504417931252
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327856,
+     "status": "optimal",
+     "ratio": 0.10966416854656896
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 74,
+     "FN": 237,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.2379421221864952,
+     "precision": 0.6915887850467289,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.2904962880644161
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 82,
+     "FN": 229,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.26366559485530544,
+     "precision": 0.7130434782608696,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.31897700046487787
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 85,
+     "FN": 237,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2639751552795031,
+     "precision": 0.6910569105691057,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.3046796072018255
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 93,
+     "FN": 229,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2888198757763975,
+     "precision": 0.7099236641221374,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.33120522315361867
+    }
+   ]
+  },
+  "R825_reversible": {
+   "WT": 0.3136341440603392,
+   "controls": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.2375528489105587,
+     "status": "optimal",
+     "ratio": 0.7574202407785569
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03457486194752881,
+     "status": "optimal",
+     "ratio": 0.11023947042219055
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 74,
+     "FN": 237,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.2379421221864952,
+     "precision": 0.6915887850467289,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.2904962880644161
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 82,
+     "FN": 229,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.26366559485530544,
+     "precision": 0.7130434782608696,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.31897700046487787
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 85,
+     "FN": 237,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2639751552795031,
+     "precision": 0.6910569105691057,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.3046796072018255
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 93,
+     "FN": 229,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2888198757763975,
+     "precision": 0.7099236641221374,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.33120522315361867
+    }
+   ]
+  }
+ },
+ "benchmark_ratio_changes": [
+  {
+   "gene_id": "YALI1A09694g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R357;R360;R361;R362;R365",
+   "ratio_as_supplied": 0.9826052795331476,
+   "ratio_R825_reversible": 0.9925788401718024,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1A14721g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R740",
+   "ratio_as_supplied": 0.9772672607932912,
+   "ratio_R825_reversible": 0.9774650114784085,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1A15879g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R389;R651;R652",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1A20176g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R327",
+   "ratio_as_supplied": 0.9988605544746649,
+   "ratio_R825_reversible": 0.9988561560285533,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1A21711g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931274,
+   "ratio_R825_reversible": 0.7574202407785549,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B00908g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931261,
+   "ratio_R825_reversible": 0.7574202407785559,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B01428g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R658",
+   "ratio_as_supplied": 0.03007840665332255,
+   "ratio_R825_reversible": 0.029962613614641923,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B04138g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R283;R643",
+   "ratio_as_supplied": 0.9468734138049051,
+   "ratio_R825_reversible": 0.9469307118596542,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B10635g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R633",
+   "ratio_as_supplied": 0.19526556299692766,
+   "ratio_R825_reversible": 0.19451384788257362,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B13179g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R693",
+   "ratio_as_supplied": 0.9788258357334293,
+   "ratio_R825_reversible": 0.976028659431762,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B13948g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R192;R193",
+   "ratio_as_supplied": 0.9999999999999936,
+   "ratio_R825_reversible": 0.9961502934628246,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B19507g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931287,
+   "ratio_R825_reversible": 0.757420240778554,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B20153g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R657",
+   "ratio_as_supplied": 0.030078406653332782,
+   "ratio_R825_reversible": 0.029962613614578446,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B20289g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R718",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B22549g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R670",
+   "ratio_as_supplied": 0.25506457526853654,
+   "ratio_R825_reversible": 0.254082651505724,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B22614g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R124;R125",
+   "ratio_as_supplied": 0.030078406653297914,
+   "ratio_R825_reversible": 0.029962613614438943,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B22853g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R560;R93",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B26679g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.757850441793133,
+   "ratio_R825_reversible": 0.7574202407785576,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1B30090g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1892;R653",
+   "ratio_as_supplied": 0.030078406653303854,
+   "ratio_R825_reversible": 0.029962613614673957,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C00293g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R13;R627;R77",
+   "ratio_as_supplied": 0.22646962094793324,
+   "ratio_R825_reversible": 0.2255977793676989,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C02550g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2112;R2119;R2121",
+   "ratio_as_supplied": 0.9990245053983727,
+   "ratio_R825_reversible": 0.9999976542272409,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C03415g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R825",
+   "ratio_as_supplied": 0.9999999999999943,
+   "ratio_R825_reversible": 0.9961502934628234,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C04281g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931288,
+   "ratio_R825_reversible": 0.7574202407785514,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C06626g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R170",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C06681g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1379;R1380;R1381",
+   "ratio_as_supplied": 0.9946417717720545,
+   "ratio_R825_reversible": 0.9946212448244892,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C07638g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1434;R1435;R1869",
+   "ratio_as_supplied": 0.9999943250734873,
+   "ratio_R825_reversible": 0.9999929627147365,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C08262g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R344",
+   "ratio_as_supplied": 0.8666323279382312,
+   "ratio_R825_reversible": 0.8663744486702524,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C09033g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R314;R315",
+   "ratio_as_supplied": 0.9549549844706917,
+   "ratio_R825_reversible": 0.9550502857092383,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C09467g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R415",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C16621g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R714",
+   "ratio_as_supplied": 0.9994813875149822,
+   "ratio_R825_reversible": 0.9994792320726137,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C20224g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1765",
+   "ratio_as_supplied": 0.9990949271605309,
+   "ratio_R825_reversible": 0.9990913652706579,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1C32276g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R279;R280",
+   "ratio_as_supplied": 0.22646962094793324,
+   "ratio_R825_reversible": 0.2255977793676989,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D00766g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.757850441793127,
+   "ratio_R825_reversible": 0.7574202407785553,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D01188g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R399",
+   "ratio_as_supplied": 0.21129930609705583,
+   "ratio_R825_reversible": 0.21048586577707387,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D03221g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1386;R807",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D03865g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1907;R355",
+   "ratio_as_supplied": 0.9966346054605173,
+   "ratio_R825_reversible": 0.9966184172350927,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D03952g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R497;R76",
+   "ratio_as_supplied": 0.22646962094793324,
+   "ratio_R825_reversible": 0.2255977793676989,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D05873g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R496;R741",
+   "ratio_as_supplied": 0.9871393150315023,
+   "ratio_R825_reversible": 0.9945297744734602,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D06302g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931267,
+   "ratio_R825_reversible": 0.7574202407785545,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D07089g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931291,
+   "ratio_R825_reversible": 0.7574202407785527,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D08734g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R909",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D09203g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931283,
+   "ratio_R825_reversible": 0.7574202407785535,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D10264g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2165;R2168",
+   "ratio_as_supplied": 0.9989648160761758,
+   "ratio_R825_reversible": 0.9989607443616487,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D13238g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R398",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D14058g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R745",
+   "ratio_as_supplied": 0.1952655629969282,
+   "ratio_R825_reversible": 0.19451384788257417,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D14260g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R740",
+   "ratio_as_supplied": 0.9772672607932815,
+   "ratio_R825_reversible": 0.9774650114784028,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D14532g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R160",
+   "ratio_as_supplied": 0.21129930609705577,
+   "ratio_R825_reversible": 0.21048586577707393,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D15424g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R642",
+   "ratio_as_supplied": 0.8666323279382282,
+   "ratio_R825_reversible": 0.8663744486702509,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D16809g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R164",
+   "ratio_as_supplied": 0.21129930609705583,
+   "ratio_R825_reversible": 0.21048586577707393,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D17462g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R153",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D18037g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1394;R1395;R1396;R2062;R2218;R2221;R2224;R2227;R2230;R2233;R78",
+   "ratio_as_supplied": 0.7578504417931285,
+   "ratio_R825_reversible": 0.7574202407785549,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D18130g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R607",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D20222g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R636;R637",
+   "ratio_as_supplied": 0.929486478042734,
+   "ratio_R825_reversible": 0.9282076937024322,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D20257g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1763;R1766",
+   "ratio_as_supplied": 0.9990949271605353,
+   "ratio_R825_reversible": 0.9990913652706602,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D24109g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931264,
+   "ratio_R825_reversible": 0.7574202407785567,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D26360g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1968;R1969;R1970;R1976;R2281;R357;R360;R361;R364;R365;R613;R614;R693",
+   "ratio_as_supplied": 0.9742123635795221,
+   "ratio_R825_reversible": 0.9714421930783125,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D29419g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R96",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D29481g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R719",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D30256g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R740",
+   "ratio_as_supplied": 0.9772672607932803,
+   "ratio_R825_reversible": 0.9774650114784025,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D30618g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R693",
+   "ratio_as_supplied": 0.9788258357334271,
+   "ratio_R825_reversible": 0.9760286594317545,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D32209g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R421;R654",
+   "ratio_as_supplied": 0.03007840665330128,
+   "ratio_R825_reversible": 0.029962613614582075,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D32550g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931275,
+   "ratio_R825_reversible": 0.7574202407785581,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D34529g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R822;R823;R875",
+   "ratio_as_supplied": 0.9845454999453016,
+   "ratio_R825_reversible": 0.9817601257858224,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D34865g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R152",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1D35593g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1773;R2145",
+   "ratio_as_supplied": 0.9989629146813636,
+   "ratio_R825_reversible": 0.9989588356602082,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E00574g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R357;R360;R361;R365",
+   "ratio_as_supplied": 0.9826052795331469,
+   "ratio_R825_reversible": 0.9925788401717981,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E00760g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R127",
+   "ratio_as_supplied": 0.19526556299692935,
+   "ratio_R825_reversible": 0.19451384788257542,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E01793g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R391",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E03387g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R24;R395",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E05963g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R390",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E07676g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R505",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E11510g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R505",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E13899g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R83",
+   "ratio_as_supplied": 0.9989813923067948,
+   "ratio_R825_reversible": 1.0000000000000036,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E15659g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R545;R65",
+   "ratio_as_supplied": 0.11564062443282035,
+   "ratio_R825_reversible": 0.11519544196497856,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E16002g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R562;R609",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E17214g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R533;R534;R535;R_MDHy",
+   "ratio_as_supplied": 0.9735283042124065,
+   "ratio_R825_reversible": 0.9763935151549589,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E19603g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R745",
+   "ratio_as_supplied": 0.1952655629969269,
+   "ratio_R825_reversible": 0.19451384788257461,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E19852g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R128;R1939;R1940",
+   "ratio_as_supplied": 0.9960051072858548,
+   "ratio_R825_reversible": 0.9959909027379463,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E20192g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1976;R613;R614",
+   "ratio_as_supplied": 0.9826052795331487,
+   "ratio_R825_reversible": 0.9925788401718059,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E20751g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R214",
+   "ratio_as_supplied": 0.25506457526853654,
+   "ratio_R825_reversible": 0.254082651505724,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E21915g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2066;R2120;R50",
+   "ratio_as_supplied": 0.9990245053983781,
+   "ratio_R825_reversible": 0.9999976542272415,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E22303g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R538;R_OAADCm",
+   "ratio_as_supplied": 0.9979986052477494,
+   "ratio_R825_reversible": 0.9979886799772312,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E24922g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R15;R2073;R624;R770;R773",
+   "ratio_as_supplied": 0.994095109830174,
+   "ratio_R825_reversible": 0.994071474330698,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E27218g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931266,
+   "ratio_R825_reversible": 0.7574202407785565,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E28575g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R496;R741",
+   "ratio_as_supplied": 0.9871393150314963,
+   "ratio_R825_reversible": 0.994529774473462,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E30886g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R256;R313;R720",
+   "ratio_as_supplied": 0.9294864780427314,
+   "ratio_R825_reversible": 0.9282076937024278,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E31947g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R693",
+   "ratio_as_supplied": 0.9788258357334259,
+   "ratio_R825_reversible": 0.976028659431754,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E34269g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R126",
+   "ratio_as_supplied": 0.0576879132233205,
+   "ratio_R825_reversible": 0.0574658316866318,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E35082g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R740",
+   "ratio_as_supplied": 0.9772672607932871,
+   "ratio_R825_reversible": 0.9774650114784021,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E35815g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R332",
+   "ratio_as_supplied": 0.9988605544746644,
+   "ratio_R825_reversible": 0.9988561560285594,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E36477g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1915;R1916;R1917;R1918;R1919;R1920;R1921;R1922;R1923;R1924;R1925;R1926;R1927;R1928;R1929;R250;R786;R787",
+   "ratio_as_supplied": 0.9995446367475221,
+   "ratio_R825_reversible": 0.999542877762401,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E37603g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931311,
+   "ratio_R825_reversible": 0.7574202407785539,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E39221g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R650",
+   "ratio_as_supplied": 0.03007840665330874,
+   "ratio_R825_reversible": 0.029962613614568066,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E39693g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1976;R613;R614",
+   "ratio_as_supplied": 0.9826052795331472,
+   "ratio_R825_reversible": 0.9925788401718029,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E40305g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R416",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1E41148g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R929",
+   "ratio_as_supplied": 0.998569859769866,
+   "ratio_R825_reversible": 0.9985647615121698,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F01456g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931268,
+   "ratio_R825_reversible": 0.7574202407785563,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F01981g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R940",
+   "ratio_as_supplied": 0.8685896977703469,
+   "ratio_R825_reversible": 0.8683823519263526,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F03371g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931271,
+   "ratio_R825_reversible": 0.7574202407785532,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F04082g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R357;R360;R361;R363;R365;R748",
+   "ratio_as_supplied": 0.9826052795331485,
+   "ratio_R825_reversible": 0.9925788401718033,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F06197g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1385;R488;R489",
+   "ratio_as_supplied": 0.998497987601262,
+   "ratio_R825_reversible": 0.9984905351104311,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F07827g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1711;R6",
+   "ratio_as_supplied": 0.12296641011076345,
+   "ratio_R825_reversible": 0.12249302551790735,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F07847g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2089;R768",
+   "ratio_as_supplied": 0.9584232981271811,
+   "ratio_R825_reversible": 0.9580191138173069,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F08845g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2024;R2268;R90;R91;R92",
+   "ratio_as_supplied": 0.9986140250679033,
+   "ratio_R825_reversible": 0.9987617513702933,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F09003g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931269,
+   "ratio_R825_reversible": 0.7574202407785573,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F09598g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R660",
+   "ratio_as_supplied": 0.9637174403081121,
+   "ratio_R825_reversible": 0.9610930459530236,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F11049g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R326",
+   "ratio_as_supplied": 0.990007456873513,
+   "ratio_R825_reversible": 0.9900128622809222,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F12842g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R694",
+   "ratio_as_supplied": 0.948609708356086,
+   "ratio_R825_reversible": 0.9486775060754629,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F13505g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R641",
+   "ratio_as_supplied": 0.9637174403081046,
+   "ratio_R825_reversible": 0.9610930459530248,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F17962g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R400",
+   "ratio_as_supplied": 0.2775950787897874,
+   "ratio_R825_reversible": 0.2765264192002833,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F20788g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R834",
+   "ratio_as_supplied": 0.9969503896335582,
+   "ratio_R825_reversible": 1.000000000000003,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F20914g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R764",
+   "ratio_as_supplied": 0.9996662299430159,
+   "ratio_R825_reversible": 0.9996651320041069,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F22436g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R292",
+   "ratio_as_supplied": 0.9468734138049042,
+   "ratio_R825_reversible": 0.9469307118596559,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F22993g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931272,
+   "ratio_R825_reversible": 0.7574202407785565,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F23664g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R330",
+   "ratio_as_supplied": 0.9768966245751755,
+   "ratio_R825_reversible": 0.9768007524729784,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F24343g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931307,
+   "ratio_R825_reversible": 0.7574202407785489,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F27556g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R693",
+   "ratio_as_supplied": 0.9788258357334232,
+   "ratio_R825_reversible": 0.9760286594317562,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F27904g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R628;R656",
+   "ratio_as_supplied": 0.030078406653323467,
+   "ratio_R825_reversible": 0.029962613614597823,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F28064g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R191",
+   "ratio_as_supplied": 0.9999999999999962,
+   "ratio_R825_reversible": 0.996150293462822,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F28274g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1025;R1026;R2202",
+   "ratio_as_supplied": 0.1590650266308989,
+   "ratio_R825_reversible": 0.15845267295804233,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F30459g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R51;R758",
+   "ratio_as_supplied": 0.2775950787897874,
+   "ratio_R825_reversible": 0.2765264192002833,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F35109g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1938;R28",
+   "ratio_as_supplied": 0.9910032916606493,
+   "ratio_R825_reversible": 0.9909604772326698,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F37559g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R59",
+   "ratio_as_supplied": 0.030078406653304232,
+   "ratio_R825_reversible": 0.02996261361456999,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F38116g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R411;R412",
+   "ratio_as_supplied": 0.9979648576252812,
+   "ratio_R825_reversible": 0.9979570087146037,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1F38776g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R1170;R396",
+   "ratio_as_supplied": 0.06925133851656694,
+   "ratio_R825_reversible": 0.06898474118597174,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1M00056g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931242,
+   "ratio_R825_reversible": 0.757420240778555,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1M00064g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.757850441793126,
+   "ratio_R825_reversible": 0.7574202407785611,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1M00296g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931261,
+   "ratio_R825_reversible": 0.7574202407785541,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1M00335g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931261,
+   "ratio_R825_reversible": 0.7574202407785541,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1M00338r",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931256,
+   "ratio_R825_reversible": 0.7574202407785549,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALI1M00458g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931261,
+   "ratio_R825_reversible": 0.7574202407785541,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  },
+  {
+   "gene_id": "YALIfMp29",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "ratio_as_supplied": 0.7578504417931249,
+   "ratio_R825_reversible": 0.7574202407785534,
+   "status_as_supplied": "optimal",
+   "status_R825_reversible": "optimal"
+  }
+ ],
+ "benchmark_call_changes": {
+  "0.01": [],
+  "0.05": [],
+  "0.1": [],
+  "0.15": []
+ },
+ "complex_I_grid": [
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2945807648296002,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.2217631943009019,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7528094864889786
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2943620451842847,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.61091027529311
+     ],
+     "R693": [
+      86.6629,
+      86.66290000001621
+     ],
+     "R236": [
+      72.5021224000711,
+      72.5021224000873
+     ],
+     "R817": [
+      -59.89215254124001,
+      41365.128559963574
+     ],
+     "R831": [
+      -125.2796881978344,
+      41353.91572913034
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41422.102455482454,
+      41417.90612576701
+     ],
+     "R807": [
+      3.353398269921467,
+      3.3533982699236478
+     ],
+     "R902": [
+      0.0,
+      6.593271450300847e-11
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      8.29457380976301,
+      8.294573816033587
+     ],
+     "R825": [
+      0.0,
+      3.5674308025734935e-10
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      5.0626905779095784e-11
+     ],
+     "R193": [
+      0.0,
+      5.0626905779095784e-11
+     ],
+     "R191": [
+      -0.5393629653103104,
+      5.533178628527447e-11
+     ],
+     "R83": [
+      2.8116818715241245,
+      2.8116818715393643
+     ],
+     "R412": [
+      2.8116818715219187,
+      2.8116818716582155
+     ],
+     "R1172": [
+      -2.811681871524114,
+      -2.811681871488253
+     ],
+     "R410": [
+      2.8116818715241245,
+      2.8116818715182395
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      -3.570914621716632e-11
+     ],
+     "R1974": [
+      0.0,
+      1.3276685283711274e-10
+     ],
+     "R89": [
+      0.0,
+      9.845755804132291e-11
+     ],
+     "R1708": [
+      0.0,
+      1.879376705811201e-10
+     ],
+     "R690": [
+      33.24497982496731,
+      33.24497982521609
+     ],
+     "R538": [
+      0.0,
+      7.1145867434221595
+     ],
+     "R691": [
+      0.0,
+      4.7591499000915986e-11
+     ],
+     "R1378": [
+      0.0,
+      2.615368711667543e-10
+     ],
+     "R134": [
+      0.0,
+      8.109839436287165e-11
+     ],
+     "R90": [
+      0.0,
+      0.5393629653409037
+     ],
+     "R2062": [
+      314.52906209732305,
+      314.52906209736904
+     ],
+     "R570": [
+      0.0,
+      1.0876485748129478e-10
+     ],
+     "R305": [
+      367.0627533871724,
+      367.0627533872266
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.07173873703339541,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.0
+     ],
+     "R693": [
+      86.6629,
+      86.6628999999998
+     ],
+     "R236": [
+      0.2746458408856566,
+      0.27464584089259203
+     ],
+     "R817": [
+      -0.5434907698266647,
+      41336.18011093343
+     ],
+     "R831": [
+      88.2971108070436,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41425.020712510355,
+      41335.905465092554
+     ],
+     "R807": [
+      0.8172539924552155,
+      0.8172539924515053
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41336.723601703314
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      7.286599492887308e-11,
+      0.0
+     ],
+     "R83": [
+      28.3309468756302,
+      28.33094687562585
+     ],
+     "R412": [
+      28.330946875629984,
+      28.330946875745337
+     ],
+     "R1172": [
+      -28.330946875629394,
+      -28.330946875626967
+     ],
+     "R410": [
+      28.330946875630087,
+      28.33094687563046
+     ],
+     "R805": [
+      1.3351190722812052e-10,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      3.1811063035324284e-10
+     ],
+     "R1974": [
+      0.0,
+      -1.0861237344468805e-10
+     ],
+     "R89": [
+      0.0,
+      1.1670679151983418e-10
+     ],
+     "R1708": [
+      0.0,
+      3.1136029959767707e-10
+     ],
+     "R690": [
+      104.34360135896392,
+      104.61274346593761
+     ],
+     "R538": [
+      0.0,
+      89.11524741776314
+     ],
+     "R691": [
+      81.73278649362074,
+      82.00192860031318
+     ],
+     "R1378": [
+      0.0,
+      88.7091538628459
+     ],
+     "R134": [
+      0.0,
+      88.70915386284815
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      498.10793900246466,
+      498.10793900243175
+     ],
+     "R305": [
+      584.3781600565369,
+      584.3781600564294
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.24370919487423567
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2957055657098034,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.2224238606292149,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.752180163046018
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.29570556570980394,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      122.50379071521827
+     ],
+     "R693": [
+      88.47722195255804,
+      119.54232519881432
+     ],
+     "R236": [
+      63.04594307065666,
+      63.58776778410503
+     ],
+     "R817": [
+      -96.8604226202038,
+      41359.767217847904
+     ],
+     "R831": [
+      -152.75930671308615,
+      41356.8356413787
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41422.08913604036,
+      41417.87365353254
+     ],
+     "R807": [
+      3.3687037737375567,
+      3.368703773731234
+     ],
+     "R902": [
+      0.0,
+      -1.1026345076797069e-10
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      -1.3186542900601693e-10
+     ],
+     "R825": [
+      -41425.020712510355,
+      -10.6640442707375
+     ],
+     "R1275": [
+      0.0,
+      41414.35666823929
+     ],
+     "R1205": [
+      0.0,
+      41414.35666823962
+     ],
+     "R193": [
+      -50.744516887605556,
+      -10.6640442707375
+     ],
+     "R191": [
+      -50.74451688762088,
+      -10.664044271060224
+     ],
+     "R83": [
+      0.0,
+      2.8245148857174556
+     ],
+     "R412": [
+      0.0,
+      2.8245148855906206
+     ],
+     "R1172": [
+      -2.8245148857237146,
+      0.0
+     ],
+     "R410": [
+      2.824514885723554,
+      2.8245148857187647
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -1.9286790704507275e-10
+     ],
+     "R89": [
+      0.0,
+      -2.025812087352481e-10
+     ],
+     "R1708": [
+      0.0,
+      -2.2806091061556497e-10
+     ],
+     "R690": [
+      0.0,
+      31.06510324625983
+     ],
+     "R538": [
+      0.0,
+      7.147058977714468
+     ],
+     "R691": [
+      0.0,
+      -1.1838086434901213e-10
+     ],
+     "R1378": [
+      0.0,
+      -1.6541932143314612e-10
+     ],
+     "R134": [
+      0.0,
+      -1.6541932143314612e-10
+     ],
+     "R90": [
+      0.0,
+      0.5418247134414255
+     ],
+     "R2062": [
+      311.4004512937572,
+      311.4004512937588
+     ],
+     "R570": [
+      0.0,
+      -1.659036845784078e-10
+     ],
+     "R305": [
+      363.2610802244733,
+      363.26108022437137
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.1825292132484601,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.6987980459797994
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000292
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.54351659565107,
+      41416.743307579294
+     ],
+     "R831": [
+      90.82092152681874,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.50085256434,
+      41416.743307579294
+     ],
+     "R807": [
+      2.079388827232509,
+      2.0793888272311807
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.19979098353
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.80838055351583
+     ],
+     "R1275": [
+      0.0,
+      41263.21233195684
+     ],
+     "R1205": [
+      0.0,
+      41263.2123319569
+     ],
+     "R193": [
+      -167.03881791762223,
+      -161.8083805534565
+     ],
+     "R191": [
+      -167.03881791760935,
+      -161.8083805534565
+     ],
+     "R83": [
+      0.0,
+      1.743479121409003
+     ],
+     "R412": [
+      0.0,
+      1.7434791214096903
+     ],
+     "R1172": [
+      -1.7434791214098941,
+      0.0
+     ],
+     "R410": [
+      1.7434791214096903,
+      1.7434791214073457
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      83.9263530761133,
+      83.92635307613853
+     ],
+     "R690": [
+      1.241293879737746,
+      1.257276169821569
+     ],
+     "R538": [
+      0.0,
+      92.20375800712556
+     ],
+     "R691": [
+      150.20809260805592,
+      150.22407489830937
+     ],
+     "R1378": [
+      0.0,
+      66.29772182218245
+     ],
+     "R134": [
+      0.0,
+      66.29772182216824
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      574.950395110364,
+      574.9503951102722
+     ],
+     "R305": [
+      683.508887110694,
+      683.5088871107617
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6172667491405572
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2649995314075416,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.21717838453267282,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.8195425228834655
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2576209302195011,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.24295120506834
+     ],
+     "R693": [
+      86.6629,
+      86.6629000000226
+     ],
+     "R236": [
+      53.114830978888016,
+      53.11483097888648
+     ],
+     "R817": [
+      -7.407850362236279,
+      41417.6128621479
+     ],
+     "R831": [
+      -3.175459738400418,
+      41421.84525277194
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41401.21130478967,
+      41367.673490907284
+     ],
+     "R807": [
+      2.9348402615995814,
+      2.934840261599549
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      -4.636181432316474e-11
+     ],
+     "R1275": [
+      0.0,
+      -3.652606156409691e-11
+     ],
+     "R1205": [
+      0.0,
+      -3.652606156409691e-11
+     ],
+     "R193": [
+      0.0,
+      -3.652606156409691e-11
+     ],
+     "R191": [
+      -31.040591410468064,
+      0.0
+     ],
+     "R83": [
+      2.4607387775481593,
+      2.4607387775387766
+     ],
+     "R412": [
+      2.4607387775481593,
+      2.4607387772243454
+     ],
+     "R1172": [
+      -2.4607387775508456,
+      -2.4607387775481593
+     ],
+     "R410": [
+      2.4607387775481593,
+      2.460738777540286
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -3.036234616392029e-10
+     ],
+     "R89": [
+      0.0,
+      -1.4200184800466582e-10
+     ],
+     "R1708": [
+      0.0,
+      -1.4200184800466582e-10
+     ],
+     "R690": [
+      5.786199999993325,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.226571954320467
+     ],
+     "R691": [
+      37.45556386443909,
+      37.45556386431869
+     ],
+     "R1378": [
+      0.0,
+      37.45556386431869
+     ],
+     "R134": [
+      0.0,
+      37.455563864294525
+     ],
+     "R90": [
+      0.0,
+      31.04059140999549
+     ],
+     "R2062": [
+      195.8471117750393,
+      195.84711177472664
+     ],
+     "R570": [
+      183.08495788893057,
+      183.08495788876448
+     ],
+     "R305": [
+      449.8719267297207,
+      449.87192672956445
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": null,
+    "status": "infeasible"
+   },
+   "complex_I_KO_over_WT": null
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.27665995203445964,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22143112694650452,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.8003728957450407
+  },
+  {
+   "medium": "V2",
+   "overlay": false,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2766599520344585,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      121.70891666399072
+     ],
+     "R693": [
+      118.93819131178375,
+      118.93819131178574
+     ],
+     "R236": [
+      41.38035095145599,
+      41.38035095145395
+     ],
+     "R817": [
+      -7.955314516365224,
+      41417.06539799388
+     ],
+     "R831": [
+      -2.958565529857652,
+      41422.06214698043
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41399.024093445674,
+      41378.6436125723
+     ],
+     "R807": [
+      3.1517344701423466,
+      3.1517344701396697
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -64.24865150375163
+     ],
+     "R1275": [
+      0.0,
+      41360.7720610066
+     ],
+     "R1205": [
+      0.0,
+      41360.7720610066
+     ],
+     "R193": [
+      -72.17643755264338,
+      -64.24865150375163
+     ],
+     "R191": [
+      -72.17643755264713,
+      -64.24865150375163
+     ],
+     "R83": [
+      0.0,
+      2.642595349629679
+     ],
+     "R412": [
+      0.0,
+      2.642595349631543
+     ],
+     "R1172": [
+      -2.6425953496312973,
+      0.0
+     ],
+     "R410": [
+      2.6425953496315415,
+      2.6425953496302257
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -6.287431221893336e-11
+     ],
+     "R89": [
+      0.0,
+      -1.0958278379346978e-10
+     ],
+     "R1708": [
+      0.0,
+      -2.4809391400322884e-10
+     ],
+     "R690": [
+      5.786200000004,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.686735805030463
+     ],
+     "R691": [
+      0.0,
+      0.0
+     ],
+     "R1378": [
+      0.0,
+      0.0
+     ],
+     "R134": [
+      0.0,
+      0.0
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      235.55148000704799,
+      235.55148000700555
+     ],
+     "R570": [
+      120.19984763963082,
+      120.19984763969076
+     ],
+     "R305": [
+      417.1532218042979,
+      417.15322180420804
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.18252921324845983,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.6987980459805353
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000131
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.5435165957705,
+      41416.74330757929
+     ],
+     "R831": [
+      90.82092152682108,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.500852564335,
+      41416.7433075793
+     ],
+     "R807": [
+      2.0793888272325063,
+      2.0793888272324126
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.19979098354
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.80838055360346
+     ],
+     "R1275": [
+      0.0,
+      41263.21233195676
+     ],
+     "R1205": [
+      0.0,
+      41263.212331956805
+     ],
+     "R193": [
+      -167.03881791761413,
+      -161.808380553546
+     ],
+     "R191": [
+      -167.0388179176109,
+      -161.808380553546
+     ],
+     "R83": [
+      0.0,
+      1.7434791214074026
+     ],
+     "R412": [
+      0.0,
+      1.7434791213475633
+     ],
+     "R1172": [
+      -1.7434791214100607,
+      0.0
+     ],
+     "R410": [
+      1.7434791214096876,
+      1.7434791214062133
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -3.5891385601386584e-11
+     ],
+     "R89": [
+      0.0,
+      -3.430929479578984e-11
+     ],
+     "R1708": [
+      83.92635307609203,
+      83.9263530760722
+     ],
+     "R690": [
+      1.2412938797369573,
+      1.257276169752643
+     ],
+     "R538": [
+      0.0,
+      92.20375800712272
+     ],
+     "R691": [
+      150.20809260808625,
+      150.22407489831565
+     ],
+     "R1378": [
+      0.0,
+      66.29772182219746
+     ],
+     "R134": [
+      0.0,
+      66.2977218221817
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      574.9503951104143,
+      574.9503951098707
+     ],
+     "R305": [
+      683.5088871107441,
+      683.5088871100256
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6597601564888781
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.29376991657747764,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.221763194300902,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7548873515863055
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2926438008701747,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.59370220788729
+     ],
+     "R693": [
+      86.6629,
+      86.66289999999822
+     ],
+     "R236": [
+      72.58478141128708,
+      72.58478141129612
+     ],
+     "R817": [
+      -99.28819256609326,
+      41327.12469948442
+     ],
+     "R831": [
+      -164.79991635909929,
+      41261.612975691234
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41375.7322059005,
+      41417.94765489207
+     ],
+     "R807": [
+      3.3338238797971167,
+      3.3338238798005198
+     ],
+     "R902": [
+      0.0,
+      8.018992815809539e-11
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      15.759157336492724,
+      16.22321718310199
+     ],
+     "R825": [
+      0.0,
+      9.31869880901198e-11
+     ],
+     "R1275": [
+      0.0,
+      -1.2815855345569433e-10
+     ],
+     "R1205": [
+      0.0,
+      -1.2815855345569433e-10
+     ],
+     "R193": [
+      0.0,
+      -1.2815855345569433e-10
+     ],
+     "R191": [
+      -0.5362146064804314,
+      -1.281562334135041e-10
+     ],
+     "R83": [
+      2.7952695776572027,
+      2.795269577663816
+     ],
+     "R412": [
+      2.7952695776562613,
+      2.7952695777312115
+     ],
+     "R1172": [
+      -2.795269577656948,
+      -2.795269577593588
+     ],
+     "R410": [
+      2.7952695776572027,
+      2.795269577663816
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      1.2801598131914346e-10
+     ],
+     "R89": [
+      0.0,
+      1.131930782190321e-10
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      25.073862589916526,
+      25.537922436732472
+     ],
+     "R538": [
+      0.0,
+      7.073057618319622
+     ],
+     "R691": [
+      0.0,
+      0.0
+     ],
+     "R1378": [
+      0.0,
+      0.0
+     ],
+     "R134": [
+      0.0,
+      0.0
+     ],
+     "R90": [
+      0.0,
+      0.5362146065211753
+     ],
+     "R2062": [
+      326.70484904230784,
+      327.1689088888711
+     ],
+     "R570": [
+      0.0,
+      5.5170817744007365e-11
+     ],
+     "R305": [
+      371.92475822582435,
+      371.92475822584265
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.07173873703339516,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.0
+     ],
+     "R693": [
+      86.6629,
+      86.6628999999996
+     ],
+     "R236": [
+      0.27464584089359,
+      0.2746458408923161
+     ],
+     "R817": [
+      -0.5434907698266547,
+      41336.180110933485
+     ],
+     "R831": [
+      88.29711080704365,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41425.020712510355,
+      41335.90546509262
+     ],
+     "R807": [
+      0.8172539924552126,
+      0.8172539924531975
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41336.723601703314
+     ],
+     "R1894": [
+      0.0,
+      -8.109683986290392e-11
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      0.0,
+      0.0
+     ],
+     "R83": [
+      28.330946875630094,
+      28.330946875630513
+     ],
+     "R412": [
+      28.33094687563125,
+      28.330946875727776
+     ],
+     "R1172": [
+      -28.330946875628165,
+      -28.330946875608426
+     ],
+     "R410": [
+      28.330946875630346,
+      28.330946875646134
+     ],
+     "R805": [
+      4.55177642792777e-10,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      4.205234154085576e-10
+     ],
+     "R1974": [
+      0.0,
+      2.2649653486636167e-10
+     ],
+     "R89": [
+      0.0,
+      1.4165231631505724e-10
+     ],
+     "R1708": [
+      0.0,
+      1.7807719765321483e-10
+     ],
+     "R690": [
+      104.34360135895948,
+      104.61274346584709
+     ],
+     "R538": [
+      0.0,
+      89.11524741760358
+     ],
+     "R691": [
+      81.73278649362769,
+      82.00192860049
+     ],
+     "R1378": [
+      0.0,
+      47.470363584612535
+     ],
+     "R134": [
+      41.23879027852249,
+      88.70915386299895
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      498.1079390024896,
+      498.1079390025122
+     ],
+     "R305": [
+      584.3781600564821,
+      584.3781600565078
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.24514012195057752
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2948726681299728,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.2224238606292145,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7543047717504132
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.294725416479896,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.61454940715821
+     ],
+     "R693": [
+      86.6629,
+      86.66290000009212
+     ],
+     "R236": [
+      54.242613028662774,
+      54.782641803383996
+     ],
+     "R817": [
+      -119.59985678136566,
+      41305.96088450576
+     ],
+     "R831": [
+      -166.71910055982838,
+      41258.3016119524
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41377.3614399571,
+      41417.897343260505
+     ],
+     "R807": [
+      3.3575378276327164,
+      3.3575378276377656
+     ],
+     "R902": [
+      0.0,
+      -1.7340451085528955e-10
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -17.702000013693965
+     ],
+     "R1275": [
+      0.0,
+      41407.318712496475
+     ],
+     "R1205": [
+      0.0,
+      41407.31871249655
+     ],
+     "R193": [
+      -26.687486932723075,
+      -17.702000013805
+     ],
+     "R191": [
+      -26.6874869325688,
+      -17.702000013783532
+     ],
+     "R83": [
+      0.0,
+      2.8151527146624464
+     ],
+     "R412": [
+      0.0,
+      2.815152714808801
+     ],
+     "R1172": [
+      -2.815152714661726,
+      0.0
+     ],
+     "R410": [
+      2.8151527146617394,
+      2.815152714661709
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      1.737356461401819e-10
+     ],
+     "R89": [
+      0.0,
+      1.741771598533717e-10
+     ],
+     "R1708": [
+      0.0,
+      8.705136224657951e-11
+     ],
+     "R690": [
+      23.888831568075236,
+      23.888831568306458
+     ],
+     "R538": [
+      0.0,
+      7.123369250127285
+     ],
+     "R691": [
+      0.0,
+      0.0
+     ],
+     "R1378": [
+      0.0,
+      1.1324208739097148e-10
+     ],
+     "R134": [
+      0.0,
+      7.549374282758336e-11
+     ],
+     "R90": [
+      0.0,
+      0.5400287749848726
+     ],
+     "R2062": [
+      322.94017126089267,
+      322.94017126212384
+     ],
+     "R570": [
+      0.0,
+      2.510373387578274e-10
+     ],
+     "R305": [
+      366.0345451265698,
+      366.03454512678763
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.1825292132484605,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.6987980459828349
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000198
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.54351659574962,
+      41416.74330757927
+     ],
+     "R831": [
+      90.82092152682081,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.5008525643,
+      41416.74330757927
+     ],
+     "R807": [
+      2.0793888272325134,
+      2.079388827230319
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.19979098353
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.8083805529949
+     ],
+     "R1275": [
+      0.0,
+      41263.21233195736
+     ],
+     "R1205": [
+      0.0,
+      41263.21233195659
+     ],
+     "R193": [
+      -167.03881791762106,
+      -161.80838055376856
+     ],
+     "R191": [
+      -167.03881791761222,
+      -161.80838055376856
+     ],
+     "R83": [
+      0.0,
+      1.743479121408008
+     ],
+     "R412": [
+      0.0,
+      1.7434791213715954
+     ],
+     "R1172": [
+      -1.7434791214096226,
+      0.0
+     ],
+     "R410": [
+      1.7434791214096943,
+      1.7434791214079346
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -4.748112057261854e-11
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      83.92635307609379,
+      83.92635307612935
+     ],
+     "R690": [
+      1.2412938797377207,
+      1.2572761700794397
+     ],
+     "R538": [
+      0.0,
+      92.20375800711628
+     ],
+     "R691": [
+      150.20809260817265,
+      150.2240748983052
+     ],
+     "R1378": [
+      0.0,
+      10.116769740691948
+     ],
+     "R134": [
+      56.16496979107083,
+      66.2977218221685
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      574.9503951104563,
+      574.9503951102731
+     ],
+     "R305": [
+      683.508887110783,
+      683.5088871106921
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6193195531913391
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.26270863691515695,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      65.24812372907465
+     ],
+     "R693": [
+      58.7857288737292,
+      62.6171195840649
+     ],
+     "R236": [
+      46.1476913216655,
+      49.97908203201895
+     ],
+     "R817": [
+      -7.554146588455362,
+      41425.020712510355
+     ],
+     "R831": [
+      -3.1175001369157935,
+      41421.90321237345
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41400.62682676827,
+      41393.593328288895
+     ],
+     "R807": [
+      2.992799863084206,
+      2.9927998630840875
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      -31.7678767016183,
+      0.0
+     ],
+     "R83": [
+      2.5093354390343903,
+      2.509335439100348
+     ],
+     "R412": [
+      2.5093354391009637,
+      2.509335439100948
+     ],
+     "R1172": [
+      -2.509335439102602,
+      -2.509335439106862
+     ],
+     "R410": [
+      2.509335439100948,
+      2.509335439100348
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      5.7861999999909335,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.349539338249039
+     ],
+     "R691": [
+      60.11704483434961,
+      60.117044834360684
+     ],
+     "R1378": [
+      0.0,
+      -4.252731371512321e-11
+     ],
+     "R134": [
+      60.117044834295136,
+      60.11704483434359
+     ],
+     "R90": [
+      0.0,
+      31.767876701508634
+     ],
+     "R2062": [
+      181.80160850963702,
+      189.46438993025512
+     ],
+     "R570": [
+      202.60628404561825,
+      206.43767475596792
+     ],
+     "R305": [
+      456.63035614347797,
+      456.6303561434553
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.2171783845326722,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.8314495419155952
+     ],
+     "R693": [
+      0.0,
+      0.0
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      8.802391068309706,
+      41425.020712510355
+     ],
+     "R831": [
+      4.947330796949532,
+      41421.16565223896
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41390.79102412585,
+      41425.020712510355
+     ],
+     "R807": [
+      2.474115229428646,
+      2.4741152294287363
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41416.21832144202
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      8.839472466153897e-11
+     ],
+     "R193": [
+      0.0,
+      8.839472466153897e-11
+     ],
+     "R191": [
+      -26.60292151752385,
+      0.0
+     ],
+     "R83": [
+      2.074440426907355,
+      2.0744404269087866
+     ],
+     "R412": [
+      2.0744404269047316,
+      2.0744404269406522
+     ],
+     "R1172": [
+      -2.0744404269071217,
+      -2.0744404268895225
+     ],
+     "R410": [
+      2.074440426907355,
+      2.0744404269097094
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      10.447728751681186,
+      10.447728751677605
+     ],
+     "R690": [
+      5.786199999999478,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.592668480366462
+     ],
+     "R691": [
+      67.02733992729148,
+      67.0273399273193
+     ],
+     "R1378": [
+      0.0,
+      56.57961117569332
+     ],
+     "R134": [
+      0.0,
+      56.5796111756263
+     ],
+     "R90": [
+      0.0,
+      26.602921517571016
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      563.702634616082,
+      563.7026346162431
+     ],
+     "R305": [
+      585.464367448534,
+      585.4643674485433
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.8266891682088512
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2536152560855654,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.20283472705523
+     ],
+     "R693": [
+      86.6629,
+      86.66289999999455
+     ],
+     "R236": [
+      55.58368172016569,
+      55.58368172016055
+     ],
+     "R817": [
+      8.475566235108227,
+      41425.020712510355
+     ],
+     "R831": [
+      -3.2210927299166974,
+      41413.324053545235
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41385.90324437464,
+      41381.133689755065
+     ],
+     "R807": [
+      2.889207270083302,
+      2.8892072700848654
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41416.545146275064
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      -5.926401779337102e-11
+     ],
+     "R1205": [
+      0.0,
+      -5.926401779337102e-11
+     ],
+     "R193": [
+      0.0,
+      -5.926401779337102e-11
+     ],
+     "R191": [
+      -30.467982167569716,
+      0.0
+     ],
+     "R83": [
+      2.4224774543583125,
+      2.4224774543582392
+     ],
+     "R412": [
+      2.4224774543583125,
+      2.4224774544547
+     ],
+     "R1172": [
+      -2.422477454356931,
+      -2.422477454358312
+     ],
+     "R410": [
+      2.4224774543583125,
+      2.4224774543582392
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      -6.839783273498479e-11
+     ],
+     "R1708": [
+      0.0,
+      -6.839783273498479e-11
+     ],
+     "R690": [
+      5.786200000004648,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.129756768588253
+     ],
+     "R691": [
+      38.54545619049189,
+      38.54545619049168
+     ],
+     "R1378": [
+      0.0,
+      -4.8943634747559714e-11
+     ],
+     "R134": [
+      38.54545619052417,
+      38.5454561904522
+     ],
+     "R90": [
+      0.0,
+      30.46798216757392
+     ],
+     "R2062": [
+      191.9697860242409,
+      191.96978602375856
+     ],
+     "R570": [
+      198.566312604893,
+      198.56631260462703
+     ],
+     "R305": [
+      463.4826749304935,
+      463.4826749304524
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": null,
+    "status": "infeasible"
+   },
+   "complex_I_KO_over_WT": null
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2684814893994942,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22143112694650482,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.8247537937970111
+  },
+  {
+   "medium": "V2",
+   "overlay": true,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2684814893994946,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      93.20500462506966
+     ],
+     "R693": [
+      86.6629,
+      90.51618586459408
+     ],
+     "R236": [
+      40.14678489817738,
+      44.00007076294831
+     ],
+     "R817": [
+      11.339553918501824,
+      41425.020712510355
+     ],
+     "R831": [
+      -3.051735294436287,
+      41410.629423297316
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41380.90394089533,
+      41418.531646149444
+     ],
+     "R807": [
+      3.0585647055637124,
+      3.0585647055601974
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41413.68115859069
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -33.60036484364893
+     ],
+     "R1275": [
+      0.0,
+      41391.42034766656
+     ],
+     "R1205": [
+      0.0,
+      41391.42034766662
+     ],
+     "R193": [
+      -41.293794233510006,
+      -33.60036484373284
+     ],
+     "R191": [
+      -41.293794233510006,
+      -33.60036484373284
+     ],
+     "R83": [
+      5.1960645121023275e-11,
+      2.564476463366793
+     ],
+     "R412": [
+      0.0,
+      2.564476463191177
+     ],
+     "R1172": [
+      -2.564476463367395,
+      0.0
+     ],
+     "R410": [
+      2.5644764633693224,
+      2.564476463366247
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -7.468480404676021e-11
+     ],
+     "R89": [
+      0.0,
+      -6.004126589263222e-11
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      5.786200000018778,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.489066360962406
+     ],
+     "R691": [
+      28.226279094795533,
+      28.22627909464204
+     ],
+     "R1378": [
+      0.0,
+      3.447486243823601e-11
+     ],
+     "R134": [
+      28.22627909479316,
+      28.226279094546985
+     ],
+     "R90": [
+      0.0,
+      6.850821116328223e-11
+     ],
+     "R2062": [
+      172.67049389196038,
+      180.37706562120528
+     ],
+     "R570": [
+      200.69343786466314,
+      204.5467237292587
+     ],
+     "R305": [
+      440.29528872539913,
+      440.2952887254123
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.1825292132484595,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.6987980459819887
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000193
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.54351659576247,
+      41416.7433075793
+     ],
+     "R831": [
+      90.82092152682118,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.5008525643,
+      41416.74330757934
+     ],
+     "R807": [
+      2.079388827232502,
+      2.0793888272291756
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.19979098353
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.80838055343506
+     ],
+     "R1275": [
+      0.0,
+      41263.21233195707
+     ],
+     "R1205": [
+      0.0,
+      41263.212331956944
+     ],
+     "R193": [
+      -167.03881791760864,
+      -161.80838055341246
+     ],
+     "R191": [
+      -167.03881791761955,
+      -161.80838055341246
+     ],
+     "R83": [
+      0.0,
+      1.7434791214064893
+     ],
+     "R412": [
+      0.0,
+      1.74347912137085
+     ],
+     "R1172": [
+      -1.7434791214097731,
+      0.0
+     ],
+     "R410": [
+      1.7434791214096848,
+      1.7434791214090246
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      83.92635307611394,
+      83.92635307613423
+     ],
+     "R690": [
+      1.2412938797387691,
+      1.2572761697665182
+     ],
+     "R538": [
+      0.0,
+      92.20375800714038
+     ],
+     "R691": [
+      150.20809260814767,
+      150.22407489835888
+     ],
+     "R1378": [
+      0.0,
+      10.116769740985067
+     ],
+     "R134": [
+      56.16496979110124,
+      66.29772182217657
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      574.9503951104551,
+      574.9503951103156
+     ],
+     "R305": [
+      683.5088871107774,
+      683.5088871107292
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6798577200116019
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.29797875367029014,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22417805424177953,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.752328988159437
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2977651970603724,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.64499254507326
+     ],
+     "R693": [
+      86.6629,
+      86.6628999998809
+     ],
+     "R236": [
+      72.33840809775373,
+      72.33840809763463
+     ],
+     "R817": [
+      -60.73479681893317,
+      41364.28591568544
+     ],
+     "R831": [
+      -125.87636565590526,
+      41353.32750002851
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41422.06871719301,
+      41417.823873249494
+     ],
+     "R807": [
+      3.3921672749622083,
+      3.392167274960622
+     ],
+     "R902": [
+      0.0,
+      -5.555714224304843e-11
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      8.00642034563473,
+      8.006420342377037
+     ],
+     "R825": [
+      0.0,
+      -1.5001693158447316e-10
+     ],
+     "R1275": [
+      0.0,
+      -1.5001693158447316e-10
+     ],
+     "R1205": [
+      0.0,
+      -1.5001693158447316e-10
+     ],
+     "R193": [
+      0.0,
+      -1.5001693158447316e-10
+     ],
+     "R191": [
+      -0.5455985997759903,
+      -3.0588334498106366e-10
+     ],
+     "R83": [
+      2.844188033893151,
+      2.844188033797881
+     ],
+     "R412": [
+      2.844188033893153,
+      2.844188033893151
+     ],
+     "R1172": [
+      -2.8441880338920797,
+      -2.844188034015713
+     ],
+     "R410": [
+      2.844188033893151,
+      2.844188033797881
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      -8.673387424825082e-11
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      -3.594657481553531e-11
+     ],
+     "R1708": [
+      0.0,
+      -3.594657481553531e-11
+     ],
+     "R690": [
+      32.31902604301584,
+      32.3190260428207
+     ],
+     "R538": [
+      0.0,
+      7.196839260726934
+     ],
+     "R691": [
+      0.0,
+      -1.0658359493707507e-10
+     ],
+     "R1378": [
+      0.0,
+      -1.0658359493707507e-10
+     ],
+     "R134": [
+      0.0,
+      -1.0615595038837838e-10
+     ],
+     "R90": [
+      0.0,
+      0.5455985995779531
+     ],
+     "R2062": [
+      315.0760103336601,
+      315.07601033365694
+     ],
+     "R570": [
+      0.0,
+      0.0
+     ],
+     "R305": [
+      365.9048274613692,
+      365.90482746132244
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.0726469129115218,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.0
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000015
+     ],
+     "R236": [
+      0.2781227173782944,
+      0.2781227173757511
+     ],
+     "R817": [
+      -0.5503710862017736,
+      41336.15254234038
+     ],
+     "R831": [
+      88.31779908364432,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41425.020712510355,
+      41335.87441962303
+     ],
+     "R807": [
+      0.827600011815785,
+      0.827600011815665
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41336.70291342671
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      1.300099307645774e-10,
+      0.0
+     ],
+     "R83": [
+      28.323899508566324,
+      28.323899508555712
+     ],
+     "R412": [
+      28.323899508566324,
+      28.323899508501306
+     ],
+     "R1172": [
+      -28.323899508563105,
+      -28.32389950856507
+     ],
+     "R410": [
+      28.323899508566324,
+      28.323899508474724
+     ],
+     "R805": [
+      4.1935064460789724e-10,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      -1.0822016209613779e-08
+     ],
+     "R1974": [
+      0.0,
+      -1.79769666887109e-10
+     ],
+     "R89": [
+      0.0,
+      -1.8558293077744123e-10
+     ],
+     "R1708": [
+      0.0,
+      -1.8558293077744123e-10
+     ],
+     "R690": [
+      104.04886756720008,
+      104.32141687552317
+     ],
+     "R538": [
+      0.0,
+      89.14629288796878
+     ],
+     "R691": [
+      81.77555904909077,
+      82.0481083574951
+     ],
+     "R1378": [
+      0.0,
+      88.73505839432848
+     ],
+     "R134": [
+      0.0,
+      88.73505839470401
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      498.31277434532615,
+      498.312774345274
+     ],
+     "R305": [
+      584.1646470986418,
+      584.164647098442
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.24397382108021345
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2991297040590832,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.2248610479179774,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7517175488314712
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2991297040590841,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      121.60641923186013
+     ],
+     "R693": [
+      88.88795293369924,
+      118.61066126776682
+     ],
+     "R236": [
+      63.162191203359306,
+      63.71029000493475
+     ],
+     "R817": [
+      -95.66611239008246,
+      41359.62540725528
+     ],
+     "R831": [
+      -151.59848486550618,
+      41356.65988444302
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41422.05518969447,
+      41417.79089378254
+     ],
+     "R807": [
+      3.4077118585239607,
+      3.407711858529185
+     ],
+     "R902": [
+      0.0,
+      7.064219411036621e-11
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      2.2093346208017032e-10
+     ],
+     "R825": [
+      -41425.020712510355,
+      -10.787529138800595
+     ],
+     "R1275": [
+      0.0,
+      41414.233183370954
+     ],
+     "R1205": [
+      0.0,
+      41414.23318337147
+     ],
+     "R193": [
+      -49.630000793916516,
+      -10.787529138880549
+     ],
+     "R191": [
+      -49.63000079393746,
+      -10.787529138880549
+     ],
+     "R83": [
+      0.0,
+      2.857221506319146
+     ],
+     "R412": [
+      0.0,
+      2.8572215064066793
+     ],
+     "R1172": [
+      -2.8572215062939943,
+      0.0
+     ],
+     "R410": [
+      2.857221506294267,
+      2.8572215062804363
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      0.0,
+      29.722708334595286
+     ],
+     "R538": [
+      0.0,
+      7.229818727926785
+     ],
+     "R691": [
+      0.0,
+      -3.2465975043222474e-10
+     ],
+     "R1378": [
+      0.0,
+      -1.9691511608264581e-10
+     ],
+     "R134": [
+      0.0,
+      -2.221991490968389e-09
+     ],
+     "R90": [
+      0.0,
+      0.5480988017786432
+     ],
+     "R2062": [
+      311.93735079012424,
+      311.93735078996224
+     ],
+     "R570": [
+      0.0,
+      -1.5702209852960086e-10
+     ],
+     "R305": [
+      362.08259198268416,
+      362.0825919826471
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.18458112831670934,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.7066536336677747
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000104
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.49720825569972,
+      41416.650256545894
+     ],
+     "R831": [
+      90.86766422007558,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.4901666935,
+      41416.650256545894
+     ],
+     "R807": [
+      2.1027644238913274,
+      2.1027644238882006
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.153048290274
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.67890666652536
+     ],
+     "R1275": [
+      0.0,
+      41263.341805843826
+     ],
+     "R1205": [
+      0.0,
+      41263.341805842625
+     ],
+     "R193": [
+      -166.96814236360146,
+      -161.67890666772763
+     ],
+     "R191": [
+      -166.96814236361251,
+      -161.67890666772763
+     ],
+     "R83": [
+      0.0,
+      1.7630785653436567
+     ],
+     "R412": [
+      0.0,
+      1.763078565297324
+     ],
+     "R1172": [
+      -1.7630785653381977,
+      0.0
+     ],
+     "R410": [
+      1.763078565338311,
+      1.7630785653366225
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -1.148855474529263e-10
+     ],
+     "R89": [
+      0.0,
+      -5.3515141319545654e-11
+     ],
+     "R1708": [
+      83.89558999023558,
+      83.89558999022967
+     ],
+     "R690": [
+      0.4287191831662487,
+      0.4448811390774101
+     ],
+     "R538": [
+      0.0,
+      92.26604595453848
+     ],
+     "R691": [
+      150.4748821470187,
+      150.49104410324583
+     ],
+     "R1378": [
+      0.0,
+      66.59545411297884
+     ],
+     "R134": [
+      0.0,
+      66.59545411297627
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      575.423709446622,
+      575.4237094464614
+     ],
+     "R305": [
+      682.9542552634603,
+      682.9542552635438
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6170605119184381
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2688876342722122,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.21979469099043697,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.8174220863125476
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2616452806777259,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.28325472479851
+     ],
+     "R693": [
+      86.6629,
+      86.6628999999998
+     ],
+     "R236": [
+      53.61210965363802,
+      53.61210965363967
+     ],
+     "R817": [
+      -7.52356994284103,
+      41417.497142567205
+     ],
+     "R831": [
+      -3.1296139845576625,
+      41421.89109852591
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41402.23780578439,
+      41367.01464689844
+     ],
+     "R807": [
+      2.9806860154423367,
+      2.9806860154424135
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      -3.415292535570179e-11
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      -30.127050249230404,
+      0.0
+     ],
+     "R83": [
+      2.4991784929026526,
+      2.4991784928995857
+     ],
+     "R412": [
+      2.4991784929026526,
+      2.4991784929026526
+     ],
+     "R1172": [
+      -2.4991784929026064,
+      -2.4991784929026526
+     ],
+     "R410": [
+      2.4991784929026526,
+      2.4991784928991314
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -9.947855850307429e-11
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      5.786200000000932,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.323838537772879
+     ],
+     "R691": [
+      36.360589951214976,
+      36.360589951221684
+     ],
+     "R1378": [
+      0.0,
+      36.36058995123706
+     ],
+     "R134": [
+      0.0,
+      36.3605899511366
+     ],
+     "R90": [
+      0.0,
+      30.12705024903672
+     ],
+     "R2062": [
+      198.788964262795,
+      198.78896426274537
+     ],
+     "R570": [
+      178.90671426288995,
+      178.90671426300844
+     ],
+     "R305": [
+      446.6194600926401,
+      446.61946009259475
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": null,
+    "status": "infeasible"
+   },
+   "complex_I_KO_over_WT": null
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.28034564722410626,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22395829163226058,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7988648793010507
+  },
+  {
+   "medium": "V1",
+   "overlay": false,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2803456472241072,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      120.74299840312469
+     ],
+     "R693": [
+      117.93536113416025,
+      117.935361134157
+     ],
+     "R236": [
+      42.299174406416185,
+      42.299174406421535
+     ],
+     "R817": [
+      -8.06129611662788,
+      41416.95941639394
+     ],
+     "R831": [
+      -2.9165777665755748,
+      41422.10413474384
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41400.195908577996,
+      41377.576819753944
+     ],
+     "R807": [
+      3.1937222334244244,
+      3.193722233421884
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -62.14969135104532
+     ],
+     "R1275": [
+      0.0,
+      41362.8710211593
+     ],
+     "R1205": [
+      0.0,
+      41362.8710211593
+     ],
+     "R193": [
+      -70.18309226285484,
+      -62.14969135105758
+     ],
+     "R191": [
+      -70.18309226285481,
+      -62.14969135105758
+     ],
+     "R83": [
+      0.0,
+      2.677800303931191
+     ],
+     "R412": [
+      0.0,
+      2.6778003039697933
+     ],
+     "R1172": [
+      -2.677800303932863,
+      0.0
+     ],
+     "R410": [
+      2.677800303932669,
+      2.677800303931591
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      0.0,
+      -6.920727454249939e-11
+     ],
+     "R690": [
+      5.786199999999993,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.775817256168662
+     ],
+     "R691": [
+      0.0,
+      0.0
+     ],
+     "R1378": [
+      0.0,
+      0.0
+     ],
+     "R134": [
+      0.0,
+      0.0
+     ],
+     "R90": [
+      0.0,
+      3.443806962880353e-11
+     ],
+     "R2062": [
+      237.36763868447161,
+      237.36763868452846
+     ],
+     "R570": [
+      117.77708246506135,
+      117.77708246505347
+     ],
+     "R305": [
+      414.7001956563916,
+      414.7001956563572
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.18458112831671014,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.7066536336675171
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000097
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.49720825575132,
+      41416.65025654591
+     ],
+     "R831": [
+      90.86766422007743,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.490166693446,
+      41416.65025654589
+     ],
+     "R807": [
+      2.1027644238913363,
+      2.102764423889706
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.153048290274
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.67890666789498
+     ],
+     "R1275": [
+      0.0,
+      41263.34180584253
+     ],
+     "R1205": [
+      0.0,
+      41263.3418058424
+     ],
+     "R193": [
+      -166.96814236360126,
+      -161.6789066679467
+     ],
+     "R191": [
+      -166.96814236359822,
+      -161.6789066679467
+     ],
+     "R83": [
+      0.0,
+      1.7630785653337653
+     ],
+     "R412": [
+      0.0,
+      1.7630785652599685
+     ],
+     "R1172": [
+      -1.7630785653380365,
+      0.0
+     ],
+     "R410": [
+      1.7630785653383192,
+      1.7630785653335872
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -7.248183458199034e-11
+     ],
+     "R89": [
+      0.0,
+      -7.088134737167735e-11
+     ],
+     "R1708": [
+      83.89558999022799,
+      83.8955899901477
+     ],
+     "R690": [
+      0.4287191831670026,
+      0.4448811387965323
+     ],
+     "R538": [
+      0.0,
+      92.26604595451009
+     ],
+     "R691": [
+      150.4748821470438,
+      150.4910441030696
+     ],
+     "R1378": [
+      0.0,
+      66.5954541129206
+     ],
+     "R134": [
+      0.0,
+      66.5954541129206
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      575.4237094466097,
+      575.4237094464474
+     ],
+     "R305": [
+      682.9542552634798,
+      682.9542552632422
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6584055438148348
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.29717179964747037,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22417805424177983,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7543718970229284
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": null,
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.29612119691565997,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.62852802677581
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000606
+     ],
+     "R236": [
+      72.41749546925553,
+      72.41749546926064
+     ],
+     "R817": [
+      -98.11183679547041,
+      41328.31759809455
+     ],
+     "R831": [
+      -163.37222768382387,
+      41263.05720720718
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41375.50514339739,
+      41417.86360792946
+     ],
+     "R807": [
+      3.373438680935835,
+      3.373438680934703
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      15.275247648731126,
+      15.744821775378417
+     ],
+     "R825": [
+      0.0,
+      3.509128571814194e-11
+     ],
+     "R1275": [
+      0.0,
+      5.6509299909025756e-11
+     ],
+     "R1205": [
+      0.0,
+      5.211105010176973e-11
+     ],
+     "R193": [
+      0.0,
+      5.211105010176973e-11
+     ],
+     "R191": [
+      -0.5425862792863907,
+      -7.769856495762314e-11
+     ],
+     "R83": [
+      2.828484904093325,
+      2.8284849040970177
+     ],
+     "R412": [
+      2.8284849040878255,
+      2.8284849040193203
+     ],
+     "R1172": [
+      -2.828484904093611,
+      -2.828484904093325
+     ],
+     "R410": [
+      2.828484904093325,
+      2.8284849040888647
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -5.0930446456913766e-11
+     ],
+     "R89": [
+      0.0,
+      -6.365156031819456e-11
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      24.357982610806875,
+      24.827556737435373
+     ],
+     "R538": [
+      0.0,
+      7.157104580911599
+     ],
+     "R691": [
+      0.0,
+      -5.065126664315362e-11
+     ],
+     "R1378": [
+      0.0,
+      -4.14495430981928e-11
+     ],
+     "R134": [
+      0.0,
+      -5.065126664315362e-11
+     ],
+     "R90": [
+      0.0,
+      0.5425862793648918
+     ],
+     "R2062": [
+      326.79634478476765,
+      327.26591891149064
+     ],
+     "R570": [
+      0.0,
+      -5.318400603465331e-11
+     ],
+     "R305": [
+      370.5099747314067,
+      370.509974731386
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.0726469129115219,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.0
+     ],
+     "R693": [
+      86.6629,
+      86.6628999999997
+     ],
+     "R236": [
+      0.2781227173901049,
+      0.27812271737562694
+     ],
+     "R817": [
+      -0.5503710862017552,
+      41336.15254234051
+     ],
+     "R831": [
+      88.31779908364435,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41425.020712510355,
+      41335.874419623105
+     ],
+     "R807": [
+      0.8276000118157861,
+      0.8276000118147285
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41336.70291342671
+     ],
+     "R1894": [
+      0.0,
+      3.554494393288268e-11
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      0.0,
+      0.0
+     ],
+     "R83": [
+      28.323899508565425,
+      28.323899508560427
+     ],
+     "R412": [
+      28.323899508566306,
+      28.323899508374097
+     ],
+     "R1172": [
+      -28.32389950856609,
+      -28.323899508566814
+     ],
+     "R410": [
+      28.323899508566324,
+      28.323899508554604
+     ],
+     "R805": [
+      4.9058612277036225e-11,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      -3.473172223908653e-09
+     ],
+     "R1974": [
+      0.0,
+      -3.264258052849839e-10
+     ],
+     "R89": [
+      0.0,
+      -2.3547398036788735e-10
+     ],
+     "R1708": [
+      0.0,
+      -2.3547398036788735e-10
+     ],
+     "R690": [
+      104.04886756719809,
+      104.3214168759701
+     ],
+     "R538": [
+      0.0,
+      89.14629288767937
+     ],
+     "R691": [
+      81.77555904915089,
+      82.04810835790002
+     ],
+     "R1378": [
+      0.0,
+      47.76408951687103
+     ],
+     "R134": [
+      40.97096887731765,
+      88.73505839470198
+     ],
+     "R90": [
+      0.0,
+      -1.478231603220614e-10
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      498.31277434531773,
+      498.3127743453221
+     ],
+     "R305": [
+      584.1646470985974,
+      584.1646470985995
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.2453283103951957
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2983002880638735,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22486104791797723,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.7538076794274798
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": null,
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2981650062785872,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.64899659968776
+     ],
+     "R693": [
+      86.6629,
+      86.66290000001904
+     ],
+     "R236": [
+      54.59644847282221,
+      55.14277964753133
+     ],
+     "R817": [
+      -117.83462792988603,
+      41307.73241575614
+     ],
+     "R831": [
+      -165.22457394835297,
+      41259.79613856389
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41377.08443531699,
+      41417.814210056466
+     ],
+     "R807": [
+      3.396721936687774,
+      3.3967219366937496
+     ],
+     "R902": [
+      0.0,
+      1.6821672472530953e-10
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -17.17639496030793
+     ],
+     "R1275": [
+      0.0,
+      41407.84431755004
+     ],
+     "R1205": [
+      0.0,
+      41407.84431755004
+     ],
+     "R193": [
+      -26.266746907331072,
+      -17.17639496030793
+     ],
+     "R191": [
+      -26.266746907328937,
+      -17.17639496033619
+     ],
+     "R83": [
+      0.0,
+      2.848006924100855
+     ],
+     "R412": [
+      0.0,
+      2.8480069243264428
+     ],
+     "R1172": [
+      -2.8480069240975063,
+      0.0
+     ],
+     "R410": [
+      2.8480069240976236,
+      2.848006924105859
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      1.394447477491083e-10
+     ],
+     "R89": [
+      0.0,
+      1.306880591041775e-10
+     ],
+     "R1708": [
+      0.0,
+      3.0191949465236106e-10
+     ],
+     "R690": [
+      23.203196389928397,
+      23.20319639020251
+     ],
+     "R538": [
+      0.0,
+      7.206502454311559
+     ],
+     "R691": [
+      0.0,
+      1.6975052496852616e-10
+     ],
+     "R1378": [
+      0.0,
+      9.562860778950936e-11
+     ],
+     "R134": [
+      0.0,
+      2.7046796635170983e-10
+     ],
+     "R90": [
+      0.0,
+      0.5463311747316082
+     ],
+     "R2062": [
+      323.16340986562204,
+      323.16340986575113
+     ],
+     "R570": [
+      0.0,
+      0.0
+     ],
+     "R305": [
+      364.7848881865852,
+      364.7848881865994
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.18458112831670975,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.7066536336699455
+     ],
+     "R693": [
+      86.6629,
+      86.66290000000093
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.49720825575744,
+      41416.65025654608
+     ],
+     "R831": [
+      90.86766422007676,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.49016669346,
+      41416.65025654608
+     ],
+     "R807": [
+      2.1027644238913323,
+      2.1027644238893304
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.153048290274
+     ],
+     "R1894": [
+      0.0,
+      -4.66394850568505e-11
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.6789066675838
+     ],
+     "R1275": [
+      0.0,
+      41263.34180584255
+     ],
+     "R1205": [
+      0.0,
+      41263.34180584247
+     ],
+     "R193": [
+      -166.96814236359177,
+      -161.67890666788026
+     ],
+     "R191": [
+      -166.96814236360595,
+      -161.67890666788026
+     ],
+     "R83": [
+      0.0,
+      1.7630785653384105
+     ],
+     "R412": [
+      0.0,
+      1.7630785652765952
+     ],
+     "R1172": [
+      -1.7630785653383185,
+      0.0
+     ],
+     "R410": [
+      1.7630785653383152,
+      1.763078565336497
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -6.799311183122747e-11
+     ],
+     "R89": [
+      0.0,
+      -6.723885923786159e-11
+     ],
+     "R1708": [
+      83.8955899902641,
+      83.89558999022839
+     ],
+     "R690": [
+      0.42871918316778285,
+      0.4448811397836677
+     ],
+     "R538": [
+      0.0,
+      92.26604595451808
+     ],
+     "R691": [
+      150.47488214697756,
+      150.49104410321868
+     ],
+     "R1378": [
+      0.0,
+      10.83324779246093
+     ],
+     "R134": [
+      55.746044363717886,
+      66.5954541129829
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      575.4237094465939,
+      575.4237094464094
+     ],
+     "R305": [
+      682.9542552634617,
+      682.9542552633579
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6190569799604464
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.26640230276745613,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      66.21803476496092
+     ],
+     "R693": [
+      59.45356721757919,
+      63.55003887775476
+     ],
+     "R236": [
+      46.63783970341634,
+      50.73431136357822
+     ],
+     "R817": [
+      -7.6603573839128005,
+      41425.020712510355
+     ],
+     "R831": [
+      -3.0754215711448096,
+      41421.945290939264
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41401.71838547828,
+      41394.280295295
+     ],
+     "R807": [
+      3.034878428855189,
+      3.034878428859675
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41425.020712510355
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      -30.779995810822026,
+      0.0
+     ],
+     "R83": [
+      2.5446165274627375,
+      2.5446165274283152
+     ],
+     "R412": [
+      2.544616527439068,
+      2.544616527428336
+     ],
+     "R1172": [
+      -2.5446165274275154,
+      -2.5446165274288934
+     ],
+     "R410": [
+      2.544616527428336,
+      2.544616527428339
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      0.0
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      5.78620000000651,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.438813436382188
+     ],
+     "R691": [
+      58.17912664842677,
+      58.17912664841742
+     ],
+     "R1378": [
+      0.0,
+      0.0
+     ],
+     "R134": [
+      58.17912664845983,
+      58.179126648419754
+     ],
+     "R90": [
+      0.0,
+      30.77999581088282
+     ],
+     "R2062": [
+      183.47238379143,
+      191.66532711175898
+     ],
+     "R570": [
+      199.64855655916176,
+      203.74502821949574
+     ],
+     "R305": [
+      453.7580721817576,
+      453.75807218176897
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.2197946909904369,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.841465855493798
+     ],
+     "R693": [
+      0.0,
+      0.0
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      8.908431789818675,
+      41425.020712510355
+     ],
+     "R831": [
+      5.006930344761853,
+      41421.11921106533
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41391.55964133126,
+      41425.020712510355
+     ],
+     "R807": [
+      2.503920422362266,
+      2.5039204223641285
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41416.11228072053
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      5.622659890842539e-11
+     ],
+     "R1275": [
+      0.0,
+      8.283239922928923e-11
+     ],
+     "R1205": [
+      0.0,
+      1.321792820117167e-10
+     ],
+     "R193": [
+      0.0,
+      1.321792820117167e-10
+     ],
+     "R191": [
+      -25.74242611051535,
+      1.4116824612838207e-10
+     ],
+     "R83": [
+      2.0994308139426234,
+      2.0994308139457742
+     ],
+     "R412": [
+      2.0994308139347155,
+      2.099430814007259
+     ],
+     "R1172": [
+      -2.0994308139435125,
+      -2.0994308139426234
+     ],
+     "R410": [
+      2.0994308139426234,
+      2.0994308139457742
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      9.039073457325114e-11
+     ],
+     "R89": [
+      0.0,
+      7.87642067925867e-11
+     ],
+     "R1708": [
+      10.57359054157077,
+      10.573590541695921
+     ],
+     "R690": [
+      5.786199999994951,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.672089096580928
+     ],
+     "R691": [
+      65.47285404259956,
+      65.47285404267447
+     ],
+     "R1378": [
+      0.0,
+      54.899263501240014
+     ],
+     "R134": [
+      0.0,
+      54.89926350122059
+     ],
+     "R90": [
+      0.0,
+      25.742426110584244
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      564.7223434292831,
+      564.722343429576
+     ],
+     "R305": [
+      584.3145790218882,
+      584.3145790219892
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.8250480146273238
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": "module",
+   "R825": "as supplied",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.25753057161128656,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      89.24204627143558
+     ],
+     "R693": [
+      86.6629,
+      86.66289999998759
+     ],
+     "R236": [
+      56.10133557946309,
+      56.10133557946201
+     ],
+     "R817": [
+      10.355205748105888,
+      41425.020712510355
+     ],
+     "R831": [
+      -3.176489111600585,
+      41411.489017650754
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41384.926633924944,
+      41382.45107179072
+     ],
+     "R807": [
+      2.933810888399414,
+      2.933810888410691
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41414.66550676261
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      0.0,
+      0.0
+     ],
+     "R1275": [
+      0.0,
+      0.0
+     ],
+     "R1205": [
+      0.0,
+      0.0
+     ],
+     "R193": [
+      0.0,
+      0.0
+     ],
+     "R191": [
+      -29.562268128838948,
+      0.0
+     ],
+     "R83": [
+      2.4598756918861002,
+      2.459875691889656
+     ],
+     "R412": [
+      2.4598756918861002,
+      2.4598756917128797
+     ],
+     "R1172": [
+      -2.4598756918839566,
+      -2.4598756918796703
+     ],
+     "R410": [
+      2.4598756918861002,
+      2.459875691889656
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -1.7322054680812714e-10
+     ],
+     "R89": [
+      0.0,
+      0.0
+     ],
+     "R1708": [
+      0.0,
+      3.355504220242395e-11
+     ],
+     "R690": [
+      5.786200000006023,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.224388031008514
+     ],
+     "R691": [
+      37.48014927767305,
+      37.48014927771099
+     ],
+     "R1378": [
+      0.0,
+      0.0
+     ],
+     "R134": [
+      37.48014927774718,
+      37.48014927769679
+     ],
+     "R90": [
+      0.0,
+      29.562268129022726
+     ],
+     "R2062": [
+      193.00895050703235,
+      193.0089505074004
+     ],
+     "R570": [
+      196.4427247448119,
+      196.44272474465924
+     ],
+     "R305": [
+      460.436799193967,
+      460.4367991939479
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": null,
+    "status": "infeasible"
+   },
+   "complex_I_KO_over_WT": null
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": false,
+   "WT": {
+    "growth": 0.2720751061925525,
+    "status": "optimal"
+   },
+   "complex_I_KO": {
+    "growth": 0.22395829163226175,
+    "status": "optimal"
+   },
+   "complex_I_KO_over_WT": 0.8231487796379372
+  },
+  {
+   "medium": "V1",
+   "overlay": true,
+   "caps": "module",
+   "R825": "reversible",
+   "pdh_floor": true,
+   "WT": {
+    "growth": 0.2720751061925509,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      93.34216450959963
+     ],
+     "R693": [
+      86.6629,
+      90.61735598956898
+     ],
+     "R236": [
+      40.99488817392099,
+      44.94934416352015
+     ],
+     "R817": [
+      11.635889407324424,
+      41425.020712510355
+     ],
+     "R831": [
+      -3.010796496334612,
+      41410.37402660597
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41381.63960341878,
+      41418.444790188136
+     ],
+     "R807": [
+      3.099503503665387,
+      3.0995035034341716
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41413.38482310387
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -32.5793846328315
+     ],
+     "R1275": [
+      0.0,
+      41392.44132787748
+     ],
+     "R1205": [
+      0.0,
+      41392.441327877554
+     ],
+     "R193": [
+      -40.375790347644006,
+      -32.579384632798735
+     ],
+     "R191": [
+      -40.375790347644006,
+      -32.579384632798735
+     ],
+     "R83": [
+      0.0,
+      2.598801904965066
+     ],
+     "R412": [
+      0.0,
+      2.598801904861569
+     ],
+     "R1172": [
+      -2.5988019049654807,
+      0.0
+     ],
+     "R410": [
+      2.5988019049659643,
+      2.598801904968502
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -4.7223570906591165e-11
+     ],
+     "R89": [
+      0.0,
+      -6.217064973853714e-11
+     ],
+     "R1708": [
+      0.0,
+      0.0
+     ],
+     "R690": [
+      5.786200000003836,
+      5.7862
+     ],
+     "R538": [
+      0.0,
+      6.575922322220799
+     ],
+     "R691": [
+      27.215153089740543,
+      27.215153089435763
+     ],
+     "R1378": [
+      0.0,
+      0.0
+     ],
+     "R134": [
+      27.215153089696212,
+      27.215153089695907
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      174.67375069402664,
+      182.58266267318365
+     ],
+     "R570": [
+      197.8936971931821,
+      201.84815318272356
+     ],
+     "R305": [
+      437.8675047200675,
+      437.8675047200597
+     ]
+    }
+   },
+   "complex_I_KO": {
+    "growth": 0.18458112831671117,
+    "status": "optimal",
+    "fva_per_100": {
+     "R1311": [
+      0.0,
+      0.7066536336673516
+     ],
+     "R693": [
+      86.6629,
+      86.6628999999958
+     ],
+     "R236": [
+      0.0,
+      0.0
+     ],
+     "R817": [
+      82.49720825571666,
+      41416.65025654594
+     ],
+     "R831": [
+      90.86766422007747,
+      41425.020712510355
+     ],
+     "R832": [
+      0.0,
+      0.0
+     ],
+     "R833": [
+      -41317.49016669349,
+      41416.650256545945
+     ],
+     "R807": [
+      2.1027644238913483,
+      2.1027644238910725
+     ],
+     "R902": [
+      0.0,
+      0.0
+     ],
+     "R1386": [
+      0.0,
+      41334.153048290274
+     ],
+     "R1894": [
+      0.0,
+      0.0
+     ],
+     "R825": [
+      -41425.020712510355,
+      -161.67890666785743
+     ],
+     "R1275": [
+      0.0,
+      41263.34180584245
+     ],
+     "R1205": [
+      0.0,
+      41263.34180584265
+     ],
+     "R193": [
+      -166.96814236359714,
+      -161.67890666770853
+     ],
+     "R191": [
+      -166.9681423635991,
+      -161.67890666770853
+     ],
+     "R83": [
+      0.0,
+      1.763078565335967
+     ],
+     "R412": [
+      0.0,
+      1.763078565259261
+     ],
+     "R1172": [
+      -1.7630785653374814,
+      0.0
+     ],
+     "R410": [
+      1.7630785653383287,
+      1.7630785653351266
+     ],
+     "R805": [
+      0.0,
+      0.0
+     ],
+     "R945": [
+      0.0,
+      0.0
+     ],
+     "R1974": [
+      0.0,
+      -7.582998024034623e-11
+     ],
+     "R89": [
+      0.0,
+      -7.187475322635437e-11
+     ],
+     "R1708": [
+      83.89558999024653,
+      83.89558999022681
+     ],
+     "R690": [
+      0.4287191831836333,
+      0.444881139163061
+     ],
+     "R538": [
+      0.0,
+      92.26604595455143
+     ],
+     "R691": [
+      150.47488214699814,
+      150.49104410322255
+     ],
+     "R1378": [
+      0.0,
+      10.833247792823315
+     ],
+     "R134": [
+      55.74604436384653,
+      66.59545411290291
+     ],
+     "R90": [
+      0.0,
+      0.0
+     ],
+     "R2062": [
+      0.0,
+      0.0
+     ],
+     "R570": [
+      575.4237094466017,
+      575.423709446473
+     ],
+     "R305": [
+      682.9542552634714,
+      682.9542552634728
+     ]
+    }
+   },
+   "complex_I_KO_over_WT": 0.6784197602631122
+  }
+ ],
+ "step5_reference_check": [
+  {
+   "medium": "V2",
+   "target": 0.99,
+   "observed_ratio": 0.9865138449686706,
+   "relative_difference": -0.003521368718514606,
+   "within_2pct": true,
+   "NDH2_R570_per100": [
+    202.60628404561825,
+    206.43767475596792
+   ],
+   "complex_I_R2062_per100": [
+    181.80160850963702,
+    189.46438993025512
+   ]
+  },
+  {
+   "medium": "V1",
+   "target": 1.0,
+   "observed_ratio": 1.0003841636029145,
+   "relative_difference": 0.00038416360291448903,
+   "within_2pct": true,
+   "NDH2_R570_per100": [
+    199.64855655916176,
+    203.74502821949574
+   ],
+   "complex_I_R2062_per100": [
+    183.47238379143,
+    191.66532711175898
+   ]
+  }
+ ],
+ "step5_stop_fired": false,
+ "fit_points": {
+  "asis": 6.515595546190104,
+  "rev": 1.433071041522241
+ },
+ "lps": 4456,
+ "elapsed_seconds": 35.599680833984166,
+ "inputs_unchanged": true,
+ "outputs": {
+  "gene_screen_R825_reversible.tsv": "f367ca9ca740af0844feeed301a320b581e0289e28548588531bddd1dae180c3",
+  "gene_screen_as_supplied.tsv": "f9a5a127d57e66908f5443e90505166fcec65e0798a2af5da8caede45664f7a4",
+  "pfba_vectors.json": "4f935e83b409f32898791346b76eb48585eed1eb3de2a6963bc2e4b9c3a68ca3"
+ }
+}
