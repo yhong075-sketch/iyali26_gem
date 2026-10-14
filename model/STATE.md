@@ -5,6 +5,42 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: a56f3649 screened under Task A's diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (computation only)
+
+**Authorization.** The user asked for the conditions of Task A's `0ac2addf` overlay row (in-memory
+diagnostic package, assumed caps R1384 ≤ 8 and R860 ≤ 1; 27 unresolved, all counted as lethal) to be
+applied to the newest model. After the plan review they approved a screen with the 4 reaction controls
+and the NGAM diagnostic, at most 1,228 LPs (1,189 used). The overlay was applied in memory only; no
+model change. Uncommitted on `claude/confusion-matrices-iyali21-7e63ca` @ `cc278c4`. Details:
+[REPORT.md](reports/screen_a56f3649_overlay_w29_20261014/REPORT.md).
+
+**Inputs.** `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`); medium
+`po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`); PO1f profile; consensus list `1e887f5a…`.
+Overlay: `reports/r132_mito_adh_20261012/holistic_overlay.py` (`bf6c7ce5…`), a verbatim copy of Task
+A's function. It does not reference R132, and after it the only forced bound is NGAM.
+
+**Results** (verified this session; mtDNA out of scope; negatives are the user-defined class;
+development reference, not independent validation; overlay results are diagnostic):
+- WT 0.3117523; complex I KO/WT 0.759; complex III, complex IV and ATP synthase KOs have no solution.
+- 15 %, benchmark rule: 82 / 220 / 33 / 695 (TP/FN/FP/TN), 27 unresolved, MCC 0.327.
+- 15 %, labelled lethal view: 102 / 220 / 40 / 695, MCC 0.354.
+- All 37 no-solution knockouts (34 genes, 3 reactions) "cannot meet maintenance": maximum maintenance
+  ATP is 2.0766 (complex III/IV) or 3.3623 (ATP synthase), below 7.8625.
+- **Versus the parent under the same overlay** (Task A raw tables, hashes checked; no solves):
+  - identical WT and identical calls at 1/5/10/15 %;
+  - 28 ratios move without crossing a cutoff: complex I 0.856 → 0.759, plus YALI1D34529g and
+    YALI1E17214g;
+  - same 37 NGAM labels.
+
+  Removing R132 changes no call under the overlay.
+- **Versus no overlay** (same model and medium): the only call changes are the 14 ATP synthase genes.
+  Without the overlay their KO/WT is 1.0 (the OR'd genes keep R171 open); with it they have no
+  solution. The lethal-view gain (MCC 0.331 → 0.354) therefore rests on the R171 AND-core GPR and the
+  two assumed caps.
+
+**Limits.** No independent audit. That the R171 calls depend on the caps binding is recalled from
+Task A, not re-checked here. The overlay chemistry caveat from Task A's audit F3 applies.
+
 ## 2026-10-14: confusion matrices for iYali21 and a56f3649 on PO1f + CSM-Leu, glucose 2.414 (computation only)
 
 **Authorization.** The user asked for "two confusion matrix" with iYali21 and the newest model on
