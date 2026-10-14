@@ -5,6 +5,22 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: paired figure, iYali21 vs a56f3649 (figure only, no solves)
+
+The user asked for a figure that copies their mock-up:
+[confusion_matrices_15pct_paired.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_paired.png),
+drawn by `make_figure.py` from the two committed `summary.json` files (hashes checked; provenance in
+`figure.json`).
+
+**The panels are not like for like.** Each panel's title says which conditions and scoring it uses;
+the user chose this pairing after being told.
+- Left: iYali21, no overlay, benchmark rule: 58 / 255 / 25 / 694, with 10 no-solution KOs left out.
+- Right: a56f3649 under the diagnostic overlay (assumed caps), lethal view: 102 / 220 / 40 / 695,
+  with 27 no-solution KOs counted as lethal.
+
+Compared like for like, the gain is MCC 0.254 → 0.319 under the benchmark rule, or 0.266 → 0.331 in
+the lethal view.
+
 ## 2026-10-14: a56f3649 screened under Task A's diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (computation only)
 
 **Authorization.** The user asked for the conditions of Task A's `0ac2addf` overlay row (in-memory
