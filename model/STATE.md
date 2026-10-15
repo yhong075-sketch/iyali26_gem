@@ -5,6 +5,53 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
+
+**Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
+26,000), Evans 1983 excluded, no commit."
+- The earlier attempt (worktree `jovial-edison-83497a`, uncommitted) was not used.
+- Its folder holds Evans 1983 texts the user did not supply.
+
+No model, condition or assumption file was written; nothing committed. Details:
+[REPORT.md](reports/r831_ctp1_mode_rerun_20261014/REPORT.md).
+
+**Results** (verified this session unless marked; 21,892 LPs):
+- **Literature:** no direct evidence for a citrate/malate mode of the *Yarrowia* Ctp1 carrier (YALI1F33754g).
+  - YlCtp1p could not be expressed for assays. Its deletion is not significantly different on glucose, with a
+    mild lag on citrate (Yuzbasheva 2019).
+  - *S. cerevisiae* Ctp1: external malate Ki 50 mM vs isocitrate 6.4 mM (Aluvila 2010). That internal malate does
+    not drive citrate uptake is inferred (figure insets unread).
+  - Full-rate citrate/malate antiport is shown for the mammalian CIC.
+  - **Indirect counterpoints:** malate is the preferred efflux substrate in oleaginous yeast (Evans 1983c,
+    second-hand via Yang 2021). Yuzbasheva 2019 hypothesises α-KG(in)/malate(out) export by an unidentified
+    *Yarrowia* carrier.
+  - No yeast carrier (Dic1, Odc1/2, Sfc1, Oac1) has **shown** net malate export from the matrix.
+- **13C fit:** all 96 fits are identical for R831 asis / off / fwd0 / rev0. R1386 + R817 replace R831's net
+  citrate-out / malate-in.
+- **Complex I:** only R831's malate-out direction matters (off = fwd0, rev0 = asis); WT cost 0.
+  - off: KO/WT 0.069–0.077 on the Task A medium, lysine-cap dependent (KO/WT ≥ 0.15 from 2× the cap);
+  - 0.000 on the W29 defined medium;
+  - no solution under the 13C floors (unresolved).
+  - What-if: R902 or R1386 in reverse would undo this.
+- **Benchmark:** off = option (b): +14 TP / +5 FP (26 complex I genes), MCC 0.319 → 0.351. rev0 changes no call.
+- **Orthology:** all six carrier genes are reciprocal best hits of Ctp1, Yhm2, Odc1, Dic1, Sfc1 and Oac1.
+
+**Decision status.** No proposal. Removing R831's malate mode would need its own authorized curation-change run
+with evidence of absence. Absence of support is not that, and the benchmark gain is not a reason.
+
+**Gaps.**
+- **Limits a claim:**
+  - Kaplan 1995 full text is unread;
+  - Aluvila's internal-anion list is in unread figure insets.
+- **Affects another line:**
+  - which carrier, if any, exports malate in *Y. lipolytica* is open;
+  - bounded internal loops exist: R831 + R1386 + R817, and R833 on its own;
+  - Task D `ratios.py` labels no-solution KOs as essential (same defect fixed in `shuttle_cap.py`).
+
+**Audit.** An independent read-only audit found all numbers SUPPORTED. It found 10 defects, all fixed in the text
+and tables, not re-audited. The main one: a claimed "RefSeq annotations name other loci" finding came from a faulty
+grep and was **withdrawn**. The literature summary was softened and the counterpoints added.
+
 ## 2026-10-14: benchmark side effects of Task D options (a)/(b), and homoisocitrate DH location (diagnostic)
 
 **Authorization.** User, 2026-10-14: "commit. ok. run (a) and (b), check. review." Read back and approved:

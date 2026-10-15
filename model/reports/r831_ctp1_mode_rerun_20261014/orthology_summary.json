@@ -1,0 +1,420 @@
+{
+ "sw_impl": {
+  "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/r132_mito_adh_20261012/sw_blosum62_gotoh.py",
+  "sha256": "04a1f73fc18b96b0d7b3179e62380c438a98cf86574d37b2fb06bec0cb66398c"
+ },
+ "fasta": {
+  "queries": {
+   "file": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/r831_ctp1_mode_rerun_20261014/sequences/model_carriers_locus.fasta",
+   "sha256": "da57bb6b3cbdedb6b3926a831dfaa1a8ead1547bb4c7021b5db44bbe4442ca0b"
+  },
+  "sc": {
+   "file": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/sequences/sc_mcf_reviewed.fasta",
+   "sha256": "842e9e594307368c016fc8009173adb27c71539d2aec5ed463d9baf6cb6e5aa1"
+  },
+  "yl": {
+   "file": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/w29_13c_consistency_20261012/sequences/yl_clib122_mcf.fasta",
+   "sha256": "027a613b88610e2e1da4aa5f8ca3a5d165c2f99371310c80802b2aeeae43f7ae"
+  }
+ },
+ "query_to_clib122": {
+  "YALI1F33754g|XP_505902.1": {
+   "clib122_entry": "tr|Q6C0B0|Q6C0B0_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  },
+  "YALI1D03221g|XP_502333.2": {
+   "clib122_entry": "tr|Q6CAH9|Q6CAH9_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 0.912
+  },
+  "YALI1B04831g|XP_500457.3": {
+   "clib122_entry": "tr|Q6CFV5|Q6CFV5_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  },
+  "YALI1B14382g|XP_500732.1": {
+   "clib122_entry": "tr|Q6CF30|Q6CF30_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  },
+  "YALI1E41148g|XP_504782.2": {
+   "clib122_entry": "tr|Q6C3I0|Q6C3I0_YARLI",
+   "identity": 0.9969,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  },
+  "YALI1E04823g|XP_503525.1": {
+   "clib122_entry": "tr|Q6C737|Q6C737_YARLI",
+   "identity": 1.0,
+   "q_cov": 1.0,
+   "s_cov": 1.0
+  }
+ },
+ "genes": {
+  "YALI1F33754g": {
+   "query": "YALI1F33754g|XP_505902.1",
+   "reactions": "R831;R832;R833",
+   "expected_sc": "CTP1",
+   "forward_top3": [
+    {
+     "subject": "sp|P38152|TXTP_YEAST",
+     "gene": "CTP1",
+     "score": 1006,
+     "identity": 0.6722,
+     "q_cov": 1.0,
+     "s_cov": 0.997
+    },
+    {
+     "subject": "sp|P33303|SFC1_YEAST",
+     "gene": "SFC1",
+     "score": 374,
+     "identity": 0.3072,
+     "q_cov": 0.997,
+     "s_cov": 0.944
+    },
+    {
+     "subject": "sp|P43617|YFL5_YEAST",
+     "gene": "YFR045W",
+     "score": 332,
+     "identity": 0.2987,
+     "q_cov": 0.979,
+     "s_cov": 0.971
+    }
+   ],
+   "forward_best_gene": "CTP1",
+   "reverse_best_clib122": "tr|Q6C0B0|Q6C0B0_YARLI",
+   "reciprocal_best_hit": true
+  },
+  "YALI1D03221g": {
+   "query": "YALI1D03221g|XP_502333.2",
+   "reactions": "R807;R1386",
+   "expected_sc": "ODC1",
+   "forward_top3": [
+    {
+     "subject": "sp|Q03028|ODC1_YEAST",
+     "gene": "ODC1",
+     "score": 866,
+     "identity": 0.6092,
+     "q_cov": 1.0,
+     "s_cov": 0.906
+    },
+    {
+     "subject": "sp|Q99297|ODC2_YEAST",
+     "gene": "ODC2",
+     "score": 848,
+     "identity": 0.5848,
+     "q_cov": 0.993,
+     "s_cov": 0.902
+    },
+    {
+     "subject": "sp|Q12482|AGC1_YEAST",
+     "gene": "AGC1",
+     "score": 340,
+     "identity": 0.3525,
+     "q_cov": 0.978,
+     "s_cov": 0.294
+    }
+   ],
+   "forward_best_gene": "ODC1",
+   "reverse_best_clib122": "tr|Q6CAH9|Q6CAH9_YARLI",
+   "reciprocal_best_hit": true
+  },
+  "YALI1B04831g": {
+   "query": "YALI1B04831g|XP_500457.3",
+   "reactions": "R902;R928",
+   "expected_sc": "DIC1",
+   "forward_top3": [
+    {
+     "subject": "sp|Q06143|DIC1_YEAST",
+     "gene": "DIC1",
+     "score": 766,
+     "identity": 0.5276,
+     "q_cov": 0.903,
+     "s_cov": 0.943
+    },
+    {
+     "subject": "sp|P32332|OAC1_YEAST",
+     "gene": "OAC1",
+     "score": 293,
+     "identity": 0.2793,
+     "q_cov": 0.866,
+     "s_cov": 0.873
+    },
+    {
+     "subject": "sp|P33303|SFC1_YEAST",
+     "gene": "SFC1",
+     "score": 233,
+     "identity": 0.2475,
+     "q_cov": 0.863,
+     "s_cov": 0.885
+    }
+   ],
+   "forward_best_gene": "DIC1",
+   "reverse_best_clib122": "tr|Q6CFV5|Q6CFV5_YARLI",
+   "reciprocal_best_hit": true
+  },
+  "YALI1B14382g": {
+   "query": "YALI1B14382g|XP_500732.1",
+   "reactions": "R817",
+   "expected_sc": "YHM2",
+   "forward_top3": [
+    {
+     "subject": "sp|Q04013|YHM2_YEAST",
+     "gene": "YHM2",
+     "score": 1197,
+     "identity": 0.769,
+     "q_cov": 0.968,
+     "s_cov": 0.962
+    },
+    {
+     "subject": "sp|P33303|SFC1_YEAST",
+     "gene": "SFC1",
+     "score": 153,
+     "identity": 0.2192,
+     "q_cov": 0.859,
+     "s_cov": 0.873
+    },
+    {
+     "subject": "sp|P32332|OAC1_YEAST",
+     "gene": "OAC1",
+     "score": 149,
+     "identity": 0.2368,
+     "q_cov": 0.556,
+     "s_cov": 0.552
+    }
+   ],
+   "forward_best_gene": "YHM2",
+   "reverse_best_clib122": "tr|Q6CF30|Q6CF30_YARLI",
+   "reciprocal_best_hit": true
+  },
+  "YALI1E41148g": {
+   "query": "YALI1E41148g|XP_504782.2",
+   "reactions": "R929",
+   "expected_sc": "SFC1",
+   "forward_top3": [
+    {
+     "subject": "sp|P33303|SFC1_YEAST",
+     "gene": "SFC1",
+     "score": 979,
+     "identity": 0.6546,
+     "q_cov": 0.94,
+     "s_cov": 0.938
+    },
+    {
+     "subject": "sp|P38152|TXTP_YEAST",
+     "gene": "CTP1",
+     "score": 336,
+     "identity": 0.3299,
+     "q_cov": 0.884,
+     "s_cov": 0.923
+    },
+    {
+     "subject": "sp|Q12482|AGC1_YEAST",
+     "gene": "AGC1",
+     "score": 330,
+     "identity": 0.301,
+     "q_cov": 0.897,
+     "s_cov": 0.308
+    }
+   ],
+   "forward_best_gene": "SFC1",
+   "reverse_best_clib122": "tr|Q6C3I0|Q6C3I0_YARLI",
+   "reciprocal_best_hit": true
+  },
+  "YALI1E04823g": {
+   "query": "YALI1E04823g|XP_503525.1",
+   "reactions": "R911",
+   "expected_sc": "OAC1",
+   "forward_top3": [
+    {
+     "subject": "sp|P32332|OAC1_YEAST",
+     "gene": "OAC1",
+     "score": 941,
+     "identity": 0.6189,
+     "q_cov": 0.959,
+     "s_cov": 0.941
+    },
+    {
+     "subject": "sp|P39953|YEA6_YEAST",
+     "gene": "YEA6",
+     "score": 253,
+     "identity": 0.2579,
+     "q_cov": 0.972,
+     "s_cov": 0.91
+    },
+    {
+     "subject": "sp|Q12482|AGC1_YEAST",
+     "gene": "AGC1",
+     "score": 243,
+     "identity": 0.2987,
+     "q_cov": 0.902,
+     "s_cov": 0.309
+    }
+   ],
+   "forward_best_gene": "OAC1",
+   "reverse_best_clib122": "tr|Q6C737|Q6C737_YARLI",
+   "reciprocal_best_hit": true
+  }
+ },
+ "reverse": {
+  "CTP1": {
+   "top3": [
+    {
+     "subject": "tr|Q6C0B0|Q6C0B0_YARLI",
+     "score": 1006,
+     "identity": 0.6722
+    },
+    {
+     "subject": "tr|Q6C3I0|Q6C3I0_YARLI",
+     "score": 336,
+     "identity": 0.3299
+    },
+    {
+     "subject": "tr|Q6C0X5|Q6C0X5_YARLI",
+     "score": 274,
+     "identity": 0.3121
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1F33754g"
+   ]
+  },
+  "YHM2": {
+   "top3": [
+    {
+     "subject": "tr|Q6CF30|Q6CF30_YARLI",
+     "score": 1197,
+     "identity": 0.769
+    },
+    {
+     "subject": "tr|Q6CAH9|Q6CAH9_YARLI",
+     "score": 134,
+     "identity": 0.2415
+    },
+    {
+     "subject": "tr|Q6C5J8|Q6C5J8_YARLI",
+     "score": 131,
+     "identity": 0.2182
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1B14382g"
+   ]
+  },
+  "DIC1": {
+   "top3": [
+    {
+     "subject": "tr|Q6CFV5|Q6CFV5_YARLI",
+     "score": 766,
+     "identity": 0.5276
+    },
+    {
+     "subject": "tr|Q6C737|Q6C737_YARLI",
+     "score": 225,
+     "identity": 0.2807
+    },
+    {
+     "subject": "tr|Q6CAH9|Q6CAH9_YARLI",
+     "score": 194,
+     "identity": 0.2698
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1B04831g"
+   ]
+  },
+  "ODC1": {
+   "top3": [
+    {
+     "subject": "tr|Q6CAH9|Q6CAH9_YARLI",
+     "score": 968,
+     "identity": 0.6234
+    },
+    {
+     "subject": "tr|Q6C3I0|Q6C3I0_YARLI",
+     "score": 312,
+     "identity": 0.3289
+    },
+    {
+     "subject": "tr|Q6C7R0|Q6C7R0_YARLI",
+     "score": 306,
+     "identity": 0.3103
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1D03221g"
+   ]
+  },
+  "ODC2": {
+   "top3": [
+    {
+     "subject": "tr|Q6CAH9|Q6CAH9_YARLI",
+     "score": 946,
+     "identity": 0.596
+    },
+    {
+     "subject": "tr|Q6C7R0|Q6C7R0_YARLI",
+     "score": 306,
+     "identity": 0.3043
+    },
+    {
+     "subject": "tr|Q6CGA0|Q6CGA0_YARLI",
+     "score": 305,
+     "identity": 0.2974
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1D03221g"
+   ]
+  },
+  "SFC1": {
+   "top3": [
+    {
+     "subject": "tr|Q6C3I0|Q6C3I0_YARLI",
+     "score": 979,
+     "identity": 0.6546
+    },
+    {
+     "subject": "tr|Q6C0B0|Q6C0B0_YARLI",
+     "score": 374,
+     "identity": 0.3072
+    },
+    {
+     "subject": "tr|Q6C7R0|Q6C7R0_YARLI",
+     "score": 297,
+     "identity": 0.2979
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1E41148g"
+   ]
+  },
+  "OAC1": {
+   "top3": [
+    {
+     "subject": "tr|Q6C737|Q6C737_YARLI",
+     "score": 941,
+     "identity": 0.6189
+    },
+    {
+     "subject": "tr|Q6CFV5|Q6CFV5_YARLI",
+     "score": 293,
+     "identity": 0.2793
+    },
+    {
+     "subject": "tr|Q6C5N9|Q6C5N9_YARLI",
+     "score": 262,
+     "identity": 0.2686
+    }
+   ],
+   "best_is_model_gene": [
+    "YALI1E04823g"
+   ]
+  }
+ }
+}
