@@ -5,6 +5,187 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
+
+**Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
+26,000), Evans 1983 excluded, no commit."
+- The earlier attempt (worktree `jovial-edison-83497a`, uncommitted) was not used.
+- Its folder holds Evans 1983 texts the user did not supply.
+
+No model, condition or assumption file was written; nothing committed. Details:
+[REPORT.md](reports/r831_ctp1_mode_rerun_20261014/REPORT.md).
+
+**Results** (verified this session unless marked; 21,892 LPs):
+- **Literature:** no direct evidence for a citrate/malate mode of the *Yarrowia* Ctp1 carrier (YALI1F33754g).
+  - YlCtp1p could not be expressed for assays. Its deletion is not significantly different on glucose, with a
+    mild lag on citrate (Yuzbasheva 2019).
+  - *S. cerevisiae* Ctp1: external malate Ki 50 mM vs isocitrate 6.4 mM (Aluvila 2010). That internal malate does
+    not drive citrate uptake is inferred (figure insets unread).
+  - Full-rate citrate/malate antiport is shown for the mammalian CIC.
+  - **Indirect counterpoints:** malate is the preferred efflux substrate in oleaginous yeast (Evans 1983c,
+    second-hand via Yang 2021). Yuzbasheva 2019 hypothesises α-KG(in)/malate(out) export by an unidentified
+    *Yarrowia* carrier.
+  - No yeast carrier (Dic1, Odc1/2, Sfc1, Oac1) has **shown** net malate export from the matrix.
+- **13C fit:** all 96 fits are identical for R831 asis / off / fwd0 / rev0. R1386 + R817 replace R831's net
+  citrate-out / malate-in.
+- **Complex I:** only R831's malate-out direction matters (off = fwd0, rev0 = asis); WT cost 0.
+  - off: KO/WT 0.069–0.077 on the Task A medium, lysine-cap dependent (KO/WT ≥ 0.15 from 2× the cap);
+  - 0.000 on the W29 defined medium;
+  - no solution under the 13C floors (unresolved).
+  - What-if: R902 or R1386 in reverse would undo this.
+- **Benchmark:** off = option (b): +14 TP / +5 FP (26 complex I genes), MCC 0.319 → 0.351. rev0 changes no call.
+- **Orthology:** all six carrier genes are reciprocal best hits of Ctp1, Yhm2, Odc1, Dic1, Sfc1 and Oac1.
+
+**Decision status.** No proposal. Removing R831's malate mode would need its own authorized curation-change run
+with evidence of absence. Absence of support is not that, and the benchmark gain is not a reason.
+
+**Gaps.**
+- **Limits a claim:**
+  - Kaplan 1995 full text is unread;
+  - Aluvila's internal-anion list is in unread figure insets.
+- **Affects another line:**
+  - which carrier, if any, exports malate in *Y. lipolytica* is open;
+  - bounded internal loops exist: R831 + R1386 + R817, and R833 on its own;
+  - Task D `ratios.py` labels no-solution KOs as essential (same defect fixed in `shuttle_cap.py`).
+
+**Audit.** An independent read-only audit found all numbers SUPPORTED. It found 10 defects, all fixed in the text
+and tables, not re-audited. The main one: a claimed "RefSeq annotations name other loci" finding came from a faulty
+grep and was **withdrawn**. The literature summary was softened and the counterpoints added.
+
+## 2026-10-14: benchmark side effects of Task D options (a)/(b), and homoisocitrate DH location (diagnostic)
+
+**Authorization.** User, 2026-10-14: "commit. ok. run (a) and (b), check. review." Read back and approved:
+- commit Task D after removing the repository copy of `combinatorial_tier1.csv` (done: `8718b75`);
+- screen (a) R533 reductive closed and (b) R831 forward closed, each in memory only, in a benchmark context and in
+  Task D's diagnostic context;
+- check the location of homoisocitrate DH;
+- independent read-only audit.
+
+No model, condition or assumption file was written. Uncommitted on `claude/task-d-78f16d`. Details:
+[REPORT.md](reports/complexI_shuttle_assumption_screen_20261014/REPORT.md).
+
+**Results** (verified this session unless marked):
+- **Setup:** Task B candidate `a56f3649…`, Task A medium, PO1f profile; 7,308 + 66 LPs. Task B's and Task D's
+  numbers reproduced.
+- **Side effects:** (a) and (b) are identical. Each changes only the 26 complex I (R2062) genes, KO/WT
+  0.758 → 0.069; 7 of them are mtDNA. 15 %: 82/33/229/697 (MCC 0.319) → 96/38/215/692 (MCC 0.351),
+  i.e. +14 TP and +5 FP; 16 unresolved. Same in the overlay + caps context (MCC 0.327 → 0.360).
+- **The essential call depends on lysine:** under (a)/(b) the KO cannot make lysine (R398's NADH has no outlet)
+  and grows only on medium lysine. KO growth is linear in the R1220 cap; KO/WT crosses 15 % between 2.1× and
+  2.2× the Task A cap (about 2.17×).
+  On the bound-10 medium (4.14× the cap) it is non-essential by extrapolation (inferred, not run).
+- **Homoisocitrate DH (YALI1D13238g):**
+  - the W29 genome encodes XP_502662.2 through a 165-nt `GTGAGT…TACTAAC…CAG` intron;
+  - the model's annotated protein XP_502662.3 starts inside that intron. The gene structure is verified; that
+    the annotation is wrong is inferred (no transcript evidence);
+  - XP_502662.2 is predicted mitochondrial: TargetP mTP 0.989, MitoFates 0.992, DeepLoc 0.933;
+  - the model's R398 matrix placement is therefore supported at prediction level only.
+
+**Decision status.** Option (d) stands; nothing is adopted.
+
+**Gaps.**
+- **Limits a claim:**
+  - the bound-10 medium was not run;
+  - the HIDH start codon (M1 vs M13) has no transcript evidence;
+  - the other five capped amino acids were not swept;
+  - Kerscher 2001's medium is still unread.
+- **Affects another line:**
+  - YALI1D13238g's RefSeq annotation (XP_502662.3) is wrong for sequence-based work;
+  - the 5 new complex I FPs belong in a GPR review;
+  - R807 (2-oxoadipate/malate exchange) has unreviewed carrier evidence.
+
+**Audit.** An independent read-only audit found all computational claims SUPPORTED (C1–C7). Its wording fixes
+were applied. The user then authorized fixes for the four defects it found in Task D's files (2026-10-14):
+- `shuttle_cap.py` now labels no-solution KOs "unresolved". Its outputs were regenerated, with values identical
+  and the fine grid extended.
+- The band wording is corrected to ~0.24 (A) and ~0.46 (V2).
+- R361 is renamed glycine cleavage (lipoamide).
+- R315 V2 now reads 0.810.
+
+## 2026-10-14: complex I transhydrogenation module (Task D), investigation only
+
+**Authorization.** The user authorized "Task D" of `claude_code_prompt_w29_tasks_20261012.md` on 2026-10-13. The
+approved plan and later decisions:
+- **Grouping:** hierarchical, with tier-1 2^k over ≤ 12 groups.
+- **Checkpoint:** continue after freezing the part table.
+- **Stop rule:** stop and report if every cut set costs > 2 % WT.
+- **Amendment 1:** keep 12 groups, with group 10 a family resolved by tier 2.
+- **Assumption files:** proposed only; none written.
+
+No model, condition or curation file was built or edited. Everything is uncommitted on `claude/task-d-78f16d`
+@ `4d97b82`. Details are in [TASK.md](reports/complexI_transhydrogenation_20261012/TASK.md) and
+[REPORT.md](reports/complexI_transhydrogenation_20261012/REPORT.md).
+
+**Inputs.**
+- Task B candidate `a56f3649…` (R132 removed).
+- Configuration A (Task A medium, PO1f, uptake ≤ 2.414) and V2 (W29-type defined), both with the holistic
+  overlay and 13C caps (diagnostic).
+- About 22,400 registered LPs.
+
+**Results** (verified this session unless marked):
+- **Escape reproduced:**
+  - complex I KO/WT 0.826 (A) and 0.827 (V2);
+  - PDH = CS = 0, G6PDH 221 / 208, NDH2 578 / 564 per 100 glucose;
+  - the MTHFD and GDH pairs are interchangeable NADPH → NADH converters (FVA up to 446).
+- **Discovery:**
+  - 4 rounds, 24 parts;
+  - KO/WT 0.826 → 0.540 → 0.436 → 0.406 → 0.077, at 0.50 % WT cost (the user-mandated HMG-CoA part).
+- **2^12 test (A and V2):** the minimal cut sets at 15 % are exactly {G3} and {G5}, at 0 % WT cost.
+  - G5: R533 matrix MDH, reductive direction closed.
+  - G3: resolves in tier 2 to R831 forward closed (citrate in, malate out).
+  - Both give KO/WT 0.077 (A; essential at 10/15 %, not at 1/5 %) and 0.000 (V2; all cutoffs).
+  - The 3,072 hits are exactly the sets containing G3 or G5. The cytosolic transhydrogenation module does not
+    decide the outcome.
+- **Mechanism:**
+  - without complex I, lysine-pathway homoisocitrate DH R398 (2.4 per 100 glucose) is the only forced matrix-NADH
+    source, and R533 reverse + R831 is its only outlet;
+  - opening lysine uptake rescues the blocked KO (V2 growth 0 → 0.227 h⁻¹);
+  - the result is independent of the overlay and the caps.
+- **13C ratio floors (step 5):**
+  - with R825 as supplied, the PDH and G6PDH floors cost WT > 2 % and are rejected;
+  - with the R825 ASSUMPTION every set is accepted, but the lowest KO/WT is 0.316 (V2, PDH + CS + G6PDH);
+  - no floor set makes complex I essential.
+- **Shuttle cap on R533 reverse (diagnostic):**
+  - without floors, 15 % is crossed only below ~0.24 (A) / 0.45 (V2) per 100 glucose;
+  - with floors, the KO has no solution below 86.66 and is essential only up to ~86.9 (A) or ~87.1 (V2)
+    (corrected after the second audit; no-solution rows are now labelled unresolved).
+- **Evidence** (reviewer subagents; key passages re-read):
+  - Kerscher 2001 and Garofano 2006 (*Y. lipolytica*, abstracts): complex I is required, external NDH2 does not
+    rescue, shuttles are insufficient; no capacity number.
+  - MDH reduction of OAA is thermodynamically favoured (eQuilibrator ΔrG′° +29.6 kJ/mol for malate oxidation, pH 7).
+  - Reconstituted *S. cerevisiae* Ctp1 does not exchange citrate for malate (Aluvila 2010), and Bakker 2001
+    rules out a malate–citrate shuttle. Counterpoint: Evans 1983 via Kaplan 1995 (weak malate substrate).
+  - YALI1E17214g is the truncated YlMDH2 (cytosolic/peroxisomal; Kabran 2012), yet it sits in the matrix MDH
+    GPR R533.
+
+**Step 4: user decision (2026-10-14): option (d).** No assumption file. Complex I essentiality in the model needs
+a capacity or regulatory assumption on matrix-to-cytosol NADH export, and none is adopted. The options were (REPORT §7):
+- (a) R533 lb 0;
+- (b) R831 ub 0;
+- (c) floors + cap;
+- (d) none.
+
+The recommended follow-up, a separate evidence review of R831's citrate/malate mode (it also affects Task C's 13C
+fit), is **not authorized yet**.
+
+**Gaps.**
+- **Limits a claim:**
+  - the benchmark side effects of (a) and (b) are untested;
+  - the matrix location of homoisocitrate DH is not verified for *Y. lipolytica*;
+  - Kerscher 2001's growth medium is unread.
+- **Affects another line:**
+  - R831's malate mode (Task C fit);
+  - YALI1E17214g in R533's GPR;
+  - the cytosolic MDH R534 depends only on a truncated gene model.
+
+**Audit.**
+- **Verdicts:** an independent read-only audit returned SUPPORTED for the computational claims and PARTIALLY
+  SUPPORTED for four items (capacity-step costs, shuttle-cap thresholds, evidence wording, disclosures).
+- **After the audit:** all four were corrected; `capacity_costs.py` and the fine cap grid were run then and were
+  not re-audited.
+- **Large file:** `combinatorial_tier1.csv` (1.9 MB) lives only in the research workspace (`fcd32946…`); the
+  repository copy was removed before commit (user-authorized, 2026-10-14).
+
 ## 2026-10-13: W29 13C consistency of mitochondrial carriers (Task C), investigation only
 
 **Authorization.** The user authorized Task C of `claude_code_prompt_w29_tasks_20261012.md`, with
