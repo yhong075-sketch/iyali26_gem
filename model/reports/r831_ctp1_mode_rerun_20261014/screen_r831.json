@@ -1,0 +1,1755 @@
+{
+ "runner_sha": "c53c8c21cebef614de903c4d4787746c3c26c9ec58ea6c8e110c1c7159f6a173",
+ "screen_r831_sha": "1cfaa71cedb539e76cc6288a0cd833211b23e07729b0aa02eb1746497edfd2d7",
+ "variants": {
+  "base": {},
+  "off": {
+   "R831": "whole"
+  },
+  "rev0": {
+   "R831": "rev"
+  }
+ },
+ "runs": {
+  "base": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.3124267446456666,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.23677274645770952,
+     "status": "optimal",
+     "ratio": 0.7578504417931353
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327856,
+     "status": "optimal",
+     "ratio": 0.10966416854656996
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 74,
+     "FN": 237,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.2379421221864952,
+     "precision": 0.6915887850467289,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.2904962880644161
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 82,
+     "FN": 229,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.26366559485530544,
+     "precision": 0.7130434782608696,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.31897700046487787
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 85,
+     "FN": 237,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2639751552795031,
+     "precision": 0.6910569105691057,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.3046796072018255
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 93,
+     "FN": 229,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2888198757763975,
+     "precision": 0.7099236641221374,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.33120522315361867
+    }
+   ],
+   "applied": {
+    "closures": {}
+   },
+   "route": {
+    "WT": {
+     "growth": 0.3124267446456687,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -995.9732803262582,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       8.713622416204695e-12,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       3.768541034787631e-12
+      ],
+      "R136": [
+       0.0,
+       0.0
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       2.4079141458521747e-12
+      ],
+      "R690": [
+       0.9261379202185536,
+       0.9261379201110075
+      ],
+      "R534": [
+       -1000.0,
+       995.973280326279
+      ],
+      "R_MDHy": [
+       -999.2244101103128,
+       998.0989029038999
+      ],
+      "R807": [
+       0.07996891691128213,
+       0.07996891691124706
+      ],
+      "R831": [
+       -3.357179633285682,
+       997.9928530546308
+      ],
+      "R902": [
+       0.0,
+       -2.1600499167107046e-12
+      ],
+      "R1386": [
+       0.0,
+       1000.0
+      ],
+      "R533": [
+       3.1073218685966206,
+       4.5991205655259595
+      ],
+      "R538": [
+       0.0,
+       0.14176600900668745
+      ],
+      "R693": [
+       1.9296082819121025,
+       1.929608281912658
+      ],
+      "R1311": [
+       0.0,
+       1.985390571780363
+      ],
+      "R570": [
+       0.0,
+       -1.8900436771218665e-12
+      ],
+      "R2062": [
+       7.770638537004814,
+       7.770638536999325
+      ],
+      "R348": [
+       0.0,
+       0.0008288814213388239
+      ],
+      "R347": [
+       0.0,
+       -2.409508744698593e-12
+      ],
+      "R614": [
+       1.1619720153291107,
+       1.1619720153271433
+      ],
+      "R361": [
+       1.1619720153135973,
+       1.1619720153227036
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       9.01355052086111,
+       9.01355052085825
+      ],
+      "R304": [
+       4.506775260430581,
+       4.506775260429068
+      ],
+      "R171": [
+       17.153294006528366,
+       17.15329400652761
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.23677274645770877,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -1000.0,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -0.26901300659535116,
+       -0.26901300659537686
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.2690130065994296,
+       0.26901300659865335
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.7809339007791805,
+       0.79408746133497
+      ],
+      "R690": [
+       0.7220123341270421,
+       0.7351658946839034
+      ],
+      "R534": [
+       -999.5781898171266,
+       1000.0
+      ],
+      "R_MDHy": [
+       -999.5781898171261,
+       1000.0
+      ],
+      "R807": [
+       0.059163689139602196,
+       0.059163689139562166
+      ],
+      "R831": [
+       0.11830370100457036,
+       999.8642626413344
+      ],
+      "R902": [
+       0.0,
+       -1.58700830255043e-12
+      ],
+      "R1386": [
+       0.0,
+       999.7459589403388
+      ],
+      "R533": [
+       -0.19241565983230802,
+       -0.059140011864956404
+      ],
+      "R538": [
+       0.0,
+       0.13327564794660418
+      ],
+      "R693": [
+       0.0,
+       -1.2511047753349658e-11
+      ],
+      "R1311": [
+       0.0,
+       0.0018420636734987061
+      ],
+      "R570": [
+       13.840928108672543,
+       13.84092810865995
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       0.00062816813981037
+      ],
+      "R347": [
+       0.0,
+       -1.337142072413422e-11
+      ],
+      "R614": [
+       0.0,
+       -2.1872670341593903e-11
+      ],
+      "R361": [
+       0.0,
+       -2.1872670341593903e-11
+      ],
+      "R357": [
+       0.0,
+       -3.101380263714759e-12
+      ],
+      "R360": [
+       0.0,
+       -2.1332935418172383e-12
+      ],
+      "R362": [
+       0.0,
+       -3.101380263714759e-12
+      ],
+      "R305": [
+       14.126548002255413,
+       14.126548002254257
+      ],
+      "R304": [
+       7.063274001127695,
+       7.063274001125592
+      ],
+      "R171": [
+       17.77822710468319,
+       17.77822710467325
+      ]
+     }
+    }
+   }
+  },
+  "off": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.31242674464566833,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.02163990471168009,
+     "status": "optimal",
+     "ratio": 0.06926393172973234
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327852,
+     "status": "optimal",
+     "ratio": 0.10966416854656924
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 88,
+     "FN": 223,
+     "FP": 38,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.2829581993569132,
+     "precision": 0.6984126984126984,
+     "specificity": 0.947945205479452,
+     "mcc": 0.32402322626754504
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 96,
+     "FN": 215,
+     "FP": 38,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.3086816720257235,
+     "precision": 0.7164179104477612,
+     "specificity": 0.947945205479452,
+     "mcc": 0.35074195760532617
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 99,
+     "FN": 223,
+     "FP": 43,
+     "TN": 692,
+     "unresolved": 0,
+     "recall": 0.30745341614906835,
+     "precision": 0.6971830985915493,
+     "specificity": 0.9414965986394558,
+     "mcc": 0.33599208173882306
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 107,
+     "FN": 215,
+     "FP": 43,
+     "TN": 692,
+     "unresolved": 0,
+     "recall": 0.33229813664596275,
+     "precision": 0.7133333333333334,
+     "specificity": 0.9414965986394558,
+     "mcc": 0.36111657715876117
+    }
+   ],
+   "applied": {
+    "closures": {
+     "R831": {
+      "how": "whole",
+      "before": [
+       -1000.0,
+       1000.0
+      ],
+      "after": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "route": {
+    "WT": {
+     "growth": 0.3124267446456678,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -995.97328032629,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       2.240652108298491e-12,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       -7.150946501610633e-12
+      ],
+      "R2070": [
+       0.0,
+       -7.540412738649138e-12
+      ],
+      "R136": [
+       0.0,
+       -1.7896795156957523e-12
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       -1.9454490102210897e-12
+      ],
+      "R690": [
+       0.9261379201102188,
+       0.9261379201184922
+      ],
+      "R534": [
+       -1000.0,
+       995.9732803262837
+      ],
+      "R_MDHy": [
+       -999.2244101103174,
+       998.0989029039117
+      ],
+      "R807": [
+       0.07996891691128187,
+       0.07996891691135069
+      ],
+      "R831": [
+       0.0,
+       0.0
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       2.007146945339193,
+       3.357179633283038
+      ],
+      "R533": [
+       3.1073218685625887,
+       4.599120565530351
+      ],
+      "R538": [
+       0.0,
+       0.14176600901693595
+      ],
+      "R693": [
+       1.9296082819120477,
+       1.9296082819171436
+      ],
+      "R1311": [
+       0.0,
+       1.9853905717024234
+      ],
+      "R570": [
+       0.0,
+       0.0
+      ],
+      "R2062": [
+       7.770638537003243,
+       7.770638537004352
+      ],
+      "R348": [
+       0.0,
+       0.0008288814247990454
+      ],
+      "R347": [
+       0.0,
+       1.1938660428916351e-12
+      ],
+      "R614": [
+       1.1619720153283641,
+       1.1619720153288382
+      ],
+      "R361": [
+       1.1619720153282496,
+       1.1619720153294213
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       9.013550520861457,
+       9.01355052086112
+      ],
+      "R304": [
+       4.506775260430706,
+       4.5067752604309534
+      ],
+      "R171": [
+       17.153294006532185,
+       17.15329400653323
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.02163990471168009,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -1000.0,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -5.9424213308239,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       5.942421330823877
+      ],
+      "R1113": [
+       0.0,
+       4.06291349749835
+      ],
+      "R691": [
+       0.0,
+       9.407512080227963
+      ],
+      "R690": [
+       0.0,
+       24.810724796236222
+      ],
+      "R534": [
+       -1000.0,
+       1000.0
+      ],
+      "R_MDHy": [
+       -1000.0,
+       1000.0
+      ],
+      "R807": [
+       1.0819952355831802e-06,
+       1.0819952355840313e-06
+      ],
+      "R831": [
+       0.0,
+       0.0
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       0.0
+      ],
+      "R533": [
+       -19.832344820266197,
+       1.0819952355831802e-06
+      ],
+      "R538": [
+       0.0,
+       19.83234590226179
+      ],
+      "R693": [
+       0.0,
+       0.0
+      ],
+      "R1311": [
+       0.0,
+       3.1219296963209646
+      ],
+      "R570": [
+       0.0,
+       28.204369834905478
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       28.204431137172826
+      ],
+      "R347": [
+       0.0,
+       28.204369834905503
+      ],
+      "R614": [
+       0.0,
+       0.0
+      ],
+      "R361": [
+       0.0,
+       0.0
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       3.2771534134669804,
+       28.20436983490549
+      ],
+      "R304": [
+       1.6385767067335022,
+       14.102184917452737
+      ],
+      "R171": [
+       3.9783483721043917,
+       42.30783508414215
+      ]
+     }
+    }
+   }
+  },
+  "rev0": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.3124267446456668,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.2367727464577083,
+     "status": "optimal",
+     "ratio": 0.757850441793131
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327763,
+     "status": "optimal",
+     "ratio": 0.10966416854656692
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 74,
+     "FN": 237,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.2379421221864952,
+     "precision": 0.6915887850467289,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.2904962880644161
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 82,
+     "FN": 229,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.26366559485530544,
+     "precision": 0.7130434782608696,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.31897700046487787
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 85,
+     "FN": 237,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2639751552795031,
+     "precision": 0.6910569105691057,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.3046796072018255
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 93,
+     "FN": 229,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2888198757763975,
+     "precision": 0.7099236641221374,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.33120522315361867
+    }
+   ],
+   "applied": {
+    "closures": {
+     "R831": {
+      "how": "rev",
+      "before": [
+       -1000.0,
+       1000.0
+      ],
+      "after": [
+       0.0,
+       1000.0
+      ]
+     }
+    }
+   },
+   "route": {
+    "WT": {
+     "growth": 0.312426744645668,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -995.9732803262868,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       0.0,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       -1.688454859324189e-11
+      ],
+      "R136": [
+       0.0,
+       0.0
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       0.0
+      ],
+      "R690": [
+       0.9261379201190638,
+       0.926137920109057
+      ],
+      "R534": [
+       -1000.0,
+       995.9732803262774
+      ],
+      "R_MDHy": [
+       -999.2244101103134,
+       998.0989029039123
+      ],
+      "R807": [
+       0.07996891691128193,
+       0.07996891691144736
+      ],
+      "R831": [
+       0.0,
+       997.9928530546348
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       2.0071469453296387,
+       1000.0
+      ],
+      "R533": [
+       3.1073218685599677,
+       4.599120565526139
+      ],
+      "R538": [
+       0.0,
+       0.1417660090163051
+      ],
+      "R693": [
+       1.9296082819120683,
+       1.9296082819115965
+      ],
+      "R1311": [
+       0.0,
+       1.9853905716985414
+      ],
+      "R570": [
+       0.0,
+       7.617018127348274e-12
+      ],
+      "R2062": [
+       7.7706385370085105,
+       7.770638537003595
+      ],
+      "R348": [
+       0.0,
+       0.000828881424609864
+      ],
+      "R347": [
+       0.0,
+       2.631672657571471e-12
+      ],
+      "R614": [
+       1.1619720153307098,
+       1.1619720153291773
+      ],
+      "R361": [
+       1.1619720153284505,
+       1.1619720153282742
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       9.0135505208633,
+       9.013550520860424
+      ],
+      "R304": [
+       4.506775260430516,
+       4.50677526043078
+      ],
+      "R171": [
+       17.153294006546233,
+       17.15329400653185
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.23677274645770952,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -1000.0,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -0.269013006595624,
+       -0.26901300659781424
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.26901300659714067,
+       0.26901300659784844
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.7809339007738634,
+       0.7940874613341766
+      ],
+      "R690": [
+       0.7220123341262062,
+       0.735165894682269
+      ],
+      "R534": [
+       -999.5781898171264,
+       1000.0
+      ],
+      "R_MDHy": [
+       -999.5781898171257,
+       1000.0
+      ],
+      "R807": [
+       0.059163689139602404,
+       0.0591636891395761
+      ],
+      "R831": [
+       0.11830370100465057,
+       999.8642626413309
+      ],
+      "R902": [
+       0.0,
+       -1.9791113192724197e-12
+      ],
+      "R1386": [
+       0.0,
+       999.7459589403361
+      ],
+      "R533": [
+       -0.19241565983273165,
+       -0.059140011864956626
+      ],
+      "R538": [
+       0.0,
+       0.1332756479505075
+      ],
+      "R693": [
+       0.0,
+       -1.2593953657713541e-11
+      ],
+      "R1311": [
+       0.0,
+       0.001842063671689112
+      ],
+      "R570": [
+       13.840928108673497,
+       13.840928108664379
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       0.0006281681466933162
+      ],
+      "R347": [
+       0.0,
+       -6.488476646099113e-12
+      ],
+      "R614": [
+       0.0,
+       -4.717048279756497e-11
+      ],
+      "R361": [
+       0.0,
+       -4.717048279756497e-11
+      ],
+      "R357": [
+       0.0,
+       -1.5420720256287268e-12
+      ],
+      "R360": [
+       0.0,
+       -1.7521817330390377e-12
+      ],
+      "R362": [
+       0.0,
+       -1.6229240173970538e-12
+      ],
+      "R305": [
+       14.126548002257767,
+       14.126548002245897
+      ],
+      "R304": [
+       7.0632740011280415,
+       7.063274001122949
+      ],
+      "R171": [
+       17.77822710468448,
+       17.778227104665156
+      ]
+     }
+    }
+   }
+  }
+ },
+ "base_check": {
+  "expected": {
+   "TP": 82,
+   "FP": 33,
+   "FN": 229,
+   "TN": 697,
+   "unresolved": 16
+  },
+  "got": {
+   "TP": 82,
+   "FP": 33,
+   "FN": 229,
+   "TN": 697,
+   "unresolved": 16
+  },
+  "ok": true
+ },
+ "gene_differences": [
+  {
+   "variant": "off",
+   "gene_id": "YALI1A21711g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931342,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1B00908g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1B14382g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R817",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 1.0000000000000007,
+   "variant_ratio": 0.9981140723724904,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "",
+   "call_change_0.15": ""
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1B19507g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1B26679g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931399,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1C04281g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D00766g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931338,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D06302g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D07089g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931334,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D09203g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931358,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D18037g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1394;R1395;R1396;R2062;R2218;R2221;R2224;R2227;R2230;R2233;R78",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931354,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D24109g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931322,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1D32550g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931373,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1E27218g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931334,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1E37603g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793138,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1F01456g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931317,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1F03371g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793134,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1F09003g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793132,
+   "variant_ratio": 0.06926393172973233,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1F22993g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931341,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1F24343g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931375,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1M00056g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931325,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1M00064g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931307,
+   "variant_ratio": 0.06926393172973236,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1M00296g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1M00335g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1M00338r",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931324,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALI1M00458g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973234,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "off",
+   "gene_id": "YALIfMp29",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931318,
+   "variant_ratio": 0.06926393172973237,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "variant": "rev0",
+   "gene_id": "YALI1B14382g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R817",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 1.0000000000000007,
+   "variant_ratio": 0.9981140723724954,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "",
+   "call_change_0.15": ""
+  }
+ ],
+ "lps": 3654,
+ "elapsed_seconds": 44.03544516698457
+}

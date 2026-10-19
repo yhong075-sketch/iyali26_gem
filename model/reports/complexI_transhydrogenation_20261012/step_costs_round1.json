@@ -1,0 +1,266 @@
+{
+ "started_utc": "2026-10-14T06:57:08.899088+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "r825": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/r825_reversible_20261013.json",
+   "sha256": "e45cab424c30ee9aec00823cb67392742ac6c36ba7091664249765a2533efcaa"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/complexI_transhydrogenation_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "round": 1,
+ "parts_definition_sha256": "b3a1b4ca6ef18cd9236e3bd3f6862cb3b7e70100a5e9d2c17aa7c52db7b5c524",
+ "closures": {
+  "R549": "fwd",
+  "R550": "rev",
+  "R329": "fwd",
+  "R1378": "fwd",
+  "R136": "fwd",
+  "R1385": "rev",
+  "R1708": "whole",
+  "R412": "whole",
+  "R1172": "whole",
+  "R1628": "fwd",
+  "R1629": "rev",
+  "R1936": "fwd"
+ },
+ "WT_open": 0.28221631193924995,
+ "WT_round": 0.28079549028006207,
+ "KO_round": 0.15150248991392717,
+ "steps": [
+  {
+   "step": "R511:fwd",
+   "name": "L-serine deaminase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.151502489913927,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5395474470149845
+  },
+  {
+   "step": "R328:fwd",
+   "name": "glutamate decarboxylase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.12488524100183675,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.4447551521474894
+  },
+  {
+   "step": "R50:fwd",
+   "name": "4-aminobutyrate transaminase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.1248852410018368,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.44475515214748956
+  },
+  {
+   "step": "R742:fwd",
+   "name": "succinate-semialdehyde dehydrogenase (NADP)",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.1248852410018368,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.44475515214748956
+  },
+  {
+   "step": "R1931:fwd",
+   "name": "L-Glutamate 5-semialdehyde:NAD+ oxidoreductase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14099486856309235,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5021265420697
+  },
+  {
+   "step": "R610:fwd",
+   "name": "ornithine transaminase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.13962578415063737,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.49725080702463403
+  },
+  {
+   "step": "R1968:fwd",
+   "name": "4-methyl-2-oxopentanoate dehydrogenase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14602212951446497,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.520030180573148
+  },
+  {
+   "step": "R1971:fwd",
+   "name": "3-methylbutanoyl-CoA dehydrogenase;",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14602212951446472,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5200301805731471
+  },
+  {
+   "step": "R1972:fwd",
+   "name": "3-methylcrotonyl-CoA carboxylase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14602212951446472,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5200301805731471
+  },
+  {
+   "step": "R1974:fwd",
+   "name": "hydroxymethylglutaryl-CoA lyase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14602212951446472,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5200301805731471
+  },
+  {
+   "step": "R1933:fwd",
+   "name": "succinyl-CoA:acetoacetate CoA-transferase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14602212951446472,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5200301805731471
+  },
+  {
+   "step": "R2230:fwd",
+   "name": "fatty acyl ACP synthase n C160ACP mitochondrial",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14827254963454142,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.528044625954133
+  },
+  {
+   "step": "R100:fwd",
+   "name": "acyl-CoA oxidase (hexadecanoyl-CoA)",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14827163904439739,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.528041383059658
+  },
+  {
+   "step": "R1519:fwd",
+   "name": "3-hydroxyacyl-CoA dehydrogenase (3-oxohexadecanoyl-CoA)",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.1482716390443961,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5280413830596534
+  },
+  {
+   "step": "R87:fwd",
+   "name": "acetyl-Coa carboxylase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14827163904439722,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5280413830596574
+  },
+  {
+   "step": "R539:fwd",
+   "name": "malonyl-CoA-ACP transacylase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.1482716390443961,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5280413830596534
+  },
+  {
+   "step": "R2232:fwd",
+   "name": "fatty acyl ACP hydrolase",
+   "WT": 0.2807954902800595,
+   "WT_cost_vs_round": 9.103828801926284e-15,
+   "WT_cost_vs_open": 0.005034512886329168,
+   "KO": 0.14827254963454217,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5280446259541357
+  },
+  {
+   "step": "R536:fwd",
+   "name": "malate synthase",
+   "WT": 0.2807954902800613,
+   "WT_cost_vs_round": 2.7755575615628914e-15,
+   "WT_cost_vs_open": 0.0050345128863228394,
+   "KO": 0.15150248991392723,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5395474470149819
+  },
+  {
+   "step": "R90:fwd",
+   "name": "acetyl-CoA synthetase",
+   "WT": 0.2807954902800613,
+   "WT_cost_vs_round": 2.7755575615628914e-15,
+   "WT_cost_vs_open": 0.0050345128863228394,
+   "KO": 0.1515024899139269,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5395474470149807
+  },
+  {
+   "step": "R817:rev",
+   "name": "AKG transporter, mitochonrial",
+   "WT": 0.28079549028005985,
+   "WT_cost_vs_round": 7.882583474838611e-15,
+   "WT_cost_vs_open": 0.0050345128863279465,
+   "KO": 0.1515024899139269,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5395474470149835
+  },
+  {
+   "step": "R_OAADCm:rev",
+   "name": "R_OAADCm",
+   "WT": 0.2807954902800604,
+   "WT_cost_vs_round": 5.88418203051333e-15,
+   "WT_cost_vs_open": 0.005034512886325948,
+   "KO": 0.15150248991392665,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5395474470149815
+  }
+ ],
+ "lps": 45,
+ "elapsed_seconds": 4.510155666968785
+}

@@ -1,0 +1,841 @@
+{
+ "started_utc": "2026-10-14T07:10:20.978008+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "r825": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/r825_reversible_20261013.json",
+   "sha256": "e45cab424c30ee9aec00823cb67392742ac6c36ba7091664249765a2533efcaa"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/complexI_transhydrogenation_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "G3": {
+  "R831": "fwd"
+ },
+ "G5": {
+  "R533": "rev"
+ },
+ "matrix_NADH": {
+  "A|KO+none": {
+   "KO": 0.23322295530014478,
+   "KO_status": "optimal",
+   "WT": 0.28221631193924995,
+   "KO_over_WT": 0.8263978566566644,
+   "matrix_NADH_fva_per100": {
+    "R398": [
+     2.4104,
+     2.4104
+    ],
+    "R533": [
+     -7.8226,
+     -2.4095
+    ],
+    "R538": [
+     0.0,
+     5.4132
+    ],
+    "R695": [
+     0.001,
+     0.001
+    ]
+   }
+  },
+  "A|KO+G3": {
+   "KO": 0.021639904711680095,
+   "KO_status": "optimal",
+   "WT": 0.28221631193924995,
+   "KO_over_WT": 0.07667843351428359,
+   "matrix_NADH_fva_per100": {
+    "R398": [
+     0.0,
+     0.0
+    ],
+    "R533": [
+     -200.2189,
+     0.0
+    ],
+    "R538": [
+     0.0,
+     200.219
+    ],
+    "R695": [
+     0.0001,
+     0.0001
+    ]
+   }
+  },
+  "A|KO+G5": {
+   "KO": 0.02164384059947982,
+   "KO_status": "optimal",
+   "WT": 0.28221631193924995,
+   "KO_over_WT": 0.07669237986548023,
+   "matrix_NADH_fva_per100": {
+    "R398": [
+     0.0001,
+     0.0001
+    ],
+    "R695": [
+     0.0001,
+     0.0001
+    ]
+   }
+  },
+  "V2|KO+none": {
+   "KO": 0.2171783845326722,
+   "KO_status": "optimal",
+   "WT": 0.26270863691515695,
+   "KO_over_WT": 0.8266891682088512,
+   "matrix_NADH_fva_per100": {
+    "R398": [
+     2.4741,
+     2.4741
+    ],
+    "R533": [
+     -9.0659,
+     -2.4732
+    ],
+    "R538": [
+     0.0,
+     6.5927
+    ],
+    "R695": [
+     0.0009,
+     0.0009
+    ]
+   }
+  },
+  "V2|KO+G3": {
+   "KO": 0.0,
+   "KO_status": "optimal",
+   "WT": 0.26270863691515695,
+   "KO_over_WT": 0.0
+  },
+  "V2|KO+G5": {
+   "KO": 0.0,
+   "KO_status": "optimal",
+   "WT": 0.26270863691515695,
+   "KO_over_WT": 0.0
+  }
+ },
+ "wt_requirement": {
+  "A": {
+   "R135": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "aldehyde dehydrogenase (acetylaldehyde, NAD)",
+    "required_producer": false
+   },
+   "R146": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "Aminobutyraldehyde dehydrogenase",
+    "required_producer": false
+   },
+   "R1968": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "4-methyl-2-oxopentanoate dehydrogenase",
+    "required_producer": false
+   },
+   "R1969": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "3-methyl-2-oxopentanoate dehydrogenase",
+    "required_producer": false
+   },
+   "R1970": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "(S)3-methyl-2-oxopentanoate dehydrogenase",
+    "required_producer": false
+   },
+   "R1975": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "2-oxoadipate dehydrogenase",
+    "required_producer": false
+   },
+   "R1979": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "(S)-3-Hydroxybutanoyl-CoA oxidoreductase",
+    "required_producer": false
+   },
+   "R2062": {
+    "coef": -1.0,
+    "fva_per100": [
+     194.0768,
+     202.0441
+    ],
+    "name": "NADH:ubiquinone oxidoreductase",
+    "required_producer": false
+   },
+   "R2070": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "Acetaldehyde:NAD+ oxidoreductase",
+    "required_producer": false
+   },
+   "R357": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "glycine cleavage system",
+    "required_producer": false
+   },
+   "R361": {
+    "coef": 1.0,
+    "fva_per100": [
+     41.2915,
+     45.2751
+    ],
+    "name": "glycine-cleavage complex (lipoamide)",
+    "required_producer": true
+   },
+   "R364": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "glycine-cleavage complex (lipoylprotein)",
+    "required_producer": false
+   },
+   "R383": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "heme O monooxygenase",
+    "required_producer": false
+   },
+   "R398": {
+    "coef": 1.0,
+    "fva_per100": [
+     2.9686,
+     2.9686
+    ],
+    "name": "homoisocitrate dehydrogenase",
+    "required_producer": true
+   },
+   "R487": {
+    "coef": 1.0,
+    "fva_per100": [
+     28.5239,
+     48.4421
+    ],
+    "name": "isocitrate dehydrogenase (NAD+)",
+    "required_producer": true
+   },
+   "R500": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "L-1-pyrroline-3-hydroxy-5-carboxylate dehydrogenase",
+    "required_producer": false
+   },
+   "R501": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "L-4-hydroxyglutamate semialdehyde dehydrogenase",
+    "required_producer": false
+   },
+   "R533": {
+    "coef": 1.0,
+    "fva_per100": [
+     42.2593,
+     51.3854
+    ],
+    "name": "malate dehydrogenase",
+    "required_producer": true
+   },
+   "R538": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     5.1425
+    ],
+    "name": "malic enzyme (NADP)",
+    "required_producer": false
+   },
+   "R572": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "NADH kinase mitochondrial",
+    "required_producer": false
+   },
+   "R573": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "NADH:ubiquinone oxidoreductase",
+    "required_producer": false
+   },
+   "R693": {
+    "coef": 1.0,
+    "fva_per100": [
+     61.9413,
+     65.9249
+    ],
+    "name": "pyruvate dehydrogenase",
+    "required_producer": true
+   },
+   "R695": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0012,
+     0.0012
+    ],
+    "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+    "required_producer": false
+   },
+   "R9": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "1-pyrroline-5-carboxylate dehydrogenase",
+    "required_producer": false
+   }
+  },
+  "V2": {
+   "R135": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "aldehyde dehydrogenase (acetylaldehyde, NAD)",
+    "required_producer": false
+   },
+   "R146": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "Aminobutyraldehyde dehydrogenase",
+    "required_producer": false
+   },
+   "R1968": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "4-methyl-2-oxopentanoate dehydrogenase",
+    "required_producer": false
+   },
+   "R1969": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "3-methyl-2-oxopentanoate dehydrogenase",
+    "required_producer": false
+   },
+   "R1970": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "(S)3-methyl-2-oxopentanoate dehydrogenase",
+    "required_producer": false
+   },
+   "R1975": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "2-oxoadipate dehydrogenase",
+    "required_producer": false
+   },
+   "R1979": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "(S)-3-Hydroxybutanoyl-CoA oxidoreductase",
+    "required_producer": false
+   },
+   "R2062": {
+    "coef": -1.0,
+    "fva_per100": [
+     181.8016,
+     189.4644
+    ],
+    "name": "NADH:ubiquinone oxidoreductase",
+    "required_producer": false
+   },
+   "R2070": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "Acetaldehyde:NAD+ oxidoreductase",
+    "required_producer": false
+   },
+   "R357": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "glycine cleavage system",
+    "required_producer": false
+   },
+   "R361": {
+    "coef": 1.0,
+    "fva_per100": [
+     38.6709,
+     42.5023
+    ],
+    "name": "glycine-cleavage complex (lipoamide)",
+    "required_producer": true
+   },
+   "R364": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "glycine-cleavage complex (lipoylprotein)",
+    "required_producer": false
+   },
+   "R383": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "heme O monooxygenase",
+    "required_producer": false
+   },
+   "R398": {
+    "coef": 1.0,
+    "fva_per100": [
+     2.9928,
+     2.9928
+    ],
+    "name": "homoisocitrate dehydrogenase",
+    "required_producer": true
+   },
+   "R487": {
+    "coef": 1.0,
+    "fva_per100": [
+     25.0778,
+     44.2348
+    ],
+    "name": "isocitrate dehydrogenase (NAD+)",
+    "required_producer": true
+   },
+   "R500": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "L-1-pyrroline-3-hydroxy-5-carboxylate dehydrogenase",
+    "required_producer": false
+   },
+   "R501": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "L-4-hydroxyglutamate semialdehyde dehydrogenase",
+    "required_producer": false
+   },
+   "R533": {
+    "coef": 1.0,
+    "fva_per100": [
+     38.4317,
+     48.6126
+    ],
+    "name": "malate dehydrogenase",
+    "required_producer": true
+   },
+   "R538": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     6.3495
+    ],
+    "name": "malic enzyme (NADP)",
+    "required_producer": false
+   },
+   "R572": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "NADH kinase mitochondrial",
+    "required_producer": false
+   },
+   "R573": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "NADH:ubiquinone oxidoreductase",
+    "required_producer": false
+   },
+   "R693": {
+    "coef": 1.0,
+    "fva_per100": [
+     58.7857,
+     62.6171
+    ],
+    "name": "pyruvate dehydrogenase",
+    "required_producer": true
+   },
+   "R695": {
+    "coef": -1.0,
+    "fva_per100": [
+     0.0011,
+     0.0011
+    ],
+    "name": "2-nonaprenyl-3-methyl-6-methoxy-1,4-benzoquinone hydroxylase",
+    "required_producer": false
+   },
+   "R9": {
+    "coef": 1.0,
+    "fva_per100": [
+     0.0,
+     0.0
+    ],
+    "name": "1-pyrroline-5-carboxylate dehydrogenase",
+    "required_producer": false
+   }
+  }
+ },
+ "rescue": {
+  "A": {
+   "lysine_exchange": "R1220",
+   "KO_G5": 0.02164384059947982,
+   "KO_G5_lysine_open": 0.24306854291088775,
+   "KO_G5_all_amino_acids_open": 22.04613840890311,
+   "WT": 0.28221631193924995,
+   "amino_acid_rows_opened": [
+    "R1202",
+    "R1204",
+    "R1215",
+    "R1217",
+    "R1220",
+    "R1222",
+    "R1223",
+    "R1231",
+    "R1232",
+    "R1233",
+    "R1234"
+   ]
+  },
+  "V2": {
+   "lysine_exchange": "R1220",
+   "KO_G5": 0.0,
+   "KO_G5_lysine_open": 0.22739620455457338,
+   "KO_G5_all_amino_acids_open": 21.865654226624425,
+   "WT": 0.26270863691515695,
+   "amino_acid_rows_opened": [
+    "R1202",
+    "R1204",
+    "R1215",
+    "R1217",
+    "R1220",
+    "R1222",
+    "R1223",
+    "R1231",
+    "R1232",
+    "R1233",
+    "R1234"
+   ]
+  }
+ },
+ "robustness": [
+  {
+   "config": "A",
+   "overlay": true,
+   "caps": true,
+   "WT": 0.28221631193924995,
+   "none": {
+    "WT": 0.28221631193924995,
+    "WT_cost": 0.0,
+    "KO": 0.23322295530014478,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.8263978566566644
+   },
+   "G3": {
+    "WT": 0.2822163119392486,
+    "WT_cost": 4.773959005888173e-15,
+    "KO": 0.0216399047116801,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.07667843351428397
+   },
+   "G5": {
+    "WT": 0.2822163119392486,
+    "WT_cost": 4.773959005888173e-15,
+    "KO": 0.021643840599479842,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.07669237986548066
+   }
+  },
+  {
+   "config": "A",
+   "overlay": true,
+   "caps": false,
+   "WT": 0.31175231505254236,
+   "none": {
+    "WT": 0.31175231505254236,
+    "WT_cost": 0.0,
+    "KO": 0.23677274645770716,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.7594899380869129
+   },
+   "G3": {
+    "WT": 0.3117523150525438,
+    "WT_cost": -4.6629367034256575e-15,
+    "KO": 0.0216399047116801,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.069413773905842
+   },
+   "G5": {
+    "WT": 0.3117523150525438,
+    "WT_cost": -4.6629367034256575e-15,
+    "KO": 0.021643840599479824,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.06942639895338676
+   }
+  },
+  {
+   "config": "A",
+   "overlay": false,
+   "caps": true,
+   "WT": 0.2846343560232868,
+   "none": {
+    "WT": 0.2846343560232868,
+    "WT_cost": 0.0,
+    "KO": 0.23322295530014617,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.8193773884452146
+   },
+   "G3": {
+    "WT": 0.2846343560232868,
+    "WT_cost": 0.0,
+    "KO": 0.0216399047116801,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.07602702995526539
+   },
+   "G5": {
+    "WT": 0.2846343560232868,
+    "WT_cost": 0.0,
+    "KO": 0.021643840599479824,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.07604085782852256
+   }
+  },
+  {
+   "config": "A",
+   "overlay": false,
+   "caps": false,
+   "WT": 0.3124267446456666,
+   "none": {
+    "WT": 0.3124267446456666,
+    "WT_cost": 0.0,
+    "KO": 0.23677274645770877,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.7578504417931329
+   },
+   "G3": {
+    "WT": 0.3124267446456666,
+    "WT_cost": 0.0,
+    "KO": 0.0216399047116801,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.06926393172973275
+   },
+   "G5": {
+    "WT": 0.3124267446456666,
+    "WT_cost": 0.0,
+    "KO": 0.021643840599479824,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.06927652952383066
+   }
+  },
+  {
+   "config": "V2",
+   "overlay": true,
+   "caps": true,
+   "WT": 0.26270863691515695,
+   "none": {
+    "WT": 0.26270863691515695,
+    "WT_cost": 0.0,
+    "KO": 0.2171783845326722,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.8266891682088512
+   },
+   "G3": {
+    "WT": 0.26270863691515495,
+    "WT_cost": 7.66053886991358e-15,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   },
+   "G5": {
+    "WT": 0.26270863691515495,
+    "WT_cost": 7.66053886991358e-15,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   }
+  },
+  {
+   "config": "V2",
+   "overlay": true,
+   "caps": false,
+   "WT": 0.29376991657747764,
+   "none": {
+    "WT": 0.29376991657747764,
+    "WT_cost": 0.0,
+    "KO": 0.22176319430090286,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.7548873515863084
+   },
+   "G3": {
+    "WT": 0.29376991657747736,
+    "WT_cost": 9.992007221626409e-16,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   },
+   "G5": {
+    "WT": 0.29376991657747736,
+    "WT_cost": 9.992007221626409e-16,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   }
+  },
+  {
+   "config": "V2",
+   "overlay": false,
+   "caps": true,
+   "WT": 0.2649995314075416,
+   "none": {
+    "WT": 0.2649995314075416,
+    "WT_cost": 0.0,
+    "KO": 0.21717838453267282,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.8195425228834655
+   },
+   "G3": {
+    "WT": 0.2649995314075416,
+    "WT_cost": 0.0,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   },
+   "G5": {
+    "WT": 0.2649995314075416,
+    "WT_cost": 0.0,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   }
+  },
+  {
+   "config": "V2",
+   "overlay": false,
+   "caps": false,
+   "WT": 0.2945807648296001,
+   "none": {
+    "WT": 0.2945807648296001,
+    "WT_cost": 0.0,
+    "KO": 0.22176319430090213,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.7528094864889796
+   },
+   "G3": {
+    "WT": 0.2945807648295992,
+    "WT_cost": 2.9976021664879227e-15,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   },
+   "G5": {
+    "WT": 0.2945807648295992,
+    "WT_cost": 2.9976021664879227e-15,
+    "KO": 0.0,
+    "KO_status": "optimal",
+    "KO_over_WT": 0.0
+   }
+  }
+ ],
+ "lps": 364,
+ "elapsed_seconds": 57.366292458958924
+}

@@ -1,0 +1,311 @@
+{
+ "note": "Task D part definitions (diagnostic closures, never written to any XML). round_added = the discovery round whose output introduced the part; discovery round r closes every part with round_added < r. Closures: fwd / rev / whole (common.close). Round 0 = parts_pool.json (config A). Grouping into tier-1 groups is added before the 2^k runs.",
+ "parts": [
+  {
+   "id": "MTHFD",
+   "round_added": 0,
+   "closures": {
+    "R549": "fwd",
+    "R550": "rev"
+   },
+   "mechanism": "cytosolic NAD/NADP pair: NAD-MTHFD R549 (oxidative, NADH) with NADP-MTHFD R550 reverse (reductive, NADPH) = NADPH -> NADH",
+   "source": "pair scan R549/R550; escape directions R549 fwd, R550 rev (parts_pool.json)"
+  },
+  {
+   "id": "GDH",
+   "round_added": 0,
+   "closures": {
+    "R329": "fwd"
+   },
+   "mechanism": "cytosolic NAD/NADP pair written in opposite directions: NAD-GDH R329 (glutamate -> 2-OG, NADH) with NADP-GDH R330 (2-OG -> glutamate, NADPH) = NADPH -> NADH",
+   "source": "pair scan R329/R330; escape direction R329 fwd; R330 is required by WT in the same direction (capacity step, not closed)"
+  },
+  {
+   "id": "ALD_cyt",
+   "round_added": 0,
+   "closures": {
+    "R1378": "fwd"
+   },
+   "mechanism": "cytosolic acetaldehyde dehydrogenase cofactor choice: NAD-ALD R1378 (NADH) instead of NADP-ALD R134 (NADPH)",
+   "source": "pair scan R1378/R134; escape direction R1378 fwd; R134 is required by WT (capacity step)"
+  },
+  {
+   "id": "ALD_mito",
+   "round_added": 0,
+   "closures": {
+    "R136": "fwd"
+   },
+   "mechanism": "matrix acetaldehyde dehydrogenase cofactor choice: NADP-ALD R136 (matrix NADPH) instead of NAD-ALD R135/R2070 (matrix NADH)",
+   "source": "pair scans R135/R136 and R2070/R136; escape direction R136 fwd"
+  },
+  {
+   "id": "IDH_mito_reductive",
+   "round_added": 0,
+   "closures": {
+    "R1385": "rev"
+   },
+   "mechanism": "matrix NADP-IDH R1385 in the reductive-carboxylation direction (2-OG + CO2 + NADPH -> isocitrate); pair R487/R1385",
+   "source": "pair scan R487/R1385; escape direction R1385 rev (WT requires forward)"
+  },
+  {
+   "id": "R1708",
+   "round_added": 0,
+   "closures": {
+    "R1708": "whole"
+   },
+   "mechanism": "succinyl-CoA:acetate CoA-transferase (matrix acetate -> acetyl-CoA)",
+   "source": "handoff (user, Task C Amendment 2): own part, closed whole"
+  },
+  {
+   "id": "HMG-CoA_route",
+   "round_added": 0,
+   "closures": {
+    "R412": "whole",
+    "R1172": "whole"
+   },
+   "mechanism": "matrix HMG-CoA synthase R412 + HMG-CoA transport R1172 (matrix acetyl-unit export)",
+   "source": "handoff (user, Task C Amendment 2): one part, closed whole"
+  },
+  {
+   "id": "NADP_transport_lp",
+   "round_added": 0,
+   "closures": {
+    "R1628": "fwd",
+    "R1629": "rev"
+   },
+   "mechanism": "cytosol <-> lipid-particle NADPH/NADP+ exchange (no GPR)",
+   "source": "transport scan; escape directions R1628 fwd, R1629 rev (0.0256 per 100 glucose)"
+  },
+  {
+   "id": "R1936",
+   "round_added": 0,
+   "closures": {
+    "R1936": "fwd"
+   },
+   "mechanism": "aspartate 1-decarboxylase (beta-alanine route)",
+   "source": "earlier part; escape direction fwd (0.0204 per 100 glucose)"
+  },
+  {
+   "id": "serine_cycle",
+   "round_added": 1,
+   "closures": {
+    "R511": "fwd"
+   },
+   "mechanism": "NADPH -> NADH through the serine pathway: NADP-GDH R330 (NADPH) -> phosphoserine transaminase R660 + PGDH R641 (NADH) -> R659 -> serine deaminase R511 -> pyruvate",
+   "source": "discovery round 1 (R511 KO 166.1, WT 0); R330, R641, R660, R659 are required by WT (capacity steps); step_costs_round1.json: WT cost 0"
+  },
+  {
+   "id": "GABA_shunt",
+   "round_added": 1,
+   "closures": {
+    "R328": "fwd"
+   },
+   "mechanism": "glutamate decarboxylase R328 -> GABA transaminase R50 -> NADP-succinate-semialdehyde DH R742 (cytosolic NADPH) -> succinate (cytosolic 2-OG oxidation bypassing matrix 2-OGDH)",
+   "source": "discovery round 1 (82.2 each, WT 0); R328 chosen because it is an earlier part and a WT-free step; WT cost 0"
+  },
+  {
+   "id": "GSA_P5C",
+   "round_added": 1,
+   "closures": {
+    "R1931": "fwd"
+   },
+   "mechanism": "glutamate-5-semialdehyde/P5C oxidation by NAD-P5C dehydrogenase R1931 (cytosolic NADH), fed by ornithine transaminase R610 (ornithine from matrix NADPH-dependent arginine-pathway steps) and other GSA sources",
+   "source": "discovery round 1 (R1931 KO 77.7, WT 0); earlier part; WT cost 0"
+  },
+  {
+   "id": "leucine_degradation",
+   "round_added": 1,
+   "closures": {
+    "R1968": "fwd"
+   },
+   "mechanism": "matrix branched-chain 2-oxo acid dehydrogenase R1968 (matrix NADH) -> R1971 (FAD -> ETF:Q R1977) -> ... -> HMG-CoA lyase R1974, with leucine made by WT-required synthesis steps (matrix NADPH at R76, cytosolic NADH at R45)",
+   "source": "discovery round 1 (18.2, WT 0); first committed, NADH-producing step; WT cost 0"
+  },
+  {
+   "id": "mito_FAS_cycle",
+   "round_added": 1,
+   "closures": {
+    "R2230": "fwd"
+   },
+   "mechanism": "matrix fatty-acid synthesis C14 -> C16 (R2230, 2 matrix NADPH) with export and peroxisomal beta-oxidation (R100, R1519 NADH, R535) = matrix NADPH -> peroxisomal NADH",
+   "source": "discovery round 1 (15.7, WT 0); matrix-NADPH-consuming step; WT cost 0"
+  },
+  {
+   "id": "citrate_import_mito",
+   "round_added": 1,
+   "closures": {
+    "R817": "rev"
+   },
+   "mechanism": "citrate import into the matrix through the citrate/2-oxoglutarate carrier R817 (reverse), feeding matrix NADP-IDH R1385 forward (matrix NADPH; R1385 forward is required by WT, capacity step)",
+   "source": "discovery round 1 (R817 KO -49.5, WT 0); WT cost 0"
+  },
+  {
+   "id": "serine_transsulfuration",
+   "round_added": 2,
+   "closures": {
+    "R244": "fwd"
+   },
+   "mechanism": "serine -> pyruvate + NH4 through cystathionine beta-synthase R244 + cystathionine beta-lyase R243 (homocysteine recycled), replacing serine deaminase in the serine-pathway NADPH -> NADH cycle",
+   "source": "discovery round 2 (143.4, WT 0); first committed step (tie at WT cost 0 with R243); step_costs_round2.json"
+  },
+  {
+   "id": "glyoxylate_secretion",
+   "round_added": 2,
+   "closures": {
+    "R1148": "fwd"
+   },
+   "mechanism": "glyoxylate exchange R1148 (no GPR): acetyl units leave as glyoxylate after ICL R490; succinate goes to SDH R740 (to Q) and cytosolic fumarase/MDH R534 (cytosolic NADH)",
+   "source": "discovery round 2 (135.2, WT 0); exchange chosen over transport R1149 (tie); step_costs_round2.json"
+  },
+  {
+   "id": "malonate_semialdehyde_cycle",
+   "round_added": 3,
+   "closures": {
+    "R2119": "fwd"
+   },
+   "mechanism": "malonyl-CoA + NADPH -> 3-oxopropanoate (R2121 reverse) -> acetyl-CoA + NADH (R2119), closed by ACC = NADPH -> NADH at ATP cost; R2119 also takes beta-alanine-derived 3-oxopropanoate (R2120)",
+   "source": "discovery round 3 (R2119 48.5, WT 0); NADH-producing step common to both feeds; step_costs_round3.json"
+  },
+  {
+   "id": "polyamine_catabolism",
+   "round_added": 3,
+   "closures": {
+    "R2065": "fwd"
+   },
+   "mechanism": "polyamine synthesis (ODC R608, SAMDC R118, spermidine synthase R728) and oxidation (spermidine oxidase R2065) with NAD aldehyde dehydrogenases R2064 and R133 (cytosolic NADH) and NADP-SSADH R2067; MTA salvage back to methionine",
+   "source": "discovery round 3 (23.8, WT 0); R2065 is the single step that feeds both NADH branches (tie at WT cost 0 with R2064, R608, R118); step_costs_round3.json"
+  },
+  {
+   "id": "isoleucine_degradation",
+   "round_added": 3,
+   "closures": {
+    "R2281": "fwd"
+   },
+   "mechanism": "cytosolic (S)-3-methyl-2-oxopentanoate oxidation R2281 -> ... -> R2284 (NADH) -> R2285 -> propanoyl-CoA + acetyl-CoA, propanoate secreted by exchange R2022 (no GPR)",
+   "source": "discovery round 3 (26.7, WT 0); first committed degradation step (tie with R2284, R2022); step_costs_round3.json"
+  },
+  {
+   "id": "citrate_import_mito_831",
+   "round_added": 3,
+   "closures": {
+    "R831": "fwd"
+   },
+   "mechanism": "citrate import into the matrix through the citrate/malate carrier R831 (forward: citrate in, malate out), the same route as citrate_import_mito after R817 reverse was closed",
+   "source": "discovery round 3 (52.6, WT 0); step_costs_round3.json: KO/WT 0.0771 when added alone"
+  },
+  {
+   "id": "matrix_MDH_reductive",
+   "round_added": 3,
+   "closures": {
+    "R533": "rev"
+   },
+   "mechanism": "matrix malate dehydrogenase R533 in the reductive direction (OAA + matrix NADH -> malate): matrix NADH leaves the matrix as malate and is oxidised by cytosolic MDH R534 (cytosolic NADH -> NDH2)",
+   "source": "discovery round 3 (R533 KO -25.2; WT requires forward); matrix-NADH-consuming step; step_costs_round3.json: KO/WT 0.0771 when added alone"
+  },
+  {
+   "id": "pyruvate_secretion",
+   "round_added": 4,
+   "closures": {
+    "R1310": "fwd"
+   },
+   "mechanism": "pyruvate exchange R1310 (no GPR): glycolysis ends in pyruvate secretion (cytosolic NADH from GAPDH to NDH2), no PDH/TCA",
+   "source": "earlier part; escape direction first seen in discovery round 4 (192.1, WT 0). Discovery stopped at round 4 (KO/WT 0.0771 < 0.15), so this part is in no discovery run"
+  },
+  {
+   "id": "NADPH_transport_em",
+   "round_added": 4,
+   "closures": {
+    "R1590": "fwd",
+    "R1591": "rev"
+   },
+   "mechanism": "cytosol <-> ER-membrane NADPH/NADP+ exchange (no GPR), the NADP side of the R1593/R1590 and R1594/R1591 transport pairs",
+   "source": "transport scan; escape directions first seen in discovery round 4 (FVA only; 0 in the pFBA vector). In no discovery run"
+  }
+ ],
+ "watch": [
+  "R135",
+  "R2070",
+  "R134",
+  "R330",
+  "R487",
+  "R534",
+  "R691",
+  "R361",
+  "R1931",
+  "R328",
+  "R1310",
+  "R412",
+  "R1172",
+  "R1264",
+  "R1265",
+  "R1590",
+  "R1591",
+  "R1593",
+  "R1594",
+  "R738",
+  "R641",
+  "R660",
+  "R315",
+  "R740",
+  "R929",
+  "R490",
+  "R1385",
+  "R536",
+  "R537",
+  "R831",
+  "R833",
+  "R570",
+  "R325"
+ ],
+ "groups": {
+  "G1_cyt_NADP_NAD_pairs": [
+   "MTHFD",
+   "GDH"
+  ],
+  "G2_ALD_cofactor_choice": [
+   "ALD_cyt",
+   "ALD_mito"
+  ],
+  "G3_matrix_citrate_import": [
+   "citrate_import_mito",
+   "citrate_import_mito_831"
+  ],
+  "G4_matrix_IDH_reductive": [
+   "IDH_mito_reductive"
+  ],
+  "G5_matrix_NADH_malate_export": [
+   "matrix_MDH_reductive"
+  ],
+  "G6_R1708": [
+   "R1708"
+  ],
+  "G7_HMG-CoA_route": [
+   "HMG-CoA_route"
+  ],
+  "G8_serine_disposal": [
+   "serine_cycle",
+   "serine_transsulfuration"
+  ],
+  "G9_intermediate_secretion": [
+   "glyoxylate_secretion",
+   "pyruvate_secretion"
+  ],
+  "G10_aa_amine_catabolism_family": [
+   "GABA_shunt",
+   "GSA_P5C",
+   "leucine_degradation",
+   "isoleucine_degradation",
+   "polyamine_catabolism",
+   "malonate_semialdehyde_cycle",
+   "R1936"
+  ],
+  "G11_mito_FAS_cycle": [
+   "mito_FAS_cycle"
+  ],
+  "G12_cofactor_transport_membranes": [
+   "NADP_transport_lp",
+   "NADPH_transport_em"
+  ]
+ },
+ "groups_note": "Tier-1 groups frozen 2026-10-14 (TASK.md 'Frozen part table'; Amendment 1: G10 is a family, resolved by tier 2)."
+}
