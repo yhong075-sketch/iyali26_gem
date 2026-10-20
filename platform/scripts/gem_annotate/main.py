@@ -78,6 +78,7 @@ def build_reference_chain(
     coq9_biomass_dilution: bool = False,
     coq9_respiratory_package: bool = False,
     r132_mito_adh: bool = False,
+    restore_selection_cleared_gprs: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -695,6 +696,11 @@ def build_reference_chain(
     if r132_mito_adh:
         from .r132_mito_adh import apply_r132_mito_adh
         selection["r132_mito_adh"] = apply_r132_mito_adh(model)
+    if restore_selection_cleared_gprs:
+        # Opt-in: re-apply the four reviewed GPRs the metadata selection clears (2026-10-19).
+        from .selection_gpr_restore import restore_after_selection
+        selection["selection_gpr_restore"] = restore_after_selection(model, selection)
+        logger.info("Selection GPR restore: %s", selection["selection_gpr_restore"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -779,6 +785,7 @@ def build_model(args):
         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
         r132_mito_adh=getattr(args, "r132_mito_adh", False),
+        restore_selection_cleared_gprs=getattr(args, "restore_selection_cleared_gprs", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

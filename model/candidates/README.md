@@ -18,7 +18,7 @@ so older reports and commits still identify them.
 | [E5_coq9_alpha_1e-4_qcycle_pipeline.xml](E5_coq9_alpha_1e-4_qcycle_pipeline.xml) | `d868f83b` | 2026-10-08 | The CoQ9/R305 candidate (`33468b94`) rebuilt by the builder: `--energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution`. Differs from `33468b94` only in the R1889 four-subunit GPR (default since 2026-10-05) and two note texts. |
 | [E5_coq9_respiratory_package_20261008.xml](E5_coq9_respiratory_package_20261008.xml) | `0ac2addf` | 2026-10-08 | The rebuilt CoQ9/R305 candidate plus the 2026-10-08 CoQ9/respiratory-chain package (`--coq9-respiratory-package`); see [the report](../reports/coq9_respiratory_package_20261008/REPORT.md). |
 | [E5_coq9_resp_pkg_r132_20261012.xml](E5_coq9_resp_pkg_r132_20261012.xml) | `a56f3649` | 2026-10-13 | The respiratory package candidate (`0ac2addf`) with R132 (matrix alcohol dehydrogenase) removed by `--r132-mito-adh` (user decision after the predictor screen); see [the report](../reports/r132_mito_adh_20261012/REPORT.md). |
-
+| [E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml](E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml) | `c98961e9` | 2026-10-19 | `a56f3649` plus `--restore-selection-cleared-gprs`. Re-applies the reviewed GPRs on R612 (URA3), R2274 (LIP2), R1302 and R1303 (YALI1A08512g, annotation only), and the balanced R2274/R1303 equations, all cleared by the metadata selection (user decision 2026-10-19). See [the report](../reports/selection_gpr_restore_20261019/REPORT.md). |
 Candidates published inside their task report folders:
 
 | File | SHA-256 | Published | What it is |
