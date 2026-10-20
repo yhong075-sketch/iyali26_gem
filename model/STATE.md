@@ -83,8 +83,11 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
 - Dependencies added: `pydantic-ai-slim[anthropic]`, `openpyxl`. API key via git-ignored
   `platform/.env`; a first key was exposed in a tool output during diagnosis and the user
   revoked it.
-- Not done: logic-chain layer (quote → inference → verdict); ortholog-name query broadening;
-  prompt caching.
+- 2026-10-20, tooling only: `python -m gem_review.lit setup` lets the user pick the LLM
+  provider (Anthropic, OpenAI, Gemini, Groq, Mistral, DeepSeek, OpenRouter, xAI, Ollama) and
+  model and store the key in git-ignored `platform/.env`; `GEM_REVIEW_LLM` is the default,
+  `--llm` overrides. OpenAI and Google extras installed. Usage: `platform/gem_review/README.md`.
+- Not done: ortholog-name query broadening; prompt caching.
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop

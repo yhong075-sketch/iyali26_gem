@@ -1,10 +1,13 @@
 """CLI for the literature layer.
 
+  python -m gem_review.lit setup                       choose provider + model, store the key in platform/.env
   python -m gem_review.lit retrieve --model <xml> (--tier 1 | --reactions R1,R2) [--task T]
-  python -m gem_review.lit extract  --task T [--llm anthropic:claude-opus-5-5] [--pairs g:r,...]
+  python -m gem_review.lit extract  --task T [--llm provider:model] [--pairs g:r,...]
   python -m gem_review.lit report   --task T
   python -m gem_review.lit chain    --task T (--pair gene:reaction |
                                     --question "..." --aliases A,B --terms T1,T2 [--gene YALI1...])
+
+The LLM is --llm, else GEM_REVIEW_LLM from platform/.env, else anthropic:claude-opus-5-5.
 """
 
 import argparse
@@ -24,10 +27,14 @@ from scripts.gem_annotate.model_layout import MODEL
 from .chain import (build_chain_agent, hit_line, load_chains, pair_chain_inputs, question_chain_inputs,
                     question_slug, retrieve_question, run_chain, write_chain)
 from .client import CachedClient, DiskCache
-from .extract import DEFAULT_MODEL, build_agent, load_results, load_retrieval, run_extraction
+from .extract import build_agent, load_results, load_retrieval, run_extraction
 from .pairs import geneless, list_pairs, select_reactions
+from .providers import DEFAULT_LLM, LLM_ENV, load_env_file, readiness, resolve_llm
 from .report import chain_rows, literature_rows, review_queue_rows, write_chain_sheet, write_review_xlsx
 from .retrieve import retrieve_all, sha256_of, write_outputs
+from .setup_cli import run_setup
+
+LLM_HELP = f"pydantic-ai model string, provider:model; default {LLM_ENV} from platform/.env, else {DEFAULT_LLM}"
 
 
 def _common(parser: argparse.ArgumentParser) -> None:
@@ -39,6 +46,7 @@ def _common(parser: argparse.ArgumentParser) -> None:
 def parse_args(argv=None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog="python -m gem_review.lit")
     sub = parser.add_subparsers(dest="command", required=True)
+    sub.add_parser("setup", help="choose the LLM provider and model; store the key in platform/.env")
     retrieve = sub.add_parser("retrieve", help="Europe PMC retrieval and hit-count table (no LLM)")
     retrieve.add_argument("--model", required=True, type=Path, help="SBML model to read pairs from")
     retrieve.add_argument("--tier", type=int, help="priority tier (only 1 is defined)")
@@ -50,8 +58,7 @@ def parse_args(argv=None) -> argparse.Namespace:
 
     extract = sub.add_parser("extract", help="Pydantic AI claim extraction on pairs with hits")
     _common(extract)
-    extract.add_argument("--llm", default=DEFAULT_MODEL,
-                         help="pydantic-ai model string, e.g. anthropic:claude-opus-5-5 (key from env)")
+    extract.add_argument("--llm", help=LLM_HELP)
     extract.add_argument("--pairs", help="comma-separated gene:reaction pairs to restrict to")
     extract.add_argument("--limit", type=int, help="stop after this many records (smoke runs)")
     extract.add_argument("--max-concurrent", type=int, default=5)
@@ -69,7 +76,7 @@ def parse_args(argv=None) -> argparse.Namespace:
     chain.add_argument("--aliases", default="", help="comma-separated names papers use: YALI0 tag, symbols")
     chain.add_argument("--terms", default="", help="comma-separated reaction terms: EC codes, enzyme names")
     chain.add_argument("--retrieve-only", action="store_true", help="show the hit count and stop")
-    chain.add_argument("--llm", default=DEFAULT_MODEL, help="pydantic-ai model string (key from env)")
+    chain.add_argument("--llm", help=LLM_HELP)
     chain.add_argument("--retries", type=int, default=2)
     chain.add_argument("--page-size", type=int, default=25)
     chain.add_argument("--max-fulltext", type=int, default=10)
@@ -92,9 +99,19 @@ def _task_dirs(args) -> tuple[Path, Path]:
     return task_dir / "out" / "lit" / "retrieval", task_dir / "out" / "lit"
 
 
+def _llm_or_exit(flag: str | None) -> str | None:
+    """The resolved model string, or None after printing what is missing."""
+    llm = resolve_llm(flag)
+    problem = readiness(llm)
+    if problem:
+        print(f"{llm}: {problem}", file=sys.stderr)
+        return None
+    return llm
+
+
 def extract_main(args) -> int:
-    if args.llm.startswith("anthropic:") and not os.environ.get("ANTHROPIC_API_KEY"):
-        print("ANTHROPIC_API_KEY is not set; export it before running extraction.", file=sys.stderr)
+    args.llm = _llm_or_exit(args.llm)
+    if args.llm is None:
         return 2
     retrieval_dir, out_dir = _task_dirs(args)
     only = {tuple(p.split(":", 1)) for p in args.pairs.split(",")} if args.pairs else None
@@ -149,10 +166,10 @@ def _question_record(args, out_dir: Path) -> tuple[dict, Path]:
 
 
 def chain_main(args) -> int:
-    if (not args.retrieve_only and args.llm.startswith("anthropic:")
-            and not os.environ.get("ANTHROPIC_API_KEY")):
-        print("ANTHROPIC_API_KEY is not set; export it before running a chain.", file=sys.stderr)
-        return 2
+    if not args.retrieve_only:
+        args.llm = _llm_or_exit(args.llm)
+        if args.llm is None:
+            return 2
     retrieval_dir, out_dir = _task_dirs(args)
     if args.pair:
         gene, reaction_id = args.pair.split(":", 1)
@@ -204,6 +221,9 @@ def main(argv=None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
     os.environ.setdefault("PYDANTIC_AI_NO_BANNER", "1")
+    load_env_file()  # platform/.env: GEM_REVIEW_LLM and the provider keys; never overrides the shell
+    if args.command == "setup":
+        return run_setup()
     if args.command == "extract":
         return extract_main(args)
     if args.command == "report":

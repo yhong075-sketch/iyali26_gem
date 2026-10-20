@@ -18,12 +18,12 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 from pydantic_ai import Agent, ModelRetry, RunContext
 from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai.models import Model
-from pydantic_ai.models.anthropic import AnthropicModelSettings
 
 from .client import CachedClient
 from .extract import DEFAULT_MODEL, check_quote, chunks_json, pair_context
 from .models import MAX_QUOTE_WORDS, EvidenceType, short_quote
 from .pairs import Pair
+from .providers import settings_for
 from .retrieve import retrieve_pair
 from .terms import PairTerms, locus_spellings
 
@@ -185,8 +185,7 @@ def validate_chain(ctx: ChainContext, output: LogicChain) -> LogicChain:
 
 
 def build_chain_agent(model: str | Model = DEFAULT_MODEL, *, retries: int = 2) -> Agent[ChainContext, LogicChain]:
-    settings = AnthropicModelSettings(max_tokens=16000, anthropic_effort="medium") \
-        if isinstance(model, str) and model.startswith("anthropic:") else None
+    settings = settings_for(model) if isinstance(model, str) else None
     agent: Agent[ChainContext, LogicChain] = Agent(
         model, output_type=LogicChain, deps_type=ChainContext, instructions=INSTRUCTIONS,
         retries=retries, model_settings=settings, name="gem_review_lit_chain")
