@@ -522,6 +522,49 @@ otherwise.
   needs a source before any change.
 - No independent audit was run.
 
+## 2026-10-19: Gene search for 33 orphan reactions (triage groups 10, 7, 6)
+
+**Authorization.** Requested by the orphan-inventory session (`orphan_reactions_20261019`, uncommitted in
+worktree `orphan-reaction-newest-model-b8ddc8`). The user confirmed TASK.md in this session on 2026-10-19:
+- research root from `~/.zshrc`;
+- budget "as written";
+- group-7 predictor form submissions;
+- later, a space-free symlink workaround for a BLAST+ path failure.
+
+Model `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`), read only. No model XML, curation data or GPR was
+changed; no flux run; nothing committed. CoQ9-line reactions excluded (gate in force). Details:
+[REPORT.md](reports/orphan_gene_search_20261019/REPORT.md), table
+[gene_search.csv](reports/orphan_gene_search_20261019/gene_search.csv).
+
+**Inputs** (verified this session):
+- W29 RefSeq GCF_001761485.1: 7,918 proteins; 1,045 of 1,073 model genes map.
+- Swiss-Prot 2026_03.
+- BLAST+ 2.17.0.
+- DBs under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/orphan_gene_search_20261019/`.
+
+**Results** (counts from `gene_search.csv`): A 1, B 3, C 13, D 16.
+- **Proposals, for a later authorized curation change:**
+  - R2013 → `YALI1E24028g` = YALI0E20207g, YlNAG5. Tier A: deletion abolishes growth on GlcNAc, purified
+    enzyme Km 0.5 mM (Flores & Gancedo 2015, PMC4376941, opened).
+  - R23 → `YALI1D01431g` (BAT). Tier B: *S. cerevisiae* Bat2 uses glutamate for KMTB (Pirkov 2008 abstract,
+    opened).
+  - R2010 → the three DAK genes. Tier B. Better fixed by merging the duplicate DHA metabolites
+    m1881/m490.
+  - R1958 HGD → tier B, but blocked: the gene (YALI2_D00583g, XP_065950358) is suppressed in the current
+    RefSeq annotation.
+- **Group 7:** no compartment copy gets a gene. TargetP-2.0 and MitoFates predict no presequence or signal
+  peptide for any gene-bearing paralogue. DeepLoc alone calls YALI1D01489g (R989) mitochondrial (0.7506).
+- **R989:** the colleague-owned lipid-unlump line's provisional assignment faces split predictor evidence;
+  reported, not changed.
+- **R1901:** the only Asparaginase_2-family gene, YALI1F38344g, is closest to Taspase1 (protease). It stays
+  a C lead.
+
+**Limits.**
+- Literature beyond the two sources re-opened above was read by two agents in this session; abstract-only
+  and unread items are marked.
+- The HGD gene's position in the current assembly is inferred; the genome was not downloaded.
+- Tiers C and D are not evidence that a reaction is absent from *Y. lipolytica*.
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
