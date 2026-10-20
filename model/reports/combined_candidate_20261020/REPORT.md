@@ -37,9 +37,11 @@ reports only.
   - For this session's branch, the code files were taken from the combined side, because
     `dc471d7` holds the same restore code, data and test plus later fixes.
   - STATE.md entries are newest first by date. Within 2026-10-19 they are in merge order.
-- **Base has moved.** `origin/main` was `285eaee` when the merges were made. It has since moved to
-  `1540a7d` (PR #7, gem_review literature layer), so this branch is 5 commits behind. Merging into
-  main later will conflict at the top of `model/STATE.md`.
+- **Base has moved.** `origin/main` was `285eaee` when the merges were made. It then moved to
+  `1540a7d` (PR #7, gem_review literature layer), which was merged into this branch for PR #8.
+  Only `model/STATE.md` conflicted, and both sides' entries were kept, newest first. PR #7 adds
+  no builder or model files. After that merge the control rebuild is still `a56f3649…` and the
+  combined rebuild is still `164f235f…`, both byte-identical.
 - **One test fix after the merge (§4):** `ORDER_PROBE` in
   `test_selection_gpr_restore_change_sets.py` now also applies the R765/R766 change set.
 

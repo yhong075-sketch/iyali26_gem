@@ -36,9 +36,40 @@ unless marked otherwise.
 **Limits.**
 - No full benchmark was run, and these curations are not independent validation.
 - All changes stay behind opt-in flags; the default build is unchanged.
-- `origin/main` has since moved to `1540a7d`, so the branch is 5 commits behind and STATE.md will
-  conflict on merge.
-- Not merged to main, and no PR.
+- `main` `1540a7d` (gem_review literature layer, PR #7) was merged into the branch for PR #8.
+  Only `model/STATE.md` conflicted, and both sides' entries were kept, newest first.
+- PR #8 is open to main and not merged.
+
+## 2026-10-20: gem_review literature layer, step 4 — logic chains (quote → inference → verdict)
+
+**Authorization.** Parent-session brief of 2026-10-20 (logic-chain layer on the step 1–3 code,
+no re-run of retrieval, FunctionModel tests, one live chain on POX3/R100, no model XML change,
+no commit of the layer); user approved the plan on 2026-10-20 with "evidence_level = strength
+of the evidence for the verdict as stated", and chose to merge the step 1–3 commit `7d46a79`
+into `claude/priceless-joliot-8eb663` (merge `417f2d6`, STATE.md conflict resolved by keeping
+both entries) because a worktree hook blocks writes into the other worktree. The chain layer is
+committed on top of `417f2d6` as `ba67bb2` (user instruction 2026-10-20; not pushed).
+
+**Results** ([REPORT.md](reports/gem_review_lit_20261019/REPORT.md), step 4; verified this session).
+- Code: `platform/gem_review/lit/chain.py`, CLI `python -m gem_review.lit chain (--pair g:r |
+  --question … --aliases … --terms …)`, `logic_chains` sheet in `review.xlsx`. Pydantic checks:
+  verdict last and unique, `rests_on` points backwards, every inference traces to a quote, the
+  verdict level ≤ max effective level of the quotes it rests on (other organism ≤ 1, no quote
+  → 0). Quotes go through `check_quote`, factored out of `validate_claims` unchanged. Retries 2,
+  then `CHAIN_FAILED`. Question mode retrieves through the step-1 cache and prints hit counts
+  before any model call.
+- Live chain POX3 (YALI1D32754g) / R100 "acyl-CoA oxidase (hexadecanoyl-CoA)":
+  answer **no, level 3 (genetic)** — the chunks characterise POX3 as short-chain and do not
+  establish C16 activity. 5 quotes (all verbatim, re-checked by hand), 2 inferences, 2 requests,
+  98,493 / 2,394 tokens (≈ $0.44). Independently cites the same three PMIDs (9848229, 10464181,
+  10593257) as the step-2 contradicting claims. Candidate GPR-specificity finding for R99–R102
+  stands; model unchanged. Label caveat: quote 0 (E. coli expression of Aco3p) labelled
+  Yarrowia/biochemical.
+- Tests: 13 new mocked tests pass; full suite 185 passed, 19 failed, 14 errors, 31 skipped vs
+  baseline `417f2d6` 172 passed with the identical 33 failing/erroring IDs (nine pre-existing
+  files; none imports `gem_review`).
+- Not done: chain stability across re-runs; storing retry reasons; a live ad-hoc question;
+  prompt caching.
 
 ## 2026-10-19: Selection restore made hash-seed independent (R159 species order), byte-level rebuild of 51c6fabd
 
@@ -599,6 +630,56 @@ changed; no flux run; nothing committed. CoQ9-line reactions excluded (gate in f
   and unread items are marked.
 - The HGD gene's position in the current assembly is inferred; the genome was not downloaded.
 - Tiers C and D are not evidence that a reaction is absent from *Y. lipolytica*.
+
+## 2026-10-19: gem_review literature layer, step 1 (Europe PMC retrieval) run on tier 1
+
+**Authorization.** User spec of 2026-10-15 (Pydantic AI literature layer for `gem_review`; run
+retrieval on tier-1 reactions and show the hit-count table before writing any agent), with the
+decisions: create `gem_review` under `platform/` (it existed nowhere); tier 1 = "reactions in lipid
+pathways" from the user's `GEM_reaction_review_checklist.xlsx`; Europe PMC/UniProt queries
+permitted; direction 2026-10-19: build the spec first, then a question-driven quote → inference →
+verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark changed. Uncommitted on
+`claude/gem-review-lit-layer-861d41`.
+
+**Results** ([REPORT.md](reports/gem_review_lit_20261019/REPORT.md), verified this session).
+- Model read: `candidates/E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`). Tier-1 subsystem list:
+  `curation/gem_review/tier1_lipid_subsystems.csv` (five borderline subsystems excluded, pending).
+  442 reactions → 673 gene–reaction pairs, 158 genes; 5 reactions without GPR (R530, R1727, R1902,
+  R2003, R2274).
+- Hit table ([hit_counts.csv](reports/gem_review_lit_20261019/hit_counts.csv)): pair_hits 0 / 1–4 /
+  5–19 / 20+ = 461 / 164 / 28 / 20 pairs; 177 pairs have an open-access full text. Fatty acid
+  degradation 82/132 pairs with hits; Sphingolipid metabolism 0/118 (locus tags absent from the
+  literature; no symbols).
+- **Finding (model annotation, not changed):** 99 of the 125 UniProt accessions on tier-1 genes are
+  deleted UniProt entries ("Not part of a reference proteome", `A0A1H6…`); only 21 genes have a
+  UniProt gene symbol. Checklist item G01; left for a separate decision.
+- Code: `platform/gem_review/lit/` (pairs, terms, cached rate-capped client, chunks, retrieval,
+  CLI); 5 mocked tests pass. Full suite: 162 passed, 19 failed, 14 errors, all in nine pre-existing
+  files for environmental reasons (missing paths, `scipy`, CoA source model); none touches
+  `gem_review`. Cache and per-pair JSON:
+  `$IYALI26_RESEARCH_ROOT/artifacts/tasks/gem_review_lit_20261019/`.
+- **Steps 2–3 (same day, user-authorized "implement step 2 … on the 212 pairs with hits"):**
+  pydantic-ai 2.58 + `anthropic:claude-opus-5-5`; chunks passed as structured instructions;
+  output validator rejects any claim whose PMID is not retrieved or whose quote is not verbatim
+  in the cited chunk (retries 2, then `EXTRACTION_FAILED`); evidence level computed in Python,
+  other-organism evidence capped at homology. Run: 212 pairs → 191 calls, 0 failures, 15 retries,
+  2.73 M input / 0.135 M output tokens (≈ $13.6). Levels over 212 extracted pairs: none 79,
+  homology 75, physiological 12, genetic 34, biochemical 12. `review.xlsx`: `literature` 673
+  rows, `review_queue` 618 rows (contradicted 4, claims_disagree 3, low_evidence 150,
+  no_hits 461).
+- **Candidate finding (no model change):** POX3/YALI1D32754g on the C14–C26 acyl-CoA oxidase
+  reactions R99–R102 is contradicted by every validated quote (PMID 9848229, 10464181,
+  10593257: ACO3/POX3 is the short-chain oxidase); the same papers support it on R97/R1488.
+  Quotes are code-verified; the support/level labels are the model's. A 3-pair spot check found
+  one over-credited label (R296), so `review.xlsx` levels need human confirmation.
+- Tests after steps 2–3: 15 gem_review tests pass; full suite 171 passed, 19 failed, 14 errors,
+  31 skipped — the failure set is identical to the step-1 run (nine pre-existing files,
+  environmental causes) and none touches `gem_review`.
+- Dependencies added: `pydantic-ai-slim[anthropic]`, `openpyxl`. API key via git-ignored
+  `platform/.env`; a first key was exposed in a tool output during diagnosis and the user
+  revoked it.
+- Not done: logic-chain layer (quote → inference → verdict); ortholog-name query broadening;
+  prompt caching.
 
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
@@ -1173,7 +1254,6 @@ Poon1999加强R385采用醌醇的依据，但酵母试验为线粒体分离物�
 按用户“从反应猜测酶从而找基因”的指导，固定前轮CoQ v2候选，反向匹配EC1.14.15.46与实验构建，再以8个参考蛋白查询7894条缓存本物种蛋白（实际1次BLAST）。YALI1A08781g／COQ6家族FAD羟化酶候选（XP_499891.1；同源/跨物种证据，原生C1活性未验证）为R19羟化部分首选；与tAncCOQ6实验参考一致性38.584%、本物种覆盖92.473%。细菌不同位点对照也命中同一候选，不能由同源性单独证明位点。YALI1F34625g／COQ4脱羧相关候选（XP_505938.1；同源及异源功能证据）保留为从羧酸起始的联合C1路线，不能与前者直接作R19的OR。
 
 原R19本身配平，但实测羟化产物为醌醇。精确拆分显示，保留旧净式需额外假定醌醇还原NAD并回收供体；本次未找到该耦联直接证据。用O2氧化的形式替代总耗氧1.5或2且保留NADH成本。8条方程均配平，仅作提案；未改模型/GPR、未求解/构建或新预测。来源10/10审核（3支持/4未解决/3反证），数值身份7/7通过。见[报告与候选](reports/coq_reaction_first_20261001/REPORT.md)；前轮8/9核心家族表示及正式接受状态保持。
-
 
 ## 2026-10-01：酿酒酵母参照支持的 CoQ C5 补充候选
 
@@ -1784,7 +1864,6 @@ WT=1.8718823069403；1074/1074 全部 optimal、有限且非负，无未决结�
 
 [模型筛选汇总](reports/screen_test_metadata_trna_20260910/screen_summary.json)、[逐基因预测](reports/screen_test_metadata_trna_20260910/screen_predictions.tsv)、[原始返回](reports/screen_test_metadata_trna_20260910/raw_deletions.tsv)、[运行清单](reports/screen_test_metadata_trna_20260910/run_manifest.json)已保存，来源与实际源码 SHA 均记录。未运行 dFBA/CFSA、参数扫描、FN 诊断或病例激活；未修改模型、培养、阈值和标签。此前封闭 ATP 生成问题仍限制科学解释，screen 完成不等于模型已验证。未提交或推送。
 
-
 ## 2026-09-10：纠正生物量覆盖错误，恢复实验要求的 tRNA 耦联
 
 用户明确指出生物量直接消耗游离氨基酸不符合实验要求。此前助手把“metadata 差异为准”扩大到了 `biomass_C`，覆盖了既有实验约束；这是助手的范围判断和验收遗漏，不能视为用户批准撤销 tRNA 耦联。此前的软件检查通过不能证明实验约束满足；旧报告按执行时状态保留。
@@ -1799,7 +1878,6 @@ WT=1.8718823069403；1074/1074 全部 optimal、有限且非负，无未决结�
 
 [构建命令](reports/trna_biomass_restore_20260910/commands.txt)、[结构与语义核对](reports/trna_biomass_restore_20260910/validation.json)、[静态结果](reports/trna_biomass_restore_20260910/static_check.json)和前态备份均保留。旧错误产物及其三个模式只作为历史证据，不能继续当作满足本实验要求的模型。原始输入、旧参考和同事文件未变；未提交/推送，本次没有新增必要实现文件（修改已有未跟踪的校订数据、模块和测试）。
 
-
 ## 2026-09-10：metadata 指定字段初版（生物量项已被用户否决）
 
 按用户最新明确选择，以旧 2295 反应 metadata（33c14f0c…e797）的 **203 项计量、7 项边界、9 项 GPR** 为准。已接入真实构建入口的最终整理步骤 `apply_metadata_reaction_selection`，位于完整参考装配之后、CoQ9 校订及导出之前；三个 CoQ9 模式均执行。正式构建读取原始 `data/iyali26.xml` 和正常版本管理目录中的 `data/metadata_reaction_selection.json`，不读取候选 XML 作为起点或运行时补丁来源。
@@ -1811,7 +1889,6 @@ WT=1.8718823069403；1074/1074 全部 optimal、有限且非负，无未决结�
 **软件整合通过，封闭能量检查未通过。** 六次静态优化：上一版 WT=1.3875914754870904，新 metadata=1.7793777728998874，qcycle=1.7793777728998927。关闭全部边界输入、保留维护下界 7.8625 后，上一版协议返回 solver infeasible；新 metadata/qcycle 的 ATP 耗散目标均为 1000，R305 通量均为 0。未用生长值选择计量、未回调七条方向。所选 203 反应按存储属性计算非零残差：旧版 155、新版 171；各有 1 条因聚合物公式不可解析而无法计算，缺失属性另记。这不是全模型化学配平完成的声明。
 
 详细[构建/测试命令](reports/metadata_reaction_selection_20260909/commands.txt)、[语义验证](reports/metadata_reaction_selection_20260909/validation.json)、[静态结果](reports/metadata_reaction_selection_20260909/static_pair.json)和逐项状态均已保存。CI/COQ6 联合重构及未闭合 GPR 事项未激活，qcycle 仍显式选择。旧模型、原始输入和同事三份未提交文件完整保留。新增必要实现为数据表、校订模块和测试三份，均在正常未忽略目录，尚未跟踪；本次未提交或推送，既有历史基线条目保持。
-
 
 ## 2026-09-09：完整参考管线恢复及 R1172／SPHPL 保留构建
 
@@ -1931,7 +2008,6 @@ N2两个独立入口只导入标准库，实际Python 3.9.6及三条历史输入
 
 四份工作台文件当前均未被Git跟踪；合同和baseline manifest仍被既有`docs/`规则忽略。仅保存四文件的建议见本轮run manifest，未执行暂存、提交或ignore变更。每周日导师PPT复用本入口与具体证据，不能把小样本重放写成正式模型发布／校准完成。本轮已停止。
 
-
 ## 2026-09-06 基础梳理与首批研究准备包
 
 更新时间：2026-09-06T21:23:27.671873+00:00。用户已明确授权实施两周资料工作计划。实际执行的是现有数据/文档分析、来源核对与独立审阅，不是十个工作日的实验或计算过程；求解器调用0、模型修改0、标签修改0。原始ledger、dossier、冻结manifest与合同原样保留。
@@ -1947,7 +2023,6 @@ N2两个独立入口只导入标准库，实际Python 3.9.6及三条历史输入
 
 下一任务（建议，尚未执行）：补齐这3个准备包涉及位点的实验序列/数据库身份桥接、缺失定位和半反应来源，以及R608共享微观物种化学依据；按包逐项决定能否形成具体修模提案。未授权模型/整理数据科学变更、求解器运行或物理实验。CoQ9沿用现有分阶段门；lipid由同事修改、用户审核。关键文档仍未纳入Git，临时源码依赖仍存在，本次不暂存、提交、推送或外部通信。
 
-
 ## 2026-09-06 三案独立研究与来源审阅交接
 
 用户已明确授权上节建议的3案资料补全，并要求创建独立本地任务、实际使用Skill。四个任务已完成：四位点身份核对、甲基柠檬酸两案、多胺一案、独立来源审阅；一次集中作者补正与复核也已完成。最后复核完成于2026-09-07 00:07 UTC（洛杉矶2026-09-06）。上节“下一任务尚未执行”保留为当时状态；本节记录后续授权及实际交付。
@@ -1960,7 +2035,6 @@ N2两个独立入口只导入标准库，实际Python 3.9.6及三条历史输入
 - **执行与保存：** 实际使用govern-agentic-research、gene-identity-function、academic-research-suite及按需PDF、Spreadsheets、Ponytail；完整路径、采用阶段及未完成检查见各报告。研究首轮各不超过45分钟，初审27.2分钟，一次补正各不超过20分钟，复核8.6分钟。54个首轮研究文件和6个首轮审阅文件保留；21项补正另存，最终有效台账单列。输入和结果字节核验见包内coordinator_checks.json、preservation.json及SHA256SUMS。
 
 暂定参考模型仍为bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee。求解器调用0，模型/GPR/实验标签/冻结合同/历史案件结论修改0；本节仅追加交接，原状态字节在结果包state_snapshot_before.md中保留，冻结输入清单不回写旧哈希。历史正例覆盖322/1612与交集内召回67/322均未更新，本轮来源审阅不赋予独立验证或校准资格。1290分类、旧案件对照、CoQ9与lipid未重做；lipid仍由同事修改、用户审核。Git忽略和临时源码依赖问题保留；没有清理、暂存、提交、推送或外部通信。
-
 
 ## R608 工程工作包完成与化学决策续办
 
@@ -2162,7 +2236,6 @@ E的A复核进一步确认原内核先以Q/(B×dt)约束来源，再按min(Q,v_s
 
 本轮四类结论：**已解决的模型机制**是有限Q9来源按编码预算扣减并限制增长，以及现优化问题允许不消耗多胺而生长；**仍未识别**的是真实池量/需求、Q9步长收敛、CFSA充分混合与目标分布、原生离子耦联和复合体单基因必要性；**可进入提案审查**的是同一冻结域的限定采样方法改进方向及两项有验证设计的功能候选评估，成熟可应用模型补丁仍0；**本轮无需再做**的是旧面板、旧轨迹/筛选/审阅、额外链、重复构建、全量测试和科学模型替换。本轮新增后端总计13598次（A128+C13470；各自配置和预算分开），B/D/E新增求解0。后续方案是建议，未在本轮追加派发、计算、实验或正式模型变更；关键保存/临时依赖和既有审批边界继续保留。
 
-
 ## 2026-09-08 CFSA总脂质方向小规模测试：已执行
 
 用户要求使用官方CFSA测试我们的模型。本任务完成预检并公开采用总脂质方向作为默认假设；用户未明确指定具体TAG产物。使用manifest已登记的暂定参考、原SD-Leu／PO1f运行配置，仅在一次性内存副本添加混合脂质伪池需求及10% WT生长下限，未使用C7/lipid-unlump候选、未修改原模型文件或接纳科学变更。
@@ -2175,7 +2248,6 @@ E的A复核进一步确认原内核先以Q/(B×dt)约束来源，再按min(Q,v_s
 
 来源审阅6项为5支持、1部分支持（跨版本脂质池等价性）；独立数值审阅7项为6支持、1部分支持（历史耗时/调用轨迹证据范围），各分母分别保留。后续建议先明确产物与尺度、检验通量约束可比性，再另行有预算地进行多链/ESS/R-hat验证；尚未追加计算。原模型、评价分母、CoQ9及lipid审批门保持。本轮不提交、推送或集群执行。
 
-
 ## 2026-09-08 CFSA生产条件pFBA上限对照：已执行
 
 用户追问施加pFBA总通量上限的结果。本次复用原生产组有效模型快照，保持生长≥0.14650760568106092 h⁻¹、混合脂质伪池需求≥23.74006264072655，先求该不等式条件下最小正反总通量1864.5615996485903，再唯一新增1.25倍上限2330.701999560738；未重新最大化biomass。[报告](reports/cfsa_pfba_cap_20260908/REPORT.md)、[最终执行记录](reports/cfsa_pfba_cap_20260908/completed_result.json)、[数值比较](reports/cfsa_pfba_cap_20260908/comparison.json)保留完整条件与身份。
@@ -2185,7 +2257,6 @@ E的A复核进一步确认原内核先以Q/(B×dt)约束来源，再按min(Q,v_s
 技术恢复记录原样保留：一次最小化求解后约束挂接错误；第二次4490次预热后因复制求解器的无限TimeLimit无法写入严格JSON而停止、未采样；最终复用原最小值、重新预热后完成500样本。共有8981次逐次日志、全部optimal。恢复前公开将后端预算5000改为9500，600秒有效计算预算保持；72.74秒为继承的执行计时而非完整端到端耗时。最终实际预热Threads=1/TimeLimit=120已核实，旧运行只记录父模型参数，不回填历史实测。原模型、旧记录和65个受保护路径SHA保持。细节见[执行溯源](reports/cfsa_pfba_cap_20260908/execution_provenance.json)。
 
 本次英文科研图提供600dpi PNG及矢量PDF/SVG，并完成PDF渲染检查，旧图保留；[英文图注](reports/cfsa_pfba_cap_20260908/FIGURE_CAPTION.md)明确相关抽样、净/正反量差异和伪池尺度。独立原始样本/来源复核见本目录AUDIT.md及audit.json，9项全部审阅：7支持、2部分支持（独立全局最优证明与历史资源/计时范围），与图注措辞审阅分开。该追加对照不改变其他模型/GPR/CoQ9/lipid职责和审批门，无提交、推送或集群执行。
-
 
 ## 2026-09-24：E5 能量候选已按用户授权推送
 
