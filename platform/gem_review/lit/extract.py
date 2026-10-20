@@ -16,14 +16,14 @@ from pathlib import Path
 from pydantic_ai import Agent, ModelRetry, RunContext
 from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai.models import Model
-from pydantic_ai.models.anthropic import AnthropicModelSettings
 
 from .models import Claim, ClaimSet, PairReview, normalise_text
+from .providers import DEFAULT_LLM, settings_for
 from .terms import build_terms
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL = "anthropic:claude-opus-5-5"
+DEFAULT_MODEL = DEFAULT_LLM
 MAX_CONCURRENT = 5
 
 INSTRUCTIONS = """\
@@ -110,8 +110,7 @@ def validate_claims(ctx: PairContext, output: ClaimSet) -> ClaimSet:
 
 
 def build_agent(model: str | Model = DEFAULT_MODEL, *, retries: int = 2) -> Agent[PairContext, ClaimSet]:
-    settings = AnthropicModelSettings(max_tokens=16000, anthropic_effort="medium") \
-        if isinstance(model, str) and model.startswith("anthropic:") else None
+    settings = settings_for(model) if isinstance(model, str) else None
     agent: Agent[PairContext, ClaimSet] = Agent(
         model, output_type=ClaimSet, deps_type=PairContext, instructions=INSTRUCTIONS,
         retries=retries, model_settings=settings, name="gem_review_lit_extract")
