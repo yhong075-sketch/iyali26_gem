@@ -5,6 +5,41 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-20: Combined candidate of the eight 2026-10-19 opt-in changes, pushed on its own branch
+
+**Authorization.** User: "push the newest model", then chose "Combine first, then push". Then the
+user approved:
+- the combine plan, including committing the great-wu sort fix and the gene-search report on their
+  branches, and pushing `claude/combined-candidate-20261019` (not main);
+- after one post-merge test failure, extending `ORDER_PROBE` to the R765/R766 change set.
+
+**Results** ([REPORT.md](reports/combined_candidate_20261020/REPORT.md)). Verified this session
+unless marked otherwise.
+- **Branch:** eight branches merged into `claude/combined-candidate-20261019`, starting from
+  `origin/main` `285eaee`. Conflicts were parallel additions only.
+- **Candidate:** [E5_coq9_resp_pkg_r132_combined_20261020.xml](candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml)
+  (`164f235f…`) = a56f3649 plus all eight flags.
+- **Builds:** the control reproduces a56f3649, and seeds 0 and 1 give identical bytes.
+- **Diff:** the whole-model diff is exactly the union of the seven part candidates' diffs, with no
+  conflicts.
+- **Balance:** the 13 touched reactions balance, except the inherited R671/R765/R766 charge
+  residuals.
+- **pytest per test:** `origin/main` plus 42 new passes; pre-existing 11 failed and 14 errors
+  unchanged.
+- **20 GLPK LPs (observed in runs):**
+  - WT 1.430806, unchanged;
+  - the arabinose loop (R1964/R2041/R2042/R2190) carries 0 with boundaries closed (±1000 on
+    a56f3649);
+  - YALI1E07744g KO lethal (listed as essential); CPA2/CPA1 KO/WT 0.1439.
+- **Independent audit:** all 7 claims supported; its documentation corrections were applied.
+
+**Limits.**
+- No full benchmark was run, and these curations are not independent validation.
+- All changes stay behind opt-in flags; the default build is unchanged.
+- `origin/main` has since moved to `1540a7d`, so the branch is 5 commits behind and STATE.md will
+  conflict on merge.
+- Not merged to main, and no PR.
+
 ## 2026-10-19: Selection restore made hash-seed independent (R159 species order), byte-level rebuild of 51c6fabd
 
 **Authorization.** User, 2026-10-19: "Approved: fast-forward claude/great-wu-64e590 to dc471d7, add the
