@@ -286,6 +286,20 @@ The previously saved zero-flux WT witness remains feasible under this bound;
 this direction change alone does not establish essentiality.
 
 
+## Opt-in R2041 D-arabinokinase direction (2026-10-19)
+
+With `--r2041-forward`, the build applies `direction/r2041_direction.json` after
+final field selection. R2041 keeps the selection's balanced 2 H+ equation and
+changes bounds from `[-1000,1000]` to `[0,1000]`. The evidence is the EC 2.7.1.54
+equation and an eQuilibrator estimate (K'eq about 2.1e4); the reaction is an
+orphan, and the builder patch's ATP-loop rationale was not reproduced
+([review](../reports/r2041_direction_review_20261019/REPORT.md)). Unexpected
+identity, stoichiometry, species, GPR, EC, bounds, notes, or forward-only bounds
+without this curation's notes stop the step before it mutates the model. Without
+the flag, builds are unchanged. Focused regression:
+`python -m unittest tests.test_r2041_direction`.
+
+
 ### Optional E5 vacuole connection candidate (2026-09-24)
 
 The independent [E5_vacuole_open.xml](../reports/vacuole_open_supply_20260924/E5_vacuole_open.xml)

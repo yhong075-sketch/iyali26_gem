@@ -1,0 +1,277 @@
+diff --git a/model/curation/README.md b/model/curation/README.md
+index 23a3967..2f9a64a 100644
+--- a/model/curation/README.md
++++ b/model/curation/README.md
+@@ -286,6 +286,20 @@ The previously saved zero-flux WT witness remains feasible under this bound;
+ this direction change alone does not establish essentiality.
+ 
+ 
++## Opt-in R2041 D-arabinokinase direction (2026-10-19)
++
++With `--r2041-forward`, the build applies `direction/r2041_direction.json` after
++final field selection. R2041 keeps the selection's balanced 2 H+ equation and
++changes bounds from `[-1000,1000]` to `[0,1000]`. The evidence is the EC 2.7.1.54
++equation and an eQuilibrator estimate (K'eq about 2.1e4); the reaction is an
++orphan, and the builder patch's ATP-loop rationale was not reproduced
++([review](../reports/r2041_direction_review_20261019/REPORT.md)). Unexpected
++identity, stoichiometry, species, GPR, EC, bounds, notes, or forward-only bounds
++without this curation's notes stop the step before it mutates the model. Without
++the flag, builds are unchanged. Focused regression:
++`python -m unittest tests.test_r2041_direction`.
++
++
+ ### Optional E5 vacuole connection candidate (2026-09-24)
+ 
+ The independent [E5_vacuole_open.xml](../reports/vacuole_open_supply_20260924/E5_vacuole_open.xml)
+diff --git a/platform/scripts/gem_annotate/cli.py b/platform/scripts/gem_annotate/cli.py
+index 5fc1f79..592284e 100644
+--- a/platform/scripts/gem_annotate/cli.py
++++ b/platform/scripts/gem_annotate/cli.py
+@@ -37,6 +37,8 @@ def parse_args(argv=None):
+                         help="Apply the curated 2026-10-08 CoQ9/respiratory-chain package; requires --energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution")
+     parser.add_argument("--r132-mito-adh", action="store_true",
+                         help="Remove R132 (matrix alcohol dehydrogenase) per the curated 2026-10-13 decision; requires --coq9-respiratory-package")
++    parser.add_argument("--r2041-forward", action="store_true",
++                        help="Make R2041 (D-arabinokinase) forward-only after the metadata selection, keeping its balanced 2 H+ equation (curated 2026-10-19)")
+     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
+                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
+     return parser.parse_args(argv)
+diff --git a/platform/scripts/gem_annotate/main.py b/platform/scripts/gem_annotate/main.py
+index c066d07..1086014 100644
+--- a/platform/scripts/gem_annotate/main.py
++++ b/platform/scripts/gem_annotate/main.py
+@@ -78,6 +78,7 @@ def build_reference_chain(
+     coq9_biomass_dilution: bool = False,
+     coq9_respiratory_package: bool = False,
+     r132_mito_adh: bool = False,
++    r2041_forward: bool = False,
+ ):
+     starting_model_path = Path(starting_model_path)
+     # The literature patch is defined on the reviewed C5 + COQ9 context.
+@@ -675,6 +676,10 @@ def build_reference_chain(
+         logger.info("V-ATPase GPR hypothesis: %s", apply_vatpase_gpr_hypothesis(model))
+     selection["post_selection_r1159_direction"] = apply_r1159_direction(model)
+     logger.info("R1159 direction: %s", selection["post_selection_r1159_direction"])
++    if r2041_forward:
++        from .r2041_direction import apply_r2041_direction
++        selection["post_selection_r2041_direction"] = apply_r2041_direction(model)
++        logger.info("R2041 direction: %s", selection["post_selection_r2041_direction"])
+     if energy_candidate != "E0":
+         if not selection["complete"] or not coq9["requested_mode_complete"]:
+             raise ValueError("Cannot apply energy candidate to an incomplete reference build")
+@@ -779,6 +784,7 @@ def build_model(args):
+         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
+         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
+         r132_mito_adh=getattr(args, "r132_mito_adh", False),
++        r2041_forward=getattr(args, "r2041_forward", False),
+     )
+     output = args.output_model
+     evidence = gene_evidence(model)
+=== new file: model/curation/direction/r2041_direction.json
+{
+  "schema_version": 1,
+  "curation_id": "R2041-FORWARD-20261019",
+  "status": "user_authorized",
+  "authorization": "2026-10-19 user: Approved: implement Option A (r2041_direction.json + guarded apply_r2041_direction, opt-in flag, keep 2 H+) in this worktree on 285eaee, build the new candidate, and run the 10 core LPs from REPORT 6.3.",
+  "reaction_id": "R2041",
+  "reaction_name": "ATP:D-arabinose 5-phosphotransferase",
+  "ec_code": "2.7.1.54",
+  "gpr": "",
+  "before_bounds": [-1000, 1000],
+  "after_bounds": [0, 1000],
+  "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m454[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m1884[C_cy]": 1.0,
+    "m10[C_cy]": 2.0
+  },
+  "species": {
+    "m141[C_cy]": {"formula": "C10H16N5O13P3", "charge": 0, "compartment": "C_cy"},
+    "m454[C_cy]": {"formula": "C5H10O5", "charge": 0, "compartment": "C_cy"},
+    "m143[C_cy]": {"formula": "C10H15N5O10P2", "charge": 0, "compartment": "C_cy"},
+    "m1884[C_cy]": {"formula": "C5H9O8P", "charge": -2, "compartment": "C_cy"},
+    "m10[C_cy]": {"formula": "H", "charge": 1, "compartment": "C_cy"}
+  },
+  "reviewed_model": {
+    "path": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+    "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "review": "model/reports/r2041_direction_review_20261019/REPORT.md",
+  "reviewer": "Claude Code session (delegated read-only review, 2026-10-19); decision by the user",
+  "evidence": [
+    {
+      "url": "https://enzyme.expasy.org/EC/2.7.1.54",
+      "claim": "D-arabinose + ATP = D-arabinose 5-phosphate + ADP + H(+).",
+      "tier": "verified",
+      "scope": "Reaction definition (kinase direction); not organism evidence.",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.rhea-db.org/rhea/24588",
+      "claim": "Same equation; 0 UniProt enzymes linked.",
+      "tier": "verified",
+      "scope": "No characterized sequence; no Y. lipolytica enzyme.",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://equilibrator.weizmann.ac.il/search?query=C00002+%2B+C00216+%3D+C00008+%2B+C01112",
+      "claim": "Estimated standard transformed reaction Gibbs energy -24.7 +/- 4.7 kJ/mol (also at 1 mM), apparent Keq 2.1e4, at pH 7.5, pMg 3.0, I 0.25 M, 298.15 K.",
+      "tier": "verified",
+      "scope": "Component-contribution estimate, not a measurement; Y. lipolytica metabolite ratios not measured.",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://doi.org/10.1016/S0021-9258(18)81352-7",
+      "claim": "Volk 1962, D-arabinokinase from Propionibacterium pentosaceum (the KEGG reference for EC 2.7.1.54).",
+      "tier": "unread",
+      "scope": "Full text returned HTTP 403; no claim about its reversibility data.",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "notes": {
+    "r2041_direction_curation": "R2041-FORWARD-20261019",
+    "r2041_previous_bounds": "[-1000, 1000]",
+    "r2041_direction_evidence": "EC 2.7.1.54 kinase direction (ENZYME, Rhea); eQuilibrator estimate -24.7 +/- 4.7 kJ/mol, apparent Keq 2.1e4 at pH 7.5. Reverse flux needs a D-arabinose 5-phosphate to D-arabinose ratio above Keq times ATP/ADP.",
+    "r2041_direction_limits": "Orphan reaction with no Y. lipolytica enzyme; Volk 1962 unread. The ATP loop named by the builder patch was not found in a56f3649; this curation rests on thermodynamics. The 2 H+ equation is kept because it balances with the stored neutral ATP/ADP; the 1 H+ equation in the previous note applies only after ATP/ADP microspecies migration, which must re-review the proton count.",
+    "r2041_direction_sources": "https://enzyme.expasy.org/EC/2.7.1.54; https://www.rhea-db.org/rhea/24588; https://equilibrator.weizmann.ac.il/search?query=C00002+%2B+C00216+%3D+C00008+%2B+C01112",
+    "r2041_direction_authorization": "User authorized opt-in [0, 1000] with the 2 H+ equation kept on 2026-10-19."
+  }
+}
+=== new file: platform/scripts/gem_annotate/r2041_direction.py
+"""Opt-in forward-only D-arabinokinase (R2041) after the metadata selection; bounds only."""
+
+import json
+
+from .config import MODEL
+
+CURATION_PATH = MODEL.curation_file("r2041_direction.json")
+
+
+def apply_r2041_direction(model, spec=None):
+    """Restore [0, 1000] on the selection's balanced 2 H+ R2041; fail closed otherwise."""
+    if spec is None:
+        spec = json.loads(CURATION_PATH.read_text())
+    if (spec.get("schema_version") != 1
+            or spec.get("curation_id") != "R2041-FORWARD-20261019"
+            or spec.get("status") != "user_authorized"
+            or spec.get("reaction_id") != "R2041"
+            or spec.get("before_bounds") != [-1000, 1000]
+            or spec.get("after_bounds") != [0, 1000]):
+        raise ValueError("Unexpected R2041 direction curation scope")
+    if "R2041" not in model.reactions:
+        raise ValueError("R2041 missing; no edits applied")
+    reaction = model.reactions.get_by_id("R2041")
+    # The species guard also stops this step after an ATP/ADP microspecies migration,
+    # which would change the balanced proton count.
+    if (reaction.name != spec["reaction_name"]
+            or reaction.gene_reaction_rule != spec["gpr"]
+            or reaction.annotation.get("ec-code") not in (spec["ec_code"], [spec["ec_code"]])
+            or list(reaction.bounds) not in (spec["before_bounds"], spec["after_bounds"])
+            or {m.id: c for m, c in reaction.metabolites.items()} != spec["stoichiometry"]
+            or {m.id: {k: getattr(m, k) for k in ("formula", "charge", "compartment")}
+                for m in reaction.metabolites} != spec["species"]):
+        raise ValueError("R2041 direction precondition differs; no edits applied")
+    if any(k in reaction.notes and reaction.notes[k] != v for k, v in spec["notes"].items()):
+        raise ValueError("Conflicting R2041 direction notes; no edits applied")
+    # Forward-only without these notes came from somewhere else; the previous-bounds note would be false.
+    if (list(reaction.bounds) == spec["after_bounds"]
+            and any(reaction.notes.get(k) != v for k, v in spec["notes"].items())):
+        raise ValueError("R2041 is already forward-only without this curation; no edits applied")
+    notes = {**reaction.notes, **spec["notes"]}
+    changed = list(reaction.bounds) != spec["after_bounds"] or notes != reaction.notes
+    reaction.bounds = tuple(float(v) for v in spec["after_bounds"])
+    reaction.notes = notes
+    return {"item": reaction.id, "curation_id": spec["curation_id"],
+            "status": "applied" if changed else "already_correct",
+            "bounds": list(reaction.bounds), "evidence_status": spec["status"]}
+=== new file: platform/tests/test_r2041_direction.py
+"""R2041 forward-only curation: preservation, rejection, SBML roundtrip and opt-in flag; no LPs."""
+
+import copy
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+from cobra.io import read_sbml_model
+
+from scripts.gem_annotate.cli import parse_args
+from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.r2041_direction import CURATION_PATH, apply_r2041_direction
+from scripts.gem_annotate.sbml import write_deterministic_sbml_model
+from tests.test_coq9_curation import annotations, semantics
+
+BASELINE = "E5_coq9_resp_pkg_r132_20261012.xml"
+
+
+class R2041DirectionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        cls.spec = json.loads(CURATION_PATH.read_text())
+
+    def test_stale_inputs_fail_closed_without_edits(self):
+        for field in ("name", "bounds", "forward_without_notes", "gpr", "ec", "patch_stoichiometry",
+                      "species", "compartment", "notes"):
+            bad = self.model.copy()
+            reaction = bad.reactions.R2041
+            if field == "name":
+                reaction.name = "different kinase"
+            elif field == "bounds":
+                reaction.bounds = (0.0, 0.0)
+            elif field == "forward_without_notes":
+                reaction.bounds = (0.0, 1000.0)
+            elif field == "gpr":
+                reaction.gene_reaction_rule = bad.genes[0].id
+            elif field == "ec":
+                reaction.annotation["ec-code"] = "2.7.1.55"
+            elif field == "patch_stoichiometry":
+                # The builder patch's 1 H+ equation (before the selection) is not this step's input.
+                reaction.add_metabolites({bad.metabolites.get_by_id("m10[C_cy]"): -1})
+            elif field == "species":
+                # An ATP microspecies migration changes the balanced proton count.
+                atp = bad.metabolites.get_by_id("m141[C_cy]")
+                atp.formula, atp.charge = "C10H12N5O13P3", -4
+            elif field == "compartment":
+                bad.metabolites.get_by_id("m454[C_cy]").compartment = "C_mi"
+            else:
+                reaction.notes["r2041_direction_curation"] = "conflicting review"
+            before = semantics(bad), annotations(bad)
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                apply_r2041_direction(bad)
+            self.assertEqual((semantics(bad), annotations(bad)), before)
+
+    def test_unexpected_scope_is_rejected(self):
+        spec = copy.deepcopy(self.spec)
+        spec["after_bounds"] = [-1000, 0]
+        with self.assertRaises(ValueError):
+            apply_r2041_direction(self.model.copy(), spec)
+
+    def test_sets_only_the_lower_bound_and_notes_and_survives_roundtrip(self):
+        # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
+        model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        expected = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        expected.reactions.R2041.bounds = (0.0, 1000.0)
+        expected.reactions.R2041.notes.update(self.spec["notes"])
+        self.assertEqual(apply_r2041_direction(model)["status"], "applied")
+        self.assertTrue((semantics(model), annotations(model)) ==
+                        (semantics(expected), annotations(expected)), "Unexpected model change")
+        self.assertEqual(model.reactions.R2041.bounds, (0.0, 1000.0))
+        self.assertEqual(model.reactions.R2041.metabolites[model.metabolites.get_by_id("m10[C_cy]")], 2.0)
+        self.assertEqual(apply_r2041_direction(model)["status"], "already_correct")
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "r2041.xml"
+            write_deterministic_sbml_model(model, path)
+            loaded = read_sbml_model(str(path))
+        self.assertTrue((semantics(loaded), annotations(loaded)) ==
+                        (semantics(expected), annotations(expected)), "Unexpected SBML roundtrip change")
+        self.assertEqual(apply_r2041_direction(loaded)["status"], "already_correct")
+
+    def test_flag_is_opt_in(self):
+        self.assertFalse(parse_args([]).r2041_forward)
+        self.assertTrue(parse_args(["--r2041-forward"]).r2041_forward)
+
+
+if __name__ == "__main__":
+    unittest.main()

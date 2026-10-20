@@ -252,6 +252,70 @@ unchanged equations, context and pool guards). New data files `selection_overwri
   2026-10-19 restore files from `claude/orphan-reaction-newest-model-b8ddc8`; merge with care.
 - The 2026-10-19 restore REPORT §6 still calls the E07744g removal "verified". That file is in the other worktree
   and was not edited.
+## 2026-10-19: R2041 (D-arabinokinase) forward-only, opt-in, through the pipeline
+
+**Authorization.**
+- The review was delegated by the selection GPR review session: read-only, plan only.
+- The user then approved, 2026-10-19: "Approved: implement Option A (r2041_direction.json + guarded
+  apply_r2041_direction, opt-in flag, keep 2 H+) in this worktree on 285eaee, build the new candidate, and
+  run the 10 core LPs from REPORT 6.3."
+- Not committed or pushed.
+
+**Review findings** ([review](reports/r2041_direction_review_20261019/REPORT.md)):
+- The 2026-09-10 metadata selection reverts the builder patch `fix_d_arabinokinase_direction_and_proton`.
+  It sets R2041 to [−1000, 1000] with 2 H⁺. The 2-H⁺ form balances with the stored neutral ATP/ADP; the
+  patch's 1 H⁺ leaves H −1 / charge −1 until ATP/ADP microspecies migration.
+- The patch's "isomerase/phosphatase ATP loop" does not exist in a56f3649 (verified):
+  - A5P has only R2041 and R2042;
+  - the one cycle through reverse R2041 (R2190, R1964, R803, R714, R2042) sums to zero.
+- Forward-only rests on thermodynamics, not on a loop. eQuilibrator gives ΔrG'° −24.7 ± 4.7 kJ/mol and
+  K'eq 2.1e4 (verified). ENZYME and Rhea write the kinase equation, and Rhea links 0 UniProt enzymes.
+  Volk 1962 is unread.
+
+**Change (verified).**
+- Data: `model/curation/direction/r2041_direction.json` (`R2041-FORWARD-20261019`).
+- Step: guarded `apply_r2041_direction` (`platform/scripts/gem_annotate/r2041_direction.py`), flag
+  `--r2041-forward`, applied after `apply_r1159_direction`.
+- The step sets bounds [0, 1000] and adds notes. It keeps the 2-H⁺ equation.
+- It fails closed on stale identity, stoichiometry, species, GPR, EC, bounds or notes, and on
+  forward-only bounds without its notes.
+- Candidate: [E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml](candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml),
+  SHA-256 `da0c50ba10453a854ceb8de99980e6e7465c2c3eda1893412a1f01c02e81265e`; baseline `a56f3649…`.
+  - Control builds without the flag reproduce `a56f3649…`, before and after the audit fix. The candidate
+    rebuilds byte-identically with the final code.
+  - Whole-model diff: only R2041 bounds and notes.
+- Command (from `platform/`):
+  `python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --r2041-forward --output-model ../model/candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml`
+- Tests: the full suite equals clean `285eaee` test by test (11 failures and 14 errors pre-existing), plus
+  4 new passing tests.
+
+**LPs (10, all optimal; verified).**
+- Context: PO1f SD-Leu, the `coq_candidate_checks_20261005` config, Gurobi with 1 thread.
+- WT: 1.4308057354 h⁻¹ on both models.
+- Closed-exchange ATP dissipation: 0 in C_cy and C_mi on both.
+- R2041 at 100 % WT:
+  - a56f3649 allows −999.66 to 0, only through the net-zero internal loop;
+  - the candidate allows 0 only.
+- No growth or energy effect; a disfavoured direction and a 1000-capacity null cycle are removed.
+
+**Audit.** An independent read-only audit found C1–C10 supported. One latent guard defect (a false
+"previous bounds" note on input that is already forward-only) was fixed and re-verified. Two note-wording
+points were reported, not changed: the selection's `metadata_selected_fields` still lists bounds, and
+"kinase direction" overstates "=". Changing them would change the model SHA after the LPs.
+
+**Gaps.**
+- **Limits a claim:**
+  - no KO screen;
+  - only the E5/CoQ9/R132 chain was tested;
+  - the overlay-free closed test (P1–P2) was not run.
+- **Affects another line:**
+  - c98961e9 and 51c6fabd (uncommitted GPR fixes) still have reversible R2041;
+  - R2190's EC 1.1.1.250 (D-ribulose-forming) does not match its D-arabinose product, reviewed in
+    session `r2190-ec-product`; R2190 is what makes the loop possible;
+  - R2041 and R2042 are orphans with unverified existence;
+  - the ATP/ADP microspecies migration must re-review R2041's proton count.
+
+Report: [r2041_forward_20261019](reports/r2041_forward_20261019/REPORT.md).
 
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 

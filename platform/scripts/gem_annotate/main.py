@@ -83,6 +83,7 @@ def build_reference_chain(
     restore_selection_cpa_ura2: bool = False,
     remove_selection_tkl_fragment_gpr: bool = False,
     r153_gpr_revision: bool = False,
+    r2041_forward: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -680,6 +681,10 @@ def build_reference_chain(
         logger.info("V-ATPase GPR hypothesis: %s", apply_vatpase_gpr_hypothesis(model))
     selection["post_selection_r1159_direction"] = apply_r1159_direction(model)
     logger.info("R1159 direction: %s", selection["post_selection_r1159_direction"])
+    if r2041_forward:
+        from .r2041_direction import apply_r2041_direction
+        selection["post_selection_r2041_direction"] = apply_r2041_direction(model)
+        logger.info("R2041 direction: %s", selection["post_selection_r2041_direction"])
     if energy_candidate != "E0":
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply energy candidate to an incomplete reference build")
@@ -815,6 +820,7 @@ def build_model(args):
         restore_selection_cpa_ura2=getattr(args, "restore_selection_cpa_ura2", False),
         remove_selection_tkl_fragment_gpr=getattr(args, "remove_selection_tkl_fragment_gpr", False),
         r153_gpr_revision=getattr(args, "remove_r153_peptidase_gpr", False),
+        r2041_forward=getattr(args, "r2041_forward", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
