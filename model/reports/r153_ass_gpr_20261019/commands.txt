@@ -1,0 +1,46 @@
+# R153 ASS GPR review, 2026-10-19. All fetches are HTTP GET to public APIs (read-only).
+# Raw responses: $IYALI26_RESEARCH_ROOT/artifacts/tasks/r153_ass_gpr_20261019/downloads/ (SHA256SUMS alongside).
+
+# NCBI Gene
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gene&id=2910235,90949668&retmode=json      -> gene_esummary.json
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=90949668,2910235&retmode=text        -> gene_efetch.txt
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gene&term=argininosuccinate+synthase[All Fields]+AND+txid4952[Organism:exp]  -> gene_search_ass.json
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=90949658,90949660&retmode=text      (flanking genes; printed only)
+esearch db=gene / db=protein for YALI0D17462g, YALI0_D17462g, YALI0D17462, YALI1D17462            (all 0 hits; printed only)
+esearch db=gene  term=argininosuccinate AND txid284591[Organism:exp]                              (0 hits)
+esearch db=protein term=argininosuccinate AND txid284591[Organism:exp]                             (1 hit: CAG81519.1, argH lyase)
+
+# NCBI Nucleotide
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nuccore&id=NC_089381.1,NC_090773.1,CP017556.1&retmode=json  -> nuc.json
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090773.1&rettype=ft&seq_start=3595000&seq_stop=3629463  -> NC_090773_end_ft.txt
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CP017556.1&rettype=ft&seq_start=3600000&seq_stop=3615000   -> CP017556_end_ft.txt
+esummary db=nuccore id=CP061015.1                                                                  (DSM 3286 chromosome D; printed only)
+# Feature-table coordinates are relative to seq_start (checked against Gene records 90949658 / 90949660).
+
+# NCBI Protein
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=gene&db=protein&id=90949668&id=2910235&retmode=json  -> elink.json
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=protein&id=XP_502815.3,AOW04049.1,QNP98148.1,KAE8172175.1,RMI99126.1&retmode=json  -> prot.json
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=protein&term=argininosuccinate+synthase+AND+txid4952[Organism:exp]&retmax=50  -> pass.json
+esummary db=protein for the 12 hits                                                                -> pass_sum.json
+efetch db=protein rettype=fasta for the 12 ASS records + XP_502815.3 + AOW04049.1                  -> prots.fasta
+
+# UniProt / UniParc
+https://rest.uniprot.org/uniprotkb/{A0A1D8NEI7,Q6C947,A0A371C926}.json                             -> up_*.json
+https://rest.uniprot.org/uniprotkb/search?query=(ec:6.3.4.5) AND (taxonomy_id:4952)&format=tsv     -> up_ass_search.tsv (header only = 0 entries)
+https://rest.uniprot.org/uniparc/UPI0008A71D72.json                                                -> uniparc_ass.json
+https://rest.uniprot.org/uniparc/UPI00003BC373.json                                                -> uniparc_target.json
+
+# KEGG
+https://rest.kegg.jp/get/yli:2910235       -> kegg_2910235.txt
+https://rest.kegg.jp/get/yli:90949668      -> kegg_90949668.txt
+https://rest.kegg.jp/get/gn:T01033         -> kegg_T01033.txt
+https://rest.kegg.jp/link/yli/ec:6.3.4.5   (ec:6.3.4.5 yli:90949668; printed only)
+https://rest.kegg.jp/link/yli/ko:K01940    (ko:K01940 yli:90949668; printed only)
+
+# Static model listing (no LP, no build)
+python3 -I scripts/static_r153.py <candidate.xml> m312 m310 m313   -> static_r153_candidate_51c6fabd.txt
+python3 -I scripts/static_r153.py model/source/iyali26.xml m312    -> static_r153_source_iyali26.txt
+
+# Local screen scans (read-only): cas9_cas12a_fitness.csv, cas9_cas12a_screen_raw.xlsx, consensus_essential_genes.csv,
+# 42003_2023_4996_MOESM10_ESM.xlsx (research root state/essentiality/repository/), and Patterson Table S3 mmc12.xlsx
+# (sha256 7792f80b816361e0a42b0785d122b6267b530c1dd0eae18f4b6b583eb0bc38a9; read from the fervent-knuth session scratchpad).

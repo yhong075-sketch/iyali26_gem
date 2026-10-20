@@ -1,0 +1,83 @@
+[
+ {
+  "section": "reactions",
+  "item": "R153",
+  "field": "gpr",
+  "before": "YALI1D17462g",
+  "after": ""
+ },
+ {
+  "section": "reactions",
+  "item": "R153",
+  "field": "notes",
+  "before": {
+   "PROTEIN_CLASS": "6.3.4.5",
+   "curated_gpr_assignment": "R153-USER-SINGLE-GPR-20260915",
+   "gpr_evidence_status": "user_authorized_provisional_assignment_with_conflicting_function_evidence",
+   "gpr_evidence_basis": "Explicit user instruction; existing sequence and AlphaFold evidence supports an alternative protein function",
+   "gpr_evidence_label": "\u7528\u6237\u6307\u5b9a\u8d4b\u503c\uff1b\u529f\u80fd\u8bc1\u636e\u51b2\u7a81\uff0c\u672a\u5b9e\u9a8c\u786e\u8ba4",
+   "gpr_experimental_confirmation": "required_not_confirmed",
+   "r153_previous_gpr": "YALIUNK2",
+   "r153_authorization": "2026-09-15: \u7528\u6237\u5148\u8981\u6c42\u5c06YALI1D17462g\u8865\u5145\u8fdbR153\u5e76\u63a5\u5165\u7ba1\u7ebf\uff0c\u968f\u540e\u660e\u786e\u8981\u6c42\u53bb\u9664YALIUNK2\u3002Use YALI1D17462g alone and remove the placeholder gene entry only if no other reaction associations remain.",
+   "r153_gene_function": "YALI1D17462g; native gene symbol unverified; AOW04049.1 / A0A1D8NEI7, 384 aa; A1-family aspartyl endopeptidase function candidate based on sequence and AlphaFold prediction; not experimentally verified as argininosuccinate synthase.",
+   "r153_placeholder_identity": "Removed YALIUNK2 had no established name or molecular identity and carried a model-only synthase role. Its removal does not establish that it was biologically identical to YALI1D17462g.",
+   "r153_model_interpretation": "User-specified single-gene assignment for cytosolic argininosuccinate synthesis; YALIUNK2 removed. Deleting YALI1D17462g disables both R153 and the unchanged R2176. Static GPR dependence is not experimental evidence of synthase activity or growth essentiality.",
+   "r153_conflicting_evidence": "2026-09-11 fixed-panel sequence and structural comparisons strongly support A1 aspartyl peptidase for YALI1D17462g. Query-normalized TM: 0.74282 to experimental peptidase 1DPJ versus 0.26708/0.27714 to synthases 2NZ2/1K97. These results oppose the assigned synthase function; they are not supporting synthase evidence.",
+   "r153_alphafold_provenance": "Existing sequence-identical AlphaFold prediction AF-A0A1D8NEI7-F1, Monomer v2.0 pipeline, file v6; target sequence SHA256 bf9ffec20d0feb2f68a19fa10b102240dc138035b1997fa81b1c159fe0c192b3. Reused 2026-09-11; no new prediction or structural comparison in this assignment.",
+   "r153_evidence_sources": "artifacts/argininosuccinate_identity_20260911/REPORT.md; artifacts/argininosuccinate_identity_20260911/SOURCE_AUDIT.md; artifacts/argininosuccinate_identity_20260911/identity_and_sites.json; artifacts/argininosuccinate_identity_20260911/structure_results.json",
+   "r153_scope_limits": "R153 GPR/evidence notes and the unreferenced YALIUNK2 gene entry only. R2176, reaction chemistry, bounds, compartments and other GPRs unchanged. W29 terminal synthase coding identity remains unresolved; no phenotype improvement or native synthase function established.",
+   "r153_superseded_assignment": "The earlier 2026-09-15 OR assignment YALIUNK2 or YALI1D17462g is superseded by the explicit remove-YALIUNK2 instruction. Historical OR output and curation bytes are preserved.",
+   "reaction_merge_id": "R153-R2176-MERGE-20260915",
+   "merged_reaction_ids": "R2176",
+   "merged_reaction_name": "L-Citrulline:L-aspartate ligase (AMP-forming)",
+   "merged_reaction_source_sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f",
+   "merged_reaction_original_record": "data/reference_build/curation/r153_r2176_merge.json#/before/R2176",
+   "reaction_merge_capacity": "User-authorized single [-1000,1000] bound; former summed interval [-2000,2000]. Not a globally equivalent feasible set.",
+   "reaction_merge_evidence": "Exact same stoichiometry, compartments, bounds and GPR in fixed input; existing conflicting GPR function evidence remains unconfirmed.",
+   "reaction_merge_supersedes": "Earlier R153 notes describing preserved R2176 apply to the pre-merge build. R2176 is now merged into R153; no new gene-function validation."
+  },
+  "after": {
+   "PROTEIN_CLASS": "6.3.4.5",
+   "curated_gpr_assignment": "R153-GPR-UNASSIGNED-20261019",
+   "gpr_evidence_status": "user_authorized_gpr_removal_no_w29_gene_annotated",
+   "gpr_evidence_basis": "Identity review 2026-10-19: the former GPR gene YALI1D17462g (NCBI Gene 2910235, XP_502815.3, 384 aa) carries only A1 aspartic peptidase signatures (Pfam PF00026, PROSITE PS00141 at both active-site motifs) and no argininosuccinate synthase signature, and no W29 gene is annotated for argininosuccinate synthase.",
+   "gpr_evidence_label": "No gene assigned: the W29 argininosuccinate synthase locus is unannotated; not experimentally confirmed",
+   "gpr_experimental_confirmation": "not_applicable_no_gene_assigned",
+   "r153_previous_gpr": "YALIUNK2",
+   "r153_authorization": "2026-09-15: \u7528\u6237\u5148\u8981\u6c42\u5c06YALI1D17462g\u8865\u5145\u8fdbR153\u5e76\u63a5\u5165\u7ba1\u7ebf\uff0c\u968f\u540e\u660e\u786e\u8981\u6c42\u53bb\u9664YALIUNK2\u3002Use YALI1D17462g alone and remove the placeholder gene entry only if no other reaction associations remain.",
+   "r153_gene_function": "YALI1D17462g; native gene symbol unverified; AOW04049.1 / A0A1D8NEI7, 384 aa; A1-family aspartyl endopeptidase function candidate based on sequence and AlphaFold prediction; not experimentally verified as argininosuccinate synthase.",
+   "r153_placeholder_identity": "Removed YALIUNK2 had no established name or molecular identity and carried a model-only synthase role. Its removal does not establish that it was biologically identical to YALI1D17462g.",
+   "r153_model_interpretation": "Gene-less since R153-GPR-UNASSIGNED-20261019: no single-gene knockout disables R153, so the model makes no gene-level prediction for argininosuccinate synthase. This reflects a missing W29 gene model, not evidence that the step needs no enzyme.",
+   "r153_conflicting_evidence": "2026-09-11 fixed-panel sequence and structural comparisons strongly support A1 aspartyl peptidase for YALI1D17462g. Query-normalized TM: 0.74282 to experimental peptidase 1DPJ versus 0.26708/0.27714 to synthases 2NZ2/1K97. These results oppose the assigned synthase function; they are not supporting synthase evidence.",
+   "r153_alphafold_provenance": "Existing sequence-identical AlphaFold prediction AF-A0A1D8NEI7-F1, Monomer v2.0 pipeline, file v6; target sequence SHA256 bf9ffec20d0feb2f68a19fa10b102240dc138035b1997fa81b1c159fe0c192b3. Reused 2026-09-11; no new prediction or structural comparison in this assignment.",
+   "r153_evidence_sources": "artifacts/argininosuccinate_identity_20260911/REPORT.md; artifacts/argininosuccinate_identity_20260911/SOURCE_AUDIT.md; artifacts/argininosuccinate_identity_20260911/identity_and_sites.json; artifacts/argininosuccinate_identity_20260911/structure_results.json",
+   "r153_scope_limits": "R153 GPR/evidence notes and the unreferenced YALIUNK2 gene entry only. R2176, reaction chemistry, bounds, compartments and other GPRs unchanged. W29 terminal synthase coding identity remains unresolved; no phenotype improvement or native synthase function established.",
+   "r153_superseded_assignment": "The earlier 2026-09-15 OR assignment YALIUNK2 or YALI1D17462g is superseded by the explicit remove-YALIUNK2 instruction. Historical OR output and curation bytes are preserved.",
+   "reaction_merge_id": "R153-R2176-MERGE-20260915",
+   "merged_reaction_ids": "R2176",
+   "merged_reaction_name": "L-Citrulline:L-aspartate ligase (AMP-forming)",
+   "merged_reaction_source_sha256": "a4a3a8c43748cc955337ed38f22d50f2160e79c2935cfba5af827068c734441f",
+   "merged_reaction_original_record": "data/reference_build/curation/r153_r2176_merge.json#/before/R2176",
+   "reaction_merge_capacity": "User-authorized single [-1000,1000] bound; former summed interval [-2000,2000]. Not a globally equivalent feasible set.",
+   "reaction_merge_evidence": "Exact same stoichiometry, compartments, bounds and GPR in fixed input; existing conflicting GPR function evidence remains unconfirmed.",
+   "reaction_merge_supersedes": "Earlier R153 notes describing preserved R2176 apply to the pre-merge build. R2176 is now merged into R153; no new gene-function validation.",
+   "r153_gpr_revision": "R153-GPR-UNASSIGNED-20261019",
+   "r153_gpr_revision_authorization": "2026-10-19: user approved option A of model/reports/r153_ass_gpr_20261019/REPORT.md (gene-less R153 through a guarded post-merge step and opt-in flag, YALI1D17462g kept unlinked).",
+   "r153_gpr_revision_basis": "KEGG yli:90949668 / YALI2_D00589g (argininosuccinate synthase) is a Yarrowia lipolytica DSM 3286 gene (KEGG T01033, RefSeq GCF_014490615.1); its NCBI Gene record is discontinued and its RefSeq chromosome NC_089381.1 is suppressed. The current W29 RefSeq (NC_090773.1) has no YALI1 counterpart. Verified online 2026-10-19.",
+   "r153_w29_locus": "NC_090773.1 / CP017556.1 3604630-3609948, between YALI1_D36035g and YALI1_D36100g, carries no annotated feature. Argininosuccinate synthase homology there (3606992-3608481) splits across reading frames -3 and -1 (recorded 2026-09-11). Whether this is an assembly error, a strain variant or a pseudogene is unresolved.",
+   "r153_identity_candidate": "One identical 413-aa argininosuccinate synthase sequence in 11 Y. lipolytica strains, for example PO1f KAE8172175.1 (BKA90DRAFT_137900) and DSM 3286 QNP98148.1 (CDD cd01999, HAMAP MF_00005, TIGR00032). No verified native name; computational evidence only (database records and domain architecture). Not a W29 gene ID and not assigned to the GPR.",
+   "r153_screen_coverage": "No gene at the W29 argininosuccinate synthase locus is in the Cas9, Cas12a or Patterson Tn-seq gene sets, so the step has no experimental essentiality label.",
+   "r153_unlinked_gene": "YALI1D17462g (A1 aspartic peptidase candidate by automatic annotation) is kept in the model with no reactions.",
+   "r153_gpr_revision_supersedes": "Supersedes the GPR and current-status notes of R153-USER-SINGLE-GPR-20260915 (GPR YALI1D17462g); the previous note values are recorded in model/curation/gpr/r153_gpr_revision.json. The kept notes r153_previous_gpr, r153_authorization, r153_gene_function, r153_scope_limits, r153_superseded_assignment and reaction_merge_evidence describe the 2026-09-15 state and are history; the GPR immediately before this revision was YALI1D17462g."
+  }
+ },
+ {
+  "section": "genes",
+  "item": "YALI1D17462g",
+  "field": "reactions",
+  "before": [
+   "R153"
+  ],
+  "after": []
+ }
+]
