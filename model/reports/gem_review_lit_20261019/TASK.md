@@ -113,7 +113,7 @@ filtering, end-to-end retrieval, and a second run served entirely from the disk 
   `workflow-automation-review-6765da`; the user chose to merge the step 1–3 commit `7d46a79`
   into this session's branch `claude/priceless-joliot-8eb663` (merge commit `417f2d6`; only
   `model/STATE.md` conflicted, both sides' entries kept, newest first). The chain layer itself is
-  uncommitted on top of `417f2d6`.
+  committed on top of `417f2d6` as `ba67bb2` (user instruction 2026-10-20; not pushed).
 - Inputs: step-1 retrieval JSON
   `$IYALI26_RESEARCH_ROOT/artifacts/tasks/gem_review_lit_20261019/out/lit/retrieval/YALI1D32754g__R100.json`
   (57 chunks, 24 PMIDs). LLM `anthropic:claude-opus-5-5`, same settings as step 2

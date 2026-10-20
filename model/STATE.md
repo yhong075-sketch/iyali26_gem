@@ -13,7 +13,7 @@ no commit of the layer); user approved the plan on 2026-10-20 with "evidence_lev
 of the evidence for the verdict as stated", and chose to merge the step 1–3 commit `7d46a79`
 into `claude/priceless-joliot-8eb663` (merge `417f2d6`, STATE.md conflict resolved by keeping
 both entries) because a worktree hook blocks writes into the other worktree. The chain layer is
-uncommitted on top of `417f2d6`.
+committed on top of `417f2d6` as `ba67bb2` (user instruction 2026-10-20; not pushed).
 
 **Results** ([REPORT.md](reports/gem_review_lit_20261019/REPORT.md), step 4; verified this session).
 - Code: `platform/gem_review/lit/chain.py`, CLI `python -m gem_review.lit chain (--pair g:r |
