@@ -1,0 +1,368 @@
+{
+ "genes": {
+  "YALI1C33005g": {
+   "annotation": {
+    "ec-code": [
+     "6.3.4.16",
+     "6.3.5.5"
+    ],
+    "kegg.genes": "yli:2909603",
+    "ncbigene": "2909603",
+    "refseq": "XP_502204.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1H6PQF2"
+   },
+   "name": "COBRAProtein181",
+   "reactions": [
+    "R159",
+    "R190"
+   ]
+  },
+  "YALI1D02625g": {
+   "annotation": {
+    "kegg.genes": "yli:2910520",
+    "ncbigene": "2910520",
+    "sbo": "SBO:0000243"
+   },
+   "name": "G_YALI1D02625g",
+   "reactions": [
+    "R765",
+    "R766"
+   ]
+  },
+  "YALI1D09420g": {
+   "annotation": {
+    "ec-code": "6.3.5.5",
+    "ensembl": "CAG80716",
+    "kegg.genes": "yli:2910891",
+    "refseq": "XP_502528.3",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C9Y4"
+   },
+   "name": "COBRAProtein182",
+   "reactions": [
+    "R159",
+    "R190"
+   ]
+  },
+  "YALI1E07744g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "name": "COBRAProtein646",
+   "reactions": [
+    "R765",
+    "R766"
+   ]
+  },
+  "YALI1E11370g": {
+   "annotation": {
+    "kegg.genes": "yli:2912526",
+    "ncbigene": "2912526",
+    "sbo": "SBO:0000243"
+   },
+   "name": "G_YALI1E11370g",
+   "reactions": [
+    "R671"
+   ]
+  },
+  "YALI1E11768g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "name": "COBRAProtein183",
+   "reactions": [
+    "R159",
+    "R190"
+   ]
+  },
+  "YALI1F23441g": {
+   "annotation": {
+    "ncbigene": "2909038",
+    "sbo": "SBO:0000243"
+   },
+   "name": "COBRAProtein589",
+   "reactions": [
+    "R671"
+   ]
+  }
+ },
+ "reactions": {
+  "R159": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "ec-code": [
+    "2.1.3.2",
+    "3.5.1.2",
+    "6.3.4.16",
+    "6.3.5.5"
+   ],
+   "gpr": "YALI1C33005g or YALI1D09420g or YALI1E11768g",
+   "imbalance": {},
+   "name": "pyrimidine-specific carbamoyl-phosphate synthase/aspartate carbamoyltransferase (channelled)",
+   "notes": {
+    "PROTEIN_CLASS": "2.1.3.2",
+    "metadata_previous_essentiality_curation": "URA2-only net reaction; its carbamoyl-phosphate intermediate is channelled and is not shared with arginine biosynthesis.",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m267[C_cy]": -1.0,
+    "m325[C_cy]": -1.0,
+    "m326[C_cy]": 1.0,
+    "m35[C_cy]": 1.0
+   }
+  },
+  "R190": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "ec-code": [
+    "3.5.1.2",
+    "6.3.4.16",
+    "6.3.5.5"
+   ],
+   "gpr": "YALI1C33005g or YALI1D09420g or YALI1E11768g",
+   "imbalance": {},
+   "name": "arginine-specific carbamoyl-phosphate synthase (glutamine-hydrolysing)",
+   "notes": {
+    "PROTEIN_CLASS": "6.3.5.5",
+    "metadata_previous_essentiality_curation": "Arginine-specific CPA2/CPA1 heterodimer; no longer interchangeable with URA2.",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m130[C_cy]": -1.0,
+    "m141[C_cy]": -2.0,
+    "m143[C_cy]": 2.0,
+    "m199[C_cy]": -1.0,
+    "m325[C_cy]": 1.0,
+    "m32[C_cy]": -1.0,
+    "m35[C_cy]": 1.0,
+    "m50[C_cy]": 1.0
+   }
+  },
+  "R607": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "ec-code": "2.1.3.3",
+   "gpr": "YALI1D18130g",
+   "imbalance": {
+    "charge": 1.0
+   },
+   "name": "ornithine carbamoyltransferase",
+   "notes": {
+    "PROTEIN_CLASS": "2.1.3.3"
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m311[C_cy]": -1.0,
+    "m313[C_cy]": 1.0,
+    "m325[C_cy]": -1.0,
+    "m35[C_cy]": 1.0
+   }
+  },
+  "R671": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "ec-code": [
+    "1.3.1.78",
+    "1.3.1.13"
+   ],
+   "gpr": "YALI1F23441g or YALI1E11370g",
+   "imbalance": {
+    "charge": 1.0
+   },
+   "name": "prephenate dehydrogenase (NADP)",
+   "notes": {
+    "PROTEIN_CLASS": "1.3.1.13",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m408[C_cy]": -1.0,
+    "m40[C_cy]": 1.0,
+    "m41[C_cy]": -1.0,
+    "m82[C_cy]": 1.0,
+    "m903[C_cy]": 1.0
+   }
+  },
+  "R765": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "2.2.1.1",
+   "gpr": "YALI1E07744g or YALI1D02625g",
+   "imbalance": {
+    "charge": 2.0
+   },
+   "name": "transketolase 1",
+   "notes": {
+    "PROTEIN_CLASS": "2.2.1.1",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 2.0,
+    "m536[C_cy]": 1.0,
+    "m881[C_cy]": 1.0,
+    "m889[C_cy]": -1.0,
+    "m938[C_cy]": -1.0
+   }
+  },
+  "R766": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "2.2.1.1",
+   "gpr": "YALI1E07744g or YALI1D02625g",
+   "imbalance": {
+    "charge": 2.0
+   },
+   "name": "transketolase 2",
+   "notes": {
+    "PROTEIN_CLASS": "2.2.1.1",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m106[C_cy]": -1.0,
+    "m10[C_cy]": 4.0,
+    "m166[C_cy]": 1.0,
+    "m536[C_cy]": 1.0,
+    "m938[C_cy]": -1.0
+   }
+  }
+ },
+ "species": {
+  "m10[C_cy]": {
+   "charge": 1,
+   "compartment": "C_cy",
+   "formula": "H",
+   "name": "H+_p+1"
+  },
+  "m130[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C5H10N2O3",
+   "name": "L-glutamine_C5H10N2O3"
+  },
+  "m141[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C10H16N5O13P3",
+   "name": "ATP_C10H16N5O13P3"
+  },
+  "m143[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C10H15N5O10P2",
+   "name": "ADP_C10H15N5O10P2"
+  },
+  "m199[C_cy]": {
+   "charge": -1,
+   "compartment": "C_cy",
+   "formula": "CHO3",
+   "name": "bicarbonate_CHO3"
+  },
+  "m267[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C4H7NO4",
+   "name": "L-aspartate_C4H7NO4"
+  },
+  "m311[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C5H13N2O2",
+   "name": "ornithine_C5H13N2O2"
+  },
+  "m313[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C6H13N3O3",
+   "name": "L-citrulline_C6H13N3O3"
+  },
+  "m325[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "CH4NO5P",
+   "name": "carbamoyl phosphate_CH4NO5P"
+  },
+  "m326[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C5H8N2O5",
+   "name": "N-carbamoyl-L-aspartate_C5H8N2O5"
+  },
+  "m32[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "H2O",
+   "name": "H2O_H2O"
+  },
+  "m35[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "H3O4P",
+   "name": "phosphate_H3O4P"
+  },
+  "m408[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C10H10O6",
+   "name": "prephenate_C10H10O6"
+  },
+  "m40[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C21H30N7O17P3",
+   "name": "NADPH_C21H30N7O17P3"
+  },
+  "m41[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C21H29N7O17P3",
+   "name": "NADP(+)_C21H28N7O17P3"
+  },
+  "m50[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C5H9NO4",
+   "name": "L-glutamate_C5H9NO4"
+  },
+  "m82[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "CO2",
+   "name": "carbon dioxide_CO2"
+  },
+  "m903[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C9H8O4",
+   "name": "3-(4-hydroxyphenyl)pyruvate_C9H8O4"
+  }
+ }
+}

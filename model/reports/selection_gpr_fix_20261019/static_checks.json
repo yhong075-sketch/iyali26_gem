@@ -1,0 +1,215 @@
+{
+ "balance": {
+  "R671": {
+   "gpr": "YALI1F23441g",
+   "residual": {
+    "charge": 1.0
+   }
+  },
+  "R159": {
+   "gpr": "YALI1E11768g",
+   "residual": {}
+  },
+  "R190": {
+   "gpr": "YALI1C33005g and YALI1D09420g",
+   "residual": {}
+  },
+  "R765": {
+   "gpr": "YALI1E07744g or YALI1D02625g",
+   "residual": {
+    "charge": 2.0
+   }
+  },
+  "R766": {
+   "gpr": "YALI1E07744g or YALI1D02625g",
+   "residual": {
+    "charge": 2.0
+   }
+  }
+ },
+ "m325_reactions": {
+  "R607": -1.0,
+  "R190": 1.0
+ },
+ "knockout_closes": {
+  "YALI1F23441g": {
+   "closes": [
+    "R671"
+   ],
+   "reactions": [
+    "R671"
+   ]
+  },
+  "YALI1E11370g": {
+   "closes": [],
+   "reactions": []
+  },
+  "YALI1C33005g": {
+   "closes": [
+    "R190"
+   ],
+   "reactions": [
+    "R190"
+   ]
+  },
+  "YALI1D09420g": {
+   "closes": [
+    "R190"
+   ],
+   "reactions": [
+    "R190"
+   ]
+  },
+  "YALI1E11768g": {
+   "closes": [
+    "R159"
+   ],
+   "reactions": [
+    "R159"
+   ]
+  },
+  "YALI1E07744g": {
+   "closes": [],
+   "reactions": [
+    "R765",
+    "R766"
+   ]
+  },
+  "YALI1D02625g": {
+   "closes": [],
+   "reactions": [
+    "R765",
+    "R766"
+   ]
+  }
+ },
+ "records": {
+  "selection_complete": true,
+  "selection_rows": {
+   "R159": {
+    "status": "applied",
+    "fields": [
+     {
+      "field": "gpr",
+      "status": "applied"
+     },
+     {
+      "field": "stoichiometry",
+      "status": "applied"
+     }
+    ]
+   },
+   "R190": {
+    "status": "applied",
+    "fields": [
+     {
+      "field": "gpr",
+      "status": "applied"
+     }
+    ]
+   },
+   "R671": {
+    "status": "applied",
+    "fields": [
+     {
+      "field": "gpr",
+      "status": "applied"
+     },
+     {
+      "field": "stoichiometry",
+      "status": "applied"
+     }
+    ]
+   },
+   "R765": {
+    "status": "applied",
+    "fields": [
+     {
+      "field": "gpr",
+      "status": "already_correct"
+     },
+     {
+      "field": "stoichiometry",
+      "status": "applied"
+     }
+    ]
+   },
+   "R766": {
+    "status": "applied",
+    "fields": [
+     {
+      "field": "gpr",
+      "status": "already_correct"
+     },
+     {
+      "field": "stoichiometry",
+      "status": "applied"
+     }
+    ]
+   }
+  },
+  "selection_gpr_restore": {
+   "change_id": "SELECTION-GPR-RESTORE-20261019",
+   "reactions": [
+    {
+     "item": "R612",
+     "status": "applied",
+     "gpr": "YALI1E31685g",
+     "evidence_status": "experimental_yarrowia"
+    },
+    {
+     "item": "R2274",
+     "status": "applied",
+     "gpr": "YALI1A21372g",
+     "evidence_status": "experimental_yarrowia"
+    },
+    {
+     "item": "R1302",
+     "status": "applied",
+     "gpr": "YALI1A08512g",
+     "evidence_status": "curated_annotation"
+    },
+    {
+     "item": "R1303",
+     "status": "applied",
+     "gpr": "YALI1A08512g",
+     "evidence_status": "curated_annotation"
+    }
+   ],
+   "status": "applied"
+  },
+  "selection_gpr_restore_r671": {
+   "change_id": "SELECTION-GPR-RESTORE-R671-20261019",
+   "reactions": [
+    {
+     "item": "R671",
+     "status": "applied",
+     "gpr": "YALI1F23441g",
+     "evidence_status": "curated_annotation",
+     "unchanged_equation_residual": {
+      "charge": 1.0
+     }
+    }
+   ],
+   "status": "applied"
+  },
+  "selection_cpa_ura2_restore": {
+   "change_id": "SELECTION-CPA-URA2-RESTORE-20261019",
+   "reactions": [
+    {
+     "item": "R159",
+     "status": "applied",
+     "gpr": "YALI1E11768g",
+     "evidence_status": "curated_annotation"
+    },
+    {
+     "item": "R190",
+     "status": "applied",
+     "gpr": "YALI1C33005g and YALI1D09420g",
+     "evidence_status": "curated_annotation"
+    }
+   ],
+   "status": "applied"
+  }
+ }
+}

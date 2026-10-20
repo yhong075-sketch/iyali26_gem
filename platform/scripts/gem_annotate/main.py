@@ -78,6 +78,9 @@ def build_reference_chain(
     coq9_biomass_dilution: bool = False,
     coq9_respiratory_package: bool = False,
     r132_mito_adh: bool = False,
+    restore_selection_cleared_gprs: bool = False,
+    restore_selection_overwritten_gprs: bool = False,
+    restore_selection_cpa_ura2: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -496,9 +499,9 @@ def build_reference_chain(
     n_gpr_added = add_isozyme_gprs(model)
     logger.info(f"  Isozyme GPR additions: {n_gpr_added} (reaction, gene) pair(s) added")
 
-    # Remove mis-annotated genes from GPRs (E07744g trehalase wrongly in R765/R766
-    # transketolase; E11370g GatB wrongly in R671 prephenate DH). Safe 'or' cases,
-    # true partner retained -> 0 growth impact. See patches.remove_misannotated_gprs.
+    # Remove mis-annotated genes from GPRs (E11370g GatB wrongly in R671 prephenate DH).
+    # Safe 'or' case, true partner retained. The former E07744g removal from R765/R766
+    # was an ID-mapping error. See patches.remove_misannotated_gprs.
     n_gpr_removed = remove_misannotated_gprs(model)
     logger.info(f"  Mis-annotation GPR removals: {n_gpr_removed} (reaction, gene) pair(s) removed")
 
@@ -695,6 +698,21 @@ def build_reference_chain(
     if r132_mito_adh:
         from .r132_mito_adh import apply_r132_mito_adh
         selection["r132_mito_adh"] = apply_r132_mito_adh(model)
+    if restore_selection_cleared_gprs:
+        # Opt-in: re-apply the four reviewed GPRs the metadata selection clears (2026-10-19).
+        from .selection_gpr_restore import restore_after_selection
+        selection["selection_gpr_restore"] = restore_after_selection(model, selection)
+        logger.info("Selection GPR restore: %s", selection["selection_gpr_restore"]["status"])
+    if restore_selection_overwritten_gprs:
+        # Opt-in: re-apply R671's reviewed GPR, which the metadata selection overwrites (2026-10-19).
+        from .selection_gpr_restore import R671_GPR_RESTORE, restore_after_selection
+        selection["selection_gpr_restore_r671"] = restore_after_selection(model, selection, R671_GPR_RESTORE)
+        logger.info("Selection R671 GPR restore: %s", selection["selection_gpr_restore_r671"]["status"])
+    if restore_selection_cpa_ura2:
+        # Opt-in: re-apply EG-GPR-001 on R159/R190, which the metadata selection overwrites (2026-10-19).
+        from .selection_gpr_restore import CPA_URA2_RESTORE, restore_after_selection
+        selection["selection_cpa_ura2_restore"] = restore_after_selection(model, selection, CPA_URA2_RESTORE)
+        logger.info("Selection CPA/URA2 restore: %s", selection["selection_cpa_ura2_restore"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -779,6 +797,9 @@ def build_model(args):
         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
         r132_mito_adh=getattr(args, "r132_mito_adh", False),
+        restore_selection_cleared_gprs=getattr(args, "restore_selection_cleared_gprs", False),
+        restore_selection_overwritten_gprs=getattr(args, "restore_selection_overwritten_gprs", False),
+        restore_selection_cpa_ura2=getattr(args, "restore_selection_cpa_ura2", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
