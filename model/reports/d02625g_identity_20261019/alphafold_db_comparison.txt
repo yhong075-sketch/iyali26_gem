@@ -1,0 +1,23 @@
+# AlphaFold prediction (AlphaFold DB v6, AlphaFold Monomer v2.0 pipeline, models created 2022-06-01). AF-Q6CAJ3-F1 = YALI1D02625g; AF-Q6C6T4-F1 = YALI1E07744g.
+# Monomer predictions only. They do not show ThDP binding, catalysis or complex formation.
+AF-Q6CAJ3 model seq == XP_502319.1: True 347
+AF-Q6C6T4 model seq == XP_503628.3: True 694
+D02625g pLDDT mean all 80.6
+  1-29 N-term: mean 81.7, frac>=70 0.83, frac<50 0.00
+  30-232 Pfam TK_N: mean 89.3, frac>=70 0.94, frac<50 0.00
+  233-312: mean 77.4, frac>=70 0.62, frac<50 0.11
+  313-347 UniProt disordered: mean 36.2, frac>=70 0.00, frac<50 0.89
+  PAE mean 30-232 vs 30-232: 4.1; 30-232 vs 233-312: 6.3; 30-312 vs 313-347: 16.3
+seq-aligned pairs 300, RMSD 4.77 A
+  round 1: core pairs <4A 229 / 300, core RMSD 4.77 A
+  round 2: core pairs <4A 231 / 300, core RMSD 1.24 A
+  round 3: core pairs <4A 231 / 300, core RMSD 1.27 A
+  ref H31 substrate/catalysis (H31, pLDDT 99): nearest D02625g CA = R23 at 2.3 A (pLDDT 61)
+  ref H71 ThDP (H71, pLDDT 99): nearest D02625g CA = D63 at 2.0 A (pLDDT 78)
+  ref G118 ThDP (G118, pLDDT 98): nearest D02625g CA = G112 at 3.3 A (pLDDT 51)
+  ref D159 Mg (GDG) (D159, pLDDT 99): nearest D02625g CA = E153 at 2.0 A (pLDDT 92)
+  ref G160 ThDP (GDG) (G160, pLDDT 99): nearest D02625g CA = E154 at 2.0 A (pLDDT 90)
+  ref N189 Mg/ThDP (N189, pLDDT 99): nearest D02625g CA = E233 at 2.1 A (pLDDT 69)
+  ref I191 Mg (I191, pLDDT 99): nearest D02625g CA = R234 at 2.0 A (pLDDT 61)
+  ref H265 ThDP/substrate (H265, pLDDT 98): nearest D02625g CA = D25 at 3.1 A (pLDDT 64)
+E07744g pLDDT mean all 97.2; PP 1-330 97.8; PYR 357-533 98.6; C 534-694 94.1

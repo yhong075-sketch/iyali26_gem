@@ -1,0 +1,130 @@
+{
+ "baseline": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml",
+  "sha256": "51c6fabd486f4e1a9d6365bf7740bde3eca20fa05f1d5454a73586d3276db3fa"
+ },
+ "gene_count": 1073,
+ "genes": {
+  "YALI1D02625g": {
+   "annotation": {
+    "kegg.genes": "yli:2910520",
+    "ncbigene": "2910520",
+    "sbo": "SBO:0000243"
+   },
+   "name": "G_YALI1D02625g",
+   "reactions": [
+    "R765",
+    "R766"
+   ]
+  },
+  "YALI1E07744g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "name": "COBRAProtein646",
+   "reactions": [
+    "R765",
+    "R766"
+   ]
+  }
+ },
+ "reaction_count": 2306,
+ "reactions": {
+  "R765": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "2.2.1.1",
+   "gpr": "YALI1E07744g or YALI1D02625g",
+   "mass_charge_residual": {
+    "charge": 2.0
+   },
+   "name": "transketolase 1",
+   "notes": {
+    "PROTEIN_CLASS": "2.2.1.1",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 2.0,
+    "m536[C_cy]": 1.0,
+    "m881[C_cy]": 1.0,
+    "m889[C_cy]": -1.0,
+    "m938[C_cy]": -1.0
+   }
+  },
+  "R766": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "2.2.1.1",
+   "gpr": "YALI1E07744g or YALI1D02625g",
+   "mass_charge_residual": {
+    "charge": 2.0
+   },
+   "name": "transketolase 2",
+   "notes": {
+    "PROTEIN_CLASS": "2.2.1.1",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "gpr; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m106[C_cy]": -1.0,
+    "m10[C_cy]": 4.0,
+    "m166[C_cy]": 1.0,
+    "m536[C_cy]": 1.0,
+    "m938[C_cy]": -1.0
+   }
+  }
+ },
+ "species": {
+  "m106[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C4H9O7P",
+   "name": "D-erythrose 4-phosphate_C4H9O7P"
+  },
+  "m10[C_cy]": {
+   "charge": 1,
+   "compartment": "C_cy",
+   "formula": "H",
+   "name": "H+_p+1"
+  },
+  "m166[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C6H11O9P",
+   "name": "D-fructose 6-phosphate_C6H11O9P"
+  },
+  "m536[C_cy]": {
+   "charge": -2,
+   "compartment": "C_cy",
+   "formula": "C3H5O6P",
+   "name": "glyceraldehyde 3-phosphate_C3H5O6P"
+  },
+  "m881[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C7H15O10P",
+   "name": "sedoheptulose 7-phosphate_C7H15O10P"
+  },
+  "m889[C_cy]": {
+   "charge": -2,
+   "compartment": "C_cy",
+   "formula": "C5H11O8P",
+   "name": "ribose-5-phosphate_C5H11O8P"
+  },
+  "m938[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C5H11O8P",
+   "name": "D-xylulose 5-phosphate_C5H11O8P"
+  }
+ }
+}

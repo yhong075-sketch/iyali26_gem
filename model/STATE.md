@@ -42,6 +42,101 @@ unchanged.
 - The build-log warning order still varies with the seed.
 - Uncommitted, in worktree `claude/great-wu-64e590` (fast-forwarded to dc471d7).
 - The R153 line (`claude/eloquent-borg-1bd1b0`) does not include this fix.
+## 2026-10-19: R765/R766 without YALI1D02625g, opt-in change set and candidate (not committed)
+
+**Authorization.** User, 2026-10-19, in steps:
+- "Approved: remove YALI1D02625g from R765/R766 via the opt-in post-selection change set in REPORT §9."
+- "Option A. Have the clever-kare session commit its own work on claude/clever-kare-7d2e1a (no push).
+  Then commit your report on claude/cool-nightingale-a2f471, merge claude/clever-kare-7d2e1a into it,
+  and implement and build here. Stop before the 6 LPs."
+- On the gene guard and the residual: "Guard current state" and "Record as unchanged".
+- On the failed byte gate: "Accept the control gate on field-level identity … Record the cause, run the
+  independent audit, write REPORT.md and the STATE entry, and stop before committing. No LPs."
+
+Details: [REPORT.md](reports/tkl_d02625g_gpr_20261019/REPORT.md). Evidence:
+[identity report](reports/d02625g_identity_20261019/REPORT.md).
+
+**Results** (verified 2026-10-19 unless marked):
+- **Commits, local only, not pushed:** `dc471d7` (clever-kare, by its session), `dd406b4` (identity
+  report) and the merge `c091b78` on `claude/cool-nightingale-a2f471`.
+- **New change set** `SELECTION-GPR-TKL-D02625G-20261019`:
+  - data `model/curation/gpr/selection_tkl_fragment_gpr_removal.json`;
+  - a registry entry in `selection_gpr_restore.py`;
+  - flag `--remove-selection-tkl-fragment-gpr`;
+  - 7 new tests.
+- **New candidate** `model/candidates/E5_coq9_resp_pkg_r132_tkl_fragment_gpr_20261019.xml` (`52d3106b…`).
+  - It is 51c6fabd plus the new flag: R765/R766 → `YALI1E07744g`.
+  - Field-level diff vs 51c6fabd: R765/R766 GPR and notes, and YALI1D02625g's reaction links. Nothing
+    else.
+  - YALI1D02625g is kept, unlinked; 1,073 genes.
+  - The +2 charge residual of R765/R766 is pre-existing and unchanged.
+- **Control build** (no new flag): 0 field differences from 51c6fabd, but `248ea2c0…` rather than
+  `51c6fabd…`.
+  - The only byte difference is R159 reactant order. The CPA/URA2 change set inserts new species in
+    Python set order (`selection_gpr_restore.py:158`).
+  - A hash-seed simulation reproduces all three observed orders (seeds 399, 317, 188).
+  - The user accepted the gate on field-level identity.
+- **pytest:** identical per test before and after (11 failed and 14 errors pre-existing), plus 7 new
+  passing tests.
+- **Audit:** an independent read-only audit found the content correct and 11 report, provenance or test
+  defects. 9 were fixed, and 2 are disclosed with proposals (test strengthening, guard strength). The
+  fixes were not re-audited.
+
+**Decision status.** Implemented as an opt-in candidate; not the default build, not committed. The tier
+of the scientific decision is **inferred** (no *Y. lipolytica* enzymology).
+
+**Gaps.**
+- **Limits a claim:**
+  - no LP, so the effect on the YALI1E07744g essentiality call is untested;
+  - the seeded-rebuild prediction (`PYTHONHASHSEED=399` → 51c6fabd) is untested;
+  - the new tests do not cover the sbo guard or the baseline SHA.
+- **Affects another line:**
+  - builds with `--restore-selection-cpa-ura2` are not byte-reproducible without a fixed hash seed
+    (separate task proposed);
+  - the isozyme table and the metadata selection still add YALI1D02625g by default.
+
+## 2026-10-19: identity of YALI1D02625g, the OR partner on transketolase R765/R766 (investigation + plan)
+
+**Authorization.** A task relayed from session `local_553e1a53` (the user's own words are not on record
+here): investigate, then propose keep/remove for approval. No model, data or code edits, no build, no LP,
+no commit. AlphaFold was pre-authorized but not run, because AlphaFold DB already holds an identical model.
+
+Nothing in the model, curation data or code changed. Details:
+[REPORT.md](reports/d02625g_identity_20261019/REPORT.md).
+
+**Results** (verified 2026-10-19 unless marked):
+- **Gene:** YALI1D02625g = NCBI Gene 2910520 = XP_502319.1 (347 aa) = Q6CAJ3 = CLIB122 YALI0D02277g.
+  No verified name. Only a transketolase N-terminal (PP) domain.
+  - No PYR or C-terminal domain, so no catalytic Glu (yeast E418).
+  - The GDG Mg²⁺/ThDP motif is Glu-Glu, and ThDP His69 is Asp.
+- **Locus:** not a split or truncated annotation.
+  - Nothing within ±30 kb encodes the missing domains (tblastn).
+  - No other W29 protein is transketolase-like.
+  - By Pfam HMM, no CLIB122 protein carries the TK C-terminal domain except E07744g.
+  - 13 strain assemblies give the identical 347-aa protein.
+- **Expression:** RNA-seq supports the gene model (Magnan 2016 S4). The protein is detected by MS at
+  about 0.6% of transketolase (eciYali5-GEM debiaggi2025 data, local copy).
+- **AlphaFold prediction** (AF-Q6CAJ3-F1 v6, reused): a transketolase PP-domain fold (core RMSD 1.27 Å to
+  E07744g's model over 231 Cα).
+- **Orthologs:** no characterised PP-only ortholog (Swiss-Prot); UniRef50 is a singleton. The NCBI nr
+  search (RID `DDASFSWM014`) did not return in 52 min, so homologs in other yeasts are unknown.
+- **Provenance:** the OR came from the 2026-06-02 CLIB89 EC-match funnel (`gpr_isozyme_additions.csv`
+  rows 22–23, KEGG K00615). The source model has `YALI1E07744g` only.
+
+**Decision status.** Approved by the user on 2026-10-19 (plan §9, built after committing and merging
+`claude/clever-kare-7d2e1a`); applied in a separate change, not here. The change: remove YALI1D02625g from
+R765/R766 (GPR → `YALI1E07744g`)
+through an opt-in post-selection change set, building on the uncommitted registry in
+`claude/clever-kare-7d2e1a`.
+- Tier: **inferred**. There is no evidence that D02625g catalyses alone (AGENTS.md §5), and none for an
+  AND.
+- The likely change of E07744g's FN call is a consequence, not the reason.
+
+**Gaps.**
+- **Limits a claim:** no whole-genome tblastn (the W29 genome FASTA was not downloaded); no nr
+  ortholog result; no *Y. lipolytica* enzymology for either gene; the debiaggi2025 paper was not
+  opened.
+- **Blocks this task's implementation:** the clever-kare registry and builder fix are uncommitted.
 
 ## 2026-10-19: Selection-overwritten GPRs fixed (R671, R159/R190) and R765/R766 builder correction, new candidate
 

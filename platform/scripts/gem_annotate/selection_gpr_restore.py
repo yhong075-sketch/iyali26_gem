@@ -10,6 +10,8 @@ its reactions back to the reviewed definition. The decision and its evidence are
   mis-annotated GatB gene YALI1E11370g.
 - SELECTION-CPA-URA2-RESTORE-20261019 (``selection_cpa_ura2_restore.json``): EG-GPR-001 on R159
   (URA2-only, channelled) and R190 (CPA2 and CPA1).
+- SELECTION-GPR-TKL-D02625G-20261019 (``selection_tkl_fragment_gpr_removal.json``): R765/R766 without
+  YALI1D02625g, a transketolase N-terminal fragment, leaving the source model's YALI1E07744g.
 
 Every reaction, species, gene, context reaction and pool is checked before any edit; a reaction must be
 exactly in its cleared or its restored state, or the step fails closed. A restored equation must
@@ -30,10 +32,12 @@ TARGETS = ("R612", "R2274", "R1302", "R1303")
 CLEARED_GPR_RESTORE = "SELECTION-GPR-RESTORE-20261019"
 R671_GPR_RESTORE = "SELECTION-GPR-RESTORE-R671-20261019"
 CPA_URA2_RESTORE = "SELECTION-CPA-URA2-RESTORE-20261019"
+TKL_FRAGMENT_GPR_RESTORE = "SELECTION-GPR-TKL-D02625G-20261019"
 CHANGE_SETS = {
     CLEARED_GPR_RESTORE: (SPEC_PATH, TARGETS),
     R671_GPR_RESTORE: (MODEL.curation_file("selection_overwritten_gpr_restore.json"), ("R671",)),
     CPA_URA2_RESTORE: (MODEL.curation_file("selection_cpa_ura2_restore.json"), ("R159", "R190")),
+    TKL_FRAGMENT_GPR_RESTORE: (MODEL.curation_file("selection_tkl_fragment_gpr_removal.json"), ("R765", "R766")),
 }
 _NOTE_KEYS = ("selection_gpr_restore", "selection_gpr_restore_evidence",
               "selection_gpr_restore_evidence_status", "selection_gpr_restore_sources")
