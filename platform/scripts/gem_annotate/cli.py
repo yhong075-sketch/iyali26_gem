@@ -43,6 +43,8 @@ def parse_args(argv=None):
                         help="Re-apply the reviewed R671 GPR without the mis-annotated GatB gene that the metadata selection re-adds (curated 2026-10-19 decision); requires a complete selection")
     parser.add_argument("--restore-selection-cpa-ura2", action="store_true",
                         help="Re-apply EG-GPR-001 on R159/R190 (URA2-only channelled R159, CPA2 and CPA1 on R190) after the metadata selection (curated 2026-10-19 decision); requires a complete selection")
+    parser.add_argument("--remove-selection-tkl-fragment-gpr", action="store_true",
+                        help="Remove the transketolase N-terminal fragment YALI1D02625g from R765/R766 after the metadata selection, keeping YALI1E07744g (curated 2026-10-19 decision); requires a complete selection")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

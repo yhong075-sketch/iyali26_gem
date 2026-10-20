@@ -5,6 +5,59 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-19: R765/R766 without YALI1D02625g, opt-in change set and candidate (not committed)
+
+**Authorization.** User, 2026-10-19, in steps:
+- "Approved: remove YALI1D02625g from R765/R766 via the opt-in post-selection change set in REPORT §9."
+- "Option A. Have the clever-kare session commit its own work on claude/clever-kare-7d2e1a (no push).
+  Then commit your report on claude/cool-nightingale-a2f471, merge claude/clever-kare-7d2e1a into it,
+  and implement and build here. Stop before the 6 LPs."
+- On the gene guard and the residual: "Guard current state" and "Record as unchanged".
+- On the failed byte gate: "Accept the control gate on field-level identity … Record the cause, run the
+  independent audit, write REPORT.md and the STATE entry, and stop before committing. No LPs."
+
+Details: [REPORT.md](reports/tkl_d02625g_gpr_20261019/REPORT.md). Evidence:
+[identity report](reports/d02625g_identity_20261019/REPORT.md).
+
+**Results** (verified 2026-10-19 unless marked):
+- **Commits, local only, not pushed:** `dc471d7` (clever-kare, by its session), `dd406b4` (identity
+  report) and the merge `c091b78` on `claude/cool-nightingale-a2f471`.
+- **New change set** `SELECTION-GPR-TKL-D02625G-20261019`:
+  - data `model/curation/gpr/selection_tkl_fragment_gpr_removal.json`;
+  - a registry entry in `selection_gpr_restore.py`;
+  - flag `--remove-selection-tkl-fragment-gpr`;
+  - 7 new tests.
+- **New candidate** `model/candidates/E5_coq9_resp_pkg_r132_tkl_fragment_gpr_20261019.xml` (`52d3106b…`).
+  - It is 51c6fabd plus the new flag: R765/R766 → `YALI1E07744g`.
+  - Field-level diff vs 51c6fabd: R765/R766 GPR and notes, and YALI1D02625g's reaction links. Nothing
+    else.
+  - YALI1D02625g is kept, unlinked; 1,073 genes.
+  - The +2 charge residual of R765/R766 is pre-existing and unchanged.
+- **Control build** (no new flag): 0 field differences from 51c6fabd, but `248ea2c0…` rather than
+  `51c6fabd…`.
+  - The only byte difference is R159 reactant order. The CPA/URA2 change set inserts new species in
+    Python set order (`selection_gpr_restore.py:158`).
+  - A hash-seed simulation reproduces all three observed orders (seeds 399, 317, 188).
+  - The user accepted the gate on field-level identity.
+- **pytest:** identical per test before and after (11 failed and 14 errors pre-existing), plus 7 new
+  passing tests.
+- **Audit:** an independent read-only audit found the content correct and 11 report, provenance or test
+  defects. 9 were fixed, and 2 are disclosed with proposals (test strengthening, guard strength). The
+  fixes were not re-audited.
+
+**Decision status.** Implemented as an opt-in candidate; not the default build, not committed. The tier
+of the scientific decision is **inferred** (no *Y. lipolytica* enzymology).
+
+**Gaps.**
+- **Limits a claim:**
+  - no LP, so the effect on the YALI1E07744g essentiality call is untested;
+  - the seeded-rebuild prediction (`PYTHONHASHSEED=399` → 51c6fabd) is untested;
+  - the new tests do not cover the sbo guard or the baseline SHA.
+- **Affects another line:**
+  - builds with `--restore-selection-cpa-ura2` are not byte-reproducible without a fixed hash seed
+    (separate task proposed);
+  - the isozyme table and the metadata selection still add YALI1D02625g by default.
+
 ## 2026-10-19: identity of YALI1D02625g, the OR partner on transketolase R765/R766 (investigation + plan)
 
 **Authorization.** A task relayed from session `local_553e1a53` (the user's own words are not on record
