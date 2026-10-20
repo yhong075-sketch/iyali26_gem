@@ -5,6 +5,49 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-19: identity of YALI1D02625g, the OR partner on transketolase R765/R766 (investigation + plan)
+
+**Authorization.** A task relayed from session `local_553e1a53` (the user's own words are not on record
+here): investigate, then propose keep/remove for approval. No model, data or code edits, no build, no LP,
+no commit. AlphaFold was pre-authorized but not run, because AlphaFold DB already holds an identical model.
+
+Nothing in the model, curation data or code changed. Details:
+[REPORT.md](reports/d02625g_identity_20261019/REPORT.md).
+
+**Results** (verified 2026-10-19 unless marked):
+- **Gene:** YALI1D02625g = NCBI Gene 2910520 = XP_502319.1 (347 aa) = Q6CAJ3 = CLIB122 YALI0D02277g.
+  No verified name. Only a transketolase N-terminal (PP) domain.
+  - No PYR or C-terminal domain, so no catalytic Glu (yeast E418).
+  - The GDG Mg²⁺/ThDP motif is Glu-Glu, and ThDP His69 is Asp.
+- **Locus:** not a split or truncated annotation.
+  - Nothing within ±30 kb encodes the missing domains (tblastn).
+  - No other W29 protein is transketolase-like.
+  - By Pfam HMM, no CLIB122 protein carries the TK C-terminal domain except E07744g.
+  - 13 strain assemblies give the identical 347-aa protein.
+- **Expression:** RNA-seq supports the gene model (Magnan 2016 S4). The protein is detected by MS at
+  about 0.6% of transketolase (eciYali5-GEM debiaggi2025 data, local copy).
+- **AlphaFold prediction** (AF-Q6CAJ3-F1 v6, reused): a transketolase PP-domain fold (core RMSD 1.27 Å to
+  E07744g's model over 231 Cα).
+- **Orthologs:** no characterised PP-only ortholog (Swiss-Prot); UniRef50 is a singleton. The NCBI nr
+  search (RID `DDASFSWM014`) did not return in 52 min, so homologs in other yeasts are unknown.
+- **Provenance:** the OR came from the 2026-06-02 CLIB89 EC-match funnel (`gpr_isozyme_additions.csv`
+  rows 22–23, KEGG K00615). The source model has `YALI1E07744g` only.
+
+**Decision status.** Approved by the user on 2026-10-19 (plan §9, built after committing and merging
+`claude/clever-kare-7d2e1a`); applied in a separate change, not here. The change: remove YALI1D02625g from
+R765/R766 (GPR → `YALI1E07744g`)
+through an opt-in post-selection change set, building on the uncommitted registry in
+`claude/clever-kare-7d2e1a`.
+- Tier: **inferred**. There is no evidence that D02625g catalyses alone (AGENTS.md §5), and none for an
+  AND.
+- The likely change of E07744g's FN call is a consequence, not the reason.
+
+**Gaps.**
+- **Limits a claim:** no whole-genome tblastn (the W29 genome FASTA was not downloaded); no nr
+  ortholog result; no *Y. lipolytica* enzymology for either gene; the debiaggi2025 paper was not
+  opened.
+- **Blocks this task's implementation:** the clever-kare registry and builder fix are uncommitted.
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
