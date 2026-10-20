@@ -5,6 +5,41 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-20: Combined candidate of the eight 2026-10-19 opt-in changes, pushed on its own branch
+
+**Authorization.** User: "push the newest model", then chose "Combine first, then push". Then the
+user approved:
+- the combine plan, including committing the great-wu sort fix and the gene-search report on their
+  branches, and pushing `claude/combined-candidate-20261019` (not main);
+- after one post-merge test failure, extending `ORDER_PROBE` to the R765/R766 change set.
+
+**Results** ([REPORT.md](reports/combined_candidate_20261020/REPORT.md)). Verified this session
+unless marked otherwise.
+- **Branch:** eight branches merged into `claude/combined-candidate-20261019`, starting from
+  `origin/main` `285eaee`. Conflicts were parallel additions only.
+- **Candidate:** [E5_coq9_resp_pkg_r132_combined_20261020.xml](candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml)
+  (`164f235f…`) = a56f3649 plus all eight flags.
+- **Builds:** the control reproduces a56f3649, and seeds 0 and 1 give identical bytes.
+- **Diff:** the whole-model diff is exactly the union of the seven part candidates' diffs, with no
+  conflicts.
+- **Balance:** the 13 touched reactions balance, except the inherited R671/R765/R766 charge
+  residuals.
+- **pytest per test:** `origin/main` plus 42 new passes; pre-existing 11 failed and 14 errors
+  unchanged.
+- **20 GLPK LPs (observed in runs):**
+  - WT 1.430806, unchanged;
+  - the arabinose loop (R1964/R2041/R2042/R2190) carries 0 with boundaries closed (±1000 on
+    a56f3649);
+  - YALI1E07744g KO lethal (listed as essential); CPA2/CPA1 KO/WT 0.1439.
+- **Independent audit:** all 7 claims supported; its documentation corrections were applied.
+
+**Limits.**
+- No full benchmark was run, and these curations are not independent validation.
+- All changes stay behind opt-in flags; the default build is unchanged.
+- `main` `1540a7d` (gem_review literature layer, PR #7) was merged into the branch for PR #8.
+  Only `model/STATE.md` conflicted, and both sides' entries were kept, newest first.
+- PR #8 is open to main and not merged.
+
 ## 2026-10-20: gem_review literature layer, step 4 — logic chains (quote → inference → verdict)
 
 **Authorization.** Parent-session brief of 2026-10-20 (logic-chain layer on the step 1–3 code,
@@ -35,6 +70,566 @@ committed on top of `417f2d6` as `ba67bb2` (user instruction 2026-10-20; not pus
   files; none imports `gem_review`).
 - Not done: chain stability across re-runs; storing retry reasons; a live ad-hoc question;
   prompt caching.
+
+## 2026-10-19: Selection restore made hash-seed independent (R159 species order), byte-level rebuild of 51c6fabd
+
+**Authorization.** User, 2026-10-19: "Approved: fast-forward claude/great-wu-64e590 to dc471d7, add the
+cross-seed test, apply the sorted() fix at line 154, run pytest before/after, and do the two seeded offline
+builds (new candidate + .scratch). No commit or push." Details:
+[REPORT.md](reports/selection_restore_order_20261019/REPORT.md).
+
+**Cause:**
+- At dc471d7, `selection_gpr_restore.py` iterated a `str` set before `add_metabolites`, and cobra appends
+  new species in that order. Statically verified.
+- Only R159 adds two or more species (7), so only its speciesReference order changed with
+  `PYTHONHASHSEED`. Seeds 0–7 on the test fixtures gave 8 distinct R159 orders and one order for every
+  other target. Observed in a run.
+- This explains the R153 session's rebuild `8f083627…` ≠ `51c6fabd…` with `model_diff` 0.
+
+**Fix:** line 154 iterates `sorted(...)`, plus a new cross-seed subprocess test (seeds 0, 1, 2). Code
+only: no model science, curation data or medium changed.
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_sorted_20261019.xml`
+(`f0f24b26…`). It is the dc471d7 argv rebuilt with the fix and is not a reference model. 51c6fabd is
+unchanged.
+
+**Verified this session (observed in runs):**
+- Builds with `PYTHONHASHSEED=0` and `=1` are byte-identical.
+- `model_diff.py` vs 51c6fabd reports 0 differences.
+- The byte diff is only the order of the `R_R159` speciesReference lines.
+- Build input SHAs and all 99 data SHAs equal 51c6fabd's record.
+- The new test fails on the unfixed code and passes after the fix.
+- Full pytest is identical per test (181 → 182 passed; 11 failed and 14 errors predate this change),
+  plus the 1 new test.
+
+**Limits:**
+- Byte reproducibility of the whole build was checked for two seeds and this argv only. The other builder
+  steps were not audited for set iteration.
+- The build-log warning order still varies with the seed.
+- Uncommitted, in worktree `claude/great-wu-64e590` (fast-forwarded to dc471d7).
+- The R153 line (`claude/eloquent-borg-1bd1b0`) does not include this fix.
+
+## 2026-10-19: R765/R766 without YALI1D02625g, opt-in change set and candidate (not committed)
+
+**Authorization.** User, 2026-10-19, in steps:
+- "Approved: remove YALI1D02625g from R765/R766 via the opt-in post-selection change set in REPORT §9."
+- "Option A. Have the clever-kare session commit its own work on claude/clever-kare-7d2e1a (no push).
+  Then commit your report on claude/cool-nightingale-a2f471, merge claude/clever-kare-7d2e1a into it,
+  and implement and build here. Stop before the 6 LPs."
+- On the gene guard and the residual: "Guard current state" and "Record as unchanged".
+- On the failed byte gate: "Accept the control gate on field-level identity … Record the cause, run the
+  independent audit, write REPORT.md and the STATE entry, and stop before committing. No LPs."
+
+Details: [REPORT.md](reports/tkl_d02625g_gpr_20261019/REPORT.md). Evidence:
+[identity report](reports/d02625g_identity_20261019/REPORT.md).
+
+**Results** (verified 2026-10-19 unless marked):
+- **Commits, local only, not pushed:** `dc471d7` (clever-kare, by its session), `dd406b4` (identity
+  report) and the merge `c091b78` on `claude/cool-nightingale-a2f471`.
+- **New change set** `SELECTION-GPR-TKL-D02625G-20261019`:
+  - data `model/curation/gpr/selection_tkl_fragment_gpr_removal.json`;
+  - a registry entry in `selection_gpr_restore.py`;
+  - flag `--remove-selection-tkl-fragment-gpr`;
+  - 7 new tests.
+- **New candidate** `model/candidates/E5_coq9_resp_pkg_r132_tkl_fragment_gpr_20261019.xml` (`52d3106b…`).
+  - It is 51c6fabd plus the new flag: R765/R766 → `YALI1E07744g`.
+  - Field-level diff vs 51c6fabd: R765/R766 GPR and notes, and YALI1D02625g's reaction links. Nothing
+    else.
+  - YALI1D02625g is kept, unlinked; 1,073 genes.
+  - The +2 charge residual of R765/R766 is pre-existing and unchanged.
+- **Control build** (no new flag): 0 field differences from 51c6fabd, but `248ea2c0…` rather than
+  `51c6fabd…`.
+  - The only byte difference is R159 reactant order. The CPA/URA2 change set inserts new species in
+    Python set order (`selection_gpr_restore.py:158`).
+  - A hash-seed simulation reproduces all three observed orders (seeds 399, 317, 188).
+  - The user accepted the gate on field-level identity.
+- **pytest:** identical per test before and after (11 failed and 14 errors pre-existing), plus 7 new
+  passing tests.
+- **Audit:** an independent read-only audit found the content correct and 11 report, provenance or test
+  defects. 9 were fixed, and 2 are disclosed with proposals (test strengthening, guard strength). The
+  fixes were not re-audited.
+
+**Decision status.** Implemented as an opt-in candidate; not the default build, not committed. The tier
+of the scientific decision is **inferred** (no *Y. lipolytica* enzymology).
+
+**Gaps.**
+- **Limits a claim:**
+  - no LP, so the effect on the YALI1E07744g essentiality call is untested;
+  - the seeded-rebuild prediction (`PYTHONHASHSEED=399` → 51c6fabd) is untested;
+  - the new tests do not cover the sbo guard or the baseline SHA.
+- **Affects another line:**
+  - builds with `--restore-selection-cpa-ura2` are not byte-reproducible without a fixed hash seed
+    (separate task proposed);
+  - the isozyme table and the metadata selection still add YALI1D02625g by default.
+
+## 2026-10-19: identity of YALI1D02625g, the OR partner on transketolase R765/R766 (investigation + plan)
+
+**Authorization.** A task relayed from session `local_553e1a53` (the user's own words are not on record
+here): investigate, then propose keep/remove for approval. No model, data or code edits, no build, no LP,
+no commit. AlphaFold was pre-authorized but not run, because AlphaFold DB already holds an identical model.
+
+Nothing in the model, curation data or code changed. Details:
+[REPORT.md](reports/d02625g_identity_20261019/REPORT.md).
+
+**Results** (verified 2026-10-19 unless marked):
+- **Gene:** YALI1D02625g = NCBI Gene 2910520 = XP_502319.1 (347 aa) = Q6CAJ3 = CLIB122 YALI0D02277g.
+  No verified name. Only a transketolase N-terminal (PP) domain.
+  - No PYR or C-terminal domain, so no catalytic Glu (yeast E418).
+  - The GDG Mg²⁺/ThDP motif is Glu-Glu, and ThDP His69 is Asp.
+- **Locus:** not a split or truncated annotation.
+  - Nothing within ±30 kb encodes the missing domains (tblastn).
+  - No other W29 protein is transketolase-like.
+  - By Pfam HMM, no CLIB122 protein carries the TK C-terminal domain except E07744g.
+  - 13 strain assemblies give the identical 347-aa protein.
+- **Expression:** RNA-seq supports the gene model (Magnan 2016 S4). The protein is detected by MS at
+  about 0.6% of transketolase (eciYali5-GEM debiaggi2025 data, local copy).
+- **AlphaFold prediction** (AF-Q6CAJ3-F1 v6, reused): a transketolase PP-domain fold (core RMSD 1.27 Å to
+  E07744g's model over 231 Cα).
+- **Orthologs:** no characterised PP-only ortholog (Swiss-Prot); UniRef50 is a singleton. The NCBI nr
+  search (RID `DDASFSWM014`) did not return in 52 min, so homologs in other yeasts are unknown.
+- **Provenance:** the OR came from the 2026-06-02 CLIB89 EC-match funnel (`gpr_isozyme_additions.csv`
+  rows 22–23, KEGG K00615). The source model has `YALI1E07744g` only.
+
+**Decision status.** Approved by the user on 2026-10-19 (plan §9, built after committing and merging
+`claude/clever-kare-7d2e1a`); applied in a separate change, not here. The change: remove YALI1D02625g from
+R765/R766 (GPR → `YALI1E07744g`)
+through an opt-in post-selection change set, building on the uncommitted registry in
+`claude/clever-kare-7d2e1a`.
+- Tier: **inferred**. There is no evidence that D02625g catalyses alone (AGENTS.md §5), and none for an
+  AND.
+- The likely change of E07744g's FN call is a consequence, not the reason.
+
+**Gaps.**
+- **Limits a claim:** no whole-genome tblastn (the W29 genome FASTA was not downloaded); no nr
+  ortholog result; no *Y. lipolytica* enzymology for either gene; the debiaggi2025 paper was not
+  opened.
+- **Blocks this task's implementation:** the clever-kare registry and builder fix are uncommitted.
+
+## 2026-10-19: R153 argininosuccinate synthase made gene-less (YALI1D17462g is a peptidase), new candidate
+
+**Authorization.** User, 2026-10-19:
+1. "Approve option A for R153: a gene-less GPR through a new guarded post-merge step and opt-in flag, with
+   YALI1D17462g kept unlinked."
+2. "Approve the R153 implementation plan as written, including the fast-forward of
+   claude/eloquent-borg-1bd1b0 to dc471d7. Builds and pytest as budgeted; no LPs; no commit."
+3. After the control finding: "Amend criterion 1 … Rebuild the control and build the candidate both with
+   PYTHONHASHSEED=0".
+
+Evidence: [review](reports/r153_ass_gpr_20261019/REPORT.md). Change: [REPORT.md](reports/r153_gpr_revision_20261019/REPORT.md).
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_r153_gpr_v2_20261019.xml`
+(`d941d2cd…`).
+- `51c6fabd` flags plus `--remove-r153-peptidase-gpr`, built with `PYTHONHASHSEED=0`.
+- Not a reference model.
+- The first build `…_r153_gpr_20261019.xml` (`3c9e734f…`) is superseded (two note texts) and kept until the
+  user decides.
+
+**Change:**
+- R153 GPR `YALI1D17462g` → none. Notes: 6 replaced, 8 added.
+- `YALI1D17462g` is kept with no reactions (genes without reactions 22 → 23; gene count 1,073).
+- Data: `curation/gpr/r153_gpr_revision.json`. Step: `r153_gpr_revision.py`, run after the R153/R2176 merge
+  and the selection restores.
+- The 2026-09-15 assignment and merge files are unchanged.
+
+**Evidence (verified online 2026-10-19 unless marked):**
+- `YALI1D17462g` = Gene 2910235 = XP_502815.3, 384 aa, an A1 aspartic peptidase: PF00026, PS00141 at both
+  active-site motifs, no ASS signature.
+- KEGG's ASS yli:90949668 / YALI2_D00589g is a DSM 3286 gene (KEGG T01033 = GCF_014490615.1). Its NCBI Gene
+  record is discontinued and NC_089381.1 is suppressed.
+- W29 NC_090773.1 / CP017556.1 3,604,630–3,609,948 is unannotated. ASS homology there is frame-split
+  (recorded 2026-09-11; audit alignment supports it).
+- The databases' ASS is one 413-aa sequence in 11 strains, including PO1f KAE8172175.1.
+- No gene at that locus is in the Cas9, Cas12a or Tn-seq gene sets, so ASS was never assayed as a gene.
+- Not a YALI0/YALI1 locus collision: no YALI0D17462g exists.
+- The 2026-09-15 user assignment had already recorded the conflicting evidence.
+
+**Verified this session:**
+- Unseeded control: 0 field differences vs `51c6fabd`. Its bytes differ only in R159 species order, because
+  `selection_gpr_restore.py:154` iterates a hash-randomized set; a side session confirmed this, and its fix is
+  on `claude/great-wu-64e590`.
+- Seeded control: the same.
+- v2 vs `51c6fabd`: exactly 3 differences (R153 GPR, R153 notes, the gene's reaction list). v2 vs the seeded
+  control: bytes differ only in R153.
+- R153 is balanced.
+- pytest is identical per test (181 → 184 passed; 11 failed and 14 errors before and after), plus 3 new
+  passing tests.
+- An independent audit supported 9 claims and partly supported 1 (two historical Chinese note values kept).
+  Its fixes were applied and the candidate rebuilt as v2.
+
+**Limits:**
+- No LP was run. WT equality and the no-effect KO are provable only.
+- The model makes no gene-level ASS prediction.
+- `YALI1D17462g` now scores TN by construction (reported separately, not a reason).
+- The W29 ASS CDS and expression are untested.
+- Not committed.
+
+## 2026-10-19: Selection-overwritten GPRs fixed (R671, R159/R190) and R765/R766 builder correction, new candidate
+
+**Authorization.** User, 2026-10-19: "Approved: implement A (R671 GPR re-apply as a new change set), B (drop
+R765/R766 from the builder's mis-annotation removals, no model change expected) and C option (i) (restore
+EG-GPR-001 for R190/R159) … No LP solves yet, no commit." Plan and evidence:
+[review](reports/selection_gpr_review_20261019/REPORT.md). Details:
+[REPORT.md](reports/selection_gpr_fix_20261019/REPORT.md).
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml` (`51c6fabd…`).
+- Built with c98961e9's flags plus `--restore-selection-overwritten-gprs --restore-selection-cpa-ura2`.
+- Not a reference model.
+- The first build (`fa859429…`) is superseded: one note stated a wrong EC provenance. It is kept until the user
+  decides.
+
+**Changes:**
+- R671 → `YALI1F23441g`.
+  - YALI1E11370g = GatB/PET112 (Q6C6I6), so it leaves R671.
+  - The equation is unchanged, with its recorded +1 charge residual.
+- R159 → URA2-only net channelled CPS + ATCase.
+- R190 → `YALI1C33005g and YALI1D09420g` (CPA2/CPA1 heterodimer, homology-level).
+  - EG-GPR-001's dossier stays `needs_more_evidence`.
+  - Whether URA2 feeds the arginine pool remains unresolved for Y. lipolytica.
+- R765/R766: the builder no longer removes YALI1E07744g, which is the transketolase (GeneID 2912397 → Q6C6T4).
+  The 2026-07-06 removal was a YALI1/YALI0 locus mix-up. The final GPR is unchanged.
+
+**Verified this session:**
+- Control builds reproduce a56f3649 and c98961e9 byte for byte with the final code.
+- The whole-model diff vs c98961e9 has 19 differences, all on the targets and their derived gene and metabolite
+  links.
+- R159 and R190 balance.
+- The m325 pool is now R190 → R607 only.
+- pytest is identical per test, plus 10 new passing tests.
+- An independent audit supported claims 1–8 and partly supported 9. Its defects were fixed, and the candidate was
+  rebuilt as v2.
+
+**Mechanism:** generalized `selection_gpr_restore.py` (change-set registry, gene lists, a recorded residual for
+unchanged equations, context and pool guards). New data files `selection_overwritten_gpr_restore.json` and
+`selection_cpa_ura2_restore.json`. A `patches.py` correction for B.
+
+**Solves (user-authorized, 12 LPs, GLPK, SD-Leu + PO1f, all optimal; observed in runs):**
+- WT is 1.4308057 h⁻¹ on both models.
+- On c98961e9, every knockout of the five genes gives KO/WT 1.0.
+- On the new candidate:
+  - YALI1F23441g: 0.421;
+  - YALI1E11370g: 1.0;
+  - CPA2 YALI1C33005g and CPA1 YALI1D09420g: 0.1439 each, essential at 15% only;
+  - URA2 YALI1E11768g: 1.0, uracil supplied.
+- Against the consensus list (curation data, not independent validation), at 15%: CPA2 FN → TP and CPA1 TN → FP.
+  Nothing changes at 1/5/10%. No full screen was run.
+
+**Limits:**
+- Mechanisms are inferred from objective values only: tyrosine and arginine uptake limitation. No fluxes were
+  read.
+- Uncommitted, in worktree `claude/clever-kare-7d2e1a`. It holds byte-identical copies of the uncommitted
+  2026-10-19 restore files from `claude/orphan-reaction-newest-model-b8ddc8`; merge with care.
+- The 2026-10-19 restore REPORT §6 still calls the E07744g removal "verified". That file is in the other worktree
+  and was not edited.
+
+## 2026-10-19: R2041 (D-arabinokinase) forward-only, opt-in, through the pipeline
+
+**Authorization.**
+- The review was delegated by the selection GPR review session: read-only, plan only.
+- The user then approved, 2026-10-19: "Approved: implement Option A (r2041_direction.json + guarded
+  apply_r2041_direction, opt-in flag, keep 2 H+) in this worktree on 285eaee, build the new candidate, and
+  run the 10 core LPs from REPORT 6.3."
+- Not committed or pushed.
+
+**Review findings** ([review](reports/r2041_direction_review_20261019/REPORT.md)):
+- The 2026-09-10 metadata selection reverts the builder patch `fix_d_arabinokinase_direction_and_proton`.
+  It sets R2041 to [−1000, 1000] with 2 H⁺. The 2-H⁺ form balances with the stored neutral ATP/ADP; the
+  patch's 1 H⁺ leaves H −1 / charge −1 until ATP/ADP microspecies migration.
+- The patch's "isomerase/phosphatase ATP loop" does not exist in a56f3649 (verified):
+  - A5P has only R2041 and R2042;
+  - the one cycle through reverse R2041 (R2190, R1964, R803, R714, R2042) sums to zero.
+- Forward-only rests on thermodynamics, not on a loop. eQuilibrator gives ΔrG'° −24.7 ± 4.7 kJ/mol and
+  K'eq 2.1e4 (verified). ENZYME and Rhea write the kinase equation, and Rhea links 0 UniProt enzymes.
+  Volk 1962 is unread.
+
+**Change (verified).**
+- Data: `model/curation/direction/r2041_direction.json` (`R2041-FORWARD-20261019`).
+- Step: guarded `apply_r2041_direction` (`platform/scripts/gem_annotate/r2041_direction.py`), flag
+  `--r2041-forward`, applied after `apply_r1159_direction`.
+- The step sets bounds [0, 1000] and adds notes. It keeps the 2-H⁺ equation.
+- It fails closed on stale identity, stoichiometry, species, GPR, EC, bounds or notes, and on
+  forward-only bounds without its notes.
+- Candidate: [E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml](candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml),
+  SHA-256 `da0c50ba10453a854ceb8de99980e6e7465c2c3eda1893412a1f01c02e81265e`; baseline `a56f3649…`.
+  - Control builds without the flag reproduce `a56f3649…`, before and after the audit fix. The candidate
+    rebuilds byte-identically with the final code.
+  - Whole-model diff: only R2041 bounds and notes.
+- Command (from `platform/`):
+  `python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --r2041-forward --output-model ../model/candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml`
+- Tests: the full suite equals clean `285eaee` test by test (11 failures and 14 errors pre-existing), plus
+  4 new passing tests.
+
+**LPs (10, all optimal; verified).**
+- Context: PO1f SD-Leu, the `coq_candidate_checks_20261005` config, Gurobi with 1 thread.
+- WT: 1.4308057354 h⁻¹ on both models.
+- Closed-exchange ATP dissipation: 0 in C_cy and C_mi on both.
+- R2041 at 100 % WT:
+  - a56f3649 allows −999.66 to 0, only through the net-zero internal loop;
+  - the candidate allows 0 only.
+- No growth or energy effect; a disfavoured direction and a 1000-capacity null cycle are removed.
+
+**Audit.** An independent read-only audit found C1–C10 supported. One latent guard defect (a false
+"previous bounds" note on input that is already forward-only) was fixed and re-verified. Two note-wording
+points were reported, not changed: the selection's `metadata_selected_fields` still lists bounds, and
+"kinase direction" overstates "=". Changing them would change the model SHA after the LPs.
+
+**Gaps.**
+- **Limits a claim:**
+  - no KO screen;
+  - only the E5/CoQ9/R132 chain was tested;
+  - the overlay-free closed test (P1–P2) was not run.
+- **Affects another line:**
+  - c98961e9 and 51c6fabd (uncommitted GPR fixes) still have reversible R2041;
+  - R2190's EC 1.1.1.250 (D-ribulose-forming) does not match its D-arabinose product, reviewed in
+    session `r2190-ec-product`; R2190 is what makes the loop possible;
+  - R2041 and R2042 are orphans with unverified existence;
+  - the ATP/ADP microspecies migration must re-review R2041's proton count.
+
+Report: [r2041_forward_20261019](reports/r2041_forward_20261019/REPORT.md).
+
+## 2026-10-19: R2190 product corrected to D-ribulose (R2190-RIBULOSE-20261019), new candidate 36f04193
+
+**Authorization.**
+- Read-only review delegated by the R2041 direction review:
+  [r2190_identity_review_20261019](reports/r2190_identity_review_20261019/REPORT.md).
+- Then the user, 2026-10-19: "Approve Option A: opt-in guarded step R2190-RIBULOSE that writes a new
+  D-ribulose[C_cy] as R2190's product, built on 285eaee in this worktree, plus the 8 LPs in REPORT §7.3. No
+  commit or push."
+- Worktree `claude/clever-austin-f6a04e`, uncommitted. Details:
+  [REPORT.md](reports/r2190_ribulose_product_20261019/REPORT.md).
+
+**Review findings** (verified 2026-10-19 unless marked):
+- In a56f3649, R2190 is NAD + D-arabinitol ⇌ NADH + D-arabinose (`m454`), inherited from the source. Its name,
+  EC 1.1.1.250 and every attached ID (KEGG R07134, MNXR197981, SEED rxn04932/rxn15657; also Rhea 17389) give
+  **D-ribulose**.
+- `m454` is a genuine D-arabinose node (MNXM48397/CHEBI:17108). The product link was therefore the error
+  (inferred, strong).
+- The gene: YALI1F03452g = GeneID 2908139 = XP_504895.1 = YALI0F02211g / Q6C367 (identical sequence). It is
+  "YlAraDH1" of Wang et al. 2020 (doi:10.1186/s13068-020-01815-8): an NAD(H) polyol dehydrogenase that reduces
+  only ketoses.
+  - D-ribulose and D-arabinose were not tested.
+  - The authors name D-xylulose as the D-arabitol product, from an NADH assay only.
+- EC 1.1.1.250 on this gene is homology-level. Ribulose versus xylulose remains open.
+
+**Change** (verified):
+- **Implementation:** curated `model/curation/chemistry/r2190_product.json`; guarded
+  `platform/scripts/gem_annotate/r2190_product.py`; opt-in flag `--r2190-ribulose-product`, run after the R132
+  step; focused test `platform/tests/test_r2190_product.py` (6 tests).
+- **Candidate:** `model/candidates/E5_coq9_resp_pkg_r132_r2190_ribulose_20261019.xml`, SHA-256
+  `36f041930e5fee211395a45da4a36bb991fe9285637c409b07cc6d04114812ac`. Command: a56f3649's argv plus the flag.
+- **Whole-model diff vs a56f3649:** R2190's product `m454` → new `m2061[C_cy]` D-ribulose (C5H10O5, 0; C00309,
+  CHEBI:17173, MNXM1371690), plus five R2190 notes. Nothing else.
+- **Builds:** the control without the flag reproduces a56f3649 byte for byte. A rebuild with the final post-audit
+  code reproduces 36f04193.
+- **R2190** balances. It is now blocked by construction, because D-ribulose has no other reaction (provable).
+- **LPs (8, all optimal):**
+  - WT 1.430805735352851 / 1.4308057353528474 h⁻¹ (relative difference 2.5e-15);
+  - with all 183 boundaries closed, R1964, R2041 and R2042 are [0, 0] on the new model. The orphan line recorded
+    one-sided ±1000 ranges on a56f3649 under GLPK.
+- **pytest:** identical to clean `285eaee` test by test, plus the 6 new tests. The 11 failures and 14 errors are
+  pre-existing.
+
+**Audit.** An independent read-only audit found no undeclared change (21 of 26 claims supported). Its six
+low/informational items: the wording (D1, D2) and guard/test gaps (D3, D4) were fixed and are not re-audited; the
+chain gate (D5) and run overlap (D6) are disclosed.
+
+**Gaps.**
+- **Limits a claim:** the D-ribulose vs D-xylulose regiochemistry. Option B (merge with R1964) applies if
+  D-xylulose is ever shown.
+- **Affects another line:**
+  - the R1964 orphan GPR candidate (session "Evidence review: YlAraDH1 as GPR for orphan R1964");
+  - YlMDH2 (YALI0D18964g → YALI1D24054g), the in vivo D-arabitol producer, is not a model gene;
+  - R255 has a pre-existing charge residual of +1;
+  - the R2041 forward-only plan is independent.
+- **Not done:** single-KO screen, commit, push.
+
+## 2026-10-19: R1964 provisional GPR and D-xylulose cross-references (review + opt-in candidate)
+
+**Authorization.**
+- A delegated read-only review came first:
+  [r1964_gpr_review_20261019](reports/r1964_gpr_review_20261019/REPORT.md).
+- User, 2026-10-19: "Approve the R1964 plan: opt-in step with provisional GPR YALI1F03452g or
+  YALI1E06616g, plus the MNXR198271/Rhea 17921/EC 1.1.1.11 annotation fix, and the 5 LPs."
+- Not authorized: commit, push, merge, any other LP or model change.
+
+**Review findings** (2026-10-19):
+- Wang et al. 2020 (doi:10.1186/s13068-020-01815-8) purified two proteins (verified):
+  - YALI1F03452g ("YlAraDH1");
+  - YALI1E06616g ("YlAraDH2", = XP_503594.1 = YALI0E05643g/Q6C6W8; not a model gene before this
+    change).
+
+  Both turn over both R1964 substrates with NAD(H). Products were assigned from a 340 nm assay, not
+  identified.
+- A Fischer-projection test of the activity pattern favours D-arabinitol C-4 oxidation
+  (→ D-xylulose, R1964) over C-2 (→ D-ribulose, R2190) (inferred). D-ribulose was never tested.
+- R1964's MNXR154181 / BiGG ABTD1 annotation names L-xylulose (verified).
+
+**Change** (verified; uncommitted on `claude/reverent-wilbur-4dc5b6`, HEAD 285eaee):
+- **Mechanism:**
+  - data `model/curation/gpr/r1964_gpr_assignment.json` (`R1964-ARADH-GPR-20261019`);
+  - guarded `apply_r1964_gpr_assignment` (`r1964_gpr.py`);
+  - opt-in flag `--r1964-gpr`, after `--r132-mito-adh`;
+  - focused test `tests/test_r1964_gpr.py`.
+- **New candidate** `E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml` (`db429743…`) = a56f3649 plus:
+  - R1964 GPR "" → `YALI1F03452g or YALI1E06616g`;
+  - the L-xylulose cross-references replaced by the D-xylulose reaction (MNXR198271, Rhea 17921,
+    KEGG R05604, EC 1.1.1.11, BiGG/VMH ABTDG, MetaCyc);
+  - 10 note keys;
+  - the new gene YALI1E06616g.
+- **Diff:** the control build without the flag = a56f3649 byte for byte. The whole-model diff has 5
+  differences, all on the targets. R1964's bounds, stoichiometry and balance are unchanged.
+
+**Results** (verified):
+- 5/5 LPs optimal.
+  - WT is 1.430805735352851 h^-1 on both models (relative difference 0).
+  - KO/WT is 1.000 for YALI1F03452g (M0, M1) and YALI1E06616g (M1). No call changes at 1/5/10/15 %.
+  - R1964 and R2190 flux is 0 in all five.
+- The full suite is unchanged test by test, plus 5 new passing tests.
+
+**Audit.**
+- An independent read-only audit supported C1–C6 and C8–C10.
+- The guard was partially supported. Its gaps were fixed: non-spec notes, the full YALI1F03452g
+  identity, and the new gene's name. The test was rewritten, because `Model.copy()` shares
+  `Gene.annotation` dicts and the first version leaked between subcases.
+- The v2 rebuilds were byte-identical, and the suite was unchanged again.
+- The LP script enforced the WT-difference and call-change stops only after the run. Neither would
+  have fired; this is reported, not rerun.
+
+**Evidence level.** Provisional. The basis is in vitro activity of the purified proteins, and the
+regiochemistry is unsettled. This is not experimental validation of an in vivo role.
+
+**Gaps.**
+- **Limits a claim:** product identification; the Liu 2026 JAFC full text (unread); the Wang 2020
+  supplementary file (not downloaded).
+- **Affects another line:**
+  - merging with R2041 forward (`ae54dd8`), the GPR-fix worktree and the R2190 plan, all of which
+    touch `main.py`/`cli.py`;
+  - the R2190 plan should add the C-4 limit line;
+  - the colleague audit's R1964 blocker entry is the owner's to update;
+  - other tests mutate `Gene.annotation` on model copies in place (not examined).
+
+Reports: [r1964_gpr_20261019](reports/r1964_gpr_20261019/REPORT.md),
+[review](reports/r1964_gpr_review_20261019/REPORT.md).
+
+## 2026-10-19: Four selection-cleared GPRs restored (R612, R2274, R1302, R1303), new candidate
+
+**Authorization.** The user approved the plan "re-apply the R612, R2274, R1302 and R1303 GPRs (and
+balanced R1303/R2274 stoichiometry) after the metadata selection step" for all four reactions.
+Uncommitted on `claude/orphan-reaction-newest-model-b8ddc8` (`4d97b82`).
+
+**Results** ([REPORT.md](reports/selection_gpr_restore_20261019/REPORT.md)). Verified this session
+unless marked otherwise.
+- **New candidate:** [E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml](candidates/E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml)
+  (`c98961e9…`). Built from a56f3649's flags plus the new opt-in
+  `--restore-selection-cleared-gprs`.
+- **Data and code:**
+  - data: `model/curation/gpr/selection_cleared_gpr_restore.json`;
+  - step: guarded `apply_selection_gpr_restore` (`selection_gpr_restore.py`);
+  - tests: 6 (`test_selection_gpr_restore.py`).
+- **Changes:**
+  - R612 = YALI1E31685g (URA3, tier A);
+  - R2274 = YALI1A21372g (LIP2, tier A), plus 3 H₂O;
+  - R1302 and R1303 = YALI1A08512g (annotation only, tier C); R1303 loses its extra H⁺.
+  - All 4 reactions are balanced.
+- **Checks:**
+  - The control build without the flag reproduces a56f3649 byte for byte (twice).
+  - The whole-model diff shows 13 differences, all on the 4 reactions and the membership of the 3
+    genes.
+  - pytest per test: identical plus 6 new passes (pre-existing 11 failed and 14 errors unchanged).
+  - 8 GLPK solves on SD-Leu + PO1f: WT 1.430806 and every KO/WT 1.0 on both models (observed).
+- **Independent audit:** 7 of 8 claims supported; idempotence after an SBML round trip was only
+  partially supported. Fixed: the note comparison and the R612 wording; then rebuilt as v2.
+- The first build `…_gpr_restore_20261019.xml` (`38e257b6`) was superseded by v2. Its three files
+  were deleted on the user's instruction (2026-10-19).
+
+**Limits.**
+- The opt-in flag leaves the default build and earlier candidates unchanged.
+- No triolein condition was run. Structurally, a LIP2 KO would block all triolein use, unlike the
+  reported lip2 KO (inferred).
+- Outside this scope: the same 2026-09-10 selection re-adds YALI1E07744g (R765/R766) and
+  YALI1E11370g (R671), which the builder removes as mis-annotations. It also turns R190's AND into
+  an OR (verified, not changed).
+
+## 2026-10-19: Orphan-reaction inventory of the newest candidate, investigation only
+
+**Authorization.** The user asked to find the orphan reactions in the newest model, then to run
+pFBA, FVA (0 % and 99.9 %) and single-reaction KO on them under SD-Leu + PO1f as a read-only
+computation, then to save the tables and recommend actions. No model, GPR or data change.
+No BLAST, no literature curation. Uncommitted on `claude/orphan-reaction-newest-model-b8ddc8`
+(`4d97b82`).
+
+**Results** ([REPORT.md](reports/orphan_reactions_20261019/REPORT.md),
+[triage.csv](reports/orphan_reactions_20261019/triage.csv)). Verified this session unless marked
+otherwise.
+- **Model:** candidate `a56f3649…` (`E5_coq9_resp_pkg_r132_20261012.xml`), the newest by commit
+  date. It is not a reference model.
+- **Counts:**
+  - 840 gene-less reactions: 183 boundary, 38 pseudo, 533 transport, 86 metabolic.
+  - 6 of the 86 are spontaneous by name, which leaves **80 orphans**.
+  - R1210 and R2197 are probably spontaneous (inferred, uncited). Reclassifying them would give 78.
+- **Flux (WT 1.4308 h⁻¹):**
+  - 5 required at the optimum: R19, R321, R1043, R1210 (KO lethal) and R1901 (KO/WT 0.9973).
+  - 1 active but not required: R1308.
+  - 41 can carry flux but carry none at the optimum.
+  - 33 blocked.
+- **Selection step:** `metadata_reaction_selection.json` (2026-09-10 user selection) clears four
+  reviewed GPRs that the builder assigns earlier: R612 URA3, R2274 LIP2, R1302 and R1303
+  YALI1A08512g. It also leaves R2274 (−3 H₂O) and R1303 (+H⁺) mass-imbalanced. Whether the
+  losses were intended is a decision for the user.
+- **Duplicate:** R530 and R1727 are an exact duplicate pair.
+- **Loop:** R1964, R2041 and R2042 lie on a net-zero internal loop with R803, R714 and R2190. It
+  carries 1000 with all boundaries closed and runs an arabinose kinase backwards to remake ATP.
+- **Triage:** 10 action groups; R19, R52, R321 and R1043 stay with the CoQ9 line and its gate.
+
+**Limits.**
+- One medium only.
+- The FVA is not loopless.
+- Compartment-free matching is by name and formula.
+- Every biological call in the triage (spontaneity, heterologous, direction) is inferred and
+  needs a source before any change.
+- No independent audit was run.
+
+## 2026-10-19: Gene search for 33 orphan reactions (triage groups 10, 7, 6)
+
+**Authorization.** Requested by the orphan-inventory session (`orphan_reactions_20261019`, uncommitted in
+worktree `orphan-reaction-newest-model-b8ddc8`). The user confirmed TASK.md in this session on 2026-10-19:
+- research root from `~/.zshrc`;
+- budget "as written";
+- group-7 predictor form submissions;
+- later, a space-free symlink workaround for a BLAST+ path failure.
+
+Model `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`), read only. No model XML, curation data or GPR was
+changed; no flux run; nothing committed. CoQ9-line reactions excluded (gate in force). Details:
+[REPORT.md](reports/orphan_gene_search_20261019/REPORT.md), table
+[gene_search.csv](reports/orphan_gene_search_20261019/gene_search.csv).
+
+**Inputs** (verified this session):
+- W29 RefSeq GCF_001761485.1: 7,918 proteins; 1,045 of 1,073 model genes map.
+- Swiss-Prot 2026_03.
+- BLAST+ 2.17.0.
+- DBs under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/orphan_gene_search_20261019/`.
+
+**Results** (counts from `gene_search.csv`): A 1, B 3, C 13, D 16.
+- **Proposals, for a later authorized curation change:**
+  - R2013 → `YALI1E24028g` = YALI0E20207g, YlNAG5. Tier A: deletion abolishes growth on GlcNAc, purified
+    enzyme Km 0.5 mM (Flores & Gancedo 2015, PMC4376941, opened).
+  - R23 → `YALI1D01431g` (BAT). Tier B: *S. cerevisiae* Bat2 uses glutamate for KMTB (Pirkov 2008 abstract,
+    opened).
+  - R2010 → the three DAK genes. Tier B. Better fixed by merging the duplicate DHA metabolites
+    m1881/m490.
+  - R1958 HGD → tier B, but blocked: the gene (YALI2_D00583g, XP_065950358) is suppressed in the current
+    RefSeq annotation.
+- **Group 7:** no compartment copy gets a gene. TargetP-2.0 and MitoFates predict no presequence or signal
+  peptide for any gene-bearing paralogue. DeepLoc alone calls YALI1D01489g (R989) mitochondrial (0.7506).
+- **R989:** the colleague-owned lipid-unlump line's provisional assignment faces split predictor evidence;
+  reported, not changed.
+- **R1901:** the only Asparaginase_2-family gene, YALI1F38344g, is closest to Taspase1 (protease). It stays
+  a C lead.
+
+**Limits.**
+- Literature beyond the two sources re-opened above was read by two agents in this session; abstract-only
+  and unread items are marked.
+- The HGD gene's position in the current assembly is inferred; the genome was not downloaded.
+- Tiers C and D are not evidence that a reaction is absent from *Y. lipolytica*.
 
 ## 2026-10-19: gem_review literature layer, step 1 (Europe PMC retrieval) run on tier 1
 
@@ -85,6 +680,7 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
   revoked it.
 - Not done: logic-chain layer (quote → inference → verdict); ortholog-name query broadening;
   prompt caching.
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
@@ -658,7 +1254,6 @@ Poon1999加强R385采用醌醇的依据，但酵母试验为线粒体分离物�
 按用户“从反应猜测酶从而找基因”的指导，固定前轮CoQ v2候选，反向匹配EC1.14.15.46与实验构建，再以8个参考蛋白查询7894条缓存本物种蛋白（实际1次BLAST）。YALI1A08781g／COQ6家族FAD羟化酶候选（XP_499891.1；同源/跨物种证据，原生C1活性未验证）为R19羟化部分首选；与tAncCOQ6实验参考一致性38.584%、本物种覆盖92.473%。细菌不同位点对照也命中同一候选，不能由同源性单独证明位点。YALI1F34625g／COQ4脱羧相关候选（XP_505938.1；同源及异源功能证据）保留为从羧酸起始的联合C1路线，不能与前者直接作R19的OR。
 
 原R19本身配平，但实测羟化产物为醌醇。精确拆分显示，保留旧净式需额外假定醌醇还原NAD并回收供体；本次未找到该耦联直接证据。用O2氧化的形式替代总耗氧1.5或2且保留NADH成本。8条方程均配平，仅作提案；未改模型/GPR、未求解/构建或新预测。来源10/10审核（3支持/4未解决/3反证），数值身份7/7通过。见[报告与候选](reports/coq_reaction_first_20261001/REPORT.md)；前轮8/9核心家族表示及正式接受状态保持。
-
 
 ## 2026-10-01：酿酒酵母参照支持的 CoQ C5 补充候选
 
@@ -1269,7 +1864,6 @@ WT=1.8718823069403；1074/1074 全部 optimal、有限且非负，无未决结�
 
 [模型筛选汇总](reports/screen_test_metadata_trna_20260910/screen_summary.json)、[逐基因预测](reports/screen_test_metadata_trna_20260910/screen_predictions.tsv)、[原始返回](reports/screen_test_metadata_trna_20260910/raw_deletions.tsv)、[运行清单](reports/screen_test_metadata_trna_20260910/run_manifest.json)已保存，来源与实际源码 SHA 均记录。未运行 dFBA/CFSA、参数扫描、FN 诊断或病例激活；未修改模型、培养、阈值和标签。此前封闭 ATP 生成问题仍限制科学解释，screen 完成不等于模型已验证。未提交或推送。
 
-
 ## 2026-09-10：纠正生物量覆盖错误，恢复实验要求的 tRNA 耦联
 
 用户明确指出生物量直接消耗游离氨基酸不符合实验要求。此前助手把“metadata 差异为准”扩大到了 `biomass_C`，覆盖了既有实验约束；这是助手的范围判断和验收遗漏，不能视为用户批准撤销 tRNA 耦联。此前的软件检查通过不能证明实验约束满足；旧报告按执行时状态保留。
@@ -1284,7 +1878,6 @@ WT=1.8718823069403；1074/1074 全部 optimal、有限且非负，无未决结�
 
 [构建命令](reports/trna_biomass_restore_20260910/commands.txt)、[结构与语义核对](reports/trna_biomass_restore_20260910/validation.json)、[静态结果](reports/trna_biomass_restore_20260910/static_check.json)和前态备份均保留。旧错误产物及其三个模式只作为历史证据，不能继续当作满足本实验要求的模型。原始输入、旧参考和同事文件未变；未提交/推送，本次没有新增必要实现文件（修改已有未跟踪的校订数据、模块和测试）。
 
-
 ## 2026-09-10：metadata 指定字段初版（生物量项已被用户否决）
 
 按用户最新明确选择，以旧 2295 反应 metadata（33c14f0c…e797）的 **203 项计量、7 项边界、9 项 GPR** 为准。已接入真实构建入口的最终整理步骤 `apply_metadata_reaction_selection`，位于完整参考装配之后、CoQ9 校订及导出之前；三个 CoQ9 模式均执行。正式构建读取原始 `data/iyali26.xml` 和正常版本管理目录中的 `data/metadata_reaction_selection.json`，不读取候选 XML 作为起点或运行时补丁来源。
@@ -1296,7 +1889,6 @@ WT=1.8718823069403；1074/1074 全部 optimal、有限且非负，无未决结�
 **软件整合通过，封闭能量检查未通过。** 六次静态优化：上一版 WT=1.3875914754870904，新 metadata=1.7793777728998874，qcycle=1.7793777728998927。关闭全部边界输入、保留维护下界 7.8625 后，上一版协议返回 solver infeasible；新 metadata/qcycle 的 ATP 耗散目标均为 1000，R305 通量均为 0。未用生长值选择计量、未回调七条方向。所选 203 反应按存储属性计算非零残差：旧版 155、新版 171；各有 1 条因聚合物公式不可解析而无法计算，缺失属性另记。这不是全模型化学配平完成的声明。
 
 详细[构建/测试命令](reports/metadata_reaction_selection_20260909/commands.txt)、[语义验证](reports/metadata_reaction_selection_20260909/validation.json)、[静态结果](reports/metadata_reaction_selection_20260909/static_pair.json)和逐项状态均已保存。CI/COQ6 联合重构及未闭合 GPR 事项未激活，qcycle 仍显式选择。旧模型、原始输入和同事三份未提交文件完整保留。新增必要实现为数据表、校订模块和测试三份，均在正常未忽略目录，尚未跟踪；本次未提交或推送，既有历史基线条目保持。
-
 
 ## 2026-09-09：完整参考管线恢复及 R1172／SPHPL 保留构建
 
@@ -1416,7 +2008,6 @@ N2两个独立入口只导入标准库，实际Python 3.9.6及三条历史输入
 
 四份工作台文件当前均未被Git跟踪；合同和baseline manifest仍被既有`docs/`规则忽略。仅保存四文件的建议见本轮run manifest，未执行暂存、提交或ignore变更。每周日导师PPT复用本入口与具体证据，不能把小样本重放写成正式模型发布／校准完成。本轮已停止。
 
-
 ## 2026-09-06 基础梳理与首批研究准备包
 
 更新时间：2026-09-06T21:23:27.671873+00:00。用户已明确授权实施两周资料工作计划。实际执行的是现有数据/文档分析、来源核对与独立审阅，不是十个工作日的实验或计算过程；求解器调用0、模型修改0、标签修改0。原始ledger、dossier、冻结manifest与合同原样保留。
@@ -1432,7 +2023,6 @@ N2两个独立入口只导入标准库，实际Python 3.9.6及三条历史输入
 
 下一任务（建议，尚未执行）：补齐这3个准备包涉及位点的实验序列/数据库身份桥接、缺失定位和半反应来源，以及R608共享微观物种化学依据；按包逐项决定能否形成具体修模提案。未授权模型/整理数据科学变更、求解器运行或物理实验。CoQ9沿用现有分阶段门；lipid由同事修改、用户审核。关键文档仍未纳入Git，临时源码依赖仍存在，本次不暂存、提交、推送或外部通信。
 
-
 ## 2026-09-06 三案独立研究与来源审阅交接
 
 用户已明确授权上节建议的3案资料补全，并要求创建独立本地任务、实际使用Skill。四个任务已完成：四位点身份核对、甲基柠檬酸两案、多胺一案、独立来源审阅；一次集中作者补正与复核也已完成。最后复核完成于2026-09-07 00:07 UTC（洛杉矶2026-09-06）。上节“下一任务尚未执行”保留为当时状态；本节记录后续授权及实际交付。
@@ -1445,7 +2035,6 @@ N2两个独立入口只导入标准库，实际Python 3.9.6及三条历史输入
 - **执行与保存：** 实际使用govern-agentic-research、gene-identity-function、academic-research-suite及按需PDF、Spreadsheets、Ponytail；完整路径、采用阶段及未完成检查见各报告。研究首轮各不超过45分钟，初审27.2分钟，一次补正各不超过20分钟，复核8.6分钟。54个首轮研究文件和6个首轮审阅文件保留；21项补正另存，最终有效台账单列。输入和结果字节核验见包内coordinator_checks.json、preservation.json及SHA256SUMS。
 
 暂定参考模型仍为bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee。求解器调用0，模型/GPR/实验标签/冻结合同/历史案件结论修改0；本节仅追加交接，原状态字节在结果包state_snapshot_before.md中保留，冻结输入清单不回写旧哈希。历史正例覆盖322/1612与交集内召回67/322均未更新，本轮来源审阅不赋予独立验证或校准资格。1290分类、旧案件对照、CoQ9与lipid未重做；lipid仍由同事修改、用户审核。Git忽略和临时源码依赖问题保留；没有清理、暂存、提交、推送或外部通信。
-
 
 ## R608 工程工作包完成与化学决策续办
 
@@ -1647,7 +2236,6 @@ E的A复核进一步确认原内核先以Q/(B×dt)约束来源，再按min(Q,v_s
 
 本轮四类结论：**已解决的模型机制**是有限Q9来源按编码预算扣减并限制增长，以及现优化问题允许不消耗多胺而生长；**仍未识别**的是真实池量/需求、Q9步长收敛、CFSA充分混合与目标分布、原生离子耦联和复合体单基因必要性；**可进入提案审查**的是同一冻结域的限定采样方法改进方向及两项有验证设计的功能候选评估，成熟可应用模型补丁仍0；**本轮无需再做**的是旧面板、旧轨迹/筛选/审阅、额外链、重复构建、全量测试和科学模型替换。本轮新增后端总计13598次（A128+C13470；各自配置和预算分开），B/D/E新增求解0。后续方案是建议，未在本轮追加派发、计算、实验或正式模型变更；关键保存/临时依赖和既有审批边界继续保留。
 
-
 ## 2026-09-08 CFSA总脂质方向小规模测试：已执行
 
 用户要求使用官方CFSA测试我们的模型。本任务完成预检并公开采用总脂质方向作为默认假设；用户未明确指定具体TAG产物。使用manifest已登记的暂定参考、原SD-Leu／PO1f运行配置，仅在一次性内存副本添加混合脂质伪池需求及10% WT生长下限，未使用C7/lipid-unlump候选、未修改原模型文件或接纳科学变更。
@@ -1660,7 +2248,6 @@ E的A复核进一步确认原内核先以Q/(B×dt)约束来源，再按min(Q,v_s
 
 来源审阅6项为5支持、1部分支持（跨版本脂质池等价性）；独立数值审阅7项为6支持、1部分支持（历史耗时/调用轨迹证据范围），各分母分别保留。后续建议先明确产物与尺度、检验通量约束可比性，再另行有预算地进行多链/ESS/R-hat验证；尚未追加计算。原模型、评价分母、CoQ9及lipid审批门保持。本轮不提交、推送或集群执行。
 
-
 ## 2026-09-08 CFSA生产条件pFBA上限对照：已执行
 
 用户追问施加pFBA总通量上限的结果。本次复用原生产组有效模型快照，保持生长≥0.14650760568106092 h⁻¹、混合脂质伪池需求≥23.74006264072655，先求该不等式条件下最小正反总通量1864.5615996485903，再唯一新增1.25倍上限2330.701999560738；未重新最大化biomass。[报告](reports/cfsa_pfba_cap_20260908/REPORT.md)、[最终执行记录](reports/cfsa_pfba_cap_20260908/completed_result.json)、[数值比较](reports/cfsa_pfba_cap_20260908/comparison.json)保留完整条件与身份。
@@ -1670,7 +2257,6 @@ E的A复核进一步确认原内核先以Q/(B×dt)约束来源，再按min(Q,v_s
 技术恢复记录原样保留：一次最小化求解后约束挂接错误；第二次4490次预热后因复制求解器的无限TimeLimit无法写入严格JSON而停止、未采样；最终复用原最小值、重新预热后完成500样本。共有8981次逐次日志、全部optimal。恢复前公开将后端预算5000改为9500，600秒有效计算预算保持；72.74秒为继承的执行计时而非完整端到端耗时。最终实际预热Threads=1/TimeLimit=120已核实，旧运行只记录父模型参数，不回填历史实测。原模型、旧记录和65个受保护路径SHA保持。细节见[执行溯源](reports/cfsa_pfba_cap_20260908/execution_provenance.json)。
 
 本次英文科研图提供600dpi PNG及矢量PDF/SVG，并完成PDF渲染检查，旧图保留；[英文图注](reports/cfsa_pfba_cap_20260908/FIGURE_CAPTION.md)明确相关抽样、净/正反量差异和伪池尺度。独立原始样本/来源复核见本目录AUDIT.md及audit.json，9项全部审阅：7支持、2部分支持（独立全局最优证明与历史资源/计时范围），与图注措辞审阅分开。该追加对照不改变其他模型/GPR/CoQ9/lipid职责和审批门，无提交、推送或集群执行。
-
 
 ## 2026-09-24：E5 能量候选已按用户授权推送
 

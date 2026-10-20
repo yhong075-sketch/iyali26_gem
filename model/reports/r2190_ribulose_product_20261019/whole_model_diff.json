@@ -1,0 +1,113 @@
+{
+ "counts": {
+  "a": [
+   2306,
+   1875,
+   1073
+  ],
+  "b": [
+   2306,
+   1876,
+   1073
+  ]
+ },
+ "reactions": {
+  "only_in_a": [],
+  "only_in_b": [],
+  "changed": {
+   "R2190": {
+    "stoichiometry": {
+     "m454[C_cy]": [
+      1.0,
+      null
+     ],
+     "m2061[C_cy]": [
+      null,
+      1.0
+     ]
+    },
+    "notes": {
+     "r2190_product_curation": [
+      null,
+      "R2190-RIBULOSE-20261019"
+     ],
+     "r2190_product_evidence": [
+      null,
+      "KEGG R07134, Rhea 17389, MNXR197981, ENZYME/ExplorEnz EC 1.1.1.250 (D-ribulose); m454 is D-arabinose (MNXM48397, CHEBI:17108); Wang et al. 2020 doi:10.1186/s13068-020-01815-8: the purified gene product reduces only ketoses."
+     ],
+     "r2190_previous_product": [
+      null,
+      "m454[C_cy] D-arabinose, inherited from model/source/iyali26.xml; it contradicted the reaction name, EC 1.1.1.250, KEGG R07134, Rhea 17389 and MNXR197981, which all give D-ribulose."
+     ],
+     "r2190_product_authorization": [
+      null,
+      "User authorized Option A on 2026-10-19: opt-in guarded step, 8 LPs, no commit or push."
+     ],
+     "r2190_product_limits": [
+      null,
+      "D-ribulose versus D-xylulose not resolved (Wang 2020 names D-xylulose from an NADH assay only); D-ribulose has no other reaction here, so R2190 carries no steady-state flux; EC 1.1.1.250 is homology-level; bounds not reviewed."
+     ]
+    }
+   }
+  }
+ },
+ "metabolites": {
+  "only_in_a": [],
+  "only_in_b": [
+   "m2061[C_cy]"
+  ],
+  "changed": {}
+ },
+ "genes": {
+  "only_in_a": [],
+  "only_in_b": [],
+  "changed": {}
+ },
+ "objective": [
+  {
+   "biomass_C": 1.0
+  },
+  {
+   "biomass_C": 1.0
+  }
+ ],
+ "objective_direction": [
+  "max",
+  "max"
+ ],
+ "compartments": [
+  {
+   "C_cy": "cytoplasm",
+   "C_mi": "mitochondria",
+   "C_en": "endosome",
+   "C_vm": "vacuolar membrane",
+   "C_er": "endoplasmic reticulum",
+   "C_pe": "peroxisome",
+   "C_nu": "nucleus",
+   "C_ex": "extracellular",
+   "C_em": "endosomal membrane",
+   "C_go": "Golgi apparatus",
+   "C_mm": "mitochondrial membrane",
+   "C_lp": "lipid particle",
+   "C_gm": "Golgi membrane",
+   "C_va": "vacuole"
+  },
+  {
+   "C_cy": "cytoplasm",
+   "C_mi": "mitochondria",
+   "C_en": "endosome",
+   "C_vm": "vacuolar membrane",
+   "C_er": "endoplasmic reticulum",
+   "C_pe": "peroxisome",
+   "C_nu": "nucleus",
+   "C_ex": "extracellular",
+   "C_em": "endosomal membrane",
+   "C_go": "Golgi apparatus",
+   "C_mm": "mitochondrial membrane",
+   "C_lp": "lipid particle",
+   "C_gm": "Golgi membrane",
+   "C_va": "vacuole"
+  }
+ ],
+ "groups_changed": {}
+}

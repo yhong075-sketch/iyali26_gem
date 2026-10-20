@@ -1,0 +1,226 @@
+{
+ "config_path": "model/reports/coq_candidate_checks_20261005/manifest.json",
+ "config_sha256": "76f9b6a0fb3f7df0838594e9b8143c7308612f06265f98a8e548a7180a56c7e7",
+ "script_sha256": "c10b3cbbcd220601773c38a81b437c3be86d4f72a2f2169c10697afa66557375",
+ "solver": {
+  "Threads": 1,
+  "TimeLimit": 60,
+  "Presolve": 0,
+  "FeasibilityTol": 1e-07,
+  "OptimalityTol": 1e-07,
+  "IntFeasTol": 1e-07
+ },
+ "models": {
+  "M0": {
+   "path": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515",
+   "r2041_bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "da161fa6d0348bcc5c9f58f37fb6340bee31194ca608facbf12b3360cab60900",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+   },
+   "objective": "1.0*biomass_C - 1.0*biomass_C_reverse_c1d5c",
+   "closure_changes": 190
+  },
+  "M1": {
+   "path": "model/candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml",
+   "sha256": "da0c50ba10453a854ceb8de99980e6e7465c2c3eda1893412a1f01c02e81265e",
+   "r2041_bounds": [
+    0.0,
+    1000.0
+   ],
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "32ae0a0f8a8baed42570fcdefbe4655177b24d4bf725f712946dcbb8457d9ca2",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+   },
+   "objective": "1.0*biomass_C - 1.0*biomass_C_reverse_c1d5c",
+   "closure_changes": 190
+  }
+ },
+ "results": {
+  "M0_WT": {
+   "status": "optimal",
+   "objective": 1.430805735352851,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": -0.3382108849866441,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 1.430805735352851
+   },
+   "nonzero_flux_count": 448
+  },
+  "M0_R2041_min_at_WT": {
+   "status": "optimal",
+   "objective": -999.6617891150133,
+   "fluxes": {
+    "R2041": -999.6617891150133,
+    "R2042": 999.6617891150133,
+    "R2190": -999.6617891150133,
+    "R1964": -999.6617891150133,
+    "R803": 999.6617891150133,
+    "R714": -1000.0,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 1.430805735352851
+   },
+   "nonzero_flux_count": 453
+  },
+  "M0_R2041_max_at_WT": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": -0.3382108849866561,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 1.430805735352851
+   },
+   "nonzero_flux_count": 448
+  },
+  "M0_ATP_closed_C_cy": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": 0.0,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 0.0
+   },
+   "nonzero_flux_count": 0
+  },
+  "M0_ATP_closed_C_mi": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": 0.0,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 0.0
+   },
+   "nonzero_flux_count": 0
+  },
+  "M1_WT": {
+   "status": "optimal",
+   "objective": 1.430805735352859,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": -0.3382108849866219,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 1.430805735352859
+   },
+   "nonzero_flux_count": 452
+  },
+  "M1_R2041_min_at_WT": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": -0.3382108849866343,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 1.4308057353528545
+   },
+   "nonzero_flux_count": 452
+  },
+  "M1_R2041_max_at_WT": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": -0.33821088498662544,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 1.4308057353528578
+   },
+   "nonzero_flux_count": 452
+  },
+  "M1_ATP_closed_C_cy": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": 0.0,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 0.0
+   },
+   "nonzero_flux_count": 0
+  },
+  "M1_ATP_closed_C_mi": {
+   "status": "optimal",
+   "objective": 0.0,
+   "fluxes": {
+    "R2041": 0.0,
+    "R2042": 0.0,
+    "R2190": 0.0,
+    "R1964": 0.0,
+    "R803": 0.0,
+    "R714": 0.0,
+    "R1063": 0.0,
+    "R1062": 0.0,
+    "R1981": 0.0,
+    "biomass_C": 0.0
+   },
+   "nonzero_flux_count": 0
+  }
+ },
+ "optimization_calls": 10
+}
