@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "curation_id": "R2041-FORWARD-20261019",
+  "status": "user_authorized",
+  "authorization": "2026-10-19 user: Approved: implement Option A (r2041_direction.json + guarded apply_r2041_direction, opt-in flag, keep 2 H+) in this worktree on 285eaee, build the new candidate, and run the 10 core LPs from REPORT 6.3.",
+  "reaction_id": "R2041",
+  "reaction_name": "ATP:D-arabinose 5-phosphotransferase",
+  "ec_code": "2.7.1.54",
+  "gpr": "",
+  "before_bounds": [-1000, 1000],
+  "after_bounds": [0, 1000],
+  "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m454[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m1884[C_cy]": 1.0,
+    "m10[C_cy]": 2.0
+  },
+  "species": {
+    "m141[C_cy]": {"formula": "C10H16N5O13P3", "charge": 0, "compartment": "C_cy"},
+    "m454[C_cy]": {"formula": "C5H10O5", "charge": 0, "compartment": "C_cy"},
+    "m143[C_cy]": {"formula": "C10H15N5O10P2", "charge": 0, "compartment": "C_cy"},
+    "m1884[C_cy]": {"formula": "C5H9O8P", "charge": -2, "compartment": "C_cy"},
+    "m10[C_cy]": {"formula": "H", "charge": 1, "compartment": "C_cy"}
+  },
+  "reviewed_model": {
+    "path": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+    "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "review": "model/reports/r2041_direction_review_20261019/REPORT.md",
+  "reviewer": "Claude Code session (delegated read-only review, 2026-10-19); decision by the user",
+  "evidence": [
+    {
+      "url": "https://enzyme.expasy.org/EC/2.7.1.54",
+      "claim": "D-arabinose + ATP = D-arabinose 5-phosphate + ADP + H(+).",
+      "tier": "verified",
+      "scope": "Reaction definition (kinase direction); not organism evidence.",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://www.rhea-db.org/rhea/24588",
+      "claim": "Same equation; 0 UniProt enzymes linked.",
+      "tier": "verified",
+      "scope": "No characterized sequence; no Y. lipolytica enzyme.",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://equilibrator.weizmann.ac.il/search?query=C00002+%2B+C00216+%3D+C00008+%2B+C01112",
+      "claim": "Estimated standard transformed reaction Gibbs energy -24.7 +/- 4.7 kJ/mol (also at 1 mM), apparent Keq 2.1e4, at pH 7.5, pMg 3.0, I 0.25 M, 298.15 K.",
+      "tier": "verified",
+      "scope": "Component-contribution estimate, not a measurement; Y. lipolytica metabolite ratios not measured.",
+      "accessed": "2026-10-19"
+    },
+    {
+      "url": "https://doi.org/10.1016/S0021-9258(18)81352-7",
+      "claim": "Volk 1962, D-arabinokinase from Propionibacterium pentosaceum (the KEGG reference for EC 2.7.1.54).",
+      "tier": "unread",
+      "scope": "Full text returned HTTP 403; no claim about its reversibility data.",
+      "accessed": "2026-10-19"
+    }
+  ],
+  "notes": {
+    "r2041_direction_curation": "R2041-FORWARD-20261019",
+    "r2041_previous_bounds": "[-1000, 1000]",
+    "r2041_direction_evidence": "EC 2.7.1.54 kinase direction (ENZYME, Rhea); eQuilibrator estimate -24.7 +/- 4.7 kJ/mol, apparent Keq 2.1e4 at pH 7.5. Reverse flux needs a D-arabinose 5-phosphate to D-arabinose ratio above Keq times ATP/ADP.",
+    "r2041_direction_limits": "Orphan reaction with no Y. lipolytica enzyme; Volk 1962 unread. The ATP loop named by the builder patch was not found in a56f3649; this curation rests on thermodynamics. The 2 H+ equation is kept because it balances with the stored neutral ATP/ADP; the 1 H+ equation in the previous note applies only after ATP/ADP microspecies migration, which must re-review the proton count.",
+    "r2041_direction_sources": "https://enzyme.expasy.org/EC/2.7.1.54; https://www.rhea-db.org/rhea/24588; https://equilibrator.weizmann.ac.il/search?query=C00002+%2B+C00216+%3D+C00008+%2B+C01112",
+    "r2041_direction_authorization": "User authorized opt-in [0, 1000] with the 2 H+ equation kept on 2026-10-19."
+  }
+}

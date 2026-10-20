@@ -37,6 +37,8 @@ def parse_args(argv=None):
                         help="Apply the curated 2026-10-08 CoQ9/respiratory-chain package; requires --energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution")
     parser.add_argument("--r132-mito-adh", action="store_true",
                         help="Remove R132 (matrix alcohol dehydrogenase) per the curated 2026-10-13 decision; requires --coq9-respiratory-package")
+    parser.add_argument("--r2041-forward", action="store_true",
+                        help="Make R2041 (D-arabinokinase) forward-only after the metadata selection, keeping its balanced 2 H+ equation (curated 2026-10-19)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
