@@ -316,6 +316,61 @@ points were reported, not changed: the selection's `metadata_selected_fields` st
   - the ATP/ADP microspecies migration must re-review R2041's proton count.
 
 Report: [r2041_forward_20261019](reports/r2041_forward_20261019/REPORT.md).
+## 2026-10-19: R2190 product corrected to D-ribulose (R2190-RIBULOSE-20261019), new candidate 36f04193
+
+**Authorization.**
+- Read-only review delegated by the R2041 direction review:
+  [r2190_identity_review_20261019](reports/r2190_identity_review_20261019/REPORT.md).
+- Then the user, 2026-10-19: "Approve Option A: opt-in guarded step R2190-RIBULOSE that writes a new
+  D-ribulose[C_cy] as R2190's product, built on 285eaee in this worktree, plus the 8 LPs in REPORT §7.3. No
+  commit or push."
+- Worktree `claude/clever-austin-f6a04e`, uncommitted. Details:
+  [REPORT.md](reports/r2190_ribulose_product_20261019/REPORT.md).
+
+**Review findings** (verified 2026-10-19 unless marked):
+- In a56f3649, R2190 is NAD + D-arabinitol ⇌ NADH + D-arabinose (`m454`), inherited from the source. Its name,
+  EC 1.1.1.250 and every attached ID (KEGG R07134, MNXR197981, SEED rxn04932/rxn15657; also Rhea 17389) give
+  **D-ribulose**.
+- `m454` is a genuine D-arabinose node (MNXM48397/CHEBI:17108). The product link was therefore the error
+  (inferred, strong).
+- The gene: YALI1F03452g = GeneID 2908139 = XP_504895.1 = YALI0F02211g / Q6C367 (identical sequence). It is
+  "YlAraDH1" of Wang et al. 2020 (doi:10.1186/s13068-020-01815-8): an NAD(H) polyol dehydrogenase that reduces
+  only ketoses.
+  - D-ribulose and D-arabinose were not tested.
+  - The authors name D-xylulose as the D-arabitol product, from an NADH assay only.
+- EC 1.1.1.250 on this gene is homology-level. Ribulose versus xylulose remains open.
+
+**Change** (verified):
+- **Implementation:** curated `model/curation/chemistry/r2190_product.json`; guarded
+  `platform/scripts/gem_annotate/r2190_product.py`; opt-in flag `--r2190-ribulose-product`, run after the R132
+  step; focused test `platform/tests/test_r2190_product.py` (6 tests).
+- **Candidate:** `model/candidates/E5_coq9_resp_pkg_r132_r2190_ribulose_20261019.xml`, SHA-256
+  `36f041930e5fee211395a45da4a36bb991fe9285637c409b07cc6d04114812ac`. Command: a56f3649's argv plus the flag.
+- **Whole-model diff vs a56f3649:** R2190's product `m454` → new `m2061[C_cy]` D-ribulose (C5H10O5, 0; C00309,
+  CHEBI:17173, MNXM1371690), plus five R2190 notes. Nothing else.
+- **Builds:** the control without the flag reproduces a56f3649 byte for byte. A rebuild with the final post-audit
+  code reproduces 36f04193.
+- **R2190** balances. It is now blocked by construction, because D-ribulose has no other reaction (provable).
+- **LPs (8, all optimal):**
+  - WT 1.430805735352851 / 1.4308057353528474 h⁻¹ (relative difference 2.5e-15);
+  - with all 183 boundaries closed, R1964, R2041 and R2042 are [0, 0] on the new model. The orphan line recorded
+    one-sided ±1000 ranges on a56f3649 under GLPK.
+- **pytest:** identical to clean `285eaee` test by test, plus the 6 new tests. The 11 failures and 14 errors are
+  pre-existing.
+
+**Audit.** An independent read-only audit found no undeclared change (21 of 26 claims supported). Its six
+low/informational items: the wording (D1, D2) and guard/test gaps (D3, D4) were fixed and are not re-audited; the
+chain gate (D5) and run overlap (D6) are disclosed.
+
+**Gaps.**
+- **Limits a claim:** the D-ribulose vs D-xylulose regiochemistry. Option B (merge with R1964) applies if
+  D-xylulose is ever shown.
+- **Affects another line:**
+  - the R1964 orphan GPR candidate (session "Evidence review: YlAraDH1 as GPR for orphan R1964");
+  - YlMDH2 (YALI0D18964g → YALI1D24054g), the in vivo D-arabitol producer, is not a model gene;
+  - R255 has a pre-existing charge residual of +1;
+  - the R2041 forward-only plan is independent.
+- **Not done:** single-KO screen, commit, push.
 
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 

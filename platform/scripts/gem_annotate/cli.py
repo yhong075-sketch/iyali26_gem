@@ -49,6 +49,8 @@ def parse_args(argv=None):
                         help="Remove the A1 peptidase gene YALI1D17462g from R153 after the R153/R2176 merge, leaving R153 gene-less because no W29 argininosuccinate synthase gene is annotated (curated 2026-10-19 decision); the gene is kept unlinked")
     parser.add_argument("--r2041-forward", action="store_true",
                         help="Make R2041 (D-arabinokinase) forward-only after the metadata selection, keeping its balanced 2 H+ equation (curated 2026-10-19)")
+    parser.add_argument("--r2190-ribulose-product", action="store_true",
+                        help="Write D-ribulose instead of D-arabinose as R2190's product per the curated 2026-10-19 decision (R2190-RIBULOSE-20261019)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
