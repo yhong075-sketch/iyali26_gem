@@ -99,3 +99,22 @@ filtering, end-to-end retrieval, and a second run served entirely from the disk 
 - One model call per distinct (gene, full reaction name, EC, chunk set); chain-length variants
   of one enzyme are judged separately because the same POX3 quotes contradict C16 and support
   C4.
+
+## Step 4 authorization and setup — logic-chain layer (2026-10-20)
+
+- Brief from the parent session (2026-10-20): add a question-driven "logic chain" layer
+  (quote → inference → verdict) on top of steps 1–3, build on the existing retrieval (no
+  re-run), tests with `FunctionModel`, one live chain on POX3/R100, report + STATE.md entry,
+  no model XML change, no commit of the layer.
+- User (2026-10-20): approved the plan as written, with the reading "evidence_level = strength
+  of the evidence for the verdict as stated" (so a well-supported "no" may carry a high level;
+  `PairReview` keeps its own rule that contradicting claims never raise the link's level).
+- Location: a worktree hook blocks this session from writing into
+  `workflow-automation-review-6765da`; the user chose to merge the step 1–3 commit `7d46a79`
+  into this session's branch `claude/priceless-joliot-8eb663` (merge commit `417f2d6`; only
+  `model/STATE.md` conflicted, both sides' entries kept, newest first). The chain layer itself is
+  uncommitted on top of `417f2d6`.
+- Inputs: step-1 retrieval JSON
+  `$IYALI26_RESEARCH_ROOT/artifacts/tasks/gem_review_lit_20261019/out/lit/retrieval/YALI1D32754g__R100.json`
+  (57 chunks, 24 PMIDs). LLM `anthropic:claude-opus-5-5`, same settings as step 2
+  (`max_tokens` 16000, effort `medium`), `retries=2`. Budget: one live chain (≤ 3 requests).

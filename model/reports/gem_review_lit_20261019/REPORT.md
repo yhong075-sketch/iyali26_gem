@@ -200,3 +200,115 @@ Per subsystem (extracted pairs, L0…L4 = evidence level):
   STATE.md entry for the final counts.
 - All numbers in this section were computed from `out/lit/*.review.json`, `usage.jsonl` and
   `review.xlsx` in this session.
+
+---
+
+# Step 4 report — logic-chain layer (2026-10-20)
+
+Setup and authorization: [TASK.md](TASK.md), section "Step 4". Code:
+`platform/gem_review/lit/chain.py` (new), small shared helpers in `extract.py`
+(`check_quote`, `chunks_json`) and `models.py` (`short_quote`), the `logic_chains` sheet in
+`report.py`, CLI `chain`; tests `platform/tests/test_gem_review_lit_chain.py`.
+
+## How a chain is built and checked
+
+- **Input.** Either `--pair gene:reaction` (reads the step-1 retrieval JSON; no new query) or
+  `--question "…" --aliases … --terms … [--gene …]`, which first runs the step-1 Europe PMC
+  retrieval with those names and terms through the same disk cache
+  (`artifacts/tasks/<task>/cache/`), writes `out/lit/questions/<slug>.retrieval.json`, and
+  prints gene_hits / pair_hits / chunk counts **before** any model call. Zero hits → status
+  `no_hits`, no model call. `--retrieve-only` stops after the count.
+- **Agent.** pydantic-ai, `output_type=LogicChain`; chunks in the instructions as JSON, the
+  question (with the gene's aliases) as the user message — same arrangement as step 2. The
+  step-2 claims are *not* shown to the chain agent, so the chain is an independent reading.
+- **Output.** `LogicChain.steps`, in order: `QuoteStep` (pmid, chunk_id, ≤ 25-word quote,
+  evidence_type, organism_is_yarrowia), `InferenceStep` (text, `rests_on` = indices of earlier
+  steps), and one final `VerdictStep` (answer yes/no/unclear, evidence_level 0–4, one-sentence
+  verdict, `rests_on`).
+- **Structural validators (Pydantic, on the model itself):**
+  - exactly one verdict, and it is the last step; every `rests_on` index points backwards;
+  - every inference rests on a quote or on an inference that already traces to one. Because
+    indices only point backwards, this step-by-step check is the transitive check;
+  - the verdict's level ≤ the highest *effective* level among the quotes reachable from its
+    `rests_on` (other-organism quotes count at most as homology = 1, as in `PairReview`); a
+    verdict resting on no quote must be level 0, so a chain without quotes ends at level 0.
+- **Quote validator (`output_validator`, needs the run's chunks):** each quote goes through
+  `check_quote`, the per-claim check factored out of `validate_claims` (PMID retrieved, chunk
+  retrieved and of that PMID, quote verbatim after whitespace normalisation). Either kind of
+  failure is sent back to the model; after 2 retries the result is `CHAIN_FAILED`.
+- **Files.** `out/lit/<gene>__<reaction>.chain.json` next to the `.review.json` (question mode:
+  `out/lit/questions/<slug>.chain.json`); `review.xlsx` gains a `logic_chains` sheet (answer,
+  level, verdict, quote/inference counts, cited PMIDs, every step rendered, tokens). The
+  `literature` and `review_queue` sheets were re-read after the write and are cell-for-cell
+  identical to the committed workbook.
+
+## Live chain: POX3 (YALI1D32754g) on R100 "acyl-CoA oxidase (hexadecanoyl-CoA)" (observed 2026-10-20)
+
+Question sent: the step-2 pair question (aliases YALI0D24750g, POX3, ACO3; EC 1.3.3.6; "Does
+the retrieved text establish that this gene product catalyses this reaction?"). Retrieval:
+gene_hits 63, pair_hits 30, 24 PMIDs, 57 chunks (24 abstracts, 33 full-text paragraphs).
+
+| # | Step | Content (quotes verbatim; checked again by hand against the chunk this session) |
+|---|---|---|
+| 0 | quote, PMID 9848229 (L4, Yarrowia) | "suggested that ACO3 encodes a short chain acyl-CoA oxidase isoenzyme. This narrow substrate spectrum was confirmed by expression of Aco3p in E. coli." |
+| 1 | quote, PMID 10464181 (L3) | "Aox2 was shown to be a long-chain acyl-CoA oxidase and Aox3 was found to be active against short-chain fatty acids" |
+| 2 | quote, PMID 10593257 (L3) | "a long-chain oxidase is encoded by the POX2 gene and a short-chain oxidase by the POX3 gene." |
+| 3 | quote, PMID 34782606 (L1, marked other organism) | "Pox3 has a high affinity for fatty acids with six and eight carbons chain length and low affinity for most other fatty acids" |
+| 4 | quote, PMID 41301536 (L0) | POX2 and POX3 "were downregulated in fatty acid metabolism and fatty acid degradation pathways" (transcriptomics) |
+| 5 | inference ← 0,1,2,3 | POX3 is consistently characterised as short-chain (C6–C8), long-chain activity is attributed to POX2; no chunk shows POX3 activity on C16. |
+| 6 | inference ← 4 | Co-regulation with fatty-acid-degradation genes says nothing about C16 activity. |
+| 7 | verdict ← 5,6 | **no, level 3 (genetic):** "The chunks characterise POX3 as a short-chain acyl-CoA oxidase with narrow substrate specificity, so they do not establish that it catalyses the hexadecanoyl-CoA (long-chain) acyl-CoA oxidase reaction." |
+
+- Status `ok`; 2 requests, i.e. the first answer was sent back once (a failed validator or a
+  malformed output; the reason is not stored — see below),
+  98,493 input / 2,394 output tokens (≈ $0.44 at the $4 / $20 per MTok used in step 2).
+- **Agreement with step 2.** The chain cites the same three PMIDs whose step-2 claims all
+  contradict R100 (9848229, 10464181, 10593257), with essentially the same quotes, and adds two
+  more. Independent runs, same conclusion: this POX3 → C16 assignment is not supported by the
+  retrieved literature and is contradicted by its chain-length characterisation.
+- **What the verdict does and does not say.** "Short-chain, low affinity for most other fatty
+  acids" is not a measurement of zero activity on C16; the verdict correctly says the chunks
+  "do not establish" C16 activity rather than that POX3 has none. The level cap allowed 4
+  (quote 0); the model chose 3.
+- **Labels to question (model judgement, not checked by code):** quote 0 is labelled
+  biochemical and Yarrowia although the substrate spectrum was confirmed by expressing Aco3p in
+  *E. coli* (heterologous expression of the Yarrowia enzyme — the prompt does not say how to
+  label that); quote 3 is a *Mycobacterium* paper restating Yarrowia work (its ref. 28) and was
+  capped to homology — conservative.
+- This is a candidate GPR-specificity finding for R99–R102 (already listed in step 2); the
+  model is unchanged.
+
+## Limits and possible improvements
+
+- One live chain only. Whether chains are stable across re-runs (same verdict and level) is
+  untested; running the same pair 3× would measure it at ≈ $1.3.
+- Retry reasons are not stored in the chain JSON (`usage.requests` shows that a retry
+  happened, not why). Recording the `RetryPromptPart` texts from `run.all_messages()` would make
+  validator behaviour auditable.
+- The validators guarantee provenance and level arithmetic, not reasoning quality: an inference
+  can rest on a real quote and still draw a wrong conclusion, and evidence_type /
+  organism_is_yarrowia are model labels (step 2's spot check found 1 of 3 over-credited).
+  The verdict therefore stays a review aid, not evidence on its own.
+- Question mode was exercised only with mocked Europe PMC (zero-hit path, query construction);
+  no live ad-hoc question was run this round.
+- Prompt caching is still off; a chain on a gene family would benefit as in step 2.
+
+## Step 4 verification level
+
+- Code: 13 new mocked tests pass (`tests/test_gem_review_lit_chain.py`): an inference resting on
+  no quote is rejected (directly, through an untraced inference, and through a misplaced
+  verdict) and, in an agent run, exhausts the retries into `CHAIN_FAILED` after 3 calls; a
+  verdict above its quotes' level is rejected (including a level-4 other-organism quote capping
+  the verdict at 1) and is fixed on retry; a chain with no quote must end at level 0; a
+  paraphrased quote and an unretrieved PMID are rejected with `validate_claims`' messages; a
+  valid chain passes in one call and lands in `logic_chains`; question-mode retrieval builds
+  the expected queries and returns zero hits without a model call. The 15 step 1–3 tests still
+  pass after the helper refactor. Ruff clean.
+- Full platform suite, run this session on merge commit `417f2d6` (baseline, `git archive`
+  copy) and on the working tree with the chain layer: 172 → 185 passed, 19 failed, 14 errors,
+  31 skipped on both; the failing/erroring test IDs are identical (33, in nine pre-existing
+  files: closed_energy, coa_protonation_curation, dfba_new_fn_essentiality, dipeptide_supply,
+  energy_candidate_behavior, lipid_moiety_ledger, lp_sn12_candidate, vacuole_explicit_inputs,
+  vacuole_supply); none imports `gem_review`.
+- Live chain: observed once (above); quotes re-checked by hand against the retrieval JSON.
+  Labels and inferences are the model's.

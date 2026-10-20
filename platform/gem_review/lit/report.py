@@ -1,4 +1,4 @@
-"""Step 3: "literature" and "review_queue" sheets in review.xlsx."""
+"""Step 3: "literature", "review_queue" and "logic_chains" sheets in review.xlsx."""
 
 from pathlib import Path
 
@@ -14,6 +14,9 @@ LITERATURE_COLUMNS = [
 ]
 QUEUE_COLUMNS = ["priority_tier", "reason", "gene", "reaction_id", "reaction_name", "ec", "subsystem",
                  "pair_hits", "best_evidence_level", "n_claims", "n_supporting", "pmids_cited"]
+CHAIN_COLUMNS = ["mode", "label", "gene", "reaction_id", "question", "status", "answer", "evidence_level",
+                 "evidence_name", "verdict", "n_quotes", "n_inferences", "pmids_cited", "steps",
+                 "input_tokens", "output_tokens", "requests", "error"]
 
 
 def _disagree(claims: list[dict]) -> bool:
@@ -75,13 +78,54 @@ def review_queue_rows(rows: list[dict]) -> list[dict]:
     return queue
 
 
+def _render_step(index: int, step: dict) -> str:
+    if step["kind"] == "quote":
+        level = step["evidence_type"] if step["organism_is_yarrowia"] else min(step["evidence_type"], 1)
+        where = "" if step["organism_is_yarrowia"] else ", other organism"
+        return f'[{index}] quote {step["pmid"]} {step["chunk_id"]} (L{level}{where}): "{step["quote"]}"'
+    if step["kind"] == "inference":
+        return f'[{index}] inference <- {step["rests_on"]}: {step["text"]}'
+    return f'[{index}] verdict {step["answer"]} L{step["evidence_level"]} <- {step["rests_on"]}: {step["verdict"]}'
+
+
+def chain_rows(chains: list[dict]) -> list[dict]:
+    rows = []
+    for rec in chains:
+        steps = (rec.get("chain") or {}).get("steps", [])
+        verdict = steps[-1] if steps else {}
+        level = verdict.get("evidence_level")
+        usage = rec.get("usage") or {}
+        rows.append({
+            "mode": rec["mode"], "label": rec["label"], "gene": rec.get("gene"),
+            "reaction_id": rec.get("reaction_id"), "question": rec["question"], "status": rec["status"],
+            "answer": verdict.get("answer"), "evidence_level": level,
+            "evidence_name": EvidenceType(level).name if level is not None else None,
+            "verdict": verdict.get("verdict"),
+            "n_quotes": sum(s["kind"] == "quote" for s in steps),
+            "n_inferences": sum(s["kind"] == "inference" for s in steps),
+            "pmids_cited": ";".join(dict.fromkeys(s["pmid"] for s in steps if s["kind"] == "quote")),
+            "steps": "\n".join(_render_step(i, s) for i, s in enumerate(steps)),
+            "input_tokens": usage.get("input_tokens"), "output_tokens": usage.get("output_tokens"),
+            "requests": usage.get("requests"), "error": rec.get("error"),
+        })
+    return rows
+
+
 def write_review_xlsx(path: Path, rows: list[dict], queue: list[dict]) -> Path:
-    """Add or replace the two sheets; other sheets of an existing workbook are kept."""
+    """Add or replace the literature and review_queue sheets; other sheets are kept."""
+    return write_sheets(path, [("literature", LITERATURE_COLUMNS, rows), ("review_queue", QUEUE_COLUMNS, queue)])
+
+
+def write_chain_sheet(path: Path, rows: list[dict]) -> Path:
+    """Add or replace the logic_chains sheet; other sheets are kept."""
+    return write_sheets(path, [("logic_chains", CHAIN_COLUMNS, rows)])
+
+
+def write_sheets(path: Path, sheets: list[tuple[str, list[str], list[dict]]]) -> Path:
     workbook = load_workbook(path) if path.exists() else Workbook()
     if not path.exists():
         workbook.remove(workbook.active)
-    for name, columns, data in (("literature", LITERATURE_COLUMNS, rows),
-                                ("review_queue", QUEUE_COLUMNS, queue)):
+    for name, columns, data in sheets:
         if name in workbook.sheetnames:
             workbook.remove(workbook[name])
         sheet = workbook.create_sheet(name)

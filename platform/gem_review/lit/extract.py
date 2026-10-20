@@ -45,6 +45,12 @@ Rules:
 """
 
 
+def chunks_json(chunks: dict[str, dict]) -> str:
+    rows = [{"chunk_id": cid, "pmid": c["pmid"], "source": c["source"], "text": c["text"]}
+            for cid, c in sorted(chunks.items())]
+    return json.dumps(rows, ensure_ascii=False)
+
+
 @dataclass(slots=True)
 class PairContext:
     """Run dependencies: what the validator is allowed to accept."""
@@ -58,9 +64,7 @@ class PairContext:
     aliases: list[str] = field(default_factory=list)  # other spellings, YALI0 tag, gene symbols
 
     def context_json(self) -> str:
-        rows = [{"chunk_id": cid, "pmid": c["pmid"], "source": c["source"], "text": c["text"]}
-                for cid, c in sorted(self.chunks.items())]
-        return json.dumps(rows, ensure_ascii=False)
+        return chunks_json(self.chunks)
 
     def question(self) -> str:
         """Papers name the gene by symbol or CLIB122 tag, never by the model's YALI1 ID."""
@@ -79,21 +83,27 @@ class PairContext:
         return (self.gene, self.reaction_name, tuple(self.ec_codes), tuple(sorted(self.chunks)))
 
 
+def check_quote(pmids: set[str], chunks: dict[str, dict], pmid: str, chunk_id: str, quote: str) -> list[str]:
+    """Problems with one cited quote: PMID retrieved, chunk retrieved and of that PMID, quote verbatim."""
+    if pmid not in pmids:
+        return [f"pmid {pmid} is not among the retrieved PMIDs"]
+    chunk = chunks.get(chunk_id)
+    if chunk is None:
+        return [f"chunk_id {chunk_id} is not a retrieved chunk"]
+    problems = []
+    if chunk["pmid"] != pmid:
+        problems.append(f"chunk {chunk_id} belongs to pmid {chunk['pmid']}, not {pmid}")
+    if normalise_text(quote) not in normalise_text(chunk["text"]):
+        problems.append(f"quote is not verbatim in chunk {chunk_id}")
+    return problems
+
+
 def validate_claims(ctx: PairContext, output: ClaimSet) -> ClaimSet:
     """Reject claims outside the retrieved set; raises ModelRetry with every problem listed."""
     problems = []
     for index, claim in enumerate(output.claims):
-        if claim.pmid not in ctx.pmids:
-            problems.append(f"claim {index}: pmid {claim.pmid} is not among the retrieved PMIDs")
-            continue
-        chunk = ctx.chunks.get(claim.chunk_id)
-        if chunk is None:
-            problems.append(f"claim {index}: chunk_id {claim.chunk_id} is not a retrieved chunk")
-            continue
-        if chunk["pmid"] != claim.pmid:
-            problems.append(f"claim {index}: chunk {claim.chunk_id} belongs to pmid {chunk['pmid']}, not {claim.pmid}")
-        if normalise_text(claim.quote) not in normalise_text(chunk["text"]):
-            problems.append(f"claim {index}: quote is not verbatim in chunk {claim.chunk_id}")
+        problems += [f"claim {index}: {p}" for p in
+                     check_quote(ctx.pmids, ctx.chunks, claim.pmid, claim.chunk_id, claim.quote)]
     if problems:
         raise ModelRetry("Fix these claims or drop them:\n" + "\n".join(problems))
     return output
@@ -223,4 +233,4 @@ def load_results(out_dir: Path) -> list[dict]:
 
 
 __all__ = ["Claim", "ClaimSet", "PairContext", "PairResult", "PairReview", "build_agent",
-           "extract_pair", "load_results", "load_retrieval", "run_extraction", "validate_claims"]
+           "check_quote", "extract_pair", "load_results", "load_retrieval", "run_extraction", "validate_claims"]

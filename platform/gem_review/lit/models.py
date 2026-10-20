@@ -13,6 +13,16 @@ _WS = re.compile(r"\s+")
 MAX_QUOTE_WORDS = 25
 
 
+def short_quote(value: str) -> str:
+    """Whitespace-normalised quote of 1 to MAX_QUOTE_WORDS words."""
+    value = _WS.sub(" ", value).strip()
+    if not value:
+        raise ValueError("quote is empty")
+    if len(value.split()) > MAX_QUOTE_WORDS:
+        raise ValueError(f"quote has more than {MAX_QUOTE_WORDS} words")
+    return value
+
+
 class EvidenceType(IntEnum):
     """Checklist sheet "Evidence Levels". IntEnum so levels compare and cap numerically."""
 
@@ -39,12 +49,7 @@ class Claim(BaseModel):
     @field_validator("quote")
     @classmethod
     def _short_quote(cls, value: str) -> str:
-        value = _WS.sub(" ", value).strip()
-        if not value:
-            raise ValueError("quote is empty")
-        if len(value.split()) > MAX_QUOTE_WORDS:
-            raise ValueError(f"quote has more than {MAX_QUOTE_WORDS} words")
-        return value
+        return short_quote(value)
 
     @property
     def effective_level(self) -> EvidenceType:

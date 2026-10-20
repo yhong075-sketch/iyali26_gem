@@ -3,10 +3,13 @@
   python -m gem_review.lit retrieve --model <xml> (--tier 1 | --reactions R1,R2) [--task T]
   python -m gem_review.lit extract  --task T [--llm anthropic:claude-opus-5-5] [--pairs g:r,...]
   python -m gem_review.lit report   --task T
+  python -m gem_review.lit chain    --task T (--pair gene:reaction |
+                                    --question "..." --aliases A,B --terms T1,T2 [--gene YALI1...])
 """
 
 import argparse
 import asyncio
+import json
 import logging
 import os
 import sys
@@ -18,10 +21,12 @@ from scripts.gem_annotate.config import load_project_paths
 from scripts.gem_annotate.locus_resolver import _DEFAULT_IDENTITY_EXCLUSIONS, LocusCrosswalk
 from scripts.gem_annotate.model_layout import MODEL
 
+from .chain import (build_chain_agent, hit_line, load_chains, pair_chain_inputs, question_chain_inputs,
+                    question_slug, retrieve_question, run_chain, write_chain)
 from .client import CachedClient, DiskCache
 from .extract import DEFAULT_MODEL, build_agent, load_results, load_retrieval, run_extraction
 from .pairs import geneless, list_pairs, select_reactions
-from .report import literature_rows, review_queue_rows, write_review_xlsx
+from .report import chain_rows, literature_rows, review_queue_rows, write_chain_sheet, write_review_xlsx
 from .retrieve import retrieve_all, sha256_of, write_outputs
 
 
@@ -52,13 +57,33 @@ def parse_args(argv=None) -> argparse.Namespace:
     extract.add_argument("--max-concurrent", type=int, default=5)
     extract.add_argument("--retries", type=int, default=2)
 
-    report = sub.add_parser("report", help="write the literature and review_queue sheets to review.xlsx")
+    report = sub.add_parser("report", help="write the literature, review_queue and logic_chains sheets")
     _common(report)
+
+    chain = sub.add_parser("chain", help="question-driven logic chain: quote -> inference -> verdict")
+    _common(chain)
+    mode = chain.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--pair", help="gene:reaction from the step-1 retrieval (no new retrieval)")
+    mode.add_argument("--question", help="free-form question; Europe PMC retrieval runs first")
+    chain.add_argument("--gene", help="model gene ID the question is about (question mode)")
+    chain.add_argument("--aliases", default="", help="comma-separated names papers use: YALI0 tag, symbols")
+    chain.add_argument("--terms", default="", help="comma-separated reaction terms: EC codes, enzyme names")
+    chain.add_argument("--retrieve-only", action="store_true", help="show the hit count and stop")
+    chain.add_argument("--llm", default=DEFAULT_MODEL, help="pydantic-ai model string (key from env)")
+    chain.add_argument("--retries", type=int, default=2)
+    chain.add_argument("--page-size", type=int, default=25)
+    chain.add_argument("--max-fulltext", type=int, default=10)
 
     args = parser.parse_args(argv)
     if args.command == "retrieve" and not args.reactions and args.tier is None:
         parser.error("pass --tier and/or --reactions; the tool never runs on the whole model")
+    if args.command == "chain" and args.question and not ((args.gene or args.aliases) and args.terms):
+        parser.error("--question needs --gene or --aliases, and --terms")
     return args
+
+
+def _split(value: str) -> list[str]:
+    return [part.strip() for part in value.split(",") if part.strip()]
 
 
 def _task_dirs(args) -> tuple[Path, Path]:
@@ -96,7 +121,69 @@ def report_main(args) -> int:
     rows = literature_rows(load_retrieval(retrieval_dir), load_results(out_dir))
     queue = review_queue_rows(rows)
     path = write_review_xlsx(MODEL.reports / args.task / "review.xlsx", rows, queue)
-    print(f"{len(rows)} literature rows, {len(queue)} review_queue rows -> {path}")
+    chains = chain_rows(load_chains(out_dir))
+    write_chain_sheet(path, chains)
+    print(f"{len(rows)} literature rows, {len(queue)} review_queue rows, {len(chains)} logic_chains rows -> {path}")
+    return 0
+
+
+def _question_record(args, out_dir: Path) -> tuple[dict, Path]:
+    """Cached under the task folder: the HTTP cache and the retrieval record are both reused."""
+    aliases, terms = _split(args.aliases), _split(args.terms)
+    path = out_dir / "questions" / f"{question_slug(args.question, args.gene, aliases, terms)}.retrieval.json"
+    client = CachedClient(DiskCache(out_dir.parents[1] / "cache"))
+
+    async def run():
+        try:
+            return await retrieve_question(client, args.question, gene=args.gene, aliases=aliases, terms=terms,
+                                           page_size=args.page_size, max_fulltext=args.max_fulltext)
+        finally:
+            await client.aclose()
+
+    record = asyncio.run(run())
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w") as handle:
+        json.dump(record, handle, indent=1)
+    print(f"network requests: {client.network_requests}, cache hits: {client.cache_hits}")
+    return record, path
+
+
+def chain_main(args) -> int:
+    if (not args.retrieve_only and args.llm.startswith("anthropic:")
+            and not os.environ.get("ANTHROPIC_API_KEY")):
+        print("ANTHROPIC_API_KEY is not set; export it before running a chain.", file=sys.stderr)
+        return 2
+    retrieval_dir, out_dir = _task_dirs(args)
+    if args.pair:
+        gene, reaction_id = args.pair.split(":", 1)
+        path = retrieval_dir / f"{gene}__{reaction_id}.json"
+        if not path.exists():
+            print(f"no step-1 retrieval for {args.pair}: {path}", file=sys.stderr)
+            return 2
+        with path.open() as handle:
+            record = json.load(handle)
+        ctx, result = pair_chain_inputs(record, path)
+    else:
+        record, path = _question_record(args, out_dir)
+        ctx, result = question_chain_inputs(record, path)
+    print(hit_line(record), flush=True)
+    if args.retrieve_only:
+        print(f"retrieval: {path}")
+        return 0
+    if int(record["pair_hits"]) == 0 or not record["chunks"]:
+        result.status = "no_hits"   # nothing to quote: no model call
+    else:
+        agent = build_chain_agent(args.llm, retries=args.retries)
+        result = asyncio.run(run_chain(agent, ctx, result, model_name=args.llm))
+    chain_file = write_chain(out_dir, result)
+    sheet = write_chain_sheet(MODEL.reports / args.task / "review.xlsx", chain_rows(load_chains(out_dir)))
+    print(f"status: {result.status}")
+    if result.chain:
+        verdict = result.chain.verdict
+        print(f"verdict: {verdict.answer}, level {int(verdict.evidence_level)} ({verdict.evidence_level.name}): "
+              f"{verdict.verdict}")
+        print(f"steps: {len(result.chain.steps)} ({len(result.chain.quotes)} quotes); usage: {result.usage}")
+    print(f"chain: {chain_file}\nsheet: {sheet} (logic_chains)")
     return 0
 
 
@@ -121,6 +208,8 @@ def main(argv=None) -> int:
         return extract_main(args)
     if args.command == "report":
         return report_main(args)
+    if args.command == "chain":
+        return chain_main(args)
     import cobra
 
     paths = load_project_paths(args.research_root, required=True)

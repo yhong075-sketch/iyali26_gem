@@ -5,6 +5,37 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-20: gem_review literature layer, step 4 — logic chains (quote → inference → verdict)
+
+**Authorization.** Parent-session brief of 2026-10-20 (logic-chain layer on the step 1–3 code,
+no re-run of retrieval, FunctionModel tests, one live chain on POX3/R100, no model XML change,
+no commit of the layer); user approved the plan on 2026-10-20 with "evidence_level = strength
+of the evidence for the verdict as stated", and chose to merge the step 1–3 commit `7d46a79`
+into `claude/priceless-joliot-8eb663` (merge `417f2d6`, STATE.md conflict resolved by keeping
+both entries) because a worktree hook blocks writes into the other worktree. The chain layer is
+uncommitted on top of `417f2d6`.
+
+**Results** ([REPORT.md](reports/gem_review_lit_20261019/REPORT.md), step 4; verified this session).
+- Code: `platform/gem_review/lit/chain.py`, CLI `python -m gem_review.lit chain (--pair g:r |
+  --question … --aliases … --terms …)`, `logic_chains` sheet in `review.xlsx`. Pydantic checks:
+  verdict last and unique, `rests_on` points backwards, every inference traces to a quote, the
+  verdict level ≤ max effective level of the quotes it rests on (other organism ≤ 1, no quote
+  → 0). Quotes go through `check_quote`, factored out of `validate_claims` unchanged. Retries 2,
+  then `CHAIN_FAILED`. Question mode retrieves through the step-1 cache and prints hit counts
+  before any model call.
+- Live chain POX3 (YALI1D32754g) / R100 "acyl-CoA oxidase (hexadecanoyl-CoA)":
+  answer **no, level 3 (genetic)** — the chunks characterise POX3 as short-chain and do not
+  establish C16 activity. 5 quotes (all verbatim, re-checked by hand), 2 inferences, 2 requests,
+  98,493 / 2,394 tokens (≈ $0.44). Independently cites the same three PMIDs (9848229, 10464181,
+  10593257) as the step-2 contradicting claims. Candidate GPR-specificity finding for R99–R102
+  stands; model unchanged. Label caveat: quote 0 (E. coli expression of Aco3p) labelled
+  Yarrowia/biochemical.
+- Tests: 13 new mocked tests pass; full suite 185 passed, 19 failed, 14 errors, 31 skipped vs
+  baseline `417f2d6` 172 passed with the identical 33 failing/erroring IDs (nine pre-existing
+  files; none imports `gem_review`).
+- Not done: chain stability across re-runs; storing retry reasons; a live ad-hoc question;
+  prompt caching.
+
 ## 2026-10-19: gem_review literature layer, step 1 (Europe PMC retrieval) run on tier 1
 
 **Authorization.** User spec of 2026-10-15 (Pydantic AI literature layer for `gem_review`; run
