@@ -5,6 +5,74 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-19: R1964 provisional GPR and D-xylulose cross-references (review + opt-in candidate)
+
+**Authorization.**
+- A delegated read-only review came first:
+  [r1964_gpr_review_20261019](reports/r1964_gpr_review_20261019/REPORT.md).
+- User, 2026-10-19: "Approve the R1964 plan: opt-in step with provisional GPR YALI1F03452g or
+  YALI1E06616g, plus the MNXR198271/Rhea 17921/EC 1.1.1.11 annotation fix, and the 5 LPs."
+- Not authorized: commit, push, merge, any other LP or model change.
+
+**Review findings** (2026-10-19):
+- Wang et al. 2020 (doi:10.1186/s13068-020-01815-8) purified two proteins (verified):
+  - YALI1F03452g ("YlAraDH1");
+  - YALI1E06616g ("YlAraDH2", = XP_503594.1 = YALI0E05643g/Q6C6W8; not a model gene before this
+    change).
+
+  Both turn over both R1964 substrates with NAD(H). Products were assigned from a 340 nm assay, not
+  identified.
+- A Fischer-projection test of the activity pattern favours D-arabinitol C-4 oxidation
+  (→ D-xylulose, R1964) over C-2 (→ D-ribulose, R2190) (inferred). D-ribulose was never tested.
+- R1964's MNXR154181 / BiGG ABTD1 annotation names L-xylulose (verified).
+
+**Change** (verified; uncommitted on `claude/reverent-wilbur-4dc5b6`, HEAD 285eaee):
+- **Mechanism:**
+  - data `model/curation/gpr/r1964_gpr_assignment.json` (`R1964-ARADH-GPR-20261019`);
+  - guarded `apply_r1964_gpr_assignment` (`r1964_gpr.py`);
+  - opt-in flag `--r1964-gpr`, after `--r132-mito-adh`;
+  - focused test `tests/test_r1964_gpr.py`.
+- **New candidate** `E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml` (`db429743…`) = a56f3649 plus:
+  - R1964 GPR "" → `YALI1F03452g or YALI1E06616g`;
+  - the L-xylulose cross-references replaced by the D-xylulose reaction (MNXR198271, Rhea 17921,
+    KEGG R05604, EC 1.1.1.11, BiGG/VMH ABTDG, MetaCyc);
+  - 10 note keys;
+  - the new gene YALI1E06616g.
+- **Diff:** the control build without the flag = a56f3649 byte for byte. The whole-model diff has 5
+  differences, all on the targets. R1964's bounds, stoichiometry and balance are unchanged.
+
+**Results** (verified):
+- 5/5 LPs optimal.
+  - WT is 1.430805735352851 h^-1 on both models (relative difference 0).
+  - KO/WT is 1.000 for YALI1F03452g (M0, M1) and YALI1E06616g (M1). No call changes at 1/5/10/15 %.
+  - R1964 and R2190 flux is 0 in all five.
+- The full suite is unchanged test by test, plus 5 new passing tests.
+
+**Audit.**
+- An independent read-only audit supported C1–C6 and C8–C10.
+- The guard was partially supported. Its gaps were fixed: non-spec notes, the full YALI1F03452g
+  identity, and the new gene's name. The test was rewritten, because `Model.copy()` shares
+  `Gene.annotation` dicts and the first version leaked between subcases.
+- The v2 rebuilds were byte-identical, and the suite was unchanged again.
+- The LP script enforced the WT-difference and call-change stops only after the run. Neither would
+  have fired; this is reported, not rerun.
+
+**Evidence level.** Provisional. The basis is in vitro activity of the purified proteins, and the
+regiochemistry is unsettled. This is not experimental validation of an in vivo role.
+
+**Gaps.**
+- **Limits a claim:** product identification; the Liu 2026 JAFC full text (unread); the Wang 2020
+  supplementary file (not downloaded).
+- **Affects another line:**
+  - merging with R2041 forward (`ae54dd8`), the GPR-fix worktree and the R2190 plan, all of which
+    touch `main.py`/`cli.py`;
+  - the R2190 plan should add the C-4 limit line;
+  - the colleague audit's R1964 blocker entry is the owner's to update;
+  - other tests mutate `Gene.annotation` on model copies in place (not examined).
+
+Reports: [r1964_gpr_20261019](reports/r1964_gpr_20261019/REPORT.md),
+[review](reports/r1964_gpr_review_20261019/REPORT.md).
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
