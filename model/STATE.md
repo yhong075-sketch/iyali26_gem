@@ -5,6 +5,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-19: R153 argininosuccinate synthase made gene-less (YALI1D17462g is a peptidase), new candidate
+
+**Authorization.** User, 2026-10-19:
+1. "Approve option A for R153: a gene-less GPR through a new guarded post-merge step and opt-in flag, with
+   YALI1D17462g kept unlinked."
+2. "Approve the R153 implementation plan as written, including the fast-forward of
+   claude/eloquent-borg-1bd1b0 to dc471d7. Builds and pytest as budgeted; no LPs; no commit."
+3. After the control finding: "Amend criterion 1 … Rebuild the control and build the candidate both with
+   PYTHONHASHSEED=0".
+
+Evidence: [review](reports/r153_ass_gpr_20261019/REPORT.md). Change: [REPORT.md](reports/r153_gpr_revision_20261019/REPORT.md).
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_r153_gpr_v2_20261019.xml`
+(`d941d2cd…`).
+- `51c6fabd` flags plus `--remove-r153-peptidase-gpr`, built with `PYTHONHASHSEED=0`.
+- Not a reference model.
+- The first build `…_r153_gpr_20261019.xml` (`3c9e734f…`) is superseded (two note texts) and kept until the
+  user decides.
+
+**Change:**
+- R153 GPR `YALI1D17462g` → none. Notes: 6 replaced, 8 added.
+- `YALI1D17462g` is kept with no reactions (genes without reactions 22 → 23; gene count 1,073).
+- Data: `curation/gpr/r153_gpr_revision.json`. Step: `r153_gpr_revision.py`, run after the R153/R2176 merge
+  and the selection restores.
+- The 2026-09-15 assignment and merge files are unchanged.
+
+**Evidence (verified online 2026-10-19 unless marked):**
+- `YALI1D17462g` = Gene 2910235 = XP_502815.3, 384 aa, an A1 aspartic peptidase: PF00026, PS00141 at both
+  active-site motifs, no ASS signature.
+- KEGG's ASS yli:90949668 / YALI2_D00589g is a DSM 3286 gene (KEGG T01033 = GCF_014490615.1). Its NCBI Gene
+  record is discontinued and NC_089381.1 is suppressed.
+- W29 NC_090773.1 / CP017556.1 3,604,630–3,609,948 is unannotated. ASS homology there is frame-split
+  (recorded 2026-09-11; audit alignment supports it).
+- The databases' ASS is one 413-aa sequence in 11 strains, including PO1f KAE8172175.1.
+- No gene at that locus is in the Cas9, Cas12a or Tn-seq gene sets, so ASS was never assayed as a gene.
+- Not a YALI0/YALI1 locus collision: no YALI0D17462g exists.
+- The 2026-09-15 user assignment had already recorded the conflicting evidence.
+
+**Verified this session:**
+- Unseeded control: 0 field differences vs `51c6fabd`. Its bytes differ only in R159 species order, because
+  `selection_gpr_restore.py:154` iterates a hash-randomized set; a side session confirmed this, and its fix is
+  on `claude/great-wu-64e590`.
+- Seeded control: the same.
+- v2 vs `51c6fabd`: exactly 3 differences (R153 GPR, R153 notes, the gene's reaction list). v2 vs the seeded
+  control: bytes differ only in R153.
+- R153 is balanced.
+- pytest is identical per test (181 → 184 passed; 11 failed and 14 errors before and after), plus 3 new
+  passing tests.
+- An independent audit supported 9 claims and partly supported 1 (two historical Chinese note values kept).
+  Its fixes were applied and the candidate rebuilt as v2.
+
+**Limits:**
+- No LP was run. WT equality and the no-effect KO are provable only.
+- The model makes no gene-level ASS prediction.
+- `YALI1D17462g` now scores TN by construction (reported separately, not a reason).
+- The W29 ASS CDS and expression are untested.
+- Not committed.
+
 ## 2026-10-19: Selection-overwritten GPRs fixed (R671, R159/R190) and R765/R766 builder correction, new candidate
 
 **Authorization.** User, 2026-10-19: "Approved: implement A (R671 GPR re-apply as a new change set), B (drop

@@ -81,6 +81,7 @@ def build_reference_chain(
     restore_selection_cleared_gprs: bool = False,
     restore_selection_overwritten_gprs: bool = False,
     restore_selection_cpa_ura2: bool = False,
+    r153_gpr_revision: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -713,6 +714,11 @@ def build_reference_chain(
         from .selection_gpr_restore import CPA_URA2_RESTORE, restore_after_selection
         selection["selection_cpa_ura2_restore"] = restore_after_selection(model, selection, CPA_URA2_RESTORE)
         logger.info("Selection CPA/URA2 restore: %s", selection["selection_cpa_ura2_restore"]["status"])
+    if r153_gpr_revision:
+        # Opt-in: remove the A1 peptidase gene from the merged R153 (2026-10-19); the gene is kept.
+        from .r153_gpr_revision import apply_r153_gpr_revision
+        selection["r153_gpr_revision"] = apply_r153_gpr_revision(model)
+        logger.info("R153 GPR revision: %s", selection["r153_gpr_revision"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -800,6 +806,7 @@ def build_model(args):
         restore_selection_cleared_gprs=getattr(args, "restore_selection_cleared_gprs", False),
         restore_selection_overwritten_gprs=getattr(args, "restore_selection_overwritten_gprs", False),
         restore_selection_cpa_ura2=getattr(args, "restore_selection_cpa_ura2", False),
+        r153_gpr_revision=getattr(args, "remove_r153_peptidase_gpr", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
