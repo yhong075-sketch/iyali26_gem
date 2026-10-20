@@ -1,0 +1,462 @@
+{
+  "R1308": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to uridine phosphorylase (E. coli Udp, human UPP1) at E<=1e-5; best at E<=10 is E=0.7 over 25% of the query. No KEGG yli gene for EC 2.4.2.3/2.4.2.2.",
+    "b": "Model runs R1308 in reverse (uracil + R1P -> uridine) at the WT optimum (triage group 6). Not decided here.",
+    "c": "Uridine has 10 other producers; uracil 5; R1P 7 (static).",
+    "reciprocal_genes": [],
+    "paralog_note": "The purine nucleoside phosphorylase YALI1F37714g is assigned in the model to pyrimidine phosphorolysis steps R264 (deoxyuridine) and R761 (thymidine); whether it acts on pyrimidine nucleosides was not checked here (outside scope). KEGG annotates a uridine nucleosidase (Urh1-type, K01240) at YALI2_F00923g; that is a hydrolase, not a phosphorylase.",
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:24388-24391 reviewed (opened); KEGG yli EC table (local); literature agent: no Y. lipolytica pyrimidine-nucleoside catabolism paper; KEGG yli:2907733 (YALI2_F00923g, XP_504955, Q6C307) assigned K01240 uridine nucleosidase (annotation only); agent 2: Mitterbauer et al. 2002 PMC123776, Kurtz et al. 2002 PubMed 12111094 (S. cerevisiae salvages uridine via Urk1 kinase or Urh1 hydrolase; no uridine phosphorylase identified)",
+    "flags": "R264/R761 carry a PNP gene on pyrimidine substrates (review outside scope)."
+  },
+  "R1901": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "Y. lipolytica asparaginase activity is reported: Darvishi et al. 2019 (abstract only) describe a 981-nt / 326-aa gene from strain DSM3286 'identified ... on the basis of comparison with asparaginase gene sequences', with no gene ID. The only Asparaginase_2-family (PF01112) gene in the CLIB122 proteome is YALI0_F30723g (326 aa) = W29 YALI1F38344g (100% identity, not in the model); the 326-aa match is the only link (inferred). Human ASRGL1 hits YALI1F38344g (28.7%, E=4e-10). Reciprocal: best Swiss-Prot hits are threonine aspartase Taspase1 (S. pombe 31.6%, human 31.1%), then plant-type L-asparaginases (28-30%) and ASRGL1 (28.3%). A closer homologue of different function (a protease) exists, so it is not accepted as B. Yeast ASP1/ASP3 and E. coli AnsA (other families) have no W29 hit.",
+    "b": "Model runs R1901 in reverse (Asp + NH3 -> Asn without ATP) at the optimum; KO/WT 0.9973. Direction not decided here.",
+    "c": "L-asparagine has 2 other producers (R156, R868).",
+    "reciprocal_genes": [],
+    "genes_named": "YALI1F38344g = YALI0_F30723g (lead); verified name: none verified; Asparaginase_2-family protein (Taspase1-like by PANTHER); BLAST + inferred link to Darvishi et al. 2019",
+    "sources": "UniProt REST search rhea:21016-21019 reviewed and Q6BZU9 (opened); Darvishi, Faraji & Shamsi 2019 Int J Biol Macromol 125:955, PubMed 30576739 abstract (opened by agent; full text 403, unread); KEGG link ec:3.5.1.1 yli (agent, no gene); agent 2: UniProt P38986 (S. cerevisiae ASP1 cytoplasm)",
+    "flags": "Darvishi et al. measured activity in culture; whether it is intracellular or secreted was not read (full text unread). R1901 is cytosolic.",
+    "extra_hit": "YALI1F38344g (XP_068139615.1) vs Q7L266 ASRGL1: 28.7% id over 282 aa, E=4e-10; in model: False",
+    "extra_reciprocal": "YALI1F38344g: Taspase1 [S. pombe] 32%; Taspase1 [H. sapiens] 31%; Taspase1 [M. musculus] 31%; plant-type L-asparaginase [P. furiosus] 30%"
+  },
+  "R1024": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "Carbonic anhydrase exists: YALI1F28274g is the reciprocal best hit of Nce103 (C. albicans 43.7%, S. cerevisiae 34.3%); it carries R1025 (nu), R1026 and R2202 (cy).",
+    "b": "No matrix targeting for YALI1F28274g: TargetP mTP 0.0325, MitoFates 0.046, DeepLoc mito 0.2869. The S. cerevisiae orthologue has an intermembrane-space pool (outside the inner membrane), not a matrix pool.",
+    "c": "CO2 and H2O have many matrix producers.",
+    "reciprocal_genes": [
+      "YALI1F28274g"
+    ],
+    "targeting": "YALI1F28274g: not mitochondrial by rule",
+    "paralog_note": "Single beta-CA in W29.",
+    "genes_named": "YALI1F28274g; verified name: none verified; beta-carbonic anhydrase (Nce103 orthologue); model/GPR assignment + reciprocal BLAST, not experimental in Y. lipolytica",
+    "sources": "Agent 2: Voegtle et al. 2012 MCP PMC3518125 full text (S. cerevisiae Nce103 in the intermembrane space, protease-protection assay); UniProt P53615; Dostal et al. 2020 IJMS PMC7036955 full text (Candida Nce103 mostly cell wall, ~16% mitochondria, some secreted)",
+    "flags": "CO2 hydration also proceeds without enzyme; whether R1024 should be spontaneous needs a cited source (not decided)."
+  },
+  "R1027": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "Same single beta-CA YALI1F28274g as R1024.",
+    "b": "No secretion signal: TargetP SP 0.0018; DeepLoc extracellular 0.2555 (threshold 0.6173). Candida Nce103 reaches the cell wall without a signal peptide (non-classical), so a negative SP prediction does not exclude export. R1027 has bounds [0, 0].",
+    "c": "Static check not applicable: the reaction is closed.",
+    "reciprocal_genes": [
+      "YALI1F28274g"
+    ],
+    "targeting": "YALI1F28274g: no secretion signal by rule",
+    "genes_named": "YALI1F28274g (as for R1024)",
+    "sources": "Agent 2: Dostal et al. 2020 IJMS PMC7036955 full text (Candida Nce103: ~48-59% in the cell-wall fraction, 'populations ... secreted'); Goetz et al. 1999 Yeast PubMed 10407265 abstract (S. cerevisiae Nce103 called a non-classical export substrate; primary evidence unread)",
+    "flags": "Bounds [0,0]: the reaction is inactive by construction."
+  },
+  "R1125": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "FAD synthetase exists: YALI1D33889g is the reciprocal best hit of fungal FAD synthases (S. pombe 42.5%, S. cerevisiae FAD1 39.0%); it carries cytosolic R306.",
+    "b": "No matrix targeting: TargetP mTP 0.0182, MitoFates 0.084, DeepLoc cytoplasm/nucleus (mito 0.4498). Mitochondrial FAD synthesis in S. cerevisiae is contested in the literature.",
+    "c": "FMN[mi] has one producer (R698, YALI1B02806g).",
+    "reciprocal_genes": [
+      "YALI1D33889g"
+    ],
+    "targeting": "YALI1D33889g: not mitochondrial by rule",
+    "paralog_note": "Single FAD synthase in W29.",
+    "genes_named": "YALI1D33889g; verified name: none verified; FMN adenylyltransferase (FAD1 orthologue); reciprocal BLAST, not experimental in Y. lipolytica",
+    "sources": "Agent 2: for mitochondrial FAD synthesis - Bafunno et al. 2004 JBC PubMed 14555654 abstract; Bruni et al. 2021 Life PMC8470081 full text (native Fad1p in mitochondria on respiratory carbon only; authors call it 'still controversial'); against - Wu et al. 1995 MCB PubMed 7799934 abstract ('absence of FAD synthetase activity in yeast mitochondria'); Tzagoloff et al. 1996 JBC PubMed 8631763 abstract (synthetase in the soluble cytoplasmic fraction)",
+    "flags": ""
+  },
+  "R1292": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "PPAT exists: YALI1D24649g is the reciprocal best hit of S. cerevisiae CAB4 (46.6% over 44% of the W29 protein); it carries cytosolic R615.",
+    "b": "No matrix targeting: TargetP mTP 0.0023 (SP 0.365, below 0.5), MitoFates 0.051, DeepLoc cytoplasm/nucleus (mito 0.2479). In S. cerevisiae CoA is made outside the matrix and Leu5 is required for matrix CoA.",
+    "c": "Pantetheine 4'-phosphate[mi] has one producer, R1291 (cy<->mi transport, no GPR).",
+    "reciprocal_genes": [
+      "YALI1D24649g",
+      "YALI1F13202g"
+    ],
+    "targeting": "YALI1D24649g: not mitochondrial by rule",
+    "paralog_note": "YALI1F13202g (CAB5 dephospho-CoA kinase orthologue, R1092/R265) also hit human COASY; different step.",
+    "genes_named": "YALI1D24649g; verified name: none verified; phosphopantetheine adenylyltransferase (CAB4 orthologue); reciprocal BLAST, not experimental in Y. lipolytica",
+    "sources": "Agent 2: UniProt P53332 (Cab4 cytoplasm/nucleus, large-scale microscopy, Hazbun et al. 2003); Prohl et al. 2001 MCB PMC99563 full text (leu5 mitochondria have ~15-fold less CoA; 'the most likely substrate of Leu5p is CoA'; no transport assay); Ceccatelli Berti et al. 2015 PMC5348974 full text (Cab5 associated with the mitochondrial outer membrane)",
+    "flags": "The whole mitochondrial CoA-synthesis copy (R1291 transport + R1292, and downstream) rests on no targeting evidence; review outside scope."
+  },
+  "R1337": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "No characterised fungal TMP phosphatase; the yeast intracellular enzyme is unidentified. The gene on extracellular R751, YALI1C09285g, is a phytase-like histidine acid phosphatase (reciprocal best: Aspergillus PhyA, about 28%). The A. thaliana TH2/PPSP3 queries hit YALI1D21464g (CTO1 family; 25% id over 82% of the W29 protein, about 40% of TH2, i.e. its HAD domain) and YALI1E05103g (THI20-like, via the TenA domain).",
+    "b": "YALI1C09285g: no mito, no TargetP SP; DeepLoc vacuole/Golgi with a signal peptide (secretory pathway, not cytosol). YALI1D21464g: TargetP/MitoFates not mitochondrial; DeepLoc mitochondrion 0.8477.",
+    "c": "TMP[cy] has one producer (R754, YALI1C22186g).",
+    "reciprocal_genes": [
+      "YALI1C09285g",
+      "YALI1D21464g",
+      "YALI1E05103g"
+    ],
+    "targeting": "YALI1C09285g and YALI1D21464g: not mitochondrial, no SP by rule; DeepLoc as noted",
+    "paralog_note": "YALI1D21464g's reciprocal best hits are CTO1-family proteins (S. pombe, S. cerevisiae Cto1); TH2 ranks third. Cto1 is annotated for cold tolerance and phosphate uptake, not as a phosphatase.",
+    "genes_named": "YALI1D21464g; verified name: none verified; CTO1-family HAD-like protein, TH2 HAD-domain homologue; BLAST only (lead). YALI1C09285g; verified name: none verified; phytase-like acid phosphatase; BLAST only.",
+    "sources": "UniProt REST Q9SU92, F4KFT7, P25616 (opened). Agent 2: the intracellular TMP phosphatase of yeast is not identified (French et al. 2011 PMC3169313 full text; Perli et al. 2020 PMC7187267 review); PHO3 hydrolyses thiamine phosphates in the periplasm (Nosaka 1990 PubMed 2407294 and Nosaka et al. 1989 PubMed 2676709, abstracts)",
+    "flags": "R751/R750/R94 GPR 'YALI1C09285g or (6-gene AND)' unusual for a phosphatase (already flagged by the inventory)."
+  },
+  "R989": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "5-formyl-THF cyclo-ligase exists: YALI1D01489g is the reciprocal best hit of S. cerevisiae Fau1 (35.8%, 85% coverage); it carries cytosolic R64.",
+    "b": "TargetP mTP 0.1639, MitoFates 0.013: not mitochondrial by rule. DeepLoc mitochondrion 0.7506. The current RefSeq protein has a 23-aa N-terminal extension (MSCTILQITVHITYFSHNHCTTS) absent from the CLIB122 model Q6CAN2; whether DeepLoc's call depends on it was not tested. S. cerevisiae Fau1 is found in purified mitochondria by high-throughput MS only.",
+    "c": "5-formyl-THF[mi] has one producer (R748, YALI1F04082g).",
+    "reciprocal_genes": [
+      "YALI1D01489g"
+    ],
+    "targeting": "YALI1D01489g: not mitochondrial by rule; DeepLoc mitochondrial",
+    "paralog_note": "Single MTHFS in W29.",
+    "genes_named": "YALI1D01489g; verified name: none verified; 5-formyltetrahydrofolate cyclo-ligase (FAU1 orthologue); reciprocal BLAST, not experimental in Y. lipolytica",
+    "sources": "Agent 2: UniProt P40099 (S. cerevisiae Fau1 'Mitochondrion' from large-scale MS of purified mitochondria, Sickmann et al. 2003 PubMed 14576278 abstract); SGD GO: mitochondrion HDA, cytosol RCA only; Huh GFP 'ambiguous'. UniProt REST Q6CAN2 (opened by me): CLIB122 212-aa model = residues 24-235 of XP_502280.2.",
+    "flags": "Lipid-unlump line (colleague-owned) holds a human-approved provisional assignment of YALI1D01489g to R989; this task reviews only and does not change it."
+  },
+  "R1048": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to E. coli PpnN (the only reviewed CMP nucleosidase) at E<=1e-5; best at E<=10 is E=1.",
+    "b": "-",
+    "c": "CMP has 16 other producers.",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:30075-30078 reviewed (opened)",
+    "flags": ""
+  },
+  "R1078": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No characterised ATP deaminase in Swiss-Prot (EC 3.5.4.18: 0 reviewed entries); no query, no BLAST. AMP deaminase (S. cerevisiae AMD1) acts on AMP, a different reaction.",
+    "b": "-",
+    "c": "ATP has 37 producers.",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search ec:3.5.4.18 reviewed (opened, 0 hits)",
+    "flags": "No EC, Rhea or KEGG annotation on the reaction; an enzyme for this step is not known to exist (inferred from the empty Swiss-Prot query)."
+  },
+  "R1080": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "As R1078: no characterised ADP deaminase in Swiss-Prot; no query, no BLAST.",
+    "b": "-",
+    "c": "ADP has 132 producers.",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search ec:3.5.4.18 reviewed (opened, 0 hits)",
+    "flags": "As R1078."
+  },
+  "R1090": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to human TK1, TK2 or E. coli Tdk at E<=1e-5; best at E<=10 is E=0.5 over 10-18% of the query. No KEGG yli gene for EC 2.7.1.21.",
+    "b": "-",
+    "c": "Deoxyuridine has 4 producers (R260, R264, R984, R1091 transport).",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:28206-28209 reviewed (opened); literature agent: PubMed 'thymidine kinase' AND yarrowia = 0 records; UniProt CLIB122 sweep PF00265 / EC 2.7.1.21: none; agent 2: Vernis et al. 2003 NAR PMC206486 full text (S. cerevisiae 'lack the enzyme required to phosphorylate deoxyribonucleosides', uncited in the paper)",
+    "flags": "No publication found either way; the absence rests on annotation and this BLAST."
+  },
+  "R1347": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "As R1090 (same queries, no hit).",
+    "b": "-",
+    "c": "Thymidine has 3 producers (R1348 transport, R761, R983).",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:19129-19132 reviewed (opened); literature agent: PubMed 'thymidine kinase' AND yarrowia = 0 records; UniProt CLIB122 sweep PF00265 / EC 2.7.1.21: none; agent 2: Vernis et al. 2003 NAR PMC206486 full text (S. cerevisiae 'lack the enzyme required to phosphorylate deoxyribonucleosides', uncited in the paper)",
+    "flags": "No publication found either way; the absence rests on annotation and this BLAST."
+  },
+  "R1132": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to E. coli FruK at E<=1e-5; best sub-threshold hit is the adenosine kinase YALI1F30754g (R115; E=2e-4, 24% id over 59%), a PfkB-family relative, not a fructose-1-P kinase.",
+    "b": "-",
+    "c": "Fructose 1-phosphate has one producer (R256, YALI1E30886g).",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:14213-14216 reviewed (opened)",
+    "flags": "The model's EC list includes 2.7.1.11 (6-phosphofructokinase), which is a different reaction."
+  },
+  "R1154": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "Only YALI1B19576g hits (M. jannaschii nucleoside kinase, 22.5% id, E=1e-8); its reciprocal best hit is S. cerevisiae ribokinase Rbk1 (37.5%), and it carries ribokinase/deoxyribokinase R701/R263. Rejected: closer homologue of a different function.",
+    "b": "-",
+    "c": "Guanosine has 3 producers.",
+    "reciprocal_genes": [
+      "YALI1B19576g"
+    ],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:27710-27713 reviewed (opened)",
+    "flags": ""
+  },
+  "R1178": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "As R1154 (same queries; only the ribokinase YALI1B19576g hits).",
+    "b": "-",
+    "c": "Inosine has 2 producers.",
+    "reciprocal_genes": [
+      "YALI1B19576g"
+    ],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:21140-21143 reviewed (opened)",
+    "flags": ""
+  },
+  "R1252": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to E. coli MgsA at E<=1e-5; best at E<=10 is E=0.3.",
+    "b": "-",
+    "c": "DHAP has 10 producers.",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:17937-17940 reviewed (opened)",
+    "flags": "UniProt annotates EC 4.2.3.3 on animal triosephosphate isomerases as a side activity; that is not a methylglyoxal synthase gene."
+  },
+  "R1273": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "Family exists: YALI1C25093g is the reciprocal best hit of Golgi GDPases (S. cerevisiae GDA1 49.7%; carries Golgi R586/R602); YALI1C27061g, YALI1C27665g and YALI1A01198g are YND1 apyrase orthologues. No query is characterised on dGDP.",
+    "b": "GDA1 and YND1 act in the Golgi; R1273 is cytosolic. Compartment and substrate unsupported.",
+    "c": "dGDP has 7 producers.",
+    "reciprocal_genes": [
+      "YALI1C25093g",
+      "YALI1C27061g",
+      "YALI1E39570g",
+      "YALI1A01198g"
+    ],
+    "paralog_note": "YALI1C27061g and YALI1C27665g are 100% identical over 636 aa (duplicate gene models); YALI1C27665g is not in the model.",
+    "genes_named": "YALI1C25093g; verified name: none verified; GDA1-type GDPase; BLAST only. YALI1C27061g; verified name: none verified; YND1-type apyrase; BLAST only.",
+    "sources": "Agent 2: UniProt P32621 (Gda1 lumenal domain, ECO:0000269 PubMed 8391537); Abeijon et al. 1993 PubMed 8391537, Yanagisawa et al. 1990 PubMed 2172253, Gao et al. 1999 PubMed 10409709, Zhong & Guidotti 1999 PubMed 10551827 (abstracts): Golgi-lumenal active sites; Gda1 GDP(UDP)-specific; Ynd1 NDP/NTP broad; no dGDP/dGTP data",
+    "flags": "Cytosolic R583-R588, R1948, R1949 carry the YND1-type genes; compartment review outside scope."
+  },
+  "R1274": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "As R1273: YND1-type apyrases are the only hits (S. aureus NTPase query gave none).",
+    "b": "Golgi enzymes; R1274 is cytosolic; dGTP activity not shown.",
+    "c": "dGTP has 4 producers.",
+    "reciprocal_genes": [
+      "YALI1C27061g",
+      "YALI1A01198g"
+    ],
+    "paralog_note": "As R1273.",
+    "genes_named": "YALI1C27061g (as R1273)",
+    "sources": "Agent 2: UniProt P32621 (Gda1 lumenal domain, ECO:0000269 PubMed 8391537); Abeijon et al. 1993 PubMed 8391537, Yanagisawa et al. 1990 PubMed 2172253, Gao et al. 1999 PubMed 10409709, Zhong & Guidotti 1999 PubMed 10551827 (abstracts): Golgi-lumenal active sites; Gda1 GDP(UDP)-specific; Ynd1 NDP/NTP broad; no dGDP/dGTP data",
+    "flags": "As R1273."
+  },
+  "R1338": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "YALI1E05103g is the only W29 member of the THI20/THI21/THI22 family (35% id, 95-99% coverage to each; carries HMP/HMP-P kinase R413/R645). Its reciprocal hits rank S. pombe HMPPK2, then THI22, THI20, THI21.",
+    "b": "Cytosolic in the model; not checked.",
+    "c": "Thiamine has 2 producers (R1337, R934 transport).",
+    "reciprocal_genes": [
+      "YALI1E05103g"
+    ],
+    "paralog_note": "In S. cerevisiae thiaminase II activity is exclusive to THI20 among the three paralogues; the single W29 family member is not more similar to THI20 than to THI22 (reciprocal bitscores 279 vs 290), so the activity cannot be transferred by orthology.",
+    "genes_named": "YALI1E05103g; verified name: none verified; HMP/HMP-P kinase with TenA-like domain (THI20-family); model GPR on R413/R645 + BLAST",
+    "sources": "Agent 2: Haas et al. 2005 Bioorg Chem PubMed 15967475 abstract (recombinant Thi20 has thiaminase II activity); Onozuka et al. 2008 FEMS Yeast Res PubMed 18028398 abstract ('exclusively encoded by THI20'); French et al. 2011 PMC3169313 full text; UniProt Q08224 (EC 3.5.99.2, ECO:0000269), Q08975, Q06490",
+    "flags": ""
+  },
+  "R1958": {
+    "proposal": "assign_gpr_add_new_gene (blocked: no gene ID in the current W29 annotation)",
+    "tier": "B",
+    "a": "No protein in the current W29 RefSeq proteome. The older RefSeq gene model YALI2_D00583g (KEGG yli:90949663, XP_065950358, 482 aa, KEGG K00451) is a clean HGD: its top 5 Swiss-Prot hits are all HGDs (A. fumigatus HmgA 56.5% over 97%, A. nidulans HmgA 54.1%). NCBI status of XP_065950358: suppressed, 'removed as a result of standard genome annotation processing' (2024-06-26).",
+    "b": "Cytosolic in the model; not checked.",
+    "c": "Homogentisate has one producer (R1957, HPPD YALI1B28454g). Y. lipolytica makes homogentisate from tyrosine: deleting 4HPPD YALI0B21846g abolished pigment and HGA (Larroude et al. 2021); brown pigment forms when homogentisic acid accumulates (Carreira et al. 2001).",
+    "reciprocal_genes": [],
+    "extra_hit": "KEGG lead YALI2_D00583g (XP_065950358, suppressed) vs Q4WHT9: 56.5% id, qcov 96%, E=0",
+    "extra_reciprocal": "YALI2_D00583g: Homogentisate 1,2-dioxygenase hmgA [A. fumigatus] 57%; HGD [A. nidulans] 54%; HGD [D. melanogaster] 51%",
+    "paralog_note": "Neighbourhood (inferred): in KEGG coordinates YALI2_D00583g sits 515 bp from the fumarylacetoacetase YALI2_D00586g (= YALI1D36215g, R1960). In the current annotation there is an unannotated 2,034-bp gap (3,621,443-3,623,476 on NC_090773.1) between YALI1D36215g and YALI1D36255g, where the gene would lie after the same 65,251-bp offset. The genome sequence was not downloaded, so the gene was not located in it.",
+    "genes_named": "YALI2_D00583g (old locus tag; NCBI GeneID 90949663, status code 2, on NC_089381.1:3,687,207-3,688,655; no YALI1 locus in GCF_001761485.1 as downloaded); verified name: none verified; homogentisate 1,2-dioxygenase; reciprocal BLAST of a suppressed RefSeq protein (no Y. lipolytica experiment on the gene)",
+    "sources": "KEGG REST yli:90949663 (opened); NCBI E-utilities esummary protein XP_065950358 and gene 90949663 (opened); Larroude et al. 2021 Microorganisms 9:838, https://pmc.ncbi.nlm.nih.gov/articles/PMC8071058/ (opened by agent, full text): deleted 4HPPD, not HGD; Carreira et al. 2001 AEM 67:3463, https://pmc.ncbi.nlm.nih.gov/articles/PMC93044/ (opened by agent, full text): pigment from homogentisate, no gene or assay; W29 GFF (local)",
+    "flags": "A GPR needs a gene ID that the current W29 annotation lacks; adding it needs a decision on how to name a gene absent from GCF_001761485.1 (and a genome-level check).",
+    "proposed_gpr": "YALI2_D00583g (provisional; RefSeq record suppressed)"
+  },
+  "R1959": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No MAAI orthologue: the only hits (E 6e-10 to 1e-5, 22-31% id) are GST/Ure2-like proteins whose reciprocal best hits are E. coli YfcG, Ure2 or GST-like proteins, not MAAI. The GST-like gene next to FAH, YALI1D36182g, has no Swiss-Prot hit at E<=1e-5 and no real similarity to MAAI (best E=1.4).",
+    "b": "-",
+    "c": "4-maleylacetoacetate has one producer, R1958 (itself orphan).",
+    "reciprocal_genes": [
+      "YALI1C29066g",
+      "YALI1A06416g",
+      "YALI1F32880g",
+      "YALI1C04143g"
+    ],
+    "genes_named": "none proposed",
+    "sources": "Agent 2: Fernandez-Canon & Penalva 1998 JBC PubMed 9417084 abstract (A. nidulans maiA deletion abolishes MAAI activity and blocks growth on Phe); Fernandez-Canon et al. 2002 MCB (mouse; glutathione-mediated non-enzymatic MAA -> FAA isomerization in vitro, abstract-level)",
+    "flags": "A glutathione-mediated non-enzymatic isomerization is shown in vitro (mouse study); in A. nidulans the maiA deletion still blocks Phe growth. Whether Y. lipolytica isomerizes MAA without an enzyme is unknown."
+  },
+  "R1973": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "Crotonase-family hits only. Best: YALI1F29301g (P. oryzae AUH1 44.0% over 85%; human AUH 38.5%); its reciprocal best hit is a Zymoseptoria secondary-metabolism enoyl-CoA isomerase/hydratase, AUH1 second. AUH1_PYRO7's activity is curator-inferred (ECO:0000305). The A. nidulans hlyA protein (lyase + hydratase fusion; deletion blocks growth on Leu) matches the W29 HMG-CoA lyase YALI1B29483g (R1974, unfused) with its lyase half only; its hydratase half hits crotonase paralogues at 23-27%.",
+    "b": "R1973 is mitochondrial; targeting of YALI1F29301g not checked (not in group 7 scope).",
+    "c": "3-methylglutaconyl-CoA[mi] has one producer (R1972, YALI1B19217g).",
+    "reciprocal_genes": [
+      "YALI1F29301g",
+      "YALI1B14044g",
+      "YALI1A07290g",
+      "YALI1D07981g"
+    ],
+    "paralog_note": "YALI1B14044g (ECHS1-type enoyl-CoA hydratase) and YALI1D07981g (mS47/HIBCH-like) are other crotonase paralogues.",
+    "genes_named": "YALI1F29301g; verified name: none verified; crotonase-family enoyl-CoA hydratase-like; BLAST only (lead)",
+    "sources": "UniProt REST G4N954, Q6S014 (opened). Agent 2: Rodriguez et al. 2004 JBC PubMed 15181004 abstract (A. nidulans hlyA); Xiao et al. 2021 PubMed 32431008 abstract (MoAUH1 'putative').",
+    "flags": ""
+  },
+  "R2003": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No characterised acetyl-CoA:malonate CoA-transferase in Swiss-Prot (EC 2.8.3.3 and its Rhea IDs: 0 reviewed entries); no query, no BLAST.",
+    "b": "Reversible in the model.",
+    "c": "Malonate has one producer (R2002 transport, no GPR).",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST searches ec:2.8.3.3 and rhea:18817-18820 reviewed (opened, 0 hits)",
+    "flags": ""
+  },
+  "R2010": {
+    "proposal": "assign_gpr_gene_in_model",
+    "tier": "B",
+    "a": "Three DAK genes, each a reciprocal best hit of fungal DHA kinases at 37-44% id over about 99%: YALI1F12917g (S. pombe Dak2, S. cerevisiae DAK2), YALI1F02508g (S. pombe Dak1), YALI1E24532g (P. angusta DAK, S. cerevisiae DAK1). S. pombe Dak1 activity is experimental in UniProt (PubMed 10091325).",
+    "b": "Cytosolic, as are R281 and R2090.",
+    "c": "m1881 'Dihydroxy-Acetone' has producers R2009 (transport) and r0242.",
+    "reciprocal_genes": [
+      "YALI1F12917g",
+      "YALI1F02508g",
+      "YALI1E24532g"
+    ],
+    "paralog_note": "R2010 is the same chemistry as R281 (YALI1F12917g or YALI1E24532g) and R2090 (YALI1F02508g or YALI1F12917g), on duplicate metabolites: m1881 'Dihydroxy-Acetone' (KEGG C00184) vs m490 'glycerone' (both C3H6O3); R2090 also uses m2048 'Glyceron phosphate' (no formula) instead of m456 DHAP.",
+    "genes_named": "YALI1F12917g = YALI0F09273g; YALI1E24532g = YALI0E20691g; YALI1F02508g = YALI0F01606g (each 100% identity, verified this session). Verified names: none settled - Wang et al. 2022 call YALI0F09273 'DAK1' and YALI0E20691 'DAK2', while KEGG yli calls YALI0F01606g's locus 'Dihydroxyacetone kinase 1' and YALI0F09273g's 'Dihydroxyacetone kinase 2'. Function: dihydroxyacetone/glyceraldehyde kinase. Evidence: reciprocal BLAST (B); Y. lipolytica overexpression only, no deletion or assay.",
+    "sources": "UniProt REST O13902, P54838, P43550, Q6C2B3, Q6C564, Q6C394 (opened); Wang et al. 2022 3 Biotech, https://pmc.ncbi.nlm.nih.gov/articles/PMC8934898/ (opened by agent, full text): overexpressing DAK1, DAK2 and GCY1 did not raise pyruvate; Liu et al. 2024 Yeast PMID 39262092 (abstract only, by agent): DAK2 named rate-limiting, overexpressed only in combination; Jagtap et al. 2021 PMC8466642 (agent): DAK1/DAK2 induced 15-fold by salt (qPCR)",
+    "flags": "Duplicate DHA/DHAP metabolites (m1881/m490, m2048/m456): merging is the cleaner fix and needs its own curation change.",
+    "proposed_gpr": "YALI1F12917g or YALI1E24532g or YALI1F02508g"
+  },
+  "R2013": {
+    "proposal": "assign_gpr_gene_in_model",
+    "tier": "A",
+    "a": "Hexokinase-family hits only: YALI1E24028g (C. albicans HXK1 GlcNAc kinase 26.8% over 90%; reciprocal best A. fumigatus hexokinase-1, C. albicans HXK1 second), YALI1B29133g (hexokinase), YALI1E18539g (glucokinase). All three carry glucosamine kinase R1946.",
+    "b": "Cytosolic in the model. Localization of YlNag5 was not examined in Flores & Gancedo 2015 (opened). UniProt places C. albicans HXK1 in cytoplasm, nucleus and mitochondrion.",
+    "c": "GlcNAc has producers R2012 (transport) and R2092.",
+    "reciprocal_genes": [
+      "YALI1E24028g",
+      "YALI1E18539g",
+      "YALI1B29133g"
+    ],
+    "paralog_note": "YALI1E24028g also carries glucosamine kinase R1946 with the hexokinase YALI1B29133g and glucokinase YALI1E18539g. S. cerevisiae NGK1 hits only YALI1E18539g weakly (21.6%, E=1e-6).",
+    "genes_named": "YALI1E24028g = YALI0E20207g (100% identity over 464 aa, verified this session); verified name: YlNAG5 (Flores & Gancedo 2015); N-acetylglucosamine kinase; Y. lipolytica experimental: disruption in PO1a abolished growth on GlcNAc, purified GST-fusion Km 0.5 mM for GlcNAc (vs 135 mM glucose, 67 mM mannose)",
+    "sources": "Flores & Gancedo 2015 PLoS One 10:e0122135, https://pmc.ncbi.nlm.nih.gov/articles/PMC4376941/ (opened by me and by a literature agent; first 100k of 125k characters); Flores, Arino & Gancedo 2021 Int J Mol Sci 22:13109, Europe PMC PMC8658026 XML (opened by agent): YlNag5 also has a non-catalytic regulatory role; UniProt REST Q59RW5, Q06204, Q6C584 (opened)",
+    "flags": "Model EC 2.7.1.162 (N-acetylhexosamine 1-kinase) does not match the 6-phosphate product; EC 2.7.1.59 fits.",
+    "proposed_gpr": "YALI1E24028g"
+  },
+  "R2075": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to human MMUT or P. freudenreichii MutB at E<=1e-5; best at E<=10 is E=0.5 over 7-26% of the query. No KEGG yli gene for EC 5.4.99.2.",
+    "b": "Cytosolic in the model (the animal enzyme is mitochondrial).",
+    "c": "(R)-methylmalonyl-CoA has one producer, R2076 (orphan).",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:22888-22891 reviewed (opened); UniProt CLIB122 sweep for MCM/B12-binding domains (agent): none; Park et al. 2018 Biotechnol Biofuels 11:158 (Europe PMC XML, agent): propionyl-CoA catabolised via the methylcitrate cycle; Uchiyama et al. 1982 Eur J Biochem, PubMed 7117251 abstract (agent): methylcitrate-cycle enzymes in mitochondria",
+    "flags": "No paper states that Y. lipolytica lacks MCM; the absence rests on annotation and this BLAST. The documented propionate route is the methylcitrate cycle."
+  },
+  "R2076": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "Nearest characterised activity is the ATP-dependent malonyl/methylmalonyl-CoA ligase (human ACSF3, A. thaliana AAE13). Best W29 hit YALI1E15835g (29%) is the reciprocal best hit of oxalyl-CoA synthetase (S. pombe 58.6%, S. cerevisiae PCS60 51.7%): a different function. Other hits are generic acyl-CoA ligases.",
+    "b": "-",
+    "c": "Methylmalonate has one producer (R2074).",
+    "reciprocal_genes": [
+      "YALI1E15835g",
+      "YALI1C12941g",
+      "YALI1A14079g"
+    ],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search ec:6.2.1.76 reviewed (opened)",
+    "flags": "As written, methylmalonate + CoA -> methylmalonyl-CoA + H2O has no ATP; a thioester-forming condensation without an energy source is implausible (inferred, not checked against a deltaG source)."
+  },
+  "R23": {
+    "proposal": "assign_gpr_gene_in_model",
+    "tier": "B",
+    "a": "YALI1D01431g is the reciprocal best hit of S. cerevisiae BAT1/BAT2 (63.6/65.9%); YALI1E24922g of ARO8 (50.2%); YALI1C06681g is ARO9-like (29-31%, reciprocal best S. pombe aromatic aminotransferase); YALI1F26574g is a second BCAT-like gene (38%, not in the model).",
+    "b": "Cytosolic. S. cerevisiae Bat2 (the glutamate-using one) is cytosolic; Bat1 is matrix. Y. lipolytica has one main BAT gene; its localization was not checked.",
+    "c": "KMTB has one producer (R10, methionine salvage).",
+    "reciprocal_genes": [
+      "YALI1D01431g",
+      "YALI1E24922g",
+      "YALI1C06681g",
+      "YALI1F26574g",
+      "YALI1E34072g"
+    ],
+    "paralog_note": "YALI1E24922g (ARO8 reciprocal best hit, 50.2%) is a tier-C addition: Aro8/Aro9 KMTB transamination is shown with aromatic donors, not glutamate. YALI1C06681g (ARO9-like) and YALI1F26574g (second BCAT-like, not in model) are weaker.",
+    "genes_named": "YALI1D01431g; verified name: none verified in Y. lipolytica; branched-chain amino acid aminotransferase (reciprocal best hit of S. cerevisiae BAT1 63.6% / BAT2 65.9%); evidence B: S. cerevisiae deletion genetics (Pirkov et al. 2008) + reciprocal BLAST. YALI1E24922g; none verified; aromatic aminotransferase (ARO8 orthologue); C for this reaction.",
+    "sources": "Pirkov et al. 2008 FEBS J 275:4111, PubMed 18625006 abstract (opened by me via E-utilities and by agent 2; full text 403, unread): Aro8, Aro9, Bat1, Bat2 'seemed to be the main enzymes'; 'Bat2p ... used proline, lysine, tyrosine and glutamate as amino donors'; method: growth tests and MTA levels in deletion mutants. UniProt P53090/P38840/P38891/P47176 (agent 2): KMTB reactions ECO:0000269 for ARO8/ARO9, ECO:0000305 for BAT1/BAT2; Bat1 mitochondrial matrix, Bat2 cytoplasm.",
+    "flags": "YALI1D01431g (BAT) also carries R26/R27, 2-isopropyl-3-oxosuccinate decarboxylation, which is not a transamination; review outside scope.",
+    "proposed_gpr": "YALI1D01431g"
+  },
+  "R333": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No W29 protein similar to A. oryzae GtaA, human GLS or E. coli GlsA1 at E<=1e-5; sub-threshold hits to human GLS (E=2e-4) cover 7-17% of it. No KEGG yli gene for EC 3.5.1.2 as a standalone glutaminase.",
+    "b": "-",
+    "c": "Glutamine has 4 producers.",
+    "reciprocal_genes": [],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:15889-15892 reviewed (opened)",
+    "flags": "Model EC list (1.4.1.13, 1.4.1.14, 1.4.7.1, 2.6.1.85) names glutamate synthases, not glutaminase (annotation issue)."
+  },
+  "R517": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "Aldehyde-dehydrogenase family only: E. coli AldA hits 12 W29 ALDHs at 25-36%; the top ones (YALI1E00588g, YALI1C04093g, YALI1F06858g, YALI1D34353g) have reciprocal best hits S. cerevisiae Ald4/Ald5 or other broad ALDHs, not lactaldehyde dehydrogenase.",
+    "b": "Cytosolic.",
+    "c": "(S)-lactaldehyde has one producer (R510).",
+    "reciprocal_genes": [
+      "YALI1E00588g",
+      "YALI1C04093g",
+      "YALI1F06858g",
+      "YALI1D34353g",
+      "YALI1F33681g"
+    ],
+    "paralog_note": "Paralogue-ambiguous: no specificity data separate the ALDHs.",
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:14277-14280 reviewed (opened)",
+    "flags": ""
+  },
+  "R721": {
+    "proposal": "keep_orphan",
+    "tier": "D",
+    "a": "No SAT orthologue: the only hit, YALI1A15079g (E. coli CysE, 37.7% over 18%), is a hexapeptide-repeat acetyltransferase whose reciprocal best hits are 'putative acetyltransferase' and sophorolipid acetyltransferase. S. pombe 'putative SAT' gave no hit.",
+    "b": "-",
+    "c": "Serine has 9 producers.",
+    "reciprocal_genes": [
+      "YALI1A15079g"
+    ],
+    "genes_named": "none proposed",
+    "sources": "UniProt REST search rhea:24560-24563 reviewed (opened)",
+    "flags": ""
+  },
+  "R984": {
+    "proposal": "keep_orphan",
+    "tier": "C",
+    "a": "YALI1F34187g is the reciprocal best hit of S. cerevisiae SDT1 (50.0% over 78%; PHM8 third, 42%); it already carries UMP, CMP, dCMP and dTMP nucleotidases (R58, R56, R981, R983) and R1760.",
+    "b": "Cytosolic.",
+    "c": "dUMP has 5 producers.",
+    "reciprocal_genes": [
+      "YALI1F34187g"
+    ],
+    "paralog_note": "Single SDT1/PHM8-family gene in W29. No source opened shows dUMP activity for Sdt1 or Phm8; the model's dCMP and dTMP nucleotidases on the same gene (R981, R983) are equally untested (outside scope).",
+    "genes_named": "YALI1F34187g; verified name: none verified; HAD-family pyrimidine 5'-nucleotidase (SDT1 orthologue); reciprocal BLAST only for dUMP",
+    "sources": "Agent 2: Nakanishi & Sekimizu 2002 JBC PubMed 11934891 abstract ('specifically dephosphorylated 5'-UMP and 5'-CMP'; full text unread); Kuznetsova et al. 2015 JBC PMC4513125 full text (Sdt1 kcat/Km UMP, CMP, XMP, NMN; no dUMP, dCMP or dTMP); Xu et al. 2013 Mol Syst Biol PMC4039369 full text (Phm8 broad NMP nucleotidase; no deoxynucleotides)",
+    "flags": ""
+  }
+}
