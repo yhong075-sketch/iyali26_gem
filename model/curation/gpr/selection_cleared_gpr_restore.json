@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "change_id": "SELECTION-GPR-RESTORE-20261019",
+  "status": "user_authorized_restore",
+  "authorization": "2026-10-19: user approved re-applying the R612, R2274, R1302 and R1303 GPRs, with balanced R1303/R2274 stoichiometry, after the metadata reaction selection, as an opt-in build step.",
+  "reviewer": "human_user",
+  "selection_id": "metadata_reaction_fields_preserve_trna_20260910",
+  "report": "model/reports/selection_gpr_restore_20261019/REPORT.md",
+  "reactions": {
+    "R612": {
+      "cleared": {
+        "stoichiometry": {"m10[C_cy]": -3.0, "m149[C_cy]": 1.0, "m82[C_cy]": 1.0, "m852[C_cy]": -1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": ""
+      },
+      "restored": {
+        "stoichiometry": {"m10[C_cy]": -3.0, "m149[C_cy]": 1.0, "m82[C_cy]": 1.0, "m852[C_cy]": -1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1E31685g"
+      },
+      "gene": {"id": "YALI1E31685g", "name": "URA3", "uniprot": "A0A1H6PUU4"},
+      "evidence_tier": "A",
+      "evidence_status": "experimental_yarrowia",
+      "sources": [
+        "https://doi.org/10.1002/yea.3673",
+        "https://pubmed.ncbi.nlm.nih.gov/34648204/",
+        "https://rest.uniprot.org/uniprotkb/Q12724"
+      ],
+      "evidence": "URA3 encodes orotidine-5'-phosphate decarboxylase: in PO1f the URA3 deletion leads to orotic-acid accumulation and secretion, attributed to the missing orotidine-5'-phosphate decarboxylase, and a URA3 rescue mutant completely prevents the secretion (Swietalski et al. 2022, Yeast 39:230, abstract only). NCBI Gene 90949730 (YALI1_E31685g) cross-references Swiss-Prot Q12724 PYRF_YARLI (URA3, EC 4.1.1.23); the model's UniProt A0A1H6PUU4, now deleted from UniProtKB, is the same sequence (UniParc UPI0000132D4C). PO1f ura3-302 stays represented by the runtime strain overlay."
+    },
+    "R2274": {
+      "cleared": {
+        "stoichiometry": {"m1056[C_ex]": 1.0, "m1463[C_ex]": 3.0, "mtriolein[C_ex]": -1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": ""
+      },
+      "restored": {
+        "stoichiometry": {"m1056[C_ex]": 1.0, "m1463[C_ex]": 3.0, "m214[C_ex]": -3.0, "mtriolein[C_ex]": -1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1A21372g"
+      },
+      "gene": {"id": "YALI1A21372g", "name": "LIP2"},
+      "evidence_tier": "A",
+      "evidence_status": "experimental_yarrowia",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC101989/",
+        "https://rest.uniprot.org/uniprotkb/Q9P8F7"
+      ],
+      "evidence": "LIP2 encodes the secreted extracellular lipase: a lip2 knockout has no detectable extracellular lipase activity and forms no halo on triolein plates (Pignede et al. 2000, J. Bacteriol. 182:2802). The knockout still grows on triglycerides, so LIP2 is not the only route for triglyceride use. NCBI Gene 2905927 (YALI1_A21372g) cross-references UniProt Q9P8F7 (lip2). The restored equation adds the 3 H2O of hydrolysis."
+    },
+    "R1302": {
+      "cleared": {
+        "stoichiometry": {"m141[C_cy]": -1.0, "m143[C_cy]": 1.0, "m918[C_cy]": -1.0, "m921[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": ""
+      },
+      "restored": {
+        "stoichiometry": {"m141[C_cy]": -1.0, "m143[C_cy]": 1.0, "m918[C_cy]": -1.0, "m921[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1A08512g"
+      },
+      "gene": {"id": "YALI1A08512g", "uniprot": "A0A1D8N468", "ec-code": "2.7.1.35"},
+      "evidence_tier": "C",
+      "evidence_status": "curated_annotation",
+      "sources": [
+        "https://rest.uniprot.org/uniprotkb/Q6CHH8"
+      ],
+      "evidence": "Annotation only: NCBI Gene 2905869 (YALI1_A08512g) cross-references unreviewed UniProt Q6CHH8 'pyridoxal kinase' (EC 2.7.1.35); the same gene is on the pyridoxine kinase reaction R1306. The model's UniProt A0A1D8N468, now deleted from UniProtKB, is the same sequence as Q6CHH8 (UniParc UPI00003BB843). EC 2.7.1.35 covers pyridoxal, pyridoxamine and pyridoxine. No experimental evidence in Yarrowia lipolytica."
+    },
+    "R1303": {
+      "cleared": {
+        "stoichiometry": {"m10[C_cy]": 1.0, "m141[C_cy]": -1.0, "m143[C_cy]": 1.0, "m919[C_cy]": -1.0, "m920[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": ""
+      },
+      "restored": {
+        "stoichiometry": {"m141[C_cy]": -1.0, "m143[C_cy]": 1.0, "m919[C_cy]": -1.0, "m920[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1A08512g"
+      },
+      "gene": {"id": "YALI1A08512g", "uniprot": "A0A1D8N468", "ec-code": "2.7.1.35"},
+      "evidence_tier": "C",
+      "evidence_status": "curated_annotation",
+      "sources": [
+        "https://rest.uniprot.org/uniprotkb/Q6CHH8"
+      ],
+      "evidence": "Annotation only, as for R1302. The restored equation drops the extra H+ product, which with the model's neutral ATP/ADP, pyridoxamine and pyridoxamine-5'-phosphate species left H and charge unbalanced by +1."
+    }
+  },
+  "species": {
+    "m10[C_cy]": {"formula": "H", "charge": 1, "compartment": "C_cy"},
+    "m82[C_cy]": {"formula": "CO2", "charge": 0, "compartment": "C_cy"},
+    "m141[C_cy]": {"formula": "C10H16N5O13P3", "charge": 0, "compartment": "C_cy"},
+    "m143[C_cy]": {"formula": "C10H15N5O10P2", "charge": 0, "compartment": "C_cy"},
+    "m149[C_cy]": {"formula": "C9H13N2O9P", "charge": 0, "compartment": "C_cy"},
+    "m214[C_ex]": {"formula": "H2O", "charge": 0, "compartment": "C_ex"},
+    "m852[C_cy]": {"formula": "C10H10N2O11P", "charge": -3, "compartment": "C_cy"},
+    "m918[C_cy]": {"formula": "C8H9NO3", "charge": 0, "compartment": "C_cy"},
+    "m919[C_cy]": {"formula": "C8H12N2O2", "charge": 0, "compartment": "C_cy"},
+    "m920[C_cy]": {"formula": "C8H13N2O5P", "charge": 0, "compartment": "C_cy"},
+    "m921[C_cy]": {"formula": "C8H10NO6P", "charge": 0, "compartment": "C_cy"},
+    "m1056[C_ex]": {"formula": "C3H8O3", "charge": 0, "compartment": "C_ex"},
+    "m1463[C_ex]": {"formula": "C18H34O2", "charge": 0, "compartment": "C_ex"},
+    "mtriolein[C_ex]": {"formula": "C57H104O6", "charge": 0, "compartment": "C_ex"}
+  }
+}

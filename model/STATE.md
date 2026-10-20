@@ -5,6 +5,102 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-19: Selection restore made hash-seed independent (R159 species order), byte-level rebuild of 51c6fabd
+
+**Authorization.** User, 2026-10-19: "Approved: fast-forward claude/great-wu-64e590 to dc471d7, add the
+cross-seed test, apply the sorted() fix at line 154, run pytest before/after, and do the two seeded offline
+builds (new candidate + .scratch). No commit or push." Details:
+[REPORT.md](reports/selection_restore_order_20261019/REPORT.md).
+
+**Cause:**
+- At dc471d7, `selection_gpr_restore.py` iterated a `str` set before `add_metabolites`, and cobra appends
+  new species in that order. Statically verified.
+- Only R159 adds two or more species (7), so only its speciesReference order changed with
+  `PYTHONHASHSEED`. Seeds 0–7 on the test fixtures gave 8 distinct R159 orders and one order for every
+  other target. Observed in a run.
+- This explains the R153 session's rebuild `8f083627…` ≠ `51c6fabd…` with `model_diff` 0.
+
+**Fix:** line 154 iterates `sorted(...)`, plus a new cross-seed subprocess test (seeds 0, 1, 2). Code
+only: no model science, curation data or medium changed.
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_sorted_20261019.xml`
+(`f0f24b26…`). It is the dc471d7 argv rebuilt with the fix and is not a reference model. 51c6fabd is
+unchanged.
+
+**Verified this session (observed in runs):**
+- Builds with `PYTHONHASHSEED=0` and `=1` are byte-identical.
+- `model_diff.py` vs 51c6fabd reports 0 differences.
+- The byte diff is only the order of the `R_R159` speciesReference lines.
+- Build input SHAs and all 99 data SHAs equal 51c6fabd's record.
+- The new test fails on the unfixed code and passes after the fix.
+- Full pytest is identical per test (181 → 182 passed; 11 failed and 14 errors predate this change),
+  plus the 1 new test.
+
+**Limits:**
+- Byte reproducibility of the whole build was checked for two seeds and this argv only. The other builder
+  steps were not audited for set iteration.
+- The build-log warning order still varies with the seed.
+- Uncommitted, in worktree `claude/great-wu-64e590` (fast-forwarded to dc471d7).
+- The R153 line (`claude/eloquent-borg-1bd1b0`) does not include this fix.
+
+## 2026-10-19: Selection-overwritten GPRs fixed (R671, R159/R190) and R765/R766 builder correction, new candidate
+
+**Authorization.** User, 2026-10-19: "Approved: implement A (R671 GPR re-apply as a new change set), B (drop
+R765/R766 from the builder's mis-annotation removals, no model change expected) and C option (i) (restore
+EG-GPR-001 for R190/R159) … No LP solves yet, no commit." Plan and evidence:
+[review](reports/selection_gpr_review_20261019/REPORT.md). Details:
+[REPORT.md](reports/selection_gpr_fix_20261019/REPORT.md).
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml` (`51c6fabd…`).
+- Built with c98961e9's flags plus `--restore-selection-overwritten-gprs --restore-selection-cpa-ura2`.
+- Not a reference model.
+- The first build (`fa859429…`) is superseded: one note stated a wrong EC provenance. It is kept until the user
+  decides.
+
+**Changes:**
+- R671 → `YALI1F23441g`.
+  - YALI1E11370g = GatB/PET112 (Q6C6I6), so it leaves R671.
+  - The equation is unchanged, with its recorded +1 charge residual.
+- R159 → URA2-only net channelled CPS + ATCase.
+- R190 → `YALI1C33005g and YALI1D09420g` (CPA2/CPA1 heterodimer, homology-level).
+  - EG-GPR-001's dossier stays `needs_more_evidence`.
+  - Whether URA2 feeds the arginine pool remains unresolved for Y. lipolytica.
+- R765/R766: the builder no longer removes YALI1E07744g, which is the transketolase (GeneID 2912397 → Q6C6T4).
+  The 2026-07-06 removal was a YALI1/YALI0 locus mix-up. The final GPR is unchanged.
+
+**Verified this session:**
+- Control builds reproduce a56f3649 and c98961e9 byte for byte with the final code.
+- The whole-model diff vs c98961e9 has 19 differences, all on the targets and their derived gene and metabolite
+  links.
+- R159 and R190 balance.
+- The m325 pool is now R190 → R607 only.
+- pytest is identical per test, plus 10 new passing tests.
+- An independent audit supported claims 1–8 and partly supported 9. Its defects were fixed, and the candidate was
+  rebuilt as v2.
+
+**Mechanism:** generalized `selection_gpr_restore.py` (change-set registry, gene lists, a recorded residual for
+unchanged equations, context and pool guards). New data files `selection_overwritten_gpr_restore.json` and
+`selection_cpa_ura2_restore.json`. A `patches.py` correction for B.
+
+**Solves (user-authorized, 12 LPs, GLPK, SD-Leu + PO1f, all optimal; observed in runs):**
+- WT is 1.4308057 h⁻¹ on both models.
+- On c98961e9, every knockout of the five genes gives KO/WT 1.0.
+- On the new candidate:
+  - YALI1F23441g: 0.421;
+  - YALI1E11370g: 1.0;
+  - CPA2 YALI1C33005g and CPA1 YALI1D09420g: 0.1439 each, essential at 15% only;
+  - URA2 YALI1E11768g: 1.0, uracil supplied.
+- Against the consensus list (curation data, not independent validation), at 15%: CPA2 FN → TP and CPA1 TN → FP.
+  Nothing changes at 1/5/10%. No full screen was run.
+
+**Limits:**
+- Mechanisms are inferred from objective values only: tyrosine and arginine uptake limitation. No fluxes were
+  read.
+- Uncommitted, in worktree `claude/clever-kare-7d2e1a`. It holds byte-identical copies of the uncommitted
+  2026-10-19 restore files from `claude/orphan-reaction-newest-model-b8ddc8`; merge with care.
+- The 2026-10-19 restore REPORT §6 still calls the E07744g removal "verified". That file is in the other worktree
+  and was not edited.
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop

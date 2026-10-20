@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "change_id": "SELECTION-CPA-URA2-RESTORE-20261019",
+  "status": "user_authorized_restore",
+  "authorization": "2026-10-19: user approved option (i), restoring the accepted legacy patch EG-GPR-001 on R159/R190 after the metadata reaction selection, as an opt-in build step: R159 the URA2-only net channelled CPS + ATCase reaction, R190 the CPA2 and CPA1 heterodimer.",
+  "reviewer": "human_user",
+  "selection_id": "metadata_reaction_fields_preserve_trna_20260910",
+  "patch_id": "EG-GPR-001",
+  "patch_dossier": "model/curation/essentiality/evidence/EGC-legacy-cpa-ura2.json",
+  "patch_dossier_verdict": "needs_more_evidence",
+  "review": "model/reports/selection_gpr_review_20261019/REPORT.md",
+  "report": "model/reports/selection_gpr_fix_20261019/REPORT.md",
+  "context": {
+    "R159": {
+      "name": "pyrimidine-specific carbamoyl-phosphate synthase/aspartate carbamoyltransferase (channelled)",
+      "ec-code": ["2.1.3.2", "3.5.1.2", "6.3.4.16", "6.3.5.5"]
+    },
+    "R190": {
+      "name": "arginine-specific carbamoyl-phosphate synthase (glutamine-hydrolysing)",
+      "ec-code": ["3.5.1.2", "6.3.4.16", "6.3.5.5"]
+    },
+    "R607": {
+      "stoichiometry": {"m10[C_cy]": 1.0, "m311[C_cy]": -1.0, "m313[C_cy]": 1.0, "m325[C_cy]": -1.0, "m35[C_cy]": 1.0},
+      "bounds": [0.0, 1000.0],
+      "gpr": "YALI1D18130g"
+    }
+  },
+  "pool_context": {
+    "m325[C_cy]": {"R607": -1.0}
+  },
+  "reactions": {
+    "R159": {
+      "cleared": {
+        "stoichiometry": {"m267[C_cy]": -1.0, "m325[C_cy]": -1.0, "m326[C_cy]": 1.0, "m35[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1C33005g or YALI1D09420g or YALI1E11768g"
+      },
+      "restored": {
+        "stoichiometry": {"m10[C_cy]": -1.0, "m130[C_cy]": -1.0, "m141[C_cy]": -2.0, "m143[C_cy]": 2.0, "m199[C_cy]": -1.0, "m267[C_cy]": -1.0, "m326[C_cy]": 1.0, "m32[C_cy]": -1.0, "m35[C_cy]": 2.0, "m50[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1E11768g"
+      },
+      "genes": [{"id": "YALI1E11768g"}],
+      "evidence_tier": "C",
+      "evidence_status": "curated_annotation",
+      "sources": [
+        "https://www.kegg.jp/entry/yli:2912535",
+        "https://rest.uniprot.org/uniprotkb/Q6C6H5",
+        "https://rest.uniprot.org/uniprotkb/P07259",
+        "https://rest.uniprot.org/uniprotkb/P07258",
+        "https://rest.uniprot.org/uniprotkb/P03965"
+      ],
+      "evidence": "EG-GPR-001 (accepted legacy patch, dossier verdict needs_more_evidence): R159 is the net URA2 CPS + ATCase reaction with the carbamoyl-phosphate intermediate channelled, so it no longer draws on the m325 pool. YALI1E11768g = NCBI Gene 2912535 (XP_503737.3, 2186 aa), KEGG yli:2912535 K11541 carbamoyl-phosphate synthase / aspartate carbamoyltransferase; UniProt Q6C6H5 (unreviewed). ATCase is a URA2 domain; the CPA1 (YALI1D09420g) and CPA2 (YALI1C33005g) functions are carbamoyl-phosphate synthesis only, so they leave this GPR. Channelling of the URA2 product to its ATCase is experimental in S. cerevisiae (P07259); whether URA2 also feeds the arginine pool is unresolved for Yarrowia lipolytica (single pool in S. cerevisiae, separate pools in N. crassa and S. pombe). Identity by database annotation and homology; no Yarrowia lipolytica enzymology."
+    },
+    "R190": {
+      "cleared": {
+        "stoichiometry": {"m10[C_cy]": -1.0, "m130[C_cy]": -1.0, "m141[C_cy]": -2.0, "m143[C_cy]": 2.0, "m199[C_cy]": -1.0, "m325[C_cy]": 1.0, "m32[C_cy]": -1.0, "m35[C_cy]": 1.0, "m50[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1C33005g or YALI1D09420g or YALI1E11768g"
+      },
+      "restored": {
+        "stoichiometry": {"m10[C_cy]": -1.0, "m130[C_cy]": -1.0, "m141[C_cy]": -2.0, "m143[C_cy]": 2.0, "m199[C_cy]": -1.0, "m325[C_cy]": 1.0, "m32[C_cy]": -1.0, "m35[C_cy]": 1.0, "m50[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1C33005g and YALI1D09420g"
+      },
+      "genes": [
+        {"id": "YALI1C33005g", "ncbigene": "2909603", "refseq": "XP_502204.1"},
+        {"id": "YALI1D09420g", "uniprot": "Q6C9Y4", "refseq": "XP_502528.3"}
+      ],
+      "evidence_tier": "C",
+      "evidence_status": "curated_annotation",
+      "sources": [
+        "https://www.kegg.jp/entry/yli:2909603",
+        "https://www.kegg.jp/entry/yli:2910891",
+        "https://rest.uniprot.org/uniprotkb/Q6C9Y4",
+        "https://rest.uniprot.org/uniprotkb/P07258",
+        "https://rest.uniprot.org/uniprotkb/P03965"
+      ],
+      "evidence": "EG-GPR-001: R190 is the arginine-specific glutamine-dependent CPSase, a CPA2 (large chain) and CPA1 (small chain) heterodimer. YALI1C33005g = NCBI Gene 2909603 (XP_502204.1), KEGG yli:2909603 (RefSeq name 'Carbamoyl-phosphate synthase arginine-specific large chain'), K01955; YALI1D09420g = NCBI Gene 2910891 (XP_502528.3), Swiss-Prot Q6C9Y4 CPA1, KEGG K01956. Heterodimer: S. cerevisiae CPA1 P07258 and CPA2 P03965 (experimental, PubMed 206535, 5856369); Y. lipolytica Q6C9Y4 by similarity to N. crassa P22572. The equation is unchanged and balanced. URA2 (YALI1E11768g) leaves this GPR; its contribution to the free carbamoyl-phosphate pool is unresolved for Yarrowia lipolytica."
+    }
+  },
+  "species": {
+    "m10[C_cy]": {"formula": "H", "charge": 1, "compartment": "C_cy"},
+    "m32[C_cy]": {"formula": "H2O", "charge": 0, "compartment": "C_cy"},
+    "m35[C_cy]": {"formula": "H3O4P", "charge": 0, "compartment": "C_cy"},
+    "m50[C_cy]": {"formula": "C5H9NO4", "charge": 0, "compartment": "C_cy"},
+    "m130[C_cy]": {"formula": "C5H10N2O3", "charge": 0, "compartment": "C_cy"},
+    "m141[C_cy]": {"formula": "C10H16N5O13P3", "charge": 0, "compartment": "C_cy"},
+    "m143[C_cy]": {"formula": "C10H15N5O10P2", "charge": 0, "compartment": "C_cy"},
+    "m199[C_cy]": {"formula": "CHO3", "charge": -1, "compartment": "C_cy"},
+    "m267[C_cy]": {"formula": "C4H7NO4", "charge": 0, "compartment": "C_cy"},
+    "m325[C_cy]": {"formula": "CH4NO5P", "charge": 0, "compartment": "C_cy"},
+    "m326[C_cy]": {"formula": "C5H8N2O5", "charge": 0, "compartment": "C_cy"}
+  }
+}
