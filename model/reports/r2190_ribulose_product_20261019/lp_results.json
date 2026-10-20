@@ -1,0 +1,158 @@
+{
+  "models": {
+    "M0": {
+      "path": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+      "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+    },
+    "M1": {
+      "path": "model/candidates/E5_coq9_resp_pkg_r132_r2190_ribulose_20261019.xml",
+      "sha256": "36f041930e5fee211395a45da4a36bb991fe9285637c409b07cc6d04114812ac"
+    }
+  },
+  "simulation_context": {
+    "M0": {
+      "simulation_context_fingerprint_version": "1",
+      "simulation_context_fingerprint": "da161fa6d0348bcc5c9f58f37fb6340bee31194ca608facbf12b3360cab60900",
+      "strain_overlay_enabled": true,
+      "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "strain_overlay_effect_fingerprint_version": "1",
+      "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+    },
+    "M1": {
+      "simulation_context_fingerprint_version": "1",
+      "simulation_context_fingerprint": "96194707309e349faf2e17542aab2a72865b8bb1125b057843e67510af305283",
+      "strain_overlay_enabled": true,
+      "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+      "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+      "strain_overlay_effect_fingerprint_version": "1",
+      "strain_overlay_effect_sha256": "d15acbde9438f5d2391c4da23705a34a3585833062d616517d5af052088606c2"
+    }
+  },
+  "solver": {
+    "Threads": 1,
+    "TimeLimit": 60,
+    "Presolve": 0,
+    "FeasibilityTol": 1e-07,
+    "OptimalityTol": 1e-07,
+    "IntFeasTol": 1e-07
+  },
+  "closure_M1": {
+    "boundary_reactions_closed": 183,
+    "forced_relaxed": [
+      "xMAINTENANCE"
+    ]
+  },
+  "results": {
+    "WT_M0": {
+      "status": "optimal",
+      "objective": 1.430805735352851,
+      "fluxes": {
+        "biomass_C": 1.430805735352851,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": -0.3382108849866441
+      }
+    },
+    "WT_M1": {
+      "status": "optimal",
+      "objective": 1.4308057353528474,
+      "fluxes": {
+        "biomass_C": 1.4308057353528474,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": -0.3382108849866512
+      }
+    },
+    "closed_R1964_min_M1": {
+      "status": "optimal",
+      "objective": 0.0,
+      "fluxes": {
+        "biomass_C": 0.0,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": 0.0
+      }
+    },
+    "closed_R1964_max_M1": {
+      "status": "optimal",
+      "objective": 0.0,
+      "fluxes": {
+        "biomass_C": 0.0,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": 0.0
+      }
+    },
+    "closed_R2041_min_M1": {
+      "status": "optimal",
+      "objective": 0.0,
+      "fluxes": {
+        "biomass_C": 0.0,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": 0.0
+      }
+    },
+    "closed_R2041_max_M1": {
+      "status": "optimal",
+      "objective": 0.0,
+      "fluxes": {
+        "biomass_C": 0.0,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": 0.0
+      }
+    },
+    "closed_R2042_min_M1": {
+      "status": "optimal",
+      "objective": 0.0,
+      "fluxes": {
+        "biomass_C": 0.0,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": 0.0
+      }
+    },
+    "closed_R2042_max_M1": {
+      "status": "optimal",
+      "objective": 0.0,
+      "fluxes": {
+        "biomass_C": 0.0,
+        "R2190": 0.0,
+        "R1964": 0.0,
+        "R2041": 0.0,
+        "R2042": 0.0,
+        "R803": 0.0,
+        "R714": 0.0
+      }
+    }
+  },
+  "checks": {
+    "wt_relative_difference": 2.4830161013607947e-15,
+    "wt_equal_within_1e-9": true,
+    "closed_ranges_zero_within_1e-7": true
+  },
+  "optimization_calls": 8
+}

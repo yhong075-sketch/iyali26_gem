@@ -1,0 +1,51 @@
+{
+ "counts_before": {
+  "passed": 165,
+  "skipped": 31,
+  "failed": 11,
+  "error": 14
+ },
+ "counts_after": {
+  "passed": 171,
+  "skipped": 31,
+  "failed": 11,
+  "error": 14
+ },
+ "only_before": [],
+ "only_after": {
+  "tests.test_r2190_product.R2190ProductTests::test_flag_is_opt_in": "passed",
+  "tests.test_r2190_product.R2190ProductTests::test_replaces_the_product_only_and_is_idempotent": "passed",
+  "tests.test_r2190_product.R2190ProductTests::test_rerun_rejects_a_drifted_after_state": "passed",
+  "tests.test_r2190_product.R2190ProductTests::test_sbml_roundtrip_keeps_the_after_state": "passed",
+  "tests.test_r2190_product.R2190ProductTests::test_stale_inputs_fail_closed_without_edits": "passed",
+  "tests.test_r2190_product.R2190ProductTests::test_unexpected_or_unbalanced_curation_is_rejected": "passed"
+ },
+ "changed": {},
+ "non_passing_before": {
+  "tests.test_coa_protonation_curation.CoAProtonationCurationDataTests::test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy": "failed",
+  "tests.test_coa_protonation_curation.CoAProtonationCurationDataTests::test_core_45_tuples_and_identity_annotation_targets_are_explicit": "failed",
+  "tests.test_coa_protonation_curation.CoAProtonationCurationDataTests::test_explicit_source_model_path_overrides_manifest_location": "failed",
+  "tests.test_coa_protonation_curation.CoAProtonationCurationDataTests::test_production_manifest_is_locked_to_the_post_annotation_model_snapshot": "failed",
+  "tests.test_coa_protonation_curation.CoAProtonationCurationDataTests::test_r2076_correction_is_withdrawn_and_decision_contract_is_exact": "failed",
+  "tests.test_coa_protonation_curation.CoAProtonationCurationDataTests::test_redox_and_focal_acid_groups_are_pinned": "failed",
+  "tests.test_dfba_new_fn_essentiality.DfbaNewFalseNegativeTests::test_positive_only_reference_never_implies_negative_labels": "failed",
+  "tests.test_lipid_moiety_ledger.LipidMoietyLedgerDataContractTests::test_documentation_states_chemical_and_capability_boundaries": "failed",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_cardiolipin_audit_is_empty_fail_closed_and_stereospecific": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_cli_refuses_source_overwrite": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_coq_r39_mapping_sha_drift_fails_closed": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_coq_r39_r40_candidate_is_mitochondrial_and_evidence_gated": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_each_required_chain_is_not_bypassed": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_linoleoyl_charge_is_corrected_before_all_lipid_routes": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_lipid_exchange_metadata_is_explicit_and_gpr_free": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_r1521_substrate_formula_is_completed_without_ph_migration": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_r989_candidate_gpr_is_alphafold_limited_and_wet_lab_gated": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_required_lipid_routes_are_not_bypassed": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_sbml_round_trip_and_function": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_source_contract_is_frozen_and_input_unchanged": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_structure_balance_and_template_copying": "error",
+  "tests.test_lp_sn12_candidate.StrictSnCoreTests::test_tuple_order_and_biomass_weights": "error",
+  "tests.test_vacuole_explicit_inputs.ExplicitInputTests::test_audit_saved_run_uses_archived_executed_source_without_optimization": "failed",
+  "tests.test_vacuole_supply.VacuoleSupplyTests::test_actual_run_identity_budget_and_restoration": "failed",
+  "tests.test_vacuole_supply.VacuoleSupplyTests::test_xml_only_four_bounds_and_real_context_rollback_without_solve": "failed"
+ }
+}

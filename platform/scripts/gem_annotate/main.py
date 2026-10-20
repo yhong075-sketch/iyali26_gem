@@ -78,6 +78,7 @@ def build_reference_chain(
     coq9_biomass_dilution: bool = False,
     coq9_respiratory_package: bool = False,
     r132_mito_adh: bool = False,
+    r2190_ribulose_product: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -695,6 +696,9 @@ def build_reference_chain(
     if r132_mito_adh:
         from .r132_mito_adh import apply_r132_mito_adh
         selection["r132_mito_adh"] = apply_r132_mito_adh(model)
+    if r2190_ribulose_product:
+        from .r2190_product import apply_r2190_product
+        selection["r2190_ribulose_product"] = apply_r2190_product(model)
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -779,6 +783,7 @@ def build_model(args):
         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
         r132_mito_adh=getattr(args, "r132_mito_adh", False),
+        r2190_ribulose_product=getattr(args, "r2190_ribulose_product", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
