@@ -444,6 +444,84 @@ regiochemistry is unsettled. This is not experimental validation of an in vivo r
 Reports: [r1964_gpr_20261019](reports/r1964_gpr_20261019/REPORT.md),
 [review](reports/r1964_gpr_review_20261019/REPORT.md).
 
+## 2026-10-19: Four selection-cleared GPRs restored (R612, R2274, R1302, R1303), new candidate
+
+**Authorization.** The user approved the plan "re-apply the R612, R2274, R1302 and R1303 GPRs (and
+balanced R1303/R2274 stoichiometry) after the metadata selection step" for all four reactions.
+Uncommitted on `claude/orphan-reaction-newest-model-b8ddc8` (`4d97b82`).
+
+**Results** ([REPORT.md](reports/selection_gpr_restore_20261019/REPORT.md)). Verified this session
+unless marked otherwise.
+- **New candidate:** [E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml](candidates/E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml)
+  (`c98961e9…`). Built from a56f3649's flags plus the new opt-in
+  `--restore-selection-cleared-gprs`.
+- **Data and code:**
+  - data: `model/curation/gpr/selection_cleared_gpr_restore.json`;
+  - step: guarded `apply_selection_gpr_restore` (`selection_gpr_restore.py`);
+  - tests: 6 (`test_selection_gpr_restore.py`).
+- **Changes:**
+  - R612 = YALI1E31685g (URA3, tier A);
+  - R2274 = YALI1A21372g (LIP2, tier A), plus 3 H₂O;
+  - R1302 and R1303 = YALI1A08512g (annotation only, tier C); R1303 loses its extra H⁺.
+  - All 4 reactions are balanced.
+- **Checks:**
+  - The control build without the flag reproduces a56f3649 byte for byte (twice).
+  - The whole-model diff shows 13 differences, all on the 4 reactions and the membership of the 3
+    genes.
+  - pytest per test: identical plus 6 new passes (pre-existing 11 failed and 14 errors unchanged).
+  - 8 GLPK solves on SD-Leu + PO1f: WT 1.430806 and every KO/WT 1.0 on both models (observed).
+- **Independent audit:** 7 of 8 claims supported; idempotence after an SBML round trip was only
+  partially supported. Fixed: the note comparison and the R612 wording; then rebuilt as v2.
+- The first build `…_gpr_restore_20261019.xml` (`38e257b6`) was superseded by v2. Its three files
+  were deleted on the user's instruction (2026-10-19).
+
+**Limits.**
+- The opt-in flag leaves the default build and earlier candidates unchanged.
+- No triolein condition was run. Structurally, a LIP2 KO would block all triolein use, unlike the
+  reported lip2 KO (inferred).
+- Outside this scope: the same 2026-09-10 selection re-adds YALI1E07744g (R765/R766) and
+  YALI1E11370g (R671), which the builder removes as mis-annotations. It also turns R190's AND into
+  an OR (verified, not changed).
+
+## 2026-10-19: Orphan-reaction inventory of the newest candidate, investigation only
+
+**Authorization.** The user asked to find the orphan reactions in the newest model, then to run
+pFBA, FVA (0 % and 99.9 %) and single-reaction KO on them under SD-Leu + PO1f as a read-only
+computation, then to save the tables and recommend actions. No model, GPR or data change.
+No BLAST, no literature curation. Uncommitted on `claude/orphan-reaction-newest-model-b8ddc8`
+(`4d97b82`).
+
+**Results** ([REPORT.md](reports/orphan_reactions_20261019/REPORT.md),
+[triage.csv](reports/orphan_reactions_20261019/triage.csv)). Verified this session unless marked
+otherwise.
+- **Model:** candidate `a56f3649…` (`E5_coq9_resp_pkg_r132_20261012.xml`), the newest by commit
+  date. It is not a reference model.
+- **Counts:**
+  - 840 gene-less reactions: 183 boundary, 38 pseudo, 533 transport, 86 metabolic.
+  - 6 of the 86 are spontaneous by name, which leaves **80 orphans**.
+  - R1210 and R2197 are probably spontaneous (inferred, uncited). Reclassifying them would give 78.
+- **Flux (WT 1.4308 h⁻¹):**
+  - 5 required at the optimum: R19, R321, R1043, R1210 (KO lethal) and R1901 (KO/WT 0.9973).
+  - 1 active but not required: R1308.
+  - 41 can carry flux but carry none at the optimum.
+  - 33 blocked.
+- **Selection step:** `metadata_reaction_selection.json` (2026-09-10 user selection) clears four
+  reviewed GPRs that the builder assigns earlier: R612 URA3, R2274 LIP2, R1302 and R1303
+  YALI1A08512g. It also leaves R2274 (−3 H₂O) and R1303 (+H⁺) mass-imbalanced. Whether the
+  losses were intended is a decision for the user.
+- **Duplicate:** R530 and R1727 are an exact duplicate pair.
+- **Loop:** R1964, R2041 and R2042 lie on a net-zero internal loop with R803, R714 and R2190. It
+  carries 1000 with all boundaries closed and runs an arabinose kinase backwards to remake ATP.
+- **Triage:** 10 action groups; R19, R52, R321 and R1043 stay with the CoQ9 line and its gate.
+
+**Limits.**
+- One medium only.
+- The FVA is not loopless.
+- Compartment-free matching is by name and formula.
+- Every biological call in the triage (spontaneity, heterologous, direction) is inferred and
+  needs a source before any change.
+- No independent audit was run.
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop

@@ -26,6 +26,7 @@ so older reports and commits still identify them.
 | [E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml](E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml) | `da0c50ba` | 2026-10-19 | `a56f3649` with R2041 (D-arabinokinase) forward-only by `--r2041-forward`, keeping its balanced 2 H+ equation; only R2041 bounds and notes differ; see [the report](../reports/r2041_forward_20261019/REPORT.md). Uncommitted. |
 | [E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml](E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml) | `db429743` | 2026-10-19 | `a56f3649` with the provisional GPR `YALI1F03452g or YALI1E06616g` and D-xylulose cross-references on orphan R1964 by `--r1964-gpr`; only R1964 (GPR, annotation, notes) and the added gene YALI1E06616g differ; see [the report](../reports/r1964_gpr_20261019/REPORT.md). Uncommitted. |
 
+| [E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml](E5_coq9_resp_pkg_r132_gpr_restore_v2_20261019.xml) | `c98961e9` | 2026-10-19 | `a56f3649` plus `--restore-selection-cleared-gprs`. Re-applies the reviewed GPRs on R612 (URA3), R2274 (LIP2), R1302 and R1303 (YALI1A08512g, annotation only), and the balanced R2274/R1303 equations, all cleared by the metadata selection (user decision 2026-10-19). See [the report](../reports/selection_gpr_restore_20261019/REPORT.md). |
 Candidates published inside their task report folders:
 
 | File | SHA-256 | Published | What it is |

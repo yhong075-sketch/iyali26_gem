@@ -1,0 +1,226 @@
+{
+  "model": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+  "model_sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515",
+  "recorded_at": "2026-10-19",
+  "reactions": {
+    "R612": {
+      "name": "orotidine-5'-phosphate decarboxylase",
+      "stoichiometry": {
+        "m10[C_cy]": -3.0,
+        "m852[C_cy]": -1.0,
+        "m82[C_cy]": 1.0,
+        "m149[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "notes": {
+        "PROTEIN_CLASS": "4.1.1.23",
+        "strain_context": "PO1f ura3-302 is represented by the runtime PO1f overlay, which sets R612 bounds to zero without changing the reference-model GPR.",
+        "chemistry_status": "UMP microspecies remains component_review pending a family-wide pyrimidine/nucleotide balance repair.",
+        "metadata_previous_curated_gpr_correction": "YALI1E31685g (URA3), orotidine-5&apos;-phosphate decarboxylase; direct Yarrowia lipolytica ura3 genetic evidence: https://onlinelibrary.wiley.com/doi/full/10.1002/yea.3673",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "gpr",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "mass_balance": {}
+    },
+    "R2274": {
+      "name": "triolein hydrolysis",
+      "stoichiometry": {
+        "mtriolein[C_ex]": -1.0,
+        "m1056[C_ex]": 1.0,
+        "m1463[C_ex]": 3.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "notes": {
+        "metadata_previous_curated_gpr_correction": "YALI1A21372g (LIP2), secreted extracellular triacylglycerol lipase; direct Yarrowia lipolytica lip2Δ and Lip2 triolein activity evidence: https://pmc.ncbi.nlm.nih.gov/articles/PMC101989/",
+        "metadata_previous_gpr_evidence_status": "experimentally_verified",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "gpr; stoichiometry",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "mass_balance": {
+        "H": 6.0,
+        "O": 3.0
+      }
+    },
+    "R1302": {
+      "name": "pyridoxal kinase",
+      "stoichiometry": {
+        "m141[C_cy]": -1.0,
+        "m918[C_cy]": -1.0,
+        "m143[C_cy]": 1.0,
+        "m921[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "notes": {
+        "metadata_previous_curated_gpr_correction": "YALI1A08512g, pyridoxal kinase EC 2.7.1.35; curated UniProt automatic annotation, with the same gene already assigned to the pyridoxine-congener reaction R1306. EC 2.7.1.35 covers pyridoxal, pyridoxamine and pyridoxine.",
+        "metadata_previous_gpr_evidence_status": "curated_annotation",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "gpr",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "mass_balance": {}
+    },
+    "R1303": {
+      "name": "pyridoxamine kinase",
+      "stoichiometry": {
+        "m141[C_cy]": -1.0,
+        "m919[C_cy]": -1.0,
+        "m143[C_cy]": 1.0,
+        "m920[C_cy]": 1.0,
+        "m10[C_cy]": 1.0
+      },
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "notes": {
+        "metadata_previous_curated_gpr_correction": "YALI1A08512g, pyridoxal kinase EC 2.7.1.35; curated UniProt automatic annotation, with the same gene already assigned to the pyridoxine-congener reaction R1306. EC 2.7.1.35 covers pyridoxal, pyridoxamine and pyridoxine.",
+        "metadata_previous_gpr_evidence_status": "curated_annotation",
+        "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+        "metadata_selected_fields": "gpr; stoichiometry",
+        "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+        "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+      },
+      "mass_balance": {
+        "charge": 1.0,
+        "H": 1.0
+      }
+    }
+  },
+  "genes": {
+    "YALI1E31685g": {
+      "name": "URA3",
+      "annotation": {
+        "sbo": "SBO:0000243",
+        "uniprot": "A0A1H6PUU4",
+        "ec-code": "4.1.1.23"
+      },
+      "reactions": []
+    },
+    "YALI1A21372g": {
+      "name": "LIP2",
+      "annotation": {
+        "sbo": "SBO:0000243",
+        "ec-code": "3.1.1.3"
+      },
+      "reactions": [
+        "R1895",
+        "R1896"
+      ]
+    },
+    "YALI1A08512g": {
+      "name": "COBRAProtein874",
+      "annotation": {
+        "sbo": "SBO:0000243",
+        "uniprot": "A0A1D8N468",
+        "ec-code": "2.7.1.35"
+      },
+      "reactions": [
+        "R1306"
+      ]
+    }
+  },
+  "species": {
+    "m1056[C_ex]": {
+      "name": "glycerol_C3H8O3",
+      "formula": "C3H8O3",
+      "charge": 0,
+      "compartment": "C_ex"
+    },
+    "m10[C_cy]": {
+      "name": "H+_p+1",
+      "formula": "H",
+      "charge": 1,
+      "compartment": "C_cy"
+    },
+    "m141[C_cy]": {
+      "name": "ATP_C10H16N5O13P3",
+      "formula": "C10H16N5O13P3",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m143[C_cy]": {
+      "name": "ADP_C10H15N5O10P2",
+      "formula": "C10H15N5O10P2",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m1463[C_ex]": {
+      "name": "oleate_C18H34O2",
+      "formula": "C18H34O2",
+      "charge": 0,
+      "compartment": "C_ex"
+    },
+    "m149[C_cy]": {
+      "name": "UMP_C9H13N2O9P",
+      "formula": "C9H13N2O9P",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m214[C_ex]": {
+      "name": "H2O_H2O",
+      "formula": "H2O",
+      "charge": 0,
+      "compartment": "C_ex"
+    },
+    "m82[C_cy]": {
+      "name": "carbon dioxide_CO2",
+      "formula": "CO2",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m852[C_cy]": {
+      "name": "orotidine 5'-(dihydrogen phosphate)_C10H10N2O11P",
+      "formula": "C10H10N2O11P",
+      "charge": -3,
+      "compartment": "C_cy"
+    },
+    "m918[C_cy]": {
+      "name": "pyridoxal_C8H9NO3",
+      "formula": "C8H9NO3",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m919[C_cy]": {
+      "name": "pyridoxamine_C8H12N2O2",
+      "formula": "C8H12N2O2",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m920[C_cy]": {
+      "name": "pyridoxamine 5'-phosphate_C8H13N2O5P",
+      "formula": "C8H13N2O5P",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m921[C_cy]": {
+      "name": "pyridoxal 5'-phosphate_C8H10NO6P",
+      "formula": "C8H10NO6P",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "mtriolein[C_ex]": {
+      "name": "triolein",
+      "formula": "C57H104O6",
+      "charge": 0,
+      "compartment": "C_ex"
+    }
+  }
+}
