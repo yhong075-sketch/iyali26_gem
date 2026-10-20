@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "change_id": "SELECTION-GPR-RESTORE-R671-20261019",
+  "status": "user_authorized_restore",
+  "authorization": "2026-10-19: user approved re-applying R671's reviewed GPR YALI1F23441g (without the mis-annotated GatB gene YALI1E11370g) after the metadata reaction selection, as an opt-in build step; the selected equation is kept.",
+  "reviewer": "human_user",
+  "selection_id": "metadata_reaction_fields_preserve_trna_20260910",
+  "review": "model/reports/selection_gpr_review_20261019/REPORT.md",
+  "report": "model/reports/selection_gpr_fix_20261019/REPORT.md",
+  "reactions": {
+    "R671": {
+      "cleared": {
+        "stoichiometry": {"m10[C_cy]": 1.0, "m408[C_cy]": -1.0, "m40[C_cy]": 1.0, "m41[C_cy]": -1.0, "m82[C_cy]": 1.0, "m903[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1F23441g or YALI1E11370g"
+      },
+      "restored": {
+        "stoichiometry": {"m10[C_cy]": 1.0, "m408[C_cy]": -1.0, "m40[C_cy]": 1.0, "m41[C_cy]": -1.0, "m82[C_cy]": 1.0, "m903[C_cy]": 1.0},
+        "bounds": [0.0, 1000.0],
+        "gpr": "YALI1F23441g"
+      },
+      "unchanged_equation_residual": {"charge": 1.0},
+      "genes": [{"id": "YALI1F23441g", "ncbigene": "2909038"}],
+      "evidence_tier": "C",
+      "evidence_status": "curated_annotation",
+      "sources": [
+        "https://www.kegg.jp/entry/yli:2909038",
+        "https://www.ncbi.nlm.nih.gov/protein/XP_505545.1",
+        "https://www.kegg.jp/entry/yli:2912526",
+        "https://rest.uniprot.org/uniprotkb/Q6C6I6"
+      ],
+      "evidence": "YALI1F23441g = NCBI Gene 2909038 (XP_505545.1, 433 aa), KEGG yli:2909038 'Prephenate dehydrogenase [NADP(+)]', K00211 (EC 1.3.1.13). The removed YALI1E11370g = NCBI Gene 2912526 (XP_503726.2), Swiss-Prot Q6C6I6 PET112, mitochondrial glutamyl-tRNA(Gln) amidotransferase subunit B (EC 6.3.5.7), KEGG K02434; it enters R671 through the isozyme-addition table, whose R671 row carries EC 6.3.5.7 (GatB's EC; the legacy model.xml annotates R671 with it, the source model does not), and the builder's remove_misannotated_gprs removes it before the selection re-adds it. Identity by database annotation and homology only; no Yarrowia lipolytica enzymology. The kept equation is mass-balanced; its +1 charge residual comes from the stored NADP+ charge of 0 and is not changed here."
+    }
+  },
+  "species": {
+    "m10[C_cy]": {"formula": "H", "charge": 1, "compartment": "C_cy"},
+    "m40[C_cy]": {"formula": "C21H30N7O17P3", "charge": 0, "compartment": "C_cy"},
+    "m41[C_cy]": {"formula": "C21H29N7O17P3", "charge": 0, "compartment": "C_cy"},
+    "m82[C_cy]": {"formula": "CO2", "charge": 0, "compartment": "C_cy"},
+    "m408[C_cy]": {"formula": "C10H10O6", "charge": 0, "compartment": "C_cy"},
+    "m903[C_cy]": {"formula": "C9H8O4", "charge": 0, "compartment": "C_cy"}
+  }
+}
