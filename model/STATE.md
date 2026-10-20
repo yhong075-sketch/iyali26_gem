@@ -5,6 +5,44 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-19: Selection restore made hash-seed independent (R159 species order), byte-level rebuild of 51c6fabd
+
+**Authorization.** User, 2026-10-19: "Approved: fast-forward claude/great-wu-64e590 to dc471d7, add the
+cross-seed test, apply the sorted() fix at line 154, run pytest before/after, and do the two seeded offline
+builds (new candidate + .scratch). No commit or push." Details:
+[REPORT.md](reports/selection_restore_order_20261019/REPORT.md).
+
+**Cause:**
+- At dc471d7, `selection_gpr_restore.py` iterated a `str` set before `add_metabolites`, and cobra appends
+  new species in that order. Statically verified.
+- Only R159 adds two or more species (7), so only its speciesReference order changed with
+  `PYTHONHASHSEED`. Seeds 0–7 on the test fixtures gave 8 distinct R159 orders and one order for every
+  other target. Observed in a run.
+- This explains the R153 session's rebuild `8f083627…` ≠ `51c6fabd…` with `model_diff` 0.
+
+**Fix:** line 154 iterates `sorted(...)`, plus a new cross-seed subprocess test (seeds 0, 1, 2). Code
+only: no model science, curation data or medium changed.
+
+**New candidate:** `candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_sorted_20261019.xml`
+(`f0f24b26…`). It is the dc471d7 argv rebuilt with the fix and is not a reference model. 51c6fabd is
+unchanged.
+
+**Verified this session (observed in runs):**
+- Builds with `PYTHONHASHSEED=0` and `=1` are byte-identical.
+- `model_diff.py` vs 51c6fabd reports 0 differences.
+- The byte diff is only the order of the `R_R159` speciesReference lines.
+- Build input SHAs and all 99 data SHAs equal 51c6fabd's record.
+- The new test fails on the unfixed code and passes after the fix.
+- Full pytest is identical per test (181 → 182 passed; 11 failed and 14 errors predate this change),
+  plus the 1 new test.
+
+**Limits:**
+- Byte reproducibility of the whole build was checked for two seeds and this argv only. The other builder
+  steps were not audited for set iteration.
+- The build-log warning order still varies with the seed.
+- Uncommitted, in worktree `claude/great-wu-64e590` (fast-forwarded to dc471d7).
+- The R153 line (`claude/eloquent-borg-1bd1b0`) does not include this fix.
+
 ## 2026-10-19: Selection-overwritten GPRs fixed (R671, R159/R190) and R765/R766 builder correction, new candidate
 
 **Authorization.** User, 2026-10-19: "Approved: implement A (R671 GPR re-apply as a new change set), B (drop

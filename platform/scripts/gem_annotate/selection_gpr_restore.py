@@ -150,8 +150,9 @@ def apply_selection_gpr_restore(model, spec=None, change_id=CLEARED_GPR_RESTORE)
         changed = target is not None or bool(missing_notes)
         if target is not None:
             current = _state(reaction)[0]
+            # Sorted: add_metabolites appends new species in this order and the SBML writer keeps it.
             delta = {mid: target["stoichiometry"].get(mid, 0.0) - current.get(mid, 0.0)
-                     for mid in set(current) | set(target["stoichiometry"])}
+                     for mid in sorted(set(current) | set(target["stoichiometry"]))}
             reaction.add_metabolites({model.metabolites.get_by_id(mid): c for mid, c in delta.items() if c},
                                      combine=True)
             reaction.gene_reaction_rule = target["gpr"]

@@ -1,0 +1,27 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ ChangeSetRestoreTests.test_restored_species_order_does_not_depend_on_the_hash_seed _
+
+self = <test_selection_gpr_restore_change_sets.ChangeSetRestoreTests testMethod=test_restored_species_order_does_not_depend_on_the_hash_seed>
+
+    def test_restored_species_order_does_not_depend_on_the_hash_seed(self):
+        orders = []
+        for seed in ("0", "1", "2"):
+            completed = subprocess.run([sys.executable, "-B", "-c", ORDER_PROBE], cwd=PLATFORM_ROOT, text=True,
+                                       capture_output=True, check=False, timeout=120,
+                                       env={**os.environ, "PYTHONHASHSEED": seed})
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            orders.append(json.loads(completed.stdout.splitlines()[-1]))
+>       self.assertEqual(orders[1:], orders[:1] * 2)
+E       AssertionError: Lists differ: [{'R6[406 chars]', 'm141[C_cy]', 'm10[C_cy]', 'm32[C_cy]', 'm5[822 chars]]']}] != [{'R6[406 chars]', 'm50[C_cy]', 'm10[C_cy]', 'm199[C_cy]', 'm1[822 chars]]']}]
+E       
+E       First differing element 0:
+E       {'R61[405 chars]', 'm141[C_cy]', 'm10[C_cy]', 'm32[C_cy]', 'm5[179 chars]y]']}
+E       {'R61[405 chars]', 'm50[C_cy]', 'm10[C_cy]', 'm199[C_cy]', 'm1[179 chars]y]']}
+E       
+E       Diff is 2163 characters long. Set self.maxDiff to None to see it.
+
+tests/test_selection_gpr_restore_change_sets.py:132: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_restored_species_order_does_not_depend_on_the_hash_seed
+1 failed in 3.96s

@@ -3,6 +3,9 @@ mis-annotation removal (2026-10-19); no optimization."""
 
 import copy
 import json
+import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,7 +15,7 @@ from cobra.io import read_sbml_model
 
 from scripts.gem_annotate.cli import parse_args
 from scripts.gem_annotate.energy_candidates import model_definition
-from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.model_layout import MODEL, PLATFORM_ROOT
 from scripts.gem_annotate.patches import remove_misannotated_gprs
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
 from scripts.gem_annotate.selection_gpr_restore import (
@@ -22,6 +25,17 @@ from scripts.gem_annotate.selection_gpr_restore import (
 BASELINE = "E5_coq9_resp_pkg_r132_20261012.xml"
 NEW_CHANGE_SETS = (R671_GPR_RESTORE, CPA_URA2_RESTORE)
 SPECS = {change_id: json.loads(CHANGE_SETS[change_id][0].read_text()) for change_id in NEW_CHANGE_SETS}
+# Applies every change set to its cleared fixture and prints each target's species order.
+ORDER_PROBE = """
+import json, sys
+sys.path.insert(0, "tests")
+import test_selection_gpr_restore as cleared, test_selection_gpr_restore_change_sets as sets
+orders = {}
+for change_id, model in [(sets.CLEARED_GPR_RESTORE, cleared.fixture())] + [(c, sets.fixture(c)) for c in sets.NEW_CHANGE_SETS]:
+    sets.apply_selection_gpr_restore(model, change_id=change_id)
+    orders.update({rid: [m.id for m in model.reactions.get_by_id(rid).metabolites] for rid in sets.CHANGE_SETS[change_id][1]})
+print(json.dumps(orders))
+"""
 
 
 def _add(model, rid, state):
@@ -106,6 +120,23 @@ class ChangeSetRestoreTests(unittest.TestCase):
         apply_selection_gpr_restore(model, change_id=CPA_URA2_RESTORE)
         pool = model.metabolites.get_by_id("m325[C_cy]")
         self.assertEqual(sorted(r.id for r in pool.reactions), ["R190", "R607"])
+
+    def test_restored_species_order_does_not_depend_on_the_hash_seed(self):
+        orders = []
+        for seed in ("0", "1", "2"):
+            completed = subprocess.run([sys.executable, "-B", "-c", ORDER_PROBE], cwd=PLATFORM_ROOT, text=True,
+                                       capture_output=True, check=False, timeout=120,
+                                       env={**os.environ, "PYTHONHASHSEED": seed})
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            orders.append(json.loads(completed.stdout.splitlines()[-1]))
+        self.assertEqual(orders[1:], orders[:1] * 2)
+        for change_id, (path, targets) in CHANGE_SETS.items():
+            spec = json.loads(path.read_text())
+            for rid in targets:
+                cleared, restored = (spec["reactions"][rid][s]["stoichiometry"] for s in ("cleared", "restored"))
+                # Kept species stay in place; added species follow in sorted ID order.
+                expected = [m for m in cleared if m in restored] + sorted(set(restored) - set(cleared))
+                self.assertEqual(orders[0][rid], expected, rid)
 
     def test_rerun_after_sbml_round_trip_is_a_no_op(self):
         for change_id in NEW_CHANGE_SETS:
