@@ -30,8 +30,11 @@ ORDER_PROBE = """
 import json, sys
 sys.path.insert(0, "tests")
 import test_selection_gpr_restore as cleared, test_selection_gpr_restore_change_sets as sets
+import test_selection_gpr_tkl_fragment as tkl
 orders = {}
-for change_id, model in [(sets.CLEARED_GPR_RESTORE, cleared.fixture())] + [(c, sets.fixture(c)) for c in sets.NEW_CHANGE_SETS]:
+runs = [(sets.CLEARED_GPR_RESTORE, cleared.fixture())] + [(c, sets.fixture(c)) for c in sets.NEW_CHANGE_SETS]
+runs.append((tkl.TKL_FRAGMENT_GPR_RESTORE, tkl.fixture()))
+for change_id, model in runs:
     sets.apply_selection_gpr_restore(model, change_id=change_id)
     orders.update({rid: [m.id for m in model.reactions.get_by_id(rid).metabolites] for rid in sets.CHANGE_SETS[change_id][1]})
 print(json.dumps(orders))
