@@ -1,0 +1,24 @@
+# Run from platform/ in worktree claude/clever-kare-7d2e1a. Interpreter: main checkout .venv (Python 3.13.5).
+# RR=/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# BASE=--research-root "$RR" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh
+
+python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/selection_gpr_fix_20261019/logs/pytest_before.xml   # before the change
+python -m scripts.gem_annotate $BASE --output-model ../.scratch/selection_gpr_fix_20261019/control_no_flag.xml
+python -m scripts.gem_annotate $BASE --restore-selection-cleared-gprs --output-model ../.scratch/selection_gpr_fix_20261019/control_cleared.xml
+python -m scripts.gem_annotate $BASE --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --output-model ../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_20261019.xml
+python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/selection_gpr_fix_20261019/logs/pytest_after.xml    # after the change
+
+# Read-only checks (run from .scratch/selection_gpr_fix_20261019/):
+python ../../model/reports/selection_gpr_fix_20261019/scripts/model_diff.py <c98961e9 path> ../../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_20261019.xml ../../model/reports/selection_gpr_fix_20261019/model_diff.json
+python ../../model/reports/selection_gpr_fix_20261019/scripts/static_checks.py ../../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_20261019.xml ../../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_20261019.build.json ../../model/reports/selection_gpr_fix_20261019/static_checks.json
+
+# After the independent audit (final code; v2):
+python -m scripts.gem_annotate $BASE --output-model ../.scratch/selection_gpr_fix_20261019/control_no_flag_v2.xml
+python -m scripts.gem_annotate $BASE --restore-selection-cleared-gprs --output-model ../.scratch/selection_gpr_fix_20261019/control_cleared_v2.xml
+python -m scripts.gem_annotate $BASE --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --output-model ../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml
+python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/selection_gpr_fix_20261019/logs/pytest_after_v2.xml
+python ../model/reports/selection_gpr_fix_20261019/scripts/compare_pytest.py ../model/reports/selection_gpr_fix_20261019/logs/pytest_before.xml ../model/reports/selection_gpr_fix_20261019/logs/pytest_after_v2.xml
+# model_diff.json and static_checks.json in the report folder are from the v2 candidate.
+
+# Authorized solves (12 LPs), run from .scratch/selection_gpr_fix_20261019/:
+python ../../model/reports/selection_gpr_fix_20261019/scripts/solves.py ../../model/reports/reference_pipeline_restore_20260909/research/state/media/sd_leu.csv ../../model/reports/reference_pipeline_restore_20260909/research/state/strain_profiles/po1f_sd_leu.json ../../model/reports/selection_gpr_fix_20261019/solves.csv <c98961e9 path> ../../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml

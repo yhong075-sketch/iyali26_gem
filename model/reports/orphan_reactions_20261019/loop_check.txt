@@ -1,0 +1,28 @@
+WT 1.4308057353528356
+R1964 (-1000.0, 1000.0) - | D-xylulose_C5H10O5 + NADH_C21H29N7O14P2 <=> NAD_C21H27N7O14P2 + D-arabinitol_
+R2041 (-1000.0, 1000.0) - | ATP_C10H16N5O13P3 + D-arabinose_C5H10O5 <=> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + D-Arabinose 5-phosphate
+R2042 (-1000.0, 1000.0) - | D-ribulose 5-phosphate_C5H11O8P <=> 2.0 H+_p+1 + D-Arabinose 5-phosphate
+R1901 (-1000.0, 1000.0) - | L-asparagine_C4H8N2O3 + H2O_H2O <=> L-aspartate_C4H7NO4 + ammonium_H3N
+R1308 (-1000.0, 1000.0) - | uridine_C9H12N2O6 + phosphate_H3O4P <=> uracil_C4H4N2O2 + alpha-D-ribose 1-phosphate_C5H11O8P
+R321 (0.0, 1000.0) - | isopentenyl diphosphate_C5H12O7P2 + geranylgeranyl diphosphate_C20H36O7P2 --> diphosphate_H4O7P2 + pentaprenyl diphosphate_C25H44O7P2
+R218 (0.0, 1000.0) YALI1C26036g or YALI1D21543g | isopentenyl diphosphate_C5H12O7P2 + geranylgeranyl diphosphate_C20H36O7P2 --> diphosphate_H4O7P2 + pentaprenyl diphosphate_C25H44O7P2
+R1043 (0.0, 1000.0) - | chorismate_C10H10O6 --> 4-hydroxybenzoate_C7H6O3 + pyruvate_C3H4O3
+R52 (0.0, 1000.0) - | 4-hydroxybenzoyl-CoA_ + H2O_H2O + 4.0 H+_p+1 --> 4-hydroxybenzoate_C7H6O3 + coenzyme A_C21H36N7O16P3S
+R1210 (-1000.0, 1000.0) - | L-glutamic 5-semialdehyde_C5H9NO3 <=> H+_p+1 + H2O_H2O + 1-pyrroline-5-carboxylate_C5H6NO2
+R2197 (0.0, 1000.0) - | 3-Sulfinylpyruvate + H2O_H2O --> H+_p+1 + pyruvate_C3H4O3 + sulphite_H2O3S
+R530 (0.0, 1000.0) - | 1-acylglycerophosphocholine_C9H20NO7PR + acyl-CoA_ --> phosphatidylcholine_C10H18NO8PR2 + coenzyme A_C21H36N7O16P3S
+R1727 (0.0, 1000.0) - | 1-acylglycerophosphocholine_C9H20NO7PR + acyl-CoA_ --> phosphatidylcholine_C10H18NO8PR2 + coenzyme A_C21H36N7O16P3S
+R1337 (0.0, 1000.0) - | H2O_H2O + TMP_ --> phosphate_H3O4P + thiamine_
+R751 (0.0, 1000.0) YALI1C09285g or (YALI1A12688g and YALI1E32054g and YALI1E38701g and YALI1E41893g and YALI1F30289g and YALI1F33143g) | H2O_H2O + TMP_ --> phosphate_H3O4P + thiamine_
+forced-flux reactions relaxed to include 0: ['xMAINTENANCE']
+all boundaries closed:
+        minimum  maximum
+R1964  -1000.0      0.0
+R2041  -1000.0      0.0
+R2042      0.0   1000.0
+  R714 -1000.0 | YALI1C16621g | D-ribulose 5-phosphate_C5H11O8P <=> D-xylulose 5-phosphate_C5H11O8P
+  R803 1000.0 | YALI1F14583g | D-xylulose_C5H10O5 + ATP_C10H16N5O13P3 --> ADP_C10H15N5O10P2 + D-xylulose 5-phosphate_C5H11O8P
+  R1964 -1000.0 | - | D-xylulose_C5H10O5 + NADH_C21H29N7O14P2 <=> NAD_C21H27N7O14P2 + D-arabinitol_
+  R2041 -1000.0 | - | ATP_C10H16N5O13P3 + D-arabinose_C5H10O5 <=> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + D-Arabinose 5-phosphate
+  R2042 1000.0 | - | D-ribulose 5-phosphate_C5H11O8P <=> 2.0 H+_p+1 + D-Arabinose 5-phosphate
+  R2190 -1000.0 | YALI1F03452g | NAD_C21H27N7O14P2 + D-arabinitol_ <=> NADH_C21H29N7O14P2 + D-arabinose_C5H10O5

@@ -1,0 +1,22 @@
+# Run from platform/ in worktree claude/bold-chaplygin-1c16df (HEAD 285eaee). Interpreter: main checkout .venv (Python 3.13.5).
+# RR=/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# BASE=--research-root "$RR" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh
+
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r2041_forward_20261019/logs/pytest_before.xml   # before any code change
+python -m scripts.gem_annotate $BASE --output-model ../.scratch/r2041_forward_20261019/control_no_flag.xml
+python -m scripts.gem_annotate $BASE --r2041-forward --output-model ../model/candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r2041_forward_20261019/logs/pytest_after.xml    # after the change
+python ../model/reports/r2041_forward_20261019/scripts/compare_pytest.py ../model/reports/r2041_forward_20261019/logs/pytest_before.xml ../model/reports/r2041_forward_20261019/logs/pytest_after.xml
+
+# Read-only checks:
+python ../model/reports/r2041_forward_20261019/scripts/model_diff.py ../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml ../model/candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml ../model/reports/r2041_forward_20261019/model_diff.json
+diff ../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml ../model/candidates/E5_coq9_resp_pkg_r132_r2041_forward_20261019.xml > ../model/reports/r2041_forward_20261019/logs/xml_diff.txt
+
+# Authorized LPs (10), run from the repository root:
+python -B model/reports/r2041_forward_20261019/scripts/run_lps.py
+
+# After the independent audit (guard fix in r2041_direction.py, two subtests, README):
+python -m scripts.gem_annotate $BASE --output-model ../.scratch/r2041_forward_20261019/control_no_flag_v2.xml
+python -m scripts.gem_annotate $BASE --r2041-forward --output-model ../.scratch/r2041_forward_20261019/candidate_v2.xml
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r2041_forward_20261019/logs/pytest_after_v2.xml
+python ../model/reports/r2041_forward_20261019/scripts/compare_pytest.py ../model/reports/r2041_forward_20261019/logs/pytest_before.xml ../model/reports/r2041_forward_20261019/logs/pytest_after_v2.xml

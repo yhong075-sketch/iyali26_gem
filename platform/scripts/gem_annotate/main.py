@@ -78,6 +78,14 @@ def build_reference_chain(
     coq9_biomass_dilution: bool = False,
     coq9_respiratory_package: bool = False,
     r132_mito_adh: bool = False,
+    restore_selection_cleared_gprs: bool = False,
+    restore_selection_overwritten_gprs: bool = False,
+    restore_selection_cpa_ura2: bool = False,
+    remove_selection_tkl_fragment_gpr: bool = False,
+    r153_gpr_revision: bool = False,
+    r2041_forward: bool = False,
+    r2190_ribulose_product: bool = False,
+    r1964_gpr: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -496,9 +504,9 @@ def build_reference_chain(
     n_gpr_added = add_isozyme_gprs(model)
     logger.info(f"  Isozyme GPR additions: {n_gpr_added} (reaction, gene) pair(s) added")
 
-    # Remove mis-annotated genes from GPRs (E07744g trehalase wrongly in R765/R766
-    # transketolase; E11370g GatB wrongly in R671 prephenate DH). Safe 'or' cases,
-    # true partner retained -> 0 growth impact. See patches.remove_misannotated_gprs.
+    # Remove mis-annotated genes from GPRs (E11370g GatB wrongly in R671 prephenate DH).
+    # Safe 'or' case, true partner retained. The former E07744g removal from R765/R766
+    # was an ID-mapping error. See patches.remove_misannotated_gprs.
     n_gpr_removed = remove_misannotated_gprs(model)
     logger.info(f"  Mis-annotation GPR removals: {n_gpr_removed} (reaction, gene) pair(s) removed")
 
@@ -675,6 +683,10 @@ def build_reference_chain(
         logger.info("V-ATPase GPR hypothesis: %s", apply_vatpase_gpr_hypothesis(model))
     selection["post_selection_r1159_direction"] = apply_r1159_direction(model)
     logger.info("R1159 direction: %s", selection["post_selection_r1159_direction"])
+    if r2041_forward:
+        from .r2041_direction import apply_r2041_direction
+        selection["post_selection_r2041_direction"] = apply_r2041_direction(model)
+        logger.info("R2041 direction: %s", selection["post_selection_r2041_direction"])
     if energy_candidate != "E0":
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply energy candidate to an incomplete reference build")
@@ -695,6 +707,39 @@ def build_reference_chain(
     if r132_mito_adh:
         from .r132_mito_adh import apply_r132_mito_adh
         selection["r132_mito_adh"] = apply_r132_mito_adh(model)
+    if restore_selection_cleared_gprs:
+        # Opt-in: re-apply the four reviewed GPRs the metadata selection clears (2026-10-19).
+        from .selection_gpr_restore import restore_after_selection
+        selection["selection_gpr_restore"] = restore_after_selection(model, selection)
+        logger.info("Selection GPR restore: %s", selection["selection_gpr_restore"]["status"])
+    if restore_selection_overwritten_gprs:
+        # Opt-in: re-apply R671's reviewed GPR, which the metadata selection overwrites (2026-10-19).
+        from .selection_gpr_restore import R671_GPR_RESTORE, restore_after_selection
+        selection["selection_gpr_restore_r671"] = restore_after_selection(model, selection, R671_GPR_RESTORE)
+        logger.info("Selection R671 GPR restore: %s", selection["selection_gpr_restore_r671"]["status"])
+    if restore_selection_cpa_ura2:
+        # Opt-in: re-apply EG-GPR-001 on R159/R190, which the metadata selection overwrites (2026-10-19).
+        from .selection_gpr_restore import CPA_URA2_RESTORE, restore_after_selection
+        selection["selection_cpa_ura2_restore"] = restore_after_selection(model, selection, CPA_URA2_RESTORE)
+        logger.info("Selection CPA/URA2 restore: %s", selection["selection_cpa_ura2_restore"]["status"])
+    if remove_selection_tkl_fragment_gpr:
+        # Opt-in: drop the transketolase N-terminal fragment YALI1D02625g from R765/R766 (2026-10-19).
+        from .selection_gpr_restore import TKL_FRAGMENT_GPR_RESTORE, restore_after_selection
+        selection["selection_tkl_fragment_gpr_restore"] = restore_after_selection(
+            model, selection, TKL_FRAGMENT_GPR_RESTORE)
+        logger.info("Selection R765/R766 GPR restore: %s", selection["selection_tkl_fragment_gpr_restore"]["status"])
+    if r153_gpr_revision:
+        # Opt-in: remove the A1 peptidase gene from the merged R153 (2026-10-19); the gene is kept.
+        from .r153_gpr_revision import apply_r153_gpr_revision
+        selection["r153_gpr_revision"] = apply_r153_gpr_revision(model)
+        logger.info("R153 GPR revision: %s", selection["r153_gpr_revision"]["status"])
+    if r2190_ribulose_product:
+        from .r2190_product import apply_r2190_product
+        selection["r2190_ribulose_product"] = apply_r2190_product(model)
+    if r1964_gpr:
+        from .r1964_gpr import apply_r1964_gpr_assignment
+        selection["r1964_gpr_assignment"] = apply_r1964_gpr_assignment(model)
+        logger.info("R1964 GPR assignment: %s", selection["r1964_gpr_assignment"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -779,6 +824,14 @@ def build_model(args):
         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
         r132_mito_adh=getattr(args, "r132_mito_adh", False),
+        restore_selection_cleared_gprs=getattr(args, "restore_selection_cleared_gprs", False),
+        restore_selection_overwritten_gprs=getattr(args, "restore_selection_overwritten_gprs", False),
+        restore_selection_cpa_ura2=getattr(args, "restore_selection_cpa_ura2", False),
+        remove_selection_tkl_fragment_gpr=getattr(args, "remove_selection_tkl_fragment_gpr", False),
+        r153_gpr_revision=getattr(args, "remove_r153_peptidase_gpr", False),
+        r2041_forward=getattr(args, "r2041_forward", False),
+        r2190_ribulose_product=getattr(args, "r2190_ribulose_product", False),
+        r1964_gpr=getattr(args, "r1964_gpr", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

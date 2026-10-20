@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "change_id": "R153-GPR-UNASSIGNED-20261019",
+  "status": "user_authorized_gpr_removal",
+  "authorization": "2026-10-19: user approved option A of model/reports/r153_ass_gpr_20261019/REPORT.md: a gene-less R153 GPR through a new guarded post-merge step and opt-in flag, with YALI1D17462g kept unlinked.",
+  "reviewer": "Read-only identity review model/reports/r153_ass_gpr_20261019 (2026-10-19) with an independent read-only audit (11 of 11 claims confirmed).",
+  "report": "model/reports/r153_gpr_revision_20261019/REPORT.md",
+  "supersedes": {
+    "assignment_id": "R153-USER-SINGLE-GPR-20260915",
+    "curation_file": "model/curation/gpr/r153_gpr_assignment.json",
+    "note": "The 2026-09-15 assignment and the R153/R2176 merge stay in the build unchanged; this step runs after them."
+  },
+  "reaction": "R153",
+  "before": {
+    "gpr": "YALI1D17462g",
+    "bounds": [-1000.0, 1000.0],
+    "stoichiometry": {
+      "m141[C_cy]": -1.0,
+      "m267[C_cy]": -1.0,
+      "m313[C_cy]": -1.0,
+      "m86[C_cy]": 1.0,
+      "m203[C_cy]": 1.0,
+      "m312[C_cy]": 1.0
+    },
+    "species": {
+      "m141[C_cy]": {"formula": "C10H16N5O13P3", "charge": 0, "compartment": "C_cy"},
+      "m267[C_cy]": {"formula": "C4H7NO4", "charge": 0, "compartment": "C_cy"},
+      "m313[C_cy]": {"formula": "C6H13N3O3", "charge": 0, "compartment": "C_cy"},
+      "m86[C_cy]": {"formula": "C10H14N5O7P", "charge": 0, "compartment": "C_cy"},
+      "m203[C_cy]": {"formula": "H4O7P2", "charge": 0, "compartment": "C_cy"},
+      "m312[C_cy]": {"formula": "C10H18N4O6", "charge": 0, "compartment": "C_cy"}
+    },
+    "required_notes": {
+      "reaction_merge_id": "R153-R2176-MERGE-20260915"
+    }
+  },
+  "after": {
+    "gpr": ""
+  },
+  "gene": {
+    "id": "YALI1D17462g",
+    "annotation": {
+      "ncbigene": "2910235",
+      "refseq": "XP_502815.3",
+      "uniprot": "A0A1D8NEI7"
+    },
+    "reactions_before": ["R153"],
+    "reactions_after": [],
+    "kept_in_model": true,
+    "identity": "YALI1_D17462g (alias YALI2_D00285g; CLIB122 twin YALI0_D14300g); no verified native name; A1 aspartic peptidase candidate (secreted type, signal peptide 1-17); automatic database annotation and sequence family only."
+  },
+  "notes_replaced": {
+    "curated_gpr_assignment": {
+      "before": "R153-USER-SINGLE-GPR-20260915",
+      "after": "R153-GPR-UNASSIGNED-20261019"
+    },
+    "gpr_evidence_status": {
+      "before": "user_authorized_provisional_assignment_with_conflicting_function_evidence",
+      "after": "user_authorized_gpr_removal_no_w29_gene_annotated"
+    },
+    "gpr_evidence_basis": {
+      "before": "Explicit user instruction; existing sequence and AlphaFold evidence supports an alternative protein function",
+      "after": "Identity review 2026-10-19: the former GPR gene YALI1D17462g (NCBI Gene 2910235, XP_502815.3, 384 aa) carries only A1 aspartic peptidase signatures (Pfam PF00026, PROSITE PS00141 at both active-site motifs) and no argininosuccinate synthase signature, and no W29 gene is annotated for argininosuccinate synthase."
+    },
+    "gpr_evidence_label": {
+      "before": "用户指定赋值；功能证据冲突，未实验确认",
+      "after": "No gene assigned: the W29 argininosuccinate synthase locus is unannotated; not experimentally confirmed"
+    },
+    "gpr_experimental_confirmation": {
+      "before": "required_not_confirmed",
+      "after": "not_applicable_no_gene_assigned"
+    },
+    "r153_model_interpretation": {
+      "before": "User-specified single-gene assignment for cytosolic argininosuccinate synthesis; YALIUNK2 removed. Deleting YALI1D17462g disables both R153 and the unchanged R2176. Static GPR dependence is not experimental evidence of synthase activity or growth essentiality.",
+      "after": "Gene-less since R153-GPR-UNASSIGNED-20261019: no single-gene knockout disables R153, so the model makes no gene-level prediction for argininosuccinate synthase. This reflects a missing W29 gene model, not evidence that the step needs no enzyme."
+    }
+  },
+  "notes_added": {
+    "r153_gpr_revision": "R153-GPR-UNASSIGNED-20261019",
+    "r153_gpr_revision_authorization": "2026-10-19: user approved option A of model/reports/r153_ass_gpr_20261019/REPORT.md (gene-less R153 through a guarded post-merge step and opt-in flag, YALI1D17462g kept unlinked).",
+    "r153_gpr_revision_basis": "KEGG yli:90949668 / YALI2_D00589g (argininosuccinate synthase) is a Yarrowia lipolytica DSM 3286 gene (KEGG T01033, RefSeq GCF_014490615.1); its NCBI Gene record is discontinued and its RefSeq chromosome NC_089381.1 is suppressed. The current W29 RefSeq (NC_090773.1) has no YALI1 counterpart. Verified online 2026-10-19.",
+    "r153_w29_locus": "NC_090773.1 / CP017556.1 3604630-3609948, between YALI1_D36035g and YALI1_D36100g, carries no annotated feature. Argininosuccinate synthase homology there (3606992-3608481) splits across reading frames -3 and -1 (recorded 2026-09-11). Whether this is an assembly error, a strain variant or a pseudogene is unresolved.",
+    "r153_identity_candidate": "One identical 413-aa argininosuccinate synthase sequence in 11 Y. lipolytica strains, for example PO1f KAE8172175.1 (BKA90DRAFT_137900) and DSM 3286 QNP98148.1 (CDD cd01999, HAMAP MF_00005, TIGR00032). No verified native name; computational evidence only (database records and domain architecture). Not a W29 gene ID and not assigned to the GPR.",
+    "r153_screen_coverage": "No gene at the W29 argininosuccinate synthase locus is in the Cas9, Cas12a or Patterson Tn-seq gene sets, so the step has no experimental essentiality label.",
+    "r153_unlinked_gene": "YALI1D17462g (A1 aspartic peptidase candidate by automatic annotation) is kept in the model with no reactions.",
+    "r153_gpr_revision_supersedes": "Supersedes the GPR and current-status notes of R153-USER-SINGLE-GPR-20260915 (GPR YALI1D17462g); the previous note values are recorded in model/curation/gpr/r153_gpr_revision.json. The kept notes r153_previous_gpr, r153_authorization, r153_gene_function, r153_scope_limits, r153_superseded_assignment and reaction_merge_evidence describe the 2026-09-15 state and are history; the GPR immediately before this revision was YALI1D17462g."
+  },
+  "evidence": [
+    {
+      "claim": "YALI1D17462g / NCBI Gene 2910235 is a live 'uncharacterized protein' gene on NC_090773.1:1746262-1747416; protein XP_502815.3, 384 aa, identical to AOW04049.1.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/gene/2910235",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "The protein carries Pfam PF00026, PROSITE PS51767 and PS00141 (76-87, 259-270) and CDD cd05474, and no argininosuccinate synthase signature (PF00764, PF20979, TIGR00032, cd01999, MF_00005, PS00564, PS00565).",
+      "source_url": "https://rest.uniprot.org/uniparc/UPI00003BC373.json",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "KEGG yli:2910235 is '(RefSeq) Candidapepsin' (YALI2_D00285g) with no KO.",
+      "source_url": "https://www.kegg.jp/entry/yli:2910235",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "KEGG yli is Y. lipolytica DSM 3286 (RefSeq GCF_014490615.1), and yli:90949668 is its only gene linked to EC 6.3.4.5 and K01940.",
+      "source_url": "https://www.kegg.jp/entry/gn:T01033",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "NCBI Gene 90949668 (YALI2_D00589g, argininosuccinate synthase) is discontinued; NC_089381.1 (DSM 3286 chromosome D, from CP061015) is suppressed.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/gene/90949668",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "NC_090773.1 and CP017556.1 carry no feature from 3604630 to 3609948, and no chromosome 1D feature carries old_locus_tag YALI2_D00589g.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/nuccore/NC_090773.1",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "Twelve NCBI Protein records from Y. lipolytica strains (none W29/CLIB89 or CLIB122) share one 413-aa sequence with full argininosuccinate synthase architecture.",
+      "source_url": "https://rest.uniprot.org/uniparc/UPI0008A71D72.json",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "The W29 locus has argininosuccinate synthase homology split across two reading frames (TBLASTN against CP017556.1:3606000-3609500).",
+      "source_url": "$IYALI26_RESEARCH_ROOT/artifacts/tasks/argininosuccinate_identity_20260911/REPORT.md",
+      "tier": "recorded",
+      "checked_on": "2026-09-11"
+    },
+    {
+      "claim": "No gene between YALI1_D36035g and YALI1_D36100g is in the Cas9 or Cas12a gene sets (7,854 and 7,795 genes).",
+      "source_url": "$IYALI26_RESEARCH_ROOT/state/essentiality/repository/cas9_cas12a_screen_raw.xlsx",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    },
+    {
+      "claim": "No gene between YALI1_D36035g and YALI1_D36100g is in Patterson 2018 Table S3 (Tn-seq; rows 5188/5189 are adjacent).",
+      "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S1096717618301265-mmc12.xlsx",
+      "tier": "verified",
+      "checked_on": "2026-10-19"
+    }
+  ]
+}

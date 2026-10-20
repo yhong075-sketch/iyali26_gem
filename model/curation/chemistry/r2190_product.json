@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "curation_id": "R2190-RIBULOSE-20261019",
+  "status": "user_authorized_identity_correction",
+  "authorization": "2026-10-19 user (conversation): \"Approve Option A: opt-in guarded step R2190-RIBULOSE that writes a new D-ribulose[C_cy] as R2190's product, built on 285eaee in this worktree, plus the 8 LPs in REPORT §7.3. No commit or push.\"",
+  "review": "model/reports/r2190_identity_review_20261019/REPORT.md",
+  "baseline": {
+    "path": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+    "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "reaction_id": "R2190",
+  "reaction_name": "D-arabinitol:NAD+ 2-oxidoreductase",
+  "gpr": "YALI1F03452g",
+  "ec_code": "1.1.1.250",
+  "bounds": [-1000.0, 1000.0],
+  "before_stoichiometry": {
+    "m122[C_cy]": -1.0,
+    "m1823[C_cy]": -1.0,
+    "m123[C_cy]": 1.0,
+    "m454[C_cy]": 1.0
+  },
+  "after_stoichiometry": {
+    "m122[C_cy]": -1.0,
+    "m1823[C_cy]": -1.0,
+    "m123[C_cy]": 1.0,
+    "m2061[C_cy]": 1.0
+  },
+  "species": {
+    "m122[C_cy]": {"formula": "C21H27N7O14P2", "charge": 0, "compartment": "C_cy"},
+    "m123[C_cy]": {"formula": "C21H29N7O14P2", "charge": 0, "compartment": "C_cy"},
+    "m1823[C_cy]": {"formula": "C5H12O5", "charge": 0, "compartment": "C_cy"},
+    "m454[C_cy]": {"formula": "C5H10O5", "charge": 0, "compartment": "C_cy"}
+  },
+  "replaced_species": {
+    "id": "m454[C_cy]",
+    "name": "D-arabinose_C5H10O5",
+    "reactions_before": ["R1063", "R2041", "R2190", "R254", "R255"],
+    "reactions_after": ["R1063", "R2041", "R254", "R255"]
+  },
+  "new_species": {
+    "id": "m2061[C_cy]",
+    "name": "D-ribulose_C5H10O5",
+    "formula": "C5H10O5",
+    "charge": 0,
+    "compartment": "C_cy",
+    "annotation": {
+      "sbo": "SBO:0000247",
+      "kegg.compound": "C00309",
+      "chebi": "CHEBI:17173",
+      "metanetx.chemical": "MNXM1371690"
+    },
+    "notes": {
+      "r2190_product_species": "Added by R2190-RIBULOSE-20261019 as the product of R2190 only. No producer, consumer or transporter of free D-ribulose is evidenced for Y. lipolytica in this model, so it is a dead end."
+    },
+    "annotation_limits": "CHEBI:17173 and MNXM1371690 are Rhea 17389's D-ribulose; MNXR197981 on R2190 uses the alpha-anomer MNXM1371691. Both map to KEGG C00309."
+  },
+  "evidence": [
+    {"url": "https://www.kegg.jp/entry/R07134", "claim": "R07134: C01904 + C00003 <=> C00309 (D-Ribulose) + C00004 + C00080; EC 1.1.1.250; R2190's own kegg.reaction annotation.", "tier": "verified", "accessed": "2026-10-19"},
+    {"url": "https://www.rhea-db.org/rhea/17389", "claim": "D-arabinitol + NAD(+) = D-ribulose + NADH + H(+); EC 1.1.1.250.", "tier": "verified", "accessed": "2026-10-19"},
+    {"url": "https://www.metanetx.org/equa_info/MNXR197981", "claim": "D-arabinitol + NAD(+) <=> alpha-D-ribulose + H(+) + NADH; R2190's own metanetx.reaction annotation.", "tier": "verified", "accessed": "2026-10-19"},
+    {"url": "https://enzyme.expasy.org/EC/1.1.1.250", "claim": "D-arabinitol + NAD(+) = D-ribulose + NADH + H(+).", "tier": "verified", "accessed": "2026-10-19"},
+    {"url": "https://www.enzyme-database.org/query.php?ec=1.1.1.250", "claim": "Systematic name D-arabinitol:NAD+ 2-oxidoreductase (D-ribulose-forming), the R2190 name without its suffix.", "tier": "verified", "accessed": "2026-10-19"},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7576711/", "claim": "Wang et al. 2020 (doi:10.1186/s13068-020-01815-8): purified YlAraDH1 (YALI0F02211g = YALI1F03452g) is NAD(H)-dependent, oxidizes D-arabitol, mannitol, D-sorbitol and xylitol, and reduces only ketoses; ribose, mannose, xylose and glucose gave no activity; D-ribulose and D-arabinose were not tested; the D-arabitol product is named D-xylulose from an NADH assay only.", "tier": "verified", "accessed": "2026-10-19"},
+    {"url": "https://pubmed.ncbi.nlm.nih.gov/8407803/", "claim": "Wong et al. 1993 abstract: C. albicans ArDH catalyzes D-arabitol + NAD <--> D-ribulose + NADH.", "tier": "verified (abstract only)", "accessed": "2026-10-19"}
+  ],
+  "reviewer": "Read-only review r2190_identity_review_20261019 (Claude Code session, 2026-10-19); verdict: product wrong, inferred (strong); regiochemistry open.",
+  "limits": [
+    "The D-ribulose (C-2) versus D-xylulose (C-4) regiochemistry is not resolved by Y. lipolytica data.",
+    "The new species has no other reaction, so R2190 carries no steady-state flux after this change.",
+    "EC 1.1.1.250 on this gene is homology-level; the GPR is not experimental validation of this reaction.",
+    "Bounds are kept; the direction of R2190 was not reviewed."
+  ],
+  "notes": {
+    "r2190_product_curation": "R2190-RIBULOSE-20261019",
+    "r2190_previous_product": "m454[C_cy] D-arabinose, inherited from model/source/iyali26.xml; it contradicted the reaction name, EC 1.1.1.250, KEGG R07134, Rhea 17389 and MNXR197981, which all give D-ribulose.",
+    "r2190_product_evidence": "KEGG R07134, Rhea 17389, MNXR197981, ENZYME/ExplorEnz EC 1.1.1.250 (D-ribulose); m454 is D-arabinose (MNXM48397, CHEBI:17108); Wang et al. 2020 doi:10.1186/s13068-020-01815-8: the purified gene product reduces only ketoses.",
+    "r2190_product_limits": "D-ribulose versus D-xylulose not resolved (Wang 2020 names D-xylulose from an NADH assay only); D-ribulose has no other reaction here, so R2190 carries no steady-state flux; EC 1.1.1.250 is homology-level; bounds not reviewed.",
+    "r2190_product_authorization": "User authorized Option A on 2026-10-19: opt-in guarded step, 8 LPs, no commit or push."
+  }
+}

@@ -898,27 +898,25 @@ def add_isozyme_gprs(model, additions_csv: str | None = None) -> int:
 
 # ── Patch 8b: remove mis-annotated genes from reaction GPRs ────────────────
 #
-# Two genes were assigned to reactions whose enzyme they do NOT catalyse — a
-# reaction-mis-annotation (the gene's real protein is a different enzyme). Both
-# are OR-isozyme partners, so removing them leaves the true catalyst in place and
-# does NOT change any FBA/growth result — it only corrects GPR biology and removes
-# a false-negative contaminant from essential-gene screening.
+# A gene was assigned to a reaction whose enzyme it does NOT catalyse — a
+# reaction-mis-annotation (the gene's real protein is a different enzyme). It is
+# an OR-isozyme partner, so removing it leaves the true catalyst in place.
 #
-# Verified this session against UniProt (opened):
-#   YALI1E07744g -> UniProt Q6C6P1 = glycoside hydrolase family 65 (trehalase),
-#     NOT transketolase (EC 2.2.1.1). Wrongly placed in R765/R766; real
-#     transketolase is the partner YALI1D02625g.
-#     https://rest.uniprot.org/uniprotkb/Q6C6P1.json
 #   YALI1E11370g -> similar to PET112/GatB, UniProt P33893 = glutamyl-tRNA(Gln)
 #     amidotransferase subunit B (EC 6.3.5.-), NOT prephenate dehydrogenase.
 #     Wrongly placed in R671; real prephenate dehydrogenase is the partner
 #     YALI1F23441g.  https://rest.uniprot.org/uniprotkb/P33893.json
+#     (YALI1E11370g = NCBI Gene 2912526 -> Swiss-Prot Q6C6I6 PET112; rechecked 2026-10-19.)
+#
+# YALI1E07744g was also removed here from transketolase R765/R766 until 2026-10-19,
+# as a "trehalase" (UniProt Q6C6P1). That was an ID-mapping error: Q6C6P1 is the
+# CLIB122 locus YALI0E07744, a different gene. YALI1E07744g = NCBI Gene 2912397 ->
+# XP_503628.3 -> UniProt Q6C6T4 transketolase (EC 2.2.1.1); see
+# model/reports/selection_gpr_review_20261019/REPORT.md.
 #
 # (R671 also carries a self-contradictory EC 6.3.5.7 vs its "prephenate
 # dehydrogenase" name — flagged for separate curation, NOT changed here.)
 _GPR_MISANNOTATION_REMOVALS = {
-    "R765": "YALI1E07744g",
-    "R766": "YALI1E07744g",
     "R671": "YALI1E11370g",
 }
 

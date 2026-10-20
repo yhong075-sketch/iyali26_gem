@@ -1,0 +1,35 @@
+60885a60886,60905
+>       <species metaid="meta_M_m2061__91__C_cy__93__" sboTerm="SBO:0000247" id="M_m2061__91__C_cy__93__" name="D-ribulose_C5H10O5" compartment="C_cy" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H10O5">
+>         <notes>
+>           <html xmlns="http://www.w3.org/1999/xhtml">
+>             <p>r2190_product_species: Added by R2190-RIBULOSE-20261019 as the product of R2190 only. No producer, consumer or transporter of free D-ribulose is evidenced for Y. lipolytica in this model, so it is a dead end.</p>
+>           </html>
+>         </notes>
+>         <annotation>
+>           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+>             <rdf:Description rdf:about="#meta_M_m2061__91__C_cy__93__">
+>               <bqbiol:is>
+>                 <rdf:Bag>
+>                   <rdf:li rdf:resource="https://identifiers.org/kegg.compound/C00309"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/chebi/CHEBI:17173"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/metanetx.chemical/MNXM1371690"/>
+>                 </rdf:Bag>
+>               </bqbiol:is>
+>             </rdf:Description>
+>           </rdf:RDF>
+>         </annotation>
+>       </species>
+158857a158878,158886
+>         <notes>
+>           <html xmlns="http://www.w3.org/1999/xhtml">
+>             <p>r2190_product_curation: R2190-RIBULOSE-20261019</p>
+>             <p>r2190_previous_product: m454[C_cy] D-arabinose, inherited from model/source/iyali26.xml; it contradicted the reaction name, EC 1.1.1.250, KEGG R07134, Rhea 17389 and MNXR197981, which all give D-ribulose.</p>
+>             <p>r2190_product_evidence: KEGG R07134, Rhea 17389, MNXR197981, ENZYME/ExplorEnz EC 1.1.1.250 (D-ribulose); m454 is D-arabinose (MNXM48397, CHEBI:17108); Wang et al. 2020 doi:10.1186/s13068-020-01815-8: the purified gene product reduces only ketoses.</p>
+>             <p>r2190_product_limits: D-ribulose versus D-xylulose not resolved (Wang 2020 names D-xylulose from an NADH assay only); D-ribulose has no other reaction here, so R2190 carries no steady-state flux; EC 1.1.1.250 is homology-level; bounds not reviewed.</p>
+>             <p>r2190_product_authorization: User authorized Option A on 2026-10-19: opt-in guarded step, 8 LPs, no commit or push.</p>
+>           </html>
+>         </notes>
+158882c158911
+<           <speciesReference species="M_m454__91__C_cy__93__" stoichiometry="1" constant="true"/>
+---
+>           <speciesReference species="M_m2061__91__C_cy__93__" stoichiometry="1" constant="true"/>

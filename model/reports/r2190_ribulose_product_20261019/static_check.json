@@ -1,0 +1,77 @@
+{
+ "sha256": "36f041930e5fee211395a45da4a36bb991fe9285637c409b07cc6d04114812ac",
+ "build_output_sha256": "36f041930e5fee211395a45da4a36bb991fe9285637c409b07cc6d04114812ac",
+ "build_head": "285eaeee0e403f1c971267898eaed1a884edb727",
+ "build_dirty_status": "M platform/scripts/gem_annotate/cli.py\n M platform/scripts/gem_annotate/main.py\n?? model/candidates/E5_coq9_resp_pkg_r132_r2190_ribulose_20261019.coq9_genes.tsv\n?? model/candidates/E5_coq9_resp_pkg_r132_r2190_ribulose_20261019.xml\n?? model/curation/chemistry/r2190_product.json\n?? model/reports/r2190_identity_review_20261019/\n?? model/reports/r2190_ribulose_product_20261019/\n?? platform/scripts/gem_annotate/r2190_product.py\n?? platform/tests/test_r2190_product.py",
+ "build_argv": [
+  "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/clever-austin-f6a04e/platform/scripts/gem_annotate/__main__.py",
+  "--research-root",
+  "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research",
+  "--offline",
+  "--no-solve",
+  "--coq9-curation",
+  "qcycle",
+  "--energy-candidate",
+  "E5",
+  "--coq9-biomass-dilution",
+  "--coq9-respiratory-package",
+  "--r132-mito-adh",
+  "--r2190-ribulose-product",
+  "--output-model",
+  "../model/candidates/E5_coq9_resp_pkg_r132_r2190_ribulose_20261019.xml"
+ ],
+ "build_step_record": {
+  "item": "R2190",
+  "curation_id": "R2190-RIBULOSE-20261019",
+  "evidence_status": "user_authorized_identity_correction",
+  "new_species": "m2061[C_cy]",
+  "replaced_species": "m454[C_cy]",
+  "status": "applied",
+  "stoichiometry": {
+   "m122[C_cy]": -1.0,
+   "m1823[C_cy]": -1.0,
+   "m123[C_cy]": 1.0,
+   "m2061[C_cy]": 1.0
+  },
+  "replaced_species_usage_after": [
+   "R1063",
+   "R2041",
+   "R254",
+   "R255"
+  ]
+ },
+ "requested_build_complete": true,
+ "source_unchanged_during_build": true,
+ "R2190": {
+  "equation": "m122[C_cy] + m1823[C_cy] <=> m123[C_cy] + m2061[C_cy]",
+  "named": "NAD_C21H27N7O14P2 + D-arabinitol_ <=> NADH_C21H29N7O14P2 + D-ribulose_C5H10O5",
+  "bounds": [
+   -1000.0,
+   1000.0
+  ],
+  "gpr": "YALI1F03452g",
+  "exact_residual": {}
+ },
+ "m2061_reactions": [
+  "R2190"
+ ],
+ "m454_reactions": [
+  "R1063",
+  "R2041",
+  "R254",
+  "R255"
+ ],
+ "m1823_reactions": [
+  "R1964",
+  "R1980",
+  "R2190"
+ ],
+ "residuals_of_m454_reactions": {
+  "R1063": {},
+  "R2041": {},
+  "R254": {},
+  "R255": {
+   "charge": "1"
+  }
+ }
+}

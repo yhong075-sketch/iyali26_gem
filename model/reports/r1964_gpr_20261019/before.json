@@ -1,0 +1,105 @@
+{
+ "model": {
+  "path": "../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+  "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515",
+  "reactions": 2306,
+  "metabolites": 1875,
+  "genes": 1073
+ },
+ "R1964": {
+  "name": "arabinitol dehydrogenase",
+  "bounds": [
+   -1000.0,
+   1000.0
+  ],
+  "gpr": "",
+  "stoichiometry": {
+   "m123[C_cy]": -1.0,
+   "m1015[C_cy]": -1.0,
+   "m122[C_cy]": 1.0,
+   "m1823[C_cy]": 1.0
+  },
+  "species": {
+   "m123[C_cy]": {
+    "name": "NADH_C21H29N7O14P2",
+    "formula": "C21H29N7O14P2",
+    "charge": 0,
+    "compartment": "C_cy"
+   },
+   "m1015[C_cy]": {
+    "name": "D-xylulose_C5H10O5",
+    "formula": "C5H10O5",
+    "charge": 0,
+    "compartment": "C_cy"
+   },
+   "m122[C_cy]": {
+    "name": "NAD_C21H27N7O14P2",
+    "formula": "C21H27N7O14P2",
+    "charge": 0,
+    "compartment": "C_cy"
+   },
+   "m1823[C_cy]": {
+    "name": "D-arabinitol_",
+    "formula": "C5H12O5",
+    "charge": 0,
+    "compartment": "C_cy"
+   }
+  },
+  "annotation": {
+   "sbo": "SBO:0000176",
+   "bigg.reaction": [
+    "ABTD1",
+    "R_ABTD1"
+   ],
+   "vmhreaction": [
+    "ABTD1",
+    "R_ABTD1"
+   ],
+   "metanetx.reaction": "MNXR154181",
+   "biggr": [
+    "ABTD1",
+    "R_ABTD1"
+   ],
+   "vmhr": [
+    "ABTD1",
+    "R_ABTD1"
+   ]
+  },
+  "notes": {
+   "PROTEIN_CLASS": "1.1.1.11"
+  },
+  "mass_balance_residual": {}
+ },
+ "species_reactions": {
+  "m1015[C_cy]": [
+   "R1964",
+   "R801",
+   "R803"
+  ],
+  "m1823[C_cy]": [
+   "R1964",
+   "R1980",
+   "R2190"
+  ]
+ },
+ "genes": {
+  "YALI1F03452g": {
+   "present": true,
+   "name": "COBRAProtein1038",
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2908139",
+    "uniprot": "A0A1H6PMI9",
+    "kegg.genes": "yli:2908139",
+    "refseq": "XP_504895.1",
+    "ec-code": "1.1.1.250"
+   },
+   "reactions": [
+    "R2190"
+   ]
+  },
+  "YALI1E06616g": {
+   "present": false
+  }
+ }
+}

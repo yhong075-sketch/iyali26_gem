@@ -1,0 +1,33 @@
+# R153 GPR revision (R153-GPR-UNASSIGNED-20261019), 2026-10-19.
+# Run from platform/ in worktree claude/eloquent-borg-1bd1b0 (fast-forwarded to dc471d7).
+# Interpreter: main checkout .venv. IYALI26_RESEARCH_ROOT=/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# ARGS=--offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2
+
+# Before any code edit
+python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r153_gpr_revision_20261019/logs/pytest_before.xml
+python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" $ARGS --output-model ../.scratch/r153_gpr_revision_20261019/control_no_flag.xml   # unseeded control -> 8f083627 (R159 order only)
+
+# After the code change (both builds PYTHONHASHSEED=0, user-amended criterion 1)
+python -m pytest -q -p no:cacheprovider tests/test_r153_gpr_revision.py
+PYTHONHASHSEED=0 python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" $ARGS --output-model ../.scratch/r153_gpr_revision_20261019/control_no_flag_seed0.xml
+PYTHONHASHSEED=0 python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" $ARGS --remove-r153-peptidase-gpr --output-model ../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_r153_gpr_20261019.xml
+python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r153_gpr_revision_20261019/logs/pytest_after.xml
+python ../model/reports/selection_gpr_fix_20261019/scripts/compare_pytest.py ../model/reports/r153_gpr_revision_20261019/logs/pytest_before.xml ../model/reports/r153_gpr_revision_20261019/logs/pytest_after.xml
+
+# Read-only checks (run from .scratch/r153_gpr_revision_20261019/)
+python ../../model/reports/selection_gpr_fix_20261019/scripts/model_diff.py <51c6fabd> control_no_flag.xml control_vs_51c6fabd_diff.json
+python ../../model/reports/selection_gpr_fix_20261019/scripts/model_diff.py <51c6fabd> control_no_flag_seed0.xml control_seed0_vs_51c6fabd_diff.json
+python ../../model/reports/selection_gpr_fix_20261019/scripts/model_diff.py <51c6fabd> <v1 candidate> model_diff.json   # v1; renamed model_diff_v1.json after the v2 rebuild
+python -I ../../model/reports/r153_gpr_revision_20261019/scripts/byte_and_static_checks.py <51c6fabd> control_no_flag_seed0.xml <new candidate>
+
+# After the independent audit (JSON evidence rows and two added-note texts refined; code unchanged)
+python -m pytest -q -p no:cacheprovider tests/test_r153_gpr_revision.py
+PYTHONHASHSEED=0 python -m scripts.gem_annotate ... --remove-r153-peptidase-gpr --output-model ../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_r153_gpr_20261019.xml
+#   -> refused before building: "a canonical copy requires a new, separate output path" (the builder never overwrites)
+PYTHONHASHSEED=0 python -m scripts.gem_annotate ... --remove-r153-peptidase-gpr --output-model ../model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_r153_gpr_v2_20261019.xml
+python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r153_gpr_revision_20261019/logs/pytest_after_v2.xml
+python ../model/reports/selection_gpr_fix_20261019/scripts/compare_pytest.py <pytest_before.xml> <pytest_after_v2.xml>   # -> logs/pytest_comparison_v2.txt
+# From .scratch/r153_gpr_revision_20261019/:
+python model_diff.py <51c6fabd> <v2> model_diff.json ; python model_diff.py <v1> <v2> model_diff_v1_vs_v2.json
+python -I scripts/byte_and_static_checks.py <51c6fabd> control_no_flag_seed0.xml <v2>   # -> byte_and_static_checks.json
+# v1 outputs kept as model_diff_v1.json, byte_and_static_checks_v1.json

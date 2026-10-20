@@ -1,0 +1,108 @@
+# Exact record of what produced every file in this folder (2026-10-19 PDT / 2026-10-20 UTC).
+# Worktree claude/cool-nightingale-a2f471; HEAD c091b78 plus the uncommitted change in REPORT.md section 2.
+# PY = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/bin/python   (Python 3.13.5, cobra 0.30.0)
+# RR = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research ; export IYALI26_RESEARCH_ROOT="$RR" for pytest and builds
+# B51 = model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml    (51c6fabd...)
+# CAND = model/candidates/E5_coq9_resp_pkg_r132_tkl_fragment_gpr_20261019.xml       (52d3106b...)
+# CTRL = .scratch/tkl_d02625g_gpr_20261019/control_no_new_flag.xml                  (248ea2c0...; copy in $RR/artifacts/tasks/tkl_d02625g_gpr_20261019/control_build/)
+# BASE = --research-root "$RR" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2
+
+## From platform/
+$PY -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/tkl_d02625g_gpr_20261019/logs/pytest_before.xml   # at c091b78, before any edit (21:22:34-21:27:19 PDT)
+$PY -m scripts.gem_annotate $BASE --output-model ../.scratch/tkl_d02625g_gpr_20261019/control_no_new_flag.xml          # concurrently with the next line, 04:29:59-04:32:30 UTC
+$PY -m scripts.gem_annotate $BASE --remove-selection-tkl-fragment-gpr --output-model ../model/candidates/E5_coq9_resp_pkg_r132_tkl_fragment_gpr_20261019.xml
+$PY -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/tkl_d02625g_gpr_20261019/logs/pytest_after.xml
+$PY ../model/reports/selection_gpr_fix_20261019/scripts/compare_pytest.py ../model/reports/tkl_d02625g_gpr_20261019/logs/pytest_before.xml ../model/reports/tkl_d02625g_gpr_20261019/logs/pytest_after.xml > ../model/reports/tkl_d02625g_gpr_20261019/logs/pytest_comparison.txt
+
+## From the worktree root
+shasum -a 256 $B51 $CTRL $CAND > model/reports/tkl_d02625g_gpr_20261019/logs/sha256.txt
+diff $B51 $CTRL  > logs/control_byte_diff.txt   (with a one-line header; written to model/reports/tkl_d02625g_gpr_20261019/logs/)
+diff $B51 $CAND  > logs/candidate_byte_diff.txt (with a one-line header)
+
+## From .scratch/tkl_d02625g_gpr_20261019/ (model_diff.py reused unchanged from the 2026-10-19 fix report)
+$PY ../../model/reports/selection_gpr_fix_20261019/scripts/model_diff.py ../../$B51 control_no_new_flag.xml ../../model/reports/tkl_d02625g_gpr_20261019/model_diff_control.json
+$PY ../../model/reports/selection_gpr_fix_20261019/scripts/model_diff.py ../../$B51 ../../$CAND ../../model/reports/tkl_d02625g_gpr_20261019/model_diff.json
+
+## before.json: inline read-only script, run from the worktree root with $PY (stdin), verbatim:
+#   import json, hashlib
+#   from cobra.io import read_sbml_model
+#   p="model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml"
+#   m=read_sbml_model(p)
+#   out={"baseline": {"path": p, "sha256": hashlib.sha256(open(p,"rb").read()).hexdigest()},
+#        "reactions": {}, "genes": {}, "species": {}}
+#   for rid in ("R765","R766"):
+#       r=m.reactions.get_by_id(rid)
+#       out["reactions"][rid]={"name": r.name, "bounds": list(r.bounds), "gpr": r.gene_reaction_rule,
+#           "stoichiometry": {x.id: float(c) for x,c in sorted(r.metabolites.items(), key=lambda t: t[0].id)},
+#           "ec-code": r.annotation.get("ec-code"), "mass_charge_residual": r.check_mass_balance(),
+#           "notes": dict(r.notes)}
+#       for x in r.metabolites:
+#           out["species"][x.id]={"name": x.name, "formula": x.formula, "charge": x.charge, "compartment": x.compartment}
+#   for g in ("YALI1E07744g","YALI1D02625g"):
+#       gg=m.genes.get_by_id(g)
+#       out["genes"][g]={"name": gg.name, "annotation": dict(gg.annotation), "reactions": sorted(r.id for r in gg.reactions)}
+#   out["gene_count"]=len(m.genes); out["reaction_count"]=len(m.reactions)
+#   json.dump(out, open("model/reports/tkl_d02625g_gpr_20261019/before.json","w"), indent=1, sort_keys=True)
+
+## static_checks.json: inline read-only script (final version, after the audit), run from the worktree root with $PY, verbatim:
+#   # Read-only static checks (no optimization). Run from the worktree root with the main-checkout .venv python.
+#   import json
+#   from cobra.io import read_sbml_model
+#   BASE = "model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml"
+#   CAND = "model/candidates/E5_coq9_resp_pkg_r132_tkl_fragment_gpr_20261019.xml"
+#   TARGETS = ("R765", "R766")
+#   def knockouts(m):
+#       out = {}
+#       for genes in (("YALI1E07744g",), ("YALI1D02625g",), ("YALI1E07744g", "YALI1D02625g")):
+#           with m:
+#               for g in genes:
+#                   m.genes.get_by_id(g).knock_out()
+#               out[" + ".join(genes)] = sorted(r for r in TARGETS if m.reactions.get_by_id(r).bounds == (0, 0))
+#       return out
+#   out = {"balance": {}, "notes": {}, "records": {}, "gene_reactions": {}}
+#   cand, base = read_sbml_model(CAND), read_sbml_model(BASE)
+#   for rid in TARGETS:
+#       r = cand.reactions.get_by_id(rid)
+#       out["balance"][rid] = {"gpr": r.gene_reaction_rule, "residual": r.check_mass_balance(), "bounds": list(r.bounds),
+#                              "baseline_gpr": base.reactions.get_by_id(rid).gene_reaction_rule,
+#                              "baseline_residual": base.reactions.get_by_id(rid).check_mass_balance()}
+#       out["notes"][rid] = {k: v for k, v in r.notes.items() if k.startswith("selection_gpr_restore")}
+#   out["knockout_closes"] = {"candidate": knockouts(cand), "baseline_51c6fabd": knockouts(base)}
+#   for g in ("YALI1E07744g", "YALI1D02625g"):
+#       out["gene_reactions"][g] = {"candidate": sorted(r.id for r in cand.genes.get_by_id(g).reactions),
+#                                   "baseline": sorted(r.id for r in base.genes.get_by_id(g).reactions),
+#                                   "baseline_annotation": dict(base.genes.get_by_id(g).annotation)}
+#   sel = json.load(open(CAND.replace(".xml", ".build.json")))["reaction_selection"]
+#   out["records"]["selection_complete"] = sel["complete"]
+#   out["records"]["selection_rows"] = {row["item"]: {"status": row["status"], "fields": row["fields"]}
+#                                       for row in sel["items"] if row["item"] in TARGETS}
+#   for k in ("selection_gpr_restore", "selection_gpr_restore_r671", "selection_cpa_ura2_restore"):
+#       out["records"][k] = (sel.get(k) or {}).get("status")
+#   out["records"]["selection_tkl_fragment_gpr_restore"] = sel.get("selection_tkl_fragment_gpr_restore")
+#   out["counts"] = {"candidate": {"genes": len(cand.genes), "reactions": len(cand.reactions)},
+#                    "baseline": {"genes": len(base.genes), "reactions": len(base.reactions)}}
+#   json.dump(out, open("model/reports/tkl_d02625g_gpr_20261019/static_checks.json", "w"), indent=1, default=str)
+#   print(json.dumps({"knockout_closes": out["knockout_closes"], "counts": out["counts"],
+#                     "balance": out["balance"]}, indent=1))
+
+## Hash-seed simulation of the R159 insertion order (the auditor's seedsim.py, verbatim; run WITHOUT python -I,
+## because -I ignores PYTHONHASHSEED). It replays selection_gpr_restore.py lines 157-158 on R159's pre-restore order:
+#   import json, sys
+#   W = "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/cool-nightingale-a2f471/"
+#   spec = json.load(open(W + "model/curation/gpr/selection_cpa_ura2_restore.json"))
+#   target = spec["reactions"]["R159"]["restored"]["stoichiometry"]
+#   current = {"m267[C_cy]": -1.0, "m325[C_cy]": -1.0, "m35[C_cy]": 1.0, "m326[C_cy]": 1.0}
+#   # Same expression as selection_gpr_restore.py lines 157-158
+#   delta = {mid: target.get(mid, 0.0) - current.get(mid, 0.0) for mid in set(current) | set(target)}
+#   new = [m for m, c in delta.items() if c and m not in current]
+#   order = list(current)  # existing species keep their positions (m325 drops to 0 and is removed)
+#   for m in new: order.append(m)
+#   order.remove("m325[C_cy]")
+#   coef = {**current, **{m: target[m] for m in target}}
+#   reactants = [m.split("[")[0] for m in order if coef[m] < 0]
+#   products = [m.split("[")[0] for m in order if coef[m] > 0]
+#   print(json.dumps([reactants, products]))
+#   for s in 399 317 188; do PYTHONHASHSEED=$s $PY seedsim.py; done
+#   -> 399: 51c6fabd order; 317: control order; 188: candidate order (re-run by the author 2026-10-19)
+
+# No LP on any GEM. The full pytest runs include existing toy-fixture solves (e.g. tests/test_dipeptide_supply.py).
