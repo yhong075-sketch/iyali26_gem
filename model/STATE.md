@@ -5,6 +5,86 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-20: gem_review literature layer, step 4 — logic chains (quote → inference → verdict)
+
+**Authorization.** Parent-session brief of 2026-10-20 (logic-chain layer on the step 1–3 code,
+no re-run of retrieval, FunctionModel tests, one live chain on POX3/R100, no model XML change,
+no commit of the layer); user approved the plan on 2026-10-20 with "evidence_level = strength
+of the evidence for the verdict as stated", and chose to merge the step 1–3 commit `7d46a79`
+into `claude/priceless-joliot-8eb663` (merge `417f2d6`, STATE.md conflict resolved by keeping
+both entries) because a worktree hook blocks writes into the other worktree. The chain layer is
+committed on top of `417f2d6` as `ba67bb2` (user instruction 2026-10-20; not pushed).
+
+**Results** ([REPORT.md](reports/gem_review_lit_20261019/REPORT.md), step 4; verified this session).
+- Code: `platform/gem_review/lit/chain.py`, CLI `python -m gem_review.lit chain (--pair g:r |
+  --question … --aliases … --terms …)`, `logic_chains` sheet in `review.xlsx`. Pydantic checks:
+  verdict last and unique, `rests_on` points backwards, every inference traces to a quote, the
+  verdict level ≤ max effective level of the quotes it rests on (other organism ≤ 1, no quote
+  → 0). Quotes go through `check_quote`, factored out of `validate_claims` unchanged. Retries 2,
+  then `CHAIN_FAILED`. Question mode retrieves through the step-1 cache and prints hit counts
+  before any model call.
+- Live chain POX3 (YALI1D32754g) / R100 "acyl-CoA oxidase (hexadecanoyl-CoA)":
+  answer **no, level 3 (genetic)** — the chunks characterise POX3 as short-chain and do not
+  establish C16 activity. 5 quotes (all verbatim, re-checked by hand), 2 inferences, 2 requests,
+  98,493 / 2,394 tokens (≈ $0.44). Independently cites the same three PMIDs (9848229, 10464181,
+  10593257) as the step-2 contradicting claims. Candidate GPR-specificity finding for R99–R102
+  stands; model unchanged. Label caveat: quote 0 (E. coli expression of Aco3p) labelled
+  Yarrowia/biochemical.
+- Tests: 13 new mocked tests pass; full suite 185 passed, 19 failed, 14 errors, 31 skipped vs
+  baseline `417f2d6` 172 passed with the identical 33 failing/erroring IDs (nine pre-existing
+  files; none imports `gem_review`).
+- Not done: chain stability across re-runs; storing retry reasons; a live ad-hoc question;
+  prompt caching.
+
+## 2026-10-19: gem_review literature layer, step 1 (Europe PMC retrieval) run on tier 1
+
+**Authorization.** User spec of 2026-10-15 (Pydantic AI literature layer for `gem_review`; run
+retrieval on tier-1 reactions and show the hit-count table before writing any agent), with the
+decisions: create `gem_review` under `platform/` (it existed nowhere); tier 1 = "reactions in lipid
+pathways" from the user's `GEM_reaction_review_checklist.xlsx`; Europe PMC/UniProt queries
+permitted; direction 2026-10-19: build the spec first, then a question-driven quote → inference →
+verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark changed. Uncommitted on
+`claude/gem-review-lit-layer-861d41`.
+
+**Results** ([REPORT.md](reports/gem_review_lit_20261019/REPORT.md), verified this session).
+- Model read: `candidates/E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`). Tier-1 subsystem list:
+  `curation/gem_review/tier1_lipid_subsystems.csv` (five borderline subsystems excluded, pending).
+  442 reactions → 673 gene–reaction pairs, 158 genes; 5 reactions without GPR (R530, R1727, R1902,
+  R2003, R2274).
+- Hit table ([hit_counts.csv](reports/gem_review_lit_20261019/hit_counts.csv)): pair_hits 0 / 1–4 /
+  5–19 / 20+ = 461 / 164 / 28 / 20 pairs; 177 pairs have an open-access full text. Fatty acid
+  degradation 82/132 pairs with hits; Sphingolipid metabolism 0/118 (locus tags absent from the
+  literature; no symbols).
+- **Finding (model annotation, not changed):** 99 of the 125 UniProt accessions on tier-1 genes are
+  deleted UniProt entries ("Not part of a reference proteome", `A0A1H6…`); only 21 genes have a
+  UniProt gene symbol. Checklist item G01; left for a separate decision.
+- Code: `platform/gem_review/lit/` (pairs, terms, cached rate-capped client, chunks, retrieval,
+  CLI); 5 mocked tests pass. Full suite: 162 passed, 19 failed, 14 errors, all in nine pre-existing
+  files for environmental reasons (missing paths, `scipy`, CoA source model); none touches
+  `gem_review`. Cache and per-pair JSON:
+  `$IYALI26_RESEARCH_ROOT/artifacts/tasks/gem_review_lit_20261019/`.
+- **Steps 2–3 (same day, user-authorized "implement step 2 … on the 212 pairs with hits"):**
+  pydantic-ai 2.58 + `anthropic:claude-opus-5-5`; chunks passed as structured instructions;
+  output validator rejects any claim whose PMID is not retrieved or whose quote is not verbatim
+  in the cited chunk (retries 2, then `EXTRACTION_FAILED`); evidence level computed in Python,
+  other-organism evidence capped at homology. Run: 212 pairs → 191 calls, 0 failures, 15 retries,
+  2.73 M input / 0.135 M output tokens (≈ $13.6). Levels over 212 extracted pairs: none 79,
+  homology 75, physiological 12, genetic 34, biochemical 12. `review.xlsx`: `literature` 673
+  rows, `review_queue` 618 rows (contradicted 4, claims_disagree 3, low_evidence 150,
+  no_hits 461).
+- **Candidate finding (no model change):** POX3/YALI1D32754g on the C14–C26 acyl-CoA oxidase
+  reactions R99–R102 is contradicted by every validated quote (PMID 9848229, 10464181,
+  10593257: ACO3/POX3 is the short-chain oxidase); the same papers support it on R97/R1488.
+  Quotes are code-verified; the support/level labels are the model's. A 3-pair spot check found
+  one over-credited label (R296), so `review.xlsx` levels need human confirmation.
+- Tests after steps 2–3: 15 gem_review tests pass; full suite 171 passed, 19 failed, 14 errors,
+  31 skipped — the failure set is identical to the step-1 run (nine pre-existing files,
+  environmental causes) and none touches `gem_review`.
+- Dependencies added: `pydantic-ai-slim[anthropic]`, `openpyxl`. API key via git-ignored
+  `platform/.env`; a first key was exposed in a tool output during diagnosis and the user
+  revoked it.
+- Not done: logic-chain layer (quote → inference → verdict); ortholog-name query broadening;
+  prompt caching.
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
