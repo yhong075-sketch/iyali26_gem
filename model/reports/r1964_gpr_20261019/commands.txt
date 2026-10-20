@@ -1,0 +1,25 @@
+# Run from platform/ in worktree claude/reverent-wilbur-4dc5b6 (HEAD 285eaee). Interpreter: main checkout .venv (cobra 0.30.0).
+# RR=/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# BASE=--research-root "$RR" --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh
+
+python -B ../model/reports/r1964_gpr_20261019/scripts/before_state.py ../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml ../model/reports/r1964_gpr_20261019/before.json
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r1964_gpr_20261019/logs/pytest_before.xml   # before any code change
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -p no:cacheprovider tests/test_r1964_gpr.py                                                        # focused test
+python -m scripts.gem_annotate $BASE --output-model ../.scratch/r1964_gpr_20261019/control_no_flag.xml
+python -m scripts.gem_annotate $BASE --r1964-gpr --output-model ../model/candidates/E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r1964_gpr_20261019/logs/pytest_after.xml    # after the change
+python ../model/reports/r1964_gpr_20261019/scripts/compare_pytest.py ../model/reports/r1964_gpr_20261019/logs/pytest_before.xml ../model/reports/r1964_gpr_20261019/logs/pytest_after.xml
+
+# Read-only checks:
+python ../model/reports/r1964_gpr_20261019/scripts/model_diff.py ../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml ../model/candidates/E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml ../model/reports/r1964_gpr_20261019/model_diff.json
+diff ../model/candidates/E5_coq9_resp_pkg_r132_20261012.xml ../model/candidates/E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml > ../model/reports/r1964_gpr_20261019/logs/xml_diff.txt
+
+# Authorized LPs (5), run from the repository root:
+python -B model/reports/r1964_gpr_20261019/scripts/run_lps.py
+
+# After the independent audit (guard tightened in r1964_gpr.py, data file before_notes/full gene identity/evidence tier, test rewritten):
+IYALI26_RESEARCH_ROOT="$RR" python -B -m pytest -q -p no:cacheprovider tests/test_r1964_gpr.py
+python -m scripts.gem_annotate $BASE --output-model ../.scratch/r1964_gpr_20261019/control_no_flag_v2.xml
+python -m scripts.gem_annotate $BASE --r1964-gpr --output-model ../.scratch/r1964_gpr_20261019/candidate_v2.xml
+IYALI26_RESEARCH_ROOT="$RR" python -m pytest -q -rA -p no:cacheprovider --junitxml=../model/reports/r1964_gpr_20261019/logs/pytest_after_v2.xml
+python ../model/reports/r1964_gpr_20261019/scripts/compare_pytest.py ../model/reports/r1964_gpr_20261019/logs/pytest_before.xml ../model/reports/r1964_gpr_20261019/logs/pytest_after_v2.xml

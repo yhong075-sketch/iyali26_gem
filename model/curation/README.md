@@ -299,6 +299,25 @@ without this curation's notes stop the step before it mutates the model. Without
 the flag, builds are unchanged. Focused regression:
 `python -m unittest tests.test_r2041_direction`.
 
+## Opt-in R1964 provisional GPR and D-xylulose cross-references (2026-10-19)
+
+With `--r1964-gpr`, the build applies `gpr/r1964_gpr_assignment.json` after the
+`--r132-mito-adh` step. Orphan R1964 (D-xylulose + NADH <=> NAD + D-arabinitol)
+gets the provisional GPR `YALI1F03452g or YALI1E06616g`, and the new gene
+YALI1E06616g (GeneID 2912324, XP_503594.1) is created with its identifiers. The
+evidence is in vitro activity of the purified proteins (Wang et al. 2020,
+YlAraDH1/YlAraDH2); the reaction products were assigned from a 340 nm assay,
+not identified, and the C-4 (D-xylulose) versus C-2 (D-ribulose) regiochemistry
+is unsettled ([review](../reports/r1964_gpr_review_20261019/REPORT.md)). The same
+step replaces the L-xylulose cross-references (BiGG/VMH ABTD1, MNXR154181) with
+the D-xylulose reaction (MNXR198271, Rhea 17921, KEGG R05604, EC 1.1.1.11,
+BiGG/VMH ABTDG, MetaCyc). Bounds and stoichiometry are unchanged. Unexpected
+identity, bounds, stoichiometry, species, GPR, annotation or notes, a changed
+YALI1F03452g identity or reaction context, a YALI1E06616g with other identity or
+reactions, or the target GPR without this curation's notes stop the step before
+it mutates the model. Without the flag, builds are unchanged. Focused regression:
+`python -m unittest tests.test_r1964_gpr`.
+
 
 ### Optional E5 vacuole connection candidate (2026-09-24)
 

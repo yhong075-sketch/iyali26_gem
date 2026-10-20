@@ -85,6 +85,7 @@ def build_reference_chain(
     r153_gpr_revision: bool = False,
     r2041_forward: bool = False,
     r2190_ribulose_product: bool = False,
+    r1964_gpr: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -735,6 +736,10 @@ def build_reference_chain(
     if r2190_ribulose_product:
         from .r2190_product import apply_r2190_product
         selection["r2190_ribulose_product"] = apply_r2190_product(model)
+    if r1964_gpr:
+        from .r1964_gpr import apply_r1964_gpr_assignment
+        selection["r1964_gpr_assignment"] = apply_r1964_gpr_assignment(model)
+        logger.info("R1964 GPR assignment: %s", selection["r1964_gpr_assignment"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -826,6 +831,7 @@ def build_model(args):
         r153_gpr_revision=getattr(args, "remove_r153_peptidase_gpr", False),
         r2041_forward=getattr(args, "r2041_forward", False),
         r2190_ribulose_product=getattr(args, "r2190_ribulose_product", False),
+        r1964_gpr=getattr(args, "r1964_gpr", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
