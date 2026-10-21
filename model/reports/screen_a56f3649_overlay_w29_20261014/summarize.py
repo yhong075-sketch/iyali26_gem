@@ -126,7 +126,7 @@ def draw(manifest, panels, diagnostics_in_scope, path_stem):
     fig = plt.figure(figsize=(12, 7.6), facecolor=SURFACE)
     fig.suptitle("iYali26 newest candidate (a56f3649): single-gene essentiality vs consensus list (KO/WT < 15 %)",
                  x=0.04, y=0.975, ha="left", fontsize=13, fontweight="bold", color=TEXT_PRIMARY)
-    fig.text(0.04, 0.925, "PO1f + CSM-Leu, glucose uptake 2.414 (W29) · in-memory diagnostic overlay, "
+    fig.text(0.04, 0.925, "Task A medium + PO1f, glucose uptake 2.414 · in-memory diagnostic overlay, "
              "assumed caps R1384 ≤ 8 and R860 ≤ 1", ha="left", va="top", fontsize=11, color=TEXT_SECONDARY)
     controls = manifest["controls"]
     for i, (view, m) in enumerate(panels.items()):
@@ -177,7 +177,7 @@ def draw(manifest, panels, diagnostics_in_scope, path_stem):
         for k, text in enumerate(lines):
             ax.text(-0.25, -0.08 - 0.08 * k, text, transform=ax.transAxes, ha="left", va="top",
                     fontsize=9, color=TEXT_PRIMARY if k == 0 else TEXT_SECONDARY)
-    footnote = ("Static FBA, po1f_csm_leu_w29uptake_20261012.csv, PO1f strain profile, objective biomass_C; essential = "
+    footnote = ("Static FBA, Task A medium (po1f_csm_leu_w29uptake_20261012.csv) + PO1f strain profile, objective biomass_C; essential = "
                 "unrounded KO/WT strictly below 0.15.\n"
                 "Overlay = Task A's diagnostic package in memory (not curated); the two caps are assumptions. "
                 "The benchmark rule (left) is primary; the lethal view (right) is a labelled second view.\n"

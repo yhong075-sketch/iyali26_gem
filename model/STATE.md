@@ -5,6 +5,19 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-21: medium relabelled "Task A medium + PO1f" in this branch's figures and reports (text only)
+
+The user asked for the medium to be named "Task A medium + PO1f". All screens on this branch already
+used it (`po1f_csm_leu_w29uptake_20261012.csv`, `6eca70fd…`, built by Task A; PO1f profile
+`35307853…`), so nothing was rerun and no number changed.
+- Changed: the subtitle and footnote in `confusion_matrices_csmleu_w29_20261014/summarize.py` and
+  `screen_a56f3649_overlay_w29_20261014/summarize.py`, the footer in `make_figure.py`, and the medium
+  wording in the four REPORT.md files.
+- Regenerated: all six figures. The two summaries changed only in their figure-hash fields, and the
+  source hashes in `make_figure.py` were updated to match.
+- Left as is: TASK.md files (they quote the user), runner docstrings (their hashes are in the run
+  manifests) and earlier STATE.md entries.
+
 ## 2026-10-21: newest candidate b3b9fe22 screened (no overlay and overlay); figure vs iYali21 in the overlay lethal view
 
 **Authorization.** "make a new one by our newest model"; the user chose b3b9fe22 and the overlay +

@@ -24,9 +24,9 @@ REPORTS = HERE.parent
 PRIMARY = 0.15
 SOURCES = {
     "iyali21": (REPORTS / "confusion_matrices_csmleu_w29_20261014/summary.json",
-                "018bc8a75ca15ea884ccc0f119d650c777fa529d753c38b3bcbbda266a03ac6e"),
+                "0472de4103f4e6a30d18065c673a9ed854842210fe80088842eec5b191e5f393"),
     "a56f3649_overlay": (REPORTS / "screen_a56f3649_overlay_w29_20261014/summary.json",
-                         "9e90e9c869fd77b1704b579d02efecbdaa952e95d5621e6b26d5b64f3560c8f3"),
+                         "68bf6d1daaaab6d1d725877811b241089ff134eba0b60d9b730237043f794f6b"),
 }
 # Reference sequential blue ramp, steps 100-700 (dataviz skill, references/palette.md).
 RAMP = ["#cde2fb", "#b7d3f6", "#9ec5f4", "#86b6ef", "#6da7ec", "#5598e7", "#3987e5",
@@ -108,7 +108,7 @@ def draw(panels, path_stem):
         ax.set_title(panel["title"], fontsize=13, fontweight="bold", color=TEXT_PRIMARY, pad=54)
         ax.annotate(panel["condition"], xy=(0.5, 1.0), xycoords="axes fraction", xytext=(0, 38),
                     textcoords="offset points", ha="center", va="bottom", fontsize=9.5, color=TEXT_SECONDARY)
-    footer = ("Both panels: PO1f + CSM-Leu, glucose uptake 2.414 (W29); static FBA; essential = KO/WT < 15 %; "
+    footer = ("Both panels: Task A medium + PO1f (glucose uptake 2.414); static FBA; essential = KO/WT < 15 %; "
               "16 mtDNA genes out of scope; negatives = model genes not on the consensus list (user-defined class).")
     fig.text(0.04, 0.025, footer, ha="left", va="bottom", fontsize=8, color=TEXT_SECONDARY)
     for suffix in (".png", ".pdf"):

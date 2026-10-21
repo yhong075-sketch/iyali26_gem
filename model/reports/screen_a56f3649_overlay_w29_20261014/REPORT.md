@@ -1,4 +1,4 @@
-# a56f3649 under Task A's diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (2026-10-14)
+# a56f3649 under Task A's diagnostic overlay, Task A medium + PO1f, glucose 2.414 (2026-10-14)
 
 Scope and authorization: [TASK.md](TASK.md). Computation only; the overlay exists in memory only. No
 model change, no commit.
@@ -13,7 +13,7 @@ model change, no commit.
 | Item | Value |
 | --- | --- |
 | Model | `model/candidates/E5_coq9_resp_pkg_r132_20261012.xml`, `a56f3649af21…77b58515` (newest candidate; not a reference) |
-| Medium | `po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`): PO1f + CSM-Leu, glucose uptake bound 2.414 |
+| Medium | `po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`): Task A medium (CSM-Leu recipe), glucose uptake bound 2.414 |
 | Strain profile | PO1f, `35307853…`, in memory |
 | Overlay | `reports/r132_mito_adh_20261012/holistic_overlay.py` (`bf6c7ce5…`), a verbatim copy of Task A's `apply_overlay`, in memory only |
 | Assumed caps | **R1384 ≤ 8** (proton leak) and **R860 ≤ 1** (Ggc1 GTP/GDP carrier), ASSUMPTION (diagnostic) |

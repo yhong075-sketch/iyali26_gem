@@ -1,4 +1,4 @@
-# Confusion matrices: iYali21 and the newest candidate a56f3649, PO1f + CSM-Leu, glucose 2.414 (2026-10-14)
+# Confusion matrices: iYali21 and the newest candidate a56f3649, Task A medium + PO1f, glucose 2.414 (2026-10-14)
 
 Scope and authorization: [TASK.md](TASK.md). Computation only; no model change, no commit.
 
@@ -23,7 +23,7 @@ Scope and authorization: [TASK.md](TASK.md). Computation only; no model change, 
 
 - **Shared conditions:**
   - static FBA on `model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`):
-    PO1f + CSM-Leu, glucose uptake bound 2.414 mmol/gDW/h (the W29 value);
+    Task A medium + PO1f (the CSM-Leu recipe with glucose at the W29 uptake bound, 2.414 mmol/gDW/h);
   - PO1f profile (`35307853…`) applied in memory; objective `biomass_C`; NGAM lower bound 7.8625
     in both models;
   - Gurobi 13.0.1, single thread, presolve off, tolerances 1e-7.
@@ -112,7 +112,7 @@ assignments below are model GPRs, not experimental validation. Gene names are no
 - YALI1D11769g has a different reaction set in the two models: R1, R2, R3, R303, R304 and R305 in
   iYali21; R304 is absent from it in a56f3649.
 
-## 5. Effect of the medium (SD-Leu → PO1f + CSM-Leu, glucose 2.414)
+## 5. Effect of the medium (SD-Leu → Task A medium + PO1f, glucose 2.414)
 
 The SD-Leu matrices for the same two models come from a sibling session's commit `01beb03`. Its
 raw tables were compared with these, at 15 %, without new solves (file hashes checked against its

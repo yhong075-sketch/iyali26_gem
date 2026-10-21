@@ -140,7 +140,7 @@ def draw(results, path_stem):
     fig = plt.figure(figsize=(12, 7.6), facecolor=SURFACE)
     fig.suptitle("Single-gene essentiality vs consensus essential list (KO/WT < 15 %)",
                  x=0.04, y=0.975, ha="left", fontsize=14, fontweight="bold", color=TEXT_PRIMARY)
-    fig.text(0.04, 0.925, "PO1f + CSM-Leu, glucose uptake 2.414 mmol/gDW/h (W29)",
+    fig.text(0.04, 0.925, "Task A medium + PO1f, glucose uptake 2.414 mmol/gDW/h",
              ha="left", va="top", fontsize=11, color=TEXT_SECONDARY)
     for i, label in enumerate(LABELS):
         manifest, m = results[label]["manifest"], results[label]["primary"]
@@ -188,7 +188,7 @@ def draw(results, path_stem):
         for k, text in enumerate(lines):
             ax.text(-0.25, -0.08 - 0.08 * k, text, transform=ax.transAxes, ha="left", va="top",
                     fontsize=9, color=TEXT_PRIMARY if k == 0 else TEXT_SECONDARY)
-    footnote = ("Static FBA, PO1f + CSM-Leu medium with glucose uptake 2.414 (po1f_csm_leu_w29uptake_20261012.csv), "
+    footnote = ("Static FBA, Task A medium (po1f_csm_leu_w29uptake_20261012.csv, glucose uptake 2.414) + "
                 "PO1f strain profile, objective biomass_C; essential = unrounded KO/WT strictly below 0.15.\n"
                 "Matrix cells follow the benchmark rule: a knockout with no LP solution is unresolved and left out. "
                 "Cell shade = share of the experimental row.\n"

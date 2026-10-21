@@ -1,4 +1,4 @@
-# iYali21 under the adapted diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (2026-10-14)
+# iYali21 under the adapted diagnostic overlay, Task A medium + PO1f, glucose 2.414 (2026-10-14)
 
 Scope and authorization: [TASK.md](TASK.md). Computation only; overlay in memory only; no commit.
 Figure (both models, overlay, lethal view):

@@ -1,4 +1,4 @@
-# Newest candidate b3b9fe22: screens without and with the diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (2026-10-21)
+# Newest candidate b3b9fe22: screens without and with the diagnostic overlay, Task A medium + PO1f, glucose 2.414 (2026-10-21)
 
 Scope and authorization: [TASK.md](TASK.md). Computation and a figure only; no model change; no commit.
 Figure (iYali21 vs b3b9fe22, both overlay + lethal view):
