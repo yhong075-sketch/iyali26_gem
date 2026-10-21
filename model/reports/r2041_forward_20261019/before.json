@@ -1,0 +1,175 @@
+{
+ "context": {
+  "R1062": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "ec-code": null,
+   "gpr": "",
+   "name": "D-arabinose exchange",
+   "notes": {},
+   "stoichiometry": {
+    "m1193[C_ex]": -1.0
+   }
+  },
+  "R1063": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": null,
+   "gpr": "",
+   "name": "D-arabinose transport",
+   "notes": {},
+   "stoichiometry": {
+    "m1193[C_ex]": -1.0,
+    "m454[C_cy]": 1.0
+   }
+  },
+  "R1964": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": null,
+   "gpr": "",
+   "name": "arabinitol dehydrogenase",
+   "notes": {
+    "PROTEIN_CLASS": "1.1.1.11"
+   },
+   "stoichiometry": {
+    "m1015[C_cy]": -1.0,
+    "m122[C_cy]": 1.0,
+    "m123[C_cy]": -1.0,
+    "m1823[C_cy]": 1.0
+   }
+  },
+  "R2042": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "5.3.1.13",
+   "gpr": "",
+   "name": "D-arabinose-5-phosphate aldose-ketose-isomerase",
+   "notes": {},
+   "stoichiometry": {
+    "m10[C_cy]": 2.0,
+    "m1884[C_cy]": 1.0,
+    "m96[C_cy]": -1.0
+   }
+  },
+  "R2190": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "1.1.1.250",
+   "gpr": "YALI1F03452g",
+   "name": "D-arabinitol:NAD+ 2-oxidoreductase",
+   "notes": {},
+   "stoichiometry": {
+    "m122[C_cy]": -1.0,
+    "m123[C_cy]": 1.0,
+    "m1823[C_cy]": -1.0,
+    "m454[C_cy]": 1.0
+   }
+  },
+  "R714": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "5.1.3.1",
+   "gpr": "YALI1C16621g",
+   "name": "ribulose 5-phosphate 3-epimerase",
+   "notes": {
+    "PROTEIN_CLASS": "5.1.3.1"
+   },
+   "stoichiometry": {
+    "m938[C_cy]": 1.0,
+    "m96[C_cy]": -1.0
+   }
+  },
+  "R803": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "ec-code": "2.7.1.17",
+   "gpr": "YALI1F14583g",
+   "name": "xylulokinase",
+   "notes": {},
+   "stoichiometry": {
+    "m1015[C_cy]": -1.0,
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m938[C_cy]": 1.0
+   }
+  }
+ },
+ "m1884_reactions": [
+  "R2041",
+  "R2042"
+ ],
+ "model": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+ "model_sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515",
+ "species": {
+  "m10[C_cy]": {
+   "charge": 1,
+   "compartment": "C_cy",
+   "formula": "H",
+   "name": "H+_p+1"
+  },
+  "m141[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C10H16N5O13P3",
+   "name": "ATP_C10H16N5O13P3"
+  },
+  "m143[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C10H15N5O10P2",
+   "name": "ADP_C10H15N5O10P2"
+  },
+  "m1884[C_cy]": {
+   "charge": -2,
+   "compartment": "C_cy",
+   "formula": "C5H9O8P",
+   "name": "D-Arabinose 5-phosphate"
+  },
+  "m454[C_cy]": {
+   "charge": 0,
+   "compartment": "C_cy",
+   "formula": "C5H10O5",
+   "name": "D-arabinose_C5H10O5"
+  }
+ },
+ "target": {
+  "R2041": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "ec-code": "2.7.1.54",
+   "gpr": "",
+   "name": "ATP:D-arabinose 5-phosphotransferase",
+   "notes": {
+    "metadata_previous_curated_reaction_correction": "{'source': 'https://enzyme.expasy.org/EC/2.7.1.54', 'equation': 'ATP + D-arabinose -> ADP + D-arabinose 5-phosphate + H+', 'status': 'active', 'remaining_gate': 'ATP/ADP connected-component microspecies migration', 'lock_proton_water_stoichiometry': True}",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "bounds; stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 2.0,
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m1884[C_cy]": 1.0,
+    "m454[C_cy]": -1.0
+   }
+  }
+ }
+}

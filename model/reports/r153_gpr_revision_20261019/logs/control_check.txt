@@ -1,0 +1,6 @@
+# Control (no new flag) vs baseline 51c6fabd, 2026-10-19
+8f0836275ee442d1dd3106b0e31f93f26b7045f1eb741b72bcf7d4511e334f5a  .scratch/r153_gpr_revision_20261019/control_no_flag.xml
+51c6fabd486f4e1a9d6365bf7740bde3eca20fa05f1d5454a73586d3276db3fa  model/candidates/E5_coq9_resp_pkg_r132_selection_gpr_fix_v2_20261019.xml
+model_diff.py (selection_gpr_fix_20261019/scripts): total differences 0 (control_vs_51c6fabd_diff.json)
+byte level: only reaction R_R159 differs; its lines are identical when sorted (reactant speciesReference order: m141 x2 and m10 swapped); all non-reaction text identical; 2306 reaction blocks in the same order
+cause (static, code reading): platform/scripts/gem_annotate/selection_gpr_restore.py:154 iterates set(current) | set(target['stoichiometry']) (hash-randomized str set) before add_metabolites

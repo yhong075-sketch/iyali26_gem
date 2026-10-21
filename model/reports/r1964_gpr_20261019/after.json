@@ -1,0 +1,144 @@
+{
+ "model": {
+  "path": "../model/candidates/E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml",
+  "sha256": "db42974360491a33e3366e5e2a0379c6712143a836432dbb1dbf36facadebf78",
+  "reactions": 2306,
+  "metabolites": 1875,
+  "genes": 1074
+ },
+ "R1964": {
+  "name": "arabinitol dehydrogenase",
+  "bounds": [
+   -1000.0,
+   1000.0
+  ],
+  "gpr": "YALI1F03452g or YALI1E06616g",
+  "stoichiometry": {
+   "m123[C_cy]": -1.0,
+   "m1015[C_cy]": -1.0,
+   "m122[C_cy]": 1.0,
+   "m1823[C_cy]": 1.0
+  },
+  "species": {
+   "m123[C_cy]": {
+    "name": "NADH_C21H29N7O14P2",
+    "formula": "C21H29N7O14P2",
+    "charge": 0,
+    "compartment": "C_cy"
+   },
+   "m1015[C_cy]": {
+    "name": "D-xylulose_C5H10O5",
+    "formula": "C5H10O5",
+    "charge": 0,
+    "compartment": "C_cy"
+   },
+   "m122[C_cy]": {
+    "name": "NAD_C21H27N7O14P2",
+    "formula": "C21H27N7O14P2",
+    "charge": 0,
+    "compartment": "C_cy"
+   },
+   "m1823[C_cy]": {
+    "name": "D-arabinitol_",
+    "formula": "C5H12O5",
+    "charge": 0,
+    "compartment": "C_cy"
+   }
+  },
+  "annotation": {
+   "sbo": "SBO:0000176",
+   "bigg.reaction": [
+    "ABTDG",
+    "R_ABTDG"
+   ],
+   "vmhreaction": [
+    "ABTDG",
+    "R_ABTDG"
+   ],
+   "metacyc.reaction": "D-ARABINITOL-4-DEHYDROGENASE-RXN",
+   "rh": [
+    "17921",
+    "17922",
+    "17923",
+    "17924"
+   ],
+   "rhea": [
+    "17921",
+    "17922",
+    "17923",
+    "17924"
+   ],
+   "kegg.reaction": "R05604",
+   "metanetx.reaction": "MNXR198271",
+   "ec-code": "1.1.1.11",
+   "biggr": [
+    "ABTDG",
+    "R_ABTDG"
+   ],
+   "keggr": "R05604",
+   "metacycr": "D-ARABINITOL-4-DEHYDROGENASE-RXN",
+   "vmhr": [
+    "ABTDG",
+    "R_ABTDG"
+   ]
+  },
+  "notes": {
+   "PROTEIN_CLASS": "1.1.1.11",
+   "curated_gpr_assignment": "R1964-ARADH-GPR-20261019",
+   "gpr_evidence_status": "user_authorized_provisional_assignment",
+   "gpr_evidence_basis": "In vitro activity of the purified Y. lipolytica proteins (Wang et al. 2020, doi:10.1186/s13068-020-01815-8, Table 2): NADH-linked D-xylulose reduction and NAD+-linked D-arabitol oxidation; reaction products assigned from a 340 nm NAD(P)H assay, not identified",
+   "gpr_experimental_confirmation": "required_not_confirmed",
+   "r1964_previous_gpr": "empty",
+   "r1964_gene_function": "YALI1F03452g (= YALI0F02211g, called YlAraDH1 in Wang 2020) and YALI1E06616g (= YALI0E05643g, called YlAraDH2); no verified gene names; NAD(H)-dependent short-chain polyol dehydrogenases also active on mannitol, D-sorbitol and xylitol in vitro; no deletion phenotype on glucose; experimental product identification required.",
+   "r1964_regiochemistry_limit": "Whether these enzymes oxidize D-arabinitol at C-4 (D-xylulose, this reaction, EC 1.1.1.11) or at C-2 (D-ribulose, EC 1.1.1.250, the homology label on YALI1F03452g and R2190) is not settled: D-ribulose was never tested; a stereochemical reading of the measured substrate pattern favours C-4 (inferred); the 42 % identical fungal homologs form D-ribulose.",
+   "r1964_previous_annotation": "bigg.reaction/vmhreaction ABTD1, metanetx.reaction MNXR154181 (L-arabinitol 4-dehydrogenase record pairing D-arabinitol with L-xylulose); replaced because m1015 is D-xylulose (MNXM1371292).",
+   "r1964_annotation_sources": "https://www.metanetx.org/equa_info/MNXR198271; https://www.rhea-db.org/rhea/17921; https://www.kegg.jp/entry/R05604; https://enzyme.expasy.org/EC/1.1.1.11",
+   "r1964_gpr_authorization": "User authorized the opt-in provisional GPR YALI1F03452g or YALI1E06616g and the D-xylulose cross-references on 2026-10-19 (model/reports/r1964_gpr_20261019)."
+  },
+  "mass_balance_residual": {}
+ },
+ "species_reactions": {
+  "m1015[C_cy]": [
+   "R1964",
+   "R801",
+   "R803"
+  ],
+  "m1823[C_cy]": [
+   "R1964",
+   "R1980",
+   "R2190"
+  ]
+ },
+ "genes": {
+  "YALI1F03452g": {
+   "present": true,
+   "name": "COBRAProtein1038",
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2908139",
+    "uniprot": "A0A1H6PMI9",
+    "kegg.genes": "yli:2908139",
+    "refseq": "XP_504895.1",
+    "ec-code": "1.1.1.250"
+   },
+   "reactions": [
+    "R1964",
+    "R2190"
+   ]
+  },
+  "YALI1E06616g": {
+   "present": true,
+   "name": "G_YALI1E06616g",
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2912324",
+    "kegg.genes": "yli:2912324",
+    "refseq": "XP_503594.1",
+    "uniprot": "Q6C6W8"
+   },
+   "reactions": [
+    "R1964"
+   ]
+  }
+ }
+}

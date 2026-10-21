@@ -1,0 +1,841 @@
+id,name,category,compartments,lb,ub,subsystem,spontaneous_note,equation
+R19,2-methoxy-6-(all-trans-nonaprenyl)phenol monooxygenase,metabolic,C_mi,0.0,1000.0,Ubiquinone and other terpenoid-quinone biosynthesis,False,"2-methoxy-6-(all-trans-nonaprenyl)phenol_C52H80O2 + oxygen_O2 --> H2O_H2O + 2-nonaprenyl-6-methoxy-1,4-benzoquinone_C52H78O3"
+R23,2-keto-4-methylthiobutyrate transamination,metabolic,C_cy,0.0,1000.0,Cysteine and methionine metabolism,False,H+_p+1 + 4-methylthio-2-oxobutanoate_C5H7O3S + L-glutamate_C5H9NO4 --> 2-oxoglutarate_C5H6O5 + L-methionine_C5H11NO2S
+R52,4-hydroxybenzoate formation,metabolic,C_mi,0.0,1000.0,Ubiquinone and other terpenoid-quinone biosynthesis,False,4-hydroxybenzoyl-CoA_ + H2O_H2O + 4.0 H+_p+1 --> 4-hydroxybenzoate_C7H6O3 + coenzyme A_C21H36N7O16P3S
+R321,geranylgeranyltranstransferase,metabolic,C_cy,0.0,1000.0,Terpenoid backbone biosynthesis,False,isopentenyl diphosphate_C5H12O7P2 + geranylgeranyl diphosphate_C20H36O7P2 --> diphosphate_H4O7P2 + pentaprenyl diphosphate_C25H44O7P2
+R333,glutaminase,metabolic,C_cy,0.0,1000.0,"Alanine, aspartate and glutamate metabolism",False,L-glutamine_C5H10N2O3 + H2O_H2O --> ammonium_H3N + L-glutamate_C5H9NO4
+R356,glycine C-acetyltransferase,metabolic,C_cy,0.0,1000.0,"Glycine, serine and threonine metabolism",False,L-2-amino-3-oxobutanoate_C4H7NO3 + coenzyme A_C21H36N7O16P3S --> L-glycine_C2H5NO2 + acetyl-CoA_C23H38N7O17P3S
+R517,lactaldehyde dehydrogenase,metabolic,C_cy,0.0,1000.0,Pyruvate metabolism,False,NAD_C21H27N7O14P2 + H2O_H2O + (S)-lactaldehyde_C3H6O2 --> NADH_C21H29N7O14P2 + (S)-lactate_C3H6O3
+R530,lysophosphatidylcholine acyltransferase,metabolic,C_mm,0.0,1000.0,Glycerophospholipid metabolism,False,1-acylglycerophosphocholine_C9H20NO7PR + acyl-CoA_ --> phosphatidylcholine_C10H18NO8PR2 + coenzyme A_C21H36N7O16P3S
+R612,orotidine-5'-phosphate decarboxylase,metabolic,C_cy,0.0,1000.0,Pyrimidine metabolism,False,3.0 H+_p+1 + orotidine 5'-(dihydrogen phosphate)_C10H10N2O11P --> UMP_C9H13N2O9P + carbon dioxide_CO2
+R721,serine O-acetyltransferase,metabolic,C_cy,0.0,1000.0,Cysteine and methionine metabolism,False,L-serine_C3H7NO3 + acetyl-CoA_C23H38N7O17P3S --> O-acetyl-L-serine_C5H9NO4 + coenzyme A_C21H36N7O16P3S
+R735,spontaneous cis-aconitate(3-) to trans-aconitate,metabolic,C_mi,-1000.0,1000.0,Citrate cycle (TCA cycle),True,cis-aconitate_C6H6O6 <=> 3.0 H+_p+1 + trans-aconitate
+R736,spontaneous cis-aconitate(3-) to trans-aconitate,metabolic,C_cy,-1000.0,1000.0,Citrate cycle (TCA cycle),True,cis-aconitate_C6H6O6 <=> 3.0 H+_p+1 + trans-aconitate
+R805,(R)-mevalonate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,(R)-mevalonate_C6H12O4 <=> (R)-mevalonate_C6H12O4
+R806,"(R,R)-butanediol transport",transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,"(R,R)-2,3-butanediol <=> (R,R)-2,3-butanediol"
+R811,5-formyltetrahydrofolic acid transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,5-formyltetrahydrofolic acid_C20H21N7O7 <=> 5-formyltetrahydrofolic acid_C20H21N7O7
+R826,ceramide-2' (sphinganine:n-C24:0OH) transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-2'-(C24)_ <=> ceramide-2'-(C24)_
+R827,ceramide-2' (sphinganine:n-C26:0OH) transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-2'-(C26)_ <=> ceramide-2'-(C26)_
+R828,ceramide-3 (Phytosphingosine:n-C24:0OH) transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-3-(C24)_ <=> ceramide-3-(C24)_
+R829,ceramide-3 (Phytosphingosine:n-C26:0OH) transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-3-(C26)_ <=> ceramide-3-(C26)_
+R841,D-lactate transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,H+_p+1 + (R)-lactate_C3H6O3 --> H+_p+1 + (R)-lactate_C3H6O3
+R842,D-lactate/pyruvate antiport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,(R)-lactate_C3H6O3 + pyruvate_C3H4O3 <=> pyruvate_C3H4O3 + (R)-lactate_C3H6O3
+R846,ethanolamine transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,ethanolamine_C2H7NO <=> ethanolamine_C2H7NO
+R849,folic acid transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,folate <=> folate
+R859,glycogen vacuolar 'transport' via autophagy,transport,C_cy;C_va,0.0,0.0,"Transport, vacuole",False,glycogen_ --> glycogen_
+R863,iron (II) transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,iron_Fe --> iron_Fe
+R864,isoamyl acetate transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,isoamyl acetate --> isoamyl acetate
+R865,isopentenyl diphosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,isopentenyl diphosphate_C5H12O7P2 <=> isopentenyl diphosphate_C5H12O7P2
+R908,octadecanoate (n-C18:0) transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,stearate_C18H36O2 <=> stearate_C18H36O2
+R913,pentaprenyl diphosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,pentaprenyl diphosphate_C25H44O7P2 <=> pentaprenyl diphosphate_C25H44O7P2
+R932,taurine transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,taurine_C2H7NO3S <=> taurine_C2H7NO3S
+R941,(1-3)-beta-D-glucan exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(1-3)-beta-D-glucan_ --> 
+R942,(1-3)-beta-D-glucan transport,transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,(1-3)-beta-D-glucan_ <=> (1-3)-beta-D-glucan_
+R943,(R)-carnitine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(R)-carnitine_C7H15NO3 --> 
+R944,(R)-lactate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(R)-lactate_C3H6O3 --> 
+R945,(R)-mevalonate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(R)-mevalonate_C6H12O4 --> 
+R946,(R)-pantothenate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(R)-pantothenate_C9H17NO5 --> 
+R947,"(R,R)-2,3-butanediol exchange",boundary,C_ex,0.0,1000.0,Exchange,False,"(R,R)-2,3-butanediol --> "
+R948,(S)-lactate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(S)-lactate_C3H6O3 --> 
+R949,(S)-malate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(S)-malate_C4H6O5 --> 
+R950,1-(sn-glycero-3-phospho)-1D-myo-inositol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,1-(sn-glycero-3-phospho)-1D-myo-inositol_C9H18O11P --> 
+R951,1-acylglycerophosphocholine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,1-acylglycerophosphocholine_C9H20NO7PR --> 
+R952,"1D-myo-inositol 1,3,4,5,6-pentakisphosphate diffusion",transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,"myo-inositol 1,3,4,5,6-pentakisphosphate <=> myo-inositol 1,3,4,5,6-pentakisphosphate"
+R953,1D-myo-inositol 1-phosphate transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,1D-myo-inositol 1-phosphate_C6H11O9P <=> 1D-myo-inositol 1-phosphate_C6H11O9P
+R954,2'-deoxyadenosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2'-deoxyadenosine_C10H13N5O3 --> 
+R955,2'-deoxyguanosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2'-deoxyguanosine_C10H13N5O4 --> 
+R956,2'-deoxyinosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2'-deoxyinosine_C10H12N4O4 --> 
+R957,2'-deoxyuridine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2'-deoxyuridine_ --> 
+R958,2-dehydro-3-deoxy-D-arabino-heptonate7-phohsphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,7-phospho-2-dehydro-3-deoxy-D-arabino-heptonic acid_C7H10O10P <=> 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonic acid_C7H10O10P
+R959,2-dehydropantoate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,2-dehydropantoate_C6H10O4 <=> 2-dehydropantoate_C6H10O4
+R960,2-isopropylmalate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2-isopropylmalate_C7H12O5 --> 
+R961,2-isopropylmalate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,2-isopropylmalate_C7H12O5 <=> 2-isopropylmalate_C7H12O5
+R962,2-isopropylmalate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,2-isopropylmalate_C7H12O5 <=> 2-isopropylmalate_C7H12O5
+R963,2-oxobutanoate transporter,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,2-oxobutanoate_C4H6O3 <=> 2-oxobutanoate_C4H6O3
+R964,2-oxoglutarate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2-oxoglutarate_C5H6O5 --> 
+R965,2-oxoglutarate transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5
+R966,2-oxoglutarate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5
+R967,3-carboxy-4-methyl-2-oxopentanoate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,(2S)-2-isopropyl-3-oxosuccinate_C7H10O5 <=> (2S)-2-isopropyl-3-oxosuccinate_C7H10O5
+R968,3-methyl-2-oxopentanoate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,(S)-3-methyl-2-oxopentanoate_C6H9O3 <=> (S)-3-methyl-2-oxopentanoate_C6H9O3
+R970,4-amino-5-hydroxymethyl-2-methylpyrimidine synthetase,metabolic,C_cy,0.0,1000.0,,False,3.0 H+_p+1 + 5'-phosphoribosyl-5-aminoimidazole_C8H13N3O7P --> glycolaldehyde_C2H4O2 + phosphate_H3O4P + 4-amino-5-hydroxymethyl-2-methylpyrimidine_C6H9N3O
+R971,4-aminobenzoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,4-aminobenzoate_C7H7NO2 --> 
+R972,4-aminobenzoate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,4-aminobenzoate_C7H7NO2 <=> 4-aminobenzoate_C7H7NO2
+R973,4-aminobenzoate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,4-aminobenzoate_C7H7NO2 <=> 4-aminobenzoate_C7H7NO2
+R974,4-aminobutanal transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,H+_p+1 + 4-aminobutanal_C4H9NO <=> 4-aminobutanal_C4H9NO
+R975,4-aminobutyrate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,gamma-aminobutyrate_C4H9NO2 <=> gamma-aminobutyrate_C4H9NO2
+R976,4-hydroxy-2-oxoglutarate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,4-hydroxy-2-oxoglutarate_C5H4O6 <=> 4-hydroxy-2-oxoglutarate_C5H4O6
+R977,4-hydroxy-2-oxoglutarate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,4-hydroxy-2-oxoglutarate_C5H4O6 <=> 4-hydroxy-2-oxoglutarate_C5H4O6
+R978,4-hydroxybenzoate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,4-hydroxybenzoate_C7H6O3 <=> 4-hydroxybenzoate_C7H6O3
+R984,5'-nucleotidase (dUMP),metabolic,C_cy,0.0,1000.0,,False,H2O_H2O + dUMP_C9H13N2O8P --> phosphate_H3O4P + 2'-deoxyuridine_
+R987,5-aminolevulinate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,5-aminolevulinate_C5H9NO3 --> 
+R988,5-aminolevulinate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,5-aminolevulinate_C5H9NO3 <=> 5-aminolevulinate_C5H9NO3
+R989,5-formethyltetrahydrofolate cyclo-ligase,metabolic,C_mi,0.0,1000.0,,False,"H+_p+1 + ATP_C10H16N5O13P3 + 5-formyltetrahydrofolic acid_C20H21N7O7 --> ADP_C10H15N5O10P2 + phosphate_H3O4P + 5,10-methenyl-THF_C20H20N7O6"
+R990,5-formyltetrahydrofolate:10-formyltetrahydrofolate isomerase,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + 5-formyltetrahydrofolic acid_C20H21N7O7 + H2O_H2O --> ADP_C10H15N5O10P2 + phosphate_H3O4P + 10-formyl-THF_C20H21N7O7
+R991,5-formyltetrahydrofolic acid exchange,boundary,C_ex,0.0,1000.0,Exchange,False,5-formyltetrahydrofolic acid_C20H21N7O7 --> 
+R992,"7,8-diaminononanoate exchange",boundary,C_ex,0.0,1000.0,Exchange,False,"7,8-diaminononanoate_C9H20N2O2 --> "
+R993,"7,8-diaminononanoate transport",transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,"7,8-diaminononanoate_C9H20N2O2 <=> 7,8-diaminononanoate_C9H20N2O2"
+R994,8-amino-7-oxononanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,8-amino-7-oxononanoate_C9H17NO3 --> 
+R995,9H-xanthine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,9H-xanthine_C5H4N4O2 --> 
+R996,acetaldehyde exchange,boundary,C_ex,0.0,1000.0,Exchange,False,acetaldehyde_C2H4O --> 
+R997,acetaldehyde transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,acetaldehyde_C2H4O <=> acetaldehyde_C2H4O
+R998,acetaldehyde transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,acetaldehyde_C2H4O <=> acetaldehyde_C2H4O
+R999,acetate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,acetate_C2H4O2 --> 
+R1000,acetate transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,acetate_C2H4O2 <=> acetate_C2H4O2
+R1001,acetyl-CoA transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,acetyl-CoA_C23H38N7O17P3S <=> acetyl-CoA_C23H38N7O17P3S
+R1002,acetylcarnitine transport,transport,C_cy;C_pe,0.0,1000.0,"Transport, peroxisome",False,O-acetylcarnitine_C9H17NO4 --> O-acetylcarnitine_C9H17NO4
+R1003,adenine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,adenine_C5H5N5 --> 
+R1004,adenine transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,adenine_C5H5N5 <=> adenine_C5H5N5
+R1005,"adenosine 3',5'-bismonophosphate exchange",boundary,C_ex,0.0,1000.0,Exchange,False,"adenosine 3',5'-bismonophosphate_C10H11N5O10P2 --> "
+R1006,"adenosine 3',5'-bisphosphate transport",transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,"adenosine 3',5'-bismonophosphate_C10H11N5O10P2 <=> adenosine 3',5'-bismonophosphate_C10H11N5O10P2"
+R1007,adenosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,adenosine_C10H13N5O4 --> 
+R1008,ADP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,ADP_C10H15N5O10P2 <=> ADP_C10H15N5O10P2
+R1009,ADP transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ADP_C10H15N5O10P2 <=> ADP_C10H15N5O10P2
+R1010,"AKG transporter, peroxisome",transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5
+R1011,allantoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,allantoate_C4H8N4O4 --> 
+R1012,allantoin exchange,boundary,C_ex,0.0,1000.0,Exchange,False,allantoin_C4H6N4O3 --> 
+R1013,"alpha,alpha-trehalose exchange",boundary,C_ex,0.0,1000.0,Exchange,False,trehalose_C12H22O11 --> 
+R1014,alpha-D-glucosamine 6-phosphate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,alpha-D-glucosamine 6-phosphate_C6H14NO8P --> 
+R1015,alpha-ketoglutarate/malate transporter,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,(S)-malate_C4H6O5 + 2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5 + (S)-malate_C4H6O5
+R1016,ammonium exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,ammonium_H3N <=> 
+R1017,AMP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,AMP_C10H14N5O7P <=> AMP_C10H14N5O7P
+R1018,arginine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,H+_p+1 + L-arginine_C6H14N4O2 --> H+_p+1 + L-arginine_C6H14N4O2
+R1019,asparagine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-asparagine_C4H8N2O3 --> L-asparagine_C4H8N2O3
+R1020,aspartate-glutamate transporter,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,L-aspartate_C4H7NO4 + L-glutamate_C5H9NO4 <=> L-aspartate_C4H7NO4 + L-glutamate_C5H9NO4
+R1021,ATP diffusion,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1022,ATP transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1023,bicarbonate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,bicarbonate_CHO3 --> 
+R1024,bicarbonate formation,metabolic,C_mi,-1000.0,1000.0,Nitrogen metabolism,False,H2O_H2O + carbon dioxide_CO2 <=> bicarbonate_CHO3 + H+_p+1
+R1027,bicarbonate formation,metabolic,C_ex,0.0,0.0,Nitrogen metabolism,False,carbon dioxide_CO2 + H2O_H2O --> bicarbonate_CHO3 + H+_p+1
+R1028,bicarbonate transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,bicarbonate_CHO3 <=> bicarbonate_CHO3
+R1029,biotin exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,biotin_C10H16N2O3S <=> 
+R1030,carbon dioxide exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,carbon dioxide_CO2 <=> 
+R1031,carnitine transport,transport,C_cy;C_pe,0.0,1000.0,"Transport, peroxisome",False,(R)-carnitine_C7H15NO3 --> (R)-carnitine_C7H15NO3
+R1032,carnitine-acetylcarnitine carrier,transport,C_cy;C_pe,0.0,1000.0,"Transport, peroxisome",False,(R)-carnitine_C7H15NO3 + O-acetylcarnitine_C9H17NO4 --> O-acetylcarnitine_C9H17NO4 + (R)-carnitine_C7H15NO3
+R1033,CDP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,CDP_C9H15N3O11P2 <=> CDP_C9H15N3O11P2
+R1034,ceramide transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-1-(C24)_ <=> ceramide-1-(C24)_
+R1035,ceramide transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-2-(C24)_ <=> ceramide-2-(C24)_
+R1036,ceramide transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-4-(C24)_ <=> ceramide-4-(C24)_
+R1037,ceramide transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-1-(C26)_ <=> ceramide-1-(C26)_
+R1038,ceramide transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-2-(C26)_ <=> ceramide-2-(C26)_
+R1039,ceramide transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,ceramide-4-(C26)_ <=> ceramide-4-(C26)_
+R1040,"cholestenol delta-isomerase, lumped reaction",metabolic,C_cy,0.0,0.0,,False,"oxygen_O2 + S-adenosyl-L-methionine_C15H22N6O5S + zymosterol_C27H44O --> H+_p+1 + S-adenosyl-L-homocysteine_C14H20N6O5S + 2.0 H2O_H2O + ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O"
+R1041,choline exchange,boundary,C_ex,0.0,1000.0,Exchange,False,choline_C5H14NO --> 
+R1042,choline transport,transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,choline_C5H14NO <=> choline_C5H14NO
+R1043,chorismate pyruvate lyase,metabolic,C_cy,0.0,1000.0,,False,chorismate_C10H10O6 --> 4-hydroxybenzoate_C7H6O3 + pyruvate_C3H4O3
+R1044,citrate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,citrate_C6H8O7 <=> citrate_C6H8O7
+R1045,citrate(3-) exchange,boundary,C_ex,0.0,1000.0,Exchange,False,citrate_C6H8O7 --> 
+R1046,citrate/isocitrate antiport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,citrate_C6H8O7 + isocitrate_C6H8O7 <=> citrate_C6H8O7 + isocitrate_C6H8O7
+R1047,citrate/malate antiport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,citrate_C6H8O7 + (S)-malate_C4H6O5 <=> citrate_C6H8O7 + (S)-malate_C4H6O5
+R1048,CMP nucleosidase,metabolic,C_cy,0.0,1000.0,,False,H2O_H2O + CMP_C9H14N3O8P --> cytosine_C4H5N3O + ribose-5-phosphate_C5H11O8P
+R1049,CO2 transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1050,CO2 transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1051,CO2 transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1052,CO2 transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1053,CO2 transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1054,coenzyme A transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+R1055,coenzyme A transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+R1056,coenzyme A transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+R1057,complex sphingolipid transport,transport,C_cy;C_go,-1000.0,1000.0,"Transport, Golgi",False,complex sphingolipid_ <=> complex sphingolipid_
+R1058,cytidine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,cytidine_C9H13N3O5 --> 
+R1061,cytosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,cytosine_C4H5N3O --> 
+R1062,D-arabinose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-arabinose_C5H10O5 --> 
+R1063,D-arabinose transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-arabinose_C5H10O5 <=> D-arabinose_C5H10O5
+R1064,D-erythrose 4-phosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,D-erythrose 4-phosphate_C4H9O7P <=> D-erythrose 4-phosphate_C4H9O7P
+R1065,D-fructose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-fructose_C6H12O6 --> 
+R1066,D-galactose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-galactose_C6H12O6 --> 
+R1067,D-galacturonate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-galacturonate --> 
+R1068,D-glucitol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-glucitol_C6H14O6 --> 
+R1069,D-glucosamine 6-phosphate uniport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,alpha-D-glucosamine 6-phosphate_C6H14NO8P <=> alpha-D-glucosamine 6-phosphate_C6H14NO8P
+R1070,D-glucose exchange,boundary,C_ex,-10.0,1000.0,Exchange,False,D-glucose_C6H12O6 <=> 
+R1071,D-mannose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-mannose_C6H12O6 --> 
+R1072,D-ribose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-ribose_C5H10O5 --> 
+R1073,D-sorbitol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-glucitol_C6H14O6 <=> D-glucitol_C6H14O6
+R1074,D-xylose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-xylose_C5H10O5 --> 
+R1075,D-xylose transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-xylose_C5H10O5 <=> D-xylose_C5H10O5
+R1076,dADP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,dADP_C10H15N5O9P2 <=> dADP_C10H15N5O9P2
+R1077,dCDP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,dCDP_C9H15N3O10P2 <=> dCDP_C9H15N3O10P2
+R1078,ATP deamination,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + H2O_H2O --> ammonium_H3N + ITP_C10H15N4O14P3
+R1079,dATP deamination,metabolic,C_cy,0.0,1000.0,,False,H2O_H2O + dATP_C10H16N5O12P3 --> 4.0 H+_p+1 + ammonium_H3N + dITP_
+R1080,ADP deamination,metabolic,C_cy,0.0,1000.0,,False,ADP_C10H15N5O10P2 + H2O_H2O --> ammonium_H3N + IDP_C10H14N4O11P2
+R1081,dADP deamination,metabolic,C_cy,0.0,1000.0,,False,H2O_H2O + dADP_C10H15N5O9P2 --> 3.0 H+_p+1 + ammonium_H3N + dIDP
+R1082,deamino-NAD+ diffusion,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,deamido-NAD(+)_C21H26N6O15P2 <=> deamido-NAD(+)_C21H26N6O15P2
+R1083,decanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,decanoate_C10H20O2 --> 
+R1084,deoxyadenosine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,2'-deoxyadenosine_C10H13N5O3 --> 2'-deoxyadenosine_C10H13N5O3
+R1086,deoxycytidine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,deoxycytidine_C9H13N3O4 --> 
+R1087,deoxycytidine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,deoxycytidine_C9H13N3O4 --> deoxycytidine_C9H13N3O4
+R1088,deoxyguanosine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,2'-deoxyguanosine_C10H13N5O4 --> 2'-deoxyguanosine_C10H13N5O4
+R1089,deoxyinosine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,2'-deoxyinosine_C10H12N4O4 --> 2'-deoxyinosine_C10H12N4O4
+R1090,deoxyuridine kinase (ATP:deoxyuridine),metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + 2'-deoxyuridine_ --> ADP_C10H15N5O10P2 + dUMP_C9H13N2O8P
+R1091,deoxyuridine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,2'-deoxyuridine_ --> 2'-deoxyuridine_
+R1093,dGDP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,dGDP_C10H15N5O10P2 <=> dGDP_C10H15N5O10P2
+R1094,dhnpt transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,"7,8-dihydroneopterin_C9H13N5O4 <=> 7,8-dihydroneopterin_C9H13N5O4"
+R1095,diamine transaminase,metabolic,C_cy,0.0,1000.0,,False,3.0 H+_p+1 + acetyl-CoA_C23H38N7O17P3S + spermine_C10H26N4 --> coenzyme A_C21H36N7O16P3S + N(1)-acetylspermine_
+R1096,dihydrofolate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,dihydrofolic acid_C19H19N7O6 <=> dihydrofolic acid_C19H19N7O6
+R1097,dihydroneopterin triphosphate pyrophosphatase,metabolic,C_cy,0.0,1000.0,,False,"7,8-dihydroneopterin 3'-triphosphate_C9H16N5O13P3 + H2O_H2O --> diphosphate_H4O7P2 + 7,8-dihydroneopterin 3'-phosphate_C9H14N5O7P"
+R1098,dihydropteroate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,"7,8-dihydropteroate <=> 7,8-dihydropteroate"
+R1099,dihydroxyacetone phosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,dihydroxyacetone phosphate_C3H5O6P <=> dihydroxyacetone phosphate_C3H5O6P
+R1100,diphosphate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,diphosphate_H4O7P2 <=> diphosphate_H4O7P2
+R1101,dolichol phosphate transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,dolichyl phosphate_C20H37O4P(C5H8)n <=> dolichyl phosphate_C20H37O4P(C5H8)n
+R1102,dTTP exchange,boundary,C_ex,0.0,1000.0,Exchange,False,dTTP_C10H17N2O14P3 --> 
+R1103,dTTP uniport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,dTTP_C10H17N2O14P3 <=> dTTP_C10H17N2O14P3
+R1104,dUDP diffusion,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,dUDP_C9H14N2O11P2 <=> dUDP_C9H14N2O11P2
+R1105,dUMP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,dUMP_C9H13N2O8P <=> dUMP_C9H13N2O8P
+R1106,episterol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,episterol_C28H46O --> 
+R1107,"ergosta-5,6,22,24,(28)-tetraen-3beta-ol transport",transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,"ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O <=> ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O"
+R1108,ergosterol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,ergosterol_C28H44O --> 
+R1109,ergosterol transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ergosterol_C28H44O <=> ergosterol_C28H44O
+R1110,ergosterol transport,transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,ergosterol_C28H44O <=> ergosterol_C28H44O
+R1111,ergosterol transport,transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,ergosterol_C28H44O <=> ergosterol_C28H44O
+R1112,ethanol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,ethanol_C2H6O --> 
+R1113,ethanol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,ethanol_C2H6O <=> ethanol_C2H6O
+R1114,"ethanol transport, mitochondrial",transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,ethanol_C2H6O <=> ethanol_C2H6O
+R1115,ethanolamine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,ethanolamine_C2H7NO --> 
+R1116,farnesyl diphosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,farnesyl diphosphate_C15H25O7P2 <=> farnesyl diphosphate_C15H25O7P2
+R1123,myristate (n-C14:0) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,myristate_C14H28O2 <=> myristate_C14H28O2
+R1124,fecosterol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,fecosterol_C28H46O --> 
+R1125,FMN adenylyltransferase,metabolic,C_mi,0.0,1000.0,Riboflavin metabolism,False,ATP_C10H16N5O13P3 + FMN_C17H21N4O9P --> diphosphate_H4O7P2 + FAD_C27H33N9O15P2
+R1126,FMN exchange,boundary,C_ex,0.0,1000.0,Exchange,False,FMN_C17H21N4O9P --> 
+R1127,folic acid exchange,boundary,C_ex,0.0,1000.0,Exchange,False,folate --> 
+R1128,formate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,formate_CH2O2 --> 
+R1129,formate transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,formate_CH2O2 --> formate_CH2O2
+R1130,formate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,formate_CH2O2 <=> formate_CH2O2
+R1131,formate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,fumarate_C4H4O4 <=> fumarate_C4H4O4
+R1132,fructose-1-phosphate kinase,metabolic,C_cy,0.0,1000.0,,False,"ATP_C10H16N5O13P3 + D-fructose 1-phosphate_C6H13O9P --> ADP_C10H15N5O10P2 + D-fructose 1,6-bisphosphate_C6H14O12P2"
+R1133,fumarate(2-) exchange,boundary,C_ex,0.0,1000.0,Exchange,False,fumarate_C4H4O4 --> 
+R1134,gamma-aminobutyrate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,gamma-aminobutyrate_C4H9NO2 --> 
+R1135,GDP transport,transport,C_cy;C_go,-1000.0,1000.0,"Transport, Golgi",False,GDP_C10H15N5O11P2 <=> GDP_C10H15N5O11P2
+R1136,GDP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,GDP_C10H15N5O11P2 <=> GDP_C10H15N5O11P2
+R1137,GDP-alpha-D-mannose transport,transport,C_cy;C_go,-1000.0,1000.0,"Transport, Golgi",False,GDP-alpha-D-mannose_C16H23N5O16P2 <=> GDP-alpha-D-mannose_C16H23N5O16P2
+R1138,"glucose transport, vacuolar",transport,C_cy;C_va,0.0,0.0,"Transport, vacuole",False,D-glucose_C6H12O6 --> D-glucose_C6H12O6
+R1139,glutathione disulfide exchange,boundary,C_ex,0.0,1000.0,Exchange,False,glutathione disulfide_C20H32N6O12S2 --> 
+R1140,glutathione exchange,boundary,C_ex,0.0,1000.0,Exchange,False,glutathione_C10H17N3O6S --> 
+R1141,glycerol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,glycerol_C3H8O3 --> 
+R1142,glycerol-3-phosphate shuttle,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,glycerol 3-phosphate_C3H9O6P <=> glycerol 3-phosphate_C3H9O6P
+R1143,glycine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-glycine_C2H5NO2 --> 
+R1144,glycine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-glycine_C2H5NO2 --> L-glycine_C2H5NO2
+R1145,glycoaldehyde transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,glycolaldehyde_C2H4O2 <=> glycolaldehyde_C2H4O2
+R1146,glycoaldehyde transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,glycolaldehyde_C2H4O2 <=> glycolaldehyde_C2H4O2
+R1147,glycolaldehyde exchange,boundary,C_ex,0.0,1000.0,Exchange,False,glycolaldehyde_C2H4O2 --> 
+R1148,glyoxylate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,glyoxylate_C2H2O3 --> 
+R1149,glyoxylate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,glyoxylate_C2H2O3 <=> glyoxylate_C2H2O3
+R1150,glyoxylate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,glyoxylate_C2H2O3 <=> glyoxylate_C2H2O3
+R1151,guanine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,guanine_C5H5N5O --> 
+R1152,guanine transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,guanine_C5H5N5O <=> guanine_C5H5N5O
+R1153,guanosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,guanosine_C10H13N5O5 --> 
+R1154,guanosine kinase,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + guanosine_C10H13N5O5 --> ADP_C10H15N5O10P2 + GMP_C10H14N5O8P
+R1155,guanosine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,guanosine_C10H13N5O5 --> guanosine_C10H13N5O5
+R1156,guanosine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,guanosine_C10H13N5O5 --> guanosine_C10H13N5O5
+R1157,H+ diffusion,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,H+_p+1 <=> H+_p+1
+R1158,H+ diffusion,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,H+_p+1 <=> H+_p+1
+R1159,H+ diffusion,transport,C_cy;C_go,-1000.0,0.0,"Transport, Golgi",False,H+_p+1 <-- H+_p+1
+R1160,H+ diffusion,transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,H+_p+1 <=> H+_p+1
+R1161,H+ diffusion,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,H+_p+1 <=> H+_p+1
+R1162,H+ diffusion,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,H+_p+1 <=> H+_p+1
+R1163,H+ diffusion,transport,C_cy;C_va,0.0,0.0,"Transport, vacuole",False,H+_p+1 --> H+_p+1
+R1164,H+ exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,H+_p+1 <=> 
+R1165,hexacosanoyl-CoA transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,hexacosanoyl-CoA_C47H86N7O17P3S <=> hexacosanoyl-CoA_C47H86N7O17P3S
+R1166,hexadecanal exchange,boundary,C_ex,0.0,1000.0,Exchange,False,hexadecanal_C16H32O --> 
+R1167,hexadecanoate (n-C16:0) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,palmitate_C16H32O2 <=> palmitate_C16H32O2
+R1168,hexadecenoate (n-C16:1) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,palmitoleate_C16H30O2 <=> palmitoleate_C16H30O2
+R1169,"L-histidine transport, mitochondrial",transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-histidine_C6H9N3O2 --> L-histidine_C6H9N3O2
+R1171,hydrogen peroxide transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,hydrogen peroxide_H2O2 <=> hydrogen peroxide_H2O2
+R1172,hydroxymethylglutaryl-CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S <=> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S
+R1173,hypoxanthine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,hypoxanthine_C5H4N4O --> 
+R1174,hypoxanthine transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,hypoxanthine_C5H4N4O <=> hypoxanthine_C5H4N4O
+R1175,indole-3-acetate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,indole-3-acetate_C10H9NO2 <=> indole-3-acetate_C10H9NO2
+R1176,inosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,inosine_C10H12N4O5 --> 
+R1177,inositol hexakisphosphate transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,myo-inositol hexakisphosphate_C6H18O24P6 <=> myo-inositol hexakisphosphate_C6H18O24P6
+R1178,insosine kinase,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + inosine_C10H12N4O5 --> ADP_C10H15N5O10P2 + IMP_C10H13N4O8P
+R1179,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide A (C24)_C48H96NO11P <=> inositol-P-ceramide A (C24)_C48H96NO11P
+R1180,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide B (C24)_C48H96NO12P <=> inositol-P-ceramide B (C24)_C48H96NO12P
+R1181,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide B' (C24)_C48H96NO12P <=> inositol-P-ceramide B' (C24)_C48H96NO12P
+R1182,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide C (C24)_C48H96NO13P <=> inositol-P-ceramide C (C24)_C48H96NO13P
+R1183,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide D (C24)_C48H96NO14P <=> inositol-P-ceramide D (C24)_C48H96NO14P
+R1184,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide A (C26)_C50H100NO11P <=> inositol-P-ceramide A (C26)_C50H100NO11P
+R1185,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide B (C26)_C50H100NO12P <=> inositol-P-ceramide B (C26)_C50H100NO12P
+R1186,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide B' (C26)_C50H100NO12P <=> inositol-P-ceramide B' (C26)_C50H100NO12P
+R1187,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide C (C26)_C50H100NO13P <=> inositol-P-ceramide C (C26)_C50H100NO13P
+R1188,IPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol-P-ceramide D (C26)_C50H100NO14P <=> inositol-P-ceramide D (C26)_C50H100NO14P
+R1189,iron(2+) exchange,boundary,C_ex,0.0,1000.0,Exchange,False,iron_Fe --> 
+R1190,isoamyl acetate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,isoamyl acetate --> 
+R1191,isoamyl alcohol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,isoamylol_C5H12O <=> isoamylol_C5H12O
+R1192,isoamyl alcohol transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,isoamylol_C5H12O <=> isoamylol_C5H12O
+R1193,isoamylol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,isoamylol_C5H12O --> 
+R1194,L-1-pyrroline-3-hydroxy-5-carboxylate spontaneous conversion to L-4-hydroxyglutamate semialdehyde,metabolic,C_mi,0.0,1000.0,,True,H2O_H2O + H+_p+1 + 1-pyrroline-3-hydroxy-5-carboxylic acid_C5H6NO3 --> L-4-hydroxyglutamic semialdehyde_C5H9NO4
+R1195,L-2-amino-3-oxobutanoate decarboxylation (spontaneous),metabolic,C_cy,0.0,1000.0,,True,H+_p+1 + L-2-amino-3-oxobutanoate_C4H7NO3 --> aminoacetone + carbon dioxide_CO2
+R1196,L-alanine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-alanine_C3H7NO2 --> 
+R1197,L-alanine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-alanine_C3H7NO2 --> L-alanine_C3H7NO2
+R1198,L-arabinitol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-arabinitol_C5H12O5 --> 
+R1199,L-arabinitol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,L-arabinitol_C5H12O5 <=> L-arabinitol_C5H12O5
+R1200,L-arabinoase transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,L-arabinose_C5H10O5 <=> L-arabinose_C5H10O5
+R1201,L-arabinose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-arabinose_C5H10O5 --> 
+R1202,L-arginine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-arginine_C6H14N4O2 --> 
+R1203,L-asparagine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-asparagine_C4H8N2O3 --> 
+R1204,L-aspartate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-aspartate_C4H7NO4 --> 
+R1205,L-carnitine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,(R)-carnitine_C7H15NO3 --> (R)-carnitine_C7H15NO3
+R1206,L-cysteine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-cysteine_C3H7NO2S --> 
+R1207,L-erythro-4-hydroxyglutamate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,erythro-4-hydroxy-L-glutamic acid_C5H9NO5 <=> erythro-4-hydroxy-L-glutamic acid_C5H9NO5
+R1208,L-erythro-4-hydroxyglutamate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,erythro-4-hydroxy-L-glutamic acid_C5H9NO5 <=> erythro-4-hydroxy-L-glutamic acid_C5H9NO5
+R1209,L-glucitol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-glucitol_C6H14O6 --> 
+R1210,L-glutamate 5-semialdehyde dehydratase,metabolic,C_cy,-1000.0,1000.0,Arginine and proline metabolism,False,L-glutamic 5-semialdehyde_C5H9NO3 <=> H+_p+1 + H2O_H2O + 1-pyrroline-5-carboxylate_C5H6NO2
+R1211,L-glutamate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-glutamate_C5H9NO4 --> 
+R1212,L-glutamate transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,L-glutamate_C5H9NO4 <=> L-glutamate_C5H9NO4
+R1213,L-glutamine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-glutamine_C5H10N2O3 --> 
+R1214,L-glutamine transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,L-glutamine_C5H10N2O3 <=> L-glutamine_C5H10N2O3
+R1215,L-histidine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-histidine_C6H9N3O2 --> 
+R1216,L-homoserine transport,boundary,C_ex,0.0,1000.0,Exchange,False,L-homoserine_C4H9NO3 --> 
+R1217,L-isoleucine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-isoleucine_C6H13NO2 --> 
+R1218,L-isoleucine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-isoleucine_C6H13NO2 --> L-isoleucine_C6H13NO2
+R1219,L-leucine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-leucine_C6H13NO2 --> 
+R1220,L-lysine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-lysine_C6H14N2O2 --> 
+R1221,L-malate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,(S)-malate_C4H6O5 <=> (S)-malate_C4H6O5
+R1222,L-methionine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-methionine_C5H11NO2S --> 
+R1223,L-phenylalanine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-phenylalanine_C9H11NO2 --> 
+R1224,L-proline exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-proline_C5H9NO2 --> 
+R1225,L-proline transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,L-proline_C5H9NO2 <=> L-proline_C5H9NO2
+R1226,L-serine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-serine_C3H7NO3 --> 
+R1227,L-serine transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,L-serine_C3H7NO3 <=> L-serine_C3H7NO3
+R1228,L-sorbitol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,L-glucitol_C6H14O6 <=> L-glucitol_C6H14O6
+R1229,L-sorbose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-sorbose_C6H12O6 --> 
+R1230,L-sorbose transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,L-sorbose_C6H12O6 <=> L-sorbose_C6H12O6
+R1231,L-threonine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-threonine_C4H9NO3 --> 
+R1232,L-tryptophan exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-tryptophan_C11H12N2O2 --> 
+R1233,L-tyrosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-tyrosine_C9H11NO3 --> 
+R1234,L-valine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,L-valine_C5H11NO2 --> 
+R1235,lanosterol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,lanosterol_C30H50O --> 
+R1236,laurate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,laurate_C12H24O2 --> 
+R1237,lysine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-lysine_C6H14N2O2 --> L-lysine_C6H14N2O2
+R1238,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide A (C24)_C60H117NO24P2 <=> inositol phosphomannosylinositol phosphoceramide A (C24)_C60H117NO24P2
+R1239,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide B (C24)_C60H117NO25P2 <=> inositol phosphomannosylinositol phosphoceramide B (C24)_C60H117NO25P2
+R1240,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide B' (C24)_C60H117NO25P2 <=> inositol phosphomannosylinositol phosphoceramide B' (C24)_C60H117NO25P2
+R1241,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide C (C24)_C60H117NO26P2 <=> inositol phosphomannosylinositol phosphoceramide C (C24)_C60H117NO26P2
+R1242,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide D (C24)_C60H117NO27P2 <=> inositol phosphomannosylinositol phosphoceramide D (C24)_C60H117NO27P2
+R1243,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide A (C26)_C62H121NO24P2 <=> inositol phosphomannosylinositol phosphoceramide A (C26)_C62H121NO24P2
+R1244,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide B (C26)_C62H121NO25P2 <=> inositol phosphomannosylinositol phosphoceramide B (C26)_C62H121NO25P2
+R1245,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide B' (C26)_C62H121NO25P2 <=> inositol phosphomannosylinositol phosphoceramide B' (C26)_C62H121NO25P2
+R1246,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide C (C26)_C62H121NO26P2 <=> inositol phosphomannosylinositol phosphoceramide C (C26)_C62H121NO26P2
+R1247,M(IP)2C transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,inositol phosphomannosylinositol phosphoceramide D (C26)_C62H121NO27P2 <=> inositol phosphomannosylinositol phosphoceramide D (C26)_C62H121NO27P2
+R1248,malate/oxaloacetate shuttle,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,oxaloacetate_C4H4O5 + (S)-malate_C4H6O5 <=> oxaloacetate_C4H4O5 + (S)-malate_C4H6O5
+R1249,maltose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,maltose_C12H22O11 --> 
+R1250,mannan transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannan_ <=> mannan_
+R1251,methionine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-methionine_C5H11NO2S --> L-methionine_C5H11NO2S
+R1252,methylglyoxal synthase,metabolic,C_cy,0.0,1000.0,,False,2.0 H+_p+1 + dihydroxyacetone phosphate_C3H5O6P --> methylglyoxal_C3H4O2 + phosphate_H3O4P
+R1253,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide A (C24)_C54H106NO16P <=> mannosylinositol phosphorylceramide A (C24)_C54H106NO16P
+R1254,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide B (C24)_C54H106NO17P <=> mannosylinositol phosphorylceramide B (C24)_C54H106NO17P
+R1255,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide B' (C24)_C54H106NO17P <=> mannosylinositol phosphorylceramide B' (C24)_C54H106NO17P
+R1256,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide C (C24)_C54H106NO18P <=> mannosylinositol phosphorylceramide C (C24)_C54H106NO18P
+R1257,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide D (C24)_C54H106NO19P <=> mannosylinositol phosphorylceramide D (C24)_C54H106NO19P
+R1258,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide A (C26)_C56H110NO16P <=> mannosylinositol phosphorylceramide A (C26)_C56H110NO16P
+R1259,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide B (C26)_C56H110NO17P <=> mannosylinositol phosphorylceramide B (C26)_C56H110NO17P
+R1260,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide B' (C26)_C56H110NO17P <=> mannosylinositol phosphorylceramide B' (C26)_C56H110NO17P
+R1261,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide C (C26)_C56H110NO18P <=> mannosylinositol phosphorylceramide C (C26)_C56H110NO18P
+R1262,MIPC transport,transport,C_er;C_go,-1000.0,1000.0,"Transport, ER to Golgi",False,mannosylinositol phosphorylceramide D (C26)_C56H110NO19P <=> mannosylinositol phosphorylceramide D (C26)_C56H110NO19P
+R1263,myo-inositol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,myo-inositol_C6H12O6 --> 
+R1264,NADP(+) transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3
+R1265,NADPH transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3
+R1266,NH3 transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,ammonium_H3N <=> ammonium_H3N
+R1267,nicotinamide diffusion,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,nicotinamide_C6H6N2O <=> nicotinamide_C6H6N2O
+R1268,nicotinate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,nicotinate_C6H5NO2 --> 
+R1269,NMN exchange,boundary,C_ex,0.0,1000.0,Exchange,False,NMN_C11H15N2O8P --> 
+R1270,NMN transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,NMN_C11H15N2O8P <=> NMN_C11H15N2O8P
+R1271,NMN transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,NMN_C11H15N2O8P <=> NMN_C11H15N2O8P
+R1272,NMN transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,NMN_C11H15N2O8P --> NMN_C11H15N2O8P
+R1273,nucleoside-diphosphatase (dGDP),metabolic,C_cy,0.0,1000.0,,False,H2O_H2O + dGDP_C10H15N5O10P2 --> phosphate_H3O4P + dGMP_C10H14N5O7P
+R1274,nucleoside-triphosphatase (dGTP),metabolic,C_cy,0.0,1000.0,,False,H2O_H2O + dGTP_C10H16N5O13P3 --> phosphate_H3O4P + dGDP_C10H15N5O10P2
+R1275,O-acetylcarnintine transport into mitochondria,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,O-acetylcarnitine_C9H17NO4 --> O-acetylcarnitine_C9H17NO4
+R1276,O2 transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,oxygen_O2 <=> oxygen_O2
+R1277,O2 transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,oxygen_O2 <=> oxygen_O2
+R1278,O2 transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,oxygen_O2 <=> oxygen_O2
+R1279,O2 transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,oxygen_O2 <=> oxygen_O2
+R1280,octadecanoate (n-C18:0) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,stearate_C18H36O2 <=> stearate_C18H36O2
+R1281,octanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,octanoate_C8H16O2 --> 
+R1282,ornithine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,ornithine_C5H13N2O2 --> 
+R1283,oxaloacetate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,oxaloacetate_C4H4O5 <=> oxaloacetate_C4H4O5
+R1284,oxaloacetate(2-) exchange,boundary,C_ex,0.0,1000.0,Exchange,False,oxaloacetate_C4H4O5 --> 
+R1285,oxidized glutathione uniport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,glutathione disulfide_C20H32N6O12S2 --> glutathione disulfide_C20H32N6O12S2
+R1286,oxidized thioredoxin transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,TRX1-disulphide_ <=> TRX1-disulphide_
+R1287,oxygen exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,oxygen_O2 <=> 
+R1288,palmitate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,palmitate_C16H32O2 --> 
+R1289,palmitoleate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,palmitoleate_C16H30O2 --> 
+R1290,palmitoyl-CoA transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,palmitoyl-CoA_C37H66N7O17P3S <=> palmitoyl-CoA_C37H66N7O17P3S
+R1291,panthetheine 4'-phosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,pantetheine 4'-phosphate_C11H23N2O7PS <=> pantetheine 4'-phosphate_C11H23N2O7PS
+R1292,panthetheine-phosphate adenylyltransferase,metabolic,C_mi,0.0,1000.0,,False,pantetheine 4'-phosphate_C11H23N2O7PS + ATP_C10H16N5O13P3 --> diphosphate_H4O7P2 + 2.0 H+_p+1 + 3'-dephospho-CoA_C21H33N7O13P2S
+R1293,PAP uniport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,"adenosine 3',5'-bismonophosphate_C10H11N5O10P2 <=> adenosine 3',5'-bismonophosphate_C10H11N5O10P2"
+R1294,pectin exchange,boundary,C_ex,0.0,1000.0,Exchange,False,pectin --> 
+R1295,phenylalanine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-phenylalanine_C9H11NO2 --> L-phenylalanine_C9H11NO2
+R1296,phosphate exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,phosphate_H3O4P <=> 
+R1297,phosphate transport,transport,C_cy;C_va,0.0,0.0,"Transport, vacuole",False,phosphate_H3O4P --> phosphate_H3O4P
+R1298,potassium exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,potassium_K.H <=> 
+R1299,protoporphyrinogen IX transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,protoporphyrinogen_C34H40N4O4 <=> protoporphyrinogen_C34H40N4O4
+R1300,PRPP transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,PRPP_C5H8O14P3 <=> PRPP_C5H8O14P3
+R1301,putrescine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,putrescine_C4H12N2 --> 
+R1302,pyridoxal kinase,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + pyridoxal_C8H9NO3 --> ADP_C10H15N5O10P2 + pyridoxal 5'-phosphate_C8H10NO6P
+R1303,pyridoxamine kinase,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + pyridoxamine_C8H12N2O2 --> H+_p+1 + ADP_C10H15N5O10P2 + pyridoxamine 5'-phosphate_C8H13N2O5P
+R1304,pyridoxamine phosphatase,metabolic,C_cy,0.0,1000.0,,False,H+_p+1 + H2O_H2O + pyridoxamine 5'-phosphate_C8H13N2O5P --> phosphate_H3O4P + pyridoxamine_C8H12N2O2
+R1305,pyridoxine exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,pyridoxine_C8H11NO3 <=> 
+R1307,pyrimidine phosphatase,metabolic,C_cy,0.0,1000.0,,False,2.0 H+_p+1 + H2O_H2O + 5-amino-6-(5-phosphoribitylamino)uracil_C9H15N4O9P --> phosphate_H3O4P + 5-amino-6-(D-ribitylamino)uracil_C9H16N4O6
+R1308,pyrimidine-nucleoside phosphorylase (uracil),metabolic,C_cy,-1000.0,1000.0,,False,uridine_C9H12N2O6 + phosphate_H3O4P <=> uracil_C4H4N2O2 + alpha-D-ribose 1-phosphate_C5H11O8P
+R1309,pyrophosphate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,diphosphate_H4O7P2 <=> diphosphate_H4O7P2
+R1310,pyruvate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,pyruvate_C3H4O3 --> 
+R1311,pyruvate transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,H+_p+1 + pyruvate_C3H4O3 --> H+_p+1 + pyruvate_C3H4O3
+R1312,quinolinate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,quinolinate_C7H5NO4 <=> quinolinate_C7H5NO4
+R1313,reduced thioredoxin transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,TRX1_C6H9NO2S2R2 <=> TRX1_C6H9NO2S2R2
+R1314,riboflavin exchange,boundary,C_ex,0.0,1000.0,Exchange,False,riboflavin_C17H20N4O6 --> 
+R1315,riboflavin transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,riboflavin_C17H20N4O6 --> riboflavin_C17H20N4O6
+R1316,riboflavin transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,riboflavin_C17H20N4O6 --> riboflavin_C17H20N4O6
+R1317,ribose transporter,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,D-ribose_C5H10O5 --> D-ribose_C5H10O5
+R1318,S-adenosyl-L-homocysteine transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,S-adenosyl-L-homocysteine_C14H20N6O5S <=> S-adenosyl-L-homocysteine_C14H20N6O5S
+R1319,S-adenosyl-L-methionine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,S-adenosyl-L-methionine_C15H22N6O5S --> 
+R1320,S-methyl-L-methionine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,S-methyl-L-methionine_C6H13NO2S --> 
+R1321,serine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-serine_C3H7NO3 --> L-serine_C3H7NO3
+R1322,sn-glycero-3-phosphocholine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,sn-glycero-3-phosphocholine_C8H21NO6P --> 
+R1323,sodium exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,sodium_Na.H <=> 
+R1324,spermidine acetyltransferase,metabolic,C_cy,0.0,1000.0,,False,2.0 H+_p+1 + spermidine_C7H19N3 + acetyl-CoA_C23H38N7O17P3S --> coenzyme A_C21H36N7O16P3S + N(1)-acetylspermidine_
+R1325,spermidine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,spermidine_C7H19N3 --> 
+R1326,spermine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,spermine_C10H26N4 --> 
+R1327,squalene transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,squalene_C30H50 <=> squalene_C30H50
+R1328,"squalene-2,3-epoxide transport",transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,"(S)-2,3-epoxysqualene_C30H50O <=> (S)-2,3-epoxysqualene_C30H50O"
+R1329,stearate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,stearate_C18H36O2 --> 
+R1330,succinate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,succinate_C4H6O4 --> 
+R1331,succinate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,succinate_C4H6O4 <=> succinate_C4H6O4
+R1332,sucrose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,sucrose_C12H22O11 --> 
+R1333,sulphate exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,sulphate_H2O4S <=> 
+R1334,sulphite exchange,boundary,C_ex,0.0,1000.0,Exchange,False,sulphite_H2O3S --> 
+R1335,taurine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,taurine_C2H7NO3S --> 
+R1336,tetracosanoyl-CoA transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,tetracosanoyl-CoA_C45H82N7O17P3S <=> tetracosanoyl-CoA_C45H82N7O17P3S
+R1337,thiamin phosphatase,metabolic,C_cy,0.0,1000.0,Thiamine metabolism,False,H2O_H2O + TMP_ --> phosphate_H3O4P + thiamine_
+R1338,thiaminase,metabolic,C_cy,0.0,1000.0,Thiamine metabolism,False,H2O_H2O + thiamine_ --> H+_p+1 + 5-(2-hydroxyethyl)-4-methylthiazole_C6H9NOS + 4-amino-5-hydroxymethyl-2-methylpyrimidine_C6H9N3O
+R1339,thiamine(1+) diphosphate(1-) exchange,boundary,C_ex,0.0,1000.0,Exchange,False,TDP_ --> 
+R1340,thiamine(1+) exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,thiamine_ <=> 
+R1341,thiamine(1+) monophosphate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,TMP_ --> 
+R1342,thiamine-phosphate kinase,metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + TMP_ --> ADP_C10H15N5O10P2 + TDP_
+R1344,thiazole phosphate synthesis (xylulose 5-phosphate),metabolic,C_cy,0.0,1000.0,,False,H+_p+1 + L-glycine_C2H5NO2 + L-cysteine_C3H7NO2S + O-acetyl-L-homoserine_C6H11NO4 + D-xylulose 5-phosphate_C5H11O8P --> gamma-aminobutyrate_C4H9NO2 + acetate_C2H4O2 + 3.0 H2O_H2O + ammonium_H3N + pyruvate_C3H4O3 + 4-methyl-5-(2-phosphonooxyethyl)thiazole_ + carbon dioxide_CO2
+R1345,threonine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-threonine_C4H9NO3 --> L-threonine_C4H9NO3
+R1346,thymidine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,thymidine_C10H14N2O5 --> 
+R1347,thymidine kinase (ATP:thymidine),metabolic,C_cy,0.0,1000.0,,False,ATP_C10H16N5O13P3 + thymidine_C10H14N2O5 --> ADP_C10H15N5O10P2 + dTMP_C10H15N2O8P
+R1348,thymidine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,thymidine_C10H14N2O5 --> thymidine_C10H14N2O5
+R1349,trehalose vacuolar transport,transport,C_cy;C_va,0.0,0.0,"Transport, vacuole",False,trehalose_C12H22O11 --> trehalose_C12H22O11
+R1350,tryptophan transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-tryptophan_C11H12N2O2 --> L-tryptophan_C11H12N2O2
+R1351,tyrosine transport,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,L-tyrosine_C9H11NO3 --> L-tyrosine_C9H11NO3
+R1352,tyrosine transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,L-tyrosine_C9H11NO3 <=> L-tyrosine_C9H11NO3
+R1353,UMP transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,UMP_C9H13N2O9P <=> UMP_C9H13N2O9P
+R1354,uracil exchange,boundary,C_ex,0.0,1000.0,Exchange,False,uracil_C4H4N2O2 --> 
+R1355,urea exchange,boundary,C_ex,0.0,1000.0,Exchange,False,urea_CH4N2O --> 
+R1356,uridine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,uridine_C9H12N2O6 --> 
+R1357,valine transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,L-valine_C5H11NO2 <=> L-valine_C5H11NO2
+R1358,water diffusion,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,H2O_H2O <=> H2O_H2O
+R1359,water diffusion,transport,C_cy;C_go,-1000.0,1000.0,"Transport, Golgi",False,H2O_H2O <=> H2O_H2O
+R1360,water diffusion,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,H2O_H2O <=> H2O_H2O
+R1361,water diffusion,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,H2O_H2O <=> H2O_H2O
+R1362,water diffusion,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,H2O_H2O <=> H2O_H2O
+R1363,water diffusion,transport,C_cy;C_va,0.0,0.0,"Transport, vacuole",False,H2O_H2O --> H2O_H2O
+R1364,water exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,H2O_H2O <=> 
+R1365,xanthine transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,9H-xanthine_C5H4N4O2 <=> 9H-xanthine_C5H4N4O2
+R1366,xanthosine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,xanthosine_C10H12N4O6 --> 
+R1367,xanthosine transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,xanthosine_C10H12N4O6 --> xanthosine_C10H12N4O6
+R1368,xylitol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,xylitol_C5H12O5 --> 
+R1369,zymosterol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,zymosterol_C27H44O --> 
+R1370,zymosterol transport,transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,zymosterol_C27H44O <=> zymosterol_C27H44O
+R1371,lipid pseudoreaction,biomass/pseudo,C_cy,0.0,0.0,Model specific,False,"0.0056 ergosterol_C28H44O + 0.000417 complex sphingolipid_ + 0.001583 1-phosphatidyl-1D-myo-inositol + 0.000812 ergosterol ester_C29H43O2R + 0.000206 fatty acid_ + 0.00039 phosphatidyl-L-serine_C8H11NO10PR2 + 0.00288 phosphatidylcholine_C10H18NO8PR2 + 0.000697 phosphatidylethanolamine_C7H12NO8PR2 + 0.000781 triglyceride + 5.6e-05 14-demethyllanosterol_C29H48O + 0.000125 ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O + 1.5e-05 zymosterol_C27H44O + 9.6e-05 episterol_C28H46O + 0.000114 fecosterol_C28H46O + 3.2e-05 lanosterol_C30H50O --> lipid_"
+R1372,yeast 5 biomass pseudoreaction,biomass/pseudo,C_cy,0.0,1000.0,Model specific,False,7.8432973114156e-06 L-valine_C5H11NO2 + 3.47912799027774e-05 (1-3)-beta-D-glucan_ + 1.0895163969554e-05 L-alanine_C3H7NO2 + 8.17900264381083e-06 L-glutamine_C5H10N2O3 + 2.5055825263316e-05 mannan_ + 3.05186665813837e-05 lipid_ + 0.00180975692827605 ATP_C10H16N5O13P3 + 2.04475066095271e-06 UMP_C9H13N2O9P + 5.24921065199799e-06 L-aspartate_C4H7NO4 + 9.91856663894969e-06 L-glycine_C2H5NO2 + 7.14136798004378e-07 trehalose_C12H22O11 + 4.15053865506818e-06 L-arginine_C6H14N4O2 + 5.24921065199799e-06 L-asparagine_C4H8N2O3 + 0.00180975692827605 H2O_H2O + 7.75174131167145e-06 L-serine_C3H7NO3 + 1.30925079634136e-06 L-cysteine_C3H7NO2S + 7.41603597927623e-08 dCMP_C9H14N3O7P + 7.41603597927623e-08 dGMP_C10H14N5O7P + 1.09562013027167e-07 dTMP_C10H15N2O8P + 8.17900264381083e-06 L-glutamate_C5H9NO4 + 1.58391879557381e-05 glycogen_ + 2.28889999360378e-06 L-histidine_C6H9N3O2 + 5.24921065199799e-06 L-isoleucine_C6H13NO2 + 1.52593332906918e-06 L-methionine_C5H11NO2S + 3.93690798899849e-06 L-proline_C5H9NO2 + 6.01217731653258e-06 L-threonine_C4H9NO3 + 8.54522664278743e-07 L-tryptophan_C11H12N2O2 + 7.62966664534592e-06 L-leucine_C6H13NO2 + 7.2939613129507e-06 L-lysine_C6H14N2O2 + 3.47912799027774e-06 L-phenylalanine_C9H11NO2 + 1.55645199565057e-06 AMP_C10H14N5O7P + 1.09562013027167e-07 dAMP_C10H14N5O6P + 2.74667999232453e-08 riboflavin_C17H20N4O6 + 1.55645199565057e-06 GMP_C10H14N5O8P + 1.52593332906918e-06 CMP_C9H14N3O8P + 6.10373331627673e-07 sulphate_H2O4S + 2.94505132510352e-06 L-tyrosine_C9H11NO3 --> 0.00179144572832722 H+_p+1 + 3.05186665813837e-05 biomass_ + 0.00180975692827605 ADP_C10H15N5O10P2 + 0.00180975692827605 phosphate_H3O4P
+R1373,growth,boundary,C_cy,0.0,1000.0,Model specific,False,biomass_ --> 
+R1375,spontaneous kynurenic acid to quinaldic acid,metabolic,C_cy,0.0,1000.0,Tryptophan metabolism,True,kynurenic acid_C10H7NO3 --> quinaldic acid_
+R1376,spontaneous 2-amino-3-carboxymuconate-6-semialdehyde to quinolinate,metabolic,C_cy,0.0,1000.0,,True,H+_p+1 + 2-amino-3-carboxymuconate-6-semialdehyde_ --> H2O_H2O + quinolinate_C7H5NO4
+R1382,coenzyme A: cytoplasm to LP,transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+R1384,proton leak,transport,C_cy;C_mi,0.0,1000.0,"Transport, mitochondrion",False,H+_p+1 --> H+_p+1
+R1387,yeast 6 biomass pseudoreaction,biomass/pseudo,C_cy;C_en,0.0,0.0,Model specific,False,0.2646 Val-tRNA(Val)_C20H30N6O11PR(C5H8O6PR)n + 1.1348 (1-3)-beta-D-glucan_ + 1.1348 (1-6)-beta-D-glucan_ + 0.8079 mannan_ + lipid_ + 59.276 ATP_C10H16N5O13P3 + 0.0599 UMP_C9H13N2O9P + 0.4588 Ala-tRNA(Ala)_C13H22NO11PR2(C5H8O6PR)n + 0.0234 trehalose_C12H22O11 + 0.1607 Arg-tRNA(Arg)_C21H33N9O11PR(C5H8O6PR)n + 0.1017 Asn-tRNA(Asn)_C14H23N2O12PR2(C5H8O6PR)n + 59.276 H2O_H2O + 0.2975 Asp-tRNA(Asp)_C14H22NO13PR2(C5H8O6PR)n + 0.0066 Cys-tRNA(Cys)_C18H26N6O11PSR(C5H8O6PR)n + 0.0024 dCMP_C9H14N3O7P + 0.0024 dGMP_C10H14N5O7P + 0.0036 dTMP_C10H15N2O8P + 0.5185 glycogen_ + 0.1054 Gln-tRNA(Gln)_C20H29N7O12PR(C5H8O6PR)n + 0.3018 Glu-tRNA(Glu)_C20H28N6O13PR(C5H8O6PR)n + 0.2904 Gly-tRNA(Gly)_C12H20NO11PR2(C5H8O6PR)n + 0.0663 His-tRNA(His)_C16H24N3O11PR2(C5H8O6PR)n + 0.1927 Ile-tRNA(Ile)_C21H32N6O11PR(C5H8O6PR)n + 0.2964 Leu-tRNA(Leu)_C21H32N6O11PR(C5H8O6PR)n + 0.2862 Lys-tRNA(Lys)_ + 0.0507 Met-tRNA(Met)_C20H30N6O11PSR(C5H8O6PR)n + 0.1339 Phe-tRNA(Phe)_C19H26NO11PR2(C5H8O6PR)n + 0.046 AMP_C10H14N5O7P + 0.0036 dAMP_C10H14N5O6P + 0.1647 Pro-tRNA(Pro)_RC5H8NO + 0.00099 riboflavin_C17H20N4O6 + 0.046 GMP_C10H14N5O8P + 0.1854 Ser-tRNA(Ser)_C13H22NO12PR2(C5H8O6PR)n + 0.0447 CMP_C9H14N3O8P + 0.02 sulphate_H2O4S + 0.1914 Thr-tRNA(Thr)_C14H24NO12PR2(C5H8O6PR)n + 0.0284 Trp-tRNA(Trp)_C26H31N7O11PR(C5H8O6PR)n + 0.102 Tyr-tRNA(Tyr)_RC9H10NO2 --> 0.2646 tRNA(Val) + 59.305 H+_p+1 + biomass_ + 59.276 ADP_C10H15N5O10P2 + 0.4588 tRNA(Ala) + 0.1607 tRNA(Arg) + 0.1017 tRNA(Asn) + 0.2975 tRNA(Asp) + 58.7 phosphate_H3O4P + 0.0066 tRNA(Cys) + 0.1054 tRNA(Gln) + 0.3018 tRNA(Glu) + 0.2904 tRNA(Gly) + 0.0663 tRNA(His) + 0.1927 tRNA(Ile) + 0.2964 tRNA(Leu) + 0.2862 tRNA(Lys) + 0.0507 tRNA(Met) + 0.1339 tRNA(Phe) + 0.1647 tRNA(Pro) + 0.1854 tRNA(Ser) + 0.1914 tRNA(Thr) + 0.0284 tRNA(Trp) + 0.102 tRNA(Tyr)
+R1388,14-demethyllanosterol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,14-demethyllanosterol_C29H48O --> 
+R1389,14-demethyllanosterol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,14-demethyllanosterol_C29H48O <=> 14-demethyllanosterol_C29H48O
+R1390,"ergosta-5,7,22,24(28)-tetraen-3beta-ol exchange",boundary,C_ex,0.0,1000.0,Exchange,False,"ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O --> "
+R1391,"ergosta-5,7,22,24(28)-tetraen-3beta-ol transport",transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,"ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O <=> ergosta-5,7,22,24(28)-tetraen-3beta-ol_C28H42O"
+R1436,octanoate (n-C8:0) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,octanoate_C8H16O2 <=> octanoate_C8H16O2
+R1437,laurate (n-C12:0) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,laurate_C12H24O2 <=> laurate_C12H24O2
+R1438,butyrate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,butyrate --> 
+R1439,hexanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,hexanoate_ --> 
+R1440,oleate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,oleate_C18H34O2 --> 
+R1442,hexanoate (n-C6:0) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,hexanoate_ <=> hexanoate_
+R1443,octadecenoate (n-C18:1) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,oleate_C18H34O2 <=> oleate_C18H34O2
+R1444,myristate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,myristate_C14H28O2 --> 
+R1569,"laurate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,laurate_C12H24O2 <=> laurate_C12H24O2
+R1570,"myristate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,myristate_C14H28O2 <=> myristate_C14H28O2
+R1571,"palmitate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,palmitate_C16H32O2 <=> palmitate_C16H32O2
+R1572,"palmitoleate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,palmitoleate_C16H30O2 <=> palmitoleate_C16H30O2
+R1573,"stearate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,stearate_C18H36O2 <=> stearate_C18H36O2
+R1574,"oleate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,oleate_C18H34O2 <=> oleate_C18H34O2
+R1575,"malonyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,malonyl-CoA_C24H38N7O19P3S <=> malonyl-CoA_C24H38N7O19P3S
+R1576,"lauroyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,lauroyl-CoA_C33H58N7O17P3S <=> lauroyl-CoA_C33H58N7O17P3S
+R1577,"myristoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,myristoyl-CoA_C35H62N7O17P3S <=> myristoyl-CoA_C35H62N7O17P3S
+R1578,"palmitoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,palmitoyl-CoA_C37H66N7O17P3S <=> palmitoyl-CoA_C37H66N7O17P3S
+R1579,"palmitoleoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,palmitoleoyl-CoA_C37H64N7O17P3S <=> palmitoleoyl-CoA_C37H64N7O17P3S
+R1580,"stearoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,stearoyl-CoA_C39H70N7O17P3S <=> stearoyl-CoA_C39H70N7O17P3S
+R1581,"oleoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,oleoyl-CoA_C39H68N7O17P3S <=> oleoyl-CoA_C39H68N7O17P3S
+R1582,"icosanoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,icosanoyl-CoA_ <=> icosanoyl-CoA_
+R1583,"docosanoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,docosanoyl-CoA_C43H78N7O17P3S <=> docosanoyl-CoA_C43H78N7O17P3S
+R1584,"tetracosanoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,tetracosanoyl-CoA_C45H82N7O17P3S <=> tetracosanoyl-CoA_C45H82N7O17P3S
+R1585,"hexacosanoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,hexacosanoyl-CoA_C47H86N7O17P3S <=> hexacosanoyl-CoA_C47H86N7O17P3S
+R1586,"H+ transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,H+_p+1 <=> H+_p+1
+R1587,"H2O transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,H2O_H2O <=> H2O_H2O
+R1588,"CO2 transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1589,"coenzyme A transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+R1590,"NADPH transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3
+R1591,"NADP(+) transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3
+R1592,"O2 transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,oxygen_O2 <=> oxygen_O2
+R1593,"NADH transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,NADH_C21H29N7O14P2 <=> NADH_C21H29N7O14P2
+R1594,"NAD transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,NAD_C21H27N7O14P2 <=> NAD_C21H27N7O14P2
+R1595,"glycerol 3-phosphate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,glycerol 3-phosphate_C3H9O6P <=> glycerol 3-phosphate_C3H9O6P
+R1596,"dihydroxyacetone phosphate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,dihydroxyacetone phosphate_C3H5O6P <=> dihydroxyacetone phosphate_C3H5O6P
+R1597,"diphosphate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,diphosphate_H4O7P2 <=> diphosphate_H4O7P2
+R1598,"phosphate transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,phosphate_H3O4P <=> phosphate_H3O4P
+R1599,"CTP transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,CTP_C9H16N3O14P3 <=> CTP_C9H16N3O14P3
+R1600,"CDP transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,CDP_C9H15N3O11P2 <=> CDP_C9H15N3O11P2
+R1601,"CMP transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,CMP_C9H14N3O8P <=> CMP_C9H14N3O8P
+R1602,"CDP-ethanolamine transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,CDP-ethanolamine_C11H20N4O11P2 <=> CDP-ethanolamine_C11H20N4O11P2
+R1603,"CDP-choline transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,CDP-choline_C14H26N4O11P2 <=> CDP-choline_C14H26N4O11P2
+R1604,"ATP transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1605,"AMP transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,AMP_C10H14N5O7P <=> AMP_C10H14N5O7P
+R1606,"L-serine transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,L-serine_C3H7NO3 <=> L-serine_C3H7NO3
+R1607,"myo-inositol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,myo-inositol_C6H12O6 <=> myo-inositol_C6H12O6
+R1608,"S-adenosyl-L-methionine transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,S-adenosyl-L-methionine_C15H22N6O5S <=> S-adenosyl-L-methionine_C15H22N6O5S
+R1609,"S-adenosyl-L-homocysteine transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,S-adenosyl-L-homocysteine_C14H20N6O5S <=> S-adenosyl-L-homocysteine_C14H20N6O5S
+R1610,"episterol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,episterol_C28H46O <=> episterol_C28H46O
+R1611,"fecosterol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,fecosterol_C28H46O <=> fecosterol_C28H46O
+R1612,"lanosterol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,lanosterol_C30H50O <=> lanosterol_C30H50O
+R1613,"ergosterol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,ergosterol_C28H44O <=> ergosterol_C28H44O
+R1614,"zymosterol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,zymosterol_C27H44O <=> zymosterol_C27H44O
+R1615,"sn-glycero-3-phosphocholine transport, ER membrane-cytoplasm",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,sn-glycero-3-phosphocholine_C8H21NO6P <=> sn-glycero-3-phosphocholine_C8H21NO6P
+R1616,"hexadecanoate (n-C16:0) transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,palmitate_C16H32O2 <=> palmitate_C16H32O2
+R1617,"hexadecenoate (n-C16:1) transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,palmitoleate_C16H30O2 <=> palmitoleate_C16H30O2
+R1618,"octadecanoate (n-C18:0) transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,stearate_C18H36O2 <=> stearate_C18H36O2
+R1619,"octadecenoate (n-C18:1) transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,oleate_C18H34O2 <=> oleate_C18H34O2
+R1620,"lauroyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,lauroyl-CoA_C33H58N7O17P3S <=> lauroyl-CoA_C33H58N7O17P3S
+R1621,"myristoyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,myristoyl-CoA_C35H62N7O17P3S <=> myristoyl-CoA_C35H62N7O17P3S
+R1622,"palmitoyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,palmitoyl-CoA_C37H66N7O17P3S <=> palmitoyl-CoA_C37H66N7O17P3S
+R1623,"palmitoleoyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,palmitoleoyl-CoA_C37H64N7O17P3S <=> palmitoleoyl-CoA_C37H64N7O17P3S
+R1624,"stearoyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,stearoyl-CoA_C39H70N7O17P3S <=> stearoyl-CoA_C39H70N7O17P3S
+R1625,"oleoyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,oleoyl-CoA_C39H68N7O17P3S <=> oleoyl-CoA_C39H68N7O17P3S
+R1626,"glycerol 3-phosphate transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,glycerol 3-phosphate_C3H9O6P <=> glycerol 3-phosphate_C3H9O6P
+R1627,"dihydroxyacetone phosphate transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,dihydroxyacetone phosphate_C3H5O6P <=> dihydroxyacetone phosphate_C3H5O6P
+R1628,"NADPH transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3
+R1629,"NADP(+) transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3
+R1630,"ATP transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1631,"AMP transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,AMP_C10H14N5O7P <=> AMP_C10H14N5O7P
+R1632,"diphosphate transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,diphosphate_H4O7P2 <=> diphosphate_H4O7P2
+R1633,"H2O transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,H2O_H2O <=> H2O_H2O
+R1634,"glycerol transport, lipid particle-cytoplasm",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,glycerol_C3H8O3 <=> glycerol_C3H8O3
+R1635,"docosanoyl-CoA transport, lipid particle-cytoplasm",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,docosanoyl-CoA_C43H78N7O17P3S <=> docosanoyl-CoA_C43H78N7O17P3S
+R1636,"tetracosanoyl-CoA transport, lipid particle-cytoplasm",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,tetracosanoyl-CoA_C45H82N7O17P3S <=> tetracosanoyl-CoA_C45H82N7O17P3S
+R1637,"hexacosanoyl-CoA transport, lipid particle-cytoplasm",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,hexacosanoyl-CoA_C47H86N7O17P3S <=> hexacosanoyl-CoA_C47H86N7O17P3S
+R1638,"ATP transport, cytoplasm-cell envelope",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1639,"ADP transport, cytoplasm-cell envelope",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,ADP_C10H15N5O10P2 <=> ADP_C10H15N5O10P2
+R1640,"H+ transport, cytoplasm-cell envelope",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,H+_p+1 <=> H+_p+1
+R1641,"H2O transport, cytoplasm-cell envelope",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,H2O_H2O <=> H2O_H2O
+R1642,"phosphate transport, cytoplasm-cell envelope",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,phosphate_H3O4P <=> phosphate_H3O4P
+R1643,"sn-glycero-3-phosphocholine transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,sn-glycero-3-phosphocholine_C8H21NO6P <=> sn-glycero-3-phosphocholine_C8H21NO6P
+R1644,"1-(sn-glycero-3-phospho)-1D-myo-inositol transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,1-(sn-glycero-3-phospho)-1D-myo-inositol_C9H18O11P <=> 1-(sn-glycero-3-phospho)-1D-myo-inositol_C9H18O11P
+R1645,"palmitate transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,palmitate_C16H32O2 <=> palmitate_C16H32O2
+R1646,"palmitoleate transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,palmitoleate_C16H30O2 <=> palmitoleate_C16H30O2
+R1647,"stearate transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,stearate_C18H36O2 <=> stearate_C18H36O2
+R1648,"oleate transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,oleate_C18H34O2 <=> oleate_C18H34O2
+R1649,"icosanoyl-CoA transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,icosanoyl-CoA_ <=> icosanoyl-CoA_
+R1650,"docosanoyl-CoA transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,docosanoyl-CoA_C43H78N7O17P3S <=> docosanoyl-CoA_C43H78N7O17P3S
+R1651,"tetracosanoyl-CoA transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,tetracosanoyl-CoA_C45H82N7O17P3S <=> tetracosanoyl-CoA_C45H82N7O17P3S
+R1652,"hexacosanoyl-CoA transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,hexacosanoyl-CoA_C47H86N7O17P3S <=> hexacosanoyl-CoA_C47H86N7O17P3S
+R1653,"H2O transport, cytoplasm-vacuolar membrane",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,H2O_H2O <=> H2O_H2O
+R1654,"phosphate transport, cytoplasm-vacuolar membrane",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,phosphate_H3O4P <=> phosphate_H3O4P
+R1655,"H+ transport, cytoplasm-vacuolar membrane",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,H+_p+1 <=> H+_p+1
+R1656,"ATP transport, cytoplasm-vacuolar membrane",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1657,"ADP transport, cytoplasm-vacuolar membrane",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,ADP_C10H15N5O10P2 <=> ADP_C10H15N5O10P2
+R1658,"carbon dioxide transport, cytoplasm-vacuolar membrane",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1659,"H2O transport, cytoplasm-Golgi membrane",transport,C_cy;C_gm,-1000.0,1000.0,"Transport, Golgi membrane",False,H2O_H2O <=> H2O_H2O
+R1660,"phosphate transport, cytoplasm-Golgi membrane",transport,C_cy;C_gm,-1000.0,1000.0,"Transport, Golgi membrane",False,phosphate_H3O4P <=> phosphate_H3O4P
+R1661,"H+ transport, cytoplasm-Golgi membrane",transport,C_cy;C_gm,-1000.0,1000.0,"Transport, Golgi membrane",False,H+_p+1 <=> H+_p+1
+R1662,"carbon dioxide transport, cytoplasm-Golgi membrane",transport,C_cy;C_gm,-1000.0,1000.0,"Transport, Golgi membrane",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1663,"ATP transport, cytoplasm-Golgi membrane",transport,C_cy;C_gm,-1000.0,1000.0,"Transport, Golgi membrane",False,ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+R1664,"ADP transport, cytoplasm-Golgi membrane",transport,C_cy;C_gm,-1000.0,1000.0,"Transport, Golgi membrane",False,ADP_C10H15N5O10P2 <=> ADP_C10H15N5O10P2
+R1665,"H2O transport, cytoplasm-mitochondrial membrane",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,H2O_H2O <=> H2O_H2O
+R1666,"carbon dioxide transport, cytoplasm-mitochondrial membrane",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,carbon dioxide_CO2 <=> carbon dioxide_CO2
+R1667,"palmitoleoyl-CoA transport, cytoplasm-mitochondrial membrane",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,palmitoleoyl-CoA_C37H64N7O17P3S <=> palmitoleoyl-CoA_C37H64N7O17P3S
+R1668,"oleoyl-CoA transport, cytoplasm-mitochondrial membrane",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,oleoyl-CoA_C39H68N7O17P3S <=> oleoyl-CoA_C39H68N7O17P3S
+R1669,"palmitate transport, mitochondrial membrane-cytoplasm",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,palmitate_C16H32O2 <=> palmitate_C16H32O2
+R1670,"stearate transport, mitochondrial membrane-cytoplasm",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,stearate_C18H36O2 <=> stearate_C18H36O2
+R1671,"coenzyme A transport, mitochondrial membrane-cytoplasm",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+R1672,"laurate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,laurate_C12H24O2 <=> laurate_C12H24O2
+R1673,"myristate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,myristate_C14H28O2 <=> myristate_C14H28O2
+R1674,"lignoceric acid transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,lignoceric acid_C24H48O2 <=> lignoceric acid_C24H48O2
+R1675,"cerotic acid transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,cerotic acid_C26H52O2 <=> cerotic acid_C26H52O2
+R1676,"episterol transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,episterol_C28H46O <=> episterol_C28H46O
+R1677,"fecosterol transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,fecosterol_C28H46O <=> fecosterol_C28H46O
+R1678,"lanosterol transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,lanosterol_C30H50O <=> lanosterol_C30H50O
+R1679,"zymosterol transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,zymosterol_C27H44O <=> zymosterol_C27H44O
+R1680,"ergosteryl palmitoleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,ergosteryl palmitoleate_C44H72O2 <=> ergosteryl palmitoleate_C44H72O2
+R1681,"ergosteryl oleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,ergosteryl oleate_C46H76O2 <=> ergosteryl oleate_C46H76O2
+R1682,"episteryl palmitoleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,episteryl palmitoleate_ <=> episteryl palmitoleate_
+R1683,"episteryl oleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,episteryl oleate_ <=> episteryl oleate_
+R1684,"fecosteryl palmitoleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,fecosteryl palmitoleate_C44H74O2 <=> fecosteryl palmitoleate_C44H74O2
+R1685,"fecosteryl oleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,fecosteryl oleate_C46H78O2 <=> fecosteryl oleate_C46H78O2
+R1686,"lanosteryl palmitoleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,lanosteryl palmitoleate_ <=> lanosteryl palmitoleate_
+R1687,"lanosteryl oleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,lanosteryl oleate_ <=> lanosteryl oleate_
+R1688,"zymosteryl palmitoleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,zymosteryl palmitoleate_C43H72O2 <=> zymosteryl palmitoleate_C43H72O2
+R1689,"zymosteryl oleate transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,zymosteryl oleate_C45H76O2 <=> zymosteryl oleate_C45H76O2
+R1690,"lignoceric acid transport, cell envelope-ER membrane",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,lignoceric acid_C24H48O2 <=> lignoceric acid_C24H48O2
+R1691,"cerotic acid transport, cell envelope-ER membrane",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,cerotic acid_C26H52O2 <=> cerotic acid_C26H52O2
+R1692,"zymosteryl palmitoleate transport, ER membrane-cell envelope",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,zymosteryl palmitoleate_C43H72O2 <=> zymosteryl palmitoleate_C43H72O2
+R1693,"zymosteryl oleate transport, ER membrane-cell envelope",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,zymosteryl oleate_C45H76O2 <=> zymosteryl oleate_C45H76O2
+R1694,"lignoceric acid transport, ER membrane-ER",transport,C_em;C_er,-1000.0,1000.0,"Transport, ER to ER membrane",False,lignoceric acid_C24H48O2 <=> lignoceric acid_C24H48O2
+R1695,"cerotic acid transport, ER membrane-ER",transport,C_em;C_er,-1000.0,1000.0,"Transport, ER to ER membrane",False,cerotic acid_C26H52O2 <=> cerotic acid_C26H52O2
+R1696,"ergosterol transport, ER-ER membrane",transport,C_em;C_er,-1000.0,1000.0,"Transport, ER to ER membrane",False,ergosterol_C28H44O <=> ergosterol_C28H44O
+R1697,"phosphate transport, ER-ER membrane",transport,C_em;C_er,0.0,1000.0,"Transport, ER to ER membrane",False,phosphate_H3O4P --> phosphate_H3O4P
+R1698,"H+ transport, mitochondrion-mitochondrial membrane",transport,C_mi;C_mm,-1000.0,1000.0,"Transport, mitochondrion to mitochondrial membrane",False,H+_p+1 <=> H+_p+1
+R1699,"glycerol 3-phosphate transport, mitochondrion-mitochondrial membrane",transport,C_mi;C_mm,-1000.0,1000.0,"Transport, mitochondrion to mitochondrial membrane",False,glycerol 3-phosphate_C3H9O6P <=> glycerol 3-phosphate_C3H9O6P
+R1700,"CMP transport, mitochondrion-mitochondrial membrane",transport,C_mi;C_mm,-1000.0,1000.0,"Transport, mitochondrion to mitochondrial membrane",False,CMP_C9H14N3O8P <=> CMP_C9H14N3O8P
+R1701,"CTP transport, mitochondrion-mitochondrial membrane",transport,C_mi;C_mm,-1000.0,1000.0,"Transport, mitochondrion to mitochondrial membrane",False,CTP_C9H16N3O14P3 <=> CTP_C9H16N3O14P3
+R1702,"phosphate transport, mitochondrion-mitochondrial membrane",transport,C_mi;C_mm,-1000.0,1000.0,"Transport, mitochondrion to mitochondrial membrane",False,phosphate_H3O4P <=> phosphate_H3O4P
+R1703,"diphosphate transport, mitochondrion-mitochondrial membrane",transport,C_mi;C_mm,-1000.0,1000.0,"Transport, mitochondrion to mitochondrial membrane",False,diphosphate_H4O7P2 <=> diphosphate_H4O7P2
+R1704,"phosphatidyl-L-serine transport, ER membrane-cytoplasm",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,phosphatidyl-L-serine_C8H11NO10PR2 <=> phosphatidyl-L-serine_C8H11NO10PR2
+R1705,"phosphatidylcholine transport, ER membrane-cytoplasm",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,phosphatidylcholine_C10H18NO8PR2 <=> phosphatidylcholine_C10H18NO8PR2
+R1706,"phosphatidylethanolamine transport, ER membrane-cytoplasm",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+R1707,"triglyceride transport, ER membrane-cytoplasm",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,triglyceride <=> triglyceride
+R1709,heme a transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,heme a_C49H56FeN4O6 <=> heme a_C49H56FeN4O6
+R1710,yeast 8 biomass pseudoreaction,biomass/pseudo,C_cy;C_en,0.0,0.0,,False,0.2646 Val-tRNA(Val)_C20H30N6O11PR(C5H8O6PR)n + 1.1348 (1-3)-beta-D-glucan_ + 1.1348 (1-6)-beta-D-glucan_ + 0.8079 mannan_ + lipid_ + 59.276 ATP_C10H16N5O13P3 + 0.0599 UMP_C9H13N2O9P + 1e-06 heme a_C49H56FeN4O6 + 0.4588 Ala-tRNA(Ala)_C13H22NO11PR2(C5H8O6PR)n + 0.0234 trehalose_C12H22O11 + 0.1607 Arg-tRNA(Arg)_C21H33N9O11PR(C5H8O6PR)n + 0.1017 Asn-tRNA(Asn)_C14H23N2O12PR2(C5H8O6PR)n + 59.276 H2O_H2O + 0.2975 Asp-tRNA(Asp)_C14H22NO13PR2(C5H8O6PR)n + 1e-06 chitin_H2O(C8H13NO5)n + 0.0066 Cys-tRNA(Cys)_C18H26N6O11PSR(C5H8O6PR)n + 0.0024 dCMP_C9H14N3O7P + 0.0024 dGMP_C10H14N5O7P + 0.0036 dTMP_C10H15N2O8P + 0.5185 glycogen_ + 0.1054 Gln-tRNA(Gln)_C20H29N7O12PR(C5H8O6PR)n + 0.3018 Glu-tRNA(Glu)_C20H28N6O13PR(C5H8O6PR)n + 0.2904 Gly-tRNA(Gly)_C12H20NO11PR2(C5H8O6PR)n + 0.0663 His-tRNA(His)_C16H24N3O11PR2(C5H8O6PR)n + 0.1927 Ile-tRNA(Ile)_C21H32N6O11PR(C5H8O6PR)n + 0.2964 Leu-tRNA(Leu)_C21H32N6O11PR(C5H8O6PR)n + 0.2862 Lys-tRNA(Lys)_ + 0.0507 Met-tRNA(Met)_C20H30N6O11PSR(C5H8O6PR)n + 0.1339 Phe-tRNA(Phe)_C19H26NO11PR2(C5H8O6PR)n + 0.046 AMP_C10H14N5O7P + 0.0036 dAMP_C10H14N5O6P + 0.1647 Pro-tRNA(Pro)_RC5H8NO + 0.00099 riboflavin_C17H20N4O6 + 0.046 GMP_C10H14N5O8P + 0.1854 Ser-tRNA(Ser)_C13H22NO12PR2(C5H8O6PR)n + 0.0447 CMP_C9H14N3O8P + 0.02 sulphate_H2O4S + 0.1914 Thr-tRNA(Thr)_C14H24NO12PR2(C5H8O6PR)n + 0.0284 Trp-tRNA(Trp)_C26H31N7O11PR(C5H8O6PR)n + 0.102 Tyr-tRNA(Tyr)_RC9H10NO2 --> 0.2646 tRNA(Val) + 59.305 H+_p+1 + biomass_ + 59.276 ADP_C10H15N5O10P2 + 0.4588 tRNA(Ala) + 0.1607 tRNA(Arg) + 0.1017 tRNA(Asn) + 0.2975 tRNA(Asp) + 58.7 phosphate_H3O4P + 0.0066 tRNA(Cys) + 0.1054 tRNA(Gln) + 0.3018 tRNA(Glu) + 0.2904 tRNA(Gly) + 0.0663 tRNA(His) + 0.1927 tRNA(Ile) + 0.2964 tRNA(Leu) + 0.2862 tRNA(Lys) + 0.0507 tRNA(Met) + 0.1339 tRNA(Phe) + 0.1647 tRNA(Pro) + 0.1854 tRNA(Ser) + 0.1914 tRNA(Thr) + 0.0284 tRNA(Trp) + 0.102 tRNA(Tyr)
+R1712,raffinose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,raffinose_C18H32O16 --> 
+R1713,melibiose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,melibiose_C12H22O11 --> 
+R1727,"lysoPC acyltransferase, mitochondrial membrane",metabolic,C_mm,0.0,1000.0,Glycerophospholipid metabolism,False,1-acylglycerophosphocholine_C9H20NO7PR + acyl-CoA_ --> phosphatidylcholine_C10H18NO8PR2 + coenzyme A_C21H36N7O16P3S
+R1769,"PA kinase, Golgi membrane",metabolic,C_gm,-1000.0,1000.0,,False,"ATP_C10H16N5O13P3 + phosphatidate <=> ADP_C10H15N5O10P2 + 1,2-diacylglycerol 3-diphosphate_"
+R1770,"PA kinase, vacuolar membrane",metabolic,C_vm,-1000.0,1000.0,,False,"phosphatidate + ATP_C10H16N5O13P3 <=> 1,2-diacylglycerol 3-diphosphate_ + ADP_C10H15N5O10P2"
+R1776,"diglyceride transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,diglyceride <=> diglyceride
+R1777,"1-phosphatidyl-1D-myo-inositol transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,1-phosphatidyl-1D-myo-inositol <=> 1-phosphatidyl-1D-myo-inositol
+R1778,"diglyceride transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,diglyceride <=> diglyceride
+R1779,"1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,"1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate"
+R1780,"1-phosphatidyl-1D-myo-inositol 4-phosphate transport, cell envelope-cytoplasm",transport,C_cy;C_en,-1000.0,1000.0,"Transport, envelope",False,1-phosphatidyl-1D-myo-inositol 4-phosphate <=> 1-phosphatidyl-1D-myo-inositol 4-phosphate
+R1781,"1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate transport, nucleus-cytoplasm",transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,"1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate"
+R1782,"diglyceride transport, nucleus-cytoplasm",transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,diglyceride <=> diglyceride
+R1783,"1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate transport, vacuolar membrane-cytoplasm",transport,C_cy;C_vm,-1000.0,1000.0,"Transport, vacuolar membrane",False,"1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate"
+R1784,"diglyceride transport, mitochondrial membrane-cytoplasm",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,diglyceride <=> diglyceride
+R1785,"TAG transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,triglyceride <=> triglyceride
+R1786,"phosphatidylcholine transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,phosphatidylcholine_C10H18NO8PR2 <=> phosphatidylcholine_C10H18NO8PR2
+R1787,"phosphatidylethanolamine transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+R1788,"1-acylglycerophosphocholine transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,1-acylglycerophosphocholine_C9H20NO7PR <=> 1-acylglycerophosphocholine_C9H20NO7PR
+R1789,"1-acylglycerophosphoethanolamine transport, ER membrane-lipid particle",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,1-acylglycerophosphoethanolamine_ <=> 1-acylglycerophosphoethanolamine_
+R1790,"phosphatidate transport, lipid particle-ER membrane",transport,C_em;C_lp,-1000.0,1000.0,"Transport, ER membrane to lipid particle",False,phosphatidate <=> phosphatidate
+R1791,"phosphatidate transport, ER membrane-mitochondrial membrane",transport,C_em;C_mm,-1000.0,1000.0,"Transport, ER membrane to mitochondrial membrane",False,phosphatidate <=> phosphatidate
+R1792,"phosphatidyl-L-serine transport, ER membrane-mitochondrial membrane",transport,C_em;C_mm,-1000.0,1000.0,"Transport, ER membrane to mitochondrial membrane",False,phosphatidyl-L-serine_C8H11NO10PR2 <=> phosphatidyl-L-serine_C8H11NO10PR2
+R1793,"phosphatidylethanolamine transport, mitochondrial membrane-ER membrane",transport,C_em;C_mm,-1000.0,1000.0,"Transport, ER membrane to mitochondrial membrane",False,phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+R1794,"phosphatidylcholine transport, ER membrane-mitochondrial membrane",transport,C_em;C_mm,-1000.0,1000.0,"Transport, ER membrane to mitochondrial membrane",False,phosphatidylcholine_C10H18NO8PR2 <=> phosphatidylcholine_C10H18NO8PR2
+R1795,"diglyceride transport, ER membrane-Golgi membrane",transport,C_em;C_gm,0.0,0.0,"Transport, ER membrane to Golgi membrane",False,diglyceride --> diglyceride
+R1796,"phosphatidate transport, ER membrane-Golgi membrane",transport,C_em;C_gm,-1000.0,1000.0,"Transport, ER membrane to Golgi membrane",False,phosphatidate <=> phosphatidate
+R1797,"1-phosphatidyl-1D-myo-inositol transport, ER membrane-Golgi membrane",transport,C_em;C_gm,-1000.0,1000.0,"Transport, ER membrane to Golgi membrane",False,1-phosphatidyl-1D-myo-inositol <=> 1-phosphatidyl-1D-myo-inositol
+R1798,"phosphatidyl-L-serine transport, ER membrane-Golgi membrane",transport,C_em;C_gm,-1000.0,1000.0,"Transport, ER membrane to Golgi membrane",False,phosphatidyl-L-serine_C8H11NO10PR2 <=> phosphatidyl-L-serine_C8H11NO10PR2
+R1799,"phosphatidylethanolamine transport, Golgi membrane-ER membrane",transport,C_em;C_gm,-1000.0,1000.0,"Transport, ER membrane to Golgi membrane",False,phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+R1800,"phosphatidate transport, ER membrane-vacuolar membrane",transport,C_em;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,phosphatidate <=> phosphatidate
+R1801,"1-phosphatidyl-1D-myo-inositol transport, ER membrane-vacuolar membrane",transport,C_em;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,1-phosphatidyl-1D-myo-inositol <=> 1-phosphatidyl-1D-myo-inositol
+R1802,"phosphatidyl-L-serine transport, ER membrane-vacuolar membrane",transport,C_em;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,phosphatidyl-L-serine_C8H11NO10PR2 <=> phosphatidyl-L-serine_C8H11NO10PR2
+R1803,"phosphatidylethanolamine transport, vacuolar membrane-ER membrane",transport,C_em;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+R1804,"1-phosphatidyl-1D-myo-inositol 3-phosphate transport, vacuolar membrane-ER membrane",transport,C_em;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,1-phosphatidyl-1D-myo-inositol 3-phosphate <=> 1-phosphatidyl-1D-myo-inositol 3-phosphate
+R1805,"1-phosphatidyl-1D-myo-inositol transport, ER membrane-cell envelope",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,1-phosphatidyl-1D-myo-inositol <=> 1-phosphatidyl-1D-myo-inositol
+R1806,"phosphatidylcholine transport, ER membrane-cell envelope",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,phosphatidylcholine_C10H18NO8PR2 <=> phosphatidylcholine_C10H18NO8PR2
+R1807,"phosphatidylethanolamine transport, ER membrane-cell envelope",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+R1808,"phosphatidyl-L-serine transport, ER membrane-cell envelope",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,phosphatidyl-L-serine_C8H11NO10PR2 <=> phosphatidyl-L-serine_C8H11NO10PR2
+R1809,"phosphatidate transport, cell envelope-ER membrane",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,phosphatidate <=> phosphatidate
+R1810,"1-phosphatidyl-1D-myo-inositol 4-phosphate transport, cell envelope-ER membrane",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,1-phosphatidyl-1D-myo-inositol 4-phosphate <=> 1-phosphatidyl-1D-myo-inositol 4-phosphate
+R1811,"1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate transport, cell envelope-ER membrane",transport,C_em;C_en,-1000.0,1000.0,"Transport, ER membrane to cell envelope",False,"1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate"
+R1812,"1-phosphatidyl-1D-myo-inositol transport, ER membrane-nucleus",transport,C_em;C_nu,-1000.0,1000.0,"Transport, ER membrane to nucleus",False,1-phosphatidyl-1D-myo-inositol <=> 1-phosphatidyl-1D-myo-inositol
+R1813,"1-phosphatidyl-1D-myo-inositol 3-phosphate transport, vacuolar membrane-Golgi membrane",transport,C_gm;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,1-phosphatidyl-1D-myo-inositol 3-phosphate <=> 1-phosphatidyl-1D-myo-inositol 3-phosphate
+R1814,"1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate transport, vacuolar membrane-cell envelope",transport,C_en;C_vm,-1000.0,1000.0,"Transport, ER membrane to vacuolar membrane",False,"1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate"
+xBIOMASS,xBIOMASS,biomass/pseudo,C_cy,0.0,1000.0,Model specific,False,0.4415 (1-3)-beta-D-glucan_ + 0.1104 mannan_ + 86.7881 ATP_C10H16N5O13P3 + 0.0623 UMP_C9H13N2O9P + protein_ + lipids_ + 0.0032 trehalose_C12H22O11 + 86.7881 H2O_H2O + 0.4068 chitin_H2O(C8H13NO5)n + 0.0377 dCMP_C9H14N3O7P + 0.0377 dGMP_C10H14N5O7P + 0.0383 dTMP_C10H15N2O8P + 0.0757 AMP_C10H14N5O7P + 0.0383 dAMP_C10H14N5O6P + 0.093 GMP_C10H14N5O8P + 0.0578 CMP_C9H14N3O8P --> 86.7881 H+_p+1 + biomass_ + 86.7881 ADP_C10H15N5O10P2 + 86.7881 phosphate_H3O4P
+xLIPID,Lipids pool,biomass/pseudo,C_cy;C_em;C_lp;C_mm,0.0,1000.0,Model specific,False,21.176 ergosterol_C28H44O + 0.1 ergosteryl palmitoleate_C44H72O2 + 0.305 ergosteryl oleate_C46H76O2 + 1.967 phosphatidyl-L-serine_C8H11NO10PR2 + 12.51 triglyceride + 3.152 fatty acid_ + 3.6 1-phosphatidyl-1D-myo-inositol + 0.842 cardiolipin + 10.101 phosphatidylethanolamine_C7H12NO8PR2 + 14.24 phosphatidylcholine_C10H18NO8PR2 + 3.399 phosphatidate --> 1000.0 lipids_
+xAMINOACID,Amino acid composition,biomass/pseudo,C_cy,0.0,1000.0,Model specific,False,0.292 L-valine_C5H11NO2 + 0.388 L-alanine_C3H7NO2 + 0.316 L-glutamine_C5H10N2O3 + 0.259 L-aspartate_C4H7NO4 + 0.283 L-glycine_C2H5NO2 + 0.229 L-arginine_C6H14N4O2 + 0.259 L-asparagine_C4H8N2O3 + 0.269 L-serine_C3H7NO3 + 0.047 L-cysteine_C3H7NO2S + 0.316 L-glutamate_C5H9NO4 + 0.148 L-histidine_C6H9N3O2 + 0.21 L-isoleucine_C6H13NO2 + 0.148 L-methionine_C5H11NO2S + 0.225 L-proline_C5H9NO2 + 0.292 L-threonine_C4H9NO3 + 0.047 L-tryptophan_C11H12N2O2 + 0.421 L-leucine_C6H13NO2 + 0.334 L-lysine_C6H14N2O2 + 0.229 L-phenylalanine_C9H11NO2 + 0.148 L-tyrosine_C9H11NO3 --> protein_
+xMAINTENANCE,Non-growth associated maintenance (NGAM),biomass/pseudo,C_cy,7.8625,1000.0,Model specific,False,ATP_C10H16N5O13P3 + H2O_H2O --> ADP_C10H15N5O10P2 + phosphate_H3O4P
+xPOOL_AC_EM,Acyl-CoAs pool,biomass/pseudo,C_em,-1000.0,1000.0,Model specific,False,0.002751 lauroyl-CoA_C33H58N7O17P3S + 0.001834 myristoyl-CoA_C35H62N7O17P3S + 0.17423 palmitoyl-CoA_C37H66N7O17P3S + 0.038514 stearoyl-CoA_C39H70N7O17P3S + 0.182483 linoleoyl-CoA_C39H66N7O17P3S + 0.472255 oleoyl-CoA_C39H68N7O17P3S + 0.078933 palmitoleoyl-CoA_C37H64N7O17P3S <=> 0.951 acyl-CoA_
+xPOOL_AC_LP,Acyl-CoAs pool,biomass/pseudo,C_lp,-1000.0,1000.0,Model specific,False,0.002751 lauroyl-CoA_C33H58N7O17P3S + 0.001834 myristoyl-CoA_C35H62N7O17P3S + 0.17423 palmitoyl-CoA_C37H66N7O17P3S + 0.078933 palmitoleoyl-CoA_C37H64N7O17P3S + 0.038514 stearoyl-CoA_C39H70N7O17P3S + 0.472255 oleoyl-CoA_C39H68N7O17P3S + 0.182483 linoleoyl-CoA_C39H66N7O17P3S <=> 0.951 acyl-CoA_
+xPOOL_AC_MM,Acyl-CoAs pool,biomass/pseudo,C_mm,-1000.0,1000.0,Model specific,False,0.078933 palmitoleoyl-CoA_C37H64N7O17P3S + 0.472255 oleoyl-CoA_C39H68N7O17P3S + 0.002751 lauroyl-CoA_C33H58N7O17P3S + 0.001834 myristoyl-CoA_C35H62N7O17P3S + 0.17423 palmitoyl-CoA_C37H66N7O17P3S + 0.038514 stearoyl-CoA_C39H70N7O17P3S + 0.182483 linoleoyl-CoA_C39H66N7O17P3S <=> 0.951 acyl-CoA_
+xPOOL_FA_EM,Fatty acids pool,biomass/pseudo,C_em,-1000.0,1000.0,Model specific,False,0.003 laurate_C12H24O2 + 0.002 myristate_C14H28O2 + 0.19 palmitate_C16H32O2 + 0.042 stearate_C18H36O2 + 0.515 oleate_C18H34O2 + 0.199 linoleate_C18H32O2 <=> 0.951 fatty acid_
+xPOOL_FA_EN,Fatty acids pool,biomass/pseudo,C_en,-1000.0,1000.0,Model specific,False,0.515 oleate_C18H34O2 + 0.19 palmitate_C16H32O2 + 0.042 stearate_C18H36O2 + 0.003 laurate_C12H24O2 + 0.002 myristate_C14H28O2 + 0.199 linoleate_C18H32O2 <=> 0.951 fatty acid_
+xPOOL_FA_LP,Fatty acids pool,biomass/pseudo,C_lp,-1000.0,1000.0,Model specific,False,0.003 laurate_C12H24O2 + 0.002 myristate_C14H28O2 + 0.19 palmitate_C16H32O2 + 0.042 stearate_C18H36O2 + 0.515 oleate_C18H34O2 + 0.199 linoleate_C18H32O2 <=> 0.951 fatty acid_
+xPOOL_FA_MI,Fatty acids pool,biomass/pseudo,C_mi,-1000.0,1000.0,Model specific,False,0.003 laurate_C12H24O2 + 0.002 myristate_C14H28O2 + 0.19 palmitate_C16H32O2 + 0.042 stearate_C18H36O2 + 0.515 oleate_C18H34O2 + 0.199 linoleate_C18H32O2 <=> 0.951 fatty acid_
+xPOOL_FA_MM,Fatty acids pool,biomass/pseudo,C_mm,-1000.0,1000.0,Model specific,False,0.19 palmitate_C16H32O2 + 0.042 stearate_C18H36O2 + 0.003 laurate_C12H24O2 + 0.002 myristate_C14H28O2 + 0.515 oleate_C18H34O2 + 0.199 linoleate_C18H32O2 <=> 0.951 fatty acid_
+R1875,isocitrate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,isocitrate_C6H8O7 <=> isocitrate_C6H8O7
+R1876,octadecenoate (n-C18:1) transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,linoleate_C18H32O2 <=> linoleate_C18H32O2
+R1878,"linoleoyl-CoA transport, cytoplasm-ER membrane",transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,linoleoyl-CoA_C39H66N7O17P3S <=> linoleoyl-CoA_C39H66N7O17P3S
+R1879,"linoleoyl-CoA transport, cytoplasm-lipid particle",transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,linoleoyl-CoA_C39H66N7O17P3S <=> linoleoyl-CoA_C39H66N7O17P3S
+R1880,"linoleoyl-CoA transport, cytoplasm-mitochondrial membrane",transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrial membrane",False,linoleoyl-CoA_C39H66N7O17P3S <=> linoleoyl-CoA_C39H66N7O17P3S
+R1888,octadecenoate (n-C18:1) transport,transport,C_cy;C_lp,-1000.0,1000.0,"Transport, lipid particle",False,linoleate_C18H32O2 <=> linoleate_C18H32O2
+R1891,"glycerol transport, mm - cy",transport,C_cy;C_mm,-1000.0,1000.0,,False,glycerol_C3H8O3 <=> glycerol_C3H8O3
+R1900,EXC_OUT_m1803,boundary,C_ex,0.0,1000.0,,False,isocitrate_C6H8O7 --> 
+R1901,L-asparaginase,metabolic,C_cy,-1000.0,1000.0,,False,L-asparagine_C4H8N2O3 + H2O_H2O <=> L-aspartate_C4H7NO4 + ammonium_H3N
+R1902,acyldihydroxyacetonephosphate reductase,metabolic,C_lp,-1000.0,1000.0,Glycerophospholipid metabolism,False,H+_p+1 + NADPH_C21H30N7O17P3 + acylglycerone phosphate_ <=> NADP(+)_C21H28N7O17P3 + 1-acyl-sn-glycerol 3-phosphate
+R1958,"homogentisate 1,2-dioxygenase",metabolic,C_cy,0.0,1000.0,"Phenylalanine, tyrosine and tryptophan biosynthesis",False,oxygen_O2 + homogentisate_ --> H+_p+1 + 4-maleyl-acetoacetate_
+R1959,maleylacetoacetate isomerase,metabolic,C_cy,-1000.0,1000.0,"Phenylalanine, tyrosine and tryptophan biosynthesis",False,4-maleyl-acetoacetate_ <=> 4-fumaryl-acetoacetate_
+R1961,erythrose kinase,metabolic,C_cy,-1000.0,1000.0,Pentose and glucuronate interconversions,False,D-erythrose 4-phosphate_C4H9O7P + ADP_C10H15N5O10P2 <=> ATP_C10H16N5O13P3 + erythrose_
+R1962,erythrose reductase,metabolic,C_cy,-1000.0,1000.0,Pentose and glucuronate interconversions,False,H+_p+1 + NADH_C21H29N7O14P2 + erythrose_ <=> NAD_C21H27N7O14P2 + erythritol_
+R1963,erythritol transport extracellular,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,erythritol_ <=> erythritol_
+R1964,arabinitol dehydrogenase,metabolic,C_cy,-1000.0,1000.0,Pentose and glucuronate interconversions,False,D-xylulose_C5H10O5 + NADH_C21H29N7O14P2 <=> NAD_C21H27N7O14P2 + D-arabinitol_
+R1965,mannitol transport extracellular,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-mannitol_ <=> D-mannitol_
+R1966,EXC_OUT_m1826,boundary,C_ex,0.0,1000.0,,False,erythritol_ --> 
+R1967,EXC_OUT_m1824,boundary,C_ex,0.0,1000.0,,False,D-mannitol_ --> 
+R1973,3-methylglutaconyl-CoA dehydratase,metabolic,C_mi,0.0,1000.0,"Valine, leucine and isoleucine degradation",False,3-methylglutaconyl-CoA_C27H42N7O19P3S + H2O_H2O --> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S
+R1980,D-Arabitol transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-arabinitol_ <=> D-arabinitol_
+R1981,D-Arabitol exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-arabinitol_ --> 
+R1983,2-Deoxy-D-Ribose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2-Deoxy-D-Ribose --> 
+R1984,Palatinose exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Palatinose --> 
+R1985,Palatinose hydrolase,transport,C_ex,0.0,1000.0,"Transport, extracellular",False,Palatinose + H2O_H2O --> D-glucose_C6H12O6 + D-fructose_C6H12O6
+R1986,Salicin exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Salicin --> 
+R1987,Salicin transport via  proton symport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,phosphoenolpyruvate_C3H5O6P + Salicin --> Salicin-6-phosphate + pyruvate_C3H4O3
+R1988,Salicin 6-phosphate glucohydrolase,metabolic,C_cy,0.0,1000.0,Carbohydrate metabolism,False,2.0 H+_p+1 + Salicin-6-phosphate + H2O_H2O --> Salicyl alcohol + D-glucose 6-phosphate_C6H13O9P
+R1990,5-aminopentanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,5-aminopentanoate --> 
+R1991,5-aminopentanoate:2-oxoglutarate aminotransferase,metabolic,C_cy,-1000.0,1000.0,Amino acid metabolism,False,5-aminopentanoate + 2-oxoglutarate_C5H6O5 <=> 5-Oxopentanoate + L-glutamate_C5H9NO4
+R1992,D-glucosamine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-Glucosamine --> 
+R1993,D-glucosamine transport via diffusion,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-glucosamine_ <=> D-Glucosamine
+R1994,(R)-3-Hydroxybutanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,(R)-3-Hydroxybutanoate --> 
+R1996,Acetoacetate transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,acetoacetate_ <=> acetoacetate_
+R1997,(R)-3-Hydroxybutanoate:NAD+ oxidoreductase,metabolic,C_cy,-1000.0,1000.0,Synthesis and degradation of ketone bodies,False,NAD_C21H27N7O14P2 + (R)-3-Hydroxybutanoate <=> NADH_C21H29N7O14P2 + acetoacetate_
+R1998,5-dehydro-D-gluconate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,5-Keto-D-Gluconic Acid --> 
+R1999,5-Dehydro-D-gluconate transport via proton symport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,5-Keto-D-Gluconic Acid + H+_p+1 --> H+_p+1 + 5-Keto-D-Gluconic Acid
+R2000,D-Gluconate:NADP+ 5-oxidoreductase,metabolic,C_cy,0.0,1000.0,Pentose phosphate pathway,False,H+_p+1 + 5-Keto-D-Gluconic Acid + NADPH_C21H30N7O17P3 --> D-gluconate + NADP(+)_C21H28N7O17P3
+R2001,malonate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,malonate --> 
+R2002,malonate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,malonate <=> malonate
+R2003,Acetyl-CoA:malonate CoA-transferase,metabolic,C_cy,-1000.0,1000.0,Fatty acid biosynthesis,False,2.0 H+_p+1 + malonate + acetyl-CoA_C23H38N7O17P3S <=> malonyl-CoA_C24H38N7O19P3S + acetate_C2H4O2
+R2005,3-oxalomalate(3-) exchange,boundary,C_ex,0.0,1000.0,Exchange,False,3-oxalomalate --> 
+R2006,3-Oxalomalate transport via proton symport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,3-oxalomalate + H+_p+1 --> H+_p+1 + 3-oxalomalate
+R2007,3-oxalomalate glyoxylate-lyase (oxaloacetate-forming),metabolic,C_cy,-1000.0,1000.0,"Alanine, aspartate and glutamate metabolism",False,3.0 H+_p+1 + 3-oxalomalate <=> glyoxylate_C2H2O3 + oxaloacetate_C4H4O5
+R2008,Dihydroxy-Acetone exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Dihydroxy-Acetone --> 
+R2009,Dihydroxy-Acetone transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,Dihydroxy-Acetone <=> Dihydroxy-Acetone
+R2010,Dihydroxyacetone kinase,metabolic,C_cy,0.0,1000.0,Fructose and mannose metabolism,False,ATP_C10H16N5O13P3 + Dihydroxy-Acetone --> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + dihydroxyacetone phosphate_C3H5O6P
+R2011,N-Acetyl-D-Glucosamine exchange,boundary,C_ex,0.0,1000.0,Exchange,False,N-Acetyl-D-Glucosamine --> 
+R2012,N-Acetyl-D-Glucosamine transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,N-Acetyl-D-Glucosamine <=> N-Acetyl-D-Glucosamine
+R2013,N-Acetyl-D-Glucosamine kinase,metabolic,C_cy,0.0,1000.0,Amino sugar and nucleotide sugar metabolism,False,ATP_C10H16N5O13P3 + N-Acetyl-D-Glucosamine --> ADP_C10H15N5O10P2 + N-acetyl-D-glucosamine 6-phosphate_C8H16NO9P
+R2014,D-gluconate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-gluconate --> 
+R2015,D-gluconate transport via diffusion,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,D-gluconate <=> D-gluconate
+R2016,2-oxobutanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,2-oxobutanoate --> 
+R2017,2-oxobutanoate transport via proton symport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,H+_p+1 + 2-oxobutanoate <=> 2-oxobutanoate_C4H6O3
+R2018,Gly-Asp exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Gly-Asp --> 
+R2019,Gly-Asp transport via proton antiport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,Gly-Asp + H+_p+1 <=> H+_p+1 + Gly-Asp
+R2020,Gly-Asp transport via proton antiport,transport,C_cy;C_va,-1000.0,1000.0,"Transport, vacuole",False,H+_p+1 + Gly-Asp <=> H+_p+1 + Gly-Asp
+R2021,cytosol nonspecific dipeptidase,metabolic,C_va,0.0,1000.0,Amino acid metabolism,False,H2O_H2O + Gly-Asp --> L-aspartate_C4H7NO4 + L-glycine
+R2022,Propanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Propanoate --> 
+R2023,Propanoate transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,Propanoate <=> Propanoate
+R2025,Propanoate:CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,propionyl-CoA <=> propionyl-CoA_C24H36N7O17P3S
+R2026,Gly-Glu exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Gly_Glu --> 
+R2027,Gly-glu transport via proton antiport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,Gly_Glu + H+_p+1 <=> H+_p+1 + Gly_Glu
+R2028,Gly-glu transport via proton antiport,transport,C_cy;C_va,-1000.0,1000.0,"Transport, vacuole",False,H+_p+1 + Gly_Glu <=> H+_p+1 + Gly_Glu
+R2029,cytosol nonspecific dipeptidase,transport,C_va,0.0,1000.0,"Transport, vacuole",False,H2O_H2O + Gly_Glu --> L-glutamate_C5H9NO4 + L-glycine
+R2030,Glycine transport (vacuole),transport,C_cy;C_va,-1000.0,1000.0,"Transport, vacuole",False,H+_p+1 + L-glycine_C2H5NO2 <=> H+_p+1 + L-glycine
+R2031,Ala-Gly exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Ala-Gly --> 
+R2032,Ala-Gly transport via proton antiport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,Ala-Gly <=> Ala-Gly
+R2033,Ala-Gly transport via proton antiport,transport,C_cy;C_va,-1000.0,1000.0,"Transport, vacuole",False,Ala-Gly <=> Ala-Gly
+R2034,cytosol nonspecific dipeptidase,metabolic,C_va,0.0,1000.0,Amino acid metabolism,False,H2O_H2O + Ala-Gly --> L-glycine + L-alanine
+R2035,L-alanine transport (vacuole),transport,C_cy;C_va,-1000.0,1000.0,"Transport, vacuole",False,L-alanine_C3H7NO2 <=> L-alanine
+R2036,Gly-Pro exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Gly-Pro --> 
+R2037,Gly-Pro transport via proton antiport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,Gly-Pro + H+_p+1 <=> H+_p+1 + Gly-Pro
+R2038,Gly-Pro transport via proton antiport,transport,C_cy;C_va,-1000.0,1000.0,Amino acid metabolism,False,H+_p+1 + Gly-Pro <=> H+_p+1 + Gly-Pro
+R2039,cytosol nonspecific dipeptidase,metabolic,C_va,0.0,1000.0,Amino acid metabolism,False,H2O_H2O + Gly-Pro --> L-glycine + L-proline
+R2040,proline transport (vacuole),transport,C_cy;C_va,-1000.0,1000.0,"Transport, vacuole",False,H+_p+1 + L-proline_C5H9NO2 <=> H+_p+1 + L-proline
+R2041,ATP:D-arabinose 5-phosphotransferase,metabolic,C_cy,-1000.0,1000.0,Pentose and glucuronate interconversions,False,ATP_C10H16N5O13P3 + D-arabinose_C5H10O5 <=> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + D-Arabinose 5-phosphate
+R2042,D-arabinose-5-phosphate aldose-ketose-isomerase,metabolic,C_cy,-1000.0,1000.0,Pentose and glucuronate interconversions,False,D-ribulose 5-phosphate_C5H11O8P <=> 2.0 H+_p+1 + D-Arabinose 5-phosphate
+R2044,fatty acid transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,fatty acid_ <=> fatty acid
+R2047,1D-myo-inositol 1-phosphate transport,transport,C_cy;C_go,-1000.0,1000.0,"Transport, golgi",False,1D-myo-inositol 1-phosphate_C6H11O9P <=> 1D-myo-inositol 1-phosphate
+R2061,Magnesium exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,Magnesium <=> 
+R2072,3-(indol-3-yl)pyruvate carboxy-lyase [(2-indol-3-yl)acetaldehyde-forming],metabolic,C_cy,0.0,1000.0,Tryptophan metabolism,False,H+_p+1 + Indolepyruvate --> Indole-3-acetaldehyde + carbon dioxide_CO2
+R2075,(R)-Methylmalonyl-CoA CoA-carbonylmutase,metabolic,C_cy,0.0,1000.0,"Valine, leucine and isoleucine degradation",False,(R)-Methylmalonyl-CoA --> Succinyl-CoA
+R2076,NO NAME,metabolic,C_cy,0.0,1000.0,"Valine, leucine and isoleucine degradation",False,Methylmalonate + coenzyme A_C21H36N7O16P3S --> 3.0 H+_p+1 + (R)-Methylmalonyl-CoA + H2O_H2O
+R2077,Succinyl-CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport,",False,succinyl-CoA_C25H40N7O19P3S <=> 5.0 H+_p+1 + Succinyl-CoA
+R2083,3-Methylcrotonyl-CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport,",False,3-methylcrotonyl-CoA_C26H42N7O17P3S <=> 3-Methylcrotonyl-CoA
+R2084,3-Methylbutanoyl-CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport,",False,3-methylbutanoyl-CoA_C26H44N7O17P3S <=> 4.0 H+_p+1 + 3-Methylbutanoyl-CoA
+R2091,Glyceron phosphate transport,transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER membrane",False,acylglycerone phosphate_ <=> Glyceron phosphate
+R2101,Dolichyl phosphate D-mannose transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,dolichyl D-mannosyl phosphate_C26H47O9P(C5H8)n <=> Dolichyl phosphate D-mannose
+R2103,GDP-mannose transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,GDP-mannose <=> GDP-alpha-D-mannose_C16H23N5O16P2
+R2104,GDP transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,GDP_C10H15N5O11P2 <=> 3.0 H+_p+1 + GDP
+R2107,UDP-N-acetyl-alpha-D-glucosamine transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, Endoplasmic reticulum",False,UDP-N-acetyl-D-glucosamine <=> UDP-N-acetyl-D-glucosamine
+R2110,UMP transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,UMP_C9H13N2O9P <=> 2.0 H+_p+1 + UMP
+R2111,UDP transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,UDP_C9H14N2O12P2 <=> 3.0 H+_p+1 + UDP
+R2113,Propanoyl-CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,propionyl-CoA_C24H36N7O17P3S <=> Propanoyl-CoA
+R2115,(S)-3-Hydroxyisobutyryl-CoA hydrolase,metabolic,C_cy,0.0,1000.0,"Valine, leucine and isoleucine degradation",False,(S)-3-Hydroxyisobutyryl-CoA + H2O_H2O --> H+_p+1 + (S)-3-Hydroxyisobutyrate + coenzyme A_C21H36N7O16P3S
+R2118,2-Methylpropanoyl-CoA transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,2-methylpropanoyl-CoA_C25H42N7O17P3S <=> 4.0 H+_p+1 + 2-Methylpropanoyl-CoA
+R2125,Sphinganine transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,sphinganine_C18H39NO2 <=> Sphinganine
+R2126,Ceramide-1 (Sphinganine:n-C26:0) transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ceramide-1-(C26)_ <=> Ceramide-1 (Sphinganine:n-C26:0)
+R2128,Ceramide-1 (Sphinganine:n-C24:0) transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ceramide-1-(C24)_ <=> Ceramide-1 (Sphinganine:n-C24:0)
+R2130,Phytosphingosine transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,Phytosphingosine <=> phytosphingosine_C18H39NO3
+R2131,Ceramide-2 (Phytosphingosine:n-C24:0) transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ceramide-2-(C24)_ <=> Ceramide-2 (Phytosphingosine:n-C24:0)
+R2133,Ceramide-2 (Phytosphingosine:n-C26:0) transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,Ceramide-2 (Phytosphingosine:n-C26:0) <=> ceramide-2-(C26)_
+R2135,AC-CoA transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,acetyl-CoA_C23H38N7O17P3S <=> Acyl-coA
+R2139,UDP-glucose transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,UDP-glucose <=> UDP-D-glucose_C15H22N2O17P2
+R2142,"propanoyl-CoA:electron-transfer flavoprotein 2,3-oxidoreductase",metabolic,C_cy,-1000.0,1000.0,Propanoate metabolism,False,Propanoyl-CoA + FAD_C27H33N9O15P2 <=> FADH2_C27H35N9O15P2 + Propenoyl-coA
+R2144,phosphatidate transport,transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER",False,phosphatidate <=> phosphatidate
+R2147,mannosylinositol phosphorylceramide A (C24)_C54H106NO16P transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannosylinositol phosphorylceramide A (C24)_C54H106NO16P <=> mannosylinositol phosphorylceramide A (C24)_C54H106NO16P
+R2150,mannosylinositol phosphorylceramide A (C26)_C56H110NO16P transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannosylinositol phosphorylceramide A (C26)_C56H110NO16P <=> mannosylinositol phosphorylceramide A (C26)_C56H110NO16P
+R2153,mannosylinositol phosphorylceramide B (C24)_C54H106NO17P transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannosylinositol phosphorylceramide B (C24)_C54H106NO17P <=> mannosylinositol phosphorylceramide B (C24)_C54H106NO17P
+R2156,mannosylinositol phosphorylceramide B (C26)_C56H110NO17P transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannosylinositol phosphorylceramide B (C26)_C56H110NO17P <=> mannosylinositol phosphorylceramide B (C26)_C56H110NO17P
+R2158,Ceramide-3 (Phytosphingosine:n-C24:0OH) trasnport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ceramide-3-(C24)_ <=> Ceramide-3 (Phytosphingosine:n-C24:0OH)
+R2160,mannosylinositol phosphorylceramide C (C24)_C54H106NO18P transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannosylinositol phosphorylceramide C (C24)_C54H106NO18P <=> mannosylinositol phosphorylceramide C (C24)_C54H106NO18P
+R2163,mannosylinositol phosphorylceramide C (C26)_C56H110NO18P transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,mannosylinositol phosphorylceramide C (C26)_C56H110NO18P <=> mannosylinositol phosphorylceramide C (C26)_C56H110NO18P
+R2164,Ceramide-3 (Phytosphingosine:n-C26:0OH)transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,ceramide-3-(C26)_ <=> Ceramide-3 (Phytosphingosine:n-C26:0OH)
+R2166,Hexadecenoyl-CoA transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,Hexadecenoyl-CoA <=> palmitoleoyl-CoA_C37H64N7O17P3S
+R2167,Decanoyl-CoA transport,transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrion",False,4.0 H+_p+1 + Decanoyl-CoA <=> decanoyl-CoA_C31H54N7O17P3S
+R2169,"1,2-Diacyl-sn-glycerol transport",transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,"1,2-Diacyl-sn-glycerol <=> 1,2-Diacyl-sn-glycerol"
+R2170,Triacylglycerol transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,triglyceride <=> Triacylglycerol
+R2174,Glycolate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,Glycolate <=> Glycolate
+R2175,Glycolate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,hydrogen peroxide_H2O2 <=> Hydrogen peroxide
+R2178,NO NAME,metabolic,C_cy,0.0,1000.0,Terpenoid backbone biosynthesis,False,6.5 oxygen_O2 + Dehydrodolichol diphosphate --> Dolichyl diphosphate + 3.0 H2O_H2O + 5.0 carbon dioxide_CO2
+R2182,Dolichyl diphosphate transport,transport,C_cy;C_er,-1000.0,1000.0,"Transport, ER",False,Dolichyl diphosphate <=> Dolichyl diphosphate
+R2197,NO NAME,metabolic,C_cy,0.0,1000.0,Cysteine and methionine metabolism,False,3-Sulfinylpyruvate + H2O_H2O --> H+_p+1 + pyruvate_C3H4O3 + sulphite_H2O3S
+R2208,Indole_3_acetonitrile exchange,boundary,C_ex,0.0,1000.0,Exchange,False,Indole_3_acetonitrile --> 
+R2209,Indole_3_acetonitrile transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,Indole_3_acetonitrile --> Indole_3_acetonitrile
+R2211,alpha_Aminopropiononitrile exchange,boundary,C_ex,0.0,1000.0,Exchange,False,alpha_Aminopropiononitrile --> 
+R2212,alpha_Aminopropiononitrile transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,alpha_Aminopropiononitrile --> alpha_Aminopropiononitrile
+R2214,gamma_Amino_gamma_cyanobutanoate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,gamma_Amino_gamma_cyanobutanoate --> 
+R2215,gamma_Amino_gamma_cyanobutanoate transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, extracellular",False,gamma_Amino_gamma_cyanobutanoate --> gamma_Amino_gamma_cyanobutanoate
+R2216,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Octanoyl_ACP <=> octanoyl-ACP_C8H15OSR
+R2219,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Decanoyl_ACP <=> Decanoyl_ACP
+R2222,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Dodecanoyl_ACP <=> Dodecanoyl_ACP
+R2225,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Myristoyl_ACP <=> Myristoyl_ACP
+R2228,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,cis_tetradec_7_enoyl_acyl_carrier_protein__n_C141 <=> cis_tetradec_7_enoyl_acyl_carrier_protein__n_C141
+R2231,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Palmitoyl_ACP <=> Palmitoyl_ACP
+R2234,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,cis_hexadec_9_enoyl_acyl_carrier_protein__n_C161 <=> cis_hexadec_9_enoyl_acyl_carrier_protein__n_C161
+R2236,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Octadecanoyl_ACP <=> Octadecanoyl_ACP
+R2238,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,cis_octadec_11_enoyl_acyl_carrier_protein <=> cis_octadec_11_enoyl_acyl_carrier_protein
+R2240,fatty acyl ACP mitochondrial transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,Octadecynoyl_ACP <=> Octadecynoyl_ACP
+R2243,S_Adenosyl_L_methionine transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,S_Adenosyl_L_methionine <=> S_Adenosyl_L_methionine
+R2244,S_Adenosyl_L_methionine transport,transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER",False,S_Adenosyl_L_methionine <=> S-adenosyl-L-methionine_C15H22N6O5S
+R2245,S_Adenosyl_L_homocysteine transport,transport,C_cy;C_nu,-1000.0,1000.0,"Transport, nucleus",False,S_Adenosyl_L_homocysteine <=> S_Adenosyl_L_homocysteine
+R2246,S_Adenosyl_L_homocysteine transport,transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER",False,S_Adenosyl_L_homocysteine <=> S-adenosyl-L-homocysteine_C14H20N6O5S
+R2256,Decanedioate extracellular transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, Extracellular",False,Decanedioate --> Decanedioate
+R2260,Dodecanedioate peroxisomal transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, Peroxisomal",False,Dodecanedioate --> Dodecanedioate
+R2264,Hexadecanedioate peroxisomal transport,transport,C_cy;C_ex,0.0,1000.0,"Transport, Peroxisomal",False,Hexadecanedioate --> Hexadecanedioate
+R2265,Octanoyl_CoA__n_C80CoA Transport,transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrion",False,Octanoyl_CoA__n_C80CoA <=> octanoyl-CoA_C29H50N7O17P3S
+R2266,Decanoyl_CoA__n_C100CoA Transport,transport,C_cy;C_mm,-1000.0,1000.0,"Transport, mitochondrion",False,Decanoyl_CoA__n_C100CoA <=> decanoyl-CoA_C31H54N7O17P3S
+R2267,Dodecanoyl_CoA__n_C120CoA Transport,transport,C_cy;C_em,-1000.0,1000.0,"Transport, ER",False,Dodecanoyl_CoA__n_C120CoA <=> lauroyl-CoA_C33H58N7O17P3S
+R2269,Acetate transport,transport,C_cy;C_pe,-1000.0,1000.0,"Transport, peroxisome",False,H+_p+1 + Acetate <=> acetate_C2H4O2
+R2270,pyridoxal exchange,boundary,C_ex,-1000.0,1000.0,Exchange,False,pyridoxal <=> 
+R2271,pyridoxal transport,transport,C_cy;C_ex,-1000.0,1000.0,"Transport, extracellular",False,pyridoxal_C8H9NO3 <=> pyridoxal
+R2272,hexadecane exchange,boundary,C_ex,0.0,1000.0,Exchange,False,hexadecane_ --> 
+R2273,triolein exchange,boundary,C_ex,0.0,1000.0,Exchange,False,triolein --> 
+R2274,triolein hydrolysis,metabolic,C_ex,0.0,1000.0,Glycerolipid metabolism,False,triolein --> glycerol_C3H8O3 + 3.0 oleate_C18H34O2
+R2275,tributyrin exchange,boundary,C_ex,0.0,1000.0,Exchange,False,tributyrin_ --> 
+R2276,D-Limonene synthase,metabolic,C_cy,0.0,1000.0,D-Limonene synthase,False,geranyl diphosphate_C10H20O7P2 --> D-Limonene
+R2277,D-Limonene transport,transport,C_cy;C_ex,-1000.0,1000.0,Transport,False,D-Limonene <=> D-Limonene
+R2278,D-Limonene exchange,boundary,C_ex,0.0,1000.0,Exchange,False,D-Limonene --> 
+R2279,3-dehydroshikimate transport,transport,C_cy;C_ex,-1000.0,1000.0,Transport,False,3-dehydroshikimate_C7H8O5 <=> H+_p+1 + 3-dehydroshikimate
+R2280,3-dehydroshikimate exchange,boundary,C_ex,0.0,1000.0,Exchange,False,3-dehydroshikimate --> 
+newBiom,newBiom,biomass/pseudo,C_cy;C_em;C_lp,0.0,1000.0,,False,0.00069 ergosterol_C28H44O + 0.26216 L-valine_C5H11NO2 + 1.12434 (1-3)-beta-D-glucan_ + 0.45457 L-alanine_C3H7NO2 + 0.10443 L-glutamine_C5H10N2O3 + 0.80045 mannan_ + 17.05 ATP_C10H16N5O13P3 + 0.05953 UMP_C9H13N2O9P + 0.0019 phosphatidyl-L-serine_C8H11NO10PR2 + 0.059 triglyceride + 0.004777 1-phosphatidyl-1D-myo-inositol + 0.0038 phosphatidylethanolamine_C7H12NO8PR2 + 0.0057 phosphatidylcholine_C10H18NO8PR2 + 0.000943 phosphatidate + 0.29476 L-aspartate_C4H7NO4 + 0.28772 L-glycine_C2H5NO2 + 0.02814 trehalose_C12H22O11 + 0.15922 L-arginine_C6H14N4O2 + 0.10076 L-asparagine_C4H8N2O3 + 17.05 H2O_H2O + 0.00149 zymosterol_C27H44O + 0.18369 L-serine_C3H7NO3 + 0.00654 L-cysteine_C3H7NO2S + 0.00238 dCMP_C9H14N3O7P + 0.00238 dGMP_C10H14N5O7P + 0.00357 dTMP_C10H15N2O8P + 0.29902 L-glutamate_C5H9NO4 + 0.51372 glycogen_ + 0.06569 L-histidine_C6H9N3O2 + 0.19092 L-isoleucine_C6H13NO2 + 0.05023 L-methionine_C5H11NO2S + 0.16318 L-proline_C5H9NO2 + 0.18964 L-threonine_C4H9NO3 + 0.02814 L-tryptophan_C11H12N2O2 + 0.29367 L-leucine_C6H13NO2 + 0.28356 L-lysine_C6H14N2O2 + 0.13267 L-phenylalanine_C9H11NO2 + 0.04558 AMP_C10H14N5O7P + 0.00357 dAMP_C10H14N5O6P + 0.04558 GMP_C10H14N5O8P + 0.04429 CMP_C9H14N3O8P + 0.01982 sulphate_H2O4S + 0.10106 L-tyrosine_C9H11NO3 --> 17.05 H+_p+1 + biomass_ + 17.05 ADP_C10H15N5O10P2 + 17.05 phosphate_H3O4P
+biomass_C,biomass_C,biomass/pseudo,C_cy;C_em;C_lp;C_mi,0.0,1000.0,,False,0.035251 ergosterol_C28H44O + 0.943397 (1-3)-beta-D-glucan_ + 0.235849 mannan_ + 23.09 ATP_C10H16N5O13P3 + 0.059363 UMP_C9H13N2O9P + 3.5e-05 phosphatidyl-L-serine_C8H11NO10PR2 + 0.000234 triglyceride + 7.5e-05 1-phosphatidyl-1D-myo-inositol + 0.000237 phosphatidylethanolamine_C7H12NO8PR2 + 0.000346 phosphatidylcholine_C10H18NO8PR2 + 5.8e-05 phosphatidate + 0.00686 trehalose_C12H22O11 + 23.09 H2O_H2O + 0.003029 zymosterol_C27H44O + 0.868358 chitin_H2O(C8H13NO5)n + 0.010436 dCMP_C9H14N3O7P + 0.009226 dGMP_C10H14N5O7P + 0.0001 ubiquinone-9_C54H82O4 + 0.010353 dTMP_C10H15N2O8P + 0.055401 AMP_C10H14N5O7P + 0.01007 dAMP_C10H14N5O6P + 0.050871 GMP_C10H14N5O8P + 0.05721 CMP_C9H14N3O8P + 0.02 sulphate_H2O4S + 0.567939 Protein-incorporated L-alanine_C3H7NO2 requirement (experimental B split) + 0.125563 Protein-incorporated L-arginine_C6H14N4O2 requirement (experimental B split) + 0.186498 Protein-incorporated L-asparagine_C4H8N2O3 requirement (experimental B split) + 0.186531 Protein-incorporated L-aspartate_C4H7NO4 requirement (experimental B split) + 0.003632 Protein-incorporated L-cysteine_C3H7NO2S requirement (experimental B split) + 0.243866 Protein-incorporated L-glutamine_C5H10N2O3 requirement (experimental B split) + 0.243904 Protein-incorporated L-glutamate_C5H9NO4 requirement (experimental B split) + 0.509943 Protein-incorporated L-glycine_C2H5NO2 requirement (experimental B split) + 0.053881 Protein-incorporated L-histidine_C6H9N3O2 requirement (experimental B split) + 0.090566 Protein-incorporated L-isoleucine_C6H13NO2 requirement (experimental B split) + 0.19455 Protein-incorporated L-leucine_C6H13NO2 requirement (experimental B split) + 0.275005 Protein-incorporated L-lysine_C6H14N2O2 requirement (experimental B split) + 0.044232 Protein-incorporated L-methionine_C5H11NO2S requirement (experimental B split) + 0.082571 Protein-incorporated L-phenylalanine_C9H11NO2 requirement (experimental B split) + 0.206372 Protein-incorporated L-proline_C5H9NO2 requirement (experimental B split) + 0.284699 Protein-incorporated L-serine_C3H7NO3 requirement (experimental B split) + 0.210543 Protein-incorporated L-threonine_C4H9NO3 requirement (experimental B split) + 0.002154 Protein-incorporated L-tryptophan_C11H12N2O2 requirement (experimental B split) + 0.041282 Protein-incorporated L-tyrosine_C9H11NO3 requirement (experimental B split) + 0.172773 Protein-incorporated L-valine_C5H11NO2 requirement (experimental B split) --> 23.09 H+_p+1 + biomass_ + 23.09 ADP_C10H15N5O10P2 + 23.09 phosphate_H3O4P
+R1890,Leucine transport,transport,C_cy;C_mi,-1000.0,1000.0,"Transport, mitochondrion",False,L-leucine_C6H13NO2 <=> L-leucine_C6H13NO2
+R2284,"(2S,3S)-3-hydroxy-2-methylbutanoyl-CoA:NAD+ oxidoreductase",metabolic,C_cy,0.0,1000.0,"Valine, leucine and isoleucine degradation",False,NAD_C21H27N7O14P2 + m2059[C_cy] --> NADH_C21H29N7O14P2 + m2060[C_cy]
+TRNA_BIOMASS_R798,Biomass incorporation of L-valine_C5H11NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Val-tRNA(Val)_C20H30N6O11PR(C5H8O6PR)n --> tRNA(Val) + Protein-incorporated L-valine_C5H11NO2 requirement (experimental B split)
+TRNA_BIOMASS_R129,Biomass incorporation of L-alanine_C3H7NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Ala-tRNA(Ala)_C13H22NO11PR2(C5H8O6PR)n --> tRNA(Ala) + Protein-incorporated L-alanine_C3H7NO2 requirement (experimental B split)
+TRNA_BIOMASS_R154,Biomass incorporation of L-arginine_C6H14N4O2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Arg-tRNA(Arg)_C21H33N9O11PR(C5H8O6PR)n --> tRNA(Arg) + Protein-incorporated L-arginine_C6H14N4O2 requirement (experimental B split)
+TRNA_BIOMASS_R157,Biomass incorporation of L-asparagine_C4H8N2O3 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Asn-tRNA(Asn)_C14H23N2O12PR2(C5H8O6PR)n --> tRNA(Asn) + Protein-incorporated L-asparagine_C4H8N2O3 requirement (experimental B split)
+TRNA_BIOMASS_R165,Biomass incorporation of L-aspartate_C4H7NO4 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Asp-tRNA(Asp)_C14H22NO13PR2(C5H8O6PR)n --> tRNA(Asp) + Protein-incorporated L-aspartate_C4H7NO4 requirement (experimental B split)
+TRNA_BIOMASS_R248,Biomass incorporation of L-cysteine_C3H7NO2S through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Cys-tRNA(Cys)_C18H26N6O11PSR(C5H8O6PR)n --> tRNA(Cys) + Protein-incorporated L-cysteine_C3H7NO2S requirement (experimental B split)
+TRNA_BIOMASS_R336,Biomass incorporation of L-glutamine_C5H10N2O3 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Gln-tRNA(Gln)_C20H29N7O12PR(C5H8O6PR)n --> tRNA(Gln) + Protein-incorporated L-glutamine_C5H10N2O3 requirement (experimental B split)
+TRNA_BIOMASS_R337,Biomass incorporation of L-glutamate_C5H9NO4 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Glu-tRNA(Glu)_C20H28N6O13PR(C5H8O6PR)n --> tRNA(Glu) + Protein-incorporated L-glutamate_C5H9NO4 requirement (experimental B split)
+TRNA_BIOMASS_R368,Biomass incorporation of L-glycine_C2H5NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Gly-tRNA(Gly)_C12H20NO11PR2(C5H8O6PR)n --> tRNA(Gly) + Protein-incorporated L-glycine_C2H5NO2 requirement (experimental B split)
+TRNA_BIOMASS_R392,Biomass incorporation of L-histidine_C6H9N3O2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,His-tRNA(His)_C16H24N3O11PR2(C5H8O6PR)n --> tRNA(His) + Protein-incorporated L-histidine_C6H9N3O2 requirement (experimental B split)
+TRNA_BIOMASS_R493,Biomass incorporation of L-isoleucine_C6H13NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Ile-tRNA(Ile)_C21H32N6O11PR(C5H8O6PR)n --> tRNA(Ile) + Protein-incorporated L-isoleucine_C6H13NO2 requirement (experimental B split)
+TRNA_BIOMASS_R522,Biomass incorporation of L-leucine_C6H13NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Leu-tRNA(Leu)_C21H32N6O11PR(C5H8O6PR)n --> tRNA(Leu) + Protein-incorporated L-leucine_C6H13NO2 requirement (experimental B split)
+TRNA_BIOMASS_R531,Biomass incorporation of L-lysine_C6H14N2O2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Lys-tRNA(Lys)_ --> tRNA(Lys) + Protein-incorporated L-lysine_C6H14N2O2 requirement (experimental B split)
+TRNA_BIOMASS_R547,Biomass incorporation of L-methionine_C5H11NO2S through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Met-tRNA(Met)_C20H30N6O11PSR(C5H8O6PR)n --> tRNA(Met) + Protein-incorporated L-methionine_C5H11NO2S requirement (experimental B split)
+TRNA_BIOMASS_R625,Biomass incorporation of L-phenylalanine_C9H11NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Phe-tRNA(Phe)_C19H26NO11PR2(C5H8O6PR)n --> tRNA(Phe) + Protein-incorporated L-phenylalanine_C9H11NO2 requirement (experimental B split)
+TRNA_BIOMASS_R673,Biomass incorporation of L-proline_C5H9NO2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Pro-tRNA(Pro)_RC5H8NO --> tRNA(Pro) + Protein-incorporated L-proline_C5H9NO2 requirement (experimental B split)
+TRNA_BIOMASS_R723,Biomass incorporation of L-serine_C3H7NO3 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Ser-tRNA(Ser)_C13H22NO12PR2(C5H8O6PR)n --> tRNA(Ser) + Protein-incorporated L-serine_C3H7NO3 requirement (experimental B split)
+TRNA_BIOMASS_R759,Biomass incorporation of L-threonine_C4H9NO3 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Thr-tRNA(Thr)_C14H24NO12PR2(C5H8O6PR)n --> tRNA(Thr) + Protein-incorporated L-threonine_C4H9NO3 requirement (experimental B split)
+TRNA_BIOMASS_R771,Biomass incorporation of L-tryptophan_C11H12N2O2 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Trp-tRNA(Trp)_C26H31N7O11PR(C5H8O6PR)n --> tRNA(Trp) + Protein-incorporated L-tryptophan_C11H12N2O2 requirement (experimental B split)
+TRNA_BIOMASS_R775,Biomass incorporation of L-tyrosine_C9H11NO3 through charged tRNA,biomass/pseudo,C_cy,0.0,1000.0,,False,Tyr-tRNA(Tyr)_RC9H10NO2 --> tRNA(Tyr) + Protein-incorporated L-tyrosine_C9H11NO3 requirement (experimental B split)

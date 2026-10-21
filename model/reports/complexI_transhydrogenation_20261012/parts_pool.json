@@ -1,0 +1,2099 @@
+{
+ "started_utc": "2026-10-14T06:54:15.743807+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "r825": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/r825_reversible_20261013.json",
+   "sha256": "e45cab424c30ee9aec00823cb67392742ac6c36ba7091664249765a2533efcaa"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/complexI_transhydrogenation_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "config": "A",
+ "WT_growth": 0.28221631193924995,
+ "KO_growth": 0.23322295530014478,
+ "pairs": [
+  {
+   "nad": "R130",
+   "nadp": "R_ALCDH_nadp_hi",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": true
+  },
+  {
+   "nad": "R135",
+   "nadp": "R136",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R1377",
+   "nadp": "R_ALCDH_nadp_hi",
+   "orientation": "opposite",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": true
+  },
+  {
+   "nad": "R1378",
+   "nadp": "R134",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R1593",
+   "nadp": "R1590",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R1594",
+   "nadp": "R1591",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R2069",
+   "nadp": "R131",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": false,
+   "dropped": true
+  },
+  {
+   "nad": "R2070",
+   "nadp": "R136",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R254",
+   "nadp": "R255",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": true
+  },
+  {
+   "nad": "R329",
+   "nadp": "R330",
+   "orientation": "opposite",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R487",
+   "nadp": "R1385",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R534",
+   "nadp": "R_MDHy",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": true
+  },
+  {
+   "nad": "R549",
+   "nadp": "R550",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": false
+  },
+  {
+   "nad": "R737",
+   "nadp": "R738",
+   "orientation": "same",
+   "in_base": true,
+   "after_overlay": true,
+   "dropped": true
+  }
+ ],
+ "transport": {
+  "base": [
+   "R1264",
+   "R1265",
+   "R1590",
+   "R1591",
+   "R1593",
+   "R1594",
+   "R1628",
+   "R1629",
+   "R903",
+   "R904",
+   "R905",
+   "R906"
+  ],
+  "overlay": [
+   "R1264",
+   "R1265",
+   "R1590",
+   "R1591",
+   "R1593",
+   "R1594",
+   "R1628",
+   "R1629",
+   "R903",
+   "R904",
+   "R905",
+   "R906"
+  ]
+ },
+ "nad_nadp_species": {
+  "base": [
+   "R565",
+   "R566",
+   "R571",
+   "R572"
+  ],
+  "overlay": [
+   "R565",
+   "R566",
+   "R571",
+   "R572"
+  ]
+ },
+ "pool": [
+  {
+   "reaction": "R130",
+   "name": "alcohol dehydrogenase (ethanol to acetaldehyde)",
+   "sources": [
+    "pair:R130/R_ALCDH_nadp_hi:same:base",
+    "pair:R130/R_ALCDH_nadp_hi:same:overlay"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1A15227g or YALI1A16292g or YALI1D33961g or YALI1E09329g or YALI1E21128g",
+   "equation": "NAD_C21H27N7O14P2 + ethanol_C2H6O <=> NADH_C21H29N7O14P2 + acetaldehyde_C2H4O",
+   "WT_any_per100": [
+    -416.4436,
+    41425.0207
+   ],
+   "KO_any_per100": [
+    -346.5176,
+    41425.0207
+   ],
+   "WT_opt_per100": [
+    0.0,
+    41425.0207
+   ],
+   "KO_opt_per100": [
+    0.0,
+    41425.0207
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.2332229553001465,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566685
+    }
+   }
+  },
+  {
+   "reaction": "R131",
+   "name": "alcohol dehydrogenase (glycerol, NADP)",
+   "sources": [
+    "pair:R2069/R131:same:base"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C353g or YALI1B20108g or YALI1A21000g or YALI1A15863g or YALI1B09211g or YALI1B28394g or YALI1C12619g or YALI1C18771g or YALI1D05111g or YALI1E22041g or YALI1F10224g or YALI1F24773g or YALI1D09870g",
+   "equation": "H+_p+1 + D-glyceraldehyde_C3H6O3 + NADPH_C21H30N7O17P3 --> glycerol_C3H8O3 + NADP(+)_C21H28N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R134",
+   "name": "aldehyde dehydrogenase (acetaldehyde, NADP)",
+   "sources": [
+    "pair:R1378/R134:same:base",
+    "pair:R1378/R134:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g",
+   "equation": "acetaldehyde_C2H4O + H2O_H2O + NADP(+)_C21H28N7O17P3 --> H+_p+1 + acetate_C2H4O2 + NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    634.9103
+   ],
+   "KO_any_per100": [
+    0.0,
+    596.4528
+   ],
+   "WT_opt_per100": [
+    54.8,
+    54.8
+   ],
+   "KO_opt_per100": [
+    0.0,
+    50.8435
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R135",
+   "name": "aldehyde dehydrogenase (acetylaldehyde, NAD)",
+   "sources": [
+    "pair:R135/R136:same:base",
+    "pair:R135/R136:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g",
+   "equation": "H2O_H2O + acetaldehyde_C2H4O + NAD_C21H27N7O14P2 --> acetate_C2H4O2 + NADH_C21H29N7O14P2",
+   "WT_any_per100": [
+    0.0,
+    265.3483
+   ],
+   "KO_any_per100": [
+    0.0,
+    47.2038
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R136",
+   "name": "aldehyde dehydrogenase (acetylaldehyde, NADP)",
+   "sources": [
+    "pair:R135/R136:same:base",
+    "pair:R135/R136:same:overlay",
+    "pair:R2070/R136:same:base",
+    "pair:R2070/R136:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g",
+   "equation": "NADP(+)_C21H28N7O17P3 + H2O_H2O + acetaldehyde_C2H4O --> NADPH_C21H30N7O17P3 + acetate_C2H4O2 + H+_p+1",
+   "WT_any_per100": [
+    0.0,
+    368.9688
+   ],
+   "KO_any_per100": [
+    0.0,
+    259.1429
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    10.9731,
+    10.9731
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392508,
+     "WT_cost": -2.886579864025407e-15,
+     "KO": 0.2315141607754572,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8203429461061499
+    }
+   }
+  },
+  {
+   "reaction": "R254",
+   "name": "D-arabinose 1-dehydrogenase (NAD)",
+   "sources": [
+    "pair:R254/R255:same:base",
+    "pair:R254/R255:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F38466g",
+   "equation": "NAD_C21H27N7O14P2 + D-arabinose_C5H10O5 --> NADH_C21H29N7O14P2 + D-arabinono-1,4-lactone_C5H8O5",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R255",
+   "name": "D-arabinose 1-dehydrogenase (NADP)",
+   "sources": [
+    "pair:R254/R255:same:base",
+    "pair:R254/R255:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A21000g or YALI1A15863g or YALI1B09211g or YALI1B28394g or YALI1C12619g or YALI1C18771g or YALI1D05111g or YALI1E22041g or YALI1F10224g",
+   "equation": "NADP(+)_C21H28N7O17P3 + D-arabinose_C5H10O5 --> H+_p+1 + NADPH_C21H30N7O17P3 + D-arabinono-1,4-lactone_C5H8O5",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R328",
+   "name": "glutamate decarboxylase",
+   "sources": [
+    "earlier part"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F11827g",
+   "equation": "L-glutamate_C5H9NO4 --> gamma-aminobutyrate_C4H9NO2 + carbon dioxide_CO2",
+   "WT_any_per100": [
+    0.0,
+    208.1207
+   ],
+   "KO_any_per100": [
+    0.0,
+    208.1207
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R329",
+   "name": "glutamate dehydrogenase (NAD)",
+   "sources": [
+    "pair:R329/R330:opposite:base",
+    "pair:R329/R330:opposite:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E11943g",
+   "equation": "NAD_C21H27N7O14P2 + H2O_H2O + L-glutamate_C5H9NO4 --> NADH_C21H29N7O14P2 + ammonium_H3N + 2-oxoglutarate_C5H6O5",
+   "WT_any_per100": [
+    0.0,
+    2282.18
+   ],
+   "KO_any_per100": [
+    0.0,
+    2249.5193
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    446.5423
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014595,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566667
+    }
+   }
+  },
+  {
+   "reaction": "R330",
+   "name": "glutamate dehydrogenase (NADP)",
+   "sources": [
+    "pair:R329/R330:opposite:base",
+    "pair:R329/R330:opposite:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F23664g",
+   "equation": "H+_p+1 + ammonium_H3N + NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 --> H2O_H2O + NADP(+)_C21H28N7O17P3 + L-glutamate_C5H9NO4",
+   "WT_any_per100": [
+    0.0,
+    1223.715
+   ],
+   "KO_any_per100": [
+    0.0,
+    1213.9536
+   ],
+   "WT_opt_per100": [
+    49.6037,
+    49.6037
+   ],
+   "KO_opt_per100": [
+    40.0358,
+    486.5781
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R361",
+   "name": "glycine-cleavage complex (lipoamide)",
+   "sources": [
+    "earlier part"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E00574g and YALI1F04082g and YALI1D26360g and YALI1A09694g",
+   "equation": "NAD_C21H27N7O14P2 + dihydrolipoamide_C8H17NOS2 --> NADH_C21H29N7O14P2 + lipoamide_C8H15NOS2",
+   "WT_any_per100": [
+    0.0,
+    208.1207
+   ],
+   "KO_any_per100": [
+    0.0,
+    60.6707
+   ],
+   "WT_opt_per100": [
+    41.2915,
+    45.2751
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R412",
+   "name": "hydroxymethylglutaryl CoA synthase",
+   "sources": [
+    "handoff:HMG-CoA route"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F38116g",
+   "equation": "acetoacetyl-CoA_C25H40N7O18P3S + H2O_H2O + acetyl-CoA_C23H38N7O17P3S --> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S + coenzyme A_C21H36N7O16P3S",
+   "WT_any_per100": [
+    0.0,
+    2671.6989
+   ],
+   "KO_any_per100": [
+    0.0,
+    1347.2228
+   ],
+   "WT_opt_per100": [
+    2.6957,
+    2.6957
+   ],
+   "KO_opt_per100": [
+    2.2277,
+    2.2277
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R487",
+   "name": "isocitrate dehydrogenase (NAD+)",
+   "sources": [
+    "pair:R487/R1385:same:base",
+    "pair:R487/R1385:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E06015g and YALI1D08082g",
+   "equation": "NAD_C21H27N7O14P2 + isocitrate_C6H8O7 --> 2-oxoglutarate_C5H6O5 + NADH_C21H29N7O14P2 + carbon dioxide_CO2",
+   "WT_any_per100": [
+    0.0,
+    410.2471
+   ],
+   "KO_any_per100": [
+    0.0,
+    47.2038
+   ],
+   "WT_opt_per100": [
+    28.5239,
+    48.4421
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R534",
+   "name": "malate dehydrogenase, cytoplasmic",
+   "sources": [
+    "pair:R534/R_MDHy:same:base",
+    "pair:R534/R_MDHy:same:overlay"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E17214g",
+   "equation": "NAD_C21H27N7O14P2 + (S)-malate_C4H6O5 <=> NADH_C21H29N7O14P2 + oxaloacetate_C4H4O5",
+   "WT_any_per100": [
+    -13.5738,
+    1140.2212
+   ],
+   "KO_any_per100": [
+    -6.5861,
+    1124.9265
+   ],
+   "WT_opt_per100": [
+    37.4033,
+    37.4033
+   ],
+   "KO_opt_per100": [
+    37.9082,
+    37.9082
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R549",
+   "name": "methylenetetrahydrofolate dehydrogenase (NAD)",
+   "sources": [
+    "pair:R549/R550:same:base",
+    "pair:R549/R550:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B15928g",
+   "equation": "NAD_C21H27N7O14P2 + 5,10-methylenetetrahydrofolate_C20H23N7O6 --> H+_p+1 + NADH_C21H29N7O14P2 + 5,10-methenyl-THF_C20H20N7O6",
+   "WT_any_per100": [
+    0.0,
+    1223.715
+   ],
+   "KO_any_per100": [
+    0.0,
+    1213.9536
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    446.5423
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014445,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566613
+    }
+   }
+  },
+  {
+   "reaction": "R550",
+   "name": "methylenetetrahydrofolate dehydrogenase (NADP)",
+   "sources": [
+    "pair:R549/R550:same:base",
+    "pair:R549/R550:same:overlay"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E01589g or YALI1F38386g",
+   "equation": "5,10-methylenetetrahydrofolate_C20H23N7O6 + NADP(+)_C21H28N7O17P3 <=> 2.0 H+_p+1 + 5,10-methenyl-THF_C20H20N7O6 + NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    -1223.9354,
+    205.4271
+   ],
+   "KO_any_per100": [
+    -1214.174,
+    202.0253
+   ],
+   "WT_opt_per100": [
+    3.3824,
+    3.3824
+   ],
+   "KO_opt_per100": [
+    -443.779,
+    2.7633
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "rev"
+   ],
+   "single_closure": {
+    "rev": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014445,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566613
+    }
+   }
+  },
+  {
+   "reaction": "R565",
+   "name": "NAD kinase",
+   "sources": [
+    "NAD+NADP species"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E28545g or YALI1E32908g",
+   "equation": "H+_p+1 + NAD_C21H27N7O14P2 + ATP_C10H16N5O13P3 --> ADP_C10H15N5O10P2 + NADP(+)_C21H28N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R566",
+   "name": "NAD kinase",
+   "sources": [
+    "NAD+NADP species"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E28545g or YALI1E32908g or YALI1E21312g",
+   "equation": "NAD_C21H27N7O14P2 + H+_p+1 + ATP_C10H16N5O13P3 --> NADP(+)_C21H28N7O17P3 + ADP_C10H15N5O10P2",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R571",
+   "name": "NADH kinase",
+   "sources": [
+    "NAD+NADP species"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E28545g or YALI1E32908g",
+   "equation": "NADH_C21H29N7O14P2 + ATP_C10H16N5O13P3 --> ADP_C10H15N5O10P2 + NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R572",
+   "name": "NADH kinase mitochondrial",
+   "sources": [
+    "NAD+NADP species"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E28545g or YALI1E32908g or YALI1E21312g",
+   "equation": "NADH_C21H29N7O14P2 + ATP_C10H16N5O13P3 --> NADPH_C21H30N7O17P3 + ADP_C10H15N5O10P2",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R691",
+   "name": "pyruvate decarboxylase",
+   "sources": [
+    "earlier part"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D12832g",
+   "equation": "pyruvate_C3H4O3 --> acetaldehyde_C2H4O + carbon dioxide_CO2",
+   "WT_any_per100": [
+    0.0,
+    407.7216
+   ],
+   "KO_any_per100": [
+    0.0,
+    404.3618
+   ],
+   "WT_opt_per100": [
+    54.8,
+    54.8
+   ],
+   "KO_opt_per100": [
+    61.8166,
+    61.8166
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R737",
+   "name": "squalene epoxidase (NAD)",
+   "sources": [
+    "pair:R737/R738:same:base",
+    "pair:R737/R738:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E18961g and (YALI1D14199g or YALI1D06380g) and YALI1D15063g",
+   "equation": "oxygen_O2 + NADH_C21H29N7O14P2 + squalene_C30H50 --> H2O_H2O + (S)-2,3-epoxysqualene_C30H50O + NAD_C21H27N7O14P2",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R738",
+   "name": "squalene epoxidase (NADP)",
+   "sources": [
+    "pair:R737/R738:same:base",
+    "pair:R737/R738:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E18961g",
+   "equation": "H+_p+1 + NADPH_C21H30N7O17P3 + oxygen_O2 + squalene_C30H50 --> NADP(+)_C21H28N7O17P3 + H2O_H2O + (S)-2,3-epoxysqualene_C30H50O",
+   "WT_any_per100": [
+    0.0,
+    11.044
+   ],
+   "KO_any_per100": [
+    0.0,
+    9.9872
+   ],
+   "WT_opt_per100": [
+    0.4475,
+    0.4475
+   ],
+   "KO_opt_per100": [
+    0.3698,
+    0.3698
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R903",
+   "name": "NAD transport",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E19682g or YALI1E19682g",
+   "equation": "NAD_C21H27N7O14P2 --> NAD_C21H27N7O14P2",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R904",
+   "name": "NAD transport",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E19682g",
+   "equation": "dAMP_C10H14N5O6P + NAD_C21H27N7O14P2 --> NAD_C21H27N7O14P2 + dAMP_C10H14N5O6P",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R905",
+   "name": "NAD transport",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E19682g",
+   "equation": "NAD_C21H27N7O14P2 + AMP_C10H14N5O7P --> NAD_C21H27N7O14P2 + AMP_C10H14N5O7P",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R906",
+   "name": "NAD transport",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E19682g",
+   "equation": "dGMP_C10H14N5O7P + NAD_C21H27N7O14P2 --> NAD_C21H27N7O14P2 + dGMP_C10H14N5O7P",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1172",
+   "name": "hydroxymethylglutaryl-CoA transport",
+   "sources": [
+    "handoff:HMG-CoA route"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S <=> 3-hydroxy-3-methylglutaryl-CoA_C27H44N7O20P3S",
+   "WT_any_per100": [
+    -69.6539,
+    0.0
+   ],
+   "KO_any_per100": [
+    -69.0119,
+    0.0
+   ],
+   "WT_opt_per100": [
+    -2.6957,
+    -2.6957
+   ],
+   "KO_opt_per100": [
+    -2.2277,
+    -2.2277
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1264",
+   "name": "NADP(+) transport",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3",
+   "WT_any_per100": [
+    -18.9989,
+    0.0
+   ],
+   "KO_any_per100": [
+    -16.9558,
+    0.0
+   ],
+   "WT_opt_per100": [
+    -0.8596,
+    -0.8596
+   ],
+   "KO_opt_per100": [
+    -0.7104,
+    -0.7104
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1265",
+   "name": "NADPH transport",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    18.9989
+   ],
+   "KO_any_per100": [
+    0.0,
+    16.9558
+   ],
+   "WT_opt_per100": [
+    0.8596,
+    0.8596
+   ],
+   "KO_opt_per100": [
+    0.7104,
+    0.7104
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1310",
+   "name": "pyruvate exchange",
+   "sources": [
+    "earlier part"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "pyruvate_C3H4O3 --> ",
+   "WT_any_per100": [
+    0.0,
+    203.8608
+   ],
+   "KO_any_per100": [
+    0.0,
+    202.1742
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1377",
+   "name": "alcohol dehydrogenase, (acetaldehyde to ethanol)",
+   "sources": [
+    "pair:R1377/R_ALCDH_nadp_hi:opposite:base",
+    "pair:R1377/R_ALCDH_nadp_hi:opposite:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A15227g or YALI1A16292g or YALI1D33961g or YALI1E09329g or YALI1E21128g",
+   "equation": "NADH_C21H29N7O14P2 + acetaldehyde_C2H4O --> NAD_C21H27N7O14P2 + ethanol_C2H6O",
+   "WT_any_per100": [
+    0.0,
+    41425.0207
+   ],
+   "KO_any_per100": [
+    0.0,
+    41425.0207
+   ],
+   "WT_opt_per100": [
+    0.0,
+    41425.0207
+   ],
+   "KO_opt_per100": [
+    0.0,
+    41425.0207
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014445,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566613
+    }
+   }
+  },
+  {
+   "reaction": "R1378",
+   "name": "acetaldehyde dehydrogenase",
+   "sources": [
+    "pair:R1378/R134:same:base",
+    "pair:R1378/R134:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g",
+   "equation": "NAD_C21H27N7O14P2 + acetaldehyde_C2H4O + H2O_H2O --> NADH_C21H29N7O14P2 + acetate_C2H4O2",
+   "WT_any_per100": [
+    0.0,
+    490.4511
+   ],
+   "KO_any_per100": [
+    0.0,
+    485.3499
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    50.8435
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014364,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566584
+    }
+   }
+  },
+  {
+   "reaction": "R1385",
+   "name": "isocitrate dehydrogenase",
+   "sources": [
+    "pair:R487/R1385:same:base",
+    "pair:R487/R1385:same:overlay"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F06197g",
+   "equation": "NADP(+)_C21H28N7O17P3 + isocitrate_C6H8O7 <=> NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 + H+_p+1 + carbon dioxide_CO2",
+   "WT_any_per100": [
+    -216.4015,
+    207.8622
+   ],
+   "KO_any_per100": [
+    -203.7443,
+    207.8622
+   ],
+   "WT_opt_per100": [
+    5.1425,
+    5.1425
+   ],
+   "KO_opt_per100": [
+    -5.5599,
+    -5.5599
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "rev"
+   ],
+   "single_closure": {
+    "rev": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23256664450542272,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8240722972649597
+    }
+   }
+  },
+  {
+   "reaction": "R1590",
+   "name": "NADPH transport, cytoplasm-ER membrane",
+   "sources": [
+    "pair:R1593/R1590:same:base",
+    "pair:R1593/R1590:same:overlay",
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    999.0309
+   ],
+   "KO_any_per100": [
+    0.0,
+    900.7445
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1591",
+   "name": "NADP(+) transport, cytoplasm-ER membrane",
+   "sources": [
+    "pair:R1594/R1591:same:base",
+    "pair:R1594/R1591:same:overlay",
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3",
+   "WT_any_per100": [
+    -999.0309,
+    0.0
+   ],
+   "KO_any_per100": [
+    -900.7445,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1593",
+   "name": "NADH transport, cytoplasm-ER membrane",
+   "sources": [
+    "pair:R1593/R1590:same:base",
+    "pair:R1593/R1590:same:overlay",
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADH_C21H29N7O14P2 <=> NADH_C21H29N7O14P2",
+   "WT_any_per100": [
+    0.0,
+    121.9822
+   ],
+   "KO_any_per100": [
+    0.0,
+    96.4344
+   ],
+   "WT_opt_per100": [
+    0.0035,
+    0.0035
+   ],
+   "KO_opt_per100": [
+    0.0029,
+    0.0029
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1594",
+   "name": "NAD transport, cytoplasm-ER membrane",
+   "sources": [
+    "pair:R1594/R1591:same:base",
+    "pair:R1594/R1591:same:overlay",
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NAD_C21H27N7O14P2 <=> NAD_C21H27N7O14P2",
+   "WT_any_per100": [
+    -121.9822,
+    0.0
+   ],
+   "KO_any_per100": [
+    -96.4344,
+    0.0
+   ],
+   "WT_opt_per100": [
+    -0.0035,
+    -0.0035
+   ],
+   "KO_opt_per100": [
+    -0.0029,
+    -0.0029
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1628",
+   "name": "NADPH transport, cytoplasm-lipid particle",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADPH_C21H30N7O17P3 <=> NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    88.3784
+   ],
+   "KO_any_per100": [
+    0.0,
+    71.4356
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0256
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.2332229553001454,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566647
+    }
+   }
+  },
+  {
+   "reaction": "R1629",
+   "name": "NADP(+) transport, cytoplasm-lipid particle",
+   "sources": [
+    "transport"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "NADP(+)_C21H28N7O17P3 <=> NADP(+)_C21H28N7O17P3",
+   "WT_any_per100": [
+    -88.3784,
+    0.0
+   ],
+   "KO_any_per100": [
+    -71.4356,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    -0.0256,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "rev"
+   ],
+   "single_closure": {
+    "rev": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014592,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566665
+    }
+   }
+  },
+  {
+   "reaction": "R1708",
+   "name": "succinyl-CoA:acetate CoA transferase",
+   "sources": [
+    "handoff:R1708"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E36437g",
+   "equation": "succinyl-CoA_C25H40N7O19P3S + acetate_C2H4O2 <=> acetyl-CoA_C23H38N7O17P3S + succinate_C4H6O4",
+   "WT_any_per100": [
+    0.0,
+    2722.8277
+   ],
+   "KO_any_per100": [
+    0.0,
+    1347.2228
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    10.9731,
+    10.9731
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23151416077545742,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8203429461061512
+    }
+   }
+  },
+  {
+   "reaction": "R1931",
+   "name": "L-Glutamate 5-semialdehyde:NAD+ oxidoreductase",
+   "sources": [
+    "earlier part"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B12993g",
+   "equation": "NAD_C21H27N7O14P2 + H2O_H2O + L-glutamic 5-semialdehyde_C5H9NO3 --> NADH_C21H29N7O14P2 + L-glutamate_C5H9NO4",
+   "WT_any_per100": [
+    0.0,
+    1139.532
+   ],
+   "KO_any_per100": [
+    0.0,
+    1058.9328
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R1936",
+   "name": "L-aspartate 1-carboxy-lyase (beta-alanine-forming)",
+   "sources": [
+    "earlier part"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F11827g or YALI1C23902g",
+   "equation": "L-aspartate_C4H7NO4 --> beta-alanine_C3H7NO2 + carbon dioxide_CO2",
+   "WT_any_per100": [
+    0.0,
+    214.052
+   ],
+   "KO_any_per100": [
+    0.0,
+    209.6652
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0204,
+    0.0204
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "fwd"
+   ],
+   "single_closure": {
+    "fwd": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.233221353268217,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263921800467006
+    }
+   }
+  },
+  {
+   "reaction": "R2069",
+   "name": "D-Glyceraldehyde:NAD+ oxidoreductase",
+   "sources": [
+    "pair:R2069/R131:same:base"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g",
+   "equation": "NAD_C21H27N7O14P2 + D-glyceraldehyde_C3H6O3 + H2O_H2O <=> H+_p+1 + NADH_C21H29N7O14P2 + D-glycerate",
+   "WT_any_per100": [
+    -41425.0207,
+    0.0
+   ],
+   "KO_any_per100": [
+    -41425.0207,
+    0.0
+   ],
+   "WT_opt_per100": [
+    -41425.0207,
+    0.0
+   ],
+   "KO_opt_per100": [
+    -41425.0207,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [
+    "rev"
+   ],
+   "single_closure": {
+    "rev": {
+     "WT": 0.2822163119392506,
+     "WT_cost": -2.4424906541753444e-15,
+     "KO": 0.23322295530014475,
+     "KO_status": "optimal",
+     "KO_over_WT": 0.8263978566566624
+    }
+   }
+  },
+  {
+   "reaction": "R2070",
+   "name": "Acetaldehyde:NAD+ oxidoreductase",
+   "sources": [
+    "pair:R2070/R136:same:base",
+    "pair:R2070/R136:same:overlay"
+   ],
+   "bounds_base": [
+    0.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g",
+   "equation": "H2O_H2O + acetaldehyde_C2H4O + NAD_C21H27N7O14P2 --> acetate_C2H4O2 + NADH_C21H29N7O14P2",
+   "WT_any_per100": [
+    0.0,
+    265.3483
+   ],
+   "KO_any_per100": [
+    0.0,
+    47.2038
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": false,
+   "overlay_closed": false,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R_MDHy",
+   "name": "R_MDHy",
+   "sources": [
+    "pair:R534/R_MDHy:same:base",
+    "pair:R534/R_MDHy:same:overlay"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E17214g",
+   "equation": "NADP(+)_C21H28N7O17P3 + (S)-malate_C4H6O5 --> H+_p+1 + oxaloacetate_C4H4O5 + NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": true,
+   "escape_directions": [],
+   "single_closure": {}
+  },
+  {
+   "reaction": "R_ALCDH_nadp_hi",
+   "name": "R_ALCDH_nadp_hi",
+   "sources": [
+    "pair:R130/R_ALCDH_nadp_hi:same:base",
+    "pair:R130/R_ALCDH_nadp_hi:same:overlay",
+    "pair:R1377/R_ALCDH_nadp_hi:opposite:base",
+    "pair:R1377/R_ALCDH_nadp_hi:opposite:overlay"
+   ],
+   "bounds_base": [
+    -1000.0,
+    1000.0
+   ],
+   "bounds_A": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1A15227g or YALI1E09329g or YALI1E21128g",
+   "equation": "ethanol_C2H6O + NADP(+)_C21H28N7O17P3 --> H+_p+1 + acetaldehyde_C2H4O + NADPH_C21H30N7O17P3",
+   "WT_any_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_any_per100": [
+    0.0,
+    0.0
+   ],
+   "WT_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "KO_opt_per100": [
+    0.0,
+    0.0
+   ],
+   "blocked": true,
+   "overlay_closed": true,
+   "escape_directions": [],
+   "single_closure": {}
+  }
+ ],
+ "lps": 408,
+ "elapsed_seconds": 7.245470999972895
+}

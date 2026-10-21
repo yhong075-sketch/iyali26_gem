@@ -37,6 +37,22 @@ def parse_args(argv=None):
                         help="Apply the curated 2026-10-08 CoQ9/respiratory-chain package; requires --energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution")
     parser.add_argument("--r132-mito-adh", action="store_true",
                         help="Remove R132 (matrix alcohol dehydrogenase) per the curated 2026-10-13 decision; requires --coq9-respiratory-package")
+    parser.add_argument("--restore-selection-cleared-gprs", action="store_true",
+                        help="Re-apply the reviewed R612/R2274/R1302/R1303 GPRs and balanced R2274/R1303 equations that the metadata selection clears (curated 2026-10-19 decision); requires a complete selection")
+    parser.add_argument("--restore-selection-overwritten-gprs", action="store_true",
+                        help="Re-apply the reviewed R671 GPR without the mis-annotated GatB gene that the metadata selection re-adds (curated 2026-10-19 decision); requires a complete selection")
+    parser.add_argument("--restore-selection-cpa-ura2", action="store_true",
+                        help="Re-apply EG-GPR-001 on R159/R190 (URA2-only channelled R159, CPA2 and CPA1 on R190) after the metadata selection (curated 2026-10-19 decision); requires a complete selection")
+    parser.add_argument("--remove-selection-tkl-fragment-gpr", action="store_true",
+                        help="Remove the transketolase N-terminal fragment YALI1D02625g from R765/R766 after the metadata selection, keeping YALI1E07744g (curated 2026-10-19 decision); requires a complete selection")
+    parser.add_argument("--remove-r153-peptidase-gpr", action="store_true",
+                        help="Remove the A1 peptidase gene YALI1D17462g from R153 after the R153/R2176 merge, leaving R153 gene-less because no W29 argininosuccinate synthase gene is annotated (curated 2026-10-19 decision); the gene is kept unlinked")
+    parser.add_argument("--r2041-forward", action="store_true",
+                        help="Make R2041 (D-arabinokinase) forward-only after the metadata selection, keeping its balanced 2 H+ equation (curated 2026-10-19)")
+    parser.add_argument("--r2190-ribulose-product", action="store_true",
+                        help="Write D-ribulose instead of D-arabinose as R2190's product per the curated 2026-10-19 decision (R2190-RIBULOSE-20261019)")
+    parser.add_argument("--r1964-gpr", action="store_true",
+                        help="Give orphan R1964 (arabinitol dehydrogenase) the provisional GPR YALI1F03452g or YALI1E06616g and D-xylulose cross-references (curated 2026-10-19)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

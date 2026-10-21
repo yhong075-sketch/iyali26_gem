@@ -1,0 +1,4504 @@
+{
+ "started_utc": "2026-10-14T18:16:10.898756+00:00",
+ "command": "python -B model/reports/complexI_shuttle_assumption_screen_20261014/run_screen.py",
+ "head": "8718b75d182dadd1725e884beb786e078ce892bd",
+ "git_status": "?? model/reports/complexI_shuttle_assumption_screen_20261014/\n",
+ "task_d_pins": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "r825": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/r825_reversible_20261013.json",
+   "sha256": "e45cab424c30ee9aec00823cb67392742ac6c36ba7091664249765a2533efcaa"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/complexI_transhydrogenation_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "code": {
+  "run_screen.py": "c53c8c21cebef614de903c4d4787746c3c26c9ec58ea6c8e110c1c7159f6a173",
+  "run_task_b.py": "8a35c41779d2b5e260311a00c72b075f4585bf58d8600235e2cc81fcda94990b",
+  "task_d_common.py": "bfe0b2ced3d85cab77fae376cc89dcb220651f747ce25aaf5666707ef70b8ab3",
+  "holistic_overlay.py": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+ },
+ "inputs": {
+  "candidate": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "glucose": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "experimental": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+   "sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b"
+  },
+  "mtdna_scope": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/expected/mtdna_genes_out_of_scope.json",
+   "sha256": "16b3e9b4418f24821b8775936fd377ae21f77afa8e8af2b8949a246f62c44996"
+  }
+ },
+ "solver": {
+  "Threads": 1,
+  "TimeLimit": 60.0,
+  "Presolve": 0,
+  "FeasibilityTol": 1e-07,
+  "OptimalityTol": 1e-07,
+  "IntFeasTol": 1e-07
+ },
+ "versions": {
+  "python": "3.13.5",
+  "cobra": "0.30.0",
+  "gurobi": [
+   13,
+   0,
+   1
+  ]
+ },
+ "scoring": "benchmark.md: mtDNA genes out of scope; negatives are model genes absent from the positive list (user-defined class); no solution = unresolved; second view counts no solution as lethal (labelled); development reference, not independent validation",
+ "runs": {
+  "bench_base": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.3124267446456666,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.23677274645770952,
+     "status": "optimal",
+     "ratio": 0.7578504417931353
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327856,
+     "status": "optimal",
+     "ratio": 0.10966416854656996
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 74,
+     "FN": 237,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.2379421221864952,
+     "precision": 0.6915887850467289,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.2904962880644161
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 82,
+     "FN": 229,
+     "FP": 33,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.26366559485530544,
+     "precision": 0.7130434782608696,
+     "specificity": 0.9547945205479452,
+     "mcc": 0.31897700046487787
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 85,
+     "FN": 237,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2639751552795031,
+     "precision": 0.6910569105691057,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.3046796072018255
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 93,
+     "FN": 229,
+     "FP": 38,
+     "TN": 697,
+     "unresolved": 0,
+     "recall": 0.2888198757763975,
+     "precision": 0.7099236641221374,
+     "specificity": 0.9482993197278912,
+     "mcc": 0.33120522315361867
+    }
+   ],
+   "applied": {
+    "closures": {}
+   },
+   "route": {
+    "WT": {
+     "growth": 0.3124267446456687,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -995.9732803262582,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       8.713622416204695e-12,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       3.768541034787631e-12
+      ],
+      "R136": [
+       0.0,
+       0.0
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       2.4079141458521747e-12
+      ],
+      "R690": [
+       0.9261379202185536,
+       0.9261379201110075
+      ],
+      "R534": [
+       -1000.0,
+       995.973280326279
+      ],
+      "R_MDHy": [
+       -999.2244101103128,
+       998.0989029038999
+      ],
+      "R807": [
+       0.07996891691128213,
+       0.07996891691124706
+      ],
+      "R831": [
+       -3.357179633285682,
+       997.9928530546308
+      ],
+      "R902": [
+       0.0,
+       -2.1600499167107046e-12
+      ],
+      "R1386": [
+       0.0,
+       1000.0
+      ],
+      "R533": [
+       3.1073218685966206,
+       4.5991205655259595
+      ],
+      "R538": [
+       0.0,
+       0.14176600900668745
+      ],
+      "R693": [
+       1.9296082819121025,
+       1.929608281912658
+      ],
+      "R1311": [
+       0.0,
+       1.985390571780363
+      ],
+      "R570": [
+       0.0,
+       -1.8900436771218665e-12
+      ],
+      "R2062": [
+       7.770638537004814,
+       7.770638536999325
+      ],
+      "R348": [
+       0.0,
+       0.0008288814213388239
+      ],
+      "R347": [
+       0.0,
+       -2.409508744698593e-12
+      ],
+      "R614": [
+       1.1619720153291107,
+       1.1619720153271433
+      ],
+      "R361": [
+       1.1619720153135973,
+       1.1619720153227036
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       9.01355052086111,
+       9.01355052085825
+      ],
+      "R304": [
+       4.506775260430581,
+       4.506775260429068
+      ],
+      "R171": [
+       17.153294006528366,
+       17.15329400652761
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.23677274645770877,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -1000.0,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -0.26901300659535116,
+       -0.26901300659537686
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.2690130065994296,
+       0.26901300659865335
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.7809339007791805,
+       0.79408746133497
+      ],
+      "R690": [
+       0.7220123341270421,
+       0.7351658946839034
+      ],
+      "R534": [
+       -999.5781898171266,
+       1000.0
+      ],
+      "R_MDHy": [
+       -999.5781898171261,
+       1000.0
+      ],
+      "R807": [
+       0.059163689139602196,
+       0.059163689139562166
+      ],
+      "R831": [
+       0.11830370100457036,
+       999.8642626413344
+      ],
+      "R902": [
+       0.0,
+       -1.58700830255043e-12
+      ],
+      "R1386": [
+       0.0,
+       999.7459589403388
+      ],
+      "R533": [
+       -0.19241565983230802,
+       -0.059140011864956404
+      ],
+      "R538": [
+       0.0,
+       0.13327564794660418
+      ],
+      "R693": [
+       0.0,
+       -1.2511047753349658e-11
+      ],
+      "R1311": [
+       0.0,
+       0.0018420636734987061
+      ],
+      "R570": [
+       13.840928108672543,
+       13.84092810865995
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       0.00062816813981037
+      ],
+      "R347": [
+       0.0,
+       -1.337142072413422e-11
+      ],
+      "R614": [
+       0.0,
+       -2.1872670341593903e-11
+      ],
+      "R361": [
+       0.0,
+       -2.1872670341593903e-11
+      ],
+      "R357": [
+       0.0,
+       -3.101380263714759e-12
+      ],
+      "R360": [
+       0.0,
+       -2.1332935418172383e-12
+      ],
+      "R362": [
+       0.0,
+       -3.101380263714759e-12
+      ],
+      "R305": [
+       14.126548002255413,
+       14.126548002254257
+      ],
+      "R304": [
+       7.063274001127695,
+       7.063274001125592
+      ],
+      "R171": [
+       17.77822710468319,
+       17.77822710467325
+      ]
+     }
+    }
+   }
+  },
+  "bench_a": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.3124267446456686,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.02164384059947982,
+     "status": "optimal",
+     "ratio": 0.0692765295238302
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327969,
+     "status": "optimal",
+     "ratio": 0.10966416854657288
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 88,
+     "FN": 223,
+     "FP": 38,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.2829581993569132,
+     "precision": 0.6984126984126984,
+     "specificity": 0.947945205479452,
+     "mcc": 0.32402322626754504
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 96,
+     "FN": 215,
+     "FP": 38,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.3086816720257235,
+     "precision": 0.7164179104477612,
+     "specificity": 0.947945205479452,
+     "mcc": 0.35074195760532617
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 99,
+     "FN": 223,
+     "FP": 43,
+     "TN": 692,
+     "unresolved": 0,
+     "recall": 0.30745341614906835,
+     "precision": 0.6971830985915493,
+     "specificity": 0.9414965986394558,
+     "mcc": 0.33599208173882306
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 107,
+     "FN": 215,
+     "FP": 43,
+     "TN": 692,
+     "unresolved": 0,
+     "recall": 0.33229813664596275,
+     "precision": 0.7133333333333334,
+     "specificity": 0.9414965986394558,
+     "mcc": 0.36111657715876117
+    }
+   ],
+   "applied": {
+    "closures": {
+     "R533": {
+      "how": "rev",
+      "before": [
+       -1000.0,
+       1000.0
+      ],
+      "after": [
+       0.0,
+       1000.0
+      ]
+     }
+    }
+   },
+   "route": {
+    "WT": {
+     "growth": 0.31242674464566705,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -995.9732803263008,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       0.0,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       2.355893258254582e-12
+      ],
+      "R2070": [
+       0.0,
+       2.355893258254582e-12
+      ],
+      "R136": [
+       0.0,
+       2.3294699502685035e-12
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       2.355893258254582e-12
+      ],
+      "R690": [
+       0.9261379201284791,
+       0.926137920119632
+      ],
+      "R534": [
+       -1000.0,
+       995.9732803262832
+      ],
+      "R_MDHy": [
+       -999.2244101103131,
+       998.0989029039059
+      ],
+      "R807": [
+       0.07996891691128168,
+       0.0799689169112924
+      ],
+      "R831": [
+       -3.3571796332873642,
+       997.9928530546522
+      ],
+      "R902": [
+       0.0,
+       2.8421709430404007e-12
+      ],
+      "R1386": [
+       0.0,
+       1000.0
+      ],
+      "R533": [
+       3.107321868570959,
+       4.5991205655257215
+      ],
+      "R538": [
+       0.0,
+       0.1417660090196065
+      ],
+      "R693": [
+       1.9296082819117613,
+       1.9296082819972753
+      ],
+      "R1311": [
+       0.0,
+       1.985390571861421
+      ],
+      "R570": [
+       0.0,
+       0.0
+      ],
+      "R2062": [
+       7.7706385370044435,
+       7.7706385370036655
+      ],
+      "R348": [
+       0.0,
+       0.0008288814237483288
+      ],
+      "R347": [
+       0.0,
+       -1.3531398224131408e-12
+      ],
+      "R614": [
+       1.161972015328142,
+       1.161972015324049
+      ],
+      "R361": [
+       1.1619720153289177,
+       1.1619720153291837
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       9.013550520860989,
+       9.013550520859956
+      ],
+      "R304": [
+       4.506775260430349,
+       4.50677526043066
+      ],
+      "R171": [
+       17.153294006529144,
+       17.153294006528935
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.02164384059947982,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -1000.0,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -5.942354026603169,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       5.942354026603117
+      ],
+      "R1113": [
+       0.0,
+       4.063478592840912
+      ],
+      "R691": [
+       0.0,
+       9.407439842923832
+      ],
+      "R690": [
+       0.0,
+       24.813723128701653
+      ],
+      "R534": [
+       -1000.0,
+       1000.0
+      ],
+      "R_MDHy": [
+       -1000.0,
+       1000.0
+      ],
+      "R807": [
+       2.1643840599477188e-06,
+       2.164384059946766e-06
+      ],
+      "R831": [
+       2.1643840599477188e-06,
+       1000.0
+      ],
+      "R902": [
+       0.0,
+       1.199567027191373
+      ],
+      "R1386": [
+       0.0,
+       999.9999978356159
+      ],
+      "R533": [
+       0.0,
+       0.0
+      ],
+      "R538": [
+       0.0,
+       0.0
+      ],
+      "R693": [
+       0.0,
+       0.0
+      ],
+      "R1311": [
+       0.0,
+       3.121876870671066
+      ],
+      "R570": [
+       0.0,
+       28.2080640775914
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       28.208125386200933
+      ],
+      "R347": [
+       0.0,
+       28.208064077591633
+      ],
+      "R614": [
+       0.0,
+       0.0
+      ],
+      "R361": [
+       0.0,
+       0.0
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       3.27730724065454,
+       28.210026727234535
+      ],
+      "R304": [
+       1.638653620327257,
+       14.105013363617093
+      ],
+      "R171": [
+       3.978543598271144,
+       42.3173011651057
+      ]
+     }
+    }
+   }
+  },
+  "bench_b": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.31242674464566933,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.021639904711680095,
+     "status": "optimal",
+     "ratio": 0.06926393172973214
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": 0.03426201918327854,
+     "status": "optimal",
+     "ratio": 0.10966416854656896
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 247,
+     "FP": 26,
+     "TN": 704,
+     "unresolved": 16,
+     "recall": 0.2057877813504823,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9643835616438357,
+     "mcc": 0.2771510560221944
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 241,
+     "FP": 28,
+     "TN": 702,
+     "unresolved": 16,
+     "recall": 0.22508038585209003,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9616438356164384,
+     "mcc": 0.2926667586737287
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 88,
+     "FN": 223,
+     "FP": 38,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.2829581993569132,
+     "precision": 0.6984126984126984,
+     "specificity": 0.947945205479452,
+     "mcc": 0.32402322626754504
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 96,
+     "FN": 215,
+     "FP": 38,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.3086816720257235,
+     "precision": 0.7164179104477612,
+     "specificity": 0.947945205479452,
+     "mcc": 0.35074195760532617
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 75,
+     "FN": 247,
+     "FP": 31,
+     "TN": 704,
+     "unresolved": 0,
+     "recall": 0.2329192546583851,
+     "precision": 0.7075471698113207,
+     "specificity": 0.9578231292517007,
+     "mcc": 0.2922641996000283
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 81,
+     "FN": 241,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2515527950310559,
+     "precision": 0.7105263157894737,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.3066259493488503
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 99,
+     "FN": 223,
+     "FP": 43,
+     "TN": 692,
+     "unresolved": 0,
+     "recall": 0.30745341614906835,
+     "precision": 0.6971830985915493,
+     "specificity": 0.9414965986394558,
+     "mcc": 0.33599208173882306
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 107,
+     "FN": 215,
+     "FP": 43,
+     "TN": 692,
+     "unresolved": 0,
+     "recall": 0.33229813664596275,
+     "precision": 0.7133333333333334,
+     "specificity": 0.9414965986394558,
+     "mcc": 0.36111657715876117
+    }
+   ],
+   "applied": {
+    "closures": {
+     "R831": {
+      "how": "fwd",
+      "before": [
+       -1000.0,
+       1000.0
+      ],
+      "after": [
+       -1000.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "route": {
+    "WT": {
+     "growth": 0.3124267446456681,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -995.9732803262782,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       1.183719788855342e-12,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       -2.013056388250334e-12
+      ],
+      "R136": [
+       0.0,
+       1.1661782650662644e-12
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       0.0
+      ],
+      "R690": [
+       0.9261379201182072,
+       0.9261379201184989
+      ],
+      "R534": [
+       -1000.0,
+       995.973280326224
+      ],
+      "R_MDHy": [
+       -999.2244101103134,
+       998.0989029038992
+      ],
+      "R807": [
+       0.07996891691128197,
+       0.0799689169112591
+      ],
+      "R831": [
+       -3.3571796331991774,
+       0.0
+      ],
+      "R902": [
+       0.0,
+       -8.077982727172639e-13
+      ],
+      "R1386": [
+       0.0,
+       3.3571796332852273
+      ],
+      "R533": [
+       3.107321868613193,
+       4.599120565525784
+      ],
+      "R538": [
+       0.0,
+       0.14176600901811906
+      ],
+      "R693": [
+       1.929608281925153,
+       1.9296082819037148
+      ],
+      "R1311": [
+       0.0,
+       1.9853905716902778
+      ],
+      "R570": [
+       0.0,
+       0.0
+      ],
+      "R2062": [
+       7.770638537003707,
+       7.770638537003119
+      ],
+      "R348": [
+       0.0,
+       0.0008288814231362934
+      ],
+      "R347": [
+       0.0,
+       -8.338463746556157e-13
+      ],
+      "R614": [
+       1.161972015329172,
+       1.1619720153286854
+      ],
+      "R361": [
+       1.1619720153449726,
+       1.161972015328479
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       9.013550520861624,
+       9.01355052086127
+      ],
+      "R304": [
+       4.506775260430545,
+       4.506775260430558
+      ],
+      "R171": [
+       17.153294006531617,
+       17.1532940065326
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.021639904711680095,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -1000.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       -1000.0,
+       1000.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -5.942421330822658,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       5.942421330822563
+      ],
+      "R1113": [
+       0.0,
+       4.062913497497862
+      ],
+      "R691": [
+       0.0,
+       9.407512080226844
+      ],
+      "R690": [
+       0.0,
+       24.81072479622957
+      ],
+      "R534": [
+       -1000.0,
+       1000.0
+      ],
+      "R_MDHy": [
+       -1000.0,
+       1000.0
+      ],
+      "R807": [
+       1.0819952355840476e-06,
+       1.0819952355830773e-06
+      ],
+      "R831": [
+       0.0,
+       0.0
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       0.0
+      ],
+      "R533": [
+       -19.832344820264577,
+       1.0819952355840476e-06
+      ],
+      "R538": [
+       0.0,
+       19.832345902261864
+      ],
+      "R693": [
+       0.0,
+       0.0
+      ],
+      "R1311": [
+       0.0,
+       3.121929696320945
+      ],
+      "R570": [
+       0.0,
+       28.204369834905602
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       28.204431137172932
+      ],
+      "R347": [
+       0.0,
+       28.204369834905606
+      ],
+      "R614": [
+       0.0,
+       0.0
+      ],
+      "R361": [
+       0.0,
+       0.0
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       3.2771534134669422,
+       28.204369834905606
+      ],
+      "R304": [
+       1.6385767067334636,
+       14.102184917452803
+      ],
+      "R171": [
+       3.9783483721043957,
+       42.307835084142305
+      ]
+     }
+    }
+   }
+  },
+  "diag_base": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.28221631193924995,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.23322295530014384,
+     "status": "optimal",
+     "ratio": 0.8263978566566611
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 238,
+     "FP": 26,
+     "TN": 702,
+     "unresolved": 27,
+     "recall": 0.2119205298013245,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9642857142857143,
+     "mcc": 0.28405685459467583
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 232,
+     "FP": 28,
+     "TN": 700,
+     "unresolved": 27,
+     "recall": 0.23178807947019867,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9615384615384616,
+     "mcc": 0.2999436331938815
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 74,
+     "FN": 228,
+     "FP": 33,
+     "TN": 695,
+     "unresolved": 27,
+     "recall": 0.24503311258278146,
+     "precision": 0.6915887850467289,
+     "specificity": 0.9546703296703297,
+     "mcc": 0.29796274910777876
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 82,
+     "FN": 220,
+     "FP": 33,
+     "TN": 695,
+     "unresolved": 27,
+     "recall": 0.271523178807947,
+     "precision": 0.7130434782608696,
+     "specificity": 0.9546703296703297,
+     "mcc": 0.326956390979769
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 84,
+     "FN": 238,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2608695652173913,
+     "precision": 0.717948717948718,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.31681913621768104
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 90,
+     "FN": 232,
+     "FP": 35,
+     "TN": 700,
+     "unresolved": 0,
+     "recall": 0.2795031055900621,
+     "precision": 0.72,
+     "specificity": 0.9523809523809523,
+     "mcc": 0.3305061419757351
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 94,
+     "FN": 228,
+     "FP": 40,
+     "TN": 695,
+     "unresolved": 0,
+     "recall": 0.2919254658385093,
+     "precision": 0.7014925373134329,
+     "specificity": 0.9455782312925171,
+     "mcc": 0.32854036115098023
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 102,
+     "FN": 220,
+     "FP": 40,
+     "TN": 695,
+     "unresolved": 0,
+     "recall": 0.3167701863354037,
+     "precision": 0.7183098591549296,
+     "specificity": 0.9455782312925171,
+     "mcc": 0.3540750582182916
+    }
+   ],
+   "applied": {
+    "overlay": {
+     "R1864": "m122[C_cy] + m1789[C_cy] <=> m10[C_cy] + m123[C_cy] + m1790[C_cy]",
+     "R1866": "m122[C_cy] + m1792[C_cy] <=> m10[C_cy] + m123[C_cy] + m1793[C_cy]",
+     "R2069": "m122[C_cy] + m276[C_cy] + m32[C_cy] <=> m10[C_cy] + m123[C_cy] + m1949[C_cy]",
+     "m1949_other_reactions": [
+      "R2079",
+      "R2093"
+     ],
+     "closed": [
+      "R1882",
+      "R1883",
+      "R1884",
+      "R2255",
+      "R2259",
+      "R2263",
+      "R_MDHy",
+      "R_ALCDH_nadp_hi"
+     ],
+     "R1113_upper": 0.0,
+     "R171_gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g",
+     "R1384_upper": 8.0,
+     "R860_upper": 1.0
+    },
+    "caps": {
+     "cap_pc": 0.057862,
+     "cap_malate": 0.061103,
+     "cap_gcv_module": 0.002078
+    },
+    "closures": {}
+   },
+   "route": {
+    "WT": {
+     "growth": 0.2822163119392493,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       0.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       0.0,
+       0.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       0.0,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       0.0
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       1.3228728851376936,
+       1.322872885137779
+      ],
+      "R690": [
+       0.13967886799995696,
+       0.139678868
+      ],
+      "R534": [
+       0.9029168206382374,
+       0.902916820638275
+      ],
+      "R_MDHy": [
+       0.0,
+       0.0
+      ],
+      "R807": [
+       0.07166089686485325,
+       0.07166089686485433
+      ],
+      "R831": [
+       -0.07584174513514674,
+       999.9241582548648
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       1000.0
+      ],
+      "R533": [
+       1.0201400209127576,
+       1.2404445608518186
+      ],
+      "R538": [
+       0.0,
+       0.12413967163357431
+      ],
+      "R693": [
+       1.4952620112957262,
+       1.591426879601236
+      ],
+      "R1311": [
+       0.0,
+       1.6399054951765046
+      ],
+      "R570": [
+       4.666049033432118,
+       4.762213901741916
+      ],
+      "R2062": [
+       4.685014090767137,
+       4.877343827376362
+      ],
+      "R348": [
+       0.0007487318626019283,
+       0.0007487318626019283
+      ],
+      "R347": [
+       0.0,
+       0.0
+      ],
+      "R614": [
+       0.9967770505461219,
+       1.0929419188518499
+      ],
+      "R361": [
+       0.9967770505464807,
+       1.0929419188540315
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       11.05529147361291,
+       11.055291473614002
+      ],
+      "R304": [
+       5.527645736806523,
+       5.5276457368070595
+      ],
+      "R171": [
+       17.675073686448965,
+       17.867403423057457
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.23322295530014478,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       0.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       0.0,
+       0.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -0.2648906518750655,
+       -0.26489065187514393
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.26489065187524696,
+       0.2648906518754303
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       1.4922528215204436,
+       1.4922528215206672
+      ],
+      "R690": [
+       0.13967886799972393,
+       0.139678868
+      ],
+      "R534": [
+       0.9151049225115482,
+       0.915104922511756
+      ],
+      "R_MDHy": [
+       0.0,
+       0.0
+      ],
+      "R807": [
+       0.05818747882231631,
+       0.0581874788223154
+      ],
+      "R831": [
+       0.11635163534916504,
+       999.8657837304304
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       999.7494320950731
+      ],
+      "R533": [
+       -0.1888385388329567,
+       -0.058164156526786276
+      ],
+      "R538": [
+       0.0,
+       0.13067438230716727
+      ],
+      "R693": [
+       0.0,
+       0.0
+      ],
+      "R1311": [
+       0.0,
+       0.0015139990835925654
+      ],
+      "R570": [
+       13.94486170667158,
+       13.944861706669519
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       0.0006187504042358682
+      ],
+      "R347": [
+       0.0,
+       -1.9820053801314352e-12
+      ],
+      "R614": [
+       0.0,
+       0.0
+      ],
+      "R361": [
+       0.0,
+       0.0
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       14.366456978421057,
+       14.366456978420576
+      ],
+      "R304": [
+       7.183228489210446,
+       7.183228489209789
+      ],
+      "R171": [
+       18.337936179069313,
+       18.337936179067786
+      ]
+     }
+    }
+   }
+  },
+  "diag_a": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.28221631193924945,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.02164384059947982,
+     "status": "optimal",
+     "ratio": 0.07669237986548036
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 238,
+     "FP": 26,
+     "TN": 702,
+     "unresolved": 27,
+     "recall": 0.2119205298013245,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9642857142857143,
+     "mcc": 0.28405685459467583
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 232,
+     "FP": 28,
+     "TN": 700,
+     "unresolved": 27,
+     "recall": 0.23178807947019867,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9615384615384616,
+     "mcc": 0.2999436331938815
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 88,
+     "FN": 214,
+     "FP": 38,
+     "TN": 690,
+     "unresolved": 27,
+     "recall": 0.2913907284768212,
+     "precision": 0.6984126984126984,
+     "specificity": 0.9478021978021978,
+     "mcc": 0.33231351590627717
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 96,
+     "FN": 206,
+     "FP": 38,
+     "TN": 690,
+     "unresolved": 27,
+     "recall": 0.31788079470198677,
+     "precision": 0.7164179104477612,
+     "specificity": 0.9478021978021978,
+     "mcc": 0.35952286123576754
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 84,
+     "FN": 238,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2608695652173913,
+     "precision": 0.717948717948718,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.31681913621768104
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 90,
+     "FN": 232,
+     "FP": 35,
+     "TN": 700,
+     "unresolved": 0,
+     "recall": 0.2795031055900621,
+     "precision": 0.72,
+     "specificity": 0.9523809523809523,
+     "mcc": 0.3305061419757351
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 108,
+     "FN": 214,
+     "FP": 45,
+     "TN": 690,
+     "unresolved": 0,
+     "recall": 0.33540372670807456,
+     "precision": 0.7058823529411765,
+     "specificity": 0.9387755102040817,
+     "mcc": 0.35865446190416933
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 116,
+     "FN": 206,
+     "FP": 45,
+     "TN": 690,
+     "unresolved": 0,
+     "recall": 0.36024844720496896,
+     "precision": 0.7204968944099379,
+     "specificity": 0.9387755102040817,
+     "mcc": 0.38301047117661763
+    }
+   ],
+   "applied": {
+    "overlay": {
+     "R1864": "m122[C_cy] + m1789[C_cy] <=> m10[C_cy] + m123[C_cy] + m1790[C_cy]",
+     "R1866": "m122[C_cy] + m1792[C_cy] <=> m10[C_cy] + m123[C_cy] + m1793[C_cy]",
+     "R2069": "m122[C_cy] + m276[C_cy] + m32[C_cy] <=> m10[C_cy] + m123[C_cy] + m1949[C_cy]",
+     "m1949_other_reactions": [
+      "R2079",
+      "R2093"
+     ],
+     "closed": [
+      "R1882",
+      "R1883",
+      "R1884",
+      "R2255",
+      "R2259",
+      "R2263",
+      "R_MDHy",
+      "R_ALCDH_nadp_hi"
+     ],
+     "R1113_upper": 0.0,
+     "R171_gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g",
+     "R1384_upper": 8.0,
+     "R860_upper": 1.0
+    },
+    "caps": {
+     "cap_pc": 0.057862,
+     "cap_malate": 0.061103,
+     "cap_gcv_module": 0.002078
+    },
+    "closures": {
+     "R533": {
+      "how": "rev",
+      "before": [
+       -1000.0,
+       1000.0
+      ],
+      "after": [
+       0.0,
+       1000.0
+      ]
+     }
+    }
+   },
+   "route": {
+    "WT": {
+     "growth": 0.2822163119392491,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       0.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       0.0,
+       0.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       0.0,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       0.0
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       1.3228728851377527,
+       1.3228728851377811
+      ],
+      "R690": [
+       0.13967886799995483,
+       0.139678868
+      ],
+      "R534": [
+       0.9029168206382132,
+       0.9029168206382785
+      ],
+      "R_MDHy": [
+       0.0,
+       0.0
+      ],
+      "R807": [
+       0.0716608968648532,
+       0.07166089686485771
+      ],
+      "R831": [
+       -0.07584174513514678,
+       999.9241582548666
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       1000.0
+      ],
+      "R533": [
+       1.0201400209126699,
+       1.240444560851786
+      ],
+      "R538": [
+       0.0,
+       0.12413967163416251
+      ],
+      "R693": [
+       1.4952620112953905,
+       1.5914268796010917
+      ],
+      "R1311": [
+       0.0,
+       1.639905495175379
+      ],
+      "R570": [
+       4.666049033431271,
+       4.762213901735573
+      ],
+      "R2062": [
+       4.685014090767108,
+       4.877343827378857
+      ],
+      "R348": [
+       0.0007487318628909279,
+       0.000748731862601928
+      ],
+      "R347": [
+       0.0,
+       0.0
+      ],
+      "R614": [
+       0.9967770505458342,
+       1.0929419188523632
+      ],
+      "R361": [
+       0.9967770505460618,
+       1.0929419188516178
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       11.055291473612867,
+       11.055291473613845
+      ],
+      "R304": [
+       5.527645736806433,
+       5.527645736806637
+      ],
+      "R171": [
+       17.6750736864486,
+       17.867403423059677
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.02164384059947982,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -7.661963076533773,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       0.0,
+       0.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -5.942354026603168,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       5.942354026603258
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       9.407439842924147
+      ],
+      "R690": [
+       0.0,
+       0.139678868
+      ],
+      "R534": [
+       -0.1313965413780773,
+       25.214120172313756
+      ],
+      "R_MDHy": [
+       0.0,
+       0.0
+      ],
+      "R807": [
+       2.1643840599477188e-06,
+       2.1643840599439037e-06
+      ],
+      "R831": [
+       2.1643840599477188e-06,
+       1000.0
+      ],
+      "R902": [
+       0.0,
+       0.815814439246697
+      ],
+      "R1386": [
+       0.0,
+       999.9999978356159
+      ],
+      "R533": [
+       0.0,
+       0.0
+      ],
+      "R538": [
+       0.0,
+       0.0
+      ],
+      "R693": [
+       0.0,
+       0.0
+      ],
+      "R1311": [
+       0.0,
+       3.121876870671111
+      ],
+      "R570": [
+       0.0,
+       28.20806407759197
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       28.208125386201342
+      ],
+      "R347": [
+       0.0,
+       28.208064077591555
+      ],
+      "R614": [
+       0.0,
+       0.0
+      ],
+      "R361": [
+       0.0,
+       0.0
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       3.760338682794167,
+       28.21002672723408
+      ],
+      "R304": [
+       1.8801693413970912,
+       14.105013363617076
+      ],
+      "R171": [
+       3.978543598271218,
+       42.31730116510533
+      ]
+     }
+    }
+   }
+  },
+  "diag_b": {
+   "simulation_context": {
+    "simulation_context_fingerprint_version": "1",
+    "simulation_context_fingerprint": "b0a9f9045aa604f26d83775a75c5a36d9f5e1fdfb5e61b3e14700ca21ad3da7e",
+    "strain_overlay_enabled": true,
+    "strain_profile_id": "po1f_sd_leu_accrispr_v1",
+    "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+    "strain_overlay_effect_fingerprint_version": "1",
+    "strain_overlay_effect_sha256": "390c5444a64cd27ccdbac788f11c633a3b7fa0f56958ec0a9e55a149ef1e1b12"
+   },
+   "WT": 0.2822163119392462,
+   "reaction_ko": {
+    "complex_I": {
+     "reaction": "R2062",
+     "growth": 0.021639904711680095,
+     "status": "optimal",
+     "ratio": 0.07667843351428462
+    },
+    "complex_III": {
+     "reaction": "R305",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "complex_IV": {
+     "reaction": "R304",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    },
+    "ATP_synthase": {
+     "reaction": "R171",
+     "growth": null,
+     "status": "infeasible",
+     "ratio": null
+    }
+   },
+   "scores": [
+    {
+     "cutoff": 0.01,
+     "view": "benchmark rule",
+     "TP": 64,
+     "FN": 238,
+     "FP": 26,
+     "TN": 702,
+     "unresolved": 27,
+     "recall": 0.2119205298013245,
+     "precision": 0.7111111111111111,
+     "specificity": 0.9642857142857143,
+     "mcc": 0.28405685459467583
+    },
+    {
+     "cutoff": 0.05,
+     "view": "benchmark rule",
+     "TP": 70,
+     "FN": 232,
+     "FP": 28,
+     "TN": 700,
+     "unresolved": 27,
+     "recall": 0.23178807947019867,
+     "precision": 0.7142857142857143,
+     "specificity": 0.9615384615384616,
+     "mcc": 0.2999436331938815
+    },
+    {
+     "cutoff": 0.1,
+     "view": "benchmark rule",
+     "TP": 88,
+     "FN": 214,
+     "FP": 38,
+     "TN": 690,
+     "unresolved": 27,
+     "recall": 0.2913907284768212,
+     "precision": 0.6984126984126984,
+     "specificity": 0.9478021978021978,
+     "mcc": 0.33231351590627717
+    },
+    {
+     "cutoff": 0.15,
+     "view": "benchmark rule",
+     "TP": 96,
+     "FN": 206,
+     "FP": 38,
+     "TN": 690,
+     "unresolved": 27,
+     "recall": 0.31788079470198677,
+     "precision": 0.7164179104477612,
+     "specificity": 0.9478021978021978,
+     "mcc": 0.35952286123576754
+    },
+    {
+     "cutoff": 0.01,
+     "view": "no solution counted as lethal",
+     "TP": 84,
+     "FN": 238,
+     "FP": 33,
+     "TN": 702,
+     "unresolved": 0,
+     "recall": 0.2608695652173913,
+     "precision": 0.717948717948718,
+     "specificity": 0.9551020408163265,
+     "mcc": 0.31681913621768104
+    },
+    {
+     "cutoff": 0.05,
+     "view": "no solution counted as lethal",
+     "TP": 90,
+     "FN": 232,
+     "FP": 35,
+     "TN": 700,
+     "unresolved": 0,
+     "recall": 0.2795031055900621,
+     "precision": 0.72,
+     "specificity": 0.9523809523809523,
+     "mcc": 0.3305061419757351
+    },
+    {
+     "cutoff": 0.1,
+     "view": "no solution counted as lethal",
+     "TP": 108,
+     "FN": 214,
+     "FP": 45,
+     "TN": 690,
+     "unresolved": 0,
+     "recall": 0.33540372670807456,
+     "precision": 0.7058823529411765,
+     "specificity": 0.9387755102040817,
+     "mcc": 0.35865446190416933
+    },
+    {
+     "cutoff": 0.15,
+     "view": "no solution counted as lethal",
+     "TP": 116,
+     "FN": 206,
+     "FP": 45,
+     "TN": 690,
+     "unresolved": 0,
+     "recall": 0.36024844720496896,
+     "precision": 0.7204968944099379,
+     "specificity": 0.9387755102040817,
+     "mcc": 0.38301047117661763
+    }
+   ],
+   "applied": {
+    "overlay": {
+     "R1864": "m122[C_cy] + m1789[C_cy] <=> m10[C_cy] + m123[C_cy] + m1790[C_cy]",
+     "R1866": "m122[C_cy] + m1792[C_cy] <=> m10[C_cy] + m123[C_cy] + m1793[C_cy]",
+     "R2069": "m122[C_cy] + m276[C_cy] + m32[C_cy] <=> m10[C_cy] + m123[C_cy] + m1949[C_cy]",
+     "m1949_other_reactions": [
+      "R2079",
+      "R2093"
+     ],
+     "closed": [
+      "R1882",
+      "R1883",
+      "R1884",
+      "R2255",
+      "R2259",
+      "R2263",
+      "R_MDHy",
+      "R_ALCDH_nadp_hi"
+     ],
+     "R1113_upper": 0.0,
+     "R171_gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g",
+     "R1384_upper": 8.0,
+     "R860_upper": 1.0
+    },
+    "caps": {
+     "cap_pc": 0.057862,
+     "cap_malate": 0.061103,
+     "cap_gcv_module": 0.002078
+    },
+    "closures": {
+     "R831": {
+      "how": "fwd",
+      "before": [
+       -1000.0,
+       1000.0
+      ],
+      "after": [
+       -1000.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "route": {
+    "WT": {
+     "growth": 0.2822163119392503,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       0.0,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       0.0,
+       0.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       0.0,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       0.0
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       1.3228728851378555,
+       1.3228728851368614
+      ],
+      "R690": [
+       0.1396788680001284,
+       0.139678868
+      ],
+      "R534": [
+       0.9029168206382858,
+       0.9029168206382897
+      ],
+      "R_MDHy": [
+       0.0,
+       0.0
+      ],
+      "R807": [
+       0.07166089686485352,
+       0.0716608968648429
+      ],
+      "R831": [
+       -0.07584174513514647,
+       0.0
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       0.07584174513514647
+      ],
+      "R533": [
+       1.0201400209127478,
+       1.240444560851643
+      ],
+      "R538": [
+       0.0,
+       0.12413967163357942
+      ],
+      "R693": [
+       1.495262011296326,
+       1.5914268796012134
+      ],
+      "R1311": [
+       0.0,
+       1.6399054951756271
+      ],
+      "R570": [
+       4.666049033431044,
+       4.762213901736406
+      ],
+      "R2062": [
+       4.6850140907670985,
+       4.877343827377728
+      ],
+      "R348": [
+       0.000748731862871969,
+       0.0007487318615725324
+      ],
+      "R347": [
+       0.0,
+       -1.3141651395570664e-12
+      ],
+      "R614": [
+       0.9967770505463013,
+       1.0929419188516913
+      ],
+      "R361": [
+       0.9967770505468072,
+       1.0929419188516913
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       11.055291473613243,
+       11.055291473612929
+      ],
+      "R304": [
+       5.527645736806666,
+       5.527645736806441
+      ],
+      "R171": [
+       17.675073686448922,
+       17.867403423059578
+      ]
+     }
+    },
+    "complex_I_KO": {
+     "growth": 0.021639904711680095,
+     "status": "optimal",
+     "fva": {
+      "R130": [
+       -7.660819346580736,
+       1000.0
+      ],
+      "R1377": [
+       0.0,
+       1000.0
+      ],
+      "R_ALCDH_nadp_hi": [
+       0.0,
+       0.0
+      ],
+      "R1114": [
+       0.0,
+       0.0
+      ],
+      "R997": [
+       -5.942421330823894,
+       0.0
+      ],
+      "R135": [
+       0.0,
+       0.0
+      ],
+      "R2070": [
+       0.0,
+       0.0
+      ],
+      "R136": [
+       0.0,
+       5.942421330823888
+      ],
+      "R1113": [
+       0.0,
+       0.0
+      ],
+      "R691": [
+       0.0,
+       9.4075120802279
+      ],
+      "R690": [
+       0.0,
+       0.139678868
+      ],
+      "R534": [
+       -0.13140415213742235,
+       25.20969151906709
+      ],
+      "R_MDHy": [
+       0.0,
+       0.0
+      ],
+      "R807": [
+       1.0819952355840476e-06,
+       1.081995235581169e-06
+      ],
+      "R831": [
+       0.0,
+       0.0
+      ],
+      "R902": [
+       0.0,
+       0.0
+      ],
+      "R1386": [
+       0.0,
+       0.0
+      ],
+      "R533": [
+       -4.8332852559328146,
+       1.0819952355840476e-06
+      ],
+      "R538": [
+       0.0,
+       4.8332863379280395
+      ],
+      "R693": [
+       0.0,
+       0.0
+      ],
+      "R1311": [
+       0.0,
+       3.121929696320967
+      ],
+      "R570": [
+       0.0,
+       28.204369834905616
+      ],
+      "R2062": [
+       0.0,
+       0.0
+      ],
+      "R348": [
+       0.0,
+       28.20443113717297
+      ],
+      "R347": [
+       0.0,
+       28.204369834905645
+      ],
+      "R614": [
+       0.0,
+       0.0
+      ],
+      "R361": [
+       0.0,
+       0.0
+      ],
+      "R357": [
+       0.0,
+       0.0
+      ],
+      "R360": [
+       0.0,
+       0.0
+      ],
+      "R362": [
+       0.0,
+       0.0
+      ],
+      "R305": [
+       3.760238173175103,
+       28.204369834905613
+      ],
+      "R304": [
+       1.8801190865875363,
+       14.10218491745282
+      ],
+      "R171": [
+       3.9783483721043837,
+       42.307835084142155
+      ]
+     }
+    }
+   }
+  }
+ },
+ "reproduction_checks": [
+  {
+   "context": "bench",
+   "variant": "base",
+   "what": "scores15",
+   "expected": {
+    "TP": 82,
+    "FP": 33,
+    "FN": 229,
+    "TN": 697,
+    "unresolved": 16
+   },
+   "got": {
+    "TP": 82,
+    "FP": 33,
+    "FN": 229,
+    "TN": 697,
+    "unresolved": 16
+   },
+   "ok": true
+  },
+  {
+   "context": "bench",
+   "variant": "base",
+   "what": "WT",
+   "expected": 0.3124267,
+   "got": 0.3124267446456666,
+   "ok": true
+  },
+  {
+   "context": "diag",
+   "variant": "base",
+   "what": "complex_I",
+   "expected": 0.826,
+   "got": 0.8263978566566611,
+   "ok": true
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "what": "complex_I",
+   "expected": 0.077,
+   "got": 0.07669237986548036,
+   "ok": true
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "what": "complex_I",
+   "expected": 0.077,
+   "got": 0.07667843351428462,
+   "ok": true
+  }
+ ],
+ "gene_differences": [
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1A21711g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931342,
+   "variant_ratio": 0.06927652952383022,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1B00908g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1B19507g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06927652952383016,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1B26679g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931399,
+   "variant_ratio": 0.06927652952383015,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1C04281g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06927652952383015,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D00766g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931338,
+   "variant_ratio": 0.06927652952383016,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D06302g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06927652952383015,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D07089g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931334,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D09203g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931358,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D18037g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1394;R1395;R1396;R2062;R2218;R2221;R2224;R2227;R2230;R2233;R78",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931354,
+   "variant_ratio": 0.06927652952383022,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D24109g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931322,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1D32550g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931373,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1E27218g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931334,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1E37603g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793138,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1F01456g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931317,
+   "variant_ratio": 0.06927652952383018,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1F03371g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793134,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1F09003g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793132,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1F22993g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931341,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1F24343g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931375,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1M00056g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931325,
+   "variant_ratio": 0.06927652952383022,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1M00064g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931307,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1M00296g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1M00335g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1M00338r",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931324,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALI1M00458g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "a",
+   "gene_id": "YALIfMp29",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931318,
+   "variant_ratio": 0.0692765295238302,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1A21711g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931342,
+   "variant_ratio": 0.0692639317297321,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1B00908g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1B19507g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1B26679g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931399,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1C04281g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D00766g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931338,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D06302g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931355,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D07089g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931334,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D09203g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931358,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D18037g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1394;R1395;R1396;R2062;R2218;R2221;R2224;R2227;R2230;R2233;R78",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931354,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D24109g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931322,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1D32550g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931373,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1E27218g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931334,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1E37603g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793138,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1F01456g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931317,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1F03371g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793134,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1F09003g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.757850441793132,
+   "variant_ratio": 0.06926393172973215,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1F22993g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931341,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1F24343g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931375,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1M00056g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931325,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1M00064g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931307,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1M00296g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1M00335g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1M00338r",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931324,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALI1M00458g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931329,
+   "variant_ratio": 0.06926393172973214,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "bench",
+   "variant": "b",
+   "gene_id": "YALIfMp29",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.7578504417931318,
+   "variant_ratio": 0.06926393172973212,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1A21711g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566637,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1B00908g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566621,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1B19507g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.826397856656663,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1B26679g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566643,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1C04281g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566611,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D00766g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566623,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D06302g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566613,
+   "variant_ratio": 0.0766923798654803,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D07089g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566688,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D09203g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566618,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D18037g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1394;R1395;R1396;R2062;R2218;R2221;R2224;R2227;R2230;R2233;R78",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566701,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D24109g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566639,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1D32550g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566679,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1E27218g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566675,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1E37603g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566649,
+   "variant_ratio": 0.07669237986548035,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1F01456g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566681,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1F03371g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07669237986548041,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1F09003g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566613,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1F22993g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566675,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1F24343g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566593,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1M00056g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566647,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1M00064g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566647,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1M00296g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1M00335g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1M00338r",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALI1M00458g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "a",
+   "gene_id": "YALIfMp29",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566629,
+   "variant_ratio": 0.07669237986548036,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1A21711g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566637,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1B00908g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566621,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1B19507g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.826397856656663,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1B26679g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566643,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1C04281g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566611,
+   "variant_ratio": 0.0766784335142846,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D00766g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566623,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D06302g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566613,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D07089g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566688,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D09203g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566618,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D18037g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R1394;R1395;R1396;R2062;R2218;R2221;R2224;R2227;R2230;R2233;R78",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566701,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D24109g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566639,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1D32550g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566679,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1E27218g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566675,
+   "variant_ratio": 0.0766784335142846,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1E37603g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566649,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1F01456g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566681,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1F03371g",
+   "positive": false,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1F09003g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566613,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1F22993g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566675,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1F24343g",
+   "positive": true,
+   "mtdna": false,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566593,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1M00056g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566647,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1M00064g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566647,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1M00296g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1M00335g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1M00338r",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALI1M00458g",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566644,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  },
+  {
+   "context": "diag",
+   "variant": "b",
+   "gene_id": "YALIfMp29",
+   "positive": false,
+   "mtdna": true,
+   "reactions": "R2062",
+   "base_status": "optimal",
+   "variant_status": "optimal",
+   "base_ratio": 0.8263978566566629,
+   "variant_ratio": 0.07667843351428462,
+   "call_change_0.01": "",
+   "call_change_0.05": "",
+   "call_change_0.1": "NE->E",
+   "call_change_0.15": "NE->E"
+  }
+ ],
+ "lps": 7308,
+ "elapsed_seconds": 87.81166537501849,
+ "inputs_unchanged": true,
+ "code_unchanged": true,
+ "outputs": {
+  "gene_screen_bench_a.tsv": "9ec14fd02623b9600f96470d8279fc527504ee0f1b9b6561cf9bba83820dbf8f",
+  "gene_screen_bench_b.tsv": "c2e7c370a3e7c3c6f4d0314f6e9c8153c34a9ac277c89b3e041165f3fabd38de",
+  "gene_screen_bench_base.tsv": "c9185ecdb26fcc99620b7522b091640b1938397ead865c2c46958d4427c30024",
+  "gene_screen_diag_a.tsv": "d4d206206562700cae56a5e550534f8b375a175a5d6a2e73b217b6af62d03926",
+  "gene_screen_diag_b.tsv": "f28427bec7f832335e73f771be2972cf3b418e30fe113f36efa6ebe8c55a42cd",
+  "gene_screen_diag_base.tsv": "f4650abfc62f7487329fb272aeb75f109b97af457efd4263d9238b417a97577d",
+  "pfba_route_bench_a.json": "2e6766dc037addd5d59657bd4d398cc2e56c08b9561865787068744b5ce1718a",
+  "pfba_route_bench_b.json": "d9152deb7250f3dc268c18d726ee6c74172df3549a4c0a916edaa1f6bc7eb4b1",
+  "pfba_route_bench_base.json": "2d91ac2538df21cbea2b012ce4110ce9f77c43b185943bf85ad5debe75701a22",
+  "pfba_route_diag_a.json": "47541c6791156af91877bc47e5c9271bf9a39e0ef09f3916d25833c5844ad987",
+  "pfba_route_diag_b.json": "0488c06d46289af2a912d83f63ba7a4f9d1bd4fbc073982bb28224615be5751c",
+  "pfba_route_diag_base.json": "378f75e345782e70a9f6291de5973831a4446787976d25f6ce8d455d4bd2b59b"
+ }
+}

@@ -1,0 +1,384 @@
+{
+ "started_utc": "2026-10-14T07:40:22.446063+00:00",
+ "inputs": {
+  "model": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+   "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+  },
+  "medium": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+   "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "caps": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/w29_13c_upper_caps_20261012.json",
+   "sha256": "df1e33a8aa72c2d1b83129cb6a0e0d5e6eb283e3aec8feeecd844bcc2dc4257b"
+  },
+  "r825": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/conditions/assumptions/r825_reversible_20261013.json",
+   "sha256": "e45cab424c30ee9aec00823cb67392742ac6c36ba7091664249765a2533efcaa"
+  },
+  "overlay": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/task-c-9ffd14/model/reports/complexI_transhydrogenation_20261012/holistic_overlay.py",
+   "sha256": "bf6c7ce54d8338c365d98c82ca345ff2bd8c6055b38d402e8144a16b4abf30c4"
+  },
+  "profile": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+   "sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383"
+  },
+  "w29_fluxes": {
+   "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/w29_worland2024/glucose_central_fluxes.csv",
+   "sha256": "844615d0edfd8ffb033c1bce15ed746e9bb8ea02cbbe75016771b5c5fd08389f"
+  }
+ },
+ "steps": [
+  "R134",
+  "R330",
+  "R691",
+  "R361",
+  "R534",
+  "R641",
+  "R660",
+  "R659",
+  "R740",
+  "R929",
+  "R490",
+  "R315",
+  "R1385",
+  "R570",
+  "R325"
+ ],
+ "rows": [
+  {
+   "config": "A",
+   "reaction": "R134",
+   "name": "aldehyde dehydrogenase (acetaldehyde, NADP)",
+   "WT": 0.2768412476514403,
+   "WT_status": "optimal",
+   "WT_cost": 0.019045902240288237,
+   "KO": 0.23322295530014475,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8424429425841427
+  },
+  {
+   "config": "A",
+   "reaction": "R330",
+   "name": "glutamate dehydrogenase (NADP)",
+   "WT": 0.2784545033671127,
+   "WT_status": "optimal",
+   "WT_cost": 0.013329522118292858,
+   "KO": 0.22566052468383488,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8104035738517953
+  },
+  {
+   "config": "A",
+   "reaction": "R691",
+   "name": "pyruvate decarboxylase",
+   "WT": 0.2595666901475165,
+   "WT_status": "optimal",
+   "WT_cost": 0.08025624612587612,
+   "KO": 0.19001548377865657,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7320487989836727
+  },
+  {
+   "config": "A",
+   "reaction": "R361",
+   "name": "glycine-cleavage complex (lipoamide)",
+   "WT": 0.2604709906317437,
+   "WT_status": "optimal",
+   "WT_cost": 0.07705196470779174,
+   "KO": 0.2332229553001463,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8953893665259601
+  },
+  {
+   "config": "A",
+   "reaction": "R534",
+   "name": "malate dehydrogenase, cytoplasmic",
+   "WT": 0.1420669963841876,
+   "WT_status": "optimal",
+   "WT_cost": 0.4966024628131026,
+   "KO": 0.07730385517578053,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.5441366196461984
+  },
+  {
+   "config": "A",
+   "reaction": "R641",
+   "name": "phosphoglycerate dehydrogenase",
+   "WT": 0.27166391356049086,
+   "WT_status": "optimal",
+   "WT_cost": 0.03739117100017453,
+   "KO": 0.22413880807585776,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8250591885327796
+  },
+  {
+   "config": "A",
+   "reaction": "R660",
+   "name": "phosphoserine transaminase",
+   "WT": 0.2716639135604916,
+   "WT_status": "optimal",
+   "WT_cost": 0.037391171000171974,
+   "KO": 0.22413880807585776,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8250591885327774
+  },
+  {
+   "config": "A",
+   "reaction": "R659",
+   "name": "phosphoserine phosphatase (L-serine)",
+   "WT": 0.2822163119392477,
+   "WT_status": "optimal",
+   "WT_cost": 8.104628079763643e-15,
+   "KO": 0.23322295530014564,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8263978566566742
+  },
+  {
+   "config": "A",
+   "reaction": "R740",
+   "name": "succinate dehydrogenase (ubiquinone-9)",
+   "WT": 0.23189347630334534,
+   "WT_status": "optimal",
+   "WT_cost": 0.17831299434859438,
+   "KO": 0.2192628830018854,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.9455327786585184
+  },
+  {
+   "config": "A",
+   "reaction": "R929",
+   "name": "succinate-fumarate transport",
+   "WT": 0.2693906965428424,
+   "WT_status": "optimal",
+   "WT_cost": 0.0454460456529826,
+   "KO": 0.21926288300188565,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8139215118255403
+  },
+  {
+   "config": "A",
+   "reaction": "R490",
+   "name": "isocitrate lyase",
+   "WT": 0.2693906965428424,
+   "WT_status": "optimal",
+   "WT_cost": 0.0454460456529826,
+   "KO": 0.21949663751198362,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8147892274263305
+  },
+  {
+   "config": "A",
+   "reaction": "R315",
+   "name": "fumarase, cytoplasmic",
+   "WT": 0.254337091459148,
+   "WT_status": "optimal",
+   "WT_cost": 0.0987867082824867,
+   "KO": 0.20830408846288087,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8190079050909449
+  },
+  {
+   "config": "A",
+   "reaction": "R1385",
+   "name": "isocitrate dehydrogenase",
+   "WT": 0.28182785156874424,
+   "WT_status": "optimal",
+   "WT_cost": 0.0013764632095020213,
+   "KO": 0.23256664450542258,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8252081659455658
+  },
+  {
+   "config": "A",
+   "reaction": "R570",
+   "name": "NADH dehydrogenase, cytosolic/mitochondrial",
+   "WT": 0.2728981764603173,
+   "WT_status": "optimal",
+   "WT_cost": 0.03301770693161954,
+   "KO": 0.17305491964371003,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6341373250944912
+  },
+  {
+   "config": "A",
+   "reaction": "R325",
+   "name": "glucose 6-phosphate dehydrogenase",
+   "WT": 0.2822163119392503,
+   "WT_status": "optimal",
+   "WT_cost": -1.1102230246251565e-15,
+   "KO": 0.2238747142547735,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7932734742241428
+  },
+  {
+   "config": "V2",
+   "reaction": "R134",
+   "name": "aldehyde dehydrogenase (acetaldehyde, NADP)",
+   "WT": 0.25690078747706885,
+   "WT_status": "optimal",
+   "WT_cost": 0.02210756945902681,
+   "KO": 0.21717838453267285,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8453784305821108
+  },
+  {
+   "config": "V2",
+   "reaction": "R330",
+   "name": "glutamate dehydrogenase (NADP)",
+   "WT": 0.2585271010914467,
+   "WT_status": "optimal",
+   "WT_cost": 0.01591700932566098,
+   "KO": 0.209040659977323,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8085831585733084
+  },
+  {
+   "config": "V2",
+   "reaction": "R691",
+   "name": "pyruvate decarboxylase",
+   "WT": 0.23816949066775592,
+   "WT_status": "optimal",
+   "WT_cost": 0.09340822035982799,
+   "KO": 0.17007605889138133,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7140967485572522
+  },
+  {
+   "config": "V2",
+   "reaction": "R361",
+   "name": "glycine-cleavage complex (lipoamide)",
+   "WT": 0.24335943212046582,
+   "WT_status": "optimal",
+   "WT_cost": 0.07365271664418116,
+   "KO": 0.21717838453267255,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8924181924667159
+  },
+  {
+   "config": "V2",
+   "reaction": "R534",
+   "name": "malate dehydrogenase, cytoplasmic",
+   "WT": 0.09887886799819608,
+   "WT_status": "optimal",
+   "WT_cost": 0.6236177494608619,
+   "KO": 0.041962945649613934,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.4243873994429173
+  },
+  {
+   "config": "V2",
+   "reaction": "R641",
+   "name": "phosphoglycerate dehydrogenase",
+   "WT": 0.2523442501718109,
+   "WT_status": "optimal",
+   "WT_cost": 0.03945202131551273,
+   "KO": 0.20818812569227174,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.825016324130726
+  },
+  {
+   "config": "V2",
+   "reaction": "R660",
+   "name": "phosphoserine transaminase",
+   "WT": 0.2523442501718107,
+   "WT_status": "optimal",
+   "WT_cost": 0.039452021315513286,
+   "KO": 0.20818812569227071,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8250163241307225
+  },
+  {
+   "config": "V2",
+   "reaction": "R659",
+   "name": "phosphoserine phosphatase (L-serine)",
+   "WT": 0.26270863691515645,
+   "WT_status": "optimal",
+   "WT_cost": 1.887379141862766e-15,
+   "KO": 0.21717838453267221,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8266891682088529
+  },
+  {
+   "config": "V2",
+   "reaction": "R740",
+   "name": "succinate dehydrogenase (ubiquinone-9)",
+   "WT": 0.2109230395255253,
+   "WT_status": "optimal",
+   "WT_cost": 0.1971217924074421,
+   "KO": 0.1988937193619536,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.9429682020957415
+  },
+  {
+   "config": "V2",
+   "reaction": "R929",
+   "name": "succinate-fumarate transport",
+   "WT": 0.2467144447467752,
+   "WT_status": "optimal",
+   "WT_cost": 0.060881866527849104,
+   "KO": 0.19895319974651265,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8064108283190142
+  },
+  {
+   "config": "V2",
+   "reaction": "R490",
+   "name": "isocitrate lyase",
+   "WT": 0.24829240562448193,
+   "WT_status": "optimal",
+   "WT_cost": 0.054875361008137724,
+   "KO": 0.20166167118982578,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8121942782850129
+  },
+  {
+   "config": "V2",
+   "reaction": "R315",
+   "name": "fumarase, cytoplasmic",
+   "WT": 0.23413754196417125,
+   "WT_status": "optimal",
+   "WT_cost": 0.10875582655553451,
+   "KO": 0.1897675831865582,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.810496179273964
+  },
+  {
+   "config": "V2",
+   "reaction": "R1385",
+   "name": "isocitrate dehydrogenase",
+   "WT": 0.26223587178610014,
+   "WT_status": "optimal",
+   "WT_cost": 0.0017995796963823363,
+   "KO": 0.21675589447382979,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.8265684362612018
+  },
+  {
+   "config": "V2",
+   "reaction": "R570",
+   "name": "NADH dehydrogenase, cytosolic/mitochondrial",
+   "WT": 0.2530538701542499,
+   "WT_status": "optimal",
+   "WT_cost": 0.036750854004183764,
+   "KO": 0.15947365663675928,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.6301964737371989
+  },
+  {
+   "config": "V2",
+   "reaction": "R325",
+   "name": "glucose 6-phosphate dehydrogenase",
+   "WT": 0.26270863691515633,
+   "WT_status": "optimal",
+   "WT_cost": 2.3314683517128287e-15,
+   "KO": 0.2084732950427944,
+   "KO_status": "optimal",
+   "KO_over_WT": 0.7935532591953662
+  }
+ ],
+ "lps": 62,
+ "elapsed_seconds": 9.177318917005323
+}

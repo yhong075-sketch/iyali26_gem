@@ -1,0 +1,459 @@
+diff --git a/model/candidates/README.md b/model/candidates/README.md
+index fd864ce..93634ca 100644
+--- a/model/candidates/README.md
++++ b/model/candidates/README.md
+@@ -18,6 +18,7 @@ so older reports and commits still identify them.
+ | [E5_coq9_alpha_1e-4_qcycle_pipeline.xml](E5_coq9_alpha_1e-4_qcycle_pipeline.xml) | `d868f83b` | 2026-10-08 | The CoQ9/R305 candidate (`33468b94`) rebuilt by the builder: `--energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution`. Differs from `33468b94` only in the R1889 four-subunit GPR (default since 2026-10-05) and two note texts. |
+ | [E5_coq9_respiratory_package_20261008.xml](E5_coq9_respiratory_package_20261008.xml) | `0ac2addf` | 2026-10-08 | The rebuilt CoQ9/R305 candidate plus the 2026-10-08 CoQ9/respiratory-chain package (`--coq9-respiratory-package`); see [the report](../reports/coq9_respiratory_package_20261008/REPORT.md). |
+ | [E5_coq9_resp_pkg_r132_20261012.xml](E5_coq9_resp_pkg_r132_20261012.xml) | `a56f3649` | 2026-10-13 | The respiratory package candidate (`0ac2addf`) with R132 (matrix alcohol dehydrogenase) removed by `--r132-mito-adh` (user decision after the predictor screen); see [the report](../reports/r132_mito_adh_20261012/REPORT.md). |
++| [E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml](E5_coq9_resp_pkg_r132_r1964_gpr_20261019.xml) | `db429743` | 2026-10-19 | `a56f3649` with the provisional GPR `YALI1F03452g or YALI1E06616g` and D-xylulose cross-references on orphan R1964 by `--r1964-gpr`; only R1964 (GPR, annotation, notes) and the added gene YALI1E06616g differ; see [the report](../reports/r1964_gpr_20261019/REPORT.md). Uncommitted. |
+ 
+ Candidates published inside their task report folders:
+ 
+diff --git a/model/curation/README.md b/model/curation/README.md
+index 23a3967..9f20533 100644
+--- a/model/curation/README.md
++++ b/model/curation/README.md
+@@ -286,6 +286,26 @@ The previously saved zero-flux WT witness remains feasible under this bound;
+ this direction change alone does not establish essentiality.
+ 
+ 
++## Opt-in R1964 provisional GPR and D-xylulose cross-references (2026-10-19)
++
++With `--r1964-gpr`, the build applies `gpr/r1964_gpr_assignment.json` after the
++`--r132-mito-adh` step. Orphan R1964 (D-xylulose + NADH <=> NAD + D-arabinitol)
++gets the provisional GPR `YALI1F03452g or YALI1E06616g`, and the new gene
++YALI1E06616g (GeneID 2912324, XP_503594.1) is created with its identifiers. The
++evidence is in vitro activity of the purified proteins (Wang et al. 2020,
++YlAraDH1/YlAraDH2); the reaction products were assigned from a 340 nm assay,
++not identified, and the C-4 (D-xylulose) versus C-2 (D-ribulose) regiochemistry
++is unsettled ([review](../reports/r1964_gpr_review_20261019/REPORT.md)). The same
++step replaces the L-xylulose cross-references (BiGG/VMH ABTD1, MNXR154181) with
++the D-xylulose reaction (MNXR198271, Rhea 17921, KEGG R05604, EC 1.1.1.11,
++BiGG/VMH ABTDG, MetaCyc). Bounds and stoichiometry are unchanged. Unexpected
++identity, bounds, stoichiometry, species, GPR, annotation or notes, a changed
++YALI1F03452g identity or reaction context, a YALI1E06616g with other identity or
++reactions, or the target GPR without this curation's notes stop the step before
++it mutates the model. Without the flag, builds are unchanged. Focused regression:
++`python -m unittest tests.test_r1964_gpr`.
++
++
+ ### Optional E5 vacuole connection candidate (2026-09-24)
+ 
+ The independent [E5_vacuole_open.xml](../reports/vacuole_open_supply_20260924/E5_vacuole_open.xml)
+diff --git a/platform/scripts/gem_annotate/cli.py b/platform/scripts/gem_annotate/cli.py
+index 5fc1f79..82bfdfe 100644
+--- a/platform/scripts/gem_annotate/cli.py
++++ b/platform/scripts/gem_annotate/cli.py
+@@ -37,6 +37,8 @@ def parse_args(argv=None):
+                         help="Apply the curated 2026-10-08 CoQ9/respiratory-chain package; requires --energy-candidate E5 --coq9-curation qcycle --coq9-biomass-dilution")
+     parser.add_argument("--r132-mito-adh", action="store_true",
+                         help="Remove R132 (matrix alcohol dehydrogenase) per the curated 2026-10-13 decision; requires --coq9-respiratory-package")
++    parser.add_argument("--r1964-gpr", action="store_true",
++                        help="Give orphan R1964 (arabinitol dehydrogenase) the provisional GPR YALI1F03452g or YALI1E06616g and D-xylulose cross-references (curated 2026-10-19)")
+     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
+                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
+     return parser.parse_args(argv)
+diff --git a/platform/scripts/gem_annotate/main.py b/platform/scripts/gem_annotate/main.py
+index c066d07..ece2b59 100644
+--- a/platform/scripts/gem_annotate/main.py
++++ b/platform/scripts/gem_annotate/main.py
+@@ -78,6 +78,7 @@ def build_reference_chain(
+     coq9_biomass_dilution: bool = False,
+     coq9_respiratory_package: bool = False,
+     r132_mito_adh: bool = False,
++    r1964_gpr: bool = False,
+ ):
+     starting_model_path = Path(starting_model_path)
+     # The literature patch is defined on the reviewed C5 + COQ9 context.
+@@ -695,6 +696,10 @@ def build_reference_chain(
+     if r132_mito_adh:
+         from .r132_mito_adh import apply_r132_mito_adh
+         selection["r132_mito_adh"] = apply_r132_mito_adh(model)
++    if r1964_gpr:
++        from .r1964_gpr import apply_r1964_gpr_assignment
++        selection["r1964_gpr_assignment"] = apply_r1964_gpr_assignment(model)
++        logger.info("R1964 GPR assignment: %s", selection["r1964_gpr_assignment"])
+     if coq9_functional_gpr:
+         if not selection["complete"] or not coq9["requested_mode_complete"]:
+             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
+@@ -779,6 +784,7 @@ def build_model(args):
+         coq9_biomass_dilution=getattr(args, "coq9_biomass_dilution", False),
+         coq9_respiratory_package=getattr(args, "coq9_respiratory_package", False),
+         r132_mito_adh=getattr(args, "r132_mito_adh", False),
++        r1964_gpr=getattr(args, "r1964_gpr", False),
+     )
+     output = args.output_model
+     evidence = gene_evidence(model)
+diff --git a/platform/scripts/gem_annotate/r1964_gpr.py b/platform/scripts/gem_annotate/r1964_gpr.py
+new file mode 100644
+index 0000000..a119b2a
+--- /dev/null
++++ b/platform/scripts/gem_annotate/r1964_gpr.py
+@@ -0,0 +1,68 @@
++"""Opt-in provisional GPR and D-xylulose cross-references for the orphan R1964 (arabinitol dehydrogenase)."""
++
++import copy
++import json
++
++from .config import MODEL
++
++CURATION_PATH = MODEL.curation_file("r1964_gpr_assignment.json")
++
++
++def apply_r1964_gpr_assignment(model, spec=None):
++    """Assign the reviewed GPR, cross-references and notes to R1964; fail closed otherwise."""
++    if spec is None:
++        spec = json.loads(CURATION_PATH.read_text())
++    if (spec.get("schema_version") != 1
++            or spec.get("assignment_id") != "R1964-ARADH-GPR-20261019"
++            or spec.get("status") != "user_authorized_provisional_assignment"
++            or spec.get("reaction_id") != "R1964"
++            or spec.get("before_gpr") != ""
++            or spec.get("after_gpr") != "YALI1F03452g or YALI1E06616g"
++            or set(spec.get("existing_genes", {})) != {"YALI1F03452g"}
++            or set(spec.get("new_genes", {})) != {"YALI1E06616g"}
++            or not isinstance(spec.get("before_notes"), dict)):
++        raise ValueError("Unexpected R1964 GPR assignment scope/status")
++    if "R1964" not in model.reactions:
++        raise ValueError("R1964 missing; no edits applied")
++    reaction = model.reactions.get_by_id("R1964")
++    state = (reaction.gene_reaction_rule, reaction.annotation)
++    after = (spec["after_gpr"], spec["after_annotation"])
++    if (reaction.name != spec["reaction_name"]
++            or list(reaction.bounds) != spec["bounds"]
++            or {m.id: c for m, c in reaction.metabolites.items()} != spec["stoichiometry"]
++            or {m.id: {k: getattr(m, k) for k in ("formula", "charge", "compartment")}
++                for m in reaction.metabolites} != spec["species"]
++            or state not in ((spec["before_gpr"], spec["before_annotation"]), after)):
++        raise ValueError("R1964 GPR assignment precondition differs; no edits applied")
++    if any(k in reaction.notes and reaction.notes[k] != v for k, v in spec["notes"].items()):
++        raise ValueError("Conflicting R1964 GPR assignment notes; no edits applied")
++    if {k: v for k, v in reaction.notes.items() if k not in spec["notes"]} != spec["before_notes"]:
++        raise ValueError("R1964 notes outside this curation differ; no edits applied")
++    # The after-state without these notes came from somewhere else; its evidence would be unrecorded.
++    if state == after and any(reaction.notes.get(k) != v for k, v in spec["notes"].items()):
++        raise ValueError("R1964 already carries this GPR without this curation; no edits applied")
++    for gene_id, row in spec["existing_genes"].items():
++        if gene_id not in model.genes:
++            raise ValueError(f"{gene_id} missing; no edits applied")
++        gene = model.genes.get_by_id(gene_id)
++        if (gene.annotation != row["annotation"]
++                or sorted(r.id for r in gene.reactions - {reaction}) != row["other_reactions"]):
++            raise ValueError(f"{gene_id} identity or reaction context differs; no edits applied")
++    for gene_id, row in spec["new_genes"].items():
++        if gene_id in model.genes:
++            gene = model.genes.get_by_id(gene_id)
++            # No verified gene name exists; the SBML writer stores the ID-derived default.
++            if (gene.annotation != row["annotation"] or gene.name not in ("", f"G_{gene_id}")
++                    or gene.reactions - {reaction}):
++                raise ValueError(f"{gene_id} already exists with other identity or reactions; no edits applied")
++    notes = {**reaction.notes, **spec["notes"]}
++    added = sorted(g for g in spec["new_genes"] if g not in model.genes)
++    changed = state != after or notes != reaction.notes or bool(added)
++    reaction.gene_reaction_rule = spec["after_gpr"]
++    for gene_id, row in spec["new_genes"].items():
++        model.genes.get_by_id(gene_id).annotation = copy.deepcopy(row["annotation"])
++    reaction.annotation = copy.deepcopy(spec["after_annotation"])
++    reaction.notes = notes
++    return {"item": reaction.id, "assignment_id": spec["assignment_id"],
++            "status": "applied" if changed else "already_correct",
++            "gpr": reaction.gene_reaction_rule, "added_genes": added, "evidence_status": spec["status"]}
+diff --git a/platform/tests/test_r1964_gpr.py b/platform/tests/test_r1964_gpr.py
+new file mode 100644
+index 0000000..c9d456a
+--- /dev/null
++++ b/platform/tests/test_r1964_gpr.py
+@@ -0,0 +1,151 @@
++"""R1964 provisional GPR: preservation, rejection, SBML roundtrip, OR logic and opt-in flag; no LPs."""
++
++import copy
++import json
++import tempfile
++import unittest
++from pathlib import Path
++
++from cobra.io import read_sbml_model
++
++from scripts.gem_annotate.cli import parse_args
++from scripts.gem_annotate.model_layout import MODEL
++from scripts.gem_annotate.r1964_gpr import CURATION_PATH, apply_r1964_gpr_assignment
++from scripts.gem_annotate.sbml import write_deterministic_sbml_model
++from tests.test_coq9_curation import annotations, semantics
++
++BASELINE = "E5_coq9_resp_pkg_r132_20261012.xml"
++NEW_GENE = "YALI1E06616g"
++
++
++def gene_table(model):
++    return {g.id: (copy.deepcopy(g.annotation), sorted(r.id for r in g.reactions)) for g in model.genes}
++
++
++def state(model):
++    return semantics(model), annotations(model), gene_table(model)
++
++
++class R1964GprTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        cls.spec = json.loads(CURATION_PATH.read_text())
++
++    def test_stale_inputs_fail_closed_without_edits(self):
++        precondition, outside = "precondition differs", "notes outside this curation"
++        old_gene, new_gene = "YALI1F03452g identity or reaction context", f"{NEW_GENE} already exists"
++        expected = {"name": precondition, "bounds": precondition, "gpr": precondition,
++                    "stoichiometry": precondition, "species": precondition, "compartment": precondition,
++                    "annotation": precondition, "notes": "Conflicting", "protein_class": outside,
++                    "extra_note": outside, "after_without_notes": "already carries this GPR",
++                    "existing_gene_identity": old_gene, "existing_gene_uniprot": old_gene,
++                    "existing_gene_context": old_gene, "new_gene_identity": new_gene,
++                    "new_gene_name": new_gene, "new_gene_context": new_gene}
++        baseline = state(self.model)
++        for field, message in expected.items():
++            bad = self.model.copy()
++            reaction = bad.reactions.R1964
++            # Model.copy() shares Gene.annotation dicts with the original: rebind, never mutate them.
++            old = bad.genes.YALI1F03452g
++            if field == "name":
++                reaction.name = "different dehydrogenase"
++            elif field == "bounds":
++                reaction.bounds = (0.0, 1000.0)
++            elif field == "gpr":
++                reaction.gene_reaction_rule = "YALI1E15452g"
++            elif field == "stoichiometry":
++                # The source equation's H+ is not this step's input.
++                reaction.add_metabolites({bad.metabolites.get_by_id("m10[C_cy]"): -1})
++            elif field == "species":
++                xylulose = bad.metabolites.get_by_id("m1015[C_cy]")
++                xylulose.formula, xylulose.charge = "C5H9O5", -1
++            elif field == "compartment":
++                bad.metabolites.get_by_id("m1823[C_cy]").compartment = "C_mi"
++            elif field == "annotation":
++                reaction.annotation["metanetx.reaction"] = "MNXR198270"
++            elif field == "notes":
++                reaction.notes["curated_gpr_assignment"] = "another review"
++            elif field == "protein_class":
++                reaction.notes["PROTEIN_CLASS"] = "1.1.1.250"
++            elif field == "extra_note":
++                reaction.notes["unreviewed_note"] = "added elsewhere"
++            elif field == "after_without_notes":
++                reaction.gene_reaction_rule = self.spec["after_gpr"]
++                reaction.annotation = copy.deepcopy(self.spec["after_annotation"])
++                bad.genes.get_by_id(NEW_GENE).annotation = copy.deepcopy(
++                    self.spec["new_genes"][NEW_GENE]["annotation"])
++            elif field == "existing_gene_identity":
++                old.annotation = {**old.annotation, "ncbigene": "2912324"}
++            elif field == "existing_gene_uniprot":
++                old.annotation = {**old.annotation, "uniprot": "Q6C6W8"}
++            elif field == "existing_gene_context":
++                bad.reactions.R801.gene_reaction_rule = "YALI1E15452g or YALI1F03452g"
++            elif field == "new_gene_identity":
++                # Create the gene without reactions (cobra keeps it after the GPR is reset).
++                bad.reactions.R801.gene_reaction_rule = "YALI1E15452g or " + NEW_GENE
++                bad.reactions.R801.gene_reaction_rule = "YALI1E15452g"
++                bad.genes.get_by_id(NEW_GENE).annotation = {"ncbigene": "1"}
++            elif field == "new_gene_name":
++                # The full after-state, but with an unverified gene symbol.
++                apply_r1964_gpr_assignment(bad)
++                bad.genes.get_by_id(NEW_GENE).name = "SOU1"
++            else:
++                bad.reactions.R801.gene_reaction_rule = "YALI1E15452g or " + NEW_GENE
++                bad.genes.get_by_id(NEW_GENE).annotation = copy.deepcopy(
++                    self.spec["new_genes"][NEW_GENE]["annotation"])
++            before = state(bad)
++            with self.subTest(field=field), self.assertRaisesRegex(ValueError, message):
++                apply_r1964_gpr_assignment(bad)
++            self.assertEqual(state(bad), before)
++        self.assertEqual(state(self.model), baseline, "A subcase leaked into the shared model")
++
++    def test_unexpected_scope_is_rejected(self):
++        for key, value in (("after_gpr", "YALI1F03452g"), ("status", "user_authorized"),
++                           ("new_genes", {})):
++            spec = copy.deepcopy(self.spec)
++            spec[key] = value
++            with self.subTest(key=key), self.assertRaises(ValueError):
++                apply_r1964_gpr_assignment(self.model.copy(), spec)
++
++    def test_changes_only_r1964_and_new_gene_and_survives_roundtrip(self):
++        # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
++        model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        expected = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        target = expected.reactions.R1964
++        target.gene_reaction_rule = self.spec["after_gpr"]
++        expected.genes.get_by_id(NEW_GENE).annotation = copy.deepcopy(self.spec["new_genes"][NEW_GENE]["annotation"])
++        target.annotation = copy.deepcopy(self.spec["after_annotation"])
++        target.notes.update(self.spec["notes"])
++        self.assertNotIn(NEW_GENE, model.genes)
++        result = apply_r1964_gpr_assignment(model)
++        self.assertEqual((result["status"], result["added_genes"]), ("applied", [NEW_GENE]))
++        self.assertTrue(state(model) == state(expected), "Unexpected model change")
++        self.assertEqual(model.reactions.R1964.check_mass_balance(), {})
++        self.assertEqual(sorted(r.id for r in model.genes.YALI1F03452g.reactions), ["R1964", "R2190"])
++        self.assertEqual(apply_r1964_gpr_assignment(model)["status"], "already_correct")
++        with tempfile.TemporaryDirectory() as directory:
++            path = Path(directory) / "r1964.xml"
++            write_deterministic_sbml_model(model, path)
++            loaded = read_sbml_model(str(path))
++        self.assertTrue(state(loaded) == state(expected), "Unexpected SBML roundtrip change")
++        self.assertEqual(apply_r1964_gpr_assignment(loaded)["status"], "already_correct")
++
++    def test_either_gene_keeps_r1964_open(self):
++        model = self.model.copy()
++        apply_r1964_gpr_assignment(model)
++        for knocked, closed in ((["YALI1F03452g"], {"R2190"}), ([NEW_GENE], set()),
++                                (["YALI1F03452g", NEW_GENE], {"R2190", "R1964"})):
++            with model, self.subTest(knocked=knocked):
++                for gene in knocked:
++                    model.genes.get_by_id(gene).knock_out()
++                self.assertEqual({r for r in ("R1964", "R2190") if model.reactions.get_by_id(r).bounds == (0, 0)},
++                                 closed)
++
++    def test_flag_is_opt_in(self):
++        self.assertFalse(parse_args([]).r1964_gpr)
++        self.assertTrue(parse_args(["--r1964-gpr"]).r1964_gpr)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/model/curation/gpr/r1964_gpr_assignment.json b/model/curation/gpr/r1964_gpr_assignment.json
+new file mode 100644
+index 0000000..8a243f6
+--- /dev/null
++++ b/model/curation/gpr/r1964_gpr_assignment.json
+@@ -0,0 +1,135 @@
++{
++  "schema_version": 1,
++  "assignment_id": "R1964-ARADH-GPR-20261019",
++  "status": "user_authorized_provisional_assignment",
++  "authorization": "2026-10-19 user: Approve the R1964 plan: opt-in step with provisional GPR YALI1F03452g or YALI1E06616g, plus the MNXR198271/Rhea 17921/EC 1.1.1.11 annotation fix, and the 5 LPs.",
++  "reaction_id": "R1964",
++  "reaction_name": "arabinitol dehydrogenase",
++  "before_gpr": "",
++  "after_gpr": "YALI1F03452g or YALI1E06616g",
++  "bounds": [-1000.0, 1000.0],
++  "stoichiometry": {
++    "m123[C_cy]": -1.0,
++    "m1015[C_cy]": -1.0,
++    "m122[C_cy]": 1.0,
++    "m1823[C_cy]": 1.0
++  },
++  "species": {
++    "m123[C_cy]": {"formula": "C21H29N7O14P2", "charge": 0, "compartment": "C_cy"},
++    "m1015[C_cy]": {"formula": "C5H10O5", "charge": 0, "compartment": "C_cy"},
++    "m122[C_cy]": {"formula": "C21H27N7O14P2", "charge": 0, "compartment": "C_cy"},
++    "m1823[C_cy]": {"formula": "C5H12O5", "charge": 0, "compartment": "C_cy"}
++  },
++  "before_annotation": {
++    "sbo": "SBO:0000176",
++    "bigg.reaction": ["ABTD1", "R_ABTD1"],
++    "vmhreaction": ["ABTD1", "R_ABTD1"],
++    "metanetx.reaction": "MNXR154181",
++    "biggr": ["ABTD1", "R_ABTD1"],
++    "vmhr": ["ABTD1", "R_ABTD1"]
++  },
++  "after_annotation": {
++    "sbo": "SBO:0000176",
++    "bigg.reaction": ["ABTDG", "R_ABTDG"],
++    "vmhreaction": ["ABTDG", "R_ABTDG"],
++    "metacyc.reaction": "D-ARABINITOL-4-DEHYDROGENASE-RXN",
++    "rh": ["17921", "17922", "17923", "17924"],
++    "rhea": ["17921", "17922", "17923", "17924"],
++    "kegg.reaction": "R05604",
++    "metanetx.reaction": "MNXR198271",
++    "ec-code": "1.1.1.11",
++    "biggr": ["ABTDG", "R_ABTDG"],
++    "keggr": "R05604",
++    "metacycr": "D-ARABINITOL-4-DEHYDROGENASE-RXN",
++    "vmhr": ["ABTDG", "R_ABTDG"]
++  },
++  "before_notes": {"PROTEIN_CLASS": "1.1.1.11"},
++  "existing_genes": {
++    "YALI1F03452g": {
++      "annotation": {
++        "sbo": "SBO:0000243",
++        "ncbigene": "2908139",
++        "uniprot": "A0A1H6PMI9",
++        "kegg.genes": "yli:2908139",
++        "refseq": "XP_504895.1",
++        "ec-code": "1.1.1.250"
++      },
++      "other_reactions": ["R2190"]
++    }
++  },
++  "new_genes": {
++    "YALI1E06616g": {
++      "annotation": {
++        "sbo": "SBO:0000243",
++        "ncbigene": "2912324",
++        "kegg.genes": "yli:2912324",
++        "refseq": "XP_503594.1",
++        "uniprot": "Q6C6W8"
++      },
++      "identity": "NCBI Gene 2912324 (YALI1_E06616g, old tag YALI2_E00126g) encodes XP_503594.1 (291 aa), identical in sequence to UniProt Q6C6W8 (YALI0_E05643g, CLIB122); compared 2026-10-19. No gene name is verified: NCBI 'uncharacterized protein', KEGG RefSeq-derived 'Sorbose reductase sou1' with no KO; 'YlAraDH2' is the name used by Wang et al. 2020."
++    }
++  },
++  "reviewed_model": {
++    "path": "model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
++    "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
++  },
++  "review": "model/reports/r1964_gpr_review_20261019/REPORT.md",
++  "reviewer": "Claude Code session (delegated read-only review, 2026-10-19); decision by the user",
++  "evidence": [
++    {
++      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7576711/",
++      "claim": "Wang et al. 2020 (doi:10.1186/s13068-020-01815-8) Table 2: purified YlAraDH1 (YALI0F02211g, = YALI1F03452g) and YlAraDH2 (YALI0E05643g, = YALI1E06616g), NAD(H)-dependent, reduce D-xylulose with NADH (1.4 and 2.2 U/mg, pH 6.0; product named arabitol) and oxidize D-arabitol with NAD+ (5.3 and 6.3 U/mg, pH 8.0; product named D-xylulose).",
++      "tier": "verified",
++      "scope": "In vitro, His-tagged protein from E. coli, >95 % pure; activity followed at 340 nm only, so products were assigned, not identified; no host-background control described; no deletion phenotype on 300 g/L glucose.",
++      "accessed": "2026-10-19"
++    },
++    {
++      "url": "https://www.ncbi.nlm.nih.gov/gene/2912324",
++      "claim": "YALI1_E06616g (GeneID 2912324) encodes XP_503594.1; its sequence equals UniProt Q6C6W8 (YALI0_E05643g); Wang et al. primer termini MSNSAKAAV / IDGGYTII* match.",
++      "tier": "verified",
++      "scope": "Identity only; the CGMCC7326 clone's internal sequence was not compared.",
++      "accessed": "2026-10-19"
++    },
++    {
++      "url": "https://www.metanetx.org/equa_info/MNXR198271",
++      "claim": "MNXref 4.5 (local reac_prop.tsv/reac_xref.tsv): MNXR198271 = D-arabinitol + NAD(+) = D-xylulose (MNXM1371292, the model's m1015) + NADH + H(+), EC 1.1.1.11, xrefs Rhea 17921-17924, BiGG/VMH ABTDG, MetaCyc D-ARABINITOL-4-DEHYDROGENASE-RXN. The replaced MNXR154181 (BiGG/VMH ABTD1) uses L-xylulose (MNXM1371095).",
++      "source": "$IYALI26_RESEARCH_ROOT/reference/metanetx/reac_prop.tsv, reac_xref.tsv, chem_prop.tsv (MNXref 4.5, local copy)",
++      "tier": "verified in the local MNXref 4.5 tables; the URL itself was not opened",
++      "scope": "Identifier resolution only.",
++      "accessed": "2026-10-19"
++    },
++    {
++      "url": "https://www.kegg.jp/entry/R05604",
++      "claim": "R05604 D-arabinitol:NAD 4-oxidoreductase, C01904 + C00003 <=> C00310 + C00004 + C00080, EC 1.1.1.11.",
++      "tier": "verified",
++      "scope": "MNXref 4.5 maps R05604 to MNXR198270, which differs from MNXR198271 only in using alpha-D-xylulofuranose.",
++      "accessed": "2026-10-19"
++    },
++    {
++      "url": "https://www.rhea-db.org/rhea/17921",
++      "claim": "D-arabinitol + NAD(+) = D-xylulose + NADH + H(+); EC 1.1.1.11.",
++      "tier": "verified",
++      "scope": "Reaction definition; not organism evidence.",
++      "accessed": "2026-10-19"
++    },
++    {
++      "url": "https://pubmed.ncbi.nlm.nih.gov/7483848/",
++      "claim": "Hallborn et al. 1995: the homologous Pichia stipitis SDR D-arabinitol dehydrogenase yields D-ribulose from D-arabinitol (EC 1.1.1.250 regiochemistry).",
++      "tier": "verified (abstract)",
++      "scope": "Related organism; evidence against the C-4 reading for the homolog, kept as a limit.",
++      "accessed": "2026-10-19"
++    }
++  ],
++  "notes": {
++    "curated_gpr_assignment": "R1964-ARADH-GPR-20261019",
++    "gpr_evidence_status": "user_authorized_provisional_assignment",
++    "gpr_evidence_basis": "In vitro activity of the purified Y. lipolytica proteins (Wang et al. 2020, doi:10.1186/s13068-020-01815-8, Table 2): NADH-linked D-xylulose reduction and NAD+-linked D-arabitol oxidation; reaction products assigned from a 340 nm NAD(P)H assay, not identified",
++    "gpr_experimental_confirmation": "required_not_confirmed",
++    "r1964_previous_gpr": "empty",
++    "r1964_gene_function": "YALI1F03452g (= YALI0F02211g, called YlAraDH1 in Wang 2020) and YALI1E06616g (= YALI0E05643g, called YlAraDH2); no verified gene names; NAD(H)-dependent short-chain polyol dehydrogenases also active on mannitol, D-sorbitol and xylitol in vitro; no deletion phenotype on glucose; experimental product identification required.",
++    "r1964_regiochemistry_limit": "Whether these enzymes oxidize D-arabinitol at C-4 (D-xylulose, this reaction, EC 1.1.1.11) or at C-2 (D-ribulose, EC 1.1.1.250, the homology label on YALI1F03452g and R2190) is not settled: D-ribulose was never tested; a stereochemical reading of the measured substrate pattern favours C-4 (inferred); the 42 % identical fungal homologs form D-ribulose.",
++    "r1964_previous_annotation": "bigg.reaction/vmhreaction ABTD1, metanetx.reaction MNXR154181 (L-arabinitol 4-dehydrogenase record pairing D-arabinitol with L-xylulose); replaced because m1015 is D-xylulose (MNXM1371292).",
++    "r1964_annotation_sources": "https://www.metanetx.org/equa_info/MNXR198271; https://www.rhea-db.org/rhea/17921; https://www.kegg.jp/entry/R05604; https://enzyme.expasy.org/EC/1.1.1.11",
++    "r1964_gpr_authorization": "User authorized the opt-in provisional GPR YALI1F03452g or YALI1E06616g and the D-xylulose cross-references on 2026-10-19 (model/reports/r1964_gpr_20261019)."
++  }
++}
