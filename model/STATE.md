@@ -5,6 +5,91 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-21: Why complex III/IV single-gene knockouts have no solution in the bench context (diagnostic)
+
+**Authorization.** User, 2026-10-21: "Trace why the complex III and complex IV single-gene knockouts have no
+LP solution in the bench context (which bound or forced flux makes them infeasible), read-only, no model
+changes." Then: "Add a dated model/STATE.md entry … No other files." So there is no REPORT.md, saved script or
+audit for this trace. Worktree `claude/unsolved-solution-genes-15pct-9c2a4e` @ `a78a49d`, uncommitted.
+
+**Setup.** The 2026-10-14 `bench` context, rebuilt in memory with Task B's `context()`
+(`model/reports/r132_mito_adh_20261012/run_task_b.py`, `8a35c417…`). Its inputs:
+- model `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`);
+- medium `po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`);
+- profile `po1f_sd_leu.json` (`35307853…`);
+- Gurobi with Task B's parameters, main-checkout `.venv`.
+
+Commands were inline Python and were not saved. 18 LPs plus one Gurobi IIS.
+
+**Results** (verified: observed in runs this session unless marked).
+- **Reproduction:**
+  - WT 0.3124267, matching 2026-10-14;
+  - R305 and R304 knockouts infeasible;
+  - R171 KO growth 0.03426;
+  - R2062 KO growth 0.23677.
+- **Only forced flux:** `xMAINTENANCE` (NGAM, ATP + H2O → ADP + Pi) has a lower bound of 7.8625. No other
+  reaction has lb > 0 or ub < 0. Glucose uptake (R1070) is capped at 2.414.
+- **ATP ceiling:** with NGAM lb = 0 and NGAM as the objective, the maximum NGAM flux is:
+  - WT 63.33;
+  - R305 KO 4.828;
+  - R304 KO 4.828;
+  - R171 KO 9.724.
+
+  4.828 = 2 × 2.414, which is below 7.8625, so the knockout LP is infeasible at any growth, including zero.
+- **No respiratory bypass in the model:**
+  - Mitochondrial ubiquinol-9 `m471[C_mi]` has R305 as its only consumer, so there is no alternative
+    oxidase. Its producers are R2062, R570, R740, R1977 and R262.
+  - Ferrocytochrome c `m3[C_mi]` is reoxidized only by R304 and by the peroxidase R303. R303 does not
+    raise the 4.828 ceiling.
+- **Max-ATP route under the R305 KO:** glucose → ethanol (R1112) 4.81 + CO2 4.81, with cytosolic NADH
+  reoxidized by R130 (ADH). Zero flux through R304, R2062, R570, R171, R740 and R1977, and no mitochondrial O2
+  use. One optimum; the route is not proven unique.
+- **IIS (R305 KO, biomass objective):** 892 bound members and 1,061 rows. Apart from zero and direction bounds,
+  the only real values are:
+  - the R1070 uptake cap 2.414;
+  - five amino-acid caps (R1202, R1204, R1222, R1231, R1233, each ≤ 0.018);
+  - the NGAM lower bound 7.8625.
+
+  This is one irreducible subsystem; others may exist.
+- **Controls:**
+  - With NGAM lb = 0, both knockouts become feasible: growth 0.0958 (R305) and 0.0637 (R304).
+  - Raising glucose uptake: both knockouts are infeasible at 3.90 and feasible at 3.97 (growth ≈ 0.002).
+    This brackets 7.8625 / 2 ≈ 3.93, which is inferred and ignores the amino-acid ATP.
+- **Gene scope:**
+  - The R305 rule (11 genes) and the R304 rule (9 genes) are pure AND rules. So each member's single-gene KO
+    removes the whole reaction. The 2026-10-14 `bench` TSV has 20 infeasible genes: 16 scored and 4 mtDNA.
+    The 16 scored genes are 10 complex III and 6 complex IV genes; 11 are positives and 5 are negatives.
+  - YALI1D11769g also removes R1, R2, R3 and R303. Provable: removing more reactions cannot restore
+    feasibility.
+  - The 11 extra `diag` unresolved genes (ATP synthase, R171) were not traced.
+
+**Interpretation.**
+- These are energy shortfalls in the model, not numerical failures: without respiration, fermentative ATP from
+  the capped glucose cannot cover NGAM.
+- `benchmark.md` still scores no solution as unresolved; this trace changes no rule or call.
+- Relaxing NGAM is not a valid workaround. Its KO/WT ratios would exceed 15 % only because maintenance is no
+  longer charged.
+
+**Decision status.** Nothing proposed. No model, medium, profile, rule or benchmark change.
+
+**Gaps.**
+- **Limits a claim:**
+  - The commands are not saved, so this entry is the only record.
+  - No independent audit.
+  - The origin of NGAM 7.8625 was not checked.
+  - Only the glucose medium and the `bench` context were traced.
+  - The glucose threshold was bracketed with two points only.
+- **Affects another line (recalled, not checked this session; no source opened):**
+  - *Y. lipolytica* is usually described as strictly aerobic, so ethanol fermentation as the model's escape
+    route is questionable. Without it the ceiling would be lower and the outcome the same.
+  - *Y. lipolytica* is believed to have an alternative oxidase, which the model lacks. Adding one would bypass
+    R305 and R304 and could change these calls. That needs its own evidence-based curation, never a score
+    gain.
+- **Affects another line (verified from the model XML):**
+  - YALI0F04114g (Cox9 ortholog) carries the same NCBI/RefSeq/EC 7.1.1.8 links as complex III gene
+    YALI1A03322g.
+  - YALI1E12730g, YALI1E15606g and YALI1E19902g share one NCBI gene (2911633).
+
 ## 2026-10-20: Combined candidate of the eight 2026-10-19 opt-in changes, pushed on its own branch
 
 **Authorization.** User: "push the newest model", then chose "Combine first, then push". Then the
