@@ -318,6 +318,64 @@ reactions, or the target GPR without this curation's notes stop the step before
 it mutates the model. Without the flag, builds are unchanged. Focused regression:
 `python -m unittest tests.test_r1964_gpr`.
 
+## Opt-in GPI-anchor chain links (2026-10-21)
+
+With `--gpi-chain-links`, the build applies `gapfill/gpi_chain_links.json` after the
+`--r1964-gpr` step (curation ID `GPI-CHAIN-LINKS-20261021`). It adds five gene-less reactions.
+Without them, the GPI chain R371, R113 and R372–R376 is blocked (FVA maximum 0).
+
+| Reaction | Effect |
+| --- | --- |
+| `R_GPIGNT` | Step 1, GlcNAc-PI synthesis (KEGG R05916, EC 2.4.1.198): UDP-GlcNAc[c] + PI[em] + 2 H+[c] → UDP[c] + GlcNAc-PI[er]. Irreversible. |
+| `R_PEt_em_er` | Links the ER-membrane PE pool to PE in C_er. |
+| `R_DAGt_er_em` | Returns DAG from C_er to the ER-membrane pool. |
+| `R_ACt_er_cy` | Moves acetate from C_er to the cytosol. |
+| `R_DM_GPI` | An open demand for the chain end product. It is not forced, so growth is unchanged. |
+
+- C_em is named "endosomal membrane" in the SBML, but it holds the ER-membrane lipid reactions.
+- The stop conditions, checked before the model is changed:
+  - unexpected identity of a touched species;
+  - a C_er dead end or chain intermediate that gained another reaction;
+  - a changed chain reaction;
+  - a missing target group;
+  - a link that is already present with another definition, or only some of them present.
+- Without the flag, builds are unchanged.
+- Not included:
+  - the R373 DAG and R375 Dol-P co-products;
+  - a step-1 GPR;
+  - a GPI term in biomass.
+- [Report](../reports/gpi_chain_links_20261021/REPORT.md). Focused regression:
+  `python -m unittest tests.test_gpi_chain_links`.
+
+## Opt-in GPI chain co-products (2026-10-21)
+
+With `--gpi-coproducts`, the build applies `chemistry/gpi_coproducts.json` right after the GPI chain
+links (curation ID `GPI-COPRODUCTS-20261021`). The flag requires `--gpi-chain-links`.
+
+| Reaction | Added product | Evidence |
+| --- | --- | --- |
+| R373 (EtNP from PE onto Man1) | DAG m604[C_er] | KEGG R12351, GPI-EtNP transferase 1 (K05285) |
+| R375 (third mannose) | Dol-P m503[C_er] | KEGG R05922, GPI mannosyltransferase 3 (K05286) |
+
+- Bounds, GPRs, names and annotations are unchanged.
+- The stop conditions, checked before the model is changed:
+  - the links are missing or differ from their recorded bounds and stoichiometry;
+  - an unexpected identity of DAG, Dol-P, Dol-P-Man or PE;
+  - DAG m604 gained another reaction;
+  - R373 or R375 differ from the recorded before- or after-state;
+  - notes outside this curation;
+  - a co-product already present without this curation's notes;
+  - only one co-product applied.
+- **Mass balance:** R373 cannot be checked, because the GPI intermediates have no formulas and the
+  model's DAG formula (C6H8O6) is not a diacylglycerol. For R375, Dol-P-Man − Dol-P = C6H10O5, one
+  mannosyl residue.
+- **The links data changed too.** In the same change, the R_GPIGNT rationale note in
+  `gapfill/gpi_chain_links.json` was reworded: the 2 H+ come from the stored charges of m403 and
+  m11. A `--gpi-chain-links`-only build therefore no longer reproduces `89559a0f`; it differs only
+  in that note.
+- [Report](../reports/gpi_coproducts_20261021/REPORT.md). Focused regression:
+  `python -m unittest tests.test_gpi_coproducts`.
+
 
 ### Optional E5 vacuole connection candidate (2026-09-24)
 

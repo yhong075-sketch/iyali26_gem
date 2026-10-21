@@ -1,0 +1,138 @@
+"""GPI co-products: preservation, rejection, SBML roundtrip, exact edits and the flag requirement; no LPs."""
+
+import copy
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+from cobra import Reaction
+from cobra.io import read_sbml_model
+
+from scripts.gem_annotate.cli import parse_args
+from scripts.gem_annotate.gpi_coproducts import CURATION_PATH, apply_gpi_coproducts
+from scripts.gem_annotate.main import build_reference_chain
+from scripts.gem_annotate.model_layout import MODEL
+from scripts.gem_annotate.sbml import write_deterministic_sbml_model
+from tests.test_coq9_curation import annotations, semantics
+from tests.test_gpi_chain_links import group_table
+
+BASELINE = "E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml"
+TARGETS = ("R373", "R375")
+
+
+def state(model):
+    return semantics(model), annotations(model), group_table(model)
+
+
+class GpiCoproductsTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        cls.spec = json.loads(CURATION_PATH.read_text())
+
+    def test_stale_inputs_fail_closed_without_edits(self):
+        precondition = "precondition differs"
+        expected = {"no_links": "require the GPI chain links",
+                    "altered_link": "R_DAGt_er_em differs from the GPI chain links",
+                    "notes_without_coproduct": "R373 carries this curation's notes without the co-product",
+                    "dag_context": "m604\\[C_er\\] reaction context differs",
+                    "species_identity": "m503\\[C_er\\] identity differs",
+                    "bounds": f"R375 {precondition}", "gpr": f"R373 {precondition}",
+                    "stoichiometry": f"R375 {precondition}", "annotation": f"R373 {precondition}",
+                    "extra_note": "R373 notes outside this curation differ",
+                    "conflicting_note": "Conflicting R373 co-product notes",
+                    "after_without_notes": "R373 already carries the co-product without this curation",
+                    "partial": "Only one GPI co-product is present"}
+        baseline = state(self.model)
+        for field, message in expected.items():
+            bad = self.model.copy()
+            if field == "no_links":
+                bad.remove_reactions([bad.reactions.R_DAGt_er_em])
+            elif field == "altered_link":
+                # Present but closed: DAG from R373 would have no exit.
+                bad.reactions.R_DAGt_er_em.bounds = (0.0, 0.0)
+            elif field == "notes_without_coproduct":
+                apply_gpi_coproducts(bad)
+                bad.reactions.R373.subtract_metabolites({bad.metabolites.get_by_id("m604[C_er]"): 1})
+            elif field == "dag_context":
+                sink = Reaction("R_TEST_SINK", lower_bound=0.0, upper_bound=1000.0)
+                bad.add_reactions([sink])
+                sink.add_metabolites({bad.metabolites.get_by_id("m604[C_er]"): -1})
+            elif field == "species_identity":
+                bad.metabolites.get_by_id("m503[C_er]").formula = "C20H37O4P"
+            elif field == "bounds":
+                bad.reactions.R375.bounds = (0.0, 1000.0)
+            elif field == "gpr":
+                bad.reactions.R373.gene_reaction_rule = "YALI1D05270g"
+            elif field == "stoichiometry":
+                # A co-product other than the reviewed one.
+                bad.reactions.R375.add_metabolites({bad.metabolites.get_by_id("m102[C_er]"): 1})
+            elif field == "annotation":
+                bad.reactions.R373.annotation = {**bad.reactions.R373.annotation, "ec-code": "2.7.-.-"}
+            elif field == "extra_note":
+                bad.reactions.R373.notes = {"unreviewed_note": "added elsewhere"}
+            elif field == "conflicting_note":
+                bad.reactions.R373.notes = {"gpi_coproducts_status": "another review"}
+            elif field == "after_without_notes":
+                bad.reactions.R373.add_metabolites({bad.metabolites.get_by_id("m604[C_er]"): 1})
+            else:
+                apply_gpi_coproducts(bad)
+                bad.reactions.R375.subtract_metabolites({bad.metabolites.get_by_id("m503[C_er]"): 1})
+                bad.reactions.R375.notes = {}
+            before = state(bad)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, message):
+                apply_gpi_coproducts(bad)
+            self.assertEqual(state(bad), before)
+        self.assertEqual(state(self.model), baseline, "A subcase leaked into the shared model")
+
+    def test_unexpected_scope_is_rejected(self):
+        for key, value in (("status", "user_authorized"), ("curation_id", "GPI-COPRODUCTS"),
+                           ("reactions", {"R373": self.spec["reactions"]["R373"]}),
+                           ("requires_reactions", {})):
+            spec = copy.deepcopy(self.spec)
+            spec[key] = value
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "scope/status"):
+                apply_gpi_coproducts(self.model.copy(), spec)
+
+    def test_changes_only_the_two_equations_and_survives_roundtrip(self):
+        # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
+        model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        expected = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        for rid, product in (("R373", "m604[C_er]"), ("R375", "m503[C_er]")):
+            reaction, row = expected.reactions.get_by_id(rid), self.spec["reactions"][rid]
+            reaction.add_metabolites({expected.metabolites.get_by_id(product): 1})
+            reaction.notes = {**reaction.notes, **{
+                "gpi_coproducts_curation_id": self.spec["curation_id"],
+                "gpi_coproducts_status": self.spec["status"],
+                "gpi_coproducts_authorization": self.spec["authorization"],
+                "gpi_coproducts_evidence": row["evidence"],
+                "gpi_coproducts_evidence_tier": row["evidence_tier"],
+                "gpi_coproducts_rationale": row["rationale"],
+                "gpi_coproducts_previous_equation": row["previous_equation"]}}
+        result = apply_gpi_coproducts(model)
+        self.assertEqual((result["status"], result["changed_reactions"]), ("applied", list(TARGETS)))
+        self.assertTrue(state(model) == state(expected), "Unexpected model change")
+        for rid in TARGETS:
+            self.assertEqual({m.id: c for m, c in model.reactions.get_by_id(rid).metabolites.items()},
+                             self.spec["reactions"][rid]["after_stoichiometry"])
+        # Dol-P-Man minus Dol-P is one mannosyl residue, the residue R375 transfers.
+        donor, carrier = model.metabolites.get_by_id("m502[C_er]"), model.metabolites.get_by_id("m503[C_er]")
+        self.assertEqual((donor.formula, carrier.formula), ("C26H47O9P(C5H8)n", "C20H37O4P(C5H8)n"))
+        self.assertEqual(apply_gpi_coproducts(model)["status"], "already_correct")
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "gpi_coproducts.xml"
+            write_deterministic_sbml_model(model, path)
+            loaded = read_sbml_model(str(path))
+        self.assertTrue(state(loaded) == state(expected), "Unexpected SBML roundtrip change")
+        self.assertEqual(apply_gpi_coproducts(loaded)["status"], "already_correct")
+
+    def test_flag_requires_the_chain_links(self):
+        self.assertFalse(parse_args([]).gpi_coproducts)
+        self.assertTrue(parse_args(["--gpi-coproducts"]).gpi_coproducts)
+        with self.assertRaisesRegex(ValueError, "defined on the GPI chain links"):
+            build_reference_chain(gpi_coproducts=True)
+
+
+if __name__ == "__main__":
+    unittest.main()
