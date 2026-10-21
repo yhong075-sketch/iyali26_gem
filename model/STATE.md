@@ -5,6 +5,29 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-21: newest candidate b3b9fe22 screened (no overlay and overlay); figure vs iYali21 in the overlay lethal view
+
+**Authorization.** "make a new one by our newest model"; the user chose b3b9fe22 and the overlay +
+lethal view figure, with both screens of the new model (about 2,310 LPs; 2,271 used). No model change.
+On `claude/confusion-matrices-iyali21-7e63ca`, on top of `4569682`. Details:
+[REPORT.md](reports/screen_b3b9fe22_w29_20261021/REPORT.md).
+
+**Model.** `E5_coq9_resp_pkg_r132_combined_lipoylation_acylacp_20261020.xml` (`b3b9fe22…`), committed in
+`9f2356b` on the unmerged branch `claude/combined-candidate-20261019`; read from a byte-identical export.
+
+**Results at 15 %** (verified this session; mtDNA out of scope; user-defined negatives; development
+reference; overlay results diagnostic):
+- No overlay: 93 / 220 / 36 / 696, 16 unresolved, MCC 0.345 (a56f3649: 82 / 229 / 33 / 697, 0.319).
+- Overlay, lethal view: 113 / 211 / 43 / 694, MCC 0.378 (a56f3649: 102 / 220 / 40 / 695, 0.354).
+- Versus a56f3649, at every cutoff and both conditions: 11 shared genes become essential (optimal at
+  zero growth; 9 listed), on acyl-ACP/ACP, lipoyl-dependent dehydrogenase and transketolase
+  reactions; plus 4 new genes (3 essential, 2 listed). Causes inferred from reaction membership, not
+  traced.
+- Figure [confusion_matrices_15pct_b3b9fe22_overlay_lethal.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_b3b9fe22_overlay_lethal.png):
+  iYali21 74 / 246 / 30 / 692 (MCC 0.292) vs b3b9fe22 113 / 211 / 43 / 694 (MCC 0.378).
+
+**Limits.** b3b9fe22 is unmerged and unpushed. No independent audit.
+
 ## 2026-10-14: iYali21 screened under the adapted diagnostic overlay; figure with both models under iYali26's panel conditions
 
 **Authorization.** The user asked for both panels "under iYali26 condition" and approved a screen of
