@@ -1,0 +1,150 @@
+{
+ "schema_version": 1,
+ "curation_id": "GPI-COPRODUCTS-20261021",
+ "status": "user_authorized_stoichiometry_correction",
+ "authorization": "2026-10-21 user: Approved: implement the GPI co-product plan as written (new --gpi-coproducts flag requiring --gpi-chain-links, R373 + DAG, R375 + Dol-P, R_GPIGNT note fix, KO comparison included; R376 and the DAG formula left as findings). No commit or push.",
+ "baseline_model_sha256": "89559a0f04fa38a58a563d6dc8b2f9279a933b810461e7fa731359ad670db718",
+ "report": "model/reports/gpi_coproducts_20261021/",
+ "requires_reactions": {
+  "R_GPIGNT": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m403[C_cy]": -1.0,
+    "m1648[C_em]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m11[C_cy]": 1.0,
+    "m596[C_er]": 1.0
+   }
+  },
+  "R_PEt_em_er": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m1633[C_em]": -1.0,
+    "m599[C_er]": 1.0
+   }
+  },
+  "R_DAGt_er_em": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m604[C_er]": -1.0,
+    "m1649[C_em]": 1.0
+   }
+  },
+  "R_ACt_er_cy": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m597[C_er]": -1.0,
+    "m202[C_cy]": 1.0
+   }
+  },
+  "R_DM_GPI": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m603[C_er]": -1.0
+   }
+  }
+ },
+ "species": {
+  "m604[C_er]": {
+   "name": "diglyceride",
+   "formula": "C6H8O6",
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R376",
+    "R_DAGt_er_em"
+   ]
+  },
+  "m503[C_er]": {
+   "name": "dolichyl phosphate_C20H37O4P(C5H8)n",
+   "formula": "C20H37O4P(C5H8)n",
+   "charge": 0,
+   "compartment": "C_er"
+  },
+  "m502[C_er]": {
+   "name": "dolichyl D-mannosyl phosphate_C26H47O9P(C5H8)n",
+   "formula": "C26H47O9P(C5H8)n",
+   "charge": 0,
+   "compartment": "C_er"
+  },
+  "m599[C_er]": {
+   "name": "phosphatidylethanolamine_C7H12NO8PR2",
+   "formula": "C7H12NO8PR2",
+   "charge": 0,
+   "compartment": "C_er"
+  }
+ },
+ "reactions": {
+  "R373": {
+   "name": "GPI-anchor assembly, step 6",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F27343g",
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "ec-code": "2.-.-.-"
+   },
+   "notes_before": {},
+   "before_stoichiometry": {
+    "m598[C_er]": -1.0,
+    "m599[C_er]": -1.0,
+    "m600[C_er]": 1.0
+   },
+   "after_stoichiometry": {
+    "m598[C_er]": -1.0,
+    "m599[C_er]": -1.0,
+    "m600[C_er]": 1.0,
+    "m604[C_er]": 1.0
+   },
+   "evidence": "https://www.kegg.jp/entry/R12351 ; https://www.kegg.jp/entry/K05285 ; KEGG gene yli:2908691 (RefSeq XP_505669, the kegg.genes of YALI1F27343g) is assigned to K05285",
+   "evidence_tier": "co-product verified against KEGG R12351 and all PE-donor EtNP transfers in map00563 (2026-10-21); the gene assignment is a KEGG ortholog call, not experimental validation; mass balance not checkable (GPI intermediates have no formula and the model DAG formula C6H8O6 is not a diacylglycerol)",
+   "rationale": "Ethanolamine phosphate transfer from PE releases 1,2-diacylglycerol; the reaction consumed PE and released nothing. DAG goes to the C_er pool m604, which R_DAGt_er_em returns to the ER membrane.",
+   "previous_equation": "m598[C_er] + m599[C_er] = m600[C_er], without DAG"
+  },
+  "R375": {
+   "name": "GPI-anchor assembly, step 8",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1D05270g",
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "ec-code": "2.4.1.-"
+   },
+   "notes_before": {},
+   "before_stoichiometry": {
+    "m502[C_er]": -1.0,
+    "m601[C_er]": -1.0,
+    "m602[C_er]": 1.0
+   },
+   "after_stoichiometry": {
+    "m502[C_er]": -1.0,
+    "m601[C_er]": -1.0,
+    "m602[C_er]": 1.0,
+    "m503[C_er]": 1.0
+   },
+   "evidence": "https://www.kegg.jp/entry/R05922 ; https://www.kegg.jp/entry/K05286 ; KEGG gene yli:2910629 (RefSeq XP_502394, the kegg.genes of YALI1D05270g) is assigned to K05286",
+   "evidence_tier": "co-product verified against KEGG R05922, the same step: G00148 (Man)2 (EtN)1 to G00149 (Man)3 (EtN)1 (2026-10-21); Dol-P-Man minus Dol-P in the model is C6H10O5, one mannosyl residue; the gene assignment is a KEGG ortholog call, not experimental validation",
+   "rationale": "Mannosyl transfer from dolichyl phosphate mannose releases dolichyl phosphate, as R372 and R374 already encode; the reaction consumed the dolichol carrier.",
+   "previous_equation": "m502[C_er] + m601[C_er] = m602[C_er], without Dol-P"
+  }
+ }
+}

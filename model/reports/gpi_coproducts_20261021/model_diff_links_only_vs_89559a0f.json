@@ -1,0 +1,23 @@
+[
+ {
+  "section": "reactions",
+  "item": "R_GPIGNT",
+  "field": "notes",
+  "before": {
+   "gpi_chain_links_curation_id": "GPI-CHAIN-LINKS-20261021",
+   "gpi_chain_links_status": "user_authorized_connectivity_fix",
+   "gpi_chain_links_authorization": "2026-10-21 user: Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open demand, co-product fix as a later change, KO comparison included). No commit or push.",
+   "gpi_chain_links_evidence": "https://www.kegg.jp/entry/R05916 ; https://www.kegg.jp/entry/2.4.1.198",
+   "gpi_chain_links_evidence_tier": "equation verified against KEGG R05916 (2026-10-20); cytosolic UDP-GlcNAc and ER-membrane PI are established/uncited; no Y. lipolytica gene assigned",
+   "gpi_chain_links_rationale": "No reaction made GlcNAc-PI (m596), so the GPI chain had no entry. UDP-GlcNAc and UDP are the cytosolic species with formulas (m403, m11); PI is the ER-membrane pool (m1648, made by R1839). The 2 H+ reconcile the stored charges (UDP-GlcNAc -2, UDP 0); KEGG does not balance protons. Irreversible: glycosyl transfer from a nucleotide sugar."
+  },
+  "after": {
+   "gpi_chain_links_curation_id": "GPI-CHAIN-LINKS-20261021",
+   "gpi_chain_links_status": "user_authorized_connectivity_fix",
+   "gpi_chain_links_authorization": "2026-10-21 user: Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open demand, co-product fix as a later change, KO comparison included). No commit or push.",
+   "gpi_chain_links_evidence": "https://www.kegg.jp/entry/R05916 ; https://www.kegg.jp/entry/2.4.1.198",
+   "gpi_chain_links_evidence_tier": "equation verified against KEGG R05916 (2026-10-20); cytosolic UDP-GlcNAc and ER-membrane PI are established/uncited; no Y. lipolytica gene assigned",
+   "gpi_chain_links_rationale": "No reaction made GlcNAc-PI (m596), so the GPI chain had no entry. UDP-GlcNAc and UDP are the cytosolic species with formulas (m403, m11); PI is the ER-membrane pool (m1648, made by R1839). The 2 H+ are needed because the model stores UDP-GlcNAc (m403) at charge -2 and UDP (m11) at 0, as R778 and R211 do; KEGG writes the equation for neutral species. Irreversible: glycosyl transfer from a nucleotide sugar."
+  }
+ }
+]

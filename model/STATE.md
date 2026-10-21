@@ -5,6 +5,124 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
+
+**Decision.** The user, 2026-10-21:
+
+> "Keep the GPI exit open as it is; the sub-1e-6 knockout effect is acceptable."
+
+**What it covers.**
+- R_DM_GPI keeps bounds (0, 1000), open and not forced, in both GPI candidates (`89559a0f`,
+  `cf0825b8`).
+- No model change.
+
+**What was accepted** (verified, [co-products REPORT §6](reports/gpi_coproducts_20261021/REPORT.md)):
+- In nine knockouts at KO/WT 0.127687, `cf0825b8` grows +8.477e-7 more than `89559a0f`:
+  YALI0F04114g, YALI1E12730g, YALI1E15606g, YALI1E19902g, YALI1E23635g, YALI1F05089g,
+  YALI1M00131g, YALI1M00277g and YALI1M00325g.
+- The cause: the open exit lets the GPI chain turn surplus PE into DAG and discard the GPI.
+- With the exit closed, growth returns to the baseline. No essentiality class changes.
+
+**Limits.**
+- This was checked only under SD-Leu + PO1f with GLPK. Other media and conditions were not tested.
+- A future GPI biomass term or other GPI changes would reopen the question.
+
+## 2026-10-21: GPI co-products (DAG on R373, Dol-P on R375), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-21:
+
+> "Approved: implement the GPI co-product plan as written (new --gpi-coproducts flag requiring
+> --gpi-chain-links, R373 + DAG, R375 + Dol-P, R_GPIGNT note fix, KO comparison included; R376 and
+> the DAG formula left as findings). No commit or push."
+
+**Results** ([REPORT.md](reports/gpi_coproducts_20261021/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml)
+  (`cf0825b8…`) = `164f235f` plus `--gpi-chain-links --gpi-coproducts`.
+  - Curated data: `curation/chemistry/gpi_coproducts.json`.
+  - Guarded step: `platform/scripts/gem_annotate/gpi_coproducts.py`.
+- **Changes:**
+  - R373 also releases DAG (KEGG R12351, K05285; gene = MCD4_YARLI).
+  - R375 also releases Dol-P (KEGG R05922, K05286; gene = GPI10_YARLI).
+  - Gene identities are database calls, not experiments.
+  - The R_GPIGNT note is reworded.
+- **Builds:**
+  - No GPI flag: `164f235f`.
+  - Links only: `d5a0ce48`, which differs from `89559a0f` only in the note.
+  - Seeds 0 and 1 give identical bytes.
+  - Diff against links-only: the R373 and R375 equations and notes only.
+- **LPs (SD-Leu + PO1f, GLPK, 58):**
+  - WT 1.430806, unchanged;
+  - the chain FVA maximum went from 0.497 to 0.750;
+  - the growth cost of a forced 1e-5 exit fell from 2.83e-5 to 1.88e-5 (about 70% from Dol-P
+    recycling, 30% from DAG return, per the audit).
+- **Knockouts (2 × 1,074):** no class change.
+  - YALI1D22124g is a GLPK sweep artifact on `89559a0f`; a fresh solve gives 0 on both models.
+  - The audit found nine respiratory knockouts gaining +8.477e-7. The open exit lets the chain turn
+    surplus PE into DAG; with the exit closed, growth returns to the baseline.
+- **pytest per test:** the previous run plus 4 new passes.
+- **Independent audit:** done. Its guard gaps were fixed, and the rebuild is still `cf0825b8`. My
+  R376 and DAG findings were corrected.
+
+**Limits and open findings.**
+- **R376:** it likely equals KEGG R08107 as written. YALI1E14925g is GPI13 by NCBI and KEGG
+  identity. Still open:
+  - m603's three-EtNP name;
+  - the missing GPI7 step;
+  - a possible AND GPR.
+- **DAG species:** C6H8O6 is model-wide, and not a DAG.
+- **Open exit:** kept open (user decision, entry above).
+- No benchmark was run. Nothing is committed or pushed.
+
+## 2026-10-21: GPI-anchor chain connected (step 1, three ER links, open exit), opt-in candidate (not committed)
+
+**Authorization.** On 2026-10-21 the user approved the plan for connecting the GPI chain:
+
+> "Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open
+> demand, co-product fix as a later change, KO comparison included). No commit or push."
+
+The trigger was a Claude Science test showing the GPI chain R371…R376 blocked. Its structural
+finding reproduced on `164f235f`; its growth (0.31240) and R1839 flux (0.00154) did not.
+
+**Results** ([REPORT.md](reports/gpi_chain_links_20261021/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml)
+  (`89559a0f…`) = `164f235f` plus `--gpi-chain-links`.
+  - Curated data: `curation/gapfill/gpi_chain_links.json`.
+  - Guarded step: `platform/scripts/gem_annotate/gpi_chain_links.py`.
+- **Five gene-less reactions:**
+  - `R_GPIGNT`, GlcNAc-PI synthesis (KEGG R05916 equation; the 2 H+ reconcile the stored charges);
+  - `R_PEt_em_er` and `R_DAGt_er_em`: C_em is the ER membrane in practice;
+  - `R_ACt_er_cy`;
+  - `R_DM_GPI`, an open demand, not forced.
+- **Builds:** the control without the flag reproduces `164f235f`. Seeds 0 and 1 give identical
+  bytes. The whole-model diff is only the 5 reactions and their group membership. All non-boundary
+  additions are balanced.
+- **LPs (SD-Leu + PO1f, GLPK, 46):**
+  - WT 1.430806, unchanged;
+  - the 7 GPI reactions and the 5 links now have FVA maximum 0.497 (it was 0);
+  - with the exit forced to ≥ 1e-5 the solve is optimal, and closing any one link makes it
+    infeasible.
+- **Knockouts (2 × 1,074 genes):** no growth change beyond 1e-6. One sweep status differs:
+  YALI1D22124g is `infeasible` on the new model. In a fresh solve it is optimal at 0 on both models,
+  and the baseline point is feasible in the new model. So it is a GLPK artifact, not a class change.
+- **pytest per test:** the baseline plus 5 new passes; the 11 failures, 17 errors and 31 skips are
+  unchanged.
+- **Independent audit:** C1–C11 are supported. Its guard gap (chain intermediates unwatched) was
+  fixed; the verification rebuild still gives `89559a0f`.
+
+**Limits.**
+- Opt-in only; the default build is unchanged.
+- Step 1 has no GPR.
+- These are still open:
+  - the R373 DAG and R375 Dol-P co-products (next change, as approved);
+  - the R371 extra H+;
+  - the imprecise R_GPIGNT note wording ("KEGG does not balance protons");
+  - a GPI biomass term.
+- No benchmark was run. Nothing is committed or pushed.
+
 ## 2026-10-21: medium relabelled "Task A medium + PO1f" in this branch's figures and reports (text only)
 
 The user asked for the medium to be named "Task A medium + PO1f". All screens on this branch already
