@@ -22,13 +22,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
-from .config import ESSENTIALITY_DIR, MEDIA_DIR, MODEL, REPO_ROOT, load_project_paths
+from .config import ESSENTIALITY_DIR, MODEL, REPO_ROOT, load_project_paths
 
 DEFAULT_LEDGER = ESSENTIALITY_DIR / "curation_cases.csv"
 DEFAULT_EVIDENCE_DIR = ESSENTIALITY_DIR / "evidence"
 DEFAULT_MODEL = MODEL.canonical_model
 DEFAULT_EXPERIMENTAL = ESSENTIALITY_DIR / "consensus_essential_genes.csv"
-DEFAULT_MEDIA = MEDIA_DIR / "sd_leu.csv"
+# Task A medium (PO1f in CSM-Leu, W29 glucose uptake); default since 2026-10-21, see
+# model/expected/benchmark.md. Cases recorded on SD-Leu need --media pointing at sd_leu.csv.
+DEFAULT_MEDIA = MODEL.conditions / "media" / "po1f_csm_leu_w29uptake_20261012.csv"
 
 CASE_STATUSES = (
     "detected",

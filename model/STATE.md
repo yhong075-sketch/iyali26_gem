@@ -5,6 +5,47 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-21: Default medium changed to the Task A medium + PO1f (benchmark and code default)
+
+**Authorization.** User: "change our default medium as Task A medium + PO1f", then approved the plan:
+update `benchmark.md`, point `DEFAULT_MEDIA` at the Task A medium, add this entry, run no-LP checks,
+no commit. Scope is the simulation/benchmark default only; the medium the build writes into model XML
+(`set_exchange_bounds` / `configure_medium`) is unchanged.
+
+**Change** (worktree `claude/default-medium-config-207edd`, base `a78a49d`; uncommitted).
+- **Before:** SD-Leu, `state/media/sd_leu.csv` (`ed176d26a373f98cc413ed2e32a71f5f060a06e343f90f7db25cd32eff268e85`)
+  + PO1f profile `po1f_sd_leu.json` (`35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383`).
+- **After:** Task A medium,
+  [po1f_csm_leu_w29uptake_20261012.csv](conditions/media/po1f_csm_leu_w29uptake_20261012.csv)
+  (`6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45`) + the same PO1f profile, in memory.
+- [benchmark.md](expected/benchmark.md): Medium row and a new "Medium (decided 2026-10-21)" section.
+  SD-Leu is kept as the medium of earlier runs.
+- `platform/scripts/gem_annotate/essentiality_evidence.py`: `DEFAULT_MEDIA` now
+  `MODEL.conditions / "media" / "po1f_csm_leu_w29uptake_20261012.csv"`; the unused `MEDIA_DIR` import
+  removed. No default strain profile was added: acceptance rejects a profile for baseline dossiers.
+
+**Checks** (verified this session, no LPs):
+- Both media list the same 35 exchanges in the same order. Task A has glucose 2.414 instead of 10;
+  adenine, 11 amino acids and iron are scaled by 2.414/10; uracil is 0.01607 in both.
+- The module imports, `DEFAULT_MEDIA` resolves to the file above (SHA matches), and `load_media` parses
+  35 rows.
+- The profile's uptake assertions hold on the new file: R1219 = 0, R1354 = 0.01607.
+- Remaining `sd_leu.csv` references in code are pinned historical diagnostics
+  (`tools/diagnose_dipeptide_supply.py`, `tests/test_dipeptide_supply.py`); left unchanged.
+- The full pytest suite was not run (it includes optimization tests; user asked for no-LP checks).
+
+**Limits.**
+- No WT solve or screen was run under the new default. Expected WT about 0.31 h⁻¹ and 16 no-solution
+  KOs on the Task B candidate are **recalled** from the 2026-10-13 entry, not re-run.
+- The 2.414 uptake is a W29 measurement on a different defined medium; the Worland 2024 data link is
+  inferred, pending user confirmation. Amino-acid bounds are concentration-scaled assumptions; the
+  complex I call depends on the lysine cap (2026-10-14 entry).
+- Scores before this date (SD-Leu) are not directly comparable with new-default scores.
+- Dossiers EGC-01862f24ad8f and EGC-41703ef278c1 recorded SD-Leu's SHA (`ed176d26…`); replaying their
+  acceptance needs `--media` pointing at `sd_leu.csv` (the SHA gate fails closed otherwise).
+  EGC-legacy-cpa-ura2 records a third medium (`9ff1dafc…`) and matched neither default. That loop is
+  paused here.
+
 ## 2026-10-21: Why complex III/IV single-gene knockouts have no solution in the bench context (diagnostic)
 
 **Authorization.** User, 2026-10-21: "Trace why the complex III and complex IV single-gene knockouts have no
