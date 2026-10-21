@@ -1,0 +1,634 @@
+{
+  "primary_cutoff": 0.15,
+  "cutoffs": [
+    0.01,
+    0.05,
+    0.1,
+    0.15
+  ],
+  "medium": "model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+  "scoring_negative_class": "user_defined_native_model_genes_absent_from_positive_list",
+  "unresolved_rule": "benchmark rule: no solution = unresolved, left out of the matrix; lethal_view_* is a labelled second view only",
+  "validation_status": "development_reference_not_independent_validation",
+  "models": {
+    "iyali21": {
+      "model": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/confusion-matrices-iyali21-7e63ca/model/source/iyli21.xml",
+        "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631"
+      },
+      "screen_manifest": "screen_iyali21.manifest.json",
+      "wt_growth": 0.29821302090474233,
+      "gene_count": 1058,
+      "in_model_positive_count": 320,
+      "out_of_scope_positive_count": 1292,
+      "metrics_mtdna_out_of_scope": [
+        {
+          "cutoff": 0.01,
+          "TP": 40,
+          "FN": 273,
+          "FP": 18,
+          "TN": 701,
+          "unresolved": 10,
+          "excluded_out_of_scope": 16,
+          "recall": 0.12779552715654952,
+          "precision": 0.6896551724137931,
+          "specificity": 0.9749652294853964,
+          "mcc": 0.20510225352148145
+        },
+        {
+          "cutoff": 0.05,
+          "TP": 47,
+          "FN": 266,
+          "FP": 20,
+          "TN": 699,
+          "unresolved": 10,
+          "excluded_out_of_scope": 16,
+          "recall": 0.1501597444089457,
+          "precision": 0.7014925373134329,
+          "specificity": 0.972183588317107,
+          "mcc": 0.2282526680849955
+        },
+        {
+          "cutoff": 0.1,
+          "TP": 51,
+          "FN": 262,
+          "FP": 25,
+          "TN": 694,
+          "unresolved": 10,
+          "excluded_out_of_scope": 16,
+          "recall": 0.16293929712460065,
+          "precision": 0.6710526315789473,
+          "specificity": 0.9652294853963839,
+          "mcc": 0.22557093028897734
+        },
+        {
+          "cutoff": 0.15,
+          "TP": 58,
+          "FN": 255,
+          "FP": 25,
+          "TN": 694,
+          "unresolved": 10,
+          "excluded_out_of_scope": 16,
+          "recall": 0.1853035143769968,
+          "precision": 0.6987951807228916,
+          "specificity": 0.9652294853963839,
+          "mcc": 0.25444632211544554
+        }
+      ],
+      "metrics_all_native_genes": [
+        {
+          "cutoff": 0.01,
+          "TP": 40,
+          "FN": 273,
+          "FP": 18,
+          "TN": 716,
+          "unresolved": 11,
+          "excluded_out_of_scope": 0,
+          "recall": 0.12779552715654952,
+          "precision": 0.6896551724137931,
+          "specificity": 0.9754768392370572,
+          "mcc": 0.20667701703436375
+        },
+        {
+          "cutoff": 0.05,
+          "TP": 47,
+          "FN": 266,
+          "FP": 20,
+          "TN": 714,
+          "unresolved": 11,
+          "excluded_out_of_scope": 0,
+          "recall": 0.1501597444089457,
+          "precision": 0.7014925373134329,
+          "specificity": 0.9727520435967303,
+          "mcc": 0.22991287698543622
+        },
+        {
+          "cutoff": 0.1,
+          "TP": 51,
+          "FN": 262,
+          "FP": 25,
+          "TN": 709,
+          "unresolved": 11,
+          "excluded_out_of_scope": 0,
+          "recall": 0.16293929712460065,
+          "precision": 0.6710526315789473,
+          "specificity": 0.9659400544959128,
+          "mcc": 0.22739825629226976
+        },
+        {
+          "cutoff": 0.15,
+          "TP": 58,
+          "FN": 255,
+          "FP": 25,
+          "TN": 709,
+          "unresolved": 11,
+          "excluded_out_of_scope": 0,
+          "recall": 0.1853035143769968,
+          "precision": 0.6987951807228916,
+          "specificity": 0.9659400544959128,
+          "mcc": 0.2562828544013789
+        }
+      ],
+      "metrics_lethal_view_mtdna_out_of_scope": [
+        {
+          "cutoff": 0.01,
+          "TP": 47,
+          "FN": 273,
+          "FP": 21,
+          "TN": 701,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.146875,
+          "precision": 0.6911764705882353,
+          "specificity": 0.9709141274238227,
+          "mcc": 0.21999603709384377,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        },
+        {
+          "cutoff": 0.05,
+          "TP": 54,
+          "FN": 266,
+          "FP": 23,
+          "TN": 699,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.16875,
+          "precision": 0.7012987012987013,
+          "specificity": 0.9681440443213296,
+          "mcc": 0.24138991562181242,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        },
+        {
+          "cutoff": 0.1,
+          "TP": 58,
+          "FN": 262,
+          "FP": 28,
+          "TN": 694,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.18125,
+          "precision": 0.6744186046511628,
+          "specificity": 0.961218836565097,
+          "mcc": 0.23882802869179556,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        },
+        {
+          "cutoff": 0.15,
+          "TP": 65,
+          "FN": 255,
+          "FP": 28,
+          "TN": 694,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.203125,
+          "precision": 0.6989247311827957,
+          "specificity": 0.961218836565097,
+          "mcc": 0.26590250498500184,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        }
+      ],
+      "unresolved_genes": [
+        {
+          "gene_id": "YALI1A03322g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1A14736g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1A17570g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1B02487g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1C17100g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1D11769g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R1;R2;R3;R303;R304;R305"
+        },
+        {
+          "gene_id": "YALI1E40361g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1F02758g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1F12013g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1F32010g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1M00390g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": true,
+          "model_reaction_ids": "R305"
+        }
+      ]
+    },
+    "a56f3649": {
+      "model": {
+        "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/confusion-matrices-iyali21-7e63ca/model/candidates/E5_coq9_resp_pkg_r132_20261012.xml",
+        "sha256": "a56f3649af2163ddedd36d1f53b830f2f550aed514aa4a28f6fb9ea577b58515"
+      },
+      "screen_manifest": "screen_a56f3649.manifest.json",
+      "wt_growth": 0.3124267446456666,
+      "gene_count": 1073,
+      "in_model_positive_count": 322,
+      "out_of_scope_positive_count": 1290,
+      "metrics_mtdna_out_of_scope": [
+        {
+          "cutoff": 0.01,
+          "TP": 64,
+          "FN": 247,
+          "FP": 26,
+          "TN": 704,
+          "unresolved": 16,
+          "excluded_out_of_scope": 16,
+          "recall": 0.2057877813504823,
+          "precision": 0.7111111111111111,
+          "specificity": 0.9643835616438357,
+          "mcc": 0.2771510560221944
+        },
+        {
+          "cutoff": 0.05,
+          "TP": 70,
+          "FN": 241,
+          "FP": 28,
+          "TN": 702,
+          "unresolved": 16,
+          "excluded_out_of_scope": 16,
+          "recall": 0.22508038585209003,
+          "precision": 0.7142857142857143,
+          "specificity": 0.9616438356164384,
+          "mcc": 0.2926667586737287
+        },
+        {
+          "cutoff": 0.1,
+          "TP": 74,
+          "FN": 237,
+          "FP": 33,
+          "TN": 697,
+          "unresolved": 16,
+          "excluded_out_of_scope": 16,
+          "recall": 0.2379421221864952,
+          "precision": 0.6915887850467289,
+          "specificity": 0.9547945205479452,
+          "mcc": 0.2904962880644161
+        },
+        {
+          "cutoff": 0.15,
+          "TP": 82,
+          "FN": 229,
+          "FP": 33,
+          "TN": 697,
+          "unresolved": 16,
+          "excluded_out_of_scope": 16,
+          "recall": 0.26366559485530544,
+          "precision": 0.7130434782608696,
+          "specificity": 0.9547945205479452,
+          "mcc": 0.31897700046487787
+        }
+      ],
+      "metrics_all_native_genes": [
+        {
+          "cutoff": 0.01,
+          "TP": 64,
+          "FN": 247,
+          "FP": 26,
+          "TN": 716,
+          "unresolved": 20,
+          "excluded_out_of_scope": 0,
+          "recall": 0.2057877813504823,
+          "precision": 0.7111111111111111,
+          "specificity": 0.9649595687331537,
+          "mcc": 0.2786132210866791
+        },
+        {
+          "cutoff": 0.05,
+          "TP": 70,
+          "FN": 241,
+          "FP": 28,
+          "TN": 714,
+          "unresolved": 20,
+          "excluded_out_of_scope": 0,
+          "recall": 0.22508038585209003,
+          "precision": 0.7142857142857143,
+          "specificity": 0.9622641509433962,
+          "mcc": 0.2941768251094614
+        },
+        {
+          "cutoff": 0.1,
+          "TP": 74,
+          "FN": 237,
+          "FP": 33,
+          "TN": 709,
+          "unresolved": 20,
+          "excluded_out_of_scope": 0,
+          "recall": 0.2379421221864952,
+          "precision": 0.6915887850467289,
+          "specificity": 0.9555256064690026,
+          "mcc": 0.29211457268030094
+        },
+        {
+          "cutoff": 0.15,
+          "TP": 82,
+          "FN": 229,
+          "FP": 33,
+          "TN": 709,
+          "unresolved": 20,
+          "excluded_out_of_scope": 0,
+          "recall": 0.26366559485530544,
+          "precision": 0.7130434782608696,
+          "specificity": 0.9555256064690026,
+          "mcc": 0.32059365639464243
+        }
+      ],
+      "metrics_lethal_view_mtdna_out_of_scope": [
+        {
+          "cutoff": 0.01,
+          "TP": 75,
+          "FN": 247,
+          "FP": 31,
+          "TN": 704,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.2329192546583851,
+          "precision": 0.7075471698113207,
+          "specificity": 0.9578231292517007,
+          "mcc": 0.2922641996000283,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        },
+        {
+          "cutoff": 0.05,
+          "TP": 81,
+          "FN": 241,
+          "FP": 33,
+          "TN": 702,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.2515527950310559,
+          "precision": 0.7105263157894737,
+          "specificity": 0.9551020408163265,
+          "mcc": 0.3066259493488503,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        },
+        {
+          "cutoff": 0.1,
+          "TP": 85,
+          "FN": 237,
+          "FP": 38,
+          "TN": 697,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.2639751552795031,
+          "precision": 0.6910569105691057,
+          "specificity": 0.9482993197278912,
+          "mcc": 0.3046796072018255,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        },
+        {
+          "cutoff": 0.15,
+          "TP": 93,
+          "FN": 229,
+          "FP": 38,
+          "TN": 697,
+          "unresolved": 0,
+          "excluded_out_of_scope": 16,
+          "recall": 0.2888198757763975,
+          "precision": 0.7099236641221374,
+          "specificity": 0.9482993197278912,
+          "mcc": 0.33120522315361867,
+          "view": "no solution counted as lethal (labelled; not the benchmark rule)"
+        }
+      ],
+      "unresolved_genes": [
+        {
+          "gene_id": "YALI0F04114g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1A03322g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1A14736g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1A17570g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1B02487g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1C17100g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1D11769g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R1;R2;R3;R303;R305"
+        },
+        {
+          "gene_id": "YALI1E12730g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1E15606g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1E19902g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1E23635g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1E40361g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1F02758g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1F05089g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1F12013g",
+          "solver_status": "infeasible",
+          "experimental_positive": true,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1F32010g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": false,
+          "model_reaction_ids": "R305"
+        },
+        {
+          "gene_id": "YALI1M00131g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": true,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1M00277g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": true,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1M00325g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": true,
+          "model_reaction_ids": "R304"
+        },
+        {
+          "gene_id": "YALI1M00390g",
+          "solver_status": "infeasible",
+          "experimental_positive": false,
+          "mtdna_out_of_scope": true,
+          "model_reaction_ids": "R305"
+        }
+      ]
+    }
+  },
+  "shared_gene_count": 1057,
+  "only_in_iyali21": [
+    "YALIUNK2"
+  ],
+  "only_in_a56f3649": [
+    "YALI1A01198g",
+    "YALI1A16422g",
+    "YALI1A20611g",
+    "YALI1B29895g",
+    "YALI1C15776g",
+    "YALI1C28263g",
+    "YALI1D02625g",
+    "YALI1D11256g",
+    "YALI1D13201g",
+    "YALI1D14453g",
+    "YALI1D19252g",
+    "YALI1E11370g",
+    "YALI1E31685g",
+    "YALI1E39395g",
+    "YALI1F12649g",
+    "YALI1F36930g"
+  ],
+  "shared_nuclear_call_differences_15pct": 40,
+  "a56f3649_reproduction_vs_task_b": {
+    "reference": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/r132_mito_adh_20261012/runs/gene_screen_candidate.tsv",
+    "reference_sha256": "c9185ecdb26fcc99620b7522b091640b1938397ead865c2c46958d4427c30024",
+    "wt_task_b": 0.3124267446456666,
+    "wt_now": 0.3124267446456666,
+    "wt_abs_diff": 0.0,
+    "genes_compared": 1073,
+    "solver_status_changes": [],
+    "genes_with_growth_in_both": 1053,
+    "max_abs_growth_diff": 8.326672684688674e-16,
+    "call_changes": {
+      "1pct": [],
+      "5pct": [],
+      "10pct": [],
+      "15pct": []
+    }
+  },
+  "figure": {
+    "confusion_matrices_15pct.png": "73a534155b2adccdeb20c3deb64c0616c19093c73a148fd4b80c8c22cfba8d17",
+    "confusion_matrices_15pct.pdf": "df90870bef717a1858acd8a141e333deaaba59b9947a0a69452b68d709946473"
+  }
+}

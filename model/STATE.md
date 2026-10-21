@@ -5,6 +5,42 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-21: medium relabelled "Task A medium + PO1f" in this branch's figures and reports (text only)
+
+The user asked for the medium to be named "Task A medium + PO1f". All screens on this branch already
+used it (`po1f_csm_leu_w29uptake_20261012.csv`, `6eca70fd…`, built by Task A; PO1f profile
+`35307853…`), so nothing was rerun and no number changed.
+- Changed: the subtitle and footnote in `confusion_matrices_csmleu_w29_20261014/summarize.py` and
+  `screen_a56f3649_overlay_w29_20261014/summarize.py`, the footer in `make_figure.py`, and the medium
+  wording in the four REPORT.md files.
+- Regenerated: all six figures. The two summaries changed only in their figure-hash fields, and the
+  source hashes in `make_figure.py` were updated to match.
+- Left as is: TASK.md files (they quote the user), runner docstrings (their hashes are in the run
+  manifests) and earlier STATE.md entries.
+
+## 2026-10-21: newest candidate b3b9fe22 screened (no overlay and overlay); figure vs iYali21 in the overlay lethal view
+
+**Authorization.** "make a new one by our newest model"; the user chose b3b9fe22 and the overlay +
+lethal view figure, with both screens of the new model (about 2,310 LPs; 2,271 used). No model change.
+On `claude/confusion-matrices-iyali21-7e63ca`, on top of `4569682`. Details:
+[REPORT.md](reports/screen_b3b9fe22_w29_20261021/REPORT.md).
+
+**Model.** `E5_coq9_resp_pkg_r132_combined_lipoylation_acylacp_20261020.xml` (`b3b9fe22…`), committed in
+`9f2356b` on the unmerged branch `claude/combined-candidate-20261019`; read from a byte-identical export.
+
+**Results at 15 %** (verified this session; mtDNA out of scope; user-defined negatives; development
+reference; overlay results diagnostic):
+- No overlay: 93 / 220 / 36 / 696, 16 unresolved, MCC 0.345 (a56f3649: 82 / 229 / 33 / 697, 0.319).
+- Overlay, lethal view: 113 / 211 / 43 / 694, MCC 0.378 (a56f3649: 102 / 220 / 40 / 695, 0.354).
+- Versus a56f3649, at every cutoff and both conditions: 11 shared genes become essential (optimal at
+  zero growth; 9 listed), on acyl-ACP/ACP, lipoyl-dependent dehydrogenase and transketolase
+  reactions; plus 4 new genes (3 essential, 2 listed). Causes inferred from reaction membership, not
+  traced.
+- Figure [confusion_matrices_15pct_b3b9fe22_overlay_lethal.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_b3b9fe22_overlay_lethal.png):
+  iYali21 74 / 246 / 30 / 692 (MCC 0.292) vs b3b9fe22 113 / 211 / 43 / 694 (MCC 0.378).
+
+**Limits.** b3b9fe22 is unmerged and unpushed. No independent audit.
+
 ## 2026-10-21: Default medium changed to the Task A medium + PO1f (benchmark and code default)
 
 **Authorization.** User: "change our default medium as Task A medium + PO1f", then approved the plan:
@@ -810,6 +846,123 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
   `--llm` overrides. OpenAI and Google extras installed. Usage: `platform/gem_review/README.md`.
 - Not done: ortholog-name query broadening; prompt caching.
 
+## 2026-10-14: iYali21 screened under the adapted diagnostic overlay; figure with both models under iYali26's panel conditions
+
+**Authorization.** The user asked for both panels "under iYali26 condition" and approved a screen of
+iYali21 under the overlay with two adaptations (R2069 rewritten from iYali21's starting form to the
+same KEGG R01752 equation; R_MDHy and R_ALCDH_nadp_hi absent, so not closed), the 4 controls and the
+NGAM diagnostic, at most 1,213 LPs (1,144 used). In memory only; no model change.
+Details: [REPORT.md](reports/screen_iyali21_overlay_w29_20261014/REPORT.md).
+
+**Results** (verified this session; 15 %; mtDNA out of scope; user-defined negatives; development
+reference; overlay results diagnostic):
+- iYali21 + overlay: WT 0.2982130 (unchanged). Benchmark rule 58 / 246 / 25 / 692, 21 unresolved,
+  MCC 0.261. Lethal view 74 / 246 / 30 / 692, MCC 0.292. All 27 no-solution knockouts "cannot meet
+  maintenance".
+- The overlay changes only the 14 ATP synthase (R171) gene calls, as in a56f3649.
+- Figure [confusion_matrices_15pct_overlay_lethal.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_overlay_lethal.png):
+  iYali21 74 / 246 / 30 / 692 (MCC 0.292) vs a56f3649 102 / 220 / 40 / 695 (MCC 0.354).
+
+**Limits.** The caps were set for iYali26; iYali21's R171 moves 3 H⁺ per ATP (4 in a56f3649). No
+independent audit.
+
+## 2026-10-14: paired figure, iYali21 vs a56f3649 (figure only, no solves)
+
+The user asked for a figure that copies their mock-up:
+[confusion_matrices_15pct_paired.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_paired.png),
+drawn by `make_figure.py` from the two committed `summary.json` files (hashes checked; provenance in
+`figure.json`).
+
+**The panels are not like for like.** Each panel's title says which conditions and scoring it uses;
+the user chose this pairing after being told.
+- Left: iYali21, no overlay, benchmark rule: 58 / 255 / 25 / 694, with 10 no-solution KOs left out.
+- Right: a56f3649 under the diagnostic overlay (assumed caps), lethal view: 102 / 220 / 40 / 695,
+  with 27 no-solution KOs counted as lethal.
+
+Compared like for like, the gain is MCC 0.254 → 0.319 under the benchmark rule, or 0.266 → 0.331 in
+the lethal view.
+
+**Like-for-like companion (user request, same day):**
+[confusion_matrices_15pct_like_for_like.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_like_for_like.png),
+drawn by `make_figure_like_for_like.py`. Both models are shown under iYali21's conditions: no overlay,
+benchmark rule. That gives 58 / 255 / 25 / 694 (10 left out) against 82 / 229 / 33 / 697 (16 left
+out).
+
+## 2026-10-14: a56f3649 screened under Task A's diagnostic overlay, PO1f + CSM-Leu, glucose 2.414 (computation only)
+
+**Authorization.** The user asked for the conditions of Task A's `0ac2addf` overlay row (in-memory
+diagnostic package, assumed caps R1384 ≤ 8 and R860 ≤ 1; 27 unresolved, all counted as lethal) to be
+applied to the newest model. After the plan review they approved a screen with the 4 reaction controls
+and the NGAM diagnostic, at most 1,228 LPs (1,189 used). The overlay was applied in memory only; no
+model change. Uncommitted on `claude/confusion-matrices-iyali21-7e63ca` @ `cc278c4`. Details:
+[REPORT.md](reports/screen_a56f3649_overlay_w29_20261014/REPORT.md).
+
+**Inputs.** `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`); medium
+`po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`); PO1f profile; consensus list `1e887f5a…`.
+Overlay: `reports/r132_mito_adh_20261012/holistic_overlay.py` (`bf6c7ce5…`), a verbatim copy of Task
+A's function. It does not reference R132, and after it the only forced bound is NGAM.
+
+**Results** (verified this session; mtDNA out of scope; negatives are the user-defined class;
+development reference, not independent validation; overlay results are diagnostic):
+- WT 0.3117523; complex I KO/WT 0.759; complex III, complex IV and ATP synthase KOs have no solution.
+- 15 %, benchmark rule: 82 / 220 / 33 / 695 (TP/FN/FP/TN), 27 unresolved, MCC 0.327.
+- 15 %, labelled lethal view: 102 / 220 / 40 / 695, MCC 0.354.
+- All 37 no-solution knockouts (34 genes, 3 reactions) "cannot meet maintenance": maximum maintenance
+  ATP is 2.0766 (complex III/IV) or 3.3623 (ATP synthase), below 7.8625.
+- **Versus the parent under the same overlay** (Task A raw tables, hashes checked; no solves):
+  - identical WT and identical calls at 1/5/10/15 %;
+  - 28 ratios move without crossing a cutoff: complex I 0.856 → 0.759, plus YALI1D34529g and
+    YALI1E17214g;
+  - same 37 NGAM labels.
+
+  Removing R132 changes no call under the overlay.
+- **Versus no overlay** (same model and medium): the only call changes are the 14 ATP synthase genes.
+  Without the overlay their KO/WT is 1.0 (the OR'd genes keep R171 open); with it they have no
+  solution. The lethal-view gain (MCC 0.331 → 0.354) therefore rests on the R171 AND-core GPR and the
+  two assumed caps.
+
+**Limits.** No independent audit. That the R171 calls depend on the caps binding is recalled from
+Task A, not re-checked here. The overlay chemistry caveat from Task A's audit F3 applies.
+
+## 2026-10-14: confusion matrices for iYali21 and a56f3649 on PO1f + CSM-Leu, glucose 2.414 (computation only)
+
+**Authorization.** The user asked for "two confusion matrix" with iYali21 and the newest model on
+"PO1f + CSM-Leu, glucose uptake 2.414 (W29)". After the plan review they approved a fresh rerun of
+both models (2,133 LPs) using the research root `iyali26_gem_research`. No model change; uncommitted
+on `claude/confusion-matrices-iyali21-7e63ca` @ `4d97b82`. Details:
+[REPORT.md](reports/confusion_matrices_csmleu_w29_20261014/REPORT.md).
+
+**Inputs.**
+- Models: `model/source/iyli21.xml` (`6974b758…`) and the newest candidate
+  `E5_coq9_resp_pkg_r132_20261012.xml` (`a56f3649…`). Newest is not the same as reference.
+- Medium `po1f_csm_leu_w29uptake_20261012.csv` (`6eca70fd…`), PO1f profile `35307853…`,
+  consensus list `1e887f5a…`.
+- A sibling session drew the SD-Leu version of the same two matrices today (commit `01beb03`,
+  branch `claude/confusion-matrices-iyali21-fc6ecb`, not merged here). Its scripts were reused,
+  with only the medium changed.
+
+**Results at 15 %** (verified this session; mtDNA out of scope; negatives are the user-defined
+class; development reference, not independent validation):
+- iYali21: WT 0.29821; 58 / 255 / 25 / 694 (TP/FN/FP/TN), 10 unresolved; MCC 0.254.
+- a56f3649: WT 0.31243; 82 / 229 / 33 / 697, 16 unresolved; MCC 0.319.
+- Labelled view counting "no solution" as lethal: 65 / 255 / 28 / 694 and 93 / 229 / 38 / 697.
+- The a56f3649 rerun reproduces Task B exactly: same WT, no status or call changes, growth within
+  8.3e-16.
+- **Unresolved knockouts:**
+  - All are in R305 (complex III by stoichiometry) in both models, plus R304 (complex IV) in
+    a56f3649 only.
+  - iYali21 grows at KO/WT 0.936 without R304; the bypass was not examined.
+  - The NGAM-shortfall cause is recalled from Task A/B, not re-checked.
+- **Versus SD-Leu (no solves):**
+  - The calls that change are the complex III/IV genes (now unresolved) and a group of 6 or 8
+    genes that moves from just under to just over 15 %.
+  - The model ranking holds: MCC 0.251 → 0.318 on SD-Leu.
+- **iYali21's R305 name:** it is labelled "ferrocytochrome-c:oxygen oxidoreductase", the same name
+  as R304, although its equation is complex III. Recorded only.
+
+**Limits.** No independent audit. Cause of the iYali21 complex IV bypass and of the near-cutoff
+group not examined.
+
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
 **Authorization.** User, 2026-10-14: "fresh R831 rerun on claude/task-d-78f16d, A–C4, ~22,000 LPs (hard stop
@@ -990,6 +1143,7 @@ fit), is **not authorized yet**.
   not re-audited.
 - **Large file:** `combinatorial_tier1.csv` (1.9 MB) lives only in the research workspace (`fcd32946…`); the
   repository copy was removed before commit (user-authorized, 2026-10-14).
+
 
 ## 2026-10-13: W29 13C consistency of mitochondrial carriers (Task C), investigation only
 
