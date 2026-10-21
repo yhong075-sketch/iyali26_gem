@@ -11,12 +11,25 @@ this replaces is kept unchanged in
 | --- | --- |
 | Experimental positives | `consensus_essential_genes.csv`, 1,612 genes (consensus essential in at least 2 of 3 screens, per the file's `source`/`confidence` columns) |
 | Location | `$IYALI26_RESEARCH_ROOT/state/essentiality/repository/consensus_essential_genes.csv` (SHA-256 `1e887f5a…`) |
-| Medium | SD-Leu, `state/media/sd_leu.csv` (`ed176d26…`) |
+| Medium | Task A medium, [`model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv`](../conditions/media/po1f_csm_leu_w29uptake_20261012.csv) (`6eca70fd…`); default since 2026-10-21 (see below) |
 | Strain | PO1f runtime profile, `state/strain_profiles/po1f_sd_leu.json` (`35307853…`); applied in memory only |
 
-Copies of the medium and profile used by recorded runs are tracked under
+Copies of the SD-Leu medium (the default before 2026-10-21) and of the profile are tracked under
 `reports/reference_pipeline_restore_20260909/research/state/`; they are byte-identical to the
-research-workspace files above.
+research-workspace files.
+
+## Medium (decided 2026-10-21)
+
+- The default is the Task A medium with the PO1f profile above. It lists the same 35 exchanges as
+  SD-Leu. Glucose uptake is 2.414 instead of 10, and adenine, the 11 amino acids and iron are
+  scaled by 2.414/10. Uracil stays 0.01607; the profile checks it and raises it to 1000 for
+  static FBA.
+- The 2.414 is a W29 uptake measured on a different defined medium (Worland et al. 2024; the
+  link to the data repository is inferred, pending user confirmation). The finite amino-acid
+  bounds are concentration-scaled assumptions, not uptake rates.
+- Runs before 2026-10-21 used SD-Leu, `state/media/sd_leu.csv` (`ed176d26…`), unless they say
+  otherwise. Scores on the two media are not directly comparable; when comparing, state which
+  medium each result used.
 
 ## Labels (decided 2026-10-07)
 
