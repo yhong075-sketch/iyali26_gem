@@ -14,6 +14,6 @@ echo "=== Running gem_annotate ==="
 echo "=== Running memote ==="
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 OUTPUT="results/${TIMESTAMP}.html"
-memote report snapshot --solver glpk --ignore-git --filename "$OUTPUT" model/candidates/legacy/model.xml
+memote report snapshot --solver gurobi --ignore-git --filename "$OUTPUT" model/candidates/legacy/model.xml
 
 echo "=== Done: $OUTPUT ==="

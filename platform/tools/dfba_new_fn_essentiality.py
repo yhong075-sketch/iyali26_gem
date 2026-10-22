@@ -1725,7 +1725,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--step-hours", type=float, default=0.1)
     result.add_argument("--initial-biomass", type=float, default=0.05)
     result.add_argument("--growth-cutoff", type=float, default=0.01)
-    result.add_argument("--solver", default="glpk")
+    result.add_argument("--solver", default="gurobi")
     result.add_argument("--shard-index", type=int, default=0)
     result.add_argument("--shard-count", type=int, default=1)
     result.add_argument("--aggregate-shards", type=Path)

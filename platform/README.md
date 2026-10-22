@@ -30,6 +30,9 @@ environment removes the ambiguity.
 | `IYALI26_MODEL_DIR` | Model folder to use. Defaults to `../model`. |
 | `IYALI26_MNX_DIR`, `IYALI26_CACHE_DIR` | Optional overrides for the MetaNetX tables and the annotation cache |
 
+The default LP solver is Gurobi, which needs a full (not size-limited) license. Pass
+`--solver glpk` where a tool offers it to reproduce earlier GLPK results.
+
 ## Build
 
 ```bash
