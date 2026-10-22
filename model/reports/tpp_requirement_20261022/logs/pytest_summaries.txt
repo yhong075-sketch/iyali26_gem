@@ -1,0 +1,24 @@
+11 failed, 226 passed, 31 skipped, 7 warnings, 17 errors, 554 subtests passed in 525.50s (0:08:45)
+== per-test differences (< before, > after)
+241a242,246
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_build_time_notes_are_accepted
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_changes_only_the_two_targets_and_survives_roundtrip
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_flag_requires_the_gpi_coproducts
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_stale_inputs_fail_closed_without_edits
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_unexpected_scope_is_rejected
+
+[exited with code 0]
+before: 11 failed, 221 passed, 31 skipped, 7 warnings, 17 errors, 536 subtests passed in 359.63s (0:05:59)
+
+== final code (after the audit fixes)
+11 failed, 227 passed, 31 skipped, 7 warnings, 17 errors, 562 subtests passed in 421.93s (0:07:01)
+== per-test differences, before vs final (< before, > final)
+241a242,247
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_build_time_notes_are_accepted
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_changes_only_the_two_targets_and_survives_roundtrip
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_flag_requires_the_gpi_coproducts
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_spec_values_outside_the_reviewed_change_are_rejected_without_edits
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_stale_inputs_fail_closed_without_edits
+> PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_unexpected_scope_is_rejected
+
+[exited with code 0]

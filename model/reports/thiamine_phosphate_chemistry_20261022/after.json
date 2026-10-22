@@ -1,0 +1,937 @@
+{
+ "model": "E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml",
+ "sha256": "ef2265c1fd6c3cd12eebacc8c03901091f90289a6f77a7be66d2ede9d7379440",
+ "counts": {
+  "reactions": 2311,
+  "metabolites": 1876,
+  "genes": 1074
+ },
+ "species": {
+  "m977[C_cy]": {
+   "name": "TMP_",
+   "formula": "C12H18N4O4PS",
+   "charge": 1,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C01081",
+    "chebi": "CHEBI:9533",
+    "metanetx.chemical": "MNXM662",
+    "bigg.metabolite": "thmmp"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C01081 (read 2026-10-22) gives C12H18N4O4PS; ChEBI OLS4 CHEBI:9533 thiamine(1+) monophosphate, charge 1; MetaNetX 4.5 maps KEGG C01081 to MNXM662 (pH 7.3 form MNXM662 C12H16N4O4PS -1 (CHEBI:37575))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R1337, R751, R754 and R1342 balance as written. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "formula C6H4Cl3NO, charge 0; annotated as 3,5,6-trichloro-2-methoxypyridine (MetaNetX MNXM1137754, envipath, InChIKey RLIVUWLXZBDMBL), matched by the name TMP"
+   },
+   "reactions": [
+    "R1337",
+    "R1342",
+    "R754"
+   ]
+  },
+  "m973[C_ex]": {
+   "name": "TMP_",
+   "formula": "C12H18N4O4PS",
+   "charge": 1,
+   "compartment": "C_ex",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C01081",
+    "chebi": "CHEBI:9533",
+    "metanetx.chemical": "MNXM662",
+    "bigg.metabolite": "thmmp"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C01081 (read 2026-10-22) gives C12H18N4O4PS; ChEBI OLS4 CHEBI:9533 thiamine(1+) monophosphate, charge 1; MetaNetX 4.5 maps KEGG C01081 to MNXM662 (pH 7.3 form MNXM662 C12H16N4O4PS -1 (CHEBI:37575))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R1337, R751, R754 and R1342 balance as written. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "formula C6H4Cl3NO, charge 0; annotated as 3,5,6-trichloro-2-methoxypyridine (MetaNetX MNXM1137754, envipath, InChIKey RLIVUWLXZBDMBL), matched by the name TMP"
+   },
+   "reactions": [
+    "R1341",
+    "R751"
+   ]
+  },
+  "m975[C_cy]": {
+   "name": "TDP_",
+   "formula": "C12H19N4O7P2S",
+   "charge": 1,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C00068",
+    "chebi": "CHEBI:9532",
+    "metanetx.chemical": "MNXM256",
+    "bigg.metabolite": "thmpp"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C00068 (read 2026-10-22) gives C12H19N4O7P2S; ChEBI OLS4 CHEBI:9532 thiamine(1+) diphosphate, charge 1; MetaNetX 4.5 maps KEGG C00068 to MNXM256 (pH 7.3 form MNXM256 C12H16N4O7P2S -2 (CHEBI:58937))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R1342, R753 and R933 balance as written; R752 and R750 keep the one H+ of their pH 7.3 equations. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "no formula, charge 0, no cross-reference"
+   },
+   "reactions": [
+    "R1342",
+    "R752",
+    "R753",
+    "R933",
+    "biomass_C"
+   ]
+  },
+  "m971[C_ex]": {
+   "name": "TDP_",
+   "formula": "C12H19N4O7P2S",
+   "charge": 1,
+   "compartment": "C_ex",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C00068",
+    "chebi": "CHEBI:9532",
+    "metanetx.chemical": "MNXM256",
+    "bigg.metabolite": "thmpp"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C00068 (read 2026-10-22) gives C12H19N4O7P2S; ChEBI OLS4 CHEBI:9532 thiamine(1+) diphosphate, charge 1; MetaNetX 4.5 maps KEGG C00068 to MNXM256 (pH 7.3 form MNXM256 C12H16N4O7P2S -2 (CHEBI:58937))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R1342, R753 and R933 balance as written; R752 and R750 keep the one H+ of their pH 7.3 equations. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "no formula, charge 0, no cross-reference"
+   },
+   "reactions": [
+    "R1339",
+    "R750"
+   ]
+  },
+  "m1116[C_mi]": {
+   "name": "TDP_",
+   "formula": "C12H19N4O7P2S",
+   "charge": 1,
+   "compartment": "C_mi",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C00068",
+    "chebi": "CHEBI:9532",
+    "metanetx.chemical": "MNXM256",
+    "bigg.metabolite": "thmpp"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C00068 (read 2026-10-22) gives C12H19N4O7P2S; ChEBI OLS4 CHEBI:9532 thiamine(1+) diphosphate, charge 1; MetaNetX 4.5 maps KEGG C00068 to MNXM256 (pH 7.3 form MNXM256 C12H16N4O7P2S -2 (CHEBI:58937))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R1342, R753 and R933 balance as written; R752 and R750 keep the one H+ of their pH 7.3 equations. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "no formula, charge 0, no cross-reference"
+   },
+   "reactions": [
+    "R933"
+   ]
+  },
+  "m976[C_cy]": {
+   "name": "TTP_",
+   "formula": "C12H20N4O10P3S",
+   "charge": 1,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C03028",
+    "chebi": "CHEBI:9534",
+    "metanetx.chemical": "MNXM1341",
+    "bigg.metabolite": "thmtp"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C03028 (read 2026-10-22) gives C12H20N4O10P3S; ChEBI OLS4 CHEBI:9534 thiamine(1+) triphosphate, charge 1; MetaNetX 4.5 maps KEGG C03028 to MNXM1341 (pH 7.3 form MNXM1341 C12H16N4O10P3S -3 (CHEBI:58938))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R753 balances as written. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "no formula, charge 0; annotated as BiGG ttp and MetaNetX MNXM148527 (Ttp, no formula)"
+   },
+   "reactions": [
+    "R753"
+   ]
+  },
+  "m643[C_cy]": {
+   "name": "4-methyl-5-(2-phosphonooxyethyl)thiazole_",
+   "formula": "C6H10NO4PS",
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "kegg.compound": "C04327",
+    "chebi": "CHEBI:17857",
+    "metanetx.chemical": "MNXM960",
+    "bigg.metabolite": "4mpetz"
+   },
+   "notes": {
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "KEGG REST get/cpd:C04327 (read 2026-10-22) gives C6H10NO4PS; ChEBI OLS4 CHEBI:17857 4-methyl-5-(2-phosphonooxyethyl)thiazole, charge 0; MetaNetX 4.5 maps KEGG C04327 to MNXM960 (pH 7.3 form MNXM960 C6H8NO4PS -2 (CHEBI:58296))",
+    "thiamine_phosphate_chemistry_evidence_tier": "formula, charge and the KEGG, ChEBI and MetaNetX IDs verified on 2026-10-22; the BiGG ID only through MetaNetX cross-references. The identity is inferred from the reactions that use the species, since the source model gives no formula or ID: R752 is KEGG R00619, R753 R00616, R1342 R00617, R1337 and R751 R02135, R408 R04448 (equations read from KEGG on 2026-10-22).",
+    "thiamine_phosphate_chemistry_rationale": "KEGG fully protonated form, matching the still-neutral ATP, ADP, AMP, phosphate, diphosphate and HMP-PP of this model: R754 balances as written; R408 keeps the one H+ of its pH 7.3 equation; R1343 and R1344 stay unbalanced in every protonation state tried, a 2-H discrepancy in their lumped equations. With every partner at its pH 7.3 form all nine thiamine reactions balance as written, so this species must move to its pH 7.3 form together with them.",
+    "thiamine_phosphate_chemistry_previous_state": "no formula, charge 0, no cross-reference"
+   },
+   "reactions": [
+    "R1343",
+    "R1344",
+    "R408",
+    "R754"
+   ]
+  }
+ },
+ "reactions": {
+  "R1337": {
+   "name": "thiamin phosphatase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m32[C_cy]": -1.0,
+    "m35[C_cy]": 1.0,
+    "m974[C_cy]": 1.0,
+    "m977[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_THMP",
+     "R_THMPe",
+     "R_TMPPH_h",
+     "THMP",
+     "THMPe",
+     "TMPPH_h"
+    ],
+    "kegg.reaction": "R02135",
+    "metacyc.reaction": "RXNQT-4191",
+    "rh": [
+     "47948",
+     "47949",
+     "47950",
+     "47951"
+    ],
+    "rhea": [
+     "47948",
+     "47949",
+     "47950",
+     "47951"
+    ],
+    "seed.reaction": [
+     "rxn01539",
+     "rxn30439",
+     "rxn33098"
+    ],
+    "vmhreaction": [
+     "R_THMP",
+     "THMP"
+    ],
+    "metanetx.reaction": "MNXR104823",
+    "ec-code": [
+     "3.1.3.-",
+     "3.1.3.1",
+     "3.1.3.2",
+     "3.1.3.100"
+    ],
+    "biggr": [
+     "R_THMP",
+     "R_THMPe",
+     "R_TMPPH_h",
+     "THMP",
+     "THMPe",
+     "TMPPH_h"
+    ],
+    "keggr": "R02135",
+    "metacycr": "RXNQT-4191",
+    "seedr": [
+     "rxn01539",
+     "rxn30439",
+     "rxn33098"
+    ],
+    "vmhr": [
+     "R_THMP",
+     "THMP"
+    ]
+   },
+   "notes": {},
+   "balance": "balanced"
+  },
+  "R1339": {
+   "name": "thiamine(1+) diphosphate(1-) exchange",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m971[C_ex]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000627"
+   },
+   "notes": {},
+   "balance": "boundary"
+  },
+  "R1341": {
+   "name": "thiamine(1+) monophosphate exchange",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m973[C_ex]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000627"
+   },
+   "notes": {},
+   "balance": "boundary"
+  },
+  "R1342": {
+   "name": "thiamine-phosphate kinase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": 1.0,
+    "m977[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "kegg.reaction": "R00617",
+    "metacyc.reaction": "THI-P-KIN-RXN",
+    "rh": [
+     "15913",
+     "15914",
+     "15915",
+     "15916"
+    ],
+    "rhea": [
+     "15913",
+     "15914",
+     "15915",
+     "15916"
+    ],
+    "sabiork.reaction": "1007",
+    "seed.reaction": [
+     "rxn00438",
+     "rxn38718"
+    ],
+    "vmhreaction": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "metanetx.reaction": "MNXR104907",
+    "ec-code": "2.7.4.16",
+    "biggr": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "keggr": "R00617",
+    "metacycr": "THI-P-KIN-RXN",
+    "sabiorkr": "1007",
+    "seedr": [
+     "rxn00438",
+     "rxn38718"
+    ],
+    "vmhr": [
+     "R_TMPK",
+     "TMPK"
+    ]
+   },
+   "notes": {
+    "tpp_requirement_curation_id": "TPP-REQUIREMENT-20261022",
+    "tpp_requirement_status": "user_authorized_biomass_term_and_closure",
+    "tpp_requirement_authorization": "2026-10-22 user: Approved: implement the TPP plan as written: --tpp-requirement on top of cf0825b8, TPP in biomass_C at the yeast-GEM value 1.2e-6 mmol/gDW, R1342 closed (not deleted), ThiL BLAST check, KO comparison included. No commit or push.",
+    "tpp_requirement_evidence": "KEGG REST link/yli/K00946 and link/sce/K00946 (thiL, thiamine-monophosphate kinase, EC 2.7.4.16) return no genes; link/yli/K00949 (thiamine pyrophosphokinase) returns yli:2911892 = YALI2_E01340g, the old locus tag of W29 YALI1E25443g in GCF_001761485.1 (read 2026-10-22). blastp of all 27 Swiss-Prot ThiL entries (release 2026_03) against the W29 proteome finds no hit at E of at most 1e-5 (best E = 0.006 over 27% of the query); the THI80 control P35202 finds YALI1E25443g at E = 1.8e-24 (model/reports/tpp_requirement_20261022/thil_blast_w29.csv).",
+    "tpp_requirement_evidence_tier": "verified on 2026-10-22: no KEGG K00946 assignment in yli (the CLIB122 genome) or sce, and no ThiL BLAST hit in W29. The THI80 control is a different protein family; it shows that the database and search work, not that a divergent ThiL would be found. Absence of a sequence homologue does not prove that no enzyme phosphorylates TMP. The yeast route, TMP to thiamine to TPP through THI80, is established/uncited.",
+    "tpp_requirement_rationale": "R1342 is gene-less and, once TPP is required, was the only route to TPP that bypasses THI80 (R752). It is closed, not deleted, so its equation and cross-references stay for review.",
+    "tpp_requirement_previous_state": "bounds (0, 1000)",
+    "thiamine_phosphate_chemistry_curation_id": "THIAMINE-P-CHEMISTRY-20261022",
+    "thiamine_phosphate_chemistry_status": "user_authorized_formula_charge_annotation_correction",
+    "thiamine_phosphate_chemistry_authorization": "2026-10-22 user: Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms, m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No commit or push",
+    "thiamine_phosphate_chemistry_evidence": "MetaNetX 4.5 reac_prop lists MNXR104907 with EC 2.7.4.16;2.7.4.9, while all of its cross-references are thiamine-phosphate kinase (Rhea 15913, KEGG R00617, MetaCyc THI-P-KIN-RXN, BiGG TMPK, SEED rxn00438 and rxn38718, SABIO 1007). ExPASy enzyme.dat (release of 28-Jan-2026): 2.7.4.9 is dTMP kinase, 2.7.4.16 is thiamine-phosphate kinase.",
+    "thiamine_phosphate_chemistry_evidence_tier": "verified on 2026-10-22 from the local MetaNetX 4.5 and ExPASy files",
+    "thiamine_phosphate_chemistry_rationale": "EC 2.7.4.9 belongs to thymidylate (dTMP) kinase; R1342 phosphorylates thiamine monophosphate, so only EC 2.7.4.16 fits. Every other cross-reference is kept.",
+    "thiamine_phosphate_chemistry_previous_state": "ec-code 2.7.4.16 and 2.7.4.9"
+   },
+   "balance": "balanced"
+  },
+  "R1343": {
+   "name": "thiazole phosphate synthesis (ribose 5-phosphate)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A09553g",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m133[C_cy]": 1.0,
+    "m202[C_cy]": 1.0,
+    "m272[C_cy]": -1.0,
+    "m32[C_cy]": 3.0,
+    "m38[C_cy]": 1.0,
+    "m443[C_cy]": -1.0,
+    "m444[C_cy]": -1.0,
+    "m4[C_cy]": 1.0,
+    "m643[C_cy]": 1.0,
+    "m82[C_cy]": 1.0,
+    "m889[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn09630",
+    "metanetx.reaction": "MNXR144674",
+    "ec-code": "2.4.2.60",
+    "seedr": "rxn09630"
+   },
+   "notes": {},
+   "balance": {
+    "charge": 2.0,
+    "H": 1.0
+   }
+  },
+  "R1344": {
+   "name": "thiazole phosphate synthesis (xylulose 5-phosphate)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m133[C_cy]": 1.0,
+    "m202[C_cy]": 1.0,
+    "m272[C_cy]": -1.0,
+    "m32[C_cy]": 3.0,
+    "m38[C_cy]": 1.0,
+    "m443[C_cy]": -1.0,
+    "m444[C_cy]": -1.0,
+    "m4[C_cy]": 1.0,
+    "m643[C_cy]": 1.0,
+    "m82[C_cy]": 1.0,
+    "m938[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {},
+   "balance": {
+    "H": 1.0
+   }
+  },
+  "R408": {
+   "name": "hydroxyethylthiazole kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C22186g",
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m642[C_cy]": -1.0,
+    "m643[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "HETZK",
+     "HETZK_1",
+     "R_HETZK",
+     "R_HETZK_1"
+    ],
+    "kegg.reaction": "R04448",
+    "metacyc.reaction": "THIAZOLSYN3-RXN",
+    "rh": [
+     "24212",
+     "24213",
+     "24214",
+     "24215"
+    ],
+    "rhea": [
+     "24212",
+     "24213",
+     "24214",
+     "24215"
+    ],
+    "seed.reaction": [
+     "rxn03075",
+     "rxn31983"
+    ],
+    "vmhreaction": [
+     "HETZK",
+     "R_HETZK"
+    ],
+    "metanetx.reaction": "MNXR100611",
+    "ec-code": "2.7.1.50",
+    "biggr": [
+     "HETZK",
+     "HETZK_1",
+     "R_HETZK",
+     "R_HETZK_1"
+    ],
+    "keggr": "R04448",
+    "metacycr": "THIAZOLSYN3-RXN",
+    "seedr": [
+     "rxn03075",
+     "rxn31983"
+    ],
+    "vmhr": [
+     "HETZK",
+     "R_HETZK"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.1.50"
+   },
+   "balance": {
+    "charge": 1.0,
+    "H": 1.0
+   }
+  },
+  "R750": {
+   "name": "thiamin diphosphatase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C09285g or (YALI1A12688g and YALI1E32054g and YALI1E38701g and YALI1E41893g and YALI1F30289g and YALI1F33143g)",
+   "stoichiometry": {
+    "m214[C_ex]": -2.0,
+    "m215[C_ex]": 2.0,
+    "m342[C_ex]": 1.0,
+    "m971[C_ex]": -1.0,
+    "m972[C_ex]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "ec-code": "3.1.3.2"
+   },
+   "notes": {},
+   "balance": {
+    "charge": 1.0,
+    "H": 1.0
+   }
+  },
+  "R751": {
+   "name": "thiamin phosphatase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C09285g or (YALI1A12688g and YALI1E32054g and YALI1E38701g and YALI1E41893g and YALI1F30289g and YALI1F33143g)",
+   "stoichiometry": {
+    "m214[C_ex]": -1.0,
+    "m215[C_ex]": 1.0,
+    "m972[C_ex]": 1.0,
+    "m973[C_ex]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_THMP",
+     "R_THMPe",
+     "R_TMPPH_h",
+     "THMP",
+     "THMPe",
+     "TMPPH_h"
+    ],
+    "kegg.reaction": "R02135",
+    "metacyc.reaction": "RXNQT-4191",
+    "rh": [
+     "47948",
+     "47949",
+     "47950",
+     "47951"
+    ],
+    "rhea": [
+     "47948",
+     "47949",
+     "47950",
+     "47951"
+    ],
+    "seed.reaction": [
+     "rxn01539",
+     "rxn30439",
+     "rxn33098"
+    ],
+    "vmhreaction": [
+     "R_THMP",
+     "THMP"
+    ],
+    "metanetx.reaction": "MNXR104823",
+    "ec-code": "3.1.3.2",
+    "biggr": [
+     "R_THMP",
+     "R_THMPe",
+     "R_TMPPH_h",
+     "THMP",
+     "THMPe",
+     "TMPPH_h"
+    ],
+    "keggr": "R02135",
+    "metacycr": "RXNQT-4191",
+    "seedr": [
+     "rxn01539",
+     "rxn30439",
+     "rxn33098"
+    ],
+    "vmhr": [
+     "R_THMP",
+     "THMP"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "3.1.3.-"
+   },
+   "balance": "balanced"
+  },
+  "R752": {
+   "name": "thiamine diphosphokinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E25443g",
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m141[C_cy]": -1.0,
+    "m86[C_cy]": 1.0,
+    "m974[C_cy]": -1.0,
+    "m975[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMDPK",
+     "R_TMDPK_1",
+     "TMDPK",
+     "TMDPK_1"
+    ],
+    "kegg.reaction": "R00619",
+    "metacyc.reaction": "THIAMIN-PYROPHOSPHOKINASE-RXN",
+    "rh": [
+     "11576",
+     "11577",
+     "11578",
+     "11579"
+    ],
+    "rhea": [
+     "11576",
+     "11577",
+     "11578",
+     "11579"
+    ],
+    "seed.reaction": [
+     "rxn00440",
+     "rxn32226"
+    ],
+    "vmhreaction": [
+     "R_TMDPK",
+     "TMDPK"
+    ],
+    "metanetx.reaction": "MNXR104886",
+    "ec-code": "2.7.6.2",
+    "biggr": [
+     "R_TMDPK",
+     "R_TMDPK_1",
+     "TMDPK",
+     "TMDPK_1"
+    ],
+    "keggr": "R00619",
+    "metacycr": "THIAMIN-PYROPHOSPHOKINASE-RXN",
+    "seedr": [
+     "rxn00440",
+     "rxn32226"
+    ],
+    "vmhr": [
+     "R_TMDPK",
+     "TMDPK"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.6.2"
+   },
+   "balance": {
+    "charge": 1.0,
+    "H": 1.0
+   }
+  },
+  "R753": {
+   "name": "thiamine-diphosphate kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E25443g",
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": -1.0,
+    "m976[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ],
+    "kegg.reaction": "R00616",
+    "metacyc.reaction": "THIAMIN-DIPHOSPHATE-KINASE-RXN",
+    "rh": [
+     "11240",
+     "11241",
+     "11242",
+     "11243"
+    ],
+    "rhea": [
+     "11240",
+     "11241",
+     "11242",
+     "11243"
+    ],
+    "seed.reaction": "rxn00437",
+    "vmhreaction": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ],
+    "metanetx.reaction": "MNXR104888",
+    "ec-code": "2.7.6.2",
+    "biggr": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ],
+    "keggr": "R00616",
+    "metacycr": "THIAMIN-DIPHOSPHATE-KINASE-RXN",
+    "seedr": "rxn00437",
+    "vmhr": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.6.2"
+   },
+   "balance": "balanced"
+  },
+  "R754": {
+   "name": "thiamine-phosphate diphosphorylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C22186g",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m643[C_cy]": -1.0,
+    "m886[C_cy]": -1.0,
+    "m977[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "kegg.reaction": "R10712",
+    "metacyc.reaction": "RXN-12610",
+    "rh": [
+     "47848",
+     "47849",
+     "47850",
+     "47851"
+    ],
+    "rhea": [
+     "47848",
+     "47849",
+     "47850",
+     "47851"
+    ],
+    "seed.reaction": [
+     "rxn23042",
+     "rxn37718"
+    ],
+    "metanetx.reaction": "MNXR114031",
+    "ec-code": "2.5.1.3",
+    "keggr": "R10712",
+    "metacycr": "RXN-12610",
+    "seedr": [
+     "rxn23042",
+     "rxn37718"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.5.1.3"
+   },
+   "balance": "balanced"
+  },
+  "R933": {
+   "name": "thiamine diphosphate transport",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F26924g",
+   "stoichiometry": {
+    "m1116[C_mi]": 1.0,
+    "m975[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "notes": {},
+   "balance": "balanced"
+  },
+  "biomass_C": {
+   "name": "biomass_C",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m975[C_cy]": -1.2e-06
+   },
+   "annotation": {
+    "sbo": "SBO:0000629"
+   },
+   "notes": {
+    "experimental_trna_biomass_mode": "split_v1",
+    "experimental_trna_biomass_template": "R1387",
+    "experimental_trna_biomass_design": "B group: 20 independent AA-tRNA -&gt; tRNA + protein-residue reactions",
+    "canonical_trna_biomass_mode": "split_v1",
+    "coq9_growth_dilution_candidate": "{&quot;R385_lower_bound_changed&quot;: false, &quot;alpha_mmol_per_gDW&quot;: 0.0001, &quot;alpha_source&quot;: &quot;User selected 1e-4 mmol/gDW on 2026-10-05; uncalibrated provisional assumption, not a measured physiological value.&quot;, &quot;interpretation&quot;: &quot;Q9 retained in newly formed biomass; not consumption per electron transfer&quot;, &quot;pool_balance&quot;: {&quot;R385&quot;: 1.0, &quot;biomass_C&quot;: -0.0001}, &quot;status&quot;: &quot;candidate_not_physiologically_calibrated_by_this_build&quot;}",
+    "tpp_requirement_curation_id": "TPP-REQUIREMENT-20261022",
+    "tpp_requirement_status": "user_authorized_biomass_term_and_closure",
+    "tpp_requirement_authorization": "2026-10-22 user: Approved: implement the TPP plan as written: --tpp-requirement on top of cf0825b8, TPP in biomass_C at the yeast-GEM value 1.2e-6 mmol/gDW, R1342 closed (not deleted), ThiL BLAST check, KO comparison included. No commit or push.",
+    "tpp_requirement_evidence": "yeast-GEM 9.1.1 cofactor pseudoreaction r_4598 consumes s_1475, named TDP (thiamine diphosphate: KEGG C00068, BiGG thmpp, C12H16N4O7P2S), at 1.2e-6 mmol/gDW; https://github.com/SysBioChalmers/yeast-GEM/blob/main/model/yeast-GEM.yml (raw file SHA-256 2ddfaaa73ead41ab243127d1b34fa56db2c86052f6eabcd12bb4eea93947dc17, read 2026-10-22)",
+    "tpp_requirement_evidence_tier": "coefficient verified in yeast-GEM 9.1.1 on 2026-10-22; it is an S. cerevisiae value, not measured in Y. lipolytica, and is provisional. That TPP is a required cofactor (pyruvate dehydrogenase, 2-oxoglutarate dehydrogenase, transketolase, pyruvate decarboxylase) is established/uncited. m975 has no formula or cross-reference; its identity as thiamine diphosphate is inferred from its reactions R752 (KEGG R00619), R753 (KEGG R00616) and R933 (thiamine diphosphate transport).",
+    "tpp_requirement_rationale": "No reaction drained cytosolic TPP (m975) to a sink: its consumers R753 (to thiamine triphosphate, m976) and R933 (into mitochondria, m1116) end in dead ends. So TPP synthesis and THI80 (R752) carried no flux and a THI80 knockout had no effect. Diluting TPP into new biomass makes its synthesis required, as yeast-GEM does for TDP.",
+    "tpp_requirement_previous_state": "biomass_C had no TPP term"
+   },
+   "balance": "not computable: No elements found in metabolite m401[C_cy]"
+  }
+ },
+ "partners": {
+  "m10[C_cy]": [
+   "H",
+   1
+  ],
+  "m133[C_cy]": [
+   "C4H9NO2",
+   0
+  ],
+  "m141[C_cy]": [
+   "C10H16N5O13P3",
+   0
+  ],
+  "m143[C_cy]": [
+   "C10H15N5O10P2",
+   0
+  ],
+  "m202[C_cy]": [
+   "C2H4O2",
+   0
+  ],
+  "m203[C_cy]": [
+   "H4O7P2",
+   0
+  ],
+  "m214[C_ex]": [
+   "H2O",
+   0
+  ],
+  "m215[C_ex]": [
+   "H3O4P",
+   0
+  ],
+  "m272[C_cy]": [
+   "C2H5NO2",
+   0
+  ],
+  "m32[C_cy]": [
+   "H2O",
+   0
+  ],
+  "m342[C_ex]": [
+   "H",
+   1
+  ],
+  "m35[C_cy]": [
+   "H3O4P",
+   0
+  ],
+  "m38[C_cy]": [
+   "H3N",
+   1
+  ],
+  "m443[C_cy]": [
+   "C3H7NO2S",
+   0
+  ],
+  "m444[C_cy]": [
+   "C6H11NO4",
+   0
+  ],
+  "m4[C_cy]": [
+   "C3H4O3",
+   0
+  ],
+  "m642[C_cy]": [
+   "C6H9NOS",
+   0
+  ],
+  "m82[C_cy]": [
+   "CO2",
+   0
+  ],
+  "m86[C_cy]": [
+   "C10H14N5O7P",
+   0
+  ],
+  "m886[C_cy]": [
+   "C6H11N3O7P2",
+   0
+  ],
+  "m889[C_cy]": [
+   "C5H11O8P",
+   -2
+  ],
+  "m938[C_cy]": [
+   "C5H11O8P",
+   0
+  ],
+  "m972[C_ex]": [
+   "C12H17N4OS",
+   1
+  ],
+  "m974[C_cy]": [
+   "C12H17N4OS",
+   1
+  ]
+ },
+ "balanced_count": 6
+}

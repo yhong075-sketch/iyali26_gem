@@ -125,11 +125,17 @@ def extract_main(args) -> int:
                                          max_concurrent=args.max_concurrent))
     status = Counter(r.status for r in results)
     levels = Counter(r.review.best_evidence_level.name for r in results if r.review)
-    tokens_in = sum(r.usage.get("input_tokens", 0) for r in results)
-    tokens_out = sum(r.usage.get("output_tokens", 0) for r in results)
+    tokens = {k: sum(r.usage.get(k, 0) for r in results)
+              for k in ("input_tokens", "output_tokens", "cache_write_tokens", "cache_read_tokens")}
+    # pydantic-ai's input_tokens already includes cache writes and reads (unlike the raw API field).
+    prompt_total = tokens["input_tokens"]
+    uncached = prompt_total - tokens["cache_write_tokens"] - tokens["cache_read_tokens"]
     print(f"status: {dict(status)}")
     print(f"best_evidence_level: {dict(levels)}")
-    print(f"tokens: input={tokens_in} output={tokens_out}; per-pair log: {out_dir / 'usage.jsonl'}")
+    print(f"tokens: prompt={prompt_total} (uncached={uncached} cache write={tokens['cache_write_tokens']} "
+          f"cache read={tokens['cache_read_tokens']}) output={tokens['output_tokens']}; "
+          f"read share={tokens['cache_read_tokens'] / prompt_total if prompt_total else 0:.0%}")
+    print(f"per-pair log: {out_dir / 'usage.jsonl'}")
     return 0
 
 

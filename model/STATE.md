@@ -70,6 +70,13 @@ Problems, with the evidence level and what each blocks:
     - the GPI items (R376 three-EtNP naming, missing GPI7 step, possible AND GPR);
     - the DAG species formula C6H8O6;
     - the GPI biomass term.
+11. **Two parallel opt-in lines on `cf0825b8`** (added when merging `main`, PR #16).
+    - The TPP line (`--tpp-requirement` and the thiamine chemistry/lock steps, entries below) and
+      this heme/iron + R2193 line both edit `biomass_C`.
+    - The heme/iron guard pins the exact reviewed `biomass_C` composition. So a build with both
+      `--tpp-requirement` and `--heme-iron-biomass` should stop with an error until that recorded
+      composition is re-reviewed (inferred from the code; not built).
+    - No combined candidate exists yet.
 
 ## 2026-10-22: R2193 iron-import GPR set to the two FET3/FTR1 pairs, opt-in candidate (committed `be1fd53`, not pushed)
 
@@ -254,6 +261,227 @@ marked otherwise.
   are imbalanced. Siroheme has no consumer. Heme b and Fe–S clusters are absent. Total iron above
   about 5.15e-5 mmol/gDW would make the cap bind.
 - **Not run:** SD-Leu and other media. Committed later the same day in `be1fd53` (not pushed).
+## 2026-10-22: Proton lock on R752, R408 and R750 (gate honours an SBML-safe lock note), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading the plan:
+
+> "Approved: implement the H+ lock plan as written: gate honours a string note
+> lock_proton_water_stoichiometry = true, new opt-in --thiamine-proton-lock on top of ef2265c1 for
+> R752/R408/R750, default-build and control checks, no LPs. No commit or push."
+
+**Results** ([REPORT.md](reports/thiamine_proton_lock_20261022/REPORT.md)). Verified this session
+unless marked otherwise.
+- **Why:** the proton/water gate (`balance_protons_and_water`) would strip the pH 7.3-correct H+ from
+  R752, R408 and R750 on `ef2265c1`.
+  - The only existing per-reaction lock, a dict `curated_reaction_correction` note, works in memory
+    only; SBML turns it into a string.
+  - R2041's lock is lost in saved models for this reason (open finding).
+- **Gate change:** `microspecies.py` also skips a reaction whose note `lock_proton_water_stoichiometry`
+  is the string `true`. That is 4 lines; the hash goes from `cb3cd03f` to `fc4ddff0`.
+  - The default build is byte-identical before and after (`b4ce0974…`).
+  - The `ef2265c1` argv rebuilds `ef2265c1…`.
+  - No other model carries the key.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml)
+  (`2fe51cc2…`) = `ef2265c1` plus `--thiamine-proton-lock`.
+  - The change is notes only: the lock plus evidence notes on the three reactions.
+  - Seeds 0 and 1 give identical bytes.
+  - The first build `…_lock_20261022.xml` (`ada4b7f1`) is superseded; its rationale note was wrong. It is
+    kept until the user decides.
+  - Curated data: `curation/chemistry/thiamine_proton_lock.json`.
+  - Guarded step: `platform/scripts/gem_annotate/thiamine_proton_lock.py`.
+- **Proof:** the gate on the saved, re-read candidate skips all three and lists them as locked. Its
+  other 33 changes on that file are unchanged.
+- **LP:** no model LP was run; only notes changed.
+- **pytest per test:** the baseline plus 8 new passes (240 passed). The 11 failures, 17 errors and 31
+  skips are unchanged.
+- **Independent audit:** it supported all 9 claims.
+  - Fixed: the wrong rationale (the residual comes from the KEGG-form thiamine phosphates and HET-P as
+    well as the neutral ATP family), runtime checks on note texts, and the handling of non-string
+    notes.
+  - Its lock-reliance cautions are recorded below.
+
+**Limits.**
+- Only this gate version honours the lock; main and older gates strip the H+ silently.
+  `tools/update_model.py:303` and other stoichiometry editors ignore it.
+- Once saved, the lock is unconditional. A partial nucleotide migration would leave +3 / +2 / −3 H+
+  hidden in the skipped list.
+- The saved candidate is not stable under the gate: 33 other reactions would change.
+- Nothing is committed or pushed.
+
+## 2026-10-22: Thiamine phosphate chemistry (TMP identity, TPP/TTP/HET-P formulas, R1342 EC), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading the plan:
+
+> "Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms,
+> m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with
+> --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No
+> commit or push"
+
+**Results** ([REPORT.md](reports/thiamine_phosphate_chemistry_20261022/REPORT.md)). Verified this
+session unless marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml)
+  (`ef2265c1…`) = `8ae6c93b` plus `--thiamine-phosphate-chemistry`.
+  - Curated data: `curation/chemistry/thiamine_phosphate_chemistry.json`.
+  - Guarded step: `platform/scripts/gem_annotate/thiamine_phosphate_chemistry.py`.
+  - The first build `…_thiamine_p_20261022.xml` (`e8a54520`) is superseded: only notes differ. It is
+    kept until the user decides.
+- **Changes (whole-model diff, 29 differences; no stoichiometry, bound, GPR or objective change):**
+  - **TMP `m977`/`m973`:** it was matched by name to MNXM1137754, 3,5,6-trichloro-2-methoxypyridine
+    (C6H4Cl3NO). It is now C12H18N4O4PS +1, with KEGG C01081, CHEBI:9533, MNXM662.
+  - **TPP `m975`/`m971`/`m1116`:** C12H19N4O7P2S +1 (C00068, CHEBI:9532, MNXM256).
+  - **TTP `m976`:** C12H20N4O10P3S +1 (C03028, CHEBI:9534, MNXM1341), replacing BiGG ttp /
+    MNXM148527.
+  - **HET-P `m643`:** C6H10NO4PS 0 (C04327, CHEBI:17857, MNXM960).
+  - **R1342:** loses EC 2.7.4.9 (dTMP kinase), which came from MetaNetX MNXR104907's EC field.
+- **Identity:** these are thiamine phosphates, from the model's own KEGG reactions (R00619, R00616,
+  R00617, R02135, R04448). The old memory note calling S + N4 "impossible" (it assumed thymidine) was
+  wrong and has been corrected.
+- **Balance:** 6 of the 11 non-boundary thiamine reactions now balance (was 1, trivially). No
+  balanced reaction became unbalanced.
+  - R752, R408 and R750 keep one H+. That H+ is correct at pH 7.3: with every partner at pH 7.3, all 9
+    thiamine reactions balance as written (checked twice).
+  - R1343 and R1344 keep a 2-H discrepancy in every protonation state.
+- **Builds:** the control reproduces `8ae6c93b`, and seeds 0 and 1 give identical bytes. Builds are
+  under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/thiamine_phosphate_chemistry_20261022/`.
+- **LP:** WT growth is identical (0.31242674050092606, 2 LPs). It is the same optimization problem as
+  `8ae6c93b` (provable from the diff), so no knockout sweep was run.
+- **pytest per test:** the baseline plus 5 new passes (232 passed). The 11 failures, 17 errors and 31
+  skips are unchanged.
+- **Independent audit:** it supported 9 of 11 claims, and partly supported C6 and C8.
+  - Its guard gaps are fixed: the reviewed chemistry and the 24 partner species are now pinned in the
+    code.
+  - Its overstatements are corrected: the R1343/R1344 cause, HMP-PP in the microspecies table, "none
+    worse" and "Rhea" for R750.
+
+**Open decision and limits.**
+- **H+ lock:** the final proton gate runs before this step today. If it ever ran after, it would
+  remove the H+ from R752, R408 and R750. A `lock_proton_water_stoichiometry` note would prevent this;
+  it is outside the approved scope and needs a user decision.
+- **Interim convention:** the KEGG forms are interim. These species and HMP-PP must join the
+  ATP/ADP/AMP/Pi/PPi pH 7.3 migration.
+  - The migration audit now counts R1337, R1342, R751, R753 and R754 as regressions (292 vs 287, per
+    the audit).
+  - The step refuses to apply if those partners migrate first.
+- **Not changed:**
+  - R754's KEGG annotation R10712 (carboxy-HET-P);
+  - `m889`, annotated as ribitol-5-P;
+  - R753's EC 2.7.6.2;
+  - the ambiguous names.
+- Nothing is committed or pushed.
+
+## 2026-10-22: TPP required in biomass_C and TMP kinase R1342 closed, opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading the plan:
+
+> "Approved: implement the TPP plan as written: --tpp-requirement on top of cf0825b8, TPP in
+> biomass_C at the yeast-GEM value 1.2e-6 mmol/gDW, R1342 closed (not deleted), ThiL BLAST check, KO
+> comparison included. No commit or push."
+
+The trigger was a Claude Science test, "Gap 4 · TPP exists but nothing requires it". It reproduced
+exactly on `cf0825b8` on the Task A medium + PO1f (WT 0.3124267).
+
+**Results** ([REPORT.md](reports/tpp_requirement_20261022/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml)
+  (`8ae6c93b…`) = `cf0825b8` plus `--tpp-requirement`.
+  - Curated data: `curation/thiamine/tpp_requirement.json`.
+  - Guarded step: `platform/scripts/gem_annotate/tpp_requirement.py`.
+  - The first build `…_gpi_tpp_20261022.xml` (`12efa141`) is superseded. It is the same optimization
+    problem; three note texts were corrected after the audit. It is kept until the user decides.
+- **Changes (whole-model diff, 4 differences):**
+  - `biomass_C` consumes TPP `m975[C_cy]` at 1.2e-6 mmol/gDW, the yeast-GEM 9.1.1 `r_4598` value for
+    *S. cerevisiae* (provisional).
+  - R1342 bounds go to (0, 0), with the reaction kept.
+  - Notes on both.
+- **Evidence for closing R1342:**
+  - KEGG K00946 (thiL) has no gene in yli or sce.
+  - blastp of all 27 Swiss-Prot ThiL proteins finds no W29 hit at E ≤ 1e-5. The THI80 control finds
+    YALI1E25443g.
+  - This is not proof that no enzyme phosphorylates TMP.
+- **Builds:**
+  - The control without the flag reproduces `cf0825b8`.
+  - Seeds 0 and 1 give identical bytes.
+  - Builds are under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/tpp_requirement_20261022/`.
+- **LPs (Task A medium + PO1f, GLPK):**
+  - WT 0.3124267446 → 0.3124267405.
+  - TPP comes via R934 → R752. Without thiamine the model still grows, de novo through R1337 → R752.
+  - The THI80 knockout is lethal, including at feasibility tolerance 1e-9 with GLPK and Gurobi.
+- **Knockouts (2 × 1,074):**
+  - The only class change at 1/5/10/15% is YALI1E25443g (THI80-like; no verified name) going from
+    non-essential to essential.
+  - No other resolved knockout changes by more than 1e-6.
+  - The 20 unresolved genes are the same on both models.
+  - The auditor re-ran the sweep with zero deviation.
+  - YALI1E25443g is on the consensus essential list, so it would be FN → TP (inferred; no benchmark
+    run; a development reference).
+- **pytest per test:** the baseline plus 6 new passes (227 passed); the 11 failures, 17 errors and 31 skips are unchanged.
+- **Independent audit:**
+  - It supported 10 of 12 claims, and partly supported C2 and C3.
+  - Its guard gaps and overstated wording were fixed before the final build.
+
+**Process deviations (reported, not repaired):**
+- A guard rejection, listed as a stop condition, was fixed and rebuilt without asking the user first.
+  The cause was the in-build vs SBML escaping of `biomass_C` notes.
+- Diagnostic LPs were about 146 against a budget of about 30, mostly FVA.
+
+**Limits and open findings.**
+- Only the Task A medium was tested; opt-in only.
+- TMP `m977` is annotated as 3,5,6-trichloro-2-methoxypyridine, so R754, R1337 and R1342 are
+  unbalanced. R1342 also carries EC 2.7.4.9.
+- The TPP species have no formula.
+- Mitochondrial TPP has no consumer, so R933 stays blocked.
+- A futile thiamine loop is present (FVA maximum 21.3).
+- cobra FVA is unreliable at fluxes around 1e-7 in this model.
+- Nothing is committed or pushed.
+
+## 2026-10-22: Default LP solver is now Gurobi (code change, not committed)
+
+**Authorization.** The user, 2026-10-22:
+
+> "Approved. Apply the plan as written, including run.sh, the README line and the STATE.md
+> entry; skip the GLPK vs Gurobi comparison."
+
+**What changed.** Branch `claude/flux-analysis-gurobi-default-2473fd`, from `abe7e40`. No model
+change and no model XML built.
+- `--solver` now defaults to `gurobi` in `scripts/gem_annotate/pipeline.py`,
+  `scripts/gem_annotate/validate_essential_genes.py` (help text and docstring too) and
+  `tools/dfba_new_fn_essentiality.py`.
+- The forced `model.solver = "glpk"` is now `"gurobi"` in `scripts/gem_annotate/gaps.py` (build
+  gap FVA and its log line), `scripts/gem_annotate/biomass.py` (build precursor check) and
+  `tools/diagnose_blocked.py`.
+- `run.sh` runs memote with `--solver gurobi`.
+- `platform/README.md` states the default and how to reproduce GLPK results (`--solver glpk`).
+- No automatic fallback: a missing or size-limited Gurobi license is an error.
+
+**Verification** (2026-10-22, main-checkout `.venv`):
+- **Environment:** cobra 0.30.0, optlang 1.8.3, gurobipy 13.0.1. Academic license, expires
+  2027-07-10. A synthetic 5,000-variable LP solved, so the license is not size-limited. cobra
+  already picks Gurobi when no solver is given.
+- **Build output unaffected (static check):** the build's two GLPK-to-Gurobi solves only write
+  logs. Gap-fill reactions come from `gap_fill_prioritized.csv`, not from the FVA.
+- **pytest per test:** identical before and after: 221 passed, 11 failed, 31 skipped, 17 errors.
+  - All failures are already known (README list).
+  - The dFBA Slurm pin still fails on the same assertion; only the tool SHA in it changed.
+  - `pydantic_ai` is missing from the `.venv`, so the three `test_gem_review_lit_*` files error
+    at collection. Both runs used `--continue-on-collection-errors`.
+
+**Not changed.**
+- `hpc/hpcc_dfba_new_fn.slurm` pins `DFBA_SOLVER=glpk` and refuses other solvers. Gurobi
+  licensing on HPCC is unknown.
+- Lipid tools (`tools/lipid/*`, colleague-owned) still force GLPK. One sets cobra's global solver
+  in tests.
+- `tools/update_model.py` keeps two GLPK lines in `fix_biomass_reaction` and `find_gaps`.
+  Neither function is ever called.
+- Scripts under `model/reports/` are frozen records of their runs.
+
+**Limits.**
+- No GLPK vs Gurobi comparison was run (the user skipped it). Whether growth, blocked-reaction
+  sets or knockout calls differ between the solvers is unknown, especially near the 1e-6 cutoffs.
+- Earlier entries labelled GLPK stay GLPK results. Compare them with new Gurobi runs only after
+  stating the solver change.
 
 ## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
 
@@ -1212,7 +1440,15 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
   provider (Anthropic, OpenAI, Gemini, Groq, Mistral, DeepSeek, OpenRouter, xAI, Ollama) and
   model and store the key in git-ignored `platform/.env`; `GEM_REVIEW_LLM` is the default,
   `--llm` overrides. OpenAI and Google extras installed. Usage: `platform/gem_review/README.md`.
-- Not done: ortholog-name query broadening; prompt caching.
+- 2026-10-22, tooling only: prompt caching for `extract`. The chunk block is now passed as a
+  static run-time instruction, so the cache breakpoint sits after it (pydantic-ai had treated it
+  as dynamic and would have marked only the ~250-token rules text, under Opus 5.5's 512-token
+  minimum); calls are grouped by chunk set, the first writes and the rest read; one-off sets are
+  not cached. Live check (user-approved) on POX2 R1490–R1492 in scratch task
+  `gem_review_lit_cachecheck_20261022`: 53,365 tokens written once, read by the R1490 retry
+  and by R1491/R1492; 74 % of prompt tokens were cache reads; ≈ $0.41 instead of ≈ $0.97
+  uncached. Estimated (not measured) saving on a full tier-1 run like 2026-10-19: ≈ 52 %.
+- Not done: ortholog-name query broadening.
 
 ## 2026-10-14: iYali21 screened under the adapted diagnostic overlay; figure with both models under iYali26's panel conditions
 
