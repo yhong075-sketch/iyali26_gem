@@ -5,7 +5,73 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-22: R2193 iron-import GPR set to the two FET3/FTR1 pairs, opt-in candidate (not committed)
+## 2026-10-22: Open problems on the current candidate e1586027 (status summary)
+
+**State.**
+- **Newest candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml)
+  (`e1586027…`) = cf0825b8 + `--heme-iron-biomass` + `--r2193-iron-gpr`.
+  - Committed in `be1fd53` on `claude/science-test-gap-fix-5eaeae`, not pushed.
+  - No reference model is designated.
+- **On the Task A medium + PO1f, GLPK:**
+  - WT 0.3124263;
+  - iron uptake at 61 % of the cap;
+  - 15 % scores 92 / 221 / 36 / 697 / 16, MCC 0.342 (development reference; user-defined negatives;
+    mtDNA out of scope).
+- **Claude Science Gap 5** (no iron in biomass) is closed with the yeast-GEM values.
+
+Problems, with the evidence level and what each blocks:
+
+1. **The heme fluxes sit at solver tolerance** (verified,
+   [heme report §7](reports/heme_iron_biomass_20261022/REPORT.md),
+   [R2193 audit](reports/r2193_iron_gpr_change_20261022/AUDIT.md)).
+   - Heme a at 1e-6 puts heme-route fluxes at 1.6–3.1e-7.
+   - A warm-started GLPK sweep returned a stale WT optimum for the HEM4 knockout.
+   - GLPK also drops the heme demand within tolerance (residual = 1e-6 × growth). The targeted check
+     in `reports/r2193_iron_gpr_change_20261022/scripts/checked_solve.py` (basis reset +
+     knocked-reaction flux) catches the first problem but not the second.
+   - **Blocks:** trustworthy screens, FVA or blocked-reaction runs on this candidate.
+   - **Next:** a growth-scaled residual tolerance, or a Gurobi cross-check; and a decision whether
+     1e-6 is the right coefficient.
+2. **Iron species have no chemistry** (verified). `m1273`, `m948` and `m523` have no formula and
+   charge 0. So R302 (Fe +1, H −2, charge +2), R727 (Fe +1, H −7, charge −5), R384 (charge −2) and
+   R383 (charge +2) are imbalanced.
+   - **Blocks:** any balanced-chemistry gate on R2193 and the iron/heme reactions.
+   - **Next:** a chemistry curation (Fe, +2) with a model-wide re-check (see the protonation
+     memory: charge edits ripple).
+3. **Siroheme `m949` has no consumer** (verified). R727 produces it, and nothing uses it.
+4. **R863 (Fe²⁺ c → m) has no gene** (verified).
+   - The only MRS3/4 ortholog is YALI1_B28215g (reciprocal best hit of MRS3).
+   - Yeast cells lacking both MRS3 and MRS4 are viable (recalled), so it should not become the sole
+     gene.
+   - Needs a decision.
+5. **No Fe³⁺ reduction or uptake chemistry** (inferred).
+   - YNB supplies Fe³⁺, and Fet3/Ftr1 is an O₂- and Cu-dependent route that moves Fe³⁺. R2193 lumps
+     all of this as an Fe²⁺ uniport.
+   - FRE-like reductases exist; Q6CF26 is the reciprocal best hit of FRE2.
+   - **Depends on:** problem 2.
+6. **Heme b and Fe–S clusters are not in biomass** (verified for the model; no sourced values found).
+   Total cell iron above about 5.15e-5 mmol/gDW would make the R1189 cap bind (the 2026-10-12
+   concentration-ratio rule). The Claude Science test with heme b + heme a at 5e-5 each would halve
+   growth.
+7. **Experimental-list conflicts** (verified calls; causes untested):
+   - **False negatives:** the D09 FET3/FTR1 pair (YALI1D09277g, YALI1D09308g) is essential
+     experimentally but non-essential in the model, because it is OR'd with the D08 paralogs.
+   - **False positives:** HEM13 (YALI1E35410g), HEM14 (YALI1D30196g) and the ferredoxin
+     YALI1B03314g are essential in the model only through heme a, and are not on the list. Fe–S
+     biogenesis, which in yeast explains the ferredoxin's essentiality (recalled), is not modelled.
+8. **Annotation.** YALI1F07747g's UniProt cross-reference A0A1D8NM31 is deleted in UniProt (verified
+   by the audit). It is left unchanged; the gene is unlinked now.
+9. **Not tested:**
+   - SD-Leu and other media;
+   - Gurobi-based screens of this candidate (today's sweeps are GLPK and not directly comparable to
+     earlier Gurobi screens).
+10. **Still open from earlier entries** (not re-checked today):
+    - the GPI items (R376 three-EtNP naming, missing GPI7 step, possible AND GPR);
+    - the DAG species formula C6H8O6;
+    - the GPI biomass term.
+
+## 2026-10-22: R2193 iron-import GPR set to the two FET3/FTR1 pairs, opt-in candidate (committed `be1fd53`, not pushed)
 
 **Authorization.** The user:
 
@@ -66,7 +132,7 @@ unless marked otherwise.
   - Both D09 genes are essential experimentally, which the OR rule cannot express.
   - R2193 lumps Fe³⁺ uptake through Fet3/Ftr1 (O₂/Cu) as Fe²⁺ uniport.
   - R863, FRE and the iron chemistry stay open.
-- Nothing is committed or pushed.
+- Committed later the same day in `be1fd53` (not pushed).
 
 ## 2026-10-22: R2193 iron import — which genes (investigation and plan only)
 
@@ -113,7 +179,7 @@ experiment [r2193_pair1_20260727](reports/r2193_pair1_20260727/experiment_result
 - The proteomics units and conditions were not checked.
 - The literature search was bounded.
 
-## 2026-10-22: Heme a and iron(2+) in biomass_C (Yeast8 values), opt-in candidate (not committed)
+## 2026-10-22: Heme a and iron(2+) in biomass_C (Yeast8 values), opt-in candidate (committed `be1fd53`, not pushed)
 
 **Authorization.** The user, 2026-10-22, after reading plan A:
 
@@ -187,7 +253,7 @@ marked otherwise.
 - **Iron chemistry.** The iron species have no formula and charge 0, so R302, R727, R384 and R383
   are imbalanced. Siroheme has no consumer. Heme b and Fe–S clusters are absent. Total iron above
   about 5.15e-5 mmol/gDW would make the cap bind.
-- **Not run:** SD-Leu and other media. Nothing is committed or pushed.
+- **Not run:** SD-Leu and other media. Committed later the same day in `be1fd53` (not pushed).
 
 ## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
 
