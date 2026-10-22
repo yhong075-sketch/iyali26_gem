@@ -119,6 +119,19 @@ def settings_for(model_string: str) -> ModelSettings:
     return ModelSettings(max_tokens=MAX_TOKENS)
 
 
+def cache_settings(model_string: str) -> ModelSettings | None:
+    """Per-run settings that put a 5-minute cache breakpoint on the last static system block.
+
+    The run passes the chunk block as a plain-string instruction, which pydantic-ai treats as
+    static, so the breakpoint lands after the chunks (rules + chunks are the cached prefix; the
+    question in the user message stays outside it). Other providers cache long prefixes on their
+    own, so they get nothing extra here.
+    """
+    if model_string.startswith("anthropic:"):
+        return AnthropicModelSettings(anthropic_cache_instructions="5m")
+    return None
+
+
 def write_env_values(path: Path, values: dict[str, str]) -> Path:
     """Set or replace KEY=VALUE lines, keep everything else, mode 600 (owner only)."""
     lines = path.read_text().splitlines() if path.exists() else []

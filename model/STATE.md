@@ -181,6 +181,52 @@ marked otherwise.
 - cobra FVA is unreliable at fluxes around 1e-7 in this model.
 - Nothing is committed or pushed.
 
+## 2026-10-22: Default LP solver is now Gurobi (code change, not committed)
+
+**Authorization.** The user, 2026-10-22:
+
+> "Approved. Apply the plan as written, including run.sh, the README line and the STATE.md
+> entry; skip the GLPK vs Gurobi comparison."
+
+**What changed.** Branch `claude/flux-analysis-gurobi-default-2473fd`, from `abe7e40`. No model
+change and no model XML built.
+- `--solver` now defaults to `gurobi` in `scripts/gem_annotate/pipeline.py`,
+  `scripts/gem_annotate/validate_essential_genes.py` (help text and docstring too) and
+  `tools/dfba_new_fn_essentiality.py`.
+- The forced `model.solver = "glpk"` is now `"gurobi"` in `scripts/gem_annotate/gaps.py` (build
+  gap FVA and its log line), `scripts/gem_annotate/biomass.py` (build precursor check) and
+  `tools/diagnose_blocked.py`.
+- `run.sh` runs memote with `--solver gurobi`.
+- `platform/README.md` states the default and how to reproduce GLPK results (`--solver glpk`).
+- No automatic fallback: a missing or size-limited Gurobi license is an error.
+
+**Verification** (2026-10-22, main-checkout `.venv`):
+- **Environment:** cobra 0.30.0, optlang 1.8.3, gurobipy 13.0.1. Academic license, expires
+  2027-07-10. A synthetic 5,000-variable LP solved, so the license is not size-limited. cobra
+  already picks Gurobi when no solver is given.
+- **Build output unaffected (static check):** the build's two GLPK-to-Gurobi solves only write
+  logs. Gap-fill reactions come from `gap_fill_prioritized.csv`, not from the FVA.
+- **pytest per test:** identical before and after: 221 passed, 11 failed, 31 skipped, 17 errors.
+  - All failures are already known (README list).
+  - The dFBA Slurm pin still fails on the same assertion; only the tool SHA in it changed.
+  - `pydantic_ai` is missing from the `.venv`, so the three `test_gem_review_lit_*` files error
+    at collection. Both runs used `--continue-on-collection-errors`.
+
+**Not changed.**
+- `hpc/hpcc_dfba_new_fn.slurm` pins `DFBA_SOLVER=glpk` and refuses other solvers. Gurobi
+  licensing on HPCC is unknown.
+- Lipid tools (`tools/lipid/*`, colleague-owned) still force GLPK. One sets cobra's global solver
+  in tests.
+- `tools/update_model.py` keeps two GLPK lines in `fix_biomass_reaction` and `find_gaps`.
+  Neither function is ever called.
+- Scripts under `model/reports/` are frozen records of their runs.
+
+**Limits.**
+- No GLPK vs Gurobi comparison was run (the user skipped it). Whether growth, blocked-reaction
+  sets or knockout calls differ between the solvers is unknown, especially near the 1e-6 cutoffs.
+- Earlier entries labelled GLPK stay GLPK results. Compare them with new Gurobi runs only after
+  stating the solver change.
+
 ## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
 
 **Decision.** The user, 2026-10-21:
@@ -1138,7 +1184,15 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
   provider (Anthropic, OpenAI, Gemini, Groq, Mistral, DeepSeek, OpenRouter, xAI, Ollama) and
   model and store the key in git-ignored `platform/.env`; `GEM_REVIEW_LLM` is the default,
   `--llm` overrides. OpenAI and Google extras installed. Usage: `platform/gem_review/README.md`.
-- Not done: ortholog-name query broadening; prompt caching.
+- 2026-10-22, tooling only: prompt caching for `extract`. The chunk block is now passed as a
+  static run-time instruction, so the cache breakpoint sits after it (pydantic-ai had treated it
+  as dynamic and would have marked only the ~250-token rules text, under Opus 5.5's 512-token
+  minimum); calls are grouped by chunk set, the first writes and the rest read; one-off sets are
+  not cached. Live check (user-approved) on POX2 R1490–R1492 in scratch task
+  `gem_review_lit_cachecheck_20261022`: 53,365 tokens written once, read by the R1490 retry
+  and by R1491/R1492; 74 % of prompt tokens were cache reads; ≈ $0.41 instead of ≈ $0.97
+  uncached. Estimated (not measured) saving on a full tier-1 run like 2026-10-19: ≈ 52 %.
+- Not done: ortholog-name query broadening.
 
 ## 2026-10-14: iYali21 screened under the adapted diagnostic overlay; figure with both models under iYali26's panel conditions
 
