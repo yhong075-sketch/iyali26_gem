@@ -2,13 +2,37 @@
 
 Every biological decision the build applies lives in this folder as data, grouped by topic
 (`chemistry/`, `gpr/`, `direction/`, `coq9/`, `selection/`, `gapfill/`, `annotation/`,
-`essentiality/`, `candidates/`, `lipid_unlump/`). The builder finds each file by its unique name.
+`essentiality/`, `candidates/`, `lipid_unlump/`, `biomass/`). The builder finds each file by its unique name.
 `evidence/` holds supporting documents that model notes cite as `docs/curation/...` (ported from
 `main` on 2026-10-07).
 
 The sections below were moved unchanged from the former top-level README (2026-10-07);
 only paths were updated to the new layout. Commands run from `platform/`. Newer decisions
 are recorded in [../STATE.md](../STATE.md).
+
+## R2193 iron-import GPR (2026-10-22)
+
+- `gpr/r2193_iron_gpr.json` replaces R2193's GPR `YALI1F07747g` (a PHO4-like bHLH transcription
+  factor, kept in the model with no reaction) with the two FET3/FTR1 pairs:
+  `(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)`.
+  - The four new genes carry their NCBI Gene, RefSeq, UniProt and KEGG cross-references.
+  - The data records R2193's exact definition, the old gene's identity, and the evidence (orthology,
+    proteomics detection, the D08564g overexpression study).
+  - Applied by `--r2193-iron-gpr`.
+  - Reports: `../reports/r2193_iron_import_gpr_20261022/REPORT.md` (evidence) and
+    `../reports/r2193_iron_gpr_change_20261022/REPORT.md` (change).
+
+## Heme a and iron biomass terms (2026-10-22)
+
+- `biomass/heme_iron_biomass.json` adds heme a `m1635[C_cy]` (1e-6) and iron(2+) `m948[C_cy]`
+  (3.04e-5 mmol/gDW) to `biomass_C`.
+  - Values: yeast-GEM v9.1.1 cofactor and ion pseudoreactions; heme a also matches the source
+    model's closed R1710.
+  - The guard records the exact `biomass_C` stoichiometry it was reviewed on, requires
+    `biomass_C` as the only objective, and pins the supply route: iron import R1189/R2193/R863,
+    heme b → heme a R302/R384/R383, and heme a export R1709.
+  - Applied by `--heme-iron-biomass` (requires `--coq9-biomass-dilution`).
+  - Report: `../reports/heme_iron_biomass_20261022/REPORT.md`.
 
 ## R132 removal (2026-10-13)
 

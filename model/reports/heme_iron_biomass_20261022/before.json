@@ -1,0 +1,540 @@
+{
+ "model": "E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml",
+ "sha256": "cf0825b86c3533d8a12f697a994eba3d740671a68a367143ee32cbfdc8686b7c",
+ "counts": {
+  "reactions": 2311,
+  "metabolites": 1876,
+  "genes": 1074
+ },
+ "objective": [
+  "biomass_C"
+ ],
+ "targets": {
+  "biomass_C": {
+   "name": "biomass_C",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m1000[C_cy]": -0.035251,
+    "m10[C_cy]": 23.09,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m1401[C_cy]": 1.0,
+    "m141[C_cy]": -23.09,
+    "m143[C_cy]": 23.09,
+    "m149[C_cy]": -0.059363,
+    "m1631[C_em]": -3.5e-05,
+    "m1640[C_lp]": -0.000234,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "m294[C_cy]": -0.00686,
+    "m32[C_cy]": -23.09,
+    "m359[C_cy]": -0.003029,
+    "m35[C_cy]": 23.09,
+    "m401[C_cy]": -0.868358,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m468[C_mi]": -0.0001,
+    "m505[C_cy]": -0.010353,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m93[C_cy]": -0.050871,
+    "m95[C_cy]": -0.05721,
+    "m964[C_cy]": -0.02,
+    "trna_biomass_residue_R129": -0.567939,
+    "trna_biomass_residue_R154": -0.125563,
+    "trna_biomass_residue_R157": -0.186498,
+    "trna_biomass_residue_R165": -0.186531,
+    "trna_biomass_residue_R248": -0.003632,
+    "trna_biomass_residue_R336": -0.243866,
+    "trna_biomass_residue_R337": -0.243904,
+    "trna_biomass_residue_R368": -0.509943,
+    "trna_biomass_residue_R392": -0.053881,
+    "trna_biomass_residue_R493": -0.090566,
+    "trna_biomass_residue_R522": -0.19455,
+    "trna_biomass_residue_R531": -0.275005,
+    "trna_biomass_residue_R547": -0.044232,
+    "trna_biomass_residue_R625": -0.082571,
+    "trna_biomass_residue_R673": -0.206372,
+    "trna_biomass_residue_R723": -0.284699,
+    "trna_biomass_residue_R759": -0.210543,
+    "trna_biomass_residue_R771": -0.002154,
+    "trna_biomass_residue_R775": -0.041282,
+    "trna_biomass_residue_R798": -0.172773
+   },
+   "annotation": {
+    "sbo": "SBO:0000629"
+   },
+   "notes": {
+    "experimental_trna_biomass_mode": "split_v1",
+    "experimental_trna_biomass_template": "R1387",
+    "experimental_trna_biomass_design": "B group: 20 independent AA-tRNA -&gt; tRNA + protein-residue reactions",
+    "canonical_trna_biomass_mode": "split_v1",
+    "coq9_growth_dilution_candidate": "{&quot;R385_lower_bound_changed&quot;: false, &quot;alpha_mmol_per_gDW&quot;: 0.0001, &quot;alpha_source&quot;: &quot;User selected 1e-4 mmol/gDW on 2026-10-05; uncalibrated provisional assumption, not a measured physiological value.&quot;, &quot;interpretation&quot;: &quot;Q9 retained in newly formed biomass; not consumption per electron transfer&quot;, &quot;pool_balance&quot;: {&quot;R385&quot;: 1.0, &quot;biomass_C&quot;: -0.0001}, &quot;status&quot;: &quot;candidate_not_physiologically_calibrated_by_this_build&quot;}"
+   }
+  }
+ },
+ "context": {
+  "R1709": {
+   "name": "heme a transport",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m1635[C_cy]": 1.0,
+    "m609[C_mi]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "notes": {}
+  },
+  "R1710": {
+   "name": "yeast 8 biomass pseudoreaction",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m1010[C_cy]": 0.2646,
+    "m1011[C_cy]": -0.2646,
+    "m10[C_cy]": 59.305,
+    "m1123[C_cy]": -1.1348,
+    "m12[C_en]": -1.1348,
+    "m1324[C_cy]": -0.8079,
+    "m1400[C_cy]": -1.0,
+    "m1401[C_cy]": 1.0,
+    "m141[C_cy]": -59.276,
+    "m143[C_cy]": 59.276,
+    "m149[C_cy]": -0.0599,
+    "m1635[C_cy]": -1e-06,
+    "m273[C_cy]": 0.4588,
+    "m274[C_cy]": -0.4588,
+    "m294[C_cy]": -0.0234,
+    "m314[C_cy]": 0.1607,
+    "m315[C_cy]": -0.1607,
+    "m320[C_cy]": 0.1017,
+    "m321[C_cy]": -0.1017,
+    "m32[C_cy]": -59.276,
+    "m335[C_cy]": 0.2975,
+    "m336[C_cy]": -0.2975,
+    "m35[C_cy]": 58.7,
+    "m401[C_cy]": -1e-06,
+    "m447[C_cy]": 0.0066,
+    "m448[C_cy]": -0.0066,
+    "m459[C_cy]": -0.0024,
+    "m465[C_cy]": -0.0024,
+    "m505[C_cy]": -0.0036,
+    "m549[C_cy]": -0.5185,
+    "m553[C_cy]": 0.1054,
+    "m554[C_cy]": -0.1054,
+    "m555[C_cy]": 0.3018,
+    "m556[C_cy]": -0.3018,
+    "m590[C_cy]": 0.2904,
+    "m591[C_cy]": -0.2904,
+    "m618[C_cy]": 0.0663,
+    "m619[C_cy]": -0.0663,
+    "m746[C_cy]": 0.1927,
+    "m747[C_cy]": -0.1927,
+    "m777[C_cy]": 0.2964,
+    "m778[C_cy]": -0.2964,
+    "m794[C_cy]": 0.2862,
+    "m795[C_cy]": -0.2862,
+    "m806[C_cy]": 0.0507,
+    "m807[C_cy]": -0.0507,
+    "m861[C_cy]": 0.1339,
+    "m862[C_cy]": -0.1339,
+    "m86[C_cy]": -0.046,
+    "m89[C_cy]": -0.0036,
+    "m905[C_cy]": 0.1647,
+    "m906[C_cy]": -0.1647,
+    "m926[C_cy]": -0.00099,
+    "m93[C_cy]": -0.046,
+    "m943[C_cy]": 0.1854,
+    "m944[C_cy]": -0.1854,
+    "m95[C_cy]": -0.0447,
+    "m964[C_cy]": -0.02,
+    "m978[C_cy]": 0.1914,
+    "m979[C_cy]": -0.1914,
+    "m987[C_cy]": 0.0284,
+    "m988[C_cy]": -0.0284,
+    "m995[C_cy]": 0.102,
+    "m996[C_cy]": -0.102
+   },
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "notes": {}
+  },
+  "R1189": {
+   "name": "iron(2+) exchange",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m1273[C_ex]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000627"
+   },
+   "notes": {}
+  },
+  "R2193": {
+   "name": "iron (II) transport",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F07747g",
+   "stoichiometry": {
+    "m1273[C_ex]": -1.0,
+    "m948[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000185",
+    "bigg.reaction": [
+     "FE2DMT1",
+     "FE2t2pp",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2t2pp",
+     "R_FE2tm"
+    ],
+    "metacyc.reaction": "RXN0-2421",
+    "rh": [
+     "29579",
+     "29580",
+     "29581",
+     "29582"
+    ],
+    "rhea": [
+     "29579",
+     "29580",
+     "29581",
+     "29582"
+    ],
+    "seed.reaction": "rxn08473",
+    "vmhreaction": [
+     "FE2DMT1",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2tm"
+    ],
+    "metanetx.reaction": "MNXR99501",
+    "biggr": [
+     "FE2DMT1",
+     "FE2t2pp",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2t2pp",
+     "R_FE2tm"
+    ],
+    "metacycr": "RXN0-2421",
+    "seedr": "rxn08473",
+    "vmhr": [
+     "FE2DMT1",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2tm"
+    ]
+   },
+   "notes": {}
+  },
+  "R863": {
+   "name": "iron (II) transport",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m523[C_mi]": 1.0,
+    "m948[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000185",
+    "bigg.reaction": [
+     "FE2DMT1",
+     "FE2t2pp",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2t2pp",
+     "R_FE2tm"
+    ],
+    "metacyc.reaction": "RXN0-2421",
+    "rh": [
+     "29579",
+     "29580",
+     "29581",
+     "29582"
+    ],
+    "rhea": [
+     "29579",
+     "29580",
+     "29581",
+     "29582"
+    ],
+    "seed.reaction": "rxn08473",
+    "vmhreaction": [
+     "FE2DMT1",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2tm"
+    ],
+    "metanetx.reaction": "MNXR99501",
+    "biggr": [
+     "FE2DMT1",
+     "FE2t2pp",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2t2pp",
+     "R_FE2tm"
+    ],
+    "metacycr": "RXN0-2421",
+    "seedr": "rxn08473",
+    "vmhr": [
+     "FE2DMT1",
+     "FE2tm",
+     "R_FE2DMT1",
+     "R_FE2tm"
+    ]
+   },
+   "notes": {}
+  },
+  "R302": {
+   "name": "ferrochelatase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F25924g",
+   "stoichiometry": {
+    "m28[C_mi]": 2.0,
+    "m523[C_mi]": -1.0,
+    "m524[C_mi]": -1.0,
+    "m525[C_mi]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn10790",
+    "metanetx.reaction": "MNXR136400",
+    "ec-code": "4.98.1.1",
+    "seedr": "rxn10790"
+   },
+   "notes": {
+    "PROTEIN_CLASS": "4.99.1.1"
+   }
+  },
+  "R384": {
+   "name": "Heme O synthase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F31135g",
+   "stoichiometry": {
+    "m204[C_mi]": 1.0,
+    "m26[C_mi]": -1.0,
+    "m28[C_mi]": -5.0,
+    "m525[C_mi]": -1.0,
+    "m608[C_mi]": 1.0,
+    "m610[C_mi]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn05120",
+     "rxn08707",
+     "rxn13932",
+     "rxn13942",
+     "rxn19887",
+     "rxn38143"
+    ],
+    "metanetx.reaction": "MNXR134798",
+    "ec-code": "2.5.1.141",
+    "seedr": [
+     "rxn05120",
+     "rxn08707",
+     "rxn13932",
+     "rxn13942",
+     "rxn19887",
+     "rxn38143"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.5.1.-",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "stoichiometry",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+   }
+  },
+  "R383": {
+   "name": "heme O monooxygenase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B19490g and YALI1F32002g and YALI1B03314g",
+   "stoichiometry": {
+    "m26[C_mi]": 1.0,
+    "m27[C_mi]": 1.0,
+    "m28[C_mi]": 2.0,
+    "m30[C_mi]": -1.0,
+    "m608[C_mi]": -1.0,
+    "m609[C_mi]": 1.0,
+    "m64[C_mi]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "HEMEOMOm",
+     "R_HEMEOMOm"
+    ],
+    "metanetx.reaction": "MNXR145188",
+    "ec-code": "1.18.1.6",
+    "biggr": [
+     "HEMEOMOm",
+     "R_HEMEOMOm"
+    ]
+   },
+   "notes": {
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "stoichiometry",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+   }
+  },
+  "R674": {
+   "name": "protoporphyrinogen oxidase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D30196g",
+   "stoichiometry": {
+    "m26[C_mi]": 6.0,
+    "m524[C_mi]": 2.0,
+    "m64[C_mi]": -3.0,
+    "m907[C_mi]": -2.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn12989",
+    "metanetx.reaction": "MNXR137264",
+    "ec-code": "1.3.3.4",
+    "seedr": "rxn12989"
+   },
+   "notes": {
+    "PROTEIN_CLASS": "1.3.3.4"
+   }
+  },
+  "R727": {
+   "name": "sirohydrochlorin ferrochetalase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E14153g",
+   "stoichiometry": {
+    "m10[C_cy]": 3.0,
+    "m947[C_cy]": -1.0,
+    "m948[C_cy]": -1.0,
+    "m949[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn10007",
+    "metanetx.reaction": "MNXR136148",
+    "seedr": "rxn10007"
+   },
+   "notes": {
+    "PROTEIN_CLASS": "4.99.1.4"
+   }
+  }
+ },
+ "species": {
+  "m1635[C_cy]": {
+   "name": "heme a_C49H56FeN4O6",
+   "formula": "C49H56FeN4O6",
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions": [
+    "R1709",
+    "R1710"
+   ]
+  },
+  "m948[C_cy]": {
+   "name": "iron_Fe",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions": [
+    "R2193",
+    "R727",
+    "R863"
+   ]
+  },
+  "m609[C_mi]": {
+   "name": "heme a_C49H56FeN4O6",
+   "formula": "C49H56FeN4O6",
+   "charge": 0,
+   "compartment": "C_mi",
+   "reactions": [
+    "R1709",
+    "R383"
+   ]
+  },
+  "m525[C_mi]": {
+   "name": "ferroheme b_C34H30FeN4O4",
+   "formula": "C34H30FeN4O4",
+   "charge": 0,
+   "compartment": "C_mi",
+   "reactions": [
+    "R302",
+    "R384"
+   ]
+  },
+  "m608[C_mi]": {
+   "name": "heme o_C49H58FeN4O5",
+   "formula": "C49H58FeN4O5",
+   "charge": 0,
+   "compartment": "C_mi",
+   "reactions": [
+    "R383",
+    "R384"
+   ]
+  },
+  "m523[C_mi]": {
+   "name": "iron_Fe",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_mi",
+   "reactions": [
+    "R302",
+    "R863"
+   ]
+  },
+  "m1273[C_ex]": {
+   "name": "iron_Fe",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_ex",
+   "reactions": [
+    "R1189",
+    "R2193"
+   ]
+  }
+ },
+ "fe_containing_in_biomass_C": []
+}

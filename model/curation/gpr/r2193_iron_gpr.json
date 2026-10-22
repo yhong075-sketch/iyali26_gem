@@ -1,0 +1,187 @@
+{
+ "schema_version": 1,
+ "assignment_id": "R2193-IRON-GPR-20261022",
+ "status": "user_authorized_gpr_correction",
+ "authorization": "2026-10-22 user: Approved: implement R2193 option A as planned: (YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g), YALI1F07747g kept unlinked, opt-in flag on baseline 7f836c3a, KO comparison with fresh-basis or bound-violation checks. R863 unchanged. No commit or push.",
+ "reaction_id": "R2193",
+ "reaction_name": "iron (II) transport",
+ "before_gpr": "YALI1F07747g",
+ "after_gpr": "(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)",
+ "bounds": [
+  0.0,
+  1000.0
+ ],
+ "stoichiometry": {
+  "m1273[C_ex]": -1.0,
+  "m948[C_cy]": 1.0
+ },
+ "species": {
+  "m1273[C_ex]": {
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_ex"
+  },
+  "m948[C_cy]": {
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy"
+  }
+ },
+ "annotation": {
+  "sbo": "SBO:0000185",
+  "bigg.reaction": [
+   "FE2DMT1",
+   "FE2t2pp",
+   "FE2tm",
+   "R_FE2DMT1",
+   "R_FE2t2pp",
+   "R_FE2tm"
+  ],
+  "metacyc.reaction": "RXN0-2421",
+  "rh": [
+   "29579",
+   "29580",
+   "29581",
+   "29582"
+  ],
+  "rhea": [
+   "29579",
+   "29580",
+   "29581",
+   "29582"
+  ],
+  "seed.reaction": "rxn08473",
+  "vmhreaction": [
+   "FE2DMT1",
+   "FE2tm",
+   "R_FE2DMT1",
+   "R_FE2tm"
+  ],
+  "metanetx.reaction": "MNXR99501",
+  "biggr": [
+   "FE2DMT1",
+   "FE2t2pp",
+   "FE2tm",
+   "R_FE2DMT1",
+   "R_FE2t2pp",
+   "R_FE2tm"
+  ],
+  "metacycr": "RXN0-2421",
+  "seedr": "rxn08473",
+  "vmhr": [
+   "FE2DMT1",
+   "FE2tm",
+   "R_FE2DMT1",
+   "R_FE2tm"
+  ]
+ },
+ "before_notes": {},
+ "old_gene": {
+  "id": "YALI1F07747g",
+  "annotation": {
+   "sbo": "SBO:0000243",
+   "ncbigene": "2908631",
+   "uniprot": "A0A1D8NM31",
+   "kegg.genes": "yli:2908631"
+  },
+  "reactions_before": [
+   "R2193"
+  ],
+  "identity": "NCBI Gene 2908631 (YALI1_F07747g, XP_505019.3, 716 aa; old tag YALI0F05126g); UniProt Q6C2U3 has only HLH/bHLH domains (PF00010); reciprocal best hit of S. cerevisiae PHO4 over the bHLH region; Pomraning et al. 2016 list it as a predicted bHLH transcription factor. Its model cross-reference A0A1D8NM31 is deleted in UniProt (left unchanged here).",
+  "after": "kept in the model with no reaction (as YALI1D17462g after the R153 revision)"
+ },
+ "new_genes": {
+  "YALI1D09277g": {
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2910887",
+    "kegg.genes": "yli:2910887",
+    "refseq": "XP_502524.1",
+    "uniprot": "Q6C9Y8"
+   },
+   "role": "FET3-like multicopper ferroxidase (D09 pair)",
+   "orthology": "reciprocal best hit of S. cerevisiae FET3 (BLAST of CLIB122 protein Q6C9Y8: 45.8% identity over 97% of FET3, 553 bits, FET3's best Y. lipolytica hit); Pfam PF00394/PF07731/PF07732; KEGG K19791",
+   "consensus_essential_list": "positive",
+   "proteomics_debiaggi2025": "24/24 samples",
+   "same_species_evidence": "none found"
+  },
+  "YALI1D09308g": {
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2910888",
+    "kegg.genes": "yli:2910888",
+    "refseq": "XP_502525.1",
+    "uniprot": "Q6C9Y7"
+   },
+   "role": "FTR1-like high-affinity iron permease (D09 pair)",
+   "orthology": "reciprocal best hit of S. cerevisiae FTR1 (BLAST of CLIB122 protein Q6C9Y7: 49.4% identity over 97% of FTR1, 392 bits, FTR1's best Y. lipolytica hit); Pfam PF03239; KEGG K07243",
+   "consensus_essential_list": "positive",
+   "proteomics_debiaggi2025": "15/24 samples",
+   "same_species_evidence": "none found"
+  },
+  "YALI1D08684g": {
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2910503",
+    "kegg.genes": "yli:2910503",
+    "refseq": "XP_502500.2",
+    "uniprot": "Q6CA12"
+   },
+   "role": "FET3-like multicopper ferroxidase (D08 pair)",
+   "orthology": "one-way best hit, paralog of YALI1D09277g: its best S. cerevisiae hit is FET3 (CLIB122 protein Q6CA12: 50.4% identity over 85% of FET3, 536 bits), but FET3's best Y. lipolytica hit is Q6C9Y8; Pfam PF00394/PF07731/PF07732; KEGG K19791. Q6CA12 (CLIB122, 589 aa) and the W29 RefSeq protein (644 aa) come from different gene models; the W29 protein was not searched",
+   "consensus_essential_list": "not listed",
+   "proteomics_debiaggi2025": "23/24 samples",
+   "same_species_evidence": "none found"
+  },
+  "YALI1D08564g": {
+   "annotation": {
+    "sbo": "SBO:0000243",
+    "ncbigene": "2910500",
+    "kegg.genes": "yli:2910500",
+    "refseq": "XP_502497.1",
+    "uniprot": "Q6CA15"
+   },
+   "role": "FTR1-like high-affinity iron permease (D08 pair)",
+   "orthology": "one-way best hit, paralog of YALI1D09308g: its best S. cerevisiae hit is FTR1 (CLIB122 protein Q6CA15: 43.8% identity over 95% of FTR1, 346 bits), but FTR1's best Y. lipolytica hit is Q6C9Y7; Pfam PF03239; KEGG K07243",
+   "consensus_essential_list": "not listed",
+   "proteomics_debiaggi2025": "24/24 samples",
+   "same_species_evidence": "Ye et al. 2026 (doi:10.1016/j.synbio.2026.02.004) co-expressed this gene (primers match XM_502497.1) together with Vitreoscilla hemoglobin and reported raised intracellular iron; no Ftr1-only control, knockout or uptake assay"
+  }
+ },
+ "notes": {
+  "r2193_iron_gpr_curation_id": "R2193-IRON-GPR-20261022",
+  "r2193_iron_gpr_status": "user_authorized_gpr_correction",
+  "r2193_iron_gpr_authorization": "2026-10-22 user: Approved: implement R2193 option A as planned: (YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g), YALI1F07747g kept unlinked, opt-in flag on baseline 7f836c3a, KO comparison with fresh-basis or bound-violation checks. R863 unchanged. No commit or push.",
+  "r2193_iron_gpr_previous_gpr": "YALI1F07747g, a PHO4-like bHLH transcription factor; kept in the model with no reaction",
+  "r2193_iron_gpr_evidence": "Two Y. lipolytica FET3/FTR1 pairs. D09 (YALI1D09277g, YALI1D09308g): reciprocal best hits of S. cerevisiae FET3 and FTR1. D08 (YALI1D08684g, YALI1D08564g): their paralogs, whose best S. cerevisiae hits are also FET3 and FTR1 (one-way). Pfam and KEGG support both pairs; all four proteins are detected in Debiaggi 2025 proteomics. Co-expression of YALI1D08564g with Vitreoscilla hemoglobin raised intracellular iron (Ye et al. 2026; no Ftr1-only control). AND within a pair follows the S. cerevisiae Fet3-Ftr1 complex (Stearman et al. 1996, PMID 8599111).",
+  "r2193_iron_gpr_evidence_tier": "orthology (reciprocal for the D09 pair, one-way for the D08 paralogs) and protein detection; same-species co-expression evidence for YALI1D08564g only; not Y. lipolytica biochemistry",
+  "r2193_iron_gpr_known_limit": "Both D09-pair genes are on the consensus essential list; this OR rule cannot express that the D08 pair does not compensate."
+ },
+ "reviewed_model": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml",
+  "sha256": "7f836c3aabc0cc581f6ed2ed7e54d2d4e008ee5b2bdfaf24aab368781916539d"
+ },
+ "review": "model/reports/r2193_iron_import_gpr_20261022/REPORT.md",
+ "report": "model/reports/r2193_iron_gpr_change_20261022/",
+ "reviewer": "Claude Code session 2026-10-22 (investigation); decision by the user; independent audit in the report",
+ "evidence": [
+  {
+   "url": "https://europepmc.org/article/PMC/PMC4766638",
+   "claim": "Pomraning et al. 2016: YALI0F05126g listed as one of nine predicted bHLH transcription factors (prediction plus expression, not a tested function)"
+  },
+  {
+   "url": "https://europepmc.org/article/MED/8599111",
+   "claim": "Stearman et al. 1996, S. cerevisiae: Fet3 and Ftr1 together mediate high-affinity iron uptake; each needs the other"
+  },
+  {
+   "url": "https://doi.org/10.1016/j.synbio.2026.02.004",
+   "claim": "Ye et al. 2026: Ftr1 (YALI1D08564g by primer match) co-expressed with VHb raised intracellular iron; no Ftr1-only control"
+  },
+  {
+   "url": "https://github.com/SysBioChalmers/yeast-GEM",
+   "claim": "yeast-GEM iron(2+) import r_1178 is FET4 or FET3 (consensus-model precedent, not evidence for Y. lipolytica)"
+  }
+ ],
+ "unchanged": "R2193 name, bounds, stoichiometry and annotation; R863 and other iron reactions; YALI1F07747g annotation",
+ "correction_20261022": "After the independent audit: the D08 genes are one-way best hits (paralogs), not reciprocal best hits; the Ye et al. 2026 result is co-expression with VHb. Notes and orthology fields corrected; candidate rebuilt as v3."
+}

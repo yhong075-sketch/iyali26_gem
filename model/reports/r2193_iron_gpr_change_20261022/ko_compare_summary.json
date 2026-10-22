@@ -1,0 +1,459 @@
+{
+ "condition": "Task A medium + PO1f, GLPK, basis reset per knockout, targeted check",
+ "check": {
+  "knocked_reaction_flux_tolerance": 1e-09,
+  "general_tolerance": 1e-06
+ },
+ "lp_timeout_seconds": 60,
+ "magnitudes_in_sweep": {
+  "baseline": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 3.9756934765814756e-07,
+    "count_over_1e-9": 35,
+    "count_over_1e-7": 7,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 2.5080341261939966e-07,
+    "count_over_1e-9": 48,
+    "count_over_1e-7": 4,
+    "count_over_1e-6": 0
+   }
+  },
+  "new": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 3.9756934765814756e-07,
+    "count_over_1e-9": 35,
+    "count_over_1e-7": 7,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 2.5080341261939966e-07,
+    "count_over_1e-9": 48,
+    "count_over_1e-7": 4,
+    "count_over_1e-6": 0
+   }
+  }
+ },
+ "baseline_sha256": "7f836c3aabc0cc581f6ed2ed7e54d2d4e008ee5b2bdfaf24aab368781916539d",
+ "new_sha256": "2cf19c69981a1fd4b5d7cce83adb3aa2516570003f5e9e2ed4d8e90d7a64b3e8",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "negative_class": "user-defined: model genes not on the consensus list",
+ "validation_status": "development reference, not independent validation",
+ "mtdna_out_of_scope": [
+  "YALI1M00056g",
+  "YALI1M00064g",
+  "YALI1M00131g",
+  "YALI1M00260g",
+  "YALI1M00267g",
+  "YALI1M00277g",
+  "YALI1M00296g",
+  "YALI1M00318g",
+  "YALI1M00325g",
+  "YALI1M00335g",
+  "YALI1M00338r",
+  "YALI1M00390g",
+  "YALI1M00458g",
+  "YALIfMp29",
+  "YalifMp05",
+  "YalifMp06"
+ ],
+ "wt": {
+  "baseline": {
+   "status": "optimal",
+   "growth": 0.31242629563384866,
+   "max_bound_violation": 7.305487573820003e-12,
+   "max_residual": 7.714484736784377e-11,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "new": {
+   "status": "optimal",
+   "growth": 0.31242629563384866,
+   "max_bound_violation": 7.305487573820003e-12,
+   "max_residual": 7.714484736784377e-11,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  }
+ },
+ "genes": {
+  "baseline": 1074,
+  "new": 1078,
+  "only_in_new": [
+   "YALI1D08564g",
+   "YALI1D08684g",
+   "YALI1D09277g",
+   "YALI1D09308g"
+  ],
+  "only_in_baseline": []
+ },
+ "in_model_positives": {
+  "baseline": 322,
+  "new": 324
+ },
+ "sweep_points_failing_check": {
+  "baseline": [],
+  "new": []
+ },
+ "non_optimal_in_sweep": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "new": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "fresh_resolves": [],
+ "unresolved_after_fresh": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "new": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "scores": {
+  "baseline": {
+   "0.01": {
+    "TP": 74,
+    "FN": 237,
+    "FP": 30,
+    "TN": 701,
+    "unresolved": 16,
+    "recall": 0.2379421221864952,
+    "specificity": 0.9589603283173734,
+    "precision": 0.7115384615384616,
+    "mcc": 0.3005881913301504
+   },
+   "0.05": {
+    "TP": 80,
+    "FN": 231,
+    "FP": 32,
+    "TN": 699,
+    "unresolved": 16,
+    "recall": 0.2572347266881029,
+    "specificity": 0.9562243502051984,
+    "precision": 0.7142857142857143,
+    "mcc": 0.3153573985494465
+   },
+   "0.1": {
+    "TP": 84,
+    "FN": 227,
+    "FP": 37,
+    "TN": 694,
+    "unresolved": 16,
+    "recall": 0.27009646302250806,
+    "specificity": 0.9493844049247606,
+    "precision": 0.6942148760330579,
+    "mcc": 0.31348231963480705
+   },
+   "0.15": {
+    "TP": 92,
+    "FN": 219,
+    "FP": 37,
+    "TN": 694,
+    "unresolved": 16,
+    "recall": 0.2958199356913183,
+    "specificity": 0.9493844049247606,
+    "precision": 0.7131782945736435,
+    "mcc": 0.3406722766907392
+   }
+  },
+  "new": {
+   "0.01": {
+    "TP": 74,
+    "FN": 239,
+    "FP": 29,
+    "TN": 704,
+    "unresolved": 16,
+    "recall": 0.2364217252396166,
+    "specificity": 0.9604365620736699,
+    "precision": 0.7184466019417476,
+    "mcc": 0.30255434884041976
+   },
+   "0.05": {
+    "TP": 80,
+    "FN": 233,
+    "FP": 31,
+    "TN": 702,
+    "unresolved": 16,
+    "recall": 0.25559105431309903,
+    "specificity": 0.9577080491132333,
+    "precision": 0.7207207207207207,
+    "mcc": 0.31713625341709906
+   },
+   "0.1": {
+    "TP": 84,
+    "FN": 229,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.268370607028754,
+    "specificity": 0.9508867667121419,
+    "precision": 0.7,
+    "mcc": 0.3150520048130139
+   },
+   "0.15": {
+    "TP": 92,
+    "FN": 221,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.2939297124600639,
+    "specificity": 0.9508867667121419,
+    "precision": 0.71875,
+    "mcc": 0.34208850296899185
+   }
+  }
+ },
+ "growth_changed_over_1e-6": [
+  {
+   "gene": "YALI1D08564g",
+   "base": "absent",
+   "new": 0.3124262956327266
+  },
+  {
+   "gene": "YALI1D08684g",
+   "base": "absent",
+   "new": 0.3124262956327266
+  },
+  {
+   "gene": "YALI1D09277g",
+   "base": "absent",
+   "new": 0.3124262956327266
+  },
+  {
+   "gene": "YALI1D09308g",
+   "base": "absent",
+   "new": 0.3124262956327266
+  },
+  {
+   "gene": "YALI1F07747g",
+   "base": -9.71815637230312e-18,
+   "new": 0.3124262956327266
+  }
+ ],
+ "class_changed": {
+  "0.01": [
+   {
+    "gene": "YALI1D08564g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D08684g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09277g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09308g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "base": "essential",
+    "new": "non-essential"
+   }
+  ],
+  "0.05": [
+   {
+    "gene": "YALI1D08564g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D08684g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09277g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09308g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "base": "essential",
+    "new": "non-essential"
+   }
+  ],
+  "0.1": [
+   {
+    "gene": "YALI1D08564g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D08684g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09277g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09308g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "base": "essential",
+    "new": "non-essential"
+   }
+  ],
+  "0.15": [
+   {
+    "gene": "YALI1D08564g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D08684g",
+    "experimental_positive": false,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09277g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1D09308g",
+    "experimental_positive": true,
+    "base": "absent",
+    "new": "non-essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "base": "essential",
+    "new": "non-essential"
+   }
+  ]
+ },
+ "lp_count": {
+  "sweep": 2154,
+  "fresh": 0
+ }
+}
