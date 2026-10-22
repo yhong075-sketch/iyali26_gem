@@ -53,6 +53,10 @@ def parse_args(argv=None):
                         help="Write D-ribulose instead of D-arabinose as R2190's product per the curated 2026-10-19 decision (R2190-RIBULOSE-20261019)")
     parser.add_argument("--r1964-gpr", action="store_true",
                         help="Give orphan R1964 (arabinitol dehydrogenase) the provisional GPR YALI1F03452g or YALI1E06616g and D-xylulose cross-references (curated 2026-10-19)")
+    parser.add_argument("--gpi-chain-links", action="store_true",
+                        help="Connect the blocked GPI-anchor chain R371-R376: gene-less step 1 (GlcNAc-PI synthesis), PE/DAG ER links, ER acetate export and an open GPI demand (curated 2026-10-21, GPI-CHAIN-LINKS-20261021)")
+    parser.add_argument("--gpi-coproducts", action="store_true",
+                        help="Add the missing co-products to the GPI chain: DAG on R373 and Dol-P on R375 (curated 2026-10-21, GPI-COPRODUCTS-20261021); requires --gpi-chain-links")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

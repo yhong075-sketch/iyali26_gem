@@ -1,0 +1,1049 @@
+{
+  "model": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/confusion-matrices-iyali21-7e63ca/model/source/iyli21.xml",
+    "sha256": "6974b7588f2a6c60ba2cde2f26e20d3aba1334d0d501572bf01cee47eda86631"
+  },
+  "medium": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/confusion-matrices-iyali21-7e63ca/model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+    "sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45"
+  },
+  "overlay": {
+    "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/confusion-matrices-iyali21-7e63ca/model/reports/screen_iyali21_overlay_w29_20261014/holistic_overlay_iyali21.py",
+    "sha256": "11e28764cadf30f0d916cf18c67f64bd54c085ca18121c6be03eb02fd70aa023"
+  },
+  "overlay_status": "ASSUMPTION (diagnostic), in memory only; adapted to iYali21",
+  "overlay_record": {
+    "R1864": "m122[C_cy] + m1789[C_cy] <=> m10[C_cy] + m123[C_cy] + m1790[C_cy]",
+    "R1866": "m122[C_cy] + m1792[C_cy] <=> m10[C_cy] + m123[C_cy] + m1793[C_cy]",
+    "R2069_before": "m10[C_cy] + m123[C_cy] + m276[C_cy] <=> m122[C_cy] + m277[C_cy] + m32[C_cy]",
+    "R2069": "m122[C_cy] + m276[C_cy] + m32[C_cy] <=> m10[C_cy] + m123[C_cy] + m1949[C_cy]",
+    "m1949_other_reactions": [
+      "R2079",
+      "R2093"
+    ],
+    "closed": [
+      "R1882",
+      "R1883",
+      "R1884",
+      "R2255",
+      "R2259",
+      "R2263"
+    ],
+    "absent_not_closed": [
+      "R_MDHy",
+      "R_ALCDH_nadp_hi"
+    ],
+    "R1113_upper": 0.0,
+    "R171_gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g",
+    "R1384_upper": 8.0,
+    "R860_upper": 1.0
+  },
+  "scoring_negative_class": "user_defined_native_model_genes_absent_from_positive_list",
+  "validation_status": "development_reference_not_independent_validation",
+  "wt_growth": 0.2982130209047423,
+  "controls": {
+    "complex_I": {
+      "reaction": "R2062",
+      "status": "optimal",
+      "ko_wt_ratio": 0.9999999999999997
+    },
+    "complex_III": {
+      "reaction": "R305",
+      "status": "infeasible",
+      "ko_wt_ratio": null
+    },
+    "complex_IV": {
+      "reaction": "R304",
+      "status": "optimal",
+      "ko_wt_ratio": 0.9364269275353528
+    },
+    "ATP_synthase": {
+      "reaction": "R171",
+      "status": "infeasible",
+      "ko_wt_ratio": null
+    }
+  },
+  "metrics_mtdna_out_of_scope": {
+    "benchmark_rule": [
+      {
+        "cutoff": 0.01,
+        "TP": 40,
+        "FN": 264,
+        "FP": 18,
+        "TN": 699,
+        "unresolved": 21,
+        "excluded_out_of_scope": 16,
+        "recall": 0.13157894736842105,
+        "precision": 0.6896551724137931,
+        "specificity": 0.9748953974895398,
+        "mcc": 0.21033628827136835
+      },
+      {
+        "cutoff": 0.05,
+        "TP": 47,
+        "FN": 257,
+        "FP": 20,
+        "TN": 697,
+        "unresolved": 21,
+        "excluded_out_of_scope": 16,
+        "recall": 0.15460526315789475,
+        "precision": 0.7014925373134329,
+        "specificity": 0.9721059972105998,
+        "mcc": 0.23399145163577206
+      },
+      {
+        "cutoff": 0.1,
+        "TP": 51,
+        "FN": 253,
+        "FP": 25,
+        "TN": 692,
+        "unresolved": 21,
+        "excluded_out_of_scope": 16,
+        "recall": 0.16776315789473684,
+        "precision": 0.6710526315789473,
+        "specificity": 0.9651324965132496,
+        "mcc": 0.2315178332619277
+      },
+      {
+        "cutoff": 0.15,
+        "TP": 58,
+        "FN": 246,
+        "FP": 25,
+        "TN": 692,
+        "unresolved": 21,
+        "excluded_out_of_scope": 16,
+        "recall": 0.19078947368421054,
+        "precision": 0.6987951807228916,
+        "specificity": 0.9651324965132496,
+        "mcc": 0.260893475371547
+      }
+    ],
+    "benchmark_rule_all_native": [
+      {
+        "cutoff": 0.01,
+        "TP": 40,
+        "FN": 264,
+        "FP": 18,
+        "TN": 711,
+        "unresolved": 25,
+        "excluded_out_of_scope": 0,
+        "recall": 0.13157894736842105,
+        "precision": 0.6896551724137931,
+        "specificity": 0.9753086419753086,
+        "mcc": 0.2115979879686135
+      },
+      {
+        "cutoff": 0.05,
+        "TP": 47,
+        "FN": 257,
+        "FP": 20,
+        "TN": 709,
+        "unresolved": 25,
+        "excluded_out_of_scope": 0,
+        "recall": 0.15460526315789475,
+        "precision": 0.7014925373134329,
+        "specificity": 0.9725651577503429,
+        "mcc": 0.23532100805285872
+      },
+      {
+        "cutoff": 0.1,
+        "TP": 51,
+        "FN": 253,
+        "FP": 25,
+        "TN": 704,
+        "unresolved": 25,
+        "excluded_out_of_scope": 0,
+        "recall": 0.16776315789473684,
+        "precision": 0.6710526315789473,
+        "specificity": 0.9657064471879286,
+        "mcc": 0.23298081834384068
+      },
+      {
+        "cutoff": 0.15,
+        "TP": 58,
+        "FN": 246,
+        "FP": 25,
+        "TN": 704,
+        "unresolved": 25,
+        "excluded_out_of_scope": 0,
+        "recall": 0.19078947368421054,
+        "precision": 0.6987951807228916,
+        "specificity": 0.9657064471879286,
+        "mcc": 0.26236308511254425
+      }
+    ],
+    "lethal_view": [
+      {
+        "cutoff": 0.01,
+        "TP": 56,
+        "FN": 264,
+        "FP": 23,
+        "TN": 699,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.175,
+        "precision": 0.7088607594936709,
+        "specificity": 0.9681440443213296,
+        "mcc": 0.2494538333577292
+      },
+      {
+        "cutoff": 0.05,
+        "TP": 63,
+        "FN": 257,
+        "FP": 25,
+        "TN": 697,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.196875,
+        "precision": 0.7159090909090909,
+        "specificity": 0.9653739612188366,
+        "mcc": 0.2691596714296992
+      },
+      {
+        "cutoff": 0.1,
+        "TP": 67,
+        "FN": 253,
+        "FP": 30,
+        "TN": 692,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.209375,
+        "precision": 0.6907216494845361,
+        "specificity": 0.9584487534626038,
+        "mcc": 0.26643743659161234
+      },
+      {
+        "cutoff": 0.15,
+        "TP": 74,
+        "FN": 246,
+        "FP": 30,
+        "TN": 692,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.23125,
+        "precision": 0.7115384615384616,
+        "specificity": 0.9584487534626038,
+        "mcc": 0.2919375615486046
+      }
+    ],
+    "maintenance_view": [
+      {
+        "cutoff": 0.01,
+        "TP": 56,
+        "FN": 264,
+        "FP": 23,
+        "TN": 699,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.175,
+        "precision": 0.7088607594936709,
+        "specificity": 0.9681440443213296,
+        "mcc": 0.2494538333577292
+      },
+      {
+        "cutoff": 0.05,
+        "TP": 63,
+        "FN": 257,
+        "FP": 25,
+        "TN": 697,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.196875,
+        "precision": 0.7159090909090909,
+        "specificity": 0.9653739612188366,
+        "mcc": 0.2691596714296992
+      },
+      {
+        "cutoff": 0.1,
+        "TP": 67,
+        "FN": 253,
+        "FP": 30,
+        "TN": 692,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.209375,
+        "precision": 0.6907216494845361,
+        "specificity": 0.9584487534626038,
+        "mcc": 0.26643743659161234
+      },
+      {
+        "cutoff": 0.15,
+        "TP": 74,
+        "FN": 246,
+        "FP": 30,
+        "TN": 692,
+        "unresolved": 0,
+        "excluded_out_of_scope": 16,
+        "recall": 0.23125,
+        "precision": 0.7115384615384616,
+        "specificity": 0.9584487534626038,
+        "mcc": 0.2919375615486046
+      }
+    ]
+  },
+  "unresolved_genes": [
+    {
+      "gene_id": "YALI0D17490g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1A03322g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1A14736g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1A17570g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1B02487g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1B05364g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1B08885g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1C17100g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1D11769g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R1;R2;R3;R303;R304;R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1D14639g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1D15734g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1D27826g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1E38131g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1E40361g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F02758g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F04110g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F04433g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F07384g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F12013g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F26967g",
+      "experimental_positive": true,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1F32010g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": false,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1M00260g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": true,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1M00267g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": true,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1M00318g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": true,
+      "model_reaction_ids": "R171",
+      "ngam_label": "cannot meet maintenance"
+    },
+    {
+      "gene_id": "YALI1M00390g",
+      "experimental_positive": false,
+      "mtdna_out_of_scope": true,
+      "model_reaction_ids": "R305",
+      "ngam_label": "cannot meet maintenance"
+    }
+  ],
+  "ngam_label_counts": {
+    "cannot meet maintenance": 27
+  },
+  "max_maintenance_atp": {
+    "control:R305": 1.9381706666666658,
+    "control:R171": 5.1792144642857165
+  },
+  "comparison_with_no_overlay": {
+    "reference": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/confusion_matrices_csmleu_w29_20261014/screen_iyali21/gene_screen.tsv",
+    "reference_sha256": "216ff295d3e1e2b863a68a4f9215919504dd7e2427601956179edb7593be9af8",
+    "wt_no_overlay": 0.29821302090474233,
+    "call_changes": {
+      "1pct": [
+        {
+          "gene_id": "YALI0D17490g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B05364g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B08885g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000029",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D14639g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000033",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D15734g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.999999999999995",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D27826g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1E38131g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999992",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04110g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999887",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04433g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000038",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F07384g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.000000000000002",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F26967g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000073",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00260g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00267g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00318g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000022",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        }
+      ],
+      "5pct": [
+        {
+          "gene_id": "YALI0D17490g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B05364g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B08885g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000029",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D14639g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000033",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D15734g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.999999999999995",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D27826g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1E38131g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999992",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04110g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999887",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04433g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000038",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F07384g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.000000000000002",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F26967g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000073",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00260g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00267g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00318g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000022",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        }
+      ],
+      "10pct": [
+        {
+          "gene_id": "YALI0D17490g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B05364g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B08885g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000029",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D14639g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000033",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D15734g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.999999999999995",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D27826g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1E38131g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999992",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04110g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999887",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04433g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000038",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F07384g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.000000000000002",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F26967g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000073",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00260g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00267g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00318g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000022",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        }
+      ],
+      "15pct": [
+        {
+          "gene_id": "YALI0D17490g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B05364g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1B08885g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000029",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D14639g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000033",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D15734g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.999999999999995",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1D27826g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000018",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1E38131g",
+          "experimental_positive": false,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999992",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04110g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999887",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F04433g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000038",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F07384g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.000000000000002",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1F26967g",
+          "experimental_positive": true,
+          "mtdna": false,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000073",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00260g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00267g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "0.9999999999999997",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        },
+        {
+          "gene_id": "YALI1M00318g",
+          "experimental_positive": false,
+          "mtdna": true,
+          "no_overlay": "nonessential",
+          "overlay": "unresolved",
+          "no_overlay_ratio": "1.0000000000000022",
+          "overlay_ratio": "",
+          "model_reaction_ids": "R171"
+        }
+      ]
+    },
+    "ratio_moves_above_1e6": [
+      "YALI1C08262g",
+      "YALI1D15424g",
+      "YALI1F01981g"
+    ]
+  },
+  "calls_used": 1144
+}

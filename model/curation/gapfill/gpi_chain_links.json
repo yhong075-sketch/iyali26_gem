@@ -1,0 +1,344 @@
+{
+ "schema_version": 1,
+ "curation_id": "GPI-CHAIN-LINKS-20261021",
+ "status": "user_authorized_connectivity_fix",
+ "authorization": "2026-10-21 user: Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open demand, co-product fix as a later change, KO comparison included). No commit or push.",
+ "baseline_model_sha256": "164f235f4fe823181df0cc83082d6058ee9cf59675777adfe93557e9a77583a6",
+ "report": "model/reports/gpi_chain_links_20261021/",
+ "species": {
+  "m403[C_cy]": {
+   "name": "UDP-N-acetyl-alpha-D-glucosamine_C17H25N3O17P2",
+   "formula": "C17H25N3O17P2",
+   "charge": -2,
+   "compartment": "C_cy"
+  },
+  "m1648[C_em]": {
+   "name": "1-phosphatidyl-1D-myo-inositol",
+   "formula": "C11H17O13P*2",
+   "charge": 0,
+   "compartment": "C_em"
+  },
+  "m10[C_cy]": {
+   "name": "H+_p+1",
+   "formula": "H",
+   "charge": 1,
+   "compartment": "C_cy"
+  },
+  "m11[C_cy]": {
+   "name": "UDP_C9H14N2O12P2",
+   "formula": "C9H14N2O12P2",
+   "charge": 0,
+   "compartment": "C_cy"
+  },
+  "m596[C_er]": {
+   "name": "6-(N-acetyl-alpha-D-glucosaminyl)-1-phosphatidyl-1D-myo-inositol_",
+   "formula": "C19H30NO18P*2",
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R371"
+   ]
+  },
+  "m249[C_er]": {
+   "name": "6-(alpha-D-glucosaminyl)-1-phosphatidyl-1D-myo-inositol_C17H28NO17PR2",
+   "formula": "C17H28NO17PR2",
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R113",
+    "R371"
+   ]
+  },
+  "m251[C_er]": {
+   "name": "6-(alpha-D-glucosaminyl)-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R113",
+    "R372"
+   ]
+  },
+  "m598[C_er]": {
+   "name": "6-O-[alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl]-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R372",
+    "R373"
+   ]
+  },
+  "m600[C_er]": {
+   "name": "6-O-{2-O-[(2-aminoethyl)phosphoryl]-alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl}-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R373",
+    "R374"
+   ]
+  },
+  "m601[C_er]": {
+   "name": "6-O-{alpha-D-mannosyl-(1-6)-2-O-[(2-aminoethyl)phosphoryl]-alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl}-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R374",
+    "R375"
+   ]
+  },
+  "m602[C_er]": {
+   "name": "6-O-{alpha-D-mannosyl-(1-2)-alpha-D-mannosyl-(1-6)-2-O-[(2-aminoethyl)phosphoryl]-alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl}-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R375",
+    "R376"
+   ]
+  },
+  "m1633[C_em]": {
+   "name": "phosphatidylethanolamine_C7H12NO8PR2",
+   "formula": "C7H12NO8PR2",
+   "charge": 0,
+   "compartment": "C_em"
+  },
+  "m599[C_er]": {
+   "name": "phosphatidylethanolamine_C7H12NO8PR2",
+   "formula": "C7H12NO8PR2",
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R373",
+    "R376"
+   ]
+  },
+  "m604[C_er]": {
+   "name": "diglyceride",
+   "formula": "C6H8O6",
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R376"
+   ]
+  },
+  "m1649[C_em]": {
+   "name": "diglyceride",
+   "formula": "C6H8O6",
+   "charge": 0,
+   "compartment": "C_em"
+  },
+  "m597[C_er]": {
+   "name": "acetate_C2H4O2",
+   "formula": "C2H4O2",
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R371"
+   ]
+  },
+  "m202[C_cy]": {
+   "name": "acetate_C2H4O2",
+   "formula": "C2H4O2",
+   "charge": 0,
+   "compartment": "C_cy"
+  },
+  "m603[C_er]": {
+   "name": "6-[6-(2-aminoethylphosphoryl)-alpha-mannosyl-(1-6)-2-(2-aminoethylphosphoryl)-alpha-mannosyl-(1-6)-alpha-2-(2-aminoethylphosphoryl)mannosyl-(1-4)-alpha-glucosaminyl]-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "reactions_before": [
+    "R376"
+   ]
+  }
+ },
+ "chain_reactions": {
+  "R371": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m102[C_er]": 1.0,
+    "m249[C_er]": 1.0,
+    "m389[C_er]": -1.0,
+    "m596[C_er]": -1.0,
+    "m597[C_er]": 1.0
+   }
+  },
+  "R113": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m249[C_er]": -1.0,
+    "m250[C_er]": -1.0,
+    "m251[C_er]": 1.0,
+    "m252[C_er]": 1.0
+   }
+  },
+  "R372": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m251[C_er]": -1.0,
+    "m502[C_er]": -1.0,
+    "m503[C_er]": 1.0,
+    "m598[C_er]": 1.0
+   }
+  },
+  "R373": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m598[C_er]": -1.0,
+    "m599[C_er]": -1.0,
+    "m600[C_er]": 1.0
+   }
+  },
+  "R374": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m502[C_er]": -1.0,
+    "m503[C_er]": 1.0,
+    "m600[C_er]": -1.0,
+    "m601[C_er]": 1.0
+   }
+  },
+  "R375": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m502[C_er]": -1.0,
+    "m601[C_er]": -1.0,
+    "m602[C_er]": 1.0
+   }
+  },
+  "R376": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m599[C_er]": -1.0,
+    "m602[C_er]": -1.0,
+    "m603[C_er]": 1.0,
+    "m604[C_er]": 1.0
+   }
+  }
+ },
+ "reactions": {
+  "R_GPIGNT": {
+   "name": "phosphatidylinositol N-acetylglucosaminyltransferase, GPI-anchor assembly, step 1",
+   "stoichiometry": {
+    "m403[C_cy]": -1.0,
+    "m1648[C_em]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m11[C_cy]": 1.0,
+    "m596[C_er]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "group": "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "ec-code": "2.4.1.198",
+    "kegg.reaction": "R05916"
+   },
+   "evidence": "https://www.kegg.jp/entry/R05916 ; https://www.kegg.jp/entry/2.4.1.198",
+   "evidence_tier": "equation verified against KEGG R05916 (2026-10-20); cytosolic UDP-GlcNAc and ER-membrane PI are established/uncited; no Y. lipolytica gene assigned",
+   "rationale": "No reaction made GlcNAc-PI (m596), so the GPI chain had no entry. UDP-GlcNAc and UDP are the cytosolic species with formulas (m403, m11); PI is the ER-membrane pool (m1648, made by R1839). The 2 H+ are needed because the model stores UDP-GlcNAc (m403) at charge -2 and UDP (m11) at 0, as R778 and R211 do; KEGG writes the equation for neutral species. Irreversible: glycosyl transfer from a nucleotide sugar."
+  },
+  "R_PEt_em_er": {
+   "name": "phosphatidylethanolamine transport, ER membrane-ER",
+   "stoichiometry": {
+    "m1633[C_em]": -1.0,
+    "m599[C_er]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "group": "Transport, ER to ER membrane",
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "evidence": "Model convention: gene-less ER membrane-ER transports R1694-R1697; C_em reactions are named as ER membrane reactions",
+   "evidence_tier": "model convention (verified in 164f235f); no transporter implied",
+   "rationale": "PE in C_er (m599), consumed by R373 and R376, had no source. C_em, labelled endosomal membrane in the SBML, holds the ER-membrane lipid reactions; this links the two pools of the same lipid."
+  },
+  "R_DAGt_er_em": {
+   "name": "diglyceride transport, ER-ER membrane",
+   "stoichiometry": {
+    "m604[C_er]": -1.0,
+    "m1649[C_em]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "group": "Transport, ER to ER membrane",
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "evidence": "Model convention: gene-less ER membrane-ER transports R1694-R1697",
+   "evidence_tier": "model convention (verified in 164f235f); no transporter implied",
+   "rationale": "DAG in C_er (m604), made by R376, had no consumer. This returns it to the ER-membrane DAG pool."
+  },
+  "R_ACt_er_cy": {
+   "name": "acetate transport, ER-cytoplasm",
+   "stoichiometry": {
+    "m597[C_er]": -1.0,
+    "m202[C_cy]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "group": "Transport, ER",
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "evidence": "Model convention: gene-less cytoplasm-ER diffusion reactions (R1158 H+, R1358 H2O, R1049 CO2, R1276 O2)",
+   "evidence_tier": "model convention (verified in 164f235f); passive diffusion of acetic acid is established/uncited",
+   "rationale": "Acetate in C_er (m597), made by R371, had no consumer."
+  },
+  "R_DM_GPI": {
+   "name": "GPI-anchor precursor demand",
+   "stoichiometry": {
+    "m603[C_er]": -1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "group": "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",
+   "annotation": {
+    "sbo": "SBO:0000628"
+   },
+   "evidence": "Modelling exit standing in for GPI transamidase attachment to proteins, which the model does not represent",
+   "evidence_tier": "modelling assumption; open (not forced), so no GPI amount is required for growth",
+   "rationale": "The chain end product (m603) had no consumer. The demand is open, not forced: growth and the optimal flux do not change."
+  }
+ }
+}

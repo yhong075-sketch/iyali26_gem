@@ -86,6 +86,8 @@ def build_reference_chain(
     r2041_forward: bool = False,
     r2190_ribulose_product: bool = False,
     r1964_gpr: bool = False,
+    gpi_chain_links: bool = False,
+    gpi_coproducts: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -118,6 +120,8 @@ def build_reference_chain(
                          "dilution, without other CoQ hypotheses")
     if r132_mito_adh and not coq9_respiratory_package:
         raise ValueError("The R132 removal is defined on the CoQ9/respiratory package candidate")
+    if gpi_coproducts and not gpi_chain_links:
+        raise ValueError("The GPI co-products are defined on the GPI chain links candidate")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -740,6 +744,16 @@ def build_reference_chain(
         from .r1964_gpr import apply_r1964_gpr_assignment
         selection["r1964_gpr_assignment"] = apply_r1964_gpr_assignment(model)
         logger.info("R1964 GPR assignment: %s", selection["r1964_gpr_assignment"])
+    if gpi_chain_links:
+        # Opt-in: step 1, three ER links and an open exit for the GPI-anchor chain (2026-10-21).
+        from .gpi_chain_links import apply_gpi_chain_links
+        selection["gpi_chain_links"] = apply_gpi_chain_links(model)
+        logger.info("GPI chain links: %s", selection["gpi_chain_links"])
+    if gpi_coproducts:
+        # Opt-in: DAG on R373 and Dol-P on R375, on top of the GPI chain links (2026-10-21).
+        from .gpi_coproducts import apply_gpi_coproducts
+        selection["gpi_coproducts"] = apply_gpi_coproducts(model)
+        logger.info("GPI co-products: %s", selection["gpi_coproducts"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -832,6 +846,8 @@ def build_model(args):
         r2041_forward=getattr(args, "r2041_forward", False),
         r2190_ribulose_product=getattr(args, "r2190_ribulose_product", False),
         r1964_gpr=getattr(args, "r1964_gpr", False),
+        gpi_chain_links=getattr(args, "gpi_chain_links", False),
+        gpi_coproducts=getattr(args, "gpi_coproducts", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

@@ -1,0 +1,49 @@
+# GPI co-products (2026-10-21). Exact commands as run.
+# V, R and FLAGS as in ../gpi_chain_links_20261021/commands.txt (combined argv of 164f235f).
+
+# From the worktree root: before-state of the targets
+$V -I model/reports/gpi_coproducts_20261021/scripts/before_state.py \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml model/reports/gpi_coproducts_20261021/before.json
+
+# From platform/: focused tests
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_gpi_coproducts.py tests/test_gpi_chain_links.py
+
+# From platform/: builds
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS \
+  --output-model ../.scratch/gpi_coproducts_20261021/control_no_gpi_flags.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links \
+  --output-model ../.scratch/gpi_coproducts_20261021/links_only.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links --gpi-coproducts \
+  --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links --gpi-coproducts \
+  --output-model ../.scratch/gpi_coproducts_20261021/coproducts_seed1.xml
+
+# From the worktree root: whole-model diffs (MD = model/reports/combined_candidate_20261020/scripts/model_diff.py)
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml \
+  .scratch/gpi_coproducts_20261021/links_only.xml model/reports/gpi_coproducts_20261021/model_diff_links_only_vs_89559a0f.json
+$V -I $MD .scratch/gpi_coproducts_20261021/links_only.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml model/reports/gpi_coproducts_20261021/model_diff_new_vs_links_only.json
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml model/reports/gpi_coproducts_20261021/model_diff_new_vs_89559a0f.json
+
+# Identity cross-check of the R373/R375 genes (read-only web queries)
+curl -s https://rest.kegg.jp/get/yli:2908691 ; curl -s https://rest.kegg.jp/get/yli:2910629
+curl -s https://rest.uniprot.org/uniprotkb/Q6C0Z3.txt ; curl -s https://rest.uniprot.org/uniprotkb/Q6CAB8.txt
+
+# From platform/: diagnostic LPs and the knockout comparison (SD-Leu + PO1f, GLPK)
+B=../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml
+N=../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml
+D=../model/reports/gpi_coproducts_20261021
+PYTHONPATH="$PWD" $V $D/scripts/solves.py $B $N "$R" $D/solves.json
+PYTHONPATH="$PWD" $V ../model/reports/gpi_chain_links_20261021/scripts/ko_compare.py $B $N "$R" $D/ko_compare.tsv $D/ko_compare_summary.json
+
+# From platform/: full suite
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors
+PYTHONPATH="$PWD" $V ../model/reports/gpi_chain_links_20261021/scripts/ko_d22124g_diagnosis.py $B $N "$R" $D/ko_d22124g_fresh.json  # fresh-context check; 'baseline' = 89559a0f, 'new' = cf0825b8
+
+# After the audit: open-exit check, focused tests, verification rebuild, full suite
+PYTHONPATH="$PWD" $V $D/scripts/ko_exit_sink_check.py $B $N "$R" $D/ko_exit_sink_check.json
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_gpi_coproducts.py tests/test_gpi_chain_links.py
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links --gpi-coproducts \
+  --output-model ../.scratch/gpi_coproducts_20261021/coproducts_after_audit_seed0.xml
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors
