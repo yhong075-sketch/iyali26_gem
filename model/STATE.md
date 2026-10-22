@@ -5,6 +5,52 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-22: Default LP solver is now Gurobi (code change, not committed)
+
+**Authorization.** The user, 2026-10-22:
+
+> "Approved. Apply the plan as written, including run.sh, the README line and the STATE.md
+> entry; skip the GLPK vs Gurobi comparison."
+
+**What changed.** Branch `claude/flux-analysis-gurobi-default-2473fd`, from `abe7e40`. No model
+change and no model XML built.
+- `--solver` now defaults to `gurobi` in `scripts/gem_annotate/pipeline.py`,
+  `scripts/gem_annotate/validate_essential_genes.py` (help text and docstring too) and
+  `tools/dfba_new_fn_essentiality.py`.
+- The forced `model.solver = "glpk"` is now `"gurobi"` in `scripts/gem_annotate/gaps.py` (build
+  gap FVA and its log line), `scripts/gem_annotate/biomass.py` (build precursor check) and
+  `tools/diagnose_blocked.py`.
+- `run.sh` runs memote with `--solver gurobi`.
+- `platform/README.md` states the default and how to reproduce GLPK results (`--solver glpk`).
+- No automatic fallback: a missing or size-limited Gurobi license is an error.
+
+**Verification** (2026-10-22, main-checkout `.venv`):
+- **Environment:** cobra 0.30.0, optlang 1.8.3, gurobipy 13.0.1. Academic license, expires
+  2027-07-10. A synthetic 5,000-variable LP solved, so the license is not size-limited. cobra
+  already picks Gurobi when no solver is given.
+- **Build output unaffected (static check):** the build's two GLPK-to-Gurobi solves only write
+  logs. Gap-fill reactions come from `gap_fill_prioritized.csv`, not from the FVA.
+- **pytest per test:** identical before and after: 221 passed, 11 failed, 31 skipped, 17 errors.
+  - All failures are already known (README list).
+  - The dFBA Slurm pin still fails on the same assertion; only the tool SHA in it changed.
+  - `pydantic_ai` is missing from the `.venv`, so the three `test_gem_review_lit_*` files error
+    at collection. Both runs used `--continue-on-collection-errors`.
+
+**Not changed.**
+- `hpc/hpcc_dfba_new_fn.slurm` pins `DFBA_SOLVER=glpk` and refuses other solvers. Gurobi
+  licensing on HPCC is unknown.
+- Lipid tools (`tools/lipid/*`, colleague-owned) still force GLPK. One sets cobra's global solver
+  in tests.
+- `tools/update_model.py` keeps two GLPK lines in `fix_biomass_reaction` and `find_gaps`.
+  Neither function is ever called.
+- Scripts under `model/reports/` are frozen records of their runs.
+
+**Limits.**
+- No GLPK vs Gurobi comparison was run (the user skipped it). Whether growth, blocked-reaction
+  sets or knockout calls differ between the solvers is unknown, especially near the 1e-6 cutoffs.
+- Earlier entries labelled GLPK stay GLPK results. Compare them with new Gurobi runs only after
+  stating the solver change.
+
 ## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
 
 **Decision.** The user, 2026-10-21:

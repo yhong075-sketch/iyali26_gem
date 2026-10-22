@@ -88,9 +88,9 @@ def find_gaps(model) -> dict:
     from cobra.flux_analysis import flux_variability_analysis
 
     logger.info("Running FVA to identify blocked reactions …")
-    logger.info(f"  Model: {len(model.reactions)} reactions, solver=glpk")
+    logger.info(f"  Model: {len(model.reactions)} reactions, solver=gurobi")
 
-    model.solver = "glpk"
+    model.solver = "gurobi"
 
     # Run FVA on all reactions; loopless=False for speed
     # fraction_of_optimum=0 means we don't constrain the objective —

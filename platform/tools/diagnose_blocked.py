@@ -56,7 +56,7 @@ def main():
     model_path = sys.argv[1] if len(sys.argv) > 1 else str(MODEL.canonical_model)
     print(f"Loading model: {model_path}")
     model = read_sbml_model(model_path)
-    model.solver = "glpk"
+    model.solver = "gurobi"
 
     print("Running FVA to find blocked reactions (1-3 min)…")
     blocked = set(find_blocked_reactions(model, processes=1))

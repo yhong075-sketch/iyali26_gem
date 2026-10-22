@@ -89,7 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--lipid", choices=("none", "strict-sn"), default="none")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--no-solve", action="store_true", help="Static baseline validation; no optimization")
-    parser.add_argument("--solver", default="glpk")
+    parser.add_argument("--solver", default="gurobi")
     parser.add_argument("--experimental", type=Path, help="Positive-only essentiality reference for dFBA")
     parser.add_argument("--dynamic-medium", type=Path)
     parser.add_argument("--hours", type=float, default=24.0)
