@@ -1055,7 +1055,10 @@ def balance_protons_and_water(
     If the current residuals are ``H=h``, ``O=o`` and ``charge=q``, adding
     ``-o H2O`` and ``-q H+`` is valid exactly when ``h - 2o == q``.  Heavy
     element residuals, boundary reactions and multi-compartment reactions are
-    never modified.
+    never modified.  Curated locks are skipped: a dict
+    ``curated_reaction_correction`` note (in memory only; SBML turns it into a
+    string) or the plain note ``lock_proton_water_stoichiometry: true``, which
+    survives SBML.
     """
 
     from .dipeptide_chemistry import protected_chemistry, protected_reactions
@@ -1103,6 +1106,10 @@ def balance_protons_and_water(
             isinstance(curated_correction, dict)
             and curated_correction.get("lock_proton_water_stoichiometry") is True
         ):
+            skipped_curated_locks.append(reaction.id)
+            continue
+        plain_lock = (reaction.notes or {}).get("lock_proton_water_stoichiometry", "")
+        if str(plain_lock).strip().lower() == "true":
             skipped_curated_locks.append(reaction.id)
             continue
         if not _is_fully_checkable(reaction):

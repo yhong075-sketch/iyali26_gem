@@ -1,0 +1,129 @@
+{
+ "condition": "Task A medium + PO1f, GLPK",
+ "baseline_sha256": "cf0825b86c3533d8a12f697a994eba3d740671a68a367143ee32cbfdc8686b7c",
+ "new_sha256": "12efa141a7b0f845b5e57e22b2a25adf2351681f34c8c70c5ae1f68311d6ea9a",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "excluded_runtime_genes": [
+  "PO1f_plasmid_LEU2"
+ ],
+ "wt": {
+  "baseline": [
+   "optimal",
+   0.31242674464567005
+  ],
+  "new": [
+   "optimal",
+   0.31242674050092606
+  ]
+ },
+ "genes": 1074,
+ "non_optimal": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "new": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "essential_counts": {
+  "0.01": {
+   "baseline": 91,
+   "new": 92
+  },
+  "0.05": {
+   "baseline": 99,
+   "new": 100
+  },
+  "0.1": {
+   "baseline": 108,
+   "new": 109
+  },
+  "0.15": {
+   "baseline": 116,
+   "new": 117
+  }
+ },
+ "growth_changed_over_1e-6": [
+  {
+   "gene": "YALI1E25443g",
+   "base": [
+    "optimal",
+    0.3124267446456689
+   ],
+   "new": [
+    "optimal",
+    -3.3485489794631676e-16
+   ]
+  }
+ ],
+ "class_changed": {
+  "0.01": [
+   {
+    "gene": "YALI1E25443g",
+    "base": "non-essential",
+    "new": "essential"
+   }
+  ],
+  "0.05": [
+   {
+    "gene": "YALI1E25443g",
+    "base": "non-essential",
+    "new": "essential"
+   }
+  ],
+  "0.1": [
+   {
+    "gene": "YALI1E25443g",
+    "base": "non-essential",
+    "new": "essential"
+   }
+  ],
+  "0.15": [
+   {
+    "gene": "YALI1E25443g",
+    "base": "non-essential",
+    "new": "essential"
+   }
+  ]
+ },
+ "lp_count": 2150
+}

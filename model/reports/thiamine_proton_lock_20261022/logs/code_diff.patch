@@ -1,0 +1,390 @@
+# Uncommitted diff against abe7e40. cli.py and main.py also hold the --tpp-requirement and --thiamine-phosphate-chemistry
+# wiring of the two previous tasks; microspecies.py holds only this task's gate change. Final code, after the audit fixes.
+diff --git a/platform/scripts/gem_annotate/cli.py b/platform/scripts/gem_annotate/cli.py
+index c5c91c5..f04ab04 100644
+--- a/platform/scripts/gem_annotate/cli.py
++++ b/platform/scripts/gem_annotate/cli.py
+@@ -57,6 +57,12 @@ def parse_args(argv=None):
+                         help="Connect the blocked GPI-anchor chain R371-R376: gene-less step 1 (GlcNAc-PI synthesis), PE/DAG ER links, ER acetate export and an open GPI demand (curated 2026-10-21, GPI-CHAIN-LINKS-20261021)")
+     parser.add_argument("--gpi-coproducts", action="store_true",
+                         help="Add the missing co-products to the GPI chain: DAG on R373 and Dol-P on R375 (curated 2026-10-21, GPI-COPRODUCTS-20261021); requires --gpi-chain-links")
++    parser.add_argument("--tpp-requirement", action="store_true",
++                        help="Require TPP in biomass_C at 1.2e-6 mmol/gDW and close the gene-less TMP kinase R1342 (curated 2026-10-22, TPP-REQUIREMENT-20261022); requires --gpi-coproducts")
++    parser.add_argument("--thiamine-phosphate-chemistry", action="store_true",
++                        help="Give TMP, TPP, TTP and HET-P their KEGG fully protonated formulas and IDs, replacing the trichloromethoxypyridine mapping of TMP, and drop EC 2.7.4.9 from R1342 (curated 2026-10-22, THIAMINE-P-CHEMISTRY-20261022); requires --tpp-requirement")
++    parser.add_argument("--thiamine-proton-lock", action="store_true",
++                        help="Lock the pH 7.3 H+ of R752, R408 and R750 against the proton/water balance gate with the SBML-safe note lock_proton_water_stoichiometry: true (curated 2026-10-22, THIAMINE-PROTON-LOCK-20261022); requires --thiamine-phosphate-chemistry")
+     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
+                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
+     return parser.parse_args(argv)
+diff --git a/platform/scripts/gem_annotate/main.py b/platform/scripts/gem_annotate/main.py
+index 2552be4..4da75ff 100644
+--- a/platform/scripts/gem_annotate/main.py
++++ b/platform/scripts/gem_annotate/main.py
+@@ -88,6 +88,9 @@ def build_reference_chain(
+     r1964_gpr: bool = False,
+     gpi_chain_links: bool = False,
+     gpi_coproducts: bool = False,
++    tpp_requirement: bool = False,
++    thiamine_phosphate_chemistry: bool = False,
++    thiamine_proton_lock: bool = False,
+ ):
+     starting_model_path = Path(starting_model_path)
+     # The literature patch is defined on the reviewed C5 + COQ9 context.
+@@ -122,6 +125,12 @@ def build_reference_chain(
+         raise ValueError("The R132 removal is defined on the CoQ9/respiratory package candidate")
+     if gpi_coproducts and not gpi_chain_links:
+         raise ValueError("The GPI co-products are defined on the GPI chain links candidate")
++    if tpp_requirement and not gpi_coproducts:
++        raise ValueError("The TPP requirement is defined on the GPI co-products candidate")
++    if thiamine_phosphate_chemistry and not tpp_requirement:
++        raise ValueError("The thiamine phosphate chemistry is defined on the TPP requirement candidate")
++    if thiamine_proton_lock and not thiamine_phosphate_chemistry:
++        raise ValueError("The thiamine proton lock is defined on the thiamine phosphate chemistry candidate")
+     if vatpase_gpr_hypothesis and (
+         not no_solve or allow_network or coq9_mode != "metadata"
+         or provisional_capacity_path is not None or trna_biomass_mode is not None
+@@ -754,6 +763,21 @@ def build_reference_chain(
+         from .gpi_coproducts import apply_gpi_coproducts
+         selection["gpi_coproducts"] = apply_gpi_coproducts(model)
+         logger.info("GPI co-products: %s", selection["gpi_coproducts"])
++    if tpp_requirement:
++        # Opt-in: TPP in biomass_C and R1342 closed, on top of the GPI co-products (2026-10-22).
++        from .tpp_requirement import apply_tpp_requirement
++        selection["tpp_requirement"] = apply_tpp_requirement(model)
++        logger.info("TPP requirement: %s", selection["tpp_requirement"])
++    if thiamine_phosphate_chemistry:
++        # Opt-in: KEGG formulas and IDs for the thiamine phosphates and R1342's EC, after the TPP requirement (2026-10-22).
++        from .thiamine_phosphate_chemistry import apply_thiamine_phosphate_chemistry
++        selection["thiamine_phosphate_chemistry"] = apply_thiamine_phosphate_chemistry(model)
++        logger.info("Thiamine phosphate chemistry: %s", selection["thiamine_phosphate_chemistry"])
++    if thiamine_proton_lock:
++        # Opt-in: keep the pH 7.3 H+ of R752, R408 and R750 out of the proton/water gate (2026-10-22).
++        from .thiamine_proton_lock import apply_thiamine_proton_lock
++        selection["thiamine_proton_lock"] = apply_thiamine_proton_lock(model)
++        logger.info("Thiamine proton lock: %s", selection["thiamine_proton_lock"])
+     if coq9_functional_gpr:
+         if not selection["complete"] or not coq9["requested_mode_complete"]:
+             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
+@@ -848,6 +872,9 @@ def build_model(args):
+         r1964_gpr=getattr(args, "r1964_gpr", False),
+         gpi_chain_links=getattr(args, "gpi_chain_links", False),
+         gpi_coproducts=getattr(args, "gpi_coproducts", False),
++        tpp_requirement=getattr(args, "tpp_requirement", False),
++        thiamine_phosphate_chemistry=getattr(args, "thiamine_phosphate_chemistry", False),
++        thiamine_proton_lock=getattr(args, "thiamine_proton_lock", False),
+     )
+     output = args.output_model
+     evidence = gene_evidence(model)
+diff --git a/platform/scripts/gem_annotate/microspecies.py b/platform/scripts/gem_annotate/microspecies.py
+index 3fb2f30..9a7e9c8 100644
+--- a/platform/scripts/gem_annotate/microspecies.py
++++ b/platform/scripts/gem_annotate/microspecies.py
+@@ -1055,7 +1055,10 @@ def balance_protons_and_water(
+     If the current residuals are ``H=h``, ``O=o`` and ``charge=q``, adding
+     ``-o H2O`` and ``-q H+`` is valid exactly when ``h - 2o == q``.  Heavy
+     element residuals, boundary reactions and multi-compartment reactions are
+-    never modified.
++    never modified.  Curated locks are skipped: a dict
++    ``curated_reaction_correction`` note (in memory only; SBML turns it into a
++    string) or the plain note ``lock_proton_water_stoichiometry: true``, which
++    survives SBML.
+     """
+ 
+     from .dipeptide_chemistry import protected_chemistry, protected_reactions
+@@ -1105,6 +1108,10 @@ def balance_protons_and_water(
+         ):
+             skipped_curated_locks.append(reaction.id)
+             continue
++        plain_lock = (reaction.notes or {}).get("lock_proton_water_stoichiometry", "")
++        if str(plain_lock).strip().lower() == "true":
++            skipped_curated_locks.append(reaction.id)
++            continue
+         if not _is_fully_checkable(reaction):
+             skipped_missing_formula += 1
+             continue
+diff --git a/platform/scripts/gem_annotate/thiamine_proton_lock.py b/platform/scripts/gem_annotate/thiamine_proton_lock.py
+new file mode 100644
+index 0000000..fa13224
+--- /dev/null
++++ b/platform/scripts/gem_annotate/thiamine_proton_lock.py
+@@ -0,0 +1,92 @@
++"""Opt-in proton lock on R752, R408 and R750: keep their pH 7.3 H+ out of the proton/water balance gate."""
++
++import json
++from xml.sax.saxutils import unescape
++
++from .config import MODEL
++
++CURATION_PATH = MODEL.curation_file("thiamine_proton_lock.json")
++REACTION_IDS = {"R752", "R408", "R750"}
++# The plain-text form survives SBML; microspecies.balance_protons_and_water honours it.
++LOCK = {"lock_proton_water_stoichiometry": "true"}
++# Under the interim KEGG thiamine forms each reaction is off by exactly its pH 7.3 H+.
++RESIDUAL = {"H": 1.0, "charge": 1.0}
++XML_ENTITIES = {"&apos;": "'", "&quot;": '"'}
++# libSBML drops a whole notes block holding < or & without raising, which would silently drop the lock.
++UNSAFE_NOTE_CHARACTERS = set("<>&'\"")
++
++
++def _unescaped(notes):
++    # Non-string values (an in-memory dict lock, a bool) are compared as they are.
++    return {key: unescape(value, XML_ENTITIES) if isinstance(value, str) else value for key, value in notes.items()}
++
++
++def _notes(spec, row):
++    return {**LOCK,
++            "thiamine_proton_lock_curation_id": spec["curation_id"],
++            "thiamine_proton_lock_status": spec["status"],
++            "thiamine_proton_lock_authorization": spec["authorization"],
++            "thiamine_proton_lock_evidence": row["evidence"],
++            "thiamine_proton_lock_evidence_tier": row["evidence_tier"],
++            "thiamine_proton_lock_rationale": row["rationale"],
++            "thiamine_proton_lock_previous_state": row["previous_state"]}
++
++
++def _residual(reaction):
++    try:
++        return {k: v for k, v in reaction.check_mass_balance().items() if abs(v) > 1e-9}
++    except ValueError:
++        return None
++
++
++def _check_spec(spec):
++    version = spec.get("schema_version")
++    if (type(version) is not int or version != 1
++            or spec.get("curation_id") != "THIAMINE-PROTON-LOCK-20261022"
++            or spec.get("status") != "user_authorized_proton_water_lock"
++            or set(spec.get("reactions", {})) != REACTION_IDS):
++        raise ValueError("Unexpected thiamine proton lock scope/status")
++    if spec.get("lock_note") != LOCK or any(row.get("residual") != RESIDUAL for row in spec["reactions"].values()):
++        raise ValueError("Thiamine proton lock spec values differ from the reviewed change")
++    texts = [spec.get("authorization")] + [row.get(key) for row in spec["reactions"].values()
++                                           for key in ("evidence", "evidence_tier", "rationale", "previous_state")]
++    if any(not isinstance(text, str) or set(text) & UNSAFE_NOTE_CHARACTERS for text in texts):
++        raise ValueError("Thiamine proton lock note texts must be strings without < > & ' or \"")
++
++
++def apply_thiamine_proton_lock(model, spec=None):
++    """Add the reviewed proton lock notes; fail closed on any unexpected model state."""
++    if spec is None:
++        spec = json.loads(CURATION_PATH.read_text())
++    _check_spec(spec)
++    done = set()
++    for rid, row in spec["reactions"].items():
++        if rid not in model.reactions:
++            raise ValueError(f"{rid} missing; no edits applied")
++        reaction = model.reactions.get_by_id(rid)
++        if (reaction.name != row["name"] or list(reaction.bounds) != row["bounds"]
++                or reaction.gene_reaction_rule != row["gpr"]
++                or {m.id: c for m, c in reaction.metabolites.items()} != row["stoichiometry"]):
++            raise ValueError(f"{rid} precondition differs; no edits applied")
++        # The lock is right only while the residual is exactly the pH 7.3 H+; anything else needs a new review.
++        if _residual(reaction) != RESIDUAL:
++            raise ValueError(f"{rid} residual differs from the reviewed one H+; no edits applied")
++        notes, current = _notes(spec, row), _unescaped(reaction.notes)
++        if any(key in current and current[key] != value for key, value in notes.items()):
++            raise ValueError(f"Conflicting {rid} proton lock notes; no edits applied")
++        if {k: v for k, v in current.items() if k not in notes} != row["notes_before"]:
++            raise ValueError(f"{rid} notes outside this curation differ; no edits applied")
++        present = [key in current for key in notes]
++        if all(present):
++            done.add(rid)
++        elif any(present):
++            raise ValueError(f"{rid} carries only part of this curation's notes; no edits applied")
++    if done and done != REACTION_IDS:
++        raise ValueError("Only part of the thiamine proton lock is present; no edits applied")
++    if not done:
++        for rid, row in spec["reactions"].items():
++            reaction = model.reactions.get_by_id(rid)
++            reaction.notes = {**reaction.notes, **_notes(spec, row)}
++    return {"item": "thiamine proton lock", "curation_id": spec["curation_id"],
++            "status": "already_correct" if done else "applied",
++            "changed_reactions": [] if done else sorted(REACTION_IDS), "evidence_status": spec["status"]}
+diff --git a/platform/tests/test_thiamine_proton_lock.py b/platform/tests/test_thiamine_proton_lock.py
+new file mode 100644
+index 0000000..3e26d4d
+--- /dev/null
++++ b/platform/tests/test_thiamine_proton_lock.py
+@@ -0,0 +1,181 @@
++"""Thiamine proton lock: the gate honours the SBML-safe lock note, and the guarded step that sets it; no LPs."""
++
++import copy
++import json
++import tempfile
++import unittest
++from pathlib import Path
++
++from cobra.io import read_sbml_model
++
++from scripts.gem_annotate.cli import parse_args
++from scripts.gem_annotate.main import build_reference_chain
++from scripts.gem_annotate.microspecies import balance_protons_and_water
++from scripts.gem_annotate.model_layout import MODEL
++from scripts.gem_annotate.sbml import write_deterministic_sbml_model
++from scripts.gem_annotate.thiamine_proton_lock import CURATION_PATH, apply_thiamine_proton_lock
++from tests.test_coq9_curation import annotations, semantics
++from tests.test_gpi_chain_links import group_table
++
++BASELINE = "E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml"
++TARGETS = ["R408", "R750", "R752"]
++
++
++def state(model):
++    return semantics(model), annotations(model), group_table(model)
++
++
++def roundtrip(model):
++    with tempfile.TemporaryDirectory() as directory:
++        path = Path(directory) / "thiamine_proton_lock.xml"
++        write_deterministic_sbml_model(model, path)
++        return read_sbml_model(str(path))
++
++
++class ProtonGateLockTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++
++    def gate(self, model):
++        report = balance_protons_and_water(model, TARGETS)
++        return sorted(c["reaction_id"] for c in report["changes"]), report["skipped_curated_lock_reaction_ids"]
++
++    def test_gate_strips_the_h_without_a_lock(self):
++        model = self.model.copy()
++        self.assertEqual(self.gate(model), (TARGETS, []))
++        self.assertNotIn(model.metabolites.get_by_id("m10[C_cy]"), model.reactions.R752.metabolites)
++
++    def test_plain_lock_is_honoured_after_an_sbml_roundtrip(self):
++        model = self.model.copy()
++        for rid in TARGETS:
++            model.reactions.get_by_id(rid).notes = {**model.reactions.get_by_id(rid).notes,
++                                                    "lock_proton_water_stoichiometry": "true"}
++        loaded = roundtrip(model)
++        self.assertEqual(loaded.reactions.R752.notes["lock_proton_water_stoichiometry"], "true")
++        stoichiometry = {rid: dict(loaded.reactions.get_by_id(rid).metabolites) for rid in TARGETS}
++        self.assertEqual(self.gate(loaded), ([], TARGETS))
++        self.assertEqual({rid: dict(loaded.reactions.get_by_id(rid).metabolites) for rid in TARGETS}, stoichiometry)
++
++    def test_lock_value_is_case_and_space_insensitive_and_strict(self):
++        for value, locked in ((" True ", True), ("TRUE", True), ("false", False), ("yes", False), ("", False)):
++            model = self.model.copy()
++            model.reactions.R408.notes = {**model.reactions.R408.notes, "lock_proton_water_stoichiometry": value}
++            with self.subTest(value=value):
++                changed, skipped = self.gate(model)
++                self.assertEqual("R408" in skipped, locked)
++                self.assertEqual("R408" in changed, not locked)
++
++    def test_dict_lock_is_still_honoured_in_memory(self):
++        model = self.model.copy()
++        model.reactions.R750.notes = {**model.reactions.R750.notes, "curated_reaction_correction": {
++            "lock_proton_water_stoichiometry": True}}
++        self.assertEqual(self.gate(model), (["R408", "R752"], ["R750"]))
++
++
++class ThiamineProtonLockTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        cls.spec = json.loads(CURATION_PATH.read_text())
++
++    def test_stale_inputs_fail_closed_without_edits(self):
++        expected = {"stoichiometry": "R752 precondition differs",
++                    "gpr": "R408 precondition differs",
++                    "residual": "R752 residual differs from the reviewed one H\\+",
++                    "extra_note": "R750 notes outside this curation differ",
++                    "conflicting_lock": "Conflicting R408 proton lock notes",
++                    "lock_only": "R752 carries only part of this curation's notes",
++                    "dict_note": "R752 notes outside this curation differ",
++                    "bool_lock": "Conflicting R408 proton lock notes",
++                    "partial": "Only part of the thiamine proton lock is present"}
++        baseline = state(self.model)
++        for field, message in expected.items():
++            bad = self.model.copy()
++            if field == "stoichiometry":
++                # The H+ removal the lock exists to prevent.
++                bad.reactions.R752.subtract_metabolites({bad.metabolites.get_by_id("m10[C_cy]"): 1})
++            elif field == "gpr":
++                bad.reactions.R408.gene_reaction_rule = "YALI1E25443g"
++            elif field == "residual":
++                # Without the thiamine phosphate chemistry the residual is not the reviewed one H+.
++                bad.metabolites.get_by_id("m975[C_cy]").formula = None
++            elif field == "extra_note":
++                bad.reactions.R750.notes = {"unreviewed_note": "added elsewhere"}
++            elif field == "conflicting_lock":
++                bad.reactions.R408.notes = {**bad.reactions.R408.notes, "lock_proton_water_stoichiometry": "false"}
++            elif field == "lock_only":
++                bad.reactions.R752.notes = {**bad.reactions.R752.notes, "lock_proton_water_stoichiometry": "true"}
++            elif field == "dict_note":
++                # Non-string note values must fail with ValueError, not crash.
++                bad.reactions.R752.notes = {**bad.reactions.R752.notes, "curated_reaction_correction": {
++                    "lock_proton_water_stoichiometry": True}}
++            elif field == "bool_lock":
++                bad.reactions.R408.notes = {**bad.reactions.R408.notes, "lock_proton_water_stoichiometry": True}
++            else:
++                apply_thiamine_proton_lock(bad)
++                bad.reactions.R750.notes = {}
++            before = state(bad)
++            with self.subTest(field=field), self.assertRaisesRegex(ValueError, message):
++                apply_thiamine_proton_lock(bad)
++            self.assertEqual(state(bad), before)
++        self.assertEqual(state(self.model), baseline, "A subcase leaked into the shared model")
++
++    def test_unexpected_scope_or_values_are_rejected(self):
++        cases = (("status", "user_authorized", "scope/status"),
++                 ("curation_id", "THIAMINE-PROTON-LOCK", "scope/status"),
++                 ("schema_version", 1.0, "scope/status"),
++                 ("reactions", {"R752": self.spec["reactions"]["R752"]}, "scope/status"),
++                 ("lock_note", {"lock_proton_water_stoichiometry": "yes"}, "spec values differ"))
++        for key, value, message in cases:
++            spec = copy.deepcopy(self.spec)
++            spec[key] = value
++            with self.subTest(key=key), self.assertRaisesRegex(ValueError, message):
++                apply_thiamine_proton_lock(self.model.copy(), spec)
++        spec = copy.deepcopy(self.spec)
++        spec["reactions"]["R750"]["residual"] = {"H": 2.0, "charge": 2.0}
++        with self.assertRaisesRegex(ValueError, "spec values differ"):
++            apply_thiamine_proton_lock(self.model.copy(), spec)
++        # An unsafe note text would make libSBML drop the whole notes block, lock included, on save.
++        for key, value in (("rationale", "pH < 7.3 & neutral"), ("evidence", None)):
++            spec = copy.deepcopy(self.spec)
++            spec["reactions"]["R752"][key] = value
++            model = self.model.copy()
++            before = state(model)
++            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "note texts must be strings"):
++                apply_thiamine_proton_lock(model, spec)
++            self.assertEqual(state(model), before)
++
++    def test_adds_only_the_notes_and_survives_roundtrip(self):
++        # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
++        model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        expected = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        for rid, row in self.spec["reactions"].items():
++            reaction = expected.reactions.get_by_id(rid)
++            reaction.notes = {**reaction.notes, "lock_proton_water_stoichiometry": "true",
++                              "thiamine_proton_lock_curation_id": self.spec["curation_id"],
++                              "thiamine_proton_lock_status": self.spec["status"],
++                              "thiamine_proton_lock_authorization": self.spec["authorization"],
++                              "thiamine_proton_lock_evidence": row["evidence"],
++                              "thiamine_proton_lock_evidence_tier": row["evidence_tier"],
++                              "thiamine_proton_lock_rationale": row["rationale"],
++                              "thiamine_proton_lock_previous_state": row["previous_state"]}
++        result = apply_thiamine_proton_lock(model)
++        self.assertEqual((result["status"], result["changed_reactions"]), ("applied", TARGETS))
++        self.assertTrue(state(model) == state(expected), "Unexpected model change")
++        self.assertEqual(apply_thiamine_proton_lock(model)["status"], "already_correct")
++        loaded = roundtrip(model)
++        self.assertTrue(state(loaded) == state(expected), "Unexpected SBML roundtrip change")
++        self.assertEqual(apply_thiamine_proton_lock(loaded)["status"], "already_correct")
++        report = balance_protons_and_water(loaded, TARGETS)
++        self.assertEqual((report["changed_reactions"], report["skipped_curated_lock_reaction_ids"]), (0, TARGETS))
++
++    def test_flag_requires_the_thiamine_phosphate_chemistry(self):
++        self.assertFalse(parse_args([]).thiamine_proton_lock)
++        self.assertTrue(parse_args(["--thiamine-proton-lock"]).thiamine_proton_lock)
++        with self.assertRaisesRegex(ValueError, "defined on the thiamine phosphate chemistry candidate"):
++            build_reference_chain(thiamine_proton_lock=True)
++
++
++if __name__ == "__main__":
++    unittest.main()
