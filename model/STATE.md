@@ -682,7 +682,15 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
   provider (Anthropic, OpenAI, Gemini, Groq, Mistral, DeepSeek, OpenRouter, xAI, Ollama) and
   model and store the key in git-ignored `platform/.env`; `GEM_REVIEW_LLM` is the default,
   `--llm` overrides. OpenAI and Google extras installed. Usage: `platform/gem_review/README.md`.
-- Not done: ortholog-name query broadening; prompt caching.
+- 2026-10-22, tooling only: prompt caching for `extract`. The chunk block is now passed as a
+  static run-time instruction, so the cache breakpoint sits after it (pydantic-ai had treated it
+  as dynamic and would have marked only the ~250-token rules text, under Opus 5.5's 512-token
+  minimum); calls are grouped by chunk set, the first writes and the rest read; one-off sets are
+  not cached. Live check (user-approved) on POX2 R1490–R1492 in scratch task
+  `gem_review_lit_cachecheck_20261022`: 53,365 tokens written once, read by the R1490 retry
+  and by R1491/R1492; 74 % of prompt tokens were cache reads; ≈ $0.41 instead of ≈ $0.97
+  uncached. Estimated (not measured) saving on a full tier-1 run like 2026-10-19: ≈ 52 %.
+- Not done: ortholog-name query broadening.
 
 ## 2026-10-14: R831 citrate/malate mode, fresh rerun (evidence review + diagnostics)
 
