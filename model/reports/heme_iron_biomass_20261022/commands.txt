@@ -1,0 +1,87 @@
+# Heme a + iron(2+) in biomass_C (2026-10-22). Exact commands as run (zsh; FLAGS is an array).
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0, optlang 1.8.3, pytest 9.0.2)
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# FLAGS = (--offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution
+#          --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs
+#          --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr
+#          --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr
+#          --gpi-chain-links --gpi-coproducts)
+#         (the argv recorded in E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.build.json, minus paths)
+# M = ../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv (6eca70fd...)
+# P = $R/state/strain_profiles/po1f_sd_leu.json (35307853...)
+# E = $R/state/essentiality/repository/consensus_essential_genes.csv (1e887f5a...)
+# B = ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml (cf0825b8...)
+# N = ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml (7f836c3a...)
+# D = ../model/reports/heme_iron_biomass_20261022
+
+# From the worktree root: before-state of every target
+$V -I model/reports/heme_iron_biomass_20261022/scripts/before_state.py \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml model/reports/heme_iron_biomass_20261022/before.json
+
+# From platform/: full suite before the change (pydantic_ai is missing, so gem_review lit files fail to collect)
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_before.log 2>&1
+
+# From platform/: focused test, then the full suite after the change
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_heme_iron_biomass.py
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_after.log 2>&1
+
+# From platform/: control (no new flag), seed-1 rebuild and candidate (seed 0)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" \
+  --output-model ../.scratch/heme_iron_biomass_20261022/control_no_flag.xml > $D/logs/build_control_no_flag.log 2>&1
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --heme-iron-biomass \
+  --output-model ../.scratch/heme_iron_biomass_20261022/heme_iron_seed1.xml > $D/logs/build_seed1.log 2>&1
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --heme-iron-biomass \
+  --output-model $N > $D/logs/build_candidate_seed0.log 2>&1
+shasum -a 256 ../.scratch/heme_iron_biomass_20261022/*.xml $B $N
+
+# From the worktree root: whole-model diff (MD = model/reports/combined_candidate_20261020/scripts/model_diff.py)
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml \
+  model/reports/heme_iron_biomass_20261022/model_diff_new_vs_cf0825b8.json
+
+# From platform/: diagnostic LPs and the knockout comparison (Task A medium + PO1f, GLPK)
+PYTHONPATH="$PWD" $V $D/scripts/solves.py $B $N $M "$P" $D/solves.json
+#   First run (script without a per-LP time limit): hung for 34 min inside one GLPK simplex solve on
+#   the new model; stopped with kill, no outputs written; log kept as $D/logs/ko_compare_run1_stopped.log.
+#   The script then gained LP_TIMEOUT_SECONDS = 60 and a per-gene progress line; same command rerun:
+PYTHONPATH="$PWD" $V $D/scripts/ko_compare.py $B $N $M "$P" "$E" $D/ko_compare.tsv $D/ko_compare_summary.json > $D/logs/ko_compare.log 2>&1
+# Fresh re-solve of the timed-out knockout (YALI1F34051g), Gurobi cross-check, R792 GPR (5 LPs)
+PYTHONPATH="$PWD" $V $D/scripts/ko_fresh_resolve.py $B $N $M "$P" $D/ko_fresh_resolve.json
+# HEM4 (YALI1F13039g) trace: fresh GLPK pFBA (2 LPs), then the warm-start / tolerance check (4 LPs)
+PYTHONPATH="$PWD" $V $D/scripts/hem4_bypass.py $N $M "$P" $D/hem4_bypass.json
+PYTHONPATH="$PWD" $V $D/scripts/hem4_tolerance_check.py $N $M "$P" $D/hem4_tolerance_check.json
+# From the worktree root: re-score with the two fresh-solve corrections (no LPs)
+$V -I $D/scripts/score_corrected.py $D/ko_compare.tsv $D/ko_compare_summary.json $D/ko_fresh_resolve.json \
+  $D/hem4_bypass.json "$E" $D/scores_corrected.json    # (D relative to the worktree root here)
+
+# Concurrency (audit issue 5): the first after-change pytest run (pytest_after.log, about 10:49-11:00) ran at
+# the same time as the three builds above, the diff and solves.py. The final-guard suite below ran alone.
+
+# Test-by-test comparison (from logs/; the grep also keeps "ERROR cobra.io.sbml" log lines, identical in both)
+for f in pytest_before.log pytest_after.log; do grep -E "^(PASSED|FAILED|ERROR|SKIPPED|XFAIL|XPASS) " $f | sed -E 's/ - .*//' | sort > ${f%.log}.outcomes; done
+diff pytest_before.outcomes pytest_after.outcomes
+
+# After the independent audit: guard extended (objective, R1189/R863/R302/R384/R383 supply route; data file
+# regenerated from cf0825b8), focused test, final-guard rebuilds (seed 0 and 1, scratch only), full suite alone
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_heme_iron_biomass.py
+for seed in 0 1; do PYTHONHASHSEED=$seed $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --heme-iron-biomass \
+  --output-model ../.scratch/heme_iron_biomass_20261022/final_guard_seed$seed.xml > $D/logs/build_final_guard_seed$seed.log 2>&1; done
+cp ../.scratch/heme_iron_biomass_20261022/final_guard_seed0.build.json $D/build_final_guard_seed0.build.json
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_after_final_guard.log 2>&1
+
+# Archived (research workspace, artifacts/tasks/heme_iron_biomass_20261022/):
+#   logs/ko_compare_run1_stack_sample.txt  (macOS `sample` of the hung first-run process, 2 s)
+#   evidence/kegg/yli_*.txt + SHA256SUMS     (raw KEGG entries behind gene_identities.tsv)
+#   evidence/yeast-GEM_2d594ae1.yml, evidence/biomassComposition_Cofactor_Ion_2d594ae1.tsv + SHA256SUMS
+sample <pid of the hung ko_compare.py> 2 -file ko_compare_run1_stack_sample.txt
+
+# Planning-turn reproduction (before authorization; 10 LPs; console output transcribed in logs/reproduce_gap5_output.txt)
+PYTHONPATH="$PWD" python $D/scripts/reproduce_gap5.py $B $M "$P" glpk
+PYTHONPATH="$PWD" python $D/scripts/plan_a_in_memory.py $B $M "$P"
+
+# Evidence look-ups during planning (read-only)
+curl -s https://raw.githubusercontent.com/SysBioChalmers/yeast-GEM/main/model/yeast-GEM.yml          # main = 2d594ae1
+curl -s https://raw.githubusercontent.com/SysBioChalmers/yeast-GEM/main/data/physiology/biomassComposition_Cofactor_Ion.tsv
+curl -s https://api.github.com/repos/SysBioChalmers/yeast-GEM/pulls/174
+curl -s https://rest.kegg.jp/get/yli:2908631
+curl -s https://rest.kegg.jp/get/<kegg.genes of each changed gene>   # gene_identities.tsv, 2026-10-22

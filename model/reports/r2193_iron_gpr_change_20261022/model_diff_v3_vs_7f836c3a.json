@@ -1,0 +1,53 @@
+[
+ {
+  "section": "reactions",
+  "item": "R2193",
+  "field": "gpr",
+  "before": "YALI1F07747g",
+  "after": "(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)"
+ },
+ {
+  "section": "reactions",
+  "item": "R2193",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "r2193_iron_gpr_curation_id": "R2193-IRON-GPR-20261022",
+   "r2193_iron_gpr_status": "user_authorized_gpr_correction",
+   "r2193_iron_gpr_authorization": "2026-10-22 user: Approved: implement R2193 option A as planned: (YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g), YALI1F07747g kept unlinked, opt-in flag on baseline 7f836c3a, KO comparison with fresh-basis or bound-violation checks. R863 unchanged. No commit or push.",
+   "r2193_iron_gpr_previous_gpr": "YALI1F07747g, a PHO4-like bHLH transcription factor; kept in the model with no reaction",
+   "r2193_iron_gpr_evidence": "Two Y. lipolytica FET3/FTR1 pairs. D09 (YALI1D09277g, YALI1D09308g): reciprocal best hits of S. cerevisiae FET3 and FTR1. D08 (YALI1D08684g, YALI1D08564g): their paralogs, whose best S. cerevisiae hits are also FET3 and FTR1 (one-way). Pfam and KEGG support both pairs; all four proteins are detected in Debiaggi 2025 proteomics. Co-expression of YALI1D08564g with Vitreoscilla hemoglobin raised intracellular iron (Ye et al. 2026; no Ftr1-only control). AND within a pair follows the S. cerevisiae Fet3-Ftr1 complex (Stearman et al. 1996, PMID 8599111).",
+   "r2193_iron_gpr_evidence_tier": "orthology (reciprocal for the D09 pair, one-way for the D08 paralogs) and protein detection; same-species co-expression evidence for YALI1D08564g only; not Y. lipolytica biochemistry",
+   "r2193_iron_gpr_known_limit": "Both D09-pair genes are on the consensus essential list; this OR rule cannot express that the D08 pair does not compensate."
+  }
+ },
+ {
+  "section": "genes",
+  "item": "YALI1D08564g",
+  "change": "added"
+ },
+ {
+  "section": "genes",
+  "item": "YALI1D08684g",
+  "change": "added"
+ },
+ {
+  "section": "genes",
+  "item": "YALI1D09277g",
+  "change": "added"
+ },
+ {
+  "section": "genes",
+  "item": "YALI1D09308g",
+  "change": "added"
+ },
+ {
+  "section": "genes",
+  "item": "YALI1F07747g",
+  "field": "reactions",
+  "before": [
+   "R2193"
+  ],
+  "after": []
+ }
+]

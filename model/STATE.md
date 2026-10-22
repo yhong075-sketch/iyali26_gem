@@ -5,6 +5,190 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-22: R2193 iron-import GPR set to the two FET3/FTR1 pairs, opt-in candidate (not committed)
+
+**Authorization.** The user:
+
+> "Approved: implement R2193 option A as planned: (YALI1D09277g and YALI1D09308g) or (YALI1D08684g
+> and YALI1D08564g), YALI1F07747g kept unlinked, opt-in flag on baseline 7f836c3a, KO comparison with
+> fresh-basis or bound-violation checks. R863 unchanged. No commit or push."
+
+Later, on the knockout check: "Use the targeted check … Rerun the full sweep on both models."
+
+**Results** ([REPORT.md](reports/r2193_iron_gpr_change_20261022/REPORT.md)). Verified this session
+unless marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml)
+  (`e1586027…`) = `7f836c3a` plus `--r2193-iron-gpr`.
+  - Data: `curation/gpr/r2193_iron_gpr.json`.
+  - Step: `platform/scripts/gem_annotate/r2193_iron_gpr.py`.
+  - R2193's GPR is `(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)`.
+  - YALI1F07747g is kept unlinked; four genes are added with NCBI/RefSeq/UniProt/KEGG cross-references.
+  - R2193's stoichiometry and bounds and R863 are unchanged.
+- **Builds:**
+  - control without the flag: `7f836c3a`;
+  - v3 under seeds 0 and 1: identical bytes;
+  - diff against `7f836c3a`: only the GPR, the notes, the 4 genes and the old gene's link.
+- **Superseded builds, deleted at the user's request** (2026-10-22, with their `.build.json` and
+  `.coq9_genes.tsv`):
+  - v2 (`2cf19c69`): the same model with uncorrected notes;
+  - v1 (`4d738403`): a hash-seed-dependent gene order.
+- **pytest:** 231 passed, 11 failed, 17 errors, 31 skipped after v3, run alone. Identical test by
+  test to the previous run plus the 6 new passes.
+- **Knockouts:** 2 × about 1,076, Task A medium + PO1f, GLPK, a basis reset before each knockout and
+  the targeted check.
+  - No stale points: every closed reaction is at exactly 0.
+  - WT is identical between the models, and the same 20 knockouts are infeasible in both.
+  - Changes at every cutoff:
+    - YALI1F07747g goes from essential to non-essential (FP → TN);
+    - the D09 genes enter as false negatives (positives);
+    - the D08 genes enter as true negatives.
+  - At 15 %: 92 / 219 / 37 / 694 / 16, MCC 0.341 → 92 / 221 / 36 / 697 / 16, MCC 0.342. In-model
+    positives go from 322 to 324. Development reference.
+  - The baseline sweep reproduces the heme report's corrected scores without fresh re-solves.
+- **Independent audit:** [AUDIT.md](reports/r2193_iron_gpr_change_20261022/AUDIT.md).
+  - Two evidence overstatements were fixed in the notes, giving v3: the D08 genes are paralogs
+    (one-way best hits), not reciprocal best hits; and Ye 2026 was co-expression with VHb.
+  - The check API trap was fixed, and context safety was added.
+
+**Limits and open findings.**
+- **Blind spot in the targeted check.** GLPK can drop the 1e-6 heme a demand within its tolerance
+  (residual = 1e-6 × growth). The 1e-6 general threshold cannot see that. No call is affected here
+  (every heme knockout returns 0; Gurobi agrees), but the check needs a growth-scaled residual
+  tolerance before reuse.
+- **Process deviations.**
+  - The first checked sweep (1e-9 on every variable) flagged GLPK tolerance-level points and was
+    stopped.
+  - Infeasible knockouts were left unresolved without re-solves; this narrowed rule was not
+    separately approved.
+  - Builds: 9 against 3 budgeted.
+- **Biology.**
+  - Both D09 genes are essential experimentally, which the OR rule cannot express.
+  - R2193 lumps Fe³⁺ uptake through Fet3/Ftr1 (O₂/Cu) as Fe²⁺ uniport.
+  - R863, FRE and the iron chemistry stay open.
+- Nothing is committed or pushed.
+
+## 2026-10-22: R2193 iron import — which genes (investigation and plan only)
+
+**Authorization.** The user:
+
+> "Yes: investigate the R2193 iron-import GPR (YALI1F07747g looks like a bHLH regulator). Find the
+> real Y. lipolytica iron-uptake genes, investigation and plan only, no model change."
+
+No model, data or code change; no LPs. Details:
+[REPORT.md](reports/r2193_iron_import_gpr_20261022/REPORT.md). Builds on the July main-line
+experiment [r2193_pair1_20260727](reports/r2193_pair1_20260727/experiment_result.md).
+
+**Findings** (verified unless marked):
+- **YALI1F07747g (YALI0F05126g, Q6C2U3) is a bHLH transcription factor.**
+  - It has HLH domains only, and PHO4 is its reciprocal best hit.
+  - Pomraning 2016 lists it as a predicted bHLH TF.
+  - The model's ID mapping is correct; the reaction assignment is wrong.
+  - It came from the parent iYli21 gene set; eciYali5 has the reaction gene-less.
+- ***Y. lipolytica* has two FET3/FTR1 pairs** (Pfam, KEGG K19791/K07243). Corrected after the
+  change audit: only the D09 genes are reciprocal best hits; the D08 genes are their paralogs
+  (one-way).
+  - **D09 pair** (YALI1_D09277g FET3-like + YALI1_D09308g FTR1-like). Divergent neighbours; both on
+    the essential list.
+  - **D08 pair** (YALI1_D08684g + YALI1_D08564g). Not listed.
+
+  All four proteins are detected in the Debiaggi 2025 proteomics.
+- **Same-species evidence.** YALI1_D08564g is the "Ftr1" whose overexpression with VHb raised
+  intracellular iron (Ye et al. 2026). The primers in the supplement match its coding sequence only.
+  There was no knockout or uptake assay.
+- **Other genes.** There is no FET4 ortholog. There are SMF1/SMF2-like transporters, one MRS3/4
+  ortholog (YALI1_B28215g; R863 is gene-less) and several FRE-like reductases. YALI1_A05031g is
+  FTH1-like, not FTR1.
+
+**Plan (not authorized).**
+- **Recommended option A:** R2193 = `(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and
+  YALI1D08564g)`, with YALI1F07747g kept unlinked.
+- Choosing only the D09 pair because it matches the essential list would be fitting to the benchmark.
+- Under option A the D09 genes become explainable false negatives (isozyme insufficiency not
+  expressible in a GPR).
+- R863, FRE reduction and the iron chemistry are separate decisions.
+
+**Limits.**
+- Identities are orthology and domains.
+- The proteomics units and conditions were not checked.
+- The literature search was bounded.
+
+## 2026-10-22: Heme a and iron(2+) in biomass_C (Yeast8 values), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading plan A:
+
+> "Approved: implement plan A as written (heme a 1e-6 + Fe2+ 3.04e-5 in biomass_C via an opt-in
+> flag, baseline cf0825b8, iron cap unchanged, KO comparison included). No commit or push."
+
+The trigger was a Claude Science test, "Gap 5 · Iron uptake cap 1.61e-5".
+- **Finding:** no biomass term contains iron, so iron uptake and heme synthesis carry zero flux.
+- **Its test:** heme b + heme a at 5e-5 each made the cap bind; growth fell from 0.31243 to 0.161.
+- **Reproduced exactly on `cf0825b8`**, Task A medium + PO1f, GLPK:
+  - 0.312427 → 0.161000;
+  - with the cap lifted, 0.312390.
+- **Cause:** the cap, not the cost of making heme.
+
+**Results** ([REPORT.md](reports/heme_iron_biomass_20261022/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml)
+  (`7f836c3a…`) = `cf0825b8` plus `--heme-iron-biomass`.
+  - Data: `curation/biomass/heme_iron_biomass.json`.
+  - Guarded step: `platform/scripts/gem_annotate/heme_iron_biomass.py`.
+- **Change:** `biomass_C` + heme a `m1635[C_cy]` 1e-6 + iron `m948[C_cy]` 3.04e-5 mmol/gDW.
+  - These are the yeast-GEM v9.1.1 values (`r_4598`, `r_4599`; commit `2d594ae1`, archived).
+    Heme a also matches the source model's closed R1710.
+  - They are *S. cerevisiae* model values. The primary sources were not opened.
+  - Not changed: the medium, the R1189 cap and heme b.
+- **Builds:**
+  - without the flag: reproduces `cf0825b8`;
+  - with the flag: seeds 0 and 1 give identical bytes, also with the final guard.
+  - The diff is the two coefficients plus 7 notes.
+- **pytest per test:** the baseline (221 passed, 11 failed, 17 errors, 31 skipped) plus the 4 new
+  passes.
+- **LPs (Task A medium + PO1f, GLPK):**
+  - WT 0.3124263 (Δ −4.5e-7);
+  - iron uptake 9.81e-6 (61 % of the cap);
+  - heme route 3.1e-7;
+  - closing R1189, R2193, R302, R383 or R1709 gives zero growth.
+- **Knockouts (2 × 1,074) + 2 fresh-solve corrections:** 13 genes go from non-essential to
+  essential at every cutoff. All are on heme synthesis (R61, R667, R409, R792, R790, R240, R674,
+  R302, R384, R383 ×3) or iron import (R2193). 9 are experimental positives and 4 negatives:
+  - HEM13 YALI1E35410g;
+  - HEM14 YALI1D30196g;
+  - ferredoxin YALI1B03314g;
+  - YALI1F07747g.
+- **Scores at 15 %** (development reference; user-defined negatives; mtDNA out of scope):
+  - `cf0825b8`: 83 / 228 / 33 / 698, 16 unresolved, MCC 0.323;
+  - `7f836c3a`: 92 / 219 / 37 / 694, 16 unresolved, MCC 0.341.
+  - Not a reason for the change.
+- **Independent audit:** [AUDIT.md](reports/heme_iron_biomass_20261022/AUDIT.md).
+  - C1–C4, C6–C9 and C11 are supported.
+  - The guard (C5) was partially supported. It was then extended (objective, R1189/R863/R302/R384/R383)
+    and retested.
+
+**Limits and open findings.**
+- **Numerical fragility.** The 1e-6 heme a term puts heme-route fluxes at LP tolerance.
+  - In the sequential GLPK sweep, HEM4 (YALI1F13039g) was reported at WT growth: R792 was at 3.12e-7
+    above its zero bound, with status "optimal". HEM3 (YALI1F34051g) timed out.
+  - Fresh GLPK and Gurobi solves give 0 for both.
+  - Future sweeps, FVA or blocked-reaction runs on this candidate need a bound-violation check, fresh
+    bases, or Gurobi at FeasibilityTol ≤ 1e-9. Earlier GLPK sweeps were not re-examined.
+- **Budget overrun.** The first sweep hung for 34 min in one GLPK solve and was stopped; its LP count
+  is unknown and beyond the authorized sweep. The rerun, with a 60 s limit per LP, was started without
+  a separate check-in.
+- **R2193's only gene, YALI1F07747g:**
+  - KEGG names its ID a bHLH regulator;
+  - its UniProt cross-reference is deleted;
+  - KEGG links that gene to a different accession.
+
+  This is likely a GPR or ID-mapping error (inferred). With this change it is a model-only lethal
+  knockout.
+- **Iron chemistry.** The iron species have no formula and charge 0, so R302, R727, R384 and R383
+  are imbalanced. Siroheme has no consumer. Heme b and Fe–S clusters are absent. Total iron above
+  about 5.15e-5 mmol/gDW would make the cap bind.
+- **Not run:** SD-Leu and other media. Nothing is committed or pushed.
+
 ## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
 
 **Decision.** The user, 2026-10-21:

@@ -57,6 +57,10 @@ def parse_args(argv=None):
                         help="Connect the blocked GPI-anchor chain R371-R376: gene-less step 1 (GlcNAc-PI synthesis), PE/DAG ER links, ER acetate export and an open GPI demand (curated 2026-10-21, GPI-CHAIN-LINKS-20261021)")
     parser.add_argument("--gpi-coproducts", action="store_true",
                         help="Add the missing co-products to the GPI chain: DAG on R373 and Dol-P on R375 (curated 2026-10-21, GPI-COPRODUCTS-20261021); requires --gpi-chain-links")
+    parser.add_argument("--heme-iron-biomass", action="store_true",
+                        help="Add heme a (1e-6) and iron(2+) (3.04e-5 mmol/gDW) to biomass_C at the Yeast8 consensus values (curated 2026-10-22, HEME-IRON-BIOMASS-20261022); requires --coq9-biomass-dilution")
+    parser.add_argument("--r2193-iron-gpr", action="store_true",
+                        help="Replace R2193's GPR (YALI1F07747g, a bHLH regulator, kept unlinked) with the two FET3/FTR1 pairs (YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g) (curated 2026-10-22, R2193-IRON-GPR-20261022)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

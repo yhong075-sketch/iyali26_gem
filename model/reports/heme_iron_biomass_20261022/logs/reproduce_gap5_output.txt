@@ -1,0 +1,18 @@
+# Transcribed from this session's console output (2026-10-22, planning turn); the runs wrote no files.
+# Scripts: ../scripts/reproduce_gap5.py (8 LPs) and ../scripts/plan_a_in_memory.py (2 LPs), run from platform/ with
+#   PYTHONPATH="$PWD" python SCRIPT ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml \
+#     ../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv "$R/state/strain_profiles/po1f_sd_leu.json" [glpk]
+# Interpreter at that time: /opt/miniconda3/bin/python (same Python 3.13.5 / cobra 0.30.0 install as the .venv link).
+# The independent audit reproduced the 0.161000 and 0.312390 rows (REPORT.md section 8).
+
+## reproduce_gap5.py
+model cf0825b8 medium 6eca70fd profile 35307853 solver glpk
+WT (as supplied)                                        status=optimal growth=0.312427 R1189=0 R2193=0 R863=0 R302=0 R384=0 R383=0 R674=0 R727=0 R1070=-2.41
+heme b + heme a 5e-5 each (figure test)                 status=optimal growth=0.161000 R1189=-1.61e-05 R2193=1.61e-05 R863=1.61e-05 R302=1.61e-05 R384=8.05e-06 R383=8.05e-06 R674=8.05e-06 R727=0 R1070=-2.41
+same, iron cap removed (R1189 >= -1000)                 status=optimal growth=0.312390 R1189=-3.12e-05 R2193=3.12e-05 R863=3.12e-05 R302=3.12e-05 R384=1.56e-05 R383=1.56e-05 R674=1.56e-05 R727=0 R1070=-2.41
+heme a 1e-6 only (legacy R1710 coefficient), mito       status=optimal growth=0.312426 R1189=-3.12e-07 R2193=3.12e-07 R863=3.12e-07 R302=3.12e-07 R384=3.12e-07 R383=3.12e-07 R674=1.56e-07 R727=0 R1070=-2.41
+LPs 8
+
+## plan_a_in_memory.py
+status optimal growth 0.312426 R1189=-9.81e-06 R2193=9.81e-06 R863=3.12e-07 R302=3.12e-07 R384=3.12e-07 R383=3.12e-07 R1709=3.12e-07
+iron use / cap = 0.609

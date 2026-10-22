@@ -88,6 +88,8 @@ def build_reference_chain(
     r1964_gpr: bool = False,
     gpi_chain_links: bool = False,
     gpi_coproducts: bool = False,
+    heme_iron_biomass: bool = False,
+    r2193_iron_gpr: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -122,6 +124,8 @@ def build_reference_chain(
         raise ValueError("The R132 removal is defined on the CoQ9/respiratory package candidate")
     if gpi_coproducts and not gpi_chain_links:
         raise ValueError("The GPI co-products are defined on the GPI chain links candidate")
+    if heme_iron_biomass and not coq9_biomass_dilution:
+        raise ValueError("The heme a + iron biomass terms are defined on the CoQ9 biomass candidate")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -754,6 +758,16 @@ def build_reference_chain(
         from .gpi_coproducts import apply_gpi_coproducts
         selection["gpi_coproducts"] = apply_gpi_coproducts(model)
         logger.info("GPI co-products: %s", selection["gpi_coproducts"])
+    if heme_iron_biomass:
+        # Opt-in: heme a and iron(2+) in biomass_C at the Yeast8 values (2026-10-22).
+        from .heme_iron_biomass import apply_heme_iron_biomass
+        selection["heme_iron_biomass"] = apply_heme_iron_biomass(model)
+        logger.info("Heme a + iron biomass: %s", selection["heme_iron_biomass"])
+    if r2193_iron_gpr:
+        # Opt-in: R2193 iron import on the two FET3/FTR1 pairs instead of a bHLH regulator (2026-10-22).
+        from .r2193_iron_gpr import apply_r2193_iron_gpr
+        selection["r2193_iron_gpr"] = apply_r2193_iron_gpr(model)
+        logger.info("R2193 iron GPR: %s", selection["r2193_iron_gpr"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -848,6 +862,8 @@ def build_model(args):
         r1964_gpr=getattr(args, "r1964_gpr", False),
         gpi_chain_links=getattr(args, "gpi_chain_links", False),
         gpi_coproducts=getattr(args, "gpi_coproducts", False),
+        heme_iron_biomass=getattr(args, "heme_iron_biomass", False),
+        r2193_iron_gpr=getattr(args, "r2193_iron_gpr", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
