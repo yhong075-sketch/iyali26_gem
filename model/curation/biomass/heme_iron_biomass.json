@@ -187,5 +187,30 @@
   "experimental_trna_biomass_mode",
   "experimental_trna_biomass_template"
  ],
- "unchanged": "Medium and the R1189 iron cap (1.61e-5, 2026-10-12 concentration-ratio rule) are not part of this curation; heme b is not added"
+ "unchanged": "Medium and the R1189 iron cap (1.61e-5, 2026-10-12 concentration-ratio rule) are not part of this curation; heme b is not added",
+ "accepted_before_states": [
+  {
+   "id": "base",
+   "description": "biomass_C as reviewed on cf0825b8",
+   "added_stoichiometry": {},
+   "added_note_keys": []
+  },
+  {
+   "id": "after_TPP-REQUIREMENT-20261022",
+   "description": "biomass_C after the reviewed TPP requirement (tpp_requirement.json after-state; TPP parent 2fe51cc2): the base plus TPP and its notes",
+   "added_stoichiometry": {
+    "m975[C_cy]": -1.2e-06
+   },
+   "added_note_keys": [
+    "tpp_requirement_authorization",
+    "tpp_requirement_curation_id",
+    "tpp_requirement_evidence",
+    "tpp_requirement_evidence_tier",
+    "tpp_requirement_previous_state",
+    "tpp_requirement_rationale",
+    "tpp_requirement_status"
+   ]
+  }
+ ],
+ "combination_authorization": "2026-10-22 user: Approved: combine the TPP and heme/iron + R2193 lines as planned (heme guard accepts the reviewed TPP-line biomass as a second before-state, combined build with seed and control checks, three-model knockout sweep on Gurobi at 1e-9 with the knocked-flux check, audit, report). No commit or push."
 }

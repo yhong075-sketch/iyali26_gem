@@ -135,6 +135,10 @@ def build_reference_chain(
         raise ValueError("The thiamine proton lock is defined on the thiamine phosphate chemistry candidate")
     if heme_iron_biomass and not coq9_biomass_dilution:
         raise ValueError("The heme a + iron biomass terms are defined on the CoQ9 biomass candidate")
+    if heme_iron_biomass and tpp_requirement and not (thiamine_phosphate_chemistry and thiamine_proton_lock):
+        # Only the full TPP line was reviewed together with the heme a + iron terms (2026-10-22).
+        raise ValueError("The heme a + iron biomass terms combine only with the full reviewed TPP line "
+                         "(TPP requirement, thiamine phosphate chemistry and proton lock)")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -783,7 +787,8 @@ def build_reference_chain(
         selection["thiamine_proton_lock"] = apply_thiamine_proton_lock(model)
         logger.info("Thiamine proton lock: %s", selection["thiamine_proton_lock"])
     if heme_iron_biomass:
-        # Opt-in: heme a and iron(2+) in biomass_C at the Yeast8 values (2026-10-22).
+        # Opt-in: heme a and iron(2+) in biomass_C at the Yeast8 values (2026-10-22). Must run after the
+        # TPP steps: its guard accepts the reviewed after-TPP biomass_C, while the TPP guard rejects heme terms.
         from .heme_iron_biomass import apply_heme_iron_biomass
         selection["heme_iron_biomass"] = apply_heme_iron_biomass(model)
         logger.info("Heme a + iron biomass: %s", selection["heme_iron_biomass"])

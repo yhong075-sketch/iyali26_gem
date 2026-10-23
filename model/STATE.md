@@ -5,7 +5,55 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-22: TPP line and heme/iron + R2193 line combined, candidate 2c9cebd0 (not committed)
+
+**Authorization.** The user:
+
+> "Approved: combine the TPP and heme/iron + R2193 lines as planned (heme guard accepts the reviewed
+> TPP-line biomass as a second before-state, combined build with seed and control checks, three-model
+> knockout sweep on Gurobi at 1e-9 with the knocked-flux check, audit, report). No commit or push."
+
+**Results** ([REPORT.md](reports/combined_tpp_heme_r2193_20261022/REPORT.md)). Verified this session.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml)
+  (`2c9cebd0…`) = `cf0825b8` + the TPP line (3 flags) + `--heme-iron-biomass --r2193-iron-gpr`.
+- **Code:**
+  - The heme/iron guard accepts exactly two reviewed starting `biomass_C` states: the base, and the
+    base after `TPP-REQUIREMENT-20261022`.
+  - After the audit: heme together with TPP requires the TPP chemistry and proton-lock steps.
+  - The heme step must run after the TPP steps (fixed in `main.py`).
+- **Builds:**
+  - TPP-only and heme-only controls reproduce `2fe51cc2` and `e1586027`;
+  - the combined build is identical under seeds 0 and 1;
+  - the diffs against each parent are exactly the other line's changes (also by raw XML diff, audit).
+- **WT** (Task A medium + PO1f, Gurobi 1e-9): 0.3124262915. The costs of the two lines add (−4.1e-9
+  and −4.49e-7).
+- **Knockouts:** 3 models, 3,233 LPs, a reset per knockout and the targeted check. Every closed
+  reaction is at 0 and the largest residual is 3e-12; nothing was flagged.
+  - Class changes are exactly the union of the two lines:
+    - against the TPP parent, 12 heme-route genes become essential, and 4 iron-uptake genes enter as
+      non-essential;
+    - against the heme parent, only THI80-like YALI1E25443g becomes essential.
+  - At 15 %: TPP 84 / 227 / 33 / 698 (MCC 0.326), heme 92 / 221 / 36 / 697 (0.342), combined
+    93 / 220 / 36 / 697 / 16 unresolved (0.345). Development reference.
+- **pytest:** after the merge, identical test by test plus additions. The only new non-pass is a
+  `gem_review` collection error (`httpx2` not installed).
+- **Independent audit:** [AUDIT.md](reports/combined_tpp_heme_r2193_20261022/AUDIT.md).
+  - C1 and C3–C7 are supported, and C8's numbers.
+  - The guard (C2) was supported for `biomass_C` composition and note keys; its gaps led to the
+    builder rule above.
+
+**Limits.**
+- Only WT and single-gene knockouts on the Task A medium, at 1e-6 growth resolution.
+- TPP note values are not pinned (keys only).
+- The limits of both lines still apply (open-problems entry below).
+- Not committed or pushed.
+
 ## 2026-10-22: Open problems on the current candidate e1586027 (status summary)
+
+**Update, same day.** The combined candidate `2c9cebd0` (entry above) now contains this line and the
+TPP line, so item 11 is resolved. For item 1, a Gurobi sweep at 1e-9 with a reset per knockout shows
+no solver artifact (largest residual 3e-12). The other items stand for `2c9cebd0` as well.
 
 **State.**
 - **Newest candidate:**
