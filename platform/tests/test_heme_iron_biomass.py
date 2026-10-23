@@ -14,6 +14,7 @@ from scripts.gem_annotate.heme_iron_biomass import CURATION_PATH, apply_heme_iro
 from scripts.gem_annotate.main import build_reference_chain
 from scripts.gem_annotate.model_layout import MODEL
 from scripts.gem_annotate.sbml import write_deterministic_sbml_model
+from scripts.gem_annotate.tpp_requirement import apply_tpp_requirement
 from tests.test_coq9_curation import annotations, semantics
 from tests.test_gpi_chain_links import group_table
 
@@ -107,6 +108,40 @@ class HemeIronBiomassTests(unittest.TestCase):
             spec[key] = value
             with self.subTest(key=key), self.assertRaisesRegex(ValueError, "scope/status"):
                 apply_heme_iron_biomass(self.model.copy(), spec)
+        states = self.spec["accepted_before_states"]
+        for label, value in (("missing_tpp_state", states[:1]),
+                             ("base_with_additions", [{**states[0], "added_stoichiometry": {"m975[C_cy]": -1.2e-6}}, states[1]]),
+                             ("state_with_heme_term", [states[0], {**states[1], "added_stoichiometry": {HEME_A: -1e-6}}])):
+            spec = copy.deepcopy(self.spec)
+            spec["accepted_before_states"] = value
+            with self.subTest(states=label), self.assertRaisesRegex(ValueError, "scope/status"):
+                apply_heme_iron_biomass(self.model.copy(), spec)
+
+    def test_applies_after_the_reviewed_tpp_requirement_only(self):
+        tpp_state = self.spec["accepted_before_states"][1]
+        model = self.model.copy()
+        apply_tpp_requirement(model)
+        result = apply_heme_iron_biomass(model)
+        self.assertEqual((result["status"], result["before_state"]), ("applied", "after_TPP-REQUIREMENT-20261022"))
+        coefficients = {m.id: c for m, c in model.reactions.biomass_C.metabolites.items()}
+        self.assertEqual((coefficients[HEME_A], coefficients[IRON], coefficients["m975[C_cy]"]),
+                         (-1e-6, -3.04e-5, tpp_state["added_stoichiometry"]["m975[C_cy]"]))
+        self.assertEqual(apply_heme_iron_biomass(model)["status"], "already_correct")
+        for label in ("tpp_coefficient", "tpp_without_notes"):
+            bad = self.model.copy()
+            apply_tpp_requirement(bad)
+            if label == "tpp_coefficient":
+                # A TPP term other than the reviewed one.
+                bad.reactions.biomass_C.add_metabolites({bad.metabolites.get_by_id("m975[C_cy]"): -1.2e-6})
+                message = "composition differs from the reviewed baseline"
+            else:
+                bad.reactions.biomass_C.notes = {k: v for k, v in bad.reactions.biomass_C.notes.items()
+                                                 if not k.startswith("tpp_requirement_")}
+                message = "notes outside this curation differ"
+            before = state(bad)
+            with self.subTest(label=label), self.assertRaisesRegex(ValueError, message):
+                apply_heme_iron_biomass(bad)
+            self.assertEqual(state(bad), before)
 
     def test_adds_only_the_two_terms_and_survives_roundtrip(self):
         # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
@@ -141,6 +176,12 @@ class HemeIronBiomassTests(unittest.TestCase):
         self.assertTrue(parse_args(["--heme-iron-biomass"]).heme_iron_biomass)
         with self.assertRaisesRegex(ValueError, "defined on the CoQ9 biomass candidate"):
             build_reference_chain(heme_iron_biomass=True)
+        # The TPP requirement alone (without its chemistry and proton lock) was never reviewed with these terms.
+        line = dict(energy_candidate="E5", no_solve=True, allow_network=False, coq9_biomass_dilution=True,
+                    gpi_chain_links=True, gpi_coproducts=True, tpp_requirement=True, heme_iron_biomass=True)
+        for extra in ({}, {"thiamine_phosphate_chemistry": True}):
+            with self.subTest(extra=extra), self.assertRaisesRegex(ValueError, "combine only with the full reviewed TPP line"):
+                build_reference_chain(**line, **extra)
 
 
 if __name__ == "__main__":

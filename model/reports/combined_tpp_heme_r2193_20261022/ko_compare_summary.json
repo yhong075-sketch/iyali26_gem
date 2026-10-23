@@ -1,0 +1,926 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi FeasibilityTol/OptimalityTol 1e-09, reset per knockout, targeted check",
+ "check": {
+  "knocked_reaction_flux_tolerance": 1e-09,
+  "general_tolerance": 1e-06
+ },
+ "lp_timeout_seconds": 60,
+ "models": {
+  "tpp_parent": {
+   "sha256": "2fe51cc2b3834bb7303d6702f4f68ac7bec2dd5353cafcd635803fd6e74c174e",
+   "genes": 1074
+  },
+  "heme_parent": {
+   "sha256": "e1586027cd5e3727a75b237097d3578d2eba976b9162294f0d6ae2b8be1a127b",
+   "genes": 1078
+  },
+  "combined": {
+   "sha256": "2c9cebd0a5c53ec18bf1a583327099dc9e53fcf6b2fcbedd66cc7b9c54ea5a7b",
+   "genes": 1078
+  }
+ },
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "negative_class": "user-defined: model genes not on the consensus list",
+ "validation_status": "development reference, not independent validation",
+ "wt": {
+  "tpp_parent": {
+   "status": "optimal",
+   "growth": 0.3124267405009282,
+   "max_bound_violation": 0.0,
+   "max_residual": 9.274699064309999e-15,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "heme_parent": {
+   "status": "optimal",
+   "growth": 0.3124262956327284,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.3370194668359545e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "combined": {
+   "status": "optimal",
+   "growth": 0.312426291487999,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.842170943040401e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  }
+ },
+ "in_model_positives": {
+  "tpp_parent": 322,
+  "heme_parent": 324,
+  "combined": 324
+ },
+ "magnitudes_in_sweep": {
+  "tpp_parent": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 2.3015560811356917e-12,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  },
+  "heme_parent": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 1.3681596003692342e-13,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  },
+  "combined": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 2.9740654383658693e-12,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  }
+ },
+ "sweep_points_failing_check": {
+  "tpp_parent": [],
+  "heme_parent": [],
+  "combined": []
+ },
+ "non_optimal_in_sweep": {
+  "tpp_parent": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "heme_parent": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "combined": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "fresh_resolves": [],
+ "unresolved_after_fresh": {
+  "tpp_parent": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "heme_parent": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "combined": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "scores": {
+  "tpp_parent": {
+   "0.01": {
+    "TP": 66,
+    "FN": 245,
+    "FP": 26,
+    "TN": 705,
+    "unresolved": 16,
+    "recall": 0.21221864951768488,
+    "specificity": 0.9644322845417237,
+    "precision": 0.717391304347826,
+    "mcc": 0.284904366142356
+   },
+   "0.05": {
+    "TP": 72,
+    "FN": 239,
+    "FP": 28,
+    "TN": 703,
+    "unresolved": 16,
+    "recall": 0.2315112540192926,
+    "specificity": 0.9616963064295485,
+    "precision": 0.72,
+    "mcc": 0.3001494476510181
+   },
+   "0.1": {
+    "TP": 76,
+    "FN": 235,
+    "FP": 33,
+    "TN": 698,
+    "unresolved": 16,
+    "recall": 0.24437299035369775,
+    "specificity": 0.9548563611491108,
+    "precision": 0.6972477064220184,
+    "mcc": 0.29787779712045165
+   },
+   "0.15": {
+    "TP": 84,
+    "FN": 227,
+    "FP": 33,
+    "TN": 698,
+    "unresolved": 16,
+    "recall": 0.27009646302250806,
+    "specificity": 0.9548563611491108,
+    "precision": 0.717948717948718,
+    "mcc": 0.326036735200238
+   }
+  },
+  "heme_parent": {
+   "0.01": {
+    "TP": 74,
+    "FN": 239,
+    "FP": 29,
+    "TN": 704,
+    "unresolved": 16,
+    "recall": 0.2364217252396166,
+    "specificity": 0.9604365620736699,
+    "precision": 0.7184466019417476,
+    "mcc": 0.30255434884041976
+   },
+   "0.05": {
+    "TP": 80,
+    "FN": 233,
+    "FP": 31,
+    "TN": 702,
+    "unresolved": 16,
+    "recall": 0.25559105431309903,
+    "specificity": 0.9577080491132333,
+    "precision": 0.7207207207207207,
+    "mcc": 0.31713625341709906
+   },
+   "0.1": {
+    "TP": 84,
+    "FN": 229,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.268370607028754,
+    "specificity": 0.9508867667121419,
+    "precision": 0.7,
+    "mcc": 0.3150520048130139
+   },
+   "0.15": {
+    "TP": 92,
+    "FN": 221,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.2939297124600639,
+    "specificity": 0.9508867667121419,
+    "precision": 0.71875,
+    "mcc": 0.34208850296899185
+   }
+  },
+  "combined": {
+   "0.01": {
+    "TP": 75,
+    "FN": 238,
+    "FP": 29,
+    "TN": 704,
+    "unresolved": 16,
+    "recall": 0.23961661341853036,
+    "specificity": 0.9604365620736699,
+    "precision": 0.7211538461538461,
+    "mcc": 0.30614522106655534
+   },
+   "0.05": {
+    "TP": 81,
+    "FN": 232,
+    "FP": 31,
+    "TN": 702,
+    "unresolved": 16,
+    "recall": 0.25878594249201275,
+    "specificity": 0.9577080491132333,
+    "precision": 0.7232142857142857,
+    "mcc": 0.3206177443970623
+   },
+   "0.1": {
+    "TP": 85,
+    "FN": 228,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.2715654952076677,
+    "specificity": 0.9508867667121419,
+    "precision": 0.7024793388429752,
+    "mcc": 0.31849119520948566
+   },
+   "0.15": {
+    "TP": 93,
+    "FN": 220,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.2971246006389776,
+    "specificity": 0.9508867667121419,
+    "precision": 0.7209302325581395,
+    "mcc": 0.3453951379764147
+   }
+  }
+ },
+ "combined_vs_tpp_parent": {
+  "growth_changed_over_1e-6": [
+   {
+    "gene": "YALI1B03314g",
+    "tpp_parent": 0.312426740500931,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1B19490g",
+    "tpp_parent": 0.312426740500931,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1C02391g",
+    "tpp_parent": 0.31242674050092667,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1C07816g",
+    "tpp_parent": 0.31242674050092656,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1D08564g",
+    "tpp_parent": "absent",
+    "combined": 0.312426291487999
+   },
+   {
+    "gene": "YALI1D08684g",
+    "tpp_parent": "absent",
+    "combined": 0.312426291487999
+   },
+   {
+    "gene": "YALI1D09277g",
+    "tpp_parent": "absent",
+    "combined": 0.312426291487999
+   },
+   {
+    "gene": "YALI1D09308g",
+    "tpp_parent": "absent",
+    "combined": 0.312426291487999
+   },
+   {
+    "gene": "YALI1D30196g",
+    "tpp_parent": 0.3124267405009266,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1E35410g",
+    "tpp_parent": 0.3124267405009274,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1F13039g",
+    "tpp_parent": 0.3124267405009258,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1F25924g",
+    "tpp_parent": 0.31242674050092667,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1F27686g",
+    "tpp_parent": 0.3124267405009279,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1F31135g",
+    "tpp_parent": 0.31242674050092833,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1F32002g",
+    "tpp_parent": 0.312426740500931,
+    "combined": 0.0
+   },
+   {
+    "gene": "YALI1F34051g",
+    "tpp_parent": 0.3124267405009247,
+    "combined": 0.0
+   }
+  ],
+  "class_changed": {
+   "0.01": [
+    {
+     "gene": "YALI1B03314g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1B19490g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C02391g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C07816g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1D08564g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D08684g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09277g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09308g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D30196g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1E35410g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F13039g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F25924g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F27686g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F31135g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F32002g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F34051g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    }
+   ],
+   "0.05": [
+    {
+     "gene": "YALI1B03314g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1B19490g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C02391g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C07816g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1D08564g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D08684g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09277g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09308g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D30196g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1E35410g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F13039g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F25924g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F27686g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F31135g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F32002g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F34051g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    }
+   ],
+   "0.1": [
+    {
+     "gene": "YALI1B03314g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1B19490g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C02391g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C07816g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1D08564g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D08684g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09277g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09308g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D30196g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1E35410g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F13039g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F25924g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F27686g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F31135g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F32002g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F34051g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    }
+   ],
+   "0.15": [
+    {
+     "gene": "YALI1B03314g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1B19490g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C02391g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1C07816g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1D08564g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D08684g",
+     "experimental_positive": false,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09277g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D09308g",
+     "experimental_positive": true,
+     "tpp_parent": "absent",
+     "combined": "non-essential"
+    },
+    {
+     "gene": "YALI1D30196g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1E35410g",
+     "experimental_positive": false,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F13039g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F25924g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F27686g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F31135g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F32002g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    },
+    {
+     "gene": "YALI1F34051g",
+     "experimental_positive": true,
+     "tpp_parent": "non-essential",
+     "combined": "essential"
+    }
+   ]
+  }
+ },
+ "combined_vs_heme_parent": {
+  "growth_changed_over_1e-6": [
+   {
+    "gene": "YALI1E25443g",
+    "heme_parent": 0.31242629563272495,
+    "combined": 0.0
+   }
+  ],
+  "class_changed": {
+   "0.01": [
+    {
+     "gene": "YALI1E25443g",
+     "experimental_positive": true,
+     "heme_parent": "non-essential",
+     "combined": "essential"
+    }
+   ],
+   "0.05": [
+    {
+     "gene": "YALI1E25443g",
+     "experimental_positive": true,
+     "heme_parent": "non-essential",
+     "combined": "essential"
+    }
+   ],
+   "0.1": [
+    {
+     "gene": "YALI1E25443g",
+     "experimental_positive": true,
+     "heme_parent": "non-essential",
+     "combined": "essential"
+    }
+   ],
+   "0.15": [
+    {
+     "gene": "YALI1E25443g",
+     "experimental_positive": true,
+     "heme_parent": "non-essential",
+     "combined": "essential"
+    }
+   ]
+  }
+ },
+ "lp_count": {
+  "sweep": 3233,
+  "fresh": 0
+ }
+}

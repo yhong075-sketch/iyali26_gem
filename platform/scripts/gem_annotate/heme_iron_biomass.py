@@ -10,6 +10,8 @@ BIOMASS = "biomass_C"
 TERM_IDS = {"m1635[C_cy]", "m948[C_cy]"}
 # Iron import (R1189, R2193, R863), heme b -> heme o -> heme a (R302, R384, R383) and heme a export (R1709).
 SUPPLY_IDS = {"R1189", "R2193", "R863", "R302", "R384", "R383", "R1709"}
+# Reviewed starting states of biomass_C: the base, and the base after the TPP requirement (2026-10-22).
+BEFORE_STATE_IDS = ["base", "after_TPP-REQUIREMENT-20261022"]
 
 
 def _notes(spec):
@@ -38,7 +40,11 @@ def apply_heme_iron_biomass(model, spec=None):
             or spec.get("biomass_reaction") != BIOMASS
             or set(spec.get("terms", {})) != TERM_IDS
             or set(spec.get("requires_reactions", {})) != SUPPLY_IDS
-            or spec.get("requires_objective") != BIOMASS):
+            or spec.get("requires_objective") != BIOMASS
+            or [s.get("id") for s in spec.get("accepted_before_states", [])] != BEFORE_STATE_IDS
+            or spec["accepted_before_states"][0]["added_stoichiometry"]
+            or spec["accepted_before_states"][0]["added_note_keys"]
+            or any(TERM_IDS & set(s["added_stoichiometry"]) for s in spec["accepted_before_states"])):
         raise ValueError("Unexpected heme/iron biomass scope/status")
     if BIOMASS not in model.reactions:
         raise ValueError(f"{BIOMASS} missing; no edits applied")
@@ -63,14 +69,21 @@ def apply_heme_iron_biomass(model, spec=None):
     biomass = model.reactions.get_by_id(BIOMASS)
     stoichiometry = {m.id: c for m, c in biomass.metabolites.items()}
     others = {mid: c for mid, c in stoichiometry.items() if mid not in TERM_IDS}
-    before = spec["biomass_stoichiometry_before"]
-    if (list(biomass.bounds) != spec["biomass_bounds_before"] or set(others) != set(before)
-            or not all(_same(others[mid], c) for mid, c in before.items())):
+    # Each accepted starting state is the reviewed base plus another curation's reviewed additions.
+    matched = None
+    for state in spec["accepted_before_states"]:
+        before = {**spec["biomass_stoichiometry_before"], **state["added_stoichiometry"]}
+        if (list(biomass.bounds) == spec["biomass_bounds_before"] and set(others) == set(before)
+                and all(_same(others[mid], c) for mid, c in before.items())):
+            matched = state
+            break
+    if matched is None:
         raise ValueError(f"{BIOMASS} composition differs from the reviewed baseline; no edits applied")
     notes = _notes(spec)
     if any(key in biomass.notes and biomass.notes[key] != value for key, value in notes.items()):
         raise ValueError(f"Conflicting {BIOMASS} heme/iron notes; no edits applied")
-    if sorted(key for key in biomass.notes if key not in notes) != spec["biomass_note_keys_before"]:
+    if (sorted(key for key in biomass.notes if key not in notes)
+            != sorted(spec["biomass_note_keys_before"] + matched["added_note_keys"])):
         raise ValueError(f"{BIOMASS} notes outside this curation differ; no edits applied")
     present = {mid for mid in TERM_IDS if mid in stoichiometry}
     for mid in sorted(present):
@@ -88,5 +101,5 @@ def apply_heme_iron_biomass(model, spec=None):
                                  for mid, row in sorted(terms.items())})
         biomass.notes = {**biomass.notes, **notes}
     return {"item": "heme a + iron biomass terms", "curation_id": spec["curation_id"],
-            "status": "already_correct" if present else "applied",
+            "status": "already_correct" if present else "applied", "before_state": matched["id"],
             "changed_terms": [] if present else sorted(TERM_IDS), "evidence_status": spec["status"]}

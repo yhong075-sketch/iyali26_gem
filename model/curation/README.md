@@ -32,6 +32,9 @@ are recorded in [../STATE.md](../STATE.md).
     `biomass_C` as the only objective, and pins the supply route: iron import R1189/R2193/R863,
     heme b → heme a R302/R384/R383, and heme a export R1709.
   - Applied by `--heme-iron-biomass` (requires `--coq9-biomass-dilution`).
+  - Since the combination with the TPP line (2026-10-22), `accepted_before_states` lists the two reviewed
+    starting compositions: the base, and the base after `TPP-REQUIREMENT-20261022`. Report:
+    `../reports/combined_tpp_heme_r2193_20261022/REPORT.md`.
   - Report: `../reports/heme_iron_biomass_20261022/REPORT.md`.
 
 ## R132 removal (2026-10-13)
