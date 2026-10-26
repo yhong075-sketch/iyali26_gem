@@ -5,6 +5,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-23: Lipoylation module + acyl-ACP chemistry on the main candidate, candidate a1237821 (merged to main, PR #19)
+
+**Authorization.** The user, after reading the plan (the message as received ends mid-sentence):
+
+> "Approved: add --lipoylation-module and --acyl-acp-chemistry on top of 2c9cebd0 as planned (steps
+> after r2193, bring 9f2356b code/data/tests/reports without its XMLs, acyl test lipoylates 164f235f in
+> memory, seeds 0/1 + control, whole-model diff, Gurobi 1e-9 two-model KO sweep with knocked-flux check"
+
+The two decisions themselves date from 2026-10-20 (lipoylation) and 2026-10-21 (acyl-ACP block
+accepted) on the unmerged branch `claude/combined-candidate-20261019` (`9f2356b`). That branch's
+entries are not in this file.
+
+**Results** ([REPORT.md](reports/lipoylation_acylacp_on_2c9cebd0_20261023/REPORT.md)). Verified this
+session.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_20261023.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_20261023.xml)
+  (`a1237821…`) = `2c9cebd0` + `--lipoylation-module --acyl-acp-chemistry`.
+- **Code:**
+  - `9f2356b`'s two modules, data files, tests and report folders are copied unchanged.
+  - The steps run after the R2193 step, because the heme/iron guard pins `biomass_C`.
+  - The acyl-ACP test builds its `fdd00ac3` baseline in memory.
+  - One new test file (3 tests).
+- **Builds:**
+  - the control without the flags reproduces `2c9cebd0`;
+  - seeds 0 and 1 give identical bytes;
+  - the whole-model diff is exactly the two steps, the same 135 entries as `b3b9fe22` vs `164f235f`;
+  - every touched reaction is balanced or at its curated residual (R2290 is the 5'-dA sink by design).
+- **WT** (Task A medium + PO1f, Gurobi 1e-9): 0.3124208528 (−5.44e-6 vs `2c9cebd0`).
+- **Knockouts:** 2 models, 2,161 LPs. A reset per knockout and the targeted check; nothing was
+  flagged; the largest residual is 3e-12.
+  - 13 genes become essential at every cutoff:
+    - the 3 lipoylation genes;
+    - 10 of `b3b9fe22`'s 11 shared genes, on mtFAS, acetyl-CoA carboxylase, desaturase and
+      lipoyl-dehydrogenase reactions (model reaction names; gene names not verified).
+  - YALI1E07744g was already essential in `2c9cebd0`.
+  - At 15 %: 93 / 220 / 36 / 697 / 16 (MCC 0.345) → 103 / 212 / 39 / 695 / 16 (MCC 0.367). Development
+    reference; user-defined negatives.
+- **pytest:** identical test by test, plus 13 new passes.
+- **Independent audit:** [AUDIT.md](reports/lipoylation_acylacp_on_2c9cebd0_20261023/AUDIT.md).
+  - C1 and C3–C8 are supported; C2 is partially supported. The binding order constraint is "after
+    heme/iron", not "after R2193".
+  - For YALI1F34729g the audit verified that the call, and the whole WT cost, come from the provisional
+    α = 1e-5 lipoyl term.
+  - Responses: wording fixes; a tighter new test; the control, seed-1 and `b3b9fe22` XMLs kept under
+    `$IYALI26_RESEARCH_ROOT/artifacts/tasks/lipoylation_acylacp_on_2c9cebd0_20261023/`.
+
+**Limits.**
+- Only WT and single-gene knockouts on the Task A medium.
+- The class-change mechanisms are inferred from reaction membership, not traced.
+- The heme/iron step cannot be rerun as a no-op on the finished model. The TPP step already could not
+  on `2c9cebd0` (audit).
+- α = 1e-5 is provisional, and it drives at least one of the new calls.
+- All open problems of `2c9cebd0` and of the two steps' reports stand.
+
+**Publication.** Committed as `11450bc` on `claude/loving-hermann-43c496`. On 2026-10-26, on the user's
+instruction, it was merged into `main` via PR #19 (merge commit `6f19b00`). No reference model is
+designated by this merge.
+
 ## 2026-10-23: fresh benchmark screen of the newest candidate 2c9cebd0 (computation only)
 
 **Authorization.** "can you do a screen test for the newest model?"; the user approved a fresh screen
@@ -25,6 +83,650 @@ comparisons and a figure vs iYali21, no commit. No model change. Details:
   iYali21 58 / 255 / 25 / 694 (MCC 0.254) vs 2c9cebd0 93 / 220 / 36 / 697 (MCC 0.345), no overlay.
 
 **Limits.** The build's heme open problems still apply. No independent audit. Uncommitted.
+
+## 2026-10-22: TPP line and heme/iron + R2193 line combined, candidate 2c9cebd0 (not committed)
+
+**Authorization.** The user:
+
+> "Approved: combine the TPP and heme/iron + R2193 lines as planned (heme guard accepts the reviewed
+> TPP-line biomass as a second before-state, combined build with seed and control checks, three-model
+> knockout sweep on Gurobi at 1e-9 with the knocked-flux check, audit, report). No commit or push."
+
+**Results** ([REPORT.md](reports/combined_tpp_heme_r2193_20261022/REPORT.md)). Verified this session.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml)
+  (`2c9cebd0…`) = `cf0825b8` + the TPP line (3 flags) + `--heme-iron-biomass --r2193-iron-gpr`.
+- **Code:**
+  - The heme/iron guard accepts exactly two reviewed starting `biomass_C` states: the base, and the
+    base after `TPP-REQUIREMENT-20261022`.
+  - After the audit: heme together with TPP requires the TPP chemistry and proton-lock steps.
+  - The heme step must run after the TPP steps (fixed in `main.py`).
+- **Builds:**
+  - TPP-only and heme-only controls reproduce `2fe51cc2` and `e1586027`;
+  - the combined build is identical under seeds 0 and 1;
+  - the diffs against each parent are exactly the other line's changes (also by raw XML diff, audit).
+- **WT** (Task A medium + PO1f, Gurobi 1e-9): 0.3124262915. The costs of the two lines add (−4.1e-9
+  and −4.49e-7).
+- **Knockouts:** 3 models, 3,233 LPs, a reset per knockout and the targeted check. Every closed
+  reaction is at 0 and the largest residual is 3e-12; nothing was flagged.
+  - Class changes are exactly the union of the two lines:
+    - against the TPP parent, 12 heme-route genes become essential, and 4 iron-uptake genes enter as
+      non-essential;
+    - against the heme parent, only THI80-like YALI1E25443g becomes essential.
+  - At 15 %: TPP 84 / 227 / 33 / 698 (MCC 0.326), heme 92 / 221 / 36 / 697 (0.342), combined
+    93 / 220 / 36 / 697 / 16 unresolved (0.345). Development reference.
+- **pytest:** after the merge, identical test by test plus additions. The only new non-pass is a
+  `gem_review` collection error (`httpx2` not installed).
+- **Independent audit:** [AUDIT.md](reports/combined_tpp_heme_r2193_20261022/AUDIT.md).
+  - C1 and C3–C7 are supported, and C8's numbers.
+  - The guard (C2) was supported for `biomass_C` composition and note keys; its gaps led to the
+    builder rule above.
+
+**Limits.**
+- Only WT and single-gene knockouts on the Task A medium, at 1e-6 growth resolution.
+- TPP note values are not pinned (keys only).
+- The limits of both lines still apply (open-problems entry below).
+- Not committed or pushed.
+
+## 2026-10-22: Open problems on the current candidate e1586027 (status summary)
+
+**Update, same day.** The combined candidate `2c9cebd0` (entry above) now contains this line and the
+TPP line, so item 11 is resolved. For item 1, a Gurobi sweep at 1e-9 with a reset per knockout shows
+no solver artifact (largest residual 3e-12). The other items stand for `2c9cebd0` as well.
+
+**State.**
+- **Newest candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml)
+  (`e1586027…`) = cf0825b8 + `--heme-iron-biomass` + `--r2193-iron-gpr`.
+  - Committed in `be1fd53` on `claude/science-test-gap-fix-5eaeae`, not pushed.
+  - No reference model is designated.
+- **On the Task A medium + PO1f, GLPK:**
+  - WT 0.3124263;
+  - iron uptake at 61 % of the cap;
+  - 15 % scores 92 / 221 / 36 / 697 / 16, MCC 0.342 (development reference; user-defined negatives;
+    mtDNA out of scope).
+- **Claude Science Gap 5** (no iron in biomass) is closed with the yeast-GEM values.
+
+Problems, with the evidence level and what each blocks:
+
+1. **The heme fluxes sit at solver tolerance** (verified,
+   [heme report §7](reports/heme_iron_biomass_20261022/REPORT.md),
+   [R2193 audit](reports/r2193_iron_gpr_change_20261022/AUDIT.md)).
+   - Heme a at 1e-6 puts heme-route fluxes at 1.6–3.1e-7.
+   - A warm-started GLPK sweep returned a stale WT optimum for the HEM4 knockout.
+   - GLPK also drops the heme demand within tolerance (residual = 1e-6 × growth). The targeted check
+     in `reports/r2193_iron_gpr_change_20261022/scripts/checked_solve.py` (basis reset +
+     knocked-reaction flux) catches the first problem but not the second.
+   - **Blocks:** trustworthy screens, FVA or blocked-reaction runs on this candidate.
+   - **Next:** a growth-scaled residual tolerance, or a Gurobi cross-check; and a decision whether
+     1e-6 is the right coefficient.
+2. **Iron species have no chemistry** (verified). `m1273`, `m948` and `m523` have no formula and
+   charge 0. So R302 (Fe +1, H −2, charge +2), R727 (Fe +1, H −7, charge −5), R384 (charge −2) and
+   R383 (charge +2) are imbalanced.
+   - **Blocks:** any balanced-chemistry gate on R2193 and the iron/heme reactions.
+   - **Next:** a chemistry curation (Fe, +2) with a model-wide re-check (see the protonation
+     memory: charge edits ripple).
+3. **Siroheme `m949` has no consumer** (verified). R727 produces it, and nothing uses it.
+4. **R863 (Fe²⁺ c → m) has no gene** (verified).
+   - The only MRS3/4 ortholog is YALI1_B28215g (reciprocal best hit of MRS3).
+   - Yeast cells lacking both MRS3 and MRS4 are viable (recalled), so it should not become the sole
+     gene.
+   - Needs a decision.
+5. **No Fe³⁺ reduction or uptake chemistry** (inferred).
+   - YNB supplies Fe³⁺, and Fet3/Ftr1 is an O₂- and Cu-dependent route that moves Fe³⁺. R2193 lumps
+     all of this as an Fe²⁺ uniport.
+   - FRE-like reductases exist; Q6CF26 is the reciprocal best hit of FRE2.
+   - **Depends on:** problem 2.
+6. **Heme b and Fe–S clusters are not in biomass** (verified for the model; no sourced values found).
+   Total cell iron above about 5.15e-5 mmol/gDW would make the R1189 cap bind (the 2026-10-12
+   concentration-ratio rule). The Claude Science test with heme b + heme a at 5e-5 each would halve
+   growth.
+7. **Experimental-list conflicts** (verified calls; causes untested):
+   - **False negatives:** the D09 FET3/FTR1 pair (YALI1D09277g, YALI1D09308g) is essential
+     experimentally but non-essential in the model, because it is OR'd with the D08 paralogs.
+   - **False positives:** HEM13 (YALI1E35410g), HEM14 (YALI1D30196g) and the ferredoxin
+     YALI1B03314g are essential in the model only through heme a, and are not on the list. Fe–S
+     biogenesis, which in yeast explains the ferredoxin's essentiality (recalled), is not modelled.
+8. **Annotation.** YALI1F07747g's UniProt cross-reference A0A1D8NM31 is deleted in UniProt (verified
+   by the audit). It is left unchanged; the gene is unlinked now.
+9. **Not tested:**
+   - SD-Leu and other media;
+   - Gurobi-based screens of this candidate (today's sweeps are GLPK and not directly comparable to
+     earlier Gurobi screens).
+10. **Still open from earlier entries** (not re-checked today):
+    - the GPI items (R376 three-EtNP naming, missing GPI7 step, possible AND GPR);
+    - the DAG species formula C6H8O6;
+    - the GPI biomass term.
+11. **Two parallel opt-in lines on `cf0825b8`** (added when merging `main`, PR #16).
+    - The TPP line (`--tpp-requirement` and the thiamine chemistry/lock steps, entries below) and
+      this heme/iron + R2193 line both edit `biomass_C`.
+    - The heme/iron guard pins the exact reviewed `biomass_C` composition. So a build with both
+      `--tpp-requirement` and `--heme-iron-biomass` should stop with an error until that recorded
+      composition is re-reviewed (inferred from the code; not built).
+    - No combined candidate exists yet.
+
+## 2026-10-22: R2193 iron-import GPR set to the two FET3/FTR1 pairs, opt-in candidate (committed `be1fd53`, not pushed)
+
+**Authorization.** The user:
+
+> "Approved: implement R2193 option A as planned: (YALI1D09277g and YALI1D09308g) or (YALI1D08684g
+> and YALI1D08564g), YALI1F07747g kept unlinked, opt-in flag on baseline 7f836c3a, KO comparison with
+> fresh-basis or bound-violation checks. R863 unchanged. No commit or push."
+
+Later, on the knockout check: "Use the targeted check … Rerun the full sweep on both models."
+
+**Results** ([REPORT.md](reports/r2193_iron_gpr_change_20261022/REPORT.md)). Verified this session
+unless marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml)
+  (`e1586027…`) = `7f836c3a` plus `--r2193-iron-gpr`.
+  - Data: `curation/gpr/r2193_iron_gpr.json`.
+  - Step: `platform/scripts/gem_annotate/r2193_iron_gpr.py`.
+  - R2193's GPR is `(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)`.
+  - YALI1F07747g is kept unlinked; four genes are added with NCBI/RefSeq/UniProt/KEGG cross-references.
+  - R2193's stoichiometry and bounds and R863 are unchanged.
+- **Builds:**
+  - control without the flag: `7f836c3a`;
+  - v3 under seeds 0 and 1: identical bytes;
+  - diff against `7f836c3a`: only the GPR, the notes, the 4 genes and the old gene's link.
+- **Superseded builds, deleted at the user's request** (2026-10-22, with their `.build.json` and
+  `.coq9_genes.tsv`):
+  - v2 (`2cf19c69`): the same model with uncorrected notes;
+  - v1 (`4d738403`): a hash-seed-dependent gene order.
+- **pytest:** 231 passed, 11 failed, 17 errors, 31 skipped after v3, run alone. Identical test by
+  test to the previous run plus the 6 new passes.
+- **Knockouts:** 2 × about 1,076, Task A medium + PO1f, GLPK, a basis reset before each knockout and
+  the targeted check.
+  - No stale points: every closed reaction is at exactly 0.
+  - WT is identical between the models, and the same 20 knockouts are infeasible in both.
+  - Changes at every cutoff:
+    - YALI1F07747g goes from essential to non-essential (FP → TN);
+    - the D09 genes enter as false negatives (positives);
+    - the D08 genes enter as true negatives.
+  - At 15 %: 92 / 219 / 37 / 694 / 16, MCC 0.341 → 92 / 221 / 36 / 697 / 16, MCC 0.342. In-model
+    positives go from 322 to 324. Development reference.
+  - The baseline sweep reproduces the heme report's corrected scores without fresh re-solves.
+- **Independent audit:** [AUDIT.md](reports/r2193_iron_gpr_change_20261022/AUDIT.md).
+  - Two evidence overstatements were fixed in the notes, giving v3: the D08 genes are paralogs
+    (one-way best hits), not reciprocal best hits; and Ye 2026 was co-expression with VHb.
+  - The check API trap was fixed, and context safety was added.
+
+**Limits and open findings.**
+- **Blind spot in the targeted check.** GLPK can drop the 1e-6 heme a demand within its tolerance
+  (residual = 1e-6 × growth). The 1e-6 general threshold cannot see that. No call is affected here
+  (every heme knockout returns 0; Gurobi agrees), but the check needs a growth-scaled residual
+  tolerance before reuse.
+- **Process deviations.**
+  - The first checked sweep (1e-9 on every variable) flagged GLPK tolerance-level points and was
+    stopped.
+  - Infeasible knockouts were left unresolved without re-solves; this narrowed rule was not
+    separately approved.
+  - Builds: 9 against 3 budgeted.
+- **Biology.**
+  - Both D09 genes are essential experimentally, which the OR rule cannot express.
+  - R2193 lumps Fe³⁺ uptake through Fet3/Ftr1 (O₂/Cu) as Fe²⁺ uniport.
+  - R863, FRE and the iron chemistry stay open.
+- Committed later the same day in `be1fd53` (not pushed).
+
+## 2026-10-22: R2193 iron import — which genes (investigation and plan only)
+
+**Authorization.** The user:
+
+> "Yes: investigate the R2193 iron-import GPR (YALI1F07747g looks like a bHLH regulator). Find the
+> real Y. lipolytica iron-uptake genes, investigation and plan only, no model change."
+
+No model, data or code change; no LPs. Details:
+[REPORT.md](reports/r2193_iron_import_gpr_20261022/REPORT.md). Builds on the July main-line
+experiment [r2193_pair1_20260727](reports/r2193_pair1_20260727/experiment_result.md).
+
+**Findings** (verified unless marked):
+- **YALI1F07747g (YALI0F05126g, Q6C2U3) is a bHLH transcription factor.**
+  - It has HLH domains only, and PHO4 is its reciprocal best hit.
+  - Pomraning 2016 lists it as a predicted bHLH TF.
+  - The model's ID mapping is correct; the reaction assignment is wrong.
+  - It came from the parent iYli21 gene set; eciYali5 has the reaction gene-less.
+- ***Y. lipolytica* has two FET3/FTR1 pairs** (Pfam, KEGG K19791/K07243). Corrected after the
+  change audit: only the D09 genes are reciprocal best hits; the D08 genes are their paralogs
+  (one-way).
+  - **D09 pair** (YALI1_D09277g FET3-like + YALI1_D09308g FTR1-like). Divergent neighbours; both on
+    the essential list.
+  - **D08 pair** (YALI1_D08684g + YALI1_D08564g). Not listed.
+
+  All four proteins are detected in the Debiaggi 2025 proteomics.
+- **Same-species evidence.** YALI1_D08564g is the "Ftr1" whose overexpression with VHb raised
+  intracellular iron (Ye et al. 2026). The primers in the supplement match its coding sequence only.
+  There was no knockout or uptake assay.
+- **Other genes.** There is no FET4 ortholog. There are SMF1/SMF2-like transporters, one MRS3/4
+  ortholog (YALI1_B28215g; R863 is gene-less) and several FRE-like reductases. YALI1_A05031g is
+  FTH1-like, not FTR1.
+
+**Plan (not authorized).**
+- **Recommended option A:** R2193 = `(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and
+  YALI1D08564g)`, with YALI1F07747g kept unlinked.
+- Choosing only the D09 pair because it matches the essential list would be fitting to the benchmark.
+- Under option A the D09 genes become explainable false negatives (isozyme insufficiency not
+  expressible in a GPR).
+- R863, FRE reduction and the iron chemistry are separate decisions.
+
+**Limits.**
+- Identities are orthology and domains.
+- The proteomics units and conditions were not checked.
+- The literature search was bounded.
+
+## 2026-10-22: Heme a and iron(2+) in biomass_C (Yeast8 values), opt-in candidate (committed `be1fd53`, not pushed)
+
+**Authorization.** The user, 2026-10-22, after reading plan A:
+
+> "Approved: implement plan A as written (heme a 1e-6 + Fe2+ 3.04e-5 in biomass_C via an opt-in
+> flag, baseline cf0825b8, iron cap unchanged, KO comparison included). No commit or push."
+
+The trigger was a Claude Science test, "Gap 5 · Iron uptake cap 1.61e-5".
+- **Finding:** no biomass term contains iron, so iron uptake and heme synthesis carry zero flux.
+- **Its test:** heme b + heme a at 5e-5 each made the cap bind; growth fell from 0.31243 to 0.161.
+- **Reproduced exactly on `cf0825b8`**, Task A medium + PO1f, GLPK:
+  - 0.312427 → 0.161000;
+  - with the cap lifted, 0.312390.
+- **Cause:** the cap, not the cost of making heme.
+
+**Results** ([REPORT.md](reports/heme_iron_biomass_20261022/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml)
+  (`7f836c3a…`) = `cf0825b8` plus `--heme-iron-biomass`.
+  - Data: `curation/biomass/heme_iron_biomass.json`.
+  - Guarded step: `platform/scripts/gem_annotate/heme_iron_biomass.py`.
+- **Change:** `biomass_C` + heme a `m1635[C_cy]` 1e-6 + iron `m948[C_cy]` 3.04e-5 mmol/gDW.
+  - These are the yeast-GEM v9.1.1 values (`r_4598`, `r_4599`; commit `2d594ae1`, archived).
+    Heme a also matches the source model's closed R1710.
+  - They are *S. cerevisiae* model values. The primary sources were not opened.
+  - Not changed: the medium, the R1189 cap and heme b.
+- **Builds:**
+  - without the flag: reproduces `cf0825b8`;
+  - with the flag: seeds 0 and 1 give identical bytes, also with the final guard.
+  - The diff is the two coefficients plus 7 notes.
+- **pytest per test:** the baseline (221 passed, 11 failed, 17 errors, 31 skipped) plus the 4 new
+  passes.
+- **LPs (Task A medium + PO1f, GLPK):**
+  - WT 0.3124263 (Δ −4.5e-7);
+  - iron uptake 9.81e-6 (61 % of the cap);
+  - heme route 3.1e-7;
+  - closing R1189, R2193, R302, R383 or R1709 gives zero growth.
+- **Knockouts (2 × 1,074) + 2 fresh-solve corrections:** 13 genes go from non-essential to
+  essential at every cutoff. All are on heme synthesis (R61, R667, R409, R792, R790, R240, R674,
+  R302, R384, R383 ×3) or iron import (R2193). 9 are experimental positives and 4 negatives:
+  - HEM13 YALI1E35410g;
+  - HEM14 YALI1D30196g;
+  - ferredoxin YALI1B03314g;
+  - YALI1F07747g.
+- **Scores at 15 %** (development reference; user-defined negatives; mtDNA out of scope):
+  - `cf0825b8`: 83 / 228 / 33 / 698, 16 unresolved, MCC 0.323;
+  - `7f836c3a`: 92 / 219 / 37 / 694, 16 unresolved, MCC 0.341.
+  - Not a reason for the change.
+- **Independent audit:** [AUDIT.md](reports/heme_iron_biomass_20261022/AUDIT.md).
+  - C1–C4, C6–C9 and C11 are supported.
+  - The guard (C5) was partially supported. It was then extended (objective, R1189/R863/R302/R384/R383)
+    and retested.
+
+**Limits and open findings.**
+- **Numerical fragility.** The 1e-6 heme a term puts heme-route fluxes at LP tolerance.
+  - In the sequential GLPK sweep, HEM4 (YALI1F13039g) was reported at WT growth: R792 was at 3.12e-7
+    above its zero bound, with status "optimal". HEM3 (YALI1F34051g) timed out.
+  - Fresh GLPK and Gurobi solves give 0 for both.
+  - Future sweeps, FVA or blocked-reaction runs on this candidate need a bound-violation check, fresh
+    bases, or Gurobi at FeasibilityTol ≤ 1e-9. Earlier GLPK sweeps were not re-examined.
+- **Budget overrun.** The first sweep hung for 34 min in one GLPK solve and was stopped; its LP count
+  is unknown and beyond the authorized sweep. The rerun, with a 60 s limit per LP, was started without
+  a separate check-in.
+- **R2193's only gene, YALI1F07747g:**
+  - KEGG names its ID a bHLH regulator;
+  - its UniProt cross-reference is deleted;
+  - KEGG links that gene to a different accession.
+
+  This is likely a GPR or ID-mapping error (inferred). With this change it is a model-only lethal
+  knockout.
+- **Iron chemistry.** The iron species have no formula and charge 0, so R302, R727, R384 and R383
+  are imbalanced. Siroheme has no consumer. Heme b and Fe–S clusters are absent. Total iron above
+  about 5.15e-5 mmol/gDW would make the cap bind.
+- **Not run:** SD-Leu and other media. Committed later the same day in `be1fd53` (not pushed).
+## 2026-10-22: Proton lock on R752, R408 and R750 (gate honours an SBML-safe lock note), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading the plan:
+
+> "Approved: implement the H+ lock plan as written: gate honours a string note
+> lock_proton_water_stoichiometry = true, new opt-in --thiamine-proton-lock on top of ef2265c1 for
+> R752/R408/R750, default-build and control checks, no LPs. No commit or push."
+
+**Results** ([REPORT.md](reports/thiamine_proton_lock_20261022/REPORT.md)). Verified this session
+unless marked otherwise.
+- **Why:** the proton/water gate (`balance_protons_and_water`) would strip the pH 7.3-correct H+ from
+  R752, R408 and R750 on `ef2265c1`.
+  - The only existing per-reaction lock, a dict `curated_reaction_correction` note, works in memory
+    only; SBML turns it into a string.
+  - R2041's lock is lost in saved models for this reason (open finding).
+- **Gate change:** `microspecies.py` also skips a reaction whose note `lock_proton_water_stoichiometry`
+  is the string `true`. That is 4 lines; the hash goes from `cb3cd03f` to `fc4ddff0`.
+  - The default build is byte-identical before and after (`b4ce0974…`).
+  - The `ef2265c1` argv rebuilds `ef2265c1…`.
+  - No other model carries the key.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml)
+  (`2fe51cc2…`) = `ef2265c1` plus `--thiamine-proton-lock`.
+  - The change is notes only: the lock plus evidence notes on the three reactions.
+  - Seeds 0 and 1 give identical bytes.
+  - The first build `…_lock_20261022.xml` (`ada4b7f1`) is superseded; its rationale note was wrong. It is
+    kept until the user decides.
+  - Curated data: `curation/chemistry/thiamine_proton_lock.json`.
+  - Guarded step: `platform/scripts/gem_annotate/thiamine_proton_lock.py`.
+- **Proof:** the gate on the saved, re-read candidate skips all three and lists them as locked. Its
+  other 33 changes on that file are unchanged.
+- **LP:** no model LP was run; only notes changed.
+- **pytest per test:** the baseline plus 8 new passes (240 passed). The 11 failures, 17 errors and 31
+  skips are unchanged.
+- **Independent audit:** it supported all 9 claims.
+  - Fixed: the wrong rationale (the residual comes from the KEGG-form thiamine phosphates and HET-P as
+    well as the neutral ATP family), runtime checks on note texts, and the handling of non-string
+    notes.
+  - Its lock-reliance cautions are recorded below.
+
+**Limits.**
+- Only this gate version honours the lock; main and older gates strip the H+ silently.
+  `tools/update_model.py:303` and other stoichiometry editors ignore it.
+- Once saved, the lock is unconditional. A partial nucleotide migration would leave +3 / +2 / −3 H+
+  hidden in the skipped list.
+- The saved candidate is not stable under the gate: 33 other reactions would change.
+- Nothing is committed or pushed.
+
+## 2026-10-22: Thiamine phosphate chemistry (TMP identity, TPP/TTP/HET-P formulas, R1342 EC), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading the plan:
+
+> "Approved: implement the thiamine phosphate chemistry plan as written: KEGG fully protonated forms,
+> m971 and m643 included, R1342 EC 2.7.4.9 removed, names unchanged, on top of 8ae6c93b with
+> --thiamine-phosphate-chemistry requiring --tpp-requirement, no H+ edits, WT spot check only. No
+> commit or push"
+
+**Results** ([REPORT.md](reports/thiamine_phosphate_chemistry_20261022/REPORT.md)). Verified this
+session unless marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml)
+  (`ef2265c1…`) = `8ae6c93b` plus `--thiamine-phosphate-chemistry`.
+  - Curated data: `curation/chemistry/thiamine_phosphate_chemistry.json`.
+  - Guarded step: `platform/scripts/gem_annotate/thiamine_phosphate_chemistry.py`.
+  - The first build `…_thiamine_p_20261022.xml` (`e8a54520`) is superseded: only notes differ. It is
+    kept until the user decides.
+- **Changes (whole-model diff, 29 differences; no stoichiometry, bound, GPR or objective change):**
+  - **TMP `m977`/`m973`:** it was matched by name to MNXM1137754, 3,5,6-trichloro-2-methoxypyridine
+    (C6H4Cl3NO). It is now C12H18N4O4PS +1, with KEGG C01081, CHEBI:9533, MNXM662.
+  - **TPP `m975`/`m971`/`m1116`:** C12H19N4O7P2S +1 (C00068, CHEBI:9532, MNXM256).
+  - **TTP `m976`:** C12H20N4O10P3S +1 (C03028, CHEBI:9534, MNXM1341), replacing BiGG ttp /
+    MNXM148527.
+  - **HET-P `m643`:** C6H10NO4PS 0 (C04327, CHEBI:17857, MNXM960).
+  - **R1342:** loses EC 2.7.4.9 (dTMP kinase), which came from MetaNetX MNXR104907's EC field.
+- **Identity:** these are thiamine phosphates, from the model's own KEGG reactions (R00619, R00616,
+  R00617, R02135, R04448). The old memory note calling S + N4 "impossible" (it assumed thymidine) was
+  wrong and has been corrected.
+- **Balance:** 6 of the 11 non-boundary thiamine reactions now balance (was 1, trivially). No
+  balanced reaction became unbalanced.
+  - R752, R408 and R750 keep one H+. That H+ is correct at pH 7.3: with every partner at pH 7.3, all 9
+    thiamine reactions balance as written (checked twice).
+  - R1343 and R1344 keep a 2-H discrepancy in every protonation state.
+- **Builds:** the control reproduces `8ae6c93b`, and seeds 0 and 1 give identical bytes. Builds are
+  under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/thiamine_phosphate_chemistry_20261022/`.
+- **LP:** WT growth is identical (0.31242674050092606, 2 LPs). It is the same optimization problem as
+  `8ae6c93b` (provable from the diff), so no knockout sweep was run.
+- **pytest per test:** the baseline plus 5 new passes (232 passed). The 11 failures, 17 errors and 31
+  skips are unchanged.
+- **Independent audit:** it supported 9 of 11 claims, and partly supported C6 and C8.
+  - Its guard gaps are fixed: the reviewed chemistry and the 24 partner species are now pinned in the
+    code.
+  - Its overstatements are corrected: the R1343/R1344 cause, HMP-PP in the microspecies table, "none
+    worse" and "Rhea" for R750.
+
+**Open decision and limits.**
+- **H+ lock:** the final proton gate runs before this step today. If it ever ran after, it would
+  remove the H+ from R752, R408 and R750. A `lock_proton_water_stoichiometry` note would prevent this;
+  it is outside the approved scope and needs a user decision.
+- **Interim convention:** the KEGG forms are interim. These species and HMP-PP must join the
+  ATP/ADP/AMP/Pi/PPi pH 7.3 migration.
+  - The migration audit now counts R1337, R1342, R751, R753 and R754 as regressions (292 vs 287, per
+    the audit).
+  - The step refuses to apply if those partners migrate first.
+- **Not changed:**
+  - R754's KEGG annotation R10712 (carboxy-HET-P);
+  - `m889`, annotated as ribitol-5-P;
+  - R753's EC 2.7.6.2;
+  - the ambiguous names.
+- Nothing is committed or pushed.
+
+## 2026-10-22: TPP required in biomass_C and TMP kinase R1342 closed, opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-22, after reading the plan:
+
+> "Approved: implement the TPP plan as written: --tpp-requirement on top of cf0825b8, TPP in
+> biomass_C at the yeast-GEM value 1.2e-6 mmol/gDW, R1342 closed (not deleted), ThiL BLAST check, KO
+> comparison included. No commit or push."
+
+The trigger was a Claude Science test, "Gap 4 · TPP exists but nothing requires it". It reproduced
+exactly on `cf0825b8` on the Task A medium + PO1f (WT 0.3124267).
+
+**Results** ([REPORT.md](reports/tpp_requirement_20261022/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml)
+  (`8ae6c93b…`) = `cf0825b8` plus `--tpp-requirement`.
+  - Curated data: `curation/thiamine/tpp_requirement.json`.
+  - Guarded step: `platform/scripts/gem_annotate/tpp_requirement.py`.
+  - The first build `…_gpi_tpp_20261022.xml` (`12efa141`) is superseded. It is the same optimization
+    problem; three note texts were corrected after the audit. It is kept until the user decides.
+- **Changes (whole-model diff, 4 differences):**
+  - `biomass_C` consumes TPP `m975[C_cy]` at 1.2e-6 mmol/gDW, the yeast-GEM 9.1.1 `r_4598` value for
+    *S. cerevisiae* (provisional).
+  - R1342 bounds go to (0, 0), with the reaction kept.
+  - Notes on both.
+- **Evidence for closing R1342:**
+  - KEGG K00946 (thiL) has no gene in yli or sce.
+  - blastp of all 27 Swiss-Prot ThiL proteins finds no W29 hit at E ≤ 1e-5. The THI80 control finds
+    YALI1E25443g.
+  - This is not proof that no enzyme phosphorylates TMP.
+- **Builds:**
+  - The control without the flag reproduces `cf0825b8`.
+  - Seeds 0 and 1 give identical bytes.
+  - Builds are under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/tpp_requirement_20261022/`.
+- **LPs (Task A medium + PO1f, GLPK):**
+  - WT 0.3124267446 → 0.3124267405.
+  - TPP comes via R934 → R752. Without thiamine the model still grows, de novo through R1337 → R752.
+  - The THI80 knockout is lethal, including at feasibility tolerance 1e-9 with GLPK and Gurobi.
+- **Knockouts (2 × 1,074):**
+  - The only class change at 1/5/10/15% is YALI1E25443g (THI80-like; no verified name) going from
+    non-essential to essential.
+  - No other resolved knockout changes by more than 1e-6.
+  - The 20 unresolved genes are the same on both models.
+  - The auditor re-ran the sweep with zero deviation.
+  - YALI1E25443g is on the consensus essential list, so it would be FN → TP (inferred; no benchmark
+    run; a development reference).
+- **pytest per test:** the baseline plus 6 new passes (227 passed); the 11 failures, 17 errors and 31 skips are unchanged.
+- **Independent audit:**
+  - It supported 10 of 12 claims, and partly supported C2 and C3.
+  - Its guard gaps and overstated wording were fixed before the final build.
+
+**Process deviations (reported, not repaired):**
+- A guard rejection, listed as a stop condition, was fixed and rebuilt without asking the user first.
+  The cause was the in-build vs SBML escaping of `biomass_C` notes.
+- Diagnostic LPs were about 146 against a budget of about 30, mostly FVA.
+
+**Limits and open findings.**
+- Only the Task A medium was tested; opt-in only.
+- TMP `m977` is annotated as 3,5,6-trichloro-2-methoxypyridine, so R754, R1337 and R1342 are
+  unbalanced. R1342 also carries EC 2.7.4.9.
+- The TPP species have no formula.
+- Mitochondrial TPP has no consumer, so R933 stays blocked.
+- A futile thiamine loop is present (FVA maximum 21.3).
+- cobra FVA is unreliable at fluxes around 1e-7 in this model.
+- Nothing is committed or pushed.
+
+## 2026-10-22: Default LP solver is now Gurobi (code change, not committed)
+
+**Authorization.** The user, 2026-10-22:
+
+> "Approved. Apply the plan as written, including run.sh, the README line and the STATE.md
+> entry; skip the GLPK vs Gurobi comparison."
+
+**What changed.** Branch `claude/flux-analysis-gurobi-default-2473fd`, from `abe7e40`. No model
+change and no model XML built.
+- `--solver` now defaults to `gurobi` in `scripts/gem_annotate/pipeline.py`,
+  `scripts/gem_annotate/validate_essential_genes.py` (help text and docstring too) and
+  `tools/dfba_new_fn_essentiality.py`.
+- The forced `model.solver = "glpk"` is now `"gurobi"` in `scripts/gem_annotate/gaps.py` (build
+  gap FVA and its log line), `scripts/gem_annotate/biomass.py` (build precursor check) and
+  `tools/diagnose_blocked.py`.
+- `run.sh` runs memote with `--solver gurobi`.
+- `platform/README.md` states the default and how to reproduce GLPK results (`--solver glpk`).
+- No automatic fallback: a missing or size-limited Gurobi license is an error.
+
+**Verification** (2026-10-22, main-checkout `.venv`):
+- **Environment:** cobra 0.30.0, optlang 1.8.3, gurobipy 13.0.1. Academic license, expires
+  2027-07-10. A synthetic 5,000-variable LP solved, so the license is not size-limited. cobra
+  already picks Gurobi when no solver is given.
+- **Build output unaffected (static check):** the build's two GLPK-to-Gurobi solves only write
+  logs. Gap-fill reactions come from `gap_fill_prioritized.csv`, not from the FVA.
+- **pytest per test:** identical before and after: 221 passed, 11 failed, 31 skipped, 17 errors.
+  - All failures are already known (README list).
+  - The dFBA Slurm pin still fails on the same assertion; only the tool SHA in it changed.
+  - `pydantic_ai` is missing from the `.venv`, so the three `test_gem_review_lit_*` files error
+    at collection. Both runs used `--continue-on-collection-errors`.
+
+**Not changed.**
+- `hpc/hpcc_dfba_new_fn.slurm` pins `DFBA_SOLVER=glpk` and refuses other solvers. Gurobi
+  licensing on HPCC is unknown.
+- Lipid tools (`tools/lipid/*`, colleague-owned) still force GLPK. One sets cobra's global solver
+  in tests.
+- `tools/update_model.py` keeps two GLPK lines in `fix_biomass_reaction` and `find_gaps`.
+  Neither function is ever called.
+- Scripts under `model/reports/` are frozen records of their runs.
+
+**Limits.**
+- No GLPK vs Gurobi comparison was run (the user skipped it). Whether growth, blocked-reaction
+  sets or knockout calls differ between the solvers is unknown, especially near the 1e-6 cutoffs.
+- Earlier entries labelled GLPK stay GLPK results. Compare them with new Gurobi runs only after
+  stating the solver change.
+
+## 2026-10-21: Decision — the GPI exit R_DM_GPI stays open
+
+**Decision.** The user, 2026-10-21:
+
+> "Keep the GPI exit open as it is; the sub-1e-6 knockout effect is acceptable."
+
+**What it covers.**
+- R_DM_GPI keeps bounds (0, 1000), open and not forced, in both GPI candidates (`89559a0f`,
+  `cf0825b8`).
+- No model change.
+
+**What was accepted** (verified, [co-products REPORT §6](reports/gpi_coproducts_20261021/REPORT.md)):
+- In nine knockouts at KO/WT 0.127687, `cf0825b8` grows +8.477e-7 more than `89559a0f`:
+  YALI0F04114g, YALI1E12730g, YALI1E15606g, YALI1E19902g, YALI1E23635g, YALI1F05089g,
+  YALI1M00131g, YALI1M00277g and YALI1M00325g.
+- The cause: the open exit lets the GPI chain turn surplus PE into DAG and discard the GPI.
+- With the exit closed, growth returns to the baseline. No essentiality class changes.
+
+**Limits.**
+- This was checked only under SD-Leu + PO1f with GLPK. Other media and conditions were not tested.
+- A future GPI biomass term or other GPI changes would reopen the question.
+
+## 2026-10-21: GPI co-products (DAG on R373, Dol-P on R375), opt-in candidate (not committed)
+
+**Authorization.** The user, 2026-10-21:
+
+> "Approved: implement the GPI co-product plan as written (new --gpi-coproducts flag requiring
+> --gpi-chain-links, R373 + DAG, R375 + Dol-P, R_GPIGNT note fix, KO comparison included; R376 and
+> the DAG formula left as findings). No commit or push."
+
+**Results** ([REPORT.md](reports/gpi_coproducts_20261021/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml)
+  (`cf0825b8…`) = `164f235f` plus `--gpi-chain-links --gpi-coproducts`.
+  - Curated data: `curation/chemistry/gpi_coproducts.json`.
+  - Guarded step: `platform/scripts/gem_annotate/gpi_coproducts.py`.
+- **Changes:**
+  - R373 also releases DAG (KEGG R12351, K05285; gene = MCD4_YARLI).
+  - R375 also releases Dol-P (KEGG R05922, K05286; gene = GPI10_YARLI).
+  - Gene identities are database calls, not experiments.
+  - The R_GPIGNT note is reworded.
+- **Builds:**
+  - No GPI flag: `164f235f`.
+  - Links only: `d5a0ce48`, which differs from `89559a0f` only in the note.
+  - Seeds 0 and 1 give identical bytes.
+  - Diff against links-only: the R373 and R375 equations and notes only.
+- **LPs (SD-Leu + PO1f, GLPK, 58):**
+  - WT 1.430806, unchanged;
+  - the chain FVA maximum went from 0.497 to 0.750;
+  - the growth cost of a forced 1e-5 exit fell from 2.83e-5 to 1.88e-5 (about 70% from Dol-P
+    recycling, 30% from DAG return, per the audit).
+- **Knockouts (2 × 1,074):** no class change.
+  - YALI1D22124g is a GLPK sweep artifact on `89559a0f`; a fresh solve gives 0 on both models.
+  - The audit found nine respiratory knockouts gaining +8.477e-7. The open exit lets the chain turn
+    surplus PE into DAG; with the exit closed, growth returns to the baseline.
+- **pytest per test:** the previous run plus 4 new passes.
+- **Independent audit:** done. Its guard gaps were fixed, and the rebuild is still `cf0825b8`. My
+  R376 and DAG findings were corrected.
+
+**Limits and open findings.**
+- **R376:** it likely equals KEGG R08107 as written. YALI1E14925g is GPI13 by NCBI and KEGG
+  identity. Still open:
+  - m603's three-EtNP name;
+  - the missing GPI7 step;
+  - a possible AND GPR.
+- **DAG species:** C6H8O6 is model-wide, and not a DAG.
+- **Open exit:** kept open (user decision, entry above).
+- No benchmark was run. Nothing is committed or pushed.
+
+## 2026-10-21: GPI-anchor chain connected (step 1, three ER links, open exit), opt-in candidate (not committed)
+
+**Authorization.** On 2026-10-21 the user approved the plan for connecting the GPI chain:
+
+> "Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open
+> demand, co-product fix as a later change, KO comparison included). No commit or push."
+
+The trigger was a Claude Science test showing the GPI chain R371…R376 blocked. Its structural
+finding reproduced on `164f235f`; its growth (0.31240) and R1839 flux (0.00154) did not.
+
+**Results** ([REPORT.md](reports/gpi_chain_links_20261021/REPORT.md)). Verified this session unless
+marked otherwise.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml)
+  (`89559a0f…`) = `164f235f` plus `--gpi-chain-links`.
+  - Curated data: `curation/gapfill/gpi_chain_links.json`.
+  - Guarded step: `platform/scripts/gem_annotate/gpi_chain_links.py`.
+- **Five gene-less reactions:**
+  - `R_GPIGNT`, GlcNAc-PI synthesis (KEGG R05916 equation; the 2 H+ reconcile the stored charges);
+  - `R_PEt_em_er` and `R_DAGt_er_em`: C_em is the ER membrane in practice;
+  - `R_ACt_er_cy`;
+  - `R_DM_GPI`, an open demand, not forced.
+- **Builds:** the control without the flag reproduces `164f235f`. Seeds 0 and 1 give identical
+  bytes. The whole-model diff is only the 5 reactions and their group membership. All non-boundary
+  additions are balanced.
+- **LPs (SD-Leu + PO1f, GLPK, 46):**
+  - WT 1.430806, unchanged;
+  - the 7 GPI reactions and the 5 links now have FVA maximum 0.497 (it was 0);
+  - with the exit forced to ≥ 1e-5 the solve is optimal, and closing any one link makes it
+    infeasible.
+- **Knockouts (2 × 1,074 genes):** no growth change beyond 1e-6. One sweep status differs:
+  YALI1D22124g is `infeasible` on the new model. In a fresh solve it is optimal at 0 on both models,
+  and the baseline point is feasible in the new model. So it is a GLPK artifact, not a class change.
+- **pytest per test:** the baseline plus 5 new passes; the 11 failures, 17 errors and 31 skips are
+  unchanged.
+- **Independent audit:** C1–C11 are supported. Its guard gap (chain intermediates unwatched) was
+  fixed; the verification rebuild still gives `89559a0f`.
+
+**Limits.**
+- Opt-in only; the default build is unchanged.
+- Step 1 has no GPR.
+- These are still open:
+  - the R373 DAG and R375 Dol-P co-products (next change, as approved);
+  - the R371 extra H+;
+  - the imprecise R_GPIGNT note wording ("KEGG does not balance protons");
+  - a GPI biomass term.
+- No benchmark was run. Nothing is committed or pushed.
 
 ## 2026-10-21: medium relabelled "Task A medium + PO1f" in this branch's figures and reports (text only)
 
@@ -865,7 +1567,15 @@ verdict "logic chain" layer. No LLM used. No model, GPR, medium or benchmark cha
   provider (Anthropic, OpenAI, Gemini, Groq, Mistral, DeepSeek, OpenRouter, xAI, Ollama) and
   model and store the key in git-ignored `platform/.env`; `GEM_REVIEW_LLM` is the default,
   `--llm` overrides. OpenAI and Google extras installed. Usage: `platform/gem_review/README.md`.
-- Not done: ortholog-name query broadening; prompt caching.
+- 2026-10-22, tooling only: prompt caching for `extract`. The chunk block is now passed as a
+  static run-time instruction, so the cache breakpoint sits after it (pydantic-ai had treated it
+  as dynamic and would have marked only the ~250-token rules text, under Opus 5.5's 512-token
+  minimum); calls are grouped by chunk set, the first writes and the rest read; one-off sets are
+  not cached. Live check (user-approved) on POX2 R1490–R1492 in scratch task
+  `gem_review_lit_cachecheck_20261022`: 53,365 tokens written once, read by the R1490 retry
+  and by R1491/R1492; 74 % of prompt tokens were cache reads; ≈ $0.41 instead of ≈ $0.97
+  uncached. Estimated (not measured) saving on a full tier-1 run like 2026-10-19: ≈ 52 %.
+- Not done: ortholog-name query broadening.
 
 ## 2026-10-14: iYali21 screened under the adapted diagnostic overlay; figure with both models under iYali26's panel conditions
 

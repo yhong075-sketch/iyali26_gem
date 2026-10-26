@@ -1,0 +1,23 @@
+11 failed, 232 passed, 31 skipped, 7 warnings, 17 errors, 584 subtests passed in 453.56s (0:07:33)
+== per-test differences (< before, > after)
+241a242,246
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_changes_only_the_targets_balances_and_survives_roundtrip
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_flag_requires_the_tpp_requirement
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_spec_values_outside_the_reviewed_change_are_rejected_without_edits
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_stale_inputs_fail_closed_without_edits
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_unexpected_scope_is_rejected
+
+[exited with code 0]
+before: 11 failed, 227 passed, 31 skipped, 7 warnings, 17 errors, 562 subtests passed in 421.93s (0:07:01)
+
+== final code (after the audit fixes)
+11 failed, 232 passed, 31 skipped, 7 warnings, 17 errors, 591 subtests passed in 390.55s (0:06:30)
+== per-test differences, before vs final (< before, > final)
+241a242,246
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_changes_only_the_targets_balances_and_survives_roundtrip
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_flag_requires_the_tpp_requirement
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_spec_values_outside_the_reviewed_change_are_rejected_without_edits
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_stale_inputs_fail_closed_without_edits
+> PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_unexpected_scope_is_rejected
+
+[exited with code 0]

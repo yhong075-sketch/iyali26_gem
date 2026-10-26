@@ -1,0 +1,67 @@
+# Lipoylation module + acyl-ACP chemistry on 2c9cebd0 (2026-10-23). Exact commands as run (zsh arrays).
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0, optlang 1.8.3, pytest 9.0.2); Gurobi 13.0.1 academic license
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# S = this session's scratchpad (/private/tmp/claude-501/.../scratchpad), outside the repo
+# D = ../model/reports/lipoylation_acylacp_on_2c9cebd0_20261023 ; C = ../model/candidates
+# BASE = the 2c9cebd0 argv minus paths:
+#   (--offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package
+#    --r132-mito-adh --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2
+#    --remove-selection-tkl-fragment-gpr --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr
+#    --gpi-chain-links --gpi-coproducts --tpp-requirement --thiamine-phosphate-chemistry --thiamine-proton-lock
+#    --heme-iron-biomass --r2193-iron-gpr)
+# NEW = (--lipoylation-module --acyl-acp-chemistry)
+# M = ../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv ; P = $R/state/strain_profiles/po1f_sd_leu.json
+# E = $R/state/essentiality/repository/consensus_essential_genes.csv (1e887f5a...)
+# B = $C/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml (2c9cebd0)
+# N = $C/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_20261023.xml
+
+# Planning turn (read-only): the 9f2356b functions applied in memory to the loaded 2c9cebd0 XML -> both "applied"
+#   (scratch script $S/dry/dry.py; not kept in the repo)
+
+# From platform/: full suite before any change
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_before.log 2>&1
+
+# From the worktree root: files copied unchanged from 9f2356b (unstaged afterwards with `git reset -q`)
+git checkout 9f2356b -- platform/scripts/gem_annotate/lipoylation_module.py platform/scripts/gem_annotate/acyl_acp_chemistry.py \
+  model/curation/chemistry/acyl_acp_chemistry.json model/curation/lipoylation/lipoylation_module.json \
+  platform/tests/test_lipoylation_module.py platform/tests/test_acyl_acp_chemistry.py \
+  model/reports/lipoylation_module_20261020 model/reports/acyl_acp_block_review_20261020
+# Then edited: cli.py (2 flags), main.py (2 parameters, the acyl->lipoylation rule, 2 calls after the R2193 step),
+# tests/test_acyl_acp_chemistry.py (baseline = 164f235f + lipoylation in memory, SBML round trip),
+# new tests/test_lipoylation_acylacp_on_2c9cebd0.py
+
+# From the worktree root: before-state
+$V -I $D/scripts/before_state.py model/candidates/<2c9cebd0>.xml model/curation/lipoylation/lipoylation_module.json \
+  model/curation/chemistry/acyl_acp_chemistry.json $D/before.json
+
+# From platform/: focused tests, then the full suite
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider tests/test_lipoylation_module.py tests/test_acyl_acp_chemistry.py \
+  tests/test_lipoylation_acylacp_on_2c9cebd0.py tests/test_heme_iron_biomass.py > $D/logs/pytest_focused.log 2>&1
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_after.log 2>&1
+
+# Note (audit C3): the full suite above ran in the background in parallel with the builds and the sweep
+# below (about 14:44-14:53), not before them. Outcomes were unaffected.
+# After the audit: tighter new test (union of keys, gene removal, heme error message), rerun alone
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider tests/test_lipoylation_acylacp_on_2c9cebd0.py > $D/logs/pytest_new_test_after_audit.log 2>&1
+# After the audit: scratch evidence kept in the research root
+A="$R/artifacts/tasks/lipoylation_acylacp_on_2c9cebd0_20261023"; mkdir -p "$A"
+cp $S/control_no_flag.xml $S/candidate_seed1.xml $S/b3b9fe22.xml "$A/"; (cd "$A" && shasum -a 256 *.xml > SHA256SUMS.txt)
+
+# From platform/: control and candidate (two seeds)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" --output-model $S/control_no_flag.xml > $D/logs/build_control_no_flag.log 2>&1
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${NEW[@]}" --output-model $N > $D/logs/build_candidate_seed0.log 2>&1
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${NEW[@]}" --output-model $S/candidate_seed1.xml > $D/logs/build_candidate_seed1.log 2>&1
+shasum -a 256 $S/control_no_flag.xml $N $S/candidate_seed1.xml $B | tee $D/logs/sha256.txt
+
+# Whole-model diffs (MD = model/reports/combined_candidate_20261020/scripts/model_diff.py; run from $S, paths absolute)
+git show 9f2356b:model/candidates/E5_coq9_resp_pkg_r132_combined_lipoylation_acylacp_20261020.xml > $S/b3b9fe22.xml   # b3b9fe22..., checked
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml $S/b3b9fe22.xml $D/model_diff_b3b9fe22_vs_164f235f.json
+$V -I $MD $B $N $D/model_diff_vs_2c9cebd0.json
+$V -I $D/scripts/compare_diffs.py $D/model_diff_b3b9fe22_vs_164f235f.json $D/model_diff_vs_2c9cebd0.json $D/diff_comparison.json
+$V -I $D/scripts/balance_check.py $N $D/model_diff_vs_2c9cebd0.json model/curation/lipoylation/lipoylation_module.json \
+  model/curation/chemistry/acyl_acp_chemistry.json $D/balance_check.json
+
+# From platform/: WT + pFBA (6 LPs), then the two-model knockout sweep
+export PYTHONPATH="$PWD:../model/reports/combined_tpp_heme_r2193_20261022/scripts"
+$V $D/scripts/solves.py $M "$P" $D/solves.json $B $N > $D/logs/solves.log 2>&1
+$V $D/scripts/ko_compare_two.py $B $N $M "$P" "$E" $D/ko_compare.tsv $D/ko_compare_summary.json > $D/logs/ko_compare.log 2>&1

@@ -1,0 +1,293 @@
+diff --git a/platform/scripts/gem_annotate/cli.py b/platform/scripts/gem_annotate/cli.py
+index 63fac13..a191027 100644
+--- a/platform/scripts/gem_annotate/cli.py
++++ b/platform/scripts/gem_annotate/cli.py
+@@ -53,6 +53,8 @@ def parse_args(argv=None):
+                         help="Write D-ribulose instead of D-arabinose as R2190's product per the curated 2026-10-19 decision (R2190-RIBULOSE-20261019)")
+     parser.add_argument("--r1964-gpr", action="store_true",
+                         help="Give orphan R1964 (arabinitol dehydrogenase) the provisional GPR YALI1F03452g or YALI1E06616g and D-xylulose cross-references (curated 2026-10-19)")
++    parser.add_argument("--gpi-chain-links", action="store_true",
++                        help="Connect the blocked GPI-anchor chain R371-R376: gene-less step 1 (GlcNAc-PI synthesis), PE/DAG ER links, ER acetate export and an open GPI demand (curated 2026-10-21, GPI-CHAIN-LINKS-20261021)")
+     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
+                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
+     return parser.parse_args(argv)
+diff --git a/platform/scripts/gem_annotate/main.py b/platform/scripts/gem_annotate/main.py
+index cf9438b..f7b8291 100644
+--- a/platform/scripts/gem_annotate/main.py
++++ b/platform/scripts/gem_annotate/main.py
+@@ -86,6 +86,7 @@ def build_reference_chain(
+     r2041_forward: bool = False,
+     r2190_ribulose_product: bool = False,
+     r1964_gpr: bool = False,
++    gpi_chain_links: bool = False,
+ ):
+     starting_model_path = Path(starting_model_path)
+     # The literature patch is defined on the reviewed C5 + COQ9 context.
+@@ -740,6 +741,11 @@ def build_reference_chain(
+         from .r1964_gpr import apply_r1964_gpr_assignment
+         selection["r1964_gpr_assignment"] = apply_r1964_gpr_assignment(model)
+         logger.info("R1964 GPR assignment: %s", selection["r1964_gpr_assignment"])
++    if gpi_chain_links:
++        # Opt-in: step 1, three ER links and an open exit for the GPI-anchor chain (2026-10-21).
++        from .gpi_chain_links import apply_gpi_chain_links
++        selection["gpi_chain_links"] = apply_gpi_chain_links(model)
++        logger.info("GPI chain links: %s", selection["gpi_chain_links"])
+     if coq9_functional_gpr:
+         if not selection["complete"] or not coq9["requested_mode_complete"]:
+             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
+@@ -832,6 +838,7 @@ def build_model(args):
+         r2041_forward=getattr(args, "r2041_forward", False),
+         r2190_ribulose_product=getattr(args, "r2190_ribulose_product", False),
+         r1964_gpr=getattr(args, "r1964_gpr", False),
++        gpi_chain_links=getattr(args, "gpi_chain_links", False),
+     )
+     output = args.output_model
+     evidence = gene_evidence(model)
+diff --git a/platform/scripts/gem_annotate/gpi_chain_links.py b/platform/scripts/gem_annotate/gpi_chain_links.py
+new file mode 100644
+index 0000000..96a2d39
+--- /dev/null
++++ b/platform/scripts/gem_annotate/gpi_chain_links.py
+@@ -0,0 +1,82 @@
++"""Opt-in links that connect the blocked GPI-anchor chain (R371-R376): step 1, three ER links and an open exit."""
++
++import copy
++import json
++
++from cobra import Reaction
++
++from .config import MODEL
++
++CURATION_PATH = MODEL.curation_file("gpi_chain_links.json")
++REACTION_IDS = {"R_GPIGNT", "R_PEt_em_er", "R_DAGt_er_em", "R_ACt_er_cy", "R_DM_GPI"}
++
++
++def _notes(spec, row):
++    return {"gpi_chain_links_curation_id": spec["curation_id"],
++            "gpi_chain_links_status": spec["status"],
++            "gpi_chain_links_authorization": spec["authorization"],
++            "gpi_chain_links_evidence": row["evidence"],
++            "gpi_chain_links_evidence_tier": row["evidence_tier"],
++            "gpi_chain_links_rationale": row["rationale"]}
++
++
++def _definition(reaction):
++    return (reaction.name, list(reaction.bounds), reaction.gene_reaction_rule,
++            {m.id: c for m, c in reaction.metabolites.items()}, reaction.annotation, reaction.notes)
++
++
++def apply_gpi_chain_links(model, spec=None):
++    """Add the five reviewed GPI chain links; fail closed on any unexpected model state."""
++    if spec is None:
++        spec = json.loads(CURATION_PATH.read_text())
++    if (spec.get("schema_version") != 1
++            or spec.get("curation_id") != "GPI-CHAIN-LINKS-20261021"
++            or spec.get("status") != "user_authorized_connectivity_fix"
++            or set(spec.get("reactions", {})) != REACTION_IDS):
++        raise ValueError("Unexpected GPI chain links scope/status")
++    rows = spec["reactions"]
++    present = {rid for rid in REACTION_IDS if rid in model.reactions}
++    for mid, row in spec["species"].items():
++        if mid not in model.metabolites:
++            raise ValueError(f"{mid} missing; no edits applied")
++        metabolite = model.metabolites.get_by_id(mid)
++        if any(getattr(metabolite, key) != row[key] for key in ("name", "formula", "charge", "compartment")):
++            raise ValueError(f"{mid} identity differs; no edits applied")
++        # A chain species that gained a producer or consumer elsewhere would make these links unreviewed.
++        if ("reactions_before" in row
++                and sorted(r.id for r in metabolite.reactions if r.id not in present) != row["reactions_before"]):
++            raise ValueError(f"{mid} reaction context differs; no edits applied")
++    for rid, row in spec["chain_reactions"].items():
++        if rid not in model.reactions:
++            raise ValueError(f"{rid} missing; no edits applied")
++        reaction = model.reactions.get_by_id(rid)
++        if (list(reaction.bounds) != row["bounds"]
++                or {m.id: c for m, c in reaction.metabolites.items()} != row["stoichiometry"]):
++            raise ValueError(f"{rid} differs from the recorded GPI chain; no edits applied")
++    groups = {}
++    for name in sorted({row["group"] for row in rows.values()}):
++        found = [g for g in model.groups if g.name == name]
++        if len(found) != 1:
++            raise ValueError(f"Group {name!r} is missing or not unique; no edits applied")
++        groups[name] = found[0]
++    for rid in sorted(present):
++        reaction, row = model.reactions.get_by_id(rid), rows[rid]
++        after = (row["name"], row["bounds"], row["gpr"], row["stoichiometry"], row["annotation"], _notes(spec, row))
++        if (_definition(reaction) != after
++                or [g.name for g in model.groups if reaction in g.members] != [row["group"]]):
++            raise ValueError(f"{rid} already exists with another definition; no edits applied")
++    if present and present != REACTION_IDS:
++        raise ValueError("Only some GPI chain links are present; no edits applied")
++    if not present:
++        for rid, row in rows.items():
++            reaction = Reaction(rid, name=row["name"], subsystem=row["group"],
++                                lower_bound=row["bounds"][0], upper_bound=row["bounds"][1])
++            model.add_reactions([reaction])
++            reaction.add_metabolites({model.metabolites.get_by_id(m): c for m, c in row["stoichiometry"].items()})
++            reaction.gene_reaction_rule = row["gpr"]
++            reaction.annotation = copy.deepcopy(row["annotation"])
++            reaction.notes = _notes(spec, row)
++            groups[row["group"]].add_members([reaction])
++    return {"item": "GPI chain links", "curation_id": spec["curation_id"],
++            "status": "already_correct" if present else "applied",
++            "added_reactions": [] if present else list(rows), "evidence_status": spec["status"]}
+diff --git a/platform/tests/test_gpi_chain_links.py b/platform/tests/test_gpi_chain_links.py
+new file mode 100644
+index 0000000..142da96
+--- /dev/null
++++ b/platform/tests/test_gpi_chain_links.py
+@@ -0,0 +1,154 @@
++"""GPI chain links: preservation, rejection, SBML roundtrip, balance, dead-end closure and opt-in flag; no LPs."""
++
++import copy
++import json
++import tempfile
++import unittest
++from pathlib import Path
++
++from cobra import Reaction
++from cobra.io import read_sbml_model
++
++from scripts.gem_annotate.cli import parse_args
++from scripts.gem_annotate.gpi_chain_links import CURATION_PATH, REACTION_IDS, apply_gpi_chain_links
++from scripts.gem_annotate.model_layout import MODEL
++from scripts.gem_annotate.sbml import write_deterministic_sbml_model
++from tests.test_coq9_curation import annotations, semantics
++
++BASELINE = "E5_coq9_resp_pkg_r132_combined_20261020.xml"
++DEAD_ENDS = ("m596[C_er]", "m597[C_er]", "m599[C_er]", "m603[C_er]", "m604[C_er]")
++
++
++def group_table(model):
++    return {g.id: (g.name, sorted(r.id for r in g.members)) for g in model.groups}
++
++
++def state(model):
++    return semantics(model), annotations(model), group_table(model)
++
++
++class GpiChainLinksTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        cls.spec = json.loads(CURATION_PATH.read_text())
++
++    def test_stale_inputs_fail_closed_without_edits(self):
++        expected = {"dead_end_consumer": "m604\\[C_er\\] reaction context differs",
++                    "intermediate_consumer": "m602\\[C_er\\] reaction context differs",
++                    "species_charge": "m403\\[C_cy\\] identity differs",
++                    "species_compartment": "m1648\\[C_em\\] identity differs",
++                    "chain_bounds": "R376 differs from the recorded GPI chain",
++                    "chain_stoichiometry": "R371 differs from the recorded GPI chain",
++                    "group_missing": "Group 'Transport, ER to ER membrane' is missing",
++                    "other_definition": "R_DM_GPI already exists with another definition",
++                    "changed_note": "R_GPIGNT already exists with another definition",
++                    "partial": "Only some GPI chain links are present"}
++        baseline = state(self.model)
++        for field, message in expected.items():
++            bad = self.model.copy()
++            if field == "dead_end_consumer":
++                # E.g. the later R373 co-product change, applied without updating this curation.
++                sink = Reaction("R_TEST_SINK", lower_bound=0.0, upper_bound=1000.0)
++                bad.add_reactions([sink])
++                sink.add_metabolites({bad.metabolites.get_by_id("m604[C_er]"): -1})
++            elif field == "intermediate_consumer":
++                # E.g. a later GPI7 step on Man3; the chain would no longer be linear.
++                sink = Reaction("R_TEST_SINK", lower_bound=0.0, upper_bound=1000.0)
++                bad.add_reactions([sink])
++                sink.add_metabolites({bad.metabolites.get_by_id("m602[C_er]"): -1})
++            elif field == "species_charge":
++                bad.metabolites.get_by_id("m403[C_cy]").charge = -1
++            elif field == "species_compartment":
++                bad.metabolites.get_by_id("m1648[C_em]").compartment = "C_er"
++            elif field == "chain_bounds":
++                bad.reactions.R376.bounds = (0.0, 1000.0)
++            elif field == "chain_stoichiometry":
++                # The extra H+ is a separate candidate; this curation must notice if R371 changes.
++                bad.reactions.R371.add_metabolites({bad.metabolites.get_by_id("m102[C_er]"): -1})
++            elif field == "group_missing":
++                next(g for g in bad.groups if g.name == "Transport, ER to ER membrane").name = "renamed"
++            elif field == "other_definition":
++                demand = Reaction("R_DM_GPI", lower_bound=1e-5, upper_bound=1000.0)
++                bad.add_reactions([demand])
++                demand.add_metabolites({bad.metabolites.get_by_id("m603[C_er]"): -1})
++            elif field == "changed_note":
++                apply_gpi_chain_links(bad)
++                bad.reactions.R_GPIGNT.notes = {**bad.reactions.R_GPIGNT.notes, "gpi_chain_links_status": "other"}
++            else:
++                apply_gpi_chain_links(bad)
++                bad.remove_reactions([bad.reactions.R_ACt_er_cy])
++            before = state(bad)
++            with self.subTest(field=field), self.assertRaisesRegex(ValueError, message):
++                apply_gpi_chain_links(bad)
++            self.assertEqual(state(bad), before)
++        self.assertEqual(state(self.model), baseline, "A subcase leaked into the shared model")
++
++    def test_unexpected_scope_is_rejected(self):
++        for key, value in (("status", "user_authorized"), ("curation_id", "GPI-CHAIN-LINKS"),
++                           ("reactions", {k: v for k, v in self.spec["reactions"].items() if k != "R_DM_GPI"})):
++            spec = copy.deepcopy(self.spec)
++            spec[key] = value
++            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "scope/status"):
++                apply_gpi_chain_links(self.model.copy(), spec)
++
++    def test_adds_only_the_five_links_and_survives_roundtrip(self):
++        # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
++        model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
++        before_species, before_annotations, before_groups = state(model)
++        result = apply_gpi_chain_links(model)
++        self.assertEqual((result["status"], set(result["added_reactions"])), ("applied", REACTION_IDS))
++        after_species, after_annotations, after_groups = state(model)
++        self.assertEqual(after_species["species"], before_species["species"])
++        self.assertEqual(after_species["genes"], before_species["genes"])
++        self.assertEqual(after_species["objective"], before_species["objective"])
++        old = before_species["reactions"]
++        new = after_species["reactions"]
++        self.assertEqual(set(new) - set(old), REACTION_IDS)
++        self.assertEqual({rid: new[rid] for rid in old}, old)
++        self.assertEqual({rid: after_annotations[rid] for rid in before_annotations}, before_annotations)
++        added = {gid: sorted(set(after_groups[gid][1]) - set(before_groups[gid][1])) for gid in before_groups}
++        self.assertEqual({gid: ids for gid, ids in added.items() if ids},
++                         {"group37": ["R_DM_GPI", "R_GPIGNT"], "group79": ["R_ACt_er_cy"],
++                          "group87": ["R_DAGt_er_em", "R_PEt_em_er"]})
++        self.assertEqual({gid: after_groups[gid][1] for gid in before_groups if not added[gid]},
++                         {gid: before_groups[gid][1] for gid in before_groups if not added[gid]})
++        for rid, row in self.spec["reactions"].items():
++            reaction = model.reactions.get_by_id(rid)
++            with self.subTest(reaction=rid):
++                self.assertEqual({m.id: c for m, c in reaction.metabolites.items()}, row["stoichiometry"])
++                self.assertEqual((list(reaction.bounds), reaction.gene_reaction_rule), (row["bounds"], ""))
++                if rid != "R_DM_GPI":
++                    self.assertEqual(reaction.check_mass_balance(), {})
++        self.assertEqual(apply_gpi_chain_links(model)["status"], "already_correct")
++        with tempfile.TemporaryDirectory() as directory:
++            path = Path(directory) / "gpi.xml"
++            write_deterministic_sbml_model(model, path)
++            loaded = read_sbml_model(str(path))
++        self.assertTrue(state(loaded) == state(model), "Unexpected SBML roundtrip change")
++        self.assertEqual({rid: loaded.reactions.get_by_id(rid).subsystem for rid in REACTION_IDS},
++                         {rid: row["group"] for rid, row in self.spec["reactions"].items()})
++        self.assertEqual(apply_gpi_chain_links(loaded)["status"], "already_correct")
++
++    def test_chain_dead_ends_gain_a_producer_and_a_consumer(self):
++        model = self.model.copy()
++        apply_gpi_chain_links(model)
++        for mid in DEAD_ENDS:
++            metabolite = model.metabolites.get_by_id(mid)
++            makes = [r.id for r in metabolite.reactions
++                     if (r.metabolites[metabolite] > 0 and r.upper_bound > 0)
++                     or (r.metabolites[metabolite] < 0 and r.lower_bound < 0)]
++            uses = [r.id for r in metabolite.reactions
++                    if (r.metabolites[metabolite] < 0 and r.upper_bound > 0)
++                    or (r.metabolites[metabolite] > 0 and r.lower_bound < 0)]
++            with self.subTest(metabolite=mid):
++                self.assertTrue(set(makes) & REACTION_IDS or set(uses) & REACTION_IDS)
++                self.assertTrue(makes and uses)
++
++    def test_flag_is_opt_in(self):
++        self.assertFalse(parse_args([]).gpi_chain_links)
++        self.assertTrue(parse_args(["--gpi-chain-links"]).gpi_chain_links)
++
++
++if __name__ == "__main__":
++    unittest.main()

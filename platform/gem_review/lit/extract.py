@@ -4,6 +4,12 @@ Per pair the agent sees the chunks as structured JSON in its instructions (never
 user message), answers with a `ClaimSet`, and an output validator rejects any claim whose PMID
 is not in the retrieved set or whose quote is not verbatim in the cited chunk. After the retry
 budget the pair is recorded as EXTRACTION_FAILED; no unvalidated answer is ever kept.
+
+Prompt caching: the system prompt is the fixed rules followed by the chunk block, and the
+question is the user message, so every call over the same chunk set shares a byte-identical
+prefix. Calls are grouped by chunk set; in a group of two or more the first call writes the
+cache and the others start only after it, so they read it. One-off chunk sets are not cached
+(the write premium would never be read back).
 """
 
 import asyncio
@@ -18,7 +24,7 @@ from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai.models import Model
 
 from .models import Claim, ClaimSet, PairReview, normalise_text
-from .providers import DEFAULT_LLM, settings_for
+from .providers import DEFAULT_LLM, cache_settings, settings_for
 from .terms import build_terms
 
 logger = logging.getLogger(__name__)
@@ -49,6 +55,11 @@ def chunks_json(chunks: dict[str, dict]) -> str:
     rows = [{"chunk_id": cid, "pmid": c["pmid"], "source": c["source"], "text": c["text"]}
             for cid, c in sorted(chunks.items())]
     return json.dumps(rows, ensure_ascii=False)
+
+
+def chunk_instructions(chunks: dict[str, dict]) -> str:
+    """The cached part of the prompt; deterministic for a given chunk set (sorted, fixed keys)."""
+    return "Retrieved chunks (JSON):\n" + chunks_json(chunks)
 
 
 @dataclass(slots=True)
@@ -115,9 +126,9 @@ def build_agent(model: str | Model = DEFAULT_MODEL, *, retries: int = 2) -> Agen
         model, output_type=ClaimSet, deps_type=PairContext, instructions=INSTRUCTIONS,
         retries=retries, model_settings=settings, name="gem_review_lit_extract")
 
-    @agent.instructions
-    def chunk_context(ctx: RunContext[PairContext]) -> str:
-        return "Retrieved chunks (JSON):\n" + ctx.deps.context_json()
+    # The chunk block is passed per run (extract_pair) as a plain string, not through an
+    # @agent.instructions function: pydantic-ai treats function output as dynamic and would put
+    # the cache breakpoint before it, on the short rules text alone.
 
     @agent.output_validator
     def _validate(ctx: RunContext[PairContext], output: ClaimSet) -> ClaimSet:
@@ -154,10 +165,12 @@ def pair_context(record: dict) -> PairContext:
 
 
 async def extract_pair(agent: Agent[PairContext, ClaimSet], ctx: PairContext, *,
-                       semaphore: asyncio.Semaphore, model_name: str) -> PairResult:
+                       semaphore: asyncio.Semaphore, model_name: str, cache: bool = False) -> PairResult:
+    settings = cache_settings(model_name) if cache else None
     async with semaphore:
         try:
-            run = await agent.run(ctx.question(), deps=ctx)
+            run = await agent.run(ctx.question(), deps=ctx, instructions=chunk_instructions(ctx.chunks),
+                                  model_settings=settings)
         except UnexpectedModelBehavior as exc:
             logger.warning("%s %s: EXTRACTION_FAILED (%s)", ctx.gene, ctx.reaction_id, exc)
             return PairResult(ctx.gene, ctx.reaction_id, "EXTRACTION_FAILED", error=str(exc), model=model_name)
@@ -166,9 +179,11 @@ async def extract_pair(agent: Agent[PairContext, ClaimSet], ctx: PairContext, *,
             return PairResult(ctx.gene, ctx.reaction_id, "MODEL_ERROR",
                               error=f"{type(exc).__name__}: {exc}", model=model_name)
     usage = {"input_tokens": run.usage.input_tokens, "output_tokens": run.usage.output_tokens,
-             "cache_read_tokens": run.usage.cache_read_tokens, "requests": run.usage.requests}
-    logger.info("%s %s: %d claims, tokens in=%d out=%d requests=%d", ctx.gene, ctx.reaction_id,
-                len(run.output.claims), usage["input_tokens"], usage["output_tokens"], usage["requests"])
+             "cache_write_tokens": run.usage.cache_write_tokens, "cache_read_tokens": run.usage.cache_read_tokens,
+             "requests": run.usage.requests, "cached": cache}
+    logger.info("%s %s: %d claims, tokens in=%d out=%d cache write=%d read=%d requests=%d", ctx.gene,
+                ctx.reaction_id, len(run.output.claims), usage["input_tokens"], usage["output_tokens"],
+                usage["cache_write_tokens"], usage["cache_read_tokens"], usage["requests"])
     review = PairReview.from_claims(ctx.gene, ctx.reaction_id, list(run.output.claims))
     return PairResult(ctx.gene, ctx.reaction_id, "ok", review=review, usage=usage, model=model_name)
 
@@ -181,7 +196,7 @@ async def run_extraction(records: list[dict], *, agent: Agent[PairContext, Claim
     out_dir.mkdir(parents=True, exist_ok=True)
     semaphore = asyncio.Semaphore(max_concurrent)
     results: list[PairResult] = []
-    pending: dict[tuple, asyncio.Task] = {}
+    questions: dict[tuple, PairContext] = {}   # one model call per distinct question
     followers: list[tuple[dict, tuple]] = []
     for record in records:
         if int(record.get("pair_hits", 0)) == 0 or not record["chunks"]:
@@ -190,11 +205,26 @@ async def run_extraction(records: list[dict], *, agent: Agent[PairContext, Claim
             continue
         ctx = pair_context(record)
         key = ctx.share_key()
-        if key in pending:
+        if key in questions:
             followers.append((record, key))
             continue
-        pending[key] = asyncio.create_task(extract_pair(agent, ctx, semaphore=semaphore, model_name=model_name))
-    leaders = {key: await task for key, task in pending.items()}
+        questions[key] = ctx
+
+    groups: dict[str, list[tuple[tuple, PairContext]]] = {}   # chunk block -> calls sharing that prefix
+    for key, ctx in questions.items():
+        groups.setdefault(chunk_instructions(ctx.chunks), []).append((key, ctx))
+
+    async def run_group(members: list[tuple[tuple, PairContext]]) -> list[tuple[tuple, PairResult]]:
+        """First call writes the cache; the rest start after it, so they read it."""
+        cache = len(members) > 1
+        call = lambda ctx: extract_pair(agent, ctx, semaphore=semaphore, model_name=model_name, cache=cache)  # noqa: E731
+        first_key, first_ctx = members[0]
+        done = [(first_key, await call(first_ctx))]
+        rest = await asyncio.gather(*(call(ctx) for _, ctx in members[1:]))
+        return done + [(key, result) for (key, _), result in zip(members[1:], rest)]
+
+    leaders = dict(pair for group in await asyncio.gather(*(run_group(m) for m in groups.values()))
+                   for pair in group)
     results.extend(leaders.values())
     for record, key in followers:
         lead = leaders[key]
@@ -231,5 +261,6 @@ def load_results(out_dir: Path) -> list[dict]:
     return rows
 
 
-__all__ = ["Claim", "ClaimSet", "PairContext", "PairResult", "PairReview", "build_agent",
-           "check_quote", "extract_pair", "load_results", "load_retrieval", "run_extraction", "validate_claims"]
+__all__ = ["Claim", "ClaimSet", "PairContext", "PairResult", "PairReview", "build_agent", "check_quote",
+           "chunk_instructions", "extract_pair", "load_results", "load_retrieval", "run_extraction",
+           "validate_claims"]

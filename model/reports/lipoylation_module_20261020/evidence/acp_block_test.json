@@ -1,0 +1,72 @@
+{
+ "model": "model/candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml",
+ "lp_count": 5,
+ "rows": [
+  {
+   "scenario": "T0_as_supplied",
+   "added": {},
+   "status": "optimal",
+   "max_R1405": 0.0
+  },
+  {
+   "scenario": "T1_ACP1_source",
+   "added": {
+    "m179[C_mi]": 1
+   },
+   "status": "optimal",
+   "max_R1405": -3.6457566331854063e-19
+  },
+  {
+   "scenario": "T2_octanoylACP_sink",
+   "added": {
+    "m1421[C_mi]": -1
+   },
+   "status": "optimal",
+   "max_R1405": 0.0
+  },
+  {
+   "scenario": "T3_octanoylACP_to_ACP1",
+   "added": {
+    "m1421[C_mi]": -1,
+    "m179[C_mi]": 1
+   },
+   "status": "optimal",
+   "max_R1405": 4.741979522673019,
+   "fluxes": {
+    "R2218": 0.0,
+    "R2216": 0.0,
+    "R2217": 0.0,
+    "R2221": 0.0,
+    "R2236": 0.0,
+    "R2237": 0.0,
+    "R78": 4.74198,
+    "R539": 14.225939,
+    "R1394": 4.74198,
+    "R1396": 4.74198,
+    "TEST_T3_octanoylACP_to_ACP1": 4.74198
+   }
+  },
+  {
+   "scenario": "T4_cytACP_to_ACP1",
+   "added": {
+    "m1920[C_cy]": -1,
+    "m179[C_mi]": 1
+   },
+   "status": "optimal",
+   "max_R1405": 13.611236030534426,
+   "fluxes": {
+    "R2218": 0.0,
+    "R2216": -13.611236,
+    "R2217": 13.611236,
+    "R2221": 0.0,
+    "R2236": 0.0,
+    "R2237": 0.0,
+    "R78": 13.611236,
+    "R539": 40.833708,
+    "R1394": 13.611236,
+    "R1396": 13.611236,
+    "TEST_T4_cytACP_to_ACP1": 13.611236
+   }
+  }
+ ]
+}

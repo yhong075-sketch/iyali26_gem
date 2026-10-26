@@ -1,0 +1,74 @@
+# R2193 iron GPR change (2026-10-22). Exact commands as run (zsh; FLAGS is an array).
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0, optlang 1.8.3, pytest 9.0.2)
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# FLAGS = (--offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution
+#          --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs
+#          --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr
+#          --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr
+#          --gpi-chain-links --gpi-coproducts --heme-iron-biomass)      # = the 7f836c3a argv, minus paths
+# M = ../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv (6eca70fd...)
+# P = $R/state/strain_profiles/po1f_sd_leu.json (35307853...)
+# E = $R/state/essentiality/repository/consensus_essential_genes.csv (1e887f5a...)
+# B = ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml (7f836c3a...)
+# N = ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v2_20261022.xml (2cf19c69...)
+# D = ../model/reports/r2193_iron_gpr_change_20261022
+
+# From the worktree root: before-state
+$V -I model/reports/r2193_iron_gpr_change_20261022/scripts/before_state.py \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml model/reports/r2193_iron_gpr_change_20261022/before.json
+
+# Curated data file written from the baseline model (inline Python; values in model/curation/gpr/r2193_iron_gpr.json)
+
+# From platform/: focused test (first version, then after the gene-order fix under three seeds)
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_r2193_iron_gpr.py
+for seed in 0 1 2; do PYTHONHASHSEED=$seed IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_r2193_iron_gpr.py; done
+
+# From platform/: first builds (before the gene-order fix): control, candidate, seed-1 rebuild
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --output-model ../.scratch/r2193_iron_gpr_20261022/control_no_flag.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --r2193-iron-gpr \
+  --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_20261022.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --r2193-iron-gpr --output-model ../.scratch/r2193_iron_gpr_20261022/r2193_seed1.xml
+#   -> control 7f836c3a; seed 0 4d738403...; seed 1 b3d66568...: bytes differ (order of the 4 new geneProducts). Stop condition hit.
+#   Fix: the step registers the new genes in sorted order before setting the GPR. The first candidate file is kept (superseded).
+
+# From platform/: builds after the fix
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --output-model ../.scratch/r2193_iron_gpr_20261022/control_no_flag_v2.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --r2193-iron-gpr --output-model $N
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --r2193-iron-gpr --output-model ../.scratch/r2193_iron_gpr_20261022/r2193_v2_seed1.xml
+cmp $N ../.scratch/r2193_iron_gpr_20261022/r2193_v2_seed1.xml
+
+# From the worktree root: whole-model diffs (MD = model/reports/combined_candidate_20261020/scripts/model_diff.py)
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_20261022.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v2_20261022.xml model/reports/r2193_iron_gpr_change_20261022/model_diff_v2_vs_7f836c3a.json
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_20261022.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v2_20261022.xml model/reports/r2193_iron_gpr_change_20261022/model_diff_v2_vs_first_build.json
+
+# From platform/: method check on the known HEM4 artifact (4 LPs), then the checked knockout sweep
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/method_check.py $B $M "$P" $D/method_check.json
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/ko_compare_checked.py $B $N $M "$P" "$E" $D/ko_compare.tsv $D/ko_compare_summary.json > $D/logs/ko_compare.log 2>&1
+#   First checked sweep stopped by TaskStop at baseline gene 201 (7 points failed the 1e-9 check, fresh re-solves failed too);
+#   log moved to $D/logs/ko_compare_run1_stopped.log; no TSV/summary written.
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/flag_diagnosis.py $B $M "$P" $D/flag_diagnosis.json \
+  YALI1A15879g YALI1B01428g YALI1B10635g YALI1B20153g YALI1B20289g YALI1B22549g YALI1B22614g
+# After the user's decision (targeted check): checked_solve.py updated, full sweep rerun on both models
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/ko_compare_checked.py $B $N $M "$P" "$E" $D/ko_compare.tsv $D/ko_compare_summary.json > $D/logs/ko_compare.log 2>&1
+# ko_compare_checked.py edited after the sweep only in the WT call (solve(..., ()) for the now-required knocked argument;
+# behaviour identical to the run's default knocked=()).
+
+# After the independent audit: data wording fixed, step made context-safe, check API tightened
+for seed in 0 1 7; do PYTHONHASHSEED=$seed IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_r2193_iron_gpr.py; done
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --output-model ../.scratch/r2193_iron_gpr_20261022/control_no_flag_v3.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --r2193-iron-gpr \
+  --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" "${FLAGS[@]}" --r2193-iron-gpr --output-model ../.scratch/r2193_iron_gpr_20261022/r2193_v3_seed1.xml
+# From the worktree root:
+$V -I $MD model/candidates/..._r2193_gpr_v2_20261022.xml model/candidates/..._r2193_gpr_v3_20261022.xml model/reports/r2193_iron_gpr_change_20261022/model_diff_v3_vs_v2.json
+$V -I $MD model/candidates/..._heme_iron_20261022.xml model/candidates/..._r2193_gpr_v3_20261022.xml model/reports/r2193_iron_gpr_change_20261022/model_diff_v3_vs_7f836c3a.json
+# From platform/: method check with the targeted check (4 LPs) and v3 WT (1 LP, inline slim_optimize, GLPK)
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/method_check.py $B $M "$P" $D/method_check_targeted.json
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_after_v3.log 2>&1
+
+# User decision 2026-10-22: "delete the superseded R2193 builds v1 (4d738403) and v2 (2cf19c69) with their
+# .build.json and .coq9_genes.tsv, and update the candidates README. No commit." (files were untracked; SHAs checked first)
+rm -- model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_20261022.{xml,build.json,coq9_genes.tsv} \
+      model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v2_20261022.{xml,build.json,coq9_genes.tsv}

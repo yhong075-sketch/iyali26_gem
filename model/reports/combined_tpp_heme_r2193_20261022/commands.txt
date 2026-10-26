@@ -1,0 +1,50 @@
+# Combined candidate: TPP line + heme/iron + R2193 line (2026-10-22). Exact commands as run (zsh arrays).
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0, optlang 1.8.3, pytest 9.0.2); Gurobi academic license
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# BASE = (--offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package
+#         --r132-mito-adh --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2
+#         --remove-selection-tkl-fragment-gpr --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr
+#         --gpi-chain-links --gpi-coproducts)                      # = the cf0825b8 argv, minus paths
+# TPP  = (--tpp-requirement --thiamine-phosphate-chemistry --thiamine-proton-lock)   # 2fe51cc2 = BASE + TPP
+# HEME = (--heme-iron-biomass --r2193-iron-gpr)                                       # e1586027 = BASE + HEME
+# C = ../model/candidates ; D = ../model/reports/combined_tpp_heme_r2193_20261022
+# M = ../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv ; P = $R/state/strain_profiles/po1f_sd_leu.json
+# E = $R/state/essentiality/repository/consensus_essential_genes.csv (1e887f5a...)
+
+# From the worktree root: before-state (base, both parents, TPP curation after-state)
+$V -I model/reports/combined_tpp_heme_r2193_20261022/scripts/before_state.py model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml \
+  model/curation/thiamine/tpp_requirement.json model/reports/combined_tpp_heme_r2193_20261022/before.json
+
+# heme_iron_biomass.json: accepted_before_states + combination_authorization added (inline Python from before.json);
+# heme_iron_biomass.py: guard accepts either reviewed starting state; tests/test_heme_iron_biomass.py: new cases
+
+# From platform/: focused tests of both lines
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_heme_iron_biomass.py tests/test_r2193_iron_gpr.py \
+  tests/test_tpp_requirement.py tests/test_thiamine_phosphate_chemistry.py tests/test_thiamine_proton_lock.py
+
+# From platform/: controls and the combined candidate (two seeds)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${TPP[@]}" --output-model ../.scratch/combined_tpp_heme_20261022/control_tpp_only.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${HEME[@]}" --output-model ../.scratch/combined_tpp_heme_20261022/control_heme_only.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${TPP[@]}" "${HEME[@]}" \
+  --output-model $C/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${TPP[@]}" "${HEME[@]}" --output-model ../.scratch/combined_tpp_heme_20261022/combined_seed1.xml
+
+# From the worktree root: whole-model diffs (MD = model/reports/combined_candidate_20261020/scripts/model_diff.py)
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml $D/model_diff_vs_2fe51cc2.json
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_heme_iron_r2193_gpr_v3_20261022.xml model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_20261022.xml $D/model_diff_vs_e1586027.json
+$V -I $MD model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml <scratch>/diff_tpp_vs_base.json   # reference for the TPP-line changes
+
+# From platform/: WT + pFBA on base, both parents and combined (12 LPs), then the three-model knockout sweep
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/solves.py $M "$P" $D/solves.json $C/<cf0825b8>.xml $C/<2fe51cc2>.xml $C/<e1586027>.xml $C/<combined>.xml
+PYTHONPATH="$PWD:$D/scripts" $V $D/scripts/ko_compare_three.py $C/<2fe51cc2>.xml $C/<e1586027>.xml $C/<combined>.xml $M "$P" "$E" $D/ko_compare.tsv $D/ko_compare_summary.json > $D/logs/ko_compare.log 2>&1
+
+# After the independent audit: builder rule (main.py) + test; focused tests; rebuild; refused unreviewed mix; full suite
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider tests/test_heme_iron_biomass.py tests/test_r2193_iron_gpr.py \
+  tests/test_tpp_requirement.py tests/test_thiamine_phosphate_chemistry.py tests/test_thiamine_proton_lock.py > $D/logs/pytest_focused_after_audit.log 2>&1
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" "${TPP[@]}" "${HEME[@]}" --output-model ../.scratch/combined_tpp_heme_20261022/combined_after_audit.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" "${BASE[@]}" --tpp-requirement --heme-iron-biomass \
+  --output-model ../.scratch/combined_tpp_heme_20261022/unreviewed_combo.xml > $D/logs/build_unreviewed_combo_rejected.log 2>&1   # exit 1, no file
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors > $D/logs/pytest_after_audit.log 2>&1
+# model_diff_tpp_parent_vs_base.json = the scratch reference diff (cf0825b8 vs 2fe51cc2), copied into this folder

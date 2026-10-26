@@ -1,0 +1,55 @@
+# Thiamine proton lock (2026-10-22). Exact commands as run.
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0)
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# A = $R/artifacts/tasks/thiamine_proton_lock_20261022/builds
+# FLAGS = the argv of ef2265c1: --offline --no-solve --coq9-curation qcycle --energy-candidate E5
+#         --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs
+#         --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr
+#         --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr --gpi-chain-links
+#         --gpi-coproducts --tpp-requirement --thiamine-phosphate-chemistry
+# B = model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml (ef2265c1...)
+# N = model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_20261022.xml
+# D = model/reports/thiamine_proton_lock_20261022
+
+# Planning checks (scratch, read-only, no LPs): the gate dry run on a copy of B strips the H+ of R752/R408/R750;
+# a dict lock survives in memory but becomes a string after an SBML write/read and is then ignored.
+
+# From platform/: default build BEFORE the gate edit (microspecies.py hash in logs/microspecies_before.sha256)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" --offline --no-solve --coq9-curation metadata \
+  --output-model "$A/default_before_gate_edit.xml"
+# From platform/: before-state with a whole-model gate dry run on B
+PYTHONPATH="$PWD" $V ../$D/scripts/state.py ../$B ../$D/before.json
+# From the worktree root: data file
+$V -I $D/scripts/make_curation_json.py $D/before.json model/curation/chemistry/thiamine_proton_lock.json
+# Code edits: microspecies.py (gate), thiamine_proton_lock.py (step), cli.py, main.py, tests/test_thiamine_proton_lock.py
+# From platform/: focused tests
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_thiamine_proton_lock.py
+
+# From platform/: builds AFTER the gate edit (each log's first line records PYTHONHASHSEED)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" --offline --no-solve --coq9-curation metadata \
+  --output-model "$A/default_after_gate_edit.xml"
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --output-model "$A/control_no_lock_flag.xml"
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-proton-lock --output-model ../$N
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-proton-lock --output-model "$A/seed1.xml"
+
+# From the worktree root: whole-model diff; from platform/: after-state with the gate dry run on the saved N
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $B $N $D/model_diff.json
+PYTHONPATH="$PWD" $V ../$D/scripts/state.py ../$N ../$D/after.json
+
+# From platform/: full suite (the before run is the thiamine phosphate task's final run, copied)
+cp ../model/reports/thiamine_phosphate_chemistry_20261022/logs/pytest_final_results.txt ../$D/logs/pytest_before_results.txt
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors
+
+# After the audit: rationale text corrected (generator), note texts checked at runtime, non-string notes handled.
+$V -I $D/scripts/make_curation_json.py $D/before.json model/curation/chemistry/thiamine_proton_lock.json
+(cd platform && IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_thiamine_proton_lock.py)
+# The audited candidate ada4b7f1 was copied to $A/candidate_ada4b7f1.xml; the builder refuses an existing output,
+# so the final candidate has a v2 name. microspecies.py is unchanged since the default and control builds (fc4ddff0).
+AF=$R/artifacts/tasks/thiamine_proton_lock_20261022/final_builds
+N2=model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_v2_20261022.xml (2fe51cc2...)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-proton-lock --output-model ../$N2
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-proton-lock --output-model "$AF/seed1.xml"
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $B $N2 $D/model_diff.json
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $N $N2 $D/model_diff_final_vs_ada4b7f1.json
+(cd platform && PYTHONPATH=$PWD $V ../$D/scripts/state.py ../$N2 ../$D/after.json)
+(cd platform && IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors)  # final

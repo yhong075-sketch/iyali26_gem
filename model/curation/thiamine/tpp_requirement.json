@@ -1,0 +1,288 @@
+{
+ "schema_version": 1,
+ "curation_id": "TPP-REQUIREMENT-20261022",
+ "status": "user_authorized_biomass_term_and_closure",
+ "authorization": "2026-10-22 user: Approved: implement the TPP plan as written: --tpp-requirement on top of cf0825b8, TPP in biomass_C at the yeast-GEM value 1.2e-6 mmol/gDW, R1342 closed (not deleted), ThiL BLAST check, KO comparison included. No commit or push.",
+ "baseline_model_sha256": "cf0825b86c3533d8a12f697a994eba3d740671a68a367143ee32cbfdc8686b7c",
+ "report": "model/reports/tpp_requirement_20261022/",
+ "species": {
+  "m975[C_cy]": {
+   "name": "TDP_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions_before": [
+    "R1342",
+    "R752",
+    "R753",
+    "R933"
+   ]
+  },
+  "m976[C_cy]": {
+   "name": "TTP_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions_before": [
+    "R753"
+   ]
+  },
+  "m1116[C_mi]": {
+   "name": "TDP_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_mi",
+   "reactions_before": [
+    "R933"
+   ]
+  }
+ },
+ "requires_reactions": {
+  "R752": {
+   "gpr": "YALI1E25443g",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m141[C_cy]": -1.0,
+    "m86[C_cy]": 1.0,
+    "m974[C_cy]": -1.0,
+    "m975[C_cy]": 1.0
+   }
+  },
+  "R753": {
+   "gpr": "YALI1E25443g",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": -1.0,
+    "m976[C_cy]": 1.0
+   }
+  },
+  "R933": {
+   "gpr": "YALI1F26924g",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m1116[C_mi]": 1.0,
+    "m975[C_cy]": -1.0
+   }
+  }
+ },
+ "targets": {
+  "biomass_C": {
+   "name": "biomass_C",
+   "gpr": "",
+   "bounds_before": [
+    0.0,
+    1000.0
+   ],
+   "bounds_after": [
+    0.0,
+    1000.0
+   ],
+   "annotation": {
+    "sbo": "SBO:0000629"
+   },
+   "notes_before": {
+    "experimental_trna_biomass_mode": "split_v1",
+    "experimental_trna_biomass_template": "R1387",
+    "experimental_trna_biomass_design": "B group: 20 independent AA-tRNA -> tRNA + protein-residue reactions",
+    "canonical_trna_biomass_mode": "split_v1",
+    "coq9_growth_dilution_candidate": "{\"R385_lower_bound_changed\": false, \"alpha_mmol_per_gDW\": 0.0001, \"alpha_source\": \"User selected 1e-4 mmol/gDW on 2026-10-05; uncalibrated provisional assumption, not a measured physiological value.\", \"interpretation\": \"Q9 retained in newly formed biomass; not consumption per electron transfer\", \"pool_balance\": {\"R385\": 1.0, \"biomass_C\": -0.0001}, \"status\": \"candidate_not_physiologically_calibrated_by_this_build\"}"
+   },
+   "before_stoichiometry": {
+    "m1000[C_cy]": -0.035251,
+    "m10[C_cy]": 23.09,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m1401[C_cy]": 1.0,
+    "m141[C_cy]": -23.09,
+    "m143[C_cy]": 23.09,
+    "m149[C_cy]": -0.059363,
+    "m1631[C_em]": -3.5e-05,
+    "m1640[C_lp]": -0.000234,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "m294[C_cy]": -0.00686,
+    "m32[C_cy]": -23.09,
+    "m359[C_cy]": -0.003029,
+    "m35[C_cy]": 23.09,
+    "m401[C_cy]": -0.868358,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m468[C_mi]": -0.0001,
+    "m505[C_cy]": -0.010353,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m93[C_cy]": -0.050871,
+    "m95[C_cy]": -0.05721,
+    "m964[C_cy]": -0.02,
+    "trna_biomass_residue_R129": -0.567939,
+    "trna_biomass_residue_R154": -0.125563,
+    "trna_biomass_residue_R157": -0.186498,
+    "trna_biomass_residue_R165": -0.186531,
+    "trna_biomass_residue_R248": -0.003632,
+    "trna_biomass_residue_R336": -0.243866,
+    "trna_biomass_residue_R337": -0.243904,
+    "trna_biomass_residue_R368": -0.509943,
+    "trna_biomass_residue_R392": -0.053881,
+    "trna_biomass_residue_R493": -0.090566,
+    "trna_biomass_residue_R522": -0.19455,
+    "trna_biomass_residue_R531": -0.275005,
+    "trna_biomass_residue_R547": -0.044232,
+    "trna_biomass_residue_R625": -0.082571,
+    "trna_biomass_residue_R673": -0.206372,
+    "trna_biomass_residue_R723": -0.284699,
+    "trna_biomass_residue_R759": -0.210543,
+    "trna_biomass_residue_R771": -0.002154,
+    "trna_biomass_residue_R775": -0.041282,
+    "trna_biomass_residue_R798": -0.172773
+   },
+   "after_stoichiometry": {
+    "m1000[C_cy]": -0.035251,
+    "m10[C_cy]": 23.09,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m1401[C_cy]": 1.0,
+    "m141[C_cy]": -23.09,
+    "m143[C_cy]": 23.09,
+    "m149[C_cy]": -0.059363,
+    "m1631[C_em]": -3.5e-05,
+    "m1640[C_lp]": -0.000234,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "m294[C_cy]": -0.00686,
+    "m32[C_cy]": -23.09,
+    "m359[C_cy]": -0.003029,
+    "m35[C_cy]": 23.09,
+    "m401[C_cy]": -0.868358,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m468[C_mi]": -0.0001,
+    "m505[C_cy]": -0.010353,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m93[C_cy]": -0.050871,
+    "m95[C_cy]": -0.05721,
+    "m964[C_cy]": -0.02,
+    "trna_biomass_residue_R129": -0.567939,
+    "trna_biomass_residue_R154": -0.125563,
+    "trna_biomass_residue_R157": -0.186498,
+    "trna_biomass_residue_R165": -0.186531,
+    "trna_biomass_residue_R248": -0.003632,
+    "trna_biomass_residue_R336": -0.243866,
+    "trna_biomass_residue_R337": -0.243904,
+    "trna_biomass_residue_R368": -0.509943,
+    "trna_biomass_residue_R392": -0.053881,
+    "trna_biomass_residue_R493": -0.090566,
+    "trna_biomass_residue_R522": -0.19455,
+    "trna_biomass_residue_R531": -0.275005,
+    "trna_biomass_residue_R547": -0.044232,
+    "trna_biomass_residue_R625": -0.082571,
+    "trna_biomass_residue_R673": -0.206372,
+    "trna_biomass_residue_R723": -0.284699,
+    "trna_biomass_residue_R759": -0.210543,
+    "trna_biomass_residue_R771": -0.002154,
+    "trna_biomass_residue_R775": -0.041282,
+    "trna_biomass_residue_R798": -0.172773,
+    "m975[C_cy]": -1.2e-06
+   },
+   "evidence": "yeast-GEM 9.1.1 cofactor pseudoreaction r_4598 consumes s_1475, named TDP (thiamine diphosphate: KEGG C00068, BiGG thmpp, C12H16N4O7P2S), at 1.2e-6 mmol/gDW; https://github.com/SysBioChalmers/yeast-GEM/blob/main/model/yeast-GEM.yml (raw file SHA-256 2ddfaaa73ead41ab243127d1b34fa56db2c86052f6eabcd12bb4eea93947dc17, read 2026-10-22)",
+   "evidence_tier": "coefficient verified in yeast-GEM 9.1.1 on 2026-10-22; it is an S. cerevisiae value, not measured in Y. lipolytica, and is provisional. That TPP is a required cofactor (pyruvate dehydrogenase, 2-oxoglutarate dehydrogenase, transketolase, pyruvate decarboxylase) is established/uncited. m975 has no formula or cross-reference; its identity as thiamine diphosphate is inferred from its reactions R752 (KEGG R00619), R753 (KEGG R00616) and R933 (thiamine diphosphate transport).",
+   "rationale": "No reaction drained cytosolic TPP (m975) to a sink: its consumers R753 (to thiamine triphosphate, m976) and R933 (into mitochondria, m1116) end in dead ends. So TPP synthesis and THI80 (R752) carried no flux and a THI80 knockout had no effect. Diluting TPP into new biomass makes its synthesis required, as yeast-GEM does for TDP.",
+   "previous_state": "biomass_C had no TPP term"
+  },
+  "R1342": {
+   "name": "thiamine-phosphate kinase",
+   "gpr": "",
+   "bounds_before": [
+    0.0,
+    1000.0
+   ],
+   "bounds_after": [
+    0.0,
+    0.0
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "kegg.reaction": "R00617",
+    "metacyc.reaction": "THI-P-KIN-RXN",
+    "rh": [
+     "15913",
+     "15914",
+     "15915",
+     "15916"
+    ],
+    "rhea": [
+     "15913",
+     "15914",
+     "15915",
+     "15916"
+    ],
+    "sabiork.reaction": "1007",
+    "seed.reaction": [
+     "rxn00438",
+     "rxn38718"
+    ],
+    "vmhreaction": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "metanetx.reaction": "MNXR104907",
+    "ec-code": [
+     "2.7.4.16",
+     "2.7.4.9"
+    ],
+    "biggr": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "keggr": "R00617",
+    "metacycr": "THI-P-KIN-RXN",
+    "sabiorkr": "1007",
+    "seedr": [
+     "rxn00438",
+     "rxn38718"
+    ],
+    "vmhr": [
+     "R_TMPK",
+     "TMPK"
+    ]
+   },
+   "notes_before": {},
+   "before_stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": 1.0,
+    "m977[C_cy]": -1.0
+   },
+   "after_stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": 1.0,
+    "m977[C_cy]": -1.0
+   },
+   "evidence": "KEGG REST link/yli/K00946 and link/sce/K00946 (thiL, thiamine-monophosphate kinase, EC 2.7.4.16) return no genes; link/yli/K00949 (thiamine pyrophosphokinase) returns yli:2911892 = YALI2_E01340g, the old locus tag of W29 YALI1E25443g in GCF_001761485.1 (read 2026-10-22). blastp of all 27 Swiss-Prot ThiL entries (release 2026_03) against the W29 proteome finds no hit at E of at most 1e-5 (best E = 0.006 over 27% of the query); the THI80 control P35202 finds YALI1E25443g at E = 1.8e-24 (model/reports/tpp_requirement_20261022/thil_blast_w29.csv).",
+   "evidence_tier": "verified on 2026-10-22: no KEGG K00946 assignment in yli (the CLIB122 genome) or sce, and no ThiL BLAST hit in W29. The THI80 control is a different protein family; it shows that the database and search work, not that a divergent ThiL would be found. Absence of a sequence homologue does not prove that no enzyme phosphorylates TMP. The yeast route, TMP to thiamine to TPP through THI80, is established/uncited.",
+   "rationale": "R1342 is gene-less and, once TPP is required, was the only route to TPP that bypasses THI80 (R752). It is closed, not deleted, so its equation and cross-references stay for review.",
+   "previous_state": "bounds (0, 1000)"
+  }
+ }
+}

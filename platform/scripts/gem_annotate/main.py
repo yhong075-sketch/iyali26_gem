@@ -86,6 +86,15 @@ def build_reference_chain(
     r2041_forward: bool = False,
     r2190_ribulose_product: bool = False,
     r1964_gpr: bool = False,
+    gpi_chain_links: bool = False,
+    gpi_coproducts: bool = False,
+    tpp_requirement: bool = False,
+    thiamine_phosphate_chemistry: bool = False,
+    thiamine_proton_lock: bool = False,
+    heme_iron_biomass: bool = False,
+    r2193_iron_gpr: bool = False,
+    lipoylation_module: bool = False,
+    acyl_acp_chemistry: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -118,6 +127,22 @@ def build_reference_chain(
                          "dilution, without other CoQ hypotheses")
     if r132_mito_adh and not coq9_respiratory_package:
         raise ValueError("The R132 removal is defined on the CoQ9/respiratory package candidate")
+    if gpi_coproducts and not gpi_chain_links:
+        raise ValueError("The GPI co-products are defined on the GPI chain links candidate")
+    if tpp_requirement and not gpi_coproducts:
+        raise ValueError("The TPP requirement is defined on the GPI co-products candidate")
+    if thiamine_phosphate_chemistry and not tpp_requirement:
+        raise ValueError("The thiamine phosphate chemistry is defined on the TPP requirement candidate")
+    if thiamine_proton_lock and not thiamine_phosphate_chemistry:
+        raise ValueError("The thiamine proton lock is defined on the thiamine phosphate chemistry candidate")
+    if heme_iron_biomass and not coq9_biomass_dilution:
+        raise ValueError("The heme a + iron biomass terms are defined on the CoQ9 biomass candidate")
+    if heme_iron_biomass and tpp_requirement and not (thiamine_phosphate_chemistry and thiamine_proton_lock):
+        # Only the full TPP line was reviewed together with the heme a + iron terms (2026-10-22).
+        raise ValueError("The heme a + iron biomass terms combine only with the full reviewed TPP line "
+                         "(TPP requirement, thiamine phosphate chemistry and proton lock)")
+    if acyl_acp_chemistry and not lipoylation_module:
+        raise ValueError("The acyl-ACP chemistry correction requires --lipoylation-module (ACP1 = HSR)")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -740,6 +765,53 @@ def build_reference_chain(
         from .r1964_gpr import apply_r1964_gpr_assignment
         selection["r1964_gpr_assignment"] = apply_r1964_gpr_assignment(model)
         logger.info("R1964 GPR assignment: %s", selection["r1964_gpr_assignment"])
+    if gpi_chain_links:
+        # Opt-in: step 1, three ER links and an open exit for the GPI-anchor chain (2026-10-21).
+        from .gpi_chain_links import apply_gpi_chain_links
+        selection["gpi_chain_links"] = apply_gpi_chain_links(model)
+        logger.info("GPI chain links: %s", selection["gpi_chain_links"])
+    if gpi_coproducts:
+        # Opt-in: DAG on R373 and Dol-P on R375, on top of the GPI chain links (2026-10-21).
+        from .gpi_coproducts import apply_gpi_coproducts
+        selection["gpi_coproducts"] = apply_gpi_coproducts(model)
+        logger.info("GPI co-products: %s", selection["gpi_coproducts"])
+    if tpp_requirement:
+        # Opt-in: TPP in biomass_C and R1342 closed, on top of the GPI co-products (2026-10-22).
+        from .tpp_requirement import apply_tpp_requirement
+        selection["tpp_requirement"] = apply_tpp_requirement(model)
+        logger.info("TPP requirement: %s", selection["tpp_requirement"])
+    if thiamine_phosphate_chemistry:
+        # Opt-in: KEGG formulas and IDs for the thiamine phosphates and R1342's EC, after the TPP requirement (2026-10-22).
+        from .thiamine_phosphate_chemistry import apply_thiamine_phosphate_chemistry
+        selection["thiamine_phosphate_chemistry"] = apply_thiamine_phosphate_chemistry(model)
+        logger.info("Thiamine phosphate chemistry: %s", selection["thiamine_phosphate_chemistry"])
+    if thiamine_proton_lock:
+        # Opt-in: keep the pH 7.3 H+ of R752, R408 and R750 out of the proton/water gate (2026-10-22).
+        from .thiamine_proton_lock import apply_thiamine_proton_lock
+        selection["thiamine_proton_lock"] = apply_thiamine_proton_lock(model)
+        logger.info("Thiamine proton lock: %s", selection["thiamine_proton_lock"])
+    if heme_iron_biomass:
+        # Opt-in: heme a and iron(2+) in biomass_C at the Yeast8 values (2026-10-22). Must run after the
+        # TPP steps: its guard accepts the reviewed after-TPP biomass_C, while the TPP guard rejects heme terms.
+        from .heme_iron_biomass import apply_heme_iron_biomass
+        selection["heme_iron_biomass"] = apply_heme_iron_biomass(model)
+        logger.info("Heme a + iron biomass: %s", selection["heme_iron_biomass"])
+    if r2193_iron_gpr:
+        # Opt-in: R2193 iron import on the two FET3/FTR1 pairs instead of a bHLH regulator (2026-10-22).
+        from .r2193_iron_gpr import apply_r2193_iron_gpr
+        selection["r2193_iron_gpr"] = apply_r2193_iron_gpr(model)
+        logger.info("R2193 iron GPR: %s", selection["r2193_iron_gpr"])
+    if lipoylation_module:
+        # Opt-in: mitochondrial lipoylation route and provisional lipoyl requirement (2026-10-20). Must run
+        # after the heme/iron step: the heme guard pins the full biomass_C, this guard only its own terms.
+        from .lipoylation_module import apply_lipoylation_module
+        selection["lipoylation_module"] = apply_lipoylation_module(model)
+        logger.info("Lipoylation module: %s", selection["lipoylation_module"]["status"])
+    if acyl_acp_chemistry:
+        # Opt-in: acyl-ACP block formulas, surplus H+ and hydrolase directions (2026-10-20).
+        from .acyl_acp_chemistry import apply_acyl_acp_chemistry
+        selection["acyl_acp_chemistry"] = apply_acyl_acp_chemistry(model)
+        logger.info("Acyl-ACP chemistry: %s", selection["acyl_acp_chemistry"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -832,6 +904,15 @@ def build_model(args):
         r2041_forward=getattr(args, "r2041_forward", False),
         r2190_ribulose_product=getattr(args, "r2190_ribulose_product", False),
         r1964_gpr=getattr(args, "r1964_gpr", False),
+        gpi_chain_links=getattr(args, "gpi_chain_links", False),
+        gpi_coproducts=getattr(args, "gpi_coproducts", False),
+        tpp_requirement=getattr(args, "tpp_requirement", False),
+        thiamine_phosphate_chemistry=getattr(args, "thiamine_phosphate_chemistry", False),
+        thiamine_proton_lock=getattr(args, "thiamine_proton_lock", False),
+        heme_iron_biomass=getattr(args, "heme_iron_biomass", False),
+        r2193_iron_gpr=getattr(args, "r2193_iron_gpr", False),
+        lipoylation_module=getattr(args, "lipoylation_module", False),
+        acyl_acp_chemistry=getattr(args, "acyl_acp_chemistry", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

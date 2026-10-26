@@ -1,0 +1,51 @@
+# GPI chain links (2026-10-21). Exact commands as run.
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0, optlang 1.8.3, pytest 9.0.2)
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# FLAGS = --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution
+#         --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs
+#         --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr
+#         --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr
+#         (the argv recorded in E5_coq9_resp_pkg_r132_combined_20261020.build.json, minus paths)
+
+# From the worktree root: before-state of every target
+$V -I model/reports/gpi_chain_links_20261021/scripts/before_state.py \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml model/reports/gpi_chain_links_20261021/before.json
+
+# From platform/: tests before the change (pydantic_ai is missing, so 3 gem_review lit files fail to collect)
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_gpi_chain_links.py
+
+# From platform/: control (no new flag), candidate (seed 0) and seed-1 rebuild
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS \
+  --output-model ../.scratch/gpi_links_20261021/control_no_gpi_flag.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links \
+  --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links \
+  --output-model ../.scratch/gpi_links_20261021/gpi_links_seed1.xml
+
+# From the worktree root: whole-model diff, balance, after-state
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml model/reports/gpi_chain_links_20261021/model_diff.json
+$V -I model/reports/gpi_chain_links_20261021/scripts/balance.py model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml
+$V -I model/reports/gpi_chain_links_20261021/scripts/before_state.py \
+  model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml model/reports/gpi_chain_links_20261021/after.json
+
+# From platform/: diagnostic LPs and the knockout comparison (SD-Leu + PO1f, GLPK)
+B=../model/candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml
+N=../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_links_20261021.xml
+D=../model/reports/gpi_chain_links_20261021
+PYTHONPATH="$PWD" $V $D/scripts/solves.py $B $N "$R" $D/solves.json
+PYTHONPATH="$PWD" $V $D/scripts/ko_compare.py $B $N "$R" $D/ko_compare.tsv $D/ko_compare_summary.json
+
+# From platform/: tests after the change
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors
+
+# From platform/: fresh-context check of the one knockout whose sweep status differed
+PYTHONPATH="$PWD" $V $D/scripts/ko_d22124g_diagnosis.py $B $N "$R" $D/ko_d22124g_diagnosis.json
+
+# After the audit (guard rows for the six chain intermediates): focused test, verification rebuild, full suite
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_gpi_chain_links.py
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --gpi-chain-links \
+  --output-model ../.scratch/gpi_links_20261021/gpi_links_after_audit_seed0.xml
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors

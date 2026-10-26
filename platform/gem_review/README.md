@@ -55,7 +55,17 @@ Only pairs with hits are sent. Each claim must cite a retrieved PMID and a quote
 that appears verbatim in the retrieved text; otherwise the model is asked again (twice), then
 the pair is recorded `EXTRACTION_FAILED`. The evidence level (0 none … 4 biochemical) is
 computed from the validated claims; evidence from other organisms counts at most as homology.
-Token usage per pair is logged to `out/lit/usage.jsonl`.
+Token usage per pair, including cache writes and reads, is logged to `out/lit/usage.jsonl`.
+
+**Prompt caching (Anthropic models).** The system prompt is the fixed rules followed by the
+pair's retrieved chunks; the question goes in the user message. Reactions of the same gene
+usually share one chunk set, so their prompts share a byte-identical prefix. `extract` groups
+calls by chunk set, marks the end of the chunk block for caching (5-minute lifetime) when a
+set is used by two or more calls, runs the first call of each set alone, and starts the others
+after it, so they read the cache instead of paying full price. One-off chunk sets are not
+cached. Check the summary line: `cache read` should be most of the prompt tokens on a batch
+run. `input_tokens` in `usage.jsonl` is the total prompt and already includes the cache
+writes and reads. Other providers' own automatic caching is left to them.
 
 ## 3. Build the spreadsheet
 

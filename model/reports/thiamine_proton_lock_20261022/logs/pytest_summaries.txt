@@ -1,0 +1,29 @@
+11 failed, 240 passed, 31 skipped, 7 warnings, 17 errors, 608 subtests passed in 513.72s (0:08:33)
+== per-test differences (< before, > after)
+246a247,254
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_dict_lock_is_still_honoured_in_memory
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_gate_strips_the_h_without_a_lock
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_lock_value_is_case_and_space_insensitive_and_strict
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_plain_lock_is_honoured_after_an_sbml_roundtrip
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_adds_only_the_notes_and_survives_roundtrip
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_flag_requires_the_thiamine_phosphate_chemistry
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_stale_inputs_fail_closed_without_edits
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_unexpected_scope_or_values_are_rejected
+
+[exited with code 0]
+before: 11 failed, 232 passed, 31 skipped, 7 warnings, 17 errors, 591 subtests passed in 390.55s (0:06:30)
+
+== final code (after the audit fixes)
+11 failed, 240 passed, 31 skipped, 7 warnings, 17 errors, 612 subtests passed in 504.79s (0:08:24)
+== per-test differences, before vs final (< before, > final)
+246a247,254
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_dict_lock_is_still_honoured_in_memory
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_gate_strips_the_h_without_a_lock
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_lock_value_is_case_and_space_insensitive_and_strict
+> PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_plain_lock_is_honoured_after_an_sbml_roundtrip
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_adds_only_the_notes_and_survives_roundtrip
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_flag_requires_the_thiamine_phosphate_chemistry
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_stale_inputs_fail_closed_without_edits
+> PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_unexpected_scope_or_values_are_rejected
+
+[exited with code 0]

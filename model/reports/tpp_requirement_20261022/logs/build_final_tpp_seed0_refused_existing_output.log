@@ -1,0 +1,24 @@
+# PYTHONHASHSEED=0; extra flag: --tpp-requirement; output: ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_20261022.xml
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-13f440/platform/scripts/gem_annotate/__main__.py", line 3, in <module>
+    main()
+    ~~~~^^
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-13f440/platform/scripts/gem_annotate/cli.py", line 76, in main
+    return build_model(args)
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-13f440/platform/scripts/gem_annotate/main.py", line 831, in build_model
+    model, coq9, retention, selection = build_reference_chain(
+                                        ~~~~~~~~~~~~~~~~~~~~~^
+        provisional_capacity_path=args.provisional_capacity_profile,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<26 lines>...
+        tpp_requirement=getattr(args, "tpp_requirement", False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-13f440/platform/scripts/gem_annotate/execution.py", line 69, in guarded
+    return function(*args, **kwargs)
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-13f440/platform/scripts/gem_annotate/main.py", line 145, in build_reference_chain
+    raise FileExistsError("a canonical copy requires a new, separate output path")
+FileExistsError: a canonical copy requires a new, separate output path

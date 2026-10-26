@@ -1,0 +1,63 @@
+# Thiamine phosphate chemistry (2026-10-22). Exact commands as run.
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0)
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# M = model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv (Task A medium, 6eca70fd...)
+# P = $R/state/strain_profiles/po1f_sd_leu.json (PO1f profile, 35307853...)
+# FLAGS = the argv of 8ae6c93b: --offline --no-solve --coq9-curation qcycle --energy-candidate E5
+#         --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs
+#         --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr
+#         --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr --gpi-chain-links
+#         --gpi-coproducts --tpp-requirement
+# B = model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml (8ae6c93b...)
+# N = model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_20261022.xml (e8a54520...)
+# D = model/reports/thiamine_phosphate_chemistry_20261022
+# A = $R/artifacts/tasks/thiamine_phosphate_chemistry_20261022/builds
+
+# Evidence gathered during planning (read-only)
+curl -s https://rest.kegg.jp/get/cpd:C01081   # and C00068, C03028, C04327, C00378: FORMULA lines
+curl -s https://rest.kegg.jp/get/rn:R00619    # and R00616, R00617, R04448, R02135, R10712: EQUATION lines
+curl -s "https://www.ebi.ac.uk/ols4/api/ontologies/chebi/terms?obo_id=CHEBI:9533"  # and 9532, 9534, 17857, 37575, 58937, 58938, 58296
+grep -P "^(kegg\.compound|keggC):(C01081|C00068|C03028|C04327)\t" $R/reference/metanetx/chem_xref.tsv
+grep -P "^(MNXM662|MNXM256|MNXM1341|MNXM960|MNXM1137754|MNXM148527)\t" $R/reference/metanetx/chem_prop.tsv
+grep -P "^MNXR104907\t" $R/reference/metanetx/reac_prop.tsv ; grep -P "\tMNXR104907\t" $R/reference/metanetx/reac_xref.tsv
+grep -A1 "^ID   2.7.4.9$" $R/reference/expasy/enzyme.dat ; grep -A1 "^ID   2.7.4.16$" $R/reference/expasy/enzyme.dat
+# The protonation scan and the pH 7.3 balance check were in-memory scratch scripts (no LPs); their results are in
+# TASK.md and are re-checked by the focused test and after.json.
+
+# From the worktree root: before-state and data file
+$V -W ignore -I $D/scripts/state.py $B $D/before.json
+$V -I $D/scripts/make_curation_json.py $D/before.json model/curation/chemistry/thiamine_phosphate_chemistry.json
+
+# From platform/: focused test; the "before" full suite is the TPP task's final run on identical code
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_thiamine_phosphate_chemistry.py
+cp ../model/reports/tpp_requirement_20261022/logs/pytest_final_results.txt ../$D/logs/pytest_before_results.txt
+
+# From platform/: builds (each log's first line records PYTHONHASHSEED)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --output-model "$A/control_no_thiamine_flag.xml"
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-phosphate-chemistry --output-model ../$N
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-phosphate-chemistry --output-model "$A/seed1.xml"
+
+# From the worktree root: whole-model diff and after-state with per-reaction balance
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $B $N $D/model_diff.json
+$V -W ignore -I $D/scripts/state.py $N $D/after.json
+
+# From platform/: WT spot check (2 LPs) and full suite after the change
+PYTHONPATH="$PWD" $V ../$D/scripts/wt_spot_check.py ../$B ../$N ../$M "$P" ../$D/wt_spot_check.json
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors
+
+# After the audit: the step now pins the reviewed chemistry and the partner chemistry; the data file gained
+# partner_species and per-molecule rationales. state.py now also records partners, so before.json was rewritten.
+$V -W ignore -I $D/scripts/state.py $B $D/before.json
+$V -I $D/scripts/make_curation_json.py $D/before.json model/curation/chemistry/thiamine_phosphate_chemistry.json
+# The pre-fix candidate e8a54520 was copied to $A/candidate_e8a54520.xml. The builder refuses an existing output,
+# so the final candidate has a v2 name. AF = $R/artifacts/tasks/thiamine_phosphate_chemistry_20261022/final_builds
+N2=model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_v2_20261022.xml (ef2265c1...)
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-phosphate-chemistry --output-model ../$N2
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --thiamine-phosphate-chemistry --output-model "$AF/seed1.xml"
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --output-model "$AF/control_no_thiamine_flag.xml"
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $B $N2 $D/model_diff.json
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $N $N2 $D/model_diff_final_vs_e8a54520.json
+$V -W ignore -I $D/scripts/state.py $N2 $D/after.json
+(cd platform && IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_thiamine_phosphate_chemistry.py)
+(cd platform && IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors)  # final
+# No new LPs: the diff against e8a54520 shows only species notes, so the WT spot check carries over.

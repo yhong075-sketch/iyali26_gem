@@ -1,0 +1,984 @@
+{
+ "model": "E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml",
+ "sha256": "cf0825b86c3533d8a12f697a994eba3d740671a68a367143ee32cbfdc8686b7c",
+ "counts": {
+  "reactions": 2311,
+  "metabolites": 1876,
+  "genes": 1074
+ },
+ "objective": "1.0*biomass_C - 1.0*biomass_C_reverse_c1d5c",
+ "targets": {
+  "biomass_C": {
+   "name": "biomass_C",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m1000[C_cy]": -0.035251,
+    "m10[C_cy]": 23.09,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m1401[C_cy]": 1.0,
+    "m141[C_cy]": -23.09,
+    "m143[C_cy]": 23.09,
+    "m149[C_cy]": -0.059363,
+    "m1631[C_em]": -3.5e-05,
+    "m1640[C_lp]": -0.000234,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "m294[C_cy]": -0.00686,
+    "m32[C_cy]": -23.09,
+    "m359[C_cy]": -0.003029,
+    "m35[C_cy]": 23.09,
+    "m401[C_cy]": -0.868358,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m468[C_mi]": -0.0001,
+    "m505[C_cy]": -0.010353,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m93[C_cy]": -0.050871,
+    "m95[C_cy]": -0.05721,
+    "m964[C_cy]": -0.02,
+    "trna_biomass_residue_R129": -0.567939,
+    "trna_biomass_residue_R154": -0.125563,
+    "trna_biomass_residue_R157": -0.186498,
+    "trna_biomass_residue_R165": -0.186531,
+    "trna_biomass_residue_R248": -0.003632,
+    "trna_biomass_residue_R336": -0.243866,
+    "trna_biomass_residue_R337": -0.243904,
+    "trna_biomass_residue_R368": -0.509943,
+    "trna_biomass_residue_R392": -0.053881,
+    "trna_biomass_residue_R493": -0.090566,
+    "trna_biomass_residue_R522": -0.19455,
+    "trna_biomass_residue_R531": -0.275005,
+    "trna_biomass_residue_R547": -0.044232,
+    "trna_biomass_residue_R625": -0.082571,
+    "trna_biomass_residue_R673": -0.206372,
+    "trna_biomass_residue_R723": -0.284699,
+    "trna_biomass_residue_R759": -0.210543,
+    "trna_biomass_residue_R771": -0.002154,
+    "trna_biomass_residue_R775": -0.041282,
+    "trna_biomass_residue_R798": -0.172773
+   },
+   "annotation": {
+    "sbo": "SBO:0000629"
+   },
+   "notes": {
+    "experimental_trna_biomass_mode": "split_v1",
+    "experimental_trna_biomass_template": "R1387",
+    "experimental_trna_biomass_design": "B group: 20 independent AA-tRNA -&gt; tRNA + protein-residue reactions",
+    "canonical_trna_biomass_mode": "split_v1",
+    "coq9_growth_dilution_candidate": "{&quot;R385_lower_bound_changed&quot;: false, &quot;alpha_mmol_per_gDW&quot;: 0.0001, &quot;alpha_source&quot;: &quot;User selected 1e-4 mmol/gDW on 2026-10-05; uncalibrated provisional assumption, not a measured physiological value.&quot;, &quot;interpretation&quot;: &quot;Q9 retained in newly formed biomass; not consumption per electron transfer&quot;, &quot;pool_balance&quot;: {&quot;R385&quot;: 1.0, &quot;biomass_C&quot;: -0.0001}, &quot;status&quot;: &quot;candidate_not_physiologically_calibrated_by_this_build&quot;}"
+   }
+  },
+  "R1342": {
+   "name": "thiamine-phosphate kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": 1.0,
+    "m977[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "kegg.reaction": "R00617",
+    "metacyc.reaction": "THI-P-KIN-RXN",
+    "rh": [
+     "15913",
+     "15914",
+     "15915",
+     "15916"
+    ],
+    "rhea": [
+     "15913",
+     "15914",
+     "15915",
+     "15916"
+    ],
+    "sabiork.reaction": "1007",
+    "seed.reaction": [
+     "rxn00438",
+     "rxn38718"
+    ],
+    "vmhreaction": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "metanetx.reaction": "MNXR104907",
+    "ec-code": [
+     "2.7.4.16",
+     "2.7.4.9"
+    ],
+    "biggr": [
+     "R_TMPK",
+     "TMPK"
+    ],
+    "keggr": "R00617",
+    "metacycr": "THI-P-KIN-RXN",
+    "sabiorkr": "1007",
+    "seedr": [
+     "rxn00438",
+     "rxn38718"
+    ],
+    "vmhr": [
+     "R_TMPK",
+     "TMPK"
+    ]
+   },
+   "notes": {}
+  }
+ },
+ "context": {
+  "R752": {
+   "name": "thiamine diphosphokinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E25443g",
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m141[C_cy]": -1.0,
+    "m86[C_cy]": 1.0,
+    "m974[C_cy]": -1.0,
+    "m975[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMDPK",
+     "R_TMDPK_1",
+     "TMDPK",
+     "TMDPK_1"
+    ],
+    "kegg.reaction": "R00619",
+    "metacyc.reaction": "THIAMIN-PYROPHOSPHOKINASE-RXN",
+    "rh": [
+     "11576",
+     "11577",
+     "11578",
+     "11579"
+    ],
+    "rhea": [
+     "11576",
+     "11577",
+     "11578",
+     "11579"
+    ],
+    "seed.reaction": [
+     "rxn00440",
+     "rxn32226"
+    ],
+    "vmhreaction": [
+     "R_TMDPK",
+     "TMDPK"
+    ],
+    "metanetx.reaction": "MNXR104886",
+    "ec-code": "2.7.6.2",
+    "biggr": [
+     "R_TMDPK",
+     "R_TMDPK_1",
+     "TMDPK",
+     "TMDPK_1"
+    ],
+    "keggr": "R00619",
+    "metacycr": "THIAMIN-PYROPHOSPHOKINASE-RXN",
+    "seedr": [
+     "rxn00440",
+     "rxn32226"
+    ],
+    "vmhr": [
+     "R_TMDPK",
+     "TMDPK"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.6.2"
+   }
+  },
+  "R753": {
+   "name": "thiamine-diphosphate kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E25443g",
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m975[C_cy]": -1.0,
+    "m976[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ],
+    "kegg.reaction": "R00616",
+    "metacyc.reaction": "THIAMIN-DIPHOSPHATE-KINASE-RXN",
+    "rh": [
+     "11240",
+     "11241",
+     "11242",
+     "11243"
+    ],
+    "rhea": [
+     "11240",
+     "11241",
+     "11242",
+     "11243"
+    ],
+    "seed.reaction": "rxn00437",
+    "vmhreaction": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ],
+    "metanetx.reaction": "MNXR104888",
+    "ec-code": "2.7.6.2",
+    "biggr": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ],
+    "keggr": "R00616",
+    "metacycr": "THIAMIN-DIPHOSPHATE-KINASE-RXN",
+    "seedr": "rxn00437",
+    "vmhr": [
+     "R_TMDPPK",
+     "TMDPPK"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.6.2"
+   }
+  },
+  "R933": {
+   "name": "thiamine diphosphate transport",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F26924g",
+   "stoichiometry": {
+    "m1116[C_mi]": 1.0,
+    "m975[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "notes": {}
+  },
+  "R934": {
+   "name": "thiamine transport",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D25037g",
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m342[C_ex]": -1.0,
+    "m972[C_ex]": -1.0,
+    "m974[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000185"
+   },
+   "notes": {}
+  },
+  "R1337": {
+   "name": "thiamin phosphatase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m32[C_cy]": -1.0,
+    "m35[C_cy]": 1.0,
+    "m974[C_cy]": 1.0,
+    "m977[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "R_THMP",
+     "R_THMPe",
+     "R_TMPPH_h",
+     "THMP",
+     "THMPe",
+     "TMPPH_h"
+    ],
+    "kegg.reaction": "R02135",
+    "metacyc.reaction": "RXNQT-4191",
+    "rh": [
+     "47948",
+     "47949",
+     "47950",
+     "47951"
+    ],
+    "rhea": [
+     "47948",
+     "47949",
+     "47950",
+     "47951"
+    ],
+    "seed.reaction": [
+     "rxn01539",
+     "rxn30439",
+     "rxn33098"
+    ],
+    "vmhreaction": [
+     "R_THMP",
+     "THMP"
+    ],
+    "metanetx.reaction": "MNXR104823",
+    "ec-code": [
+     "3.1.3.-",
+     "3.1.3.1",
+     "3.1.3.2",
+     "3.1.3.100"
+    ],
+    "biggr": [
+     "R_THMP",
+     "R_THMPe",
+     "R_TMPPH_h",
+     "THMP",
+     "THMPe",
+     "TMPPH_h"
+    ],
+    "keggr": "R02135",
+    "metacycr": "RXNQT-4191",
+    "seedr": [
+     "rxn01539",
+     "rxn30439",
+     "rxn33098"
+    ],
+    "vmhr": [
+     "R_THMP",
+     "THMP"
+    ]
+   },
+   "notes": {}
+  },
+  "R1338": {
+   "name": "thiaminase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m32[C_cy]": -1.0,
+    "m642[C_cy]": 1.0,
+    "m649[C_cy]": 1.0,
+    "m974[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "AMPAH",
+     "R_AMPAH",
+     "R_TMN",
+     "TMN"
+    ],
+    "kegg.reaction": "R02133",
+    "metacyc.reaction": "THIAMINASE-RXN",
+    "rh": [
+     "17509",
+     "17510",
+     "17511",
+     "17512"
+    ],
+    "rhea": [
+     "17509",
+     "17510",
+     "17511",
+     "17512"
+    ],
+    "seed.reaction": [
+     "rxn01537",
+     "rxn32104"
+    ],
+    "vmhreaction": [
+     "R_TMN",
+     "TMN"
+    ],
+    "metanetx.reaction": "MNXR104901",
+    "ec-code": "3.5.99.2",
+    "biggr": [
+     "AMPAH",
+     "R_AMPAH",
+     "R_TMN",
+     "TMN"
+    ],
+    "keggr": "R02133",
+    "metacycr": "THIAMINASE-RXN",
+    "seedr": [
+     "rxn01537",
+     "rxn32104"
+    ],
+    "vmhr": [
+     "R_TMN",
+     "TMN"
+    ]
+   },
+   "notes": {}
+  },
+  "R754": {
+   "name": "thiamine-phosphate diphosphorylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C22186g",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m643[C_cy]": -1.0,
+    "m886[C_cy]": -1.0,
+    "m977[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "kegg.reaction": "R10712",
+    "metacyc.reaction": "RXN-12610",
+    "rh": [
+     "47848",
+     "47849",
+     "47850",
+     "47851"
+    ],
+    "rhea": [
+     "47848",
+     "47849",
+     "47850",
+     "47851"
+    ],
+    "seed.reaction": [
+     "rxn23042",
+     "rxn37718"
+    ],
+    "metanetx.reaction": "MNXR114031",
+    "ec-code": "2.5.1.3",
+    "keggr": "R10712",
+    "metacycr": "RXN-12610",
+    "seedr": [
+     "rxn23042",
+     "rxn37718"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.5.1.3"
+   }
+  },
+  "R408": {
+   "name": "hydroxyethylthiazole kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C22186g",
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m642[C_cy]": -1.0,
+    "m643[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "HETZK",
+     "HETZK_1",
+     "R_HETZK",
+     "R_HETZK_1"
+    ],
+    "kegg.reaction": "R04448",
+    "metacyc.reaction": "THIAZOLSYN3-RXN",
+    "rh": [
+     "24212",
+     "24213",
+     "24214",
+     "24215"
+    ],
+    "rhea": [
+     "24212",
+     "24213",
+     "24214",
+     "24215"
+    ],
+    "seed.reaction": [
+     "rxn03075",
+     "rxn31983"
+    ],
+    "vmhreaction": [
+     "HETZK",
+     "R_HETZK"
+    ],
+    "metanetx.reaction": "MNXR100611",
+    "ec-code": "2.7.1.50",
+    "biggr": [
+     "HETZK",
+     "HETZK_1",
+     "R_HETZK",
+     "R_HETZK_1"
+    ],
+    "keggr": "R04448",
+    "metacycr": "THIAZOLSYN3-RXN",
+    "seedr": [
+     "rxn03075",
+     "rxn31983"
+    ],
+    "vmhr": [
+     "HETZK",
+     "R_HETZK"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.1.50"
+   }
+  },
+  "R413": {
+   "name": "hydroxymethylpyrimidine kinase (ATP)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E05103g",
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m649[C_cy]": -1.0,
+    "m650[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "HMPK1",
+     "HMPK1_1",
+     "HMPK_h",
+     "R_HMPK1",
+     "R_HMPK1_1",
+     "R_HMPK_h"
+    ],
+    "kegg.reaction": "R03471",
+    "metacyc.reaction": "OHMETPYRKIN-RXN",
+    "rh": [
+     "23096",
+     "23097",
+     "23098",
+     "23099"
+    ],
+    "rhea": [
+     "23096",
+     "23097",
+     "23098",
+     "23099"
+    ],
+    "sabiork.reaction": "3265",
+    "seed.reaction": [
+     "rxn02484",
+     "rxn28046"
+    ],
+    "metanetx.reaction": "MNXR188235",
+    "ec-code": "2.7.1.49",
+    "biggr": [
+     "HMPK1",
+     "HMPK1_1",
+     "HMPK_h",
+     "R_HMPK1",
+     "R_HMPK1_1",
+     "R_HMPK_h"
+    ],
+    "keggr": "R03471",
+    "metacycr": "OHMETPYRKIN-RXN",
+    "sabiorkr": "3265",
+    "seedr": [
+     "rxn02484",
+     "rxn28046"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.1.49"
+   }
+  },
+  "R645": {
+   "name": "phosphomethylpyrimidine kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E05103g",
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m650[C_cy]": -1.0,
+    "m886[C_cy]": 1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "PMPK",
+     "PMPK_h",
+     "R_PMPK",
+     "R_PMPK_h"
+    ],
+    "kegg.reaction": "R04509",
+    "metacyc.reaction": "PYRIMSYN3-RXN",
+    "rh": [
+     "19893",
+     "19894",
+     "19895",
+     "19896"
+    ],
+    "rhea": [
+     "19893",
+     "19894",
+     "19895",
+     "19896"
+    ],
+    "seed.reaction": [
+     "rxn03108",
+     "rxn28109"
+    ],
+    "metanetx.reaction": "MNXR103045",
+    "ec-code": "2.7.4.7",
+    "biggr": [
+     "PMPK",
+     "PMPK_h",
+     "R_PMPK",
+     "R_PMPK_h"
+    ],
+    "keggr": "R04509",
+    "metacycr": "PYRIMSYN3-RXN",
+    "seedr": [
+     "rxn03108",
+     "rxn28109"
+    ]
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.4.7"
+   }
+  },
+  "R970": {
+   "name": "4-amino-5-hydroxymethyl-2-methylpyrimidine synthetase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m10[C_cy]": -3.0,
+    "m1147[C_cy]": 1.0,
+    "m35[C_cy]": 1.0,
+    "m649[C_cy]": 1.0,
+    "m867[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "AHMMPS",
+     "R_AHMMPS"
+    ],
+    "seed.reaction": "rxn09633",
+    "metanetx.reaction": "MNXR136111",
+    "biggr": [
+     "AHMMPS",
+     "R_AHMMPS"
+    ],
+    "seedr": "rxn09633"
+   },
+   "notes": {
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "stoichiometry",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+   }
+  },
+  "R1343": {
+   "name": "thiazole phosphate synthesis (ribose 5-phosphate)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A09553g",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m133[C_cy]": 1.0,
+    "m202[C_cy]": 1.0,
+    "m272[C_cy]": -1.0,
+    "m32[C_cy]": 3.0,
+    "m38[C_cy]": 1.0,
+    "m443[C_cy]": -1.0,
+    "m444[C_cy]": -1.0,
+    "m4[C_cy]": 1.0,
+    "m643[C_cy]": 1.0,
+    "m82[C_cy]": 1.0,
+    "m889[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn09630",
+    "metanetx.reaction": "MNXR144674",
+    "ec-code": "2.4.2.60",
+    "seedr": "rxn09630"
+   },
+   "notes": {}
+  },
+  "R1344": {
+   "name": "thiazole phosphate synthesis (xylulose 5-phosphate)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m10[C_cy]": -1.0,
+    "m133[C_cy]": 1.0,
+    "m202[C_cy]": 1.0,
+    "m272[C_cy]": -1.0,
+    "m32[C_cy]": 3.0,
+    "m38[C_cy]": 1.0,
+    "m443[C_cy]": -1.0,
+    "m444[C_cy]": -1.0,
+    "m4[C_cy]": 1.0,
+    "m643[C_cy]": 1.0,
+    "m82[C_cy]": 1.0,
+    "m938[C_cy]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {}
+  },
+  "R1340": {
+   "name": "thiamine(1+) exchange",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "stoichiometry": {
+    "m972[C_ex]": -1.0
+   },
+   "annotation": {
+    "sbo": "SBO:0000627",
+    "bigg.reaction": [
+     "DM_thm_m",
+     "EX_thm_e",
+     "R_DM_thm_m",
+     "R_EX_thm_e",
+     "R_THMt_h",
+     "R_THMtex",
+     "R_THMtrbc",
+     "THMt_h",
+     "THMtex",
+     "THMtrbc"
+    ],
+    "rh": [
+     "34919",
+     "34920",
+     "34921",
+     "34922"
+    ],
+    "rhea": [
+     "34919",
+     "34920",
+     "34921",
+     "34922"
+    ],
+    "seed.reaction": [
+     "rxn09300",
+     "rxn11006",
+     "rxn33238"
+    ],
+    "vmhreaction": [
+     "R_THMte",
+     "R_THMtepp",
+     "R_THMtex",
+     "R_THMtrbc",
+     "THMte",
+     "THMtepp",
+     "THMtex",
+     "THMtrbc"
+    ],
+    "metanetx.reaction": "MNXR151498",
+    "biggr": [
+     "DM_thm_m",
+     "EX_thm_e",
+     "R_DM_thm_m",
+     "R_EX_thm_e",
+     "R_THMt_h",
+     "R_THMtex",
+     "R_THMtrbc",
+     "THMt_h",
+     "THMtex",
+     "THMtrbc"
+    ],
+    "seedr": [
+     "rxn09300",
+     "rxn11006",
+     "rxn33238"
+    ],
+    "vmhr": [
+     "R_THMte",
+     "R_THMtepp",
+     "R_THMtex",
+     "R_THMtrbc",
+     "THMte",
+     "THMtepp",
+     "THMtex",
+     "THMtrbc"
+    ]
+   },
+   "notes": {}
+  }
+ },
+ "species": {
+  "m975[C_cy]": {
+   "name": "TDP_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247"
+   },
+   "reactions": [
+    "R1342",
+    "R752",
+    "R753",
+    "R933"
+   ]
+  },
+  "m976[C_cy]": {
+   "name": "TTP_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "bigg.metabolite": "ttp",
+    "metanetx.chemical": "MNXM148527",
+    "biggm": [
+     "M_ttp",
+     "ttp"
+    ]
+   },
+   "reactions": [
+    "R753"
+   ]
+  },
+  "m977[C_cy]": {
+   "name": "TMP_",
+   "formula": "C6H4Cl3NO",
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "envipath": "5882df9c-dae1-4d80-a40e-db4724271456/compound/2e0ee5c3-2336-45f5-b126-b0053d552cc4",
+    "metanetx.chemical": "MNXM1137754",
+    "inchi": "InChI=1S/C6H4Cl3NO/c1-11-6-4(8)2-3(7)5(9)10-6/h2H,1H3",
+    "inchikey": "RLIVUWLXZBDMBL-UHFFFAOYSA-N",
+    "envipathm": "5882df9c-dae1-4d80-a40e-db4724271456/compound/2e0ee5c3-2336-45f5-b126-b0053d552cc4"
+   },
+   "reactions": [
+    "R1337",
+    "R1342",
+    "R754"
+   ]
+  },
+  "m974[C_cy]": {
+   "name": "thiamine_",
+   "formula": "C12H17N4OS",
+   "charge": 1,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "bigg.metabolite": "thm",
+    "envipath": "32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/d00080d5-971d-4e5f-973a-226a589d76df",
+    "hmdb": "HMDB00235",
+    "kegg.compound": "C00378",
+    "metacyc.compound": "THIAMINE",
+    "reactome": [
+     "R-ALL-196934",
+     "R-ALL-199622"
+    ],
+    "seed.compound": "cpd00305",
+    "vmhmetabolite": "thm",
+    "metanetx.chemical": "MNXM730135",
+    "inchi": "InChI=1S/C12H17N4OS/c1-8-11(3-4-17)18-7-16(8)6-10-5-14-9(2)15-12(10)13/h5,7,17H,3-4,6H2,1-2H3,(H2,13,14,15)/q+1",
+    "inchikey": "JZRWCGZRTZMZEH-UHFFFAOYSA-N",
+    "chebi": [
+     "CHEBI:15227",
+     "CHEBI:18385",
+     "CHEBI:26941",
+     "CHEBI:46393",
+     "CHEBI:49107",
+     "CHEBI:9530"
+    ],
+    "biggm": [
+     "M_thm",
+     "thm"
+    ],
+    "envipathm": "32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/d00080d5-971d-4e5f-973a-226a589d76df",
+    "keggc": [
+     "C00378",
+     "M_C00378"
+    ],
+    "metacycm": "THIAMINE",
+    "reactomem": [
+     "R-ALL-196934",
+     "R-ALL-199622"
+    ],
+    "seedm": [
+     "M_cpd00305",
+     "cpd00305"
+    ],
+    "vmhm": [
+     "M_thm",
+     "thm"
+    ]
+   },
+   "reactions": [
+    "R1337",
+    "R1338",
+    "R752",
+    "R934"
+   ]
+  },
+  "m1116[C_mi]": {
+   "name": "TDP_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_mi",
+   "annotation": {
+    "sbo": "SBO:0000247"
+   },
+   "reactions": [
+    "R933"
+   ]
+  }
+ },
+ "gene": {
+  "YALI1E25443g": [
+   "R752",
+   "R753"
+  ]
+ }
+}

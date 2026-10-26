@@ -1,0 +1,697 @@
+{
+ "condition": "Task A medium + PO1f, GLPK",
+ "lp_timeout_seconds": 60,
+ "baseline_sha256": "cf0825b86c3533d8a12f697a994eba3d740671a68a367143ee32cbfdc8686b7c",
+ "new_sha256": "7f836c3aabc0cc581f6ed2ed7e54d2d4e008ee5b2bdfaf24aab368781916539d",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "experimental_reference": {
+  "mode": "positive_only_consensus",
+  "positive_only": true,
+  "row_count": 1612,
+  "positive_gene_count": 1612,
+  "negative_label_count": 0,
+  "positive_gene_id_sha256": "3d4910f94430b7ab9006fdd26571379bf036c3974de6b8161169c6dde37997fe",
+  "source": "https://doi.org/10.1038/s42003-023-04996-8",
+  "confidence_definition": "consensus_essential_in_at_least_2_of_3_screens",
+  "listed_gene_semantics": "experimentally_essential",
+  "unlisted_gene_semantics": "unknown_not_nonessential",
+  "source_gene_id_normalization": "remove_the_underscore_after_YALI1"
+ },
+ "negative_class": "user-defined: model genes not on the consensus list",
+ "validation_status": "development reference, not independent validation",
+ "mtdna_out_of_scope": [
+  "YALI1M00056g",
+  "YALI1M00064g",
+  "YALI1M00131g",
+  "YALI1M00260g",
+  "YALI1M00267g",
+  "YALI1M00277g",
+  "YALI1M00296g",
+  "YALI1M00318g",
+  "YALI1M00325g",
+  "YALI1M00335g",
+  "YALI1M00338r",
+  "YALI1M00390g",
+  "YALI1M00458g",
+  "YALIfMp29",
+  "YalifMp05",
+  "YalifMp06"
+ ],
+ "excluded_runtime_genes": [
+  "PO1f_plasmid_LEU2"
+ ],
+ "wt": {
+  "baseline": [
+   "optimal",
+   0.31242674464567005
+  ],
+  "new": [
+   "optimal",
+   0.3124262956327245
+  ]
+ },
+ "genes": 1074,
+ "in_model_positives": 322,
+ "out_of_scope_positives": 1290,
+ "non_optimal": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "new": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1F34051g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "essential_counts": {
+  "0.01": {
+   "baseline": 91,
+   "new": 102
+  },
+  "0.05": {
+   "baseline": 99,
+   "new": 110
+  },
+  "0.1": {
+   "baseline": 108,
+   "new": 119
+  },
+  "0.15": {
+   "baseline": 116,
+   "new": 127
+  }
+ },
+ "scores": {
+  "baseline": {
+   "0.01": {
+    "TP": 65,
+    "FN": 246,
+    "FP": 26,
+    "TN": 705,
+    "unresolved": 16,
+    "recall": 0.2090032154340836,
+    "specificity": 0.9644322845417237,
+    "precision": 0.7142857142857143,
+    "mcc": 0.28110328768728227
+   },
+   "0.05": {
+    "TP": 71,
+    "FN": 240,
+    "FP": 28,
+    "TN": 703,
+    "unresolved": 16,
+    "recall": 0.2282958199356913,
+    "specificity": 0.9616963064295485,
+    "precision": 0.7171717171717171,
+    "mcc": 0.29648385075536665
+   },
+   "0.1": {
+    "TP": 75,
+    "FN": 236,
+    "FP": 33,
+    "TN": 698,
+    "unresolved": 16,
+    "recall": 0.24115755627009647,
+    "specificity": 0.9548563611491108,
+    "precision": 0.6944444444444444,
+    "mcc": 0.2942662639700652
+   },
+   "0.15": {
+    "TP": 83,
+    "FN": 228,
+    "FP": 33,
+    "TN": 698,
+    "unresolved": 16,
+    "recall": 0.26688102893890675,
+    "specificity": 0.9548563611491108,
+    "precision": 0.7155172413793104,
+    "mcc": 0.32258437412703633
+   }
+  },
+  "new": {
+   "0.01": {
+    "TP": 72,
+    "FN": 238,
+    "FP": 30,
+    "TN": 701,
+    "unresolved": 17,
+    "recall": 0.23225806451612904,
+    "specificity": 0.9589603283173734,
+    "precision": 0.7058823529411765,
+    "mcc": 0.29412796424766346
+   },
+   "0.05": {
+    "TP": 78,
+    "FN": 232,
+    "FP": 32,
+    "TN": 699,
+    "unresolved": 17,
+    "recall": 0.25161290322580643,
+    "specificity": 0.9562243502051984,
+    "precision": 0.7090909090909091,
+    "mcc": 0.3091660141022713
+   },
+   "0.1": {
+    "TP": 82,
+    "FN": 228,
+    "FP": 37,
+    "TN": 694,
+    "unresolved": 17,
+    "recall": 0.2645161290322581,
+    "specificity": 0.9493844049247606,
+    "precision": 0.6890756302521008,
+    "mcc": 0.3074060870579413
+   },
+   "0.15": {
+    "TP": 90,
+    "FN": 220,
+    "FP": 37,
+    "TN": 694,
+    "unresolved": 17,
+    "recall": 0.2903225806451613,
+    "specificity": 0.9493844049247606,
+    "precision": 0.7086614173228346,
+    "mcc": 0.3349232274077008
+   }
+  }
+ },
+ "growth_changed_over_1e-6": [
+  {
+   "gene": "YALI1B03314g",
+   "base": [
+    "optimal",
+    0.31242674464566794
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1B19490g",
+   "base": [
+    "optimal",
+    0.31242674464566866
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1C02391g",
+   "base": [
+    "optimal",
+    0.3124267446456683
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1C07816g",
+   "base": [
+    "optimal",
+    0.3124267446456687
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1D30196g",
+   "base": [
+    "optimal",
+    0.3124267446456672
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1E35410g",
+   "base": [
+    "optimal",
+    0.3124267446456677
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1F07747g",
+   "base": [
+    "optimal",
+    0.3124267446456693
+   ],
+   "new": [
+    "optimal",
+    7.134136987185026e-16
+   ]
+  },
+  {
+   "gene": "YALI1F25924g",
+   "base": [
+    "optimal",
+    0.3124267446456684
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1F27686g",
+   "base": [
+    "optimal",
+    0.3124267446456683
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1F31135g",
+   "base": [
+    "optimal",
+    0.3124267446456688
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1F32002g",
+   "base": [
+    "optimal",
+    0.3124267446456688
+   ],
+   "new": [
+    "optimal",
+    0.0
+   ]
+  },
+  {
+   "gene": "YALI1F34051g",
+   "base": [
+    "optimal",
+    0.3124267446456687
+   ],
+   "new": [
+    "time_limit",
+    NaN
+   ]
+  }
+ ],
+ "class_changed": {
+  "0.01": [
+   {
+    "gene": "YALI1B03314g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1B19490g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C02391g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C07816g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1D30196g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1E35410g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F25924g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F27686g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F31135g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F32002g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F34051g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "unresolved"
+   }
+  ],
+  "0.05": [
+   {
+    "gene": "YALI1B03314g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1B19490g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C02391g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C07816g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1D30196g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1E35410g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F25924g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F27686g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F31135g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F32002g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F34051g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "unresolved"
+   }
+  ],
+  "0.1": [
+   {
+    "gene": "YALI1B03314g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1B19490g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C02391g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C07816g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1D30196g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1E35410g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F25924g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F27686g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F31135g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F32002g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F34051g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "unresolved"
+   }
+  ],
+  "0.15": [
+   {
+    "gene": "YALI1B03314g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1B19490g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C02391g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1C07816g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1D30196g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1E35410g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F07747g",
+    "experimental_positive": false,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F25924g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F27686g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F31135g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F32002g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "essential"
+   },
+   {
+    "gene": "YALI1F34051g",
+    "experimental_positive": true,
+    "mtdna_out_of_scope": false,
+    "base": "non-essential",
+    "new": "unresolved"
+   }
+  ]
+ },
+ "lp_count": 2150
+}

@@ -20,7 +20,7 @@ from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai.models import Model
 
 from .client import CachedClient
-from .extract import DEFAULT_MODEL, check_quote, chunks_json, pair_context
+from .extract import DEFAULT_MODEL, check_quote, chunk_instructions, pair_context
 from .models import MAX_QUOTE_WORDS, EvidenceType, short_quote
 from .pairs import Pair
 from .providers import settings_for
@@ -190,9 +190,8 @@ def build_chain_agent(model: str | Model = DEFAULT_MODEL, *, retries: int = 2) -
         model, output_type=LogicChain, deps_type=ChainContext, instructions=INSTRUCTIONS,
         retries=retries, model_settings=settings, name="gem_review_lit_chain")
 
-    @agent.instructions
-    def chunk_context(ctx: RunContext[ChainContext]) -> str:
-        return "Retrieved chunks (JSON):\n" + chunks_json(ctx.deps.chunks)
+    # The chunk block is passed per run (run_chain) as a plain string so the prefix is cacheable;
+    # see extract.build_agent. A chain is one call per question, so it is not marked for caching.
 
     @agent.output_validator
     def _validate(ctx: RunContext[ChainContext], output: LogicChain) -> LogicChain:
@@ -230,7 +229,7 @@ async def run_chain(agent: Agent[ChainContext, LogicChain], ctx: ChainContext, r
     """Fill `result` from one agent run; failures are recorded, never dropped."""
     result.model = model_name
     try:
-        run = await agent.run(ctx.prompt, deps=ctx)
+        run = await agent.run(ctx.prompt, deps=ctx, instructions=chunk_instructions(ctx.chunks))
     except UnexpectedModelBehavior as exc:
         logger.warning("%s: CHAIN_FAILED (%s)", result.label, exc)
         result.status, result.error = "CHAIN_FAILED", str(exc)
@@ -241,6 +240,7 @@ async def run_chain(agent: Agent[ChainContext, LogicChain], ctx: ChainContext, r
         return result
     result.status, result.chain = "ok", run.output
     result.usage = {"input_tokens": run.usage.input_tokens, "output_tokens": run.usage.output_tokens,
+                    "cache_write_tokens": run.usage.cache_write_tokens,
                     "cache_read_tokens": run.usage.cache_read_tokens, "requests": run.usage.requests}
     return result
 

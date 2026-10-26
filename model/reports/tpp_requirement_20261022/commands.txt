@@ -1,0 +1,77 @@
+# TPP requirement (2026-10-22). Exact commands as run.
+# V = main checkout's .venv/bin/python (-> /opt/miniconda3/bin/python3; Python 3.13.5, cobra 0.30.0)
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research
+# M = model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv (Task A medium, 6eca70fd...)
+# P = $R/state/strain_profiles/po1f_sd_leu.json (PO1f profile, 35307853...)
+# FLAGS = --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution
+#         --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs
+#         --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr
+#         --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr
+#         --gpi-chain-links --gpi-coproducts
+#         (the argv recorded in E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.build.json, minus paths)
+# B = model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_coproducts_20261021.xml (cf0825b8...)
+# N = model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_20261022.xml (12efa141...)
+# D = model/reports/tpp_requirement_20261022
+
+# External evidence (read-only)
+curl -s https://rest.kegg.jp/link/yli/K00946 ; curl -s https://rest.kegg.jp/link/sce/K00946   # both empty
+curl -s https://rest.kegg.jp/link/yli/K00949 ; curl -s https://rest.kegg.jp/link/sce/K00949   # yli:2911892, sce:YOR143C
+curl -s https://rest.kegg.jp/get/yli:2911892                                                # YALI2_E01340g, K00949
+curl -s -o <scratch>/yeast-GEM.yml https://raw.githubusercontent.com/SysBioChalmers/yeast-GEM/main/model/yeast-GEM.yml
+#   SHA-256 2ddfaaa73ead41ab243127d1b34fa56db2c86052f6eabcd12bb4eea93947dc17; version 9.1.1;
+#   r_4598 "cofactor pseudoreaction": s_1475 (TDP, KEGG C00068) -1.20000004244503e-06
+
+# From the worktree root: before-state, figure reproduction, data file
+$V -I $D/scripts/before_state.py $B $D/before.json
+(cd platform && PYTHONPATH=$PWD $V ../$D/scripts/reproduce_figure.py ../$B ../$M "$P" ../$D/reproduce_figure_cf0825b8.json)
+$V -I $D/scripts/make_curation_json.py $D/before.json model/curation/thiamine/tpp_requirement.json
+
+# ThiL search (BLAST+ 2.17.0, conda env seqsearch). DB = a space-free symlink to
+# $R/artifacts/tasks/orphan_gene_search_20261019/db (W29 GCF_001761485.1 proteome, Swiss-Prot 2026_03)
+/opt/miniconda3/envs/seqsearch/bin/python -I $D/scripts/thil_blast.py /opt/miniconda3/envs/seqsearch/bin <DB> $D
+blastdbcmd -db <DB>/sprot -entry P35202 | blastp -db <DB>/w29 -evalue 1e-5 -max_target_seqs 5 \
+  -outfmt "6 qseqid sseqid pident length qlen slen evalue bitscore"                      # positive control
+
+# From platform/: tests before the change, focused test, tests after
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors   # before
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -p no:cacheprovider tests/test_tpp_requirement.py
+IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors   # after
+
+# From platform/: builds. The first seed-0/seed-1 builds were rejected by the guard (logs/*_guard_rejected.log);
+# after the guard fix the control was rebuilt once more.
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS \
+  --output-model ../.scratch/tpp_requirement_20261022/control_no_tpp_flag.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --tpp-requirement \
+  --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_20261022.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --tpp-requirement \
+  --output-model ../.scratch/tpp_requirement_20261022/tpp_seed1.xml
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS \
+  --output-model ../.scratch/tpp_requirement_20261022/control_no_tpp_flag_after_fix.xml
+
+# After the audit: guard hardened, note texts corrected, data file regenerated (make_curation_json.py), then
+# final builds. Each log's first line records PYTHONHASHSEED. The builder refuses an existing output path
+# (logs/build_final_tpp_seed0_refused_existing_output.log), so the final candidate has a v2 name.
+# A = $R/artifacts/tasks/tpp_requirement_20261022/final_builds ; the pre-fix builds were copied to
+#     $R/artifacts/tasks/tpp_requirement_20261022/builds_before_audit_fix/
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --tpp-requirement \
+  --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml
+PYTHONHASHSEED=1 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --tpp-requirement --output-model "$A/tpp_seed1.xml"
+PYTHONHASHSEED=0 $V -m scripts.gem_annotate --research-root "$R" $FLAGS --output-model "$A/control_no_tpp_flag.xml"
+N2=model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_v2_20261022.xml (8ae6c93b...)
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $B $N2 $D/model_diff.json
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $N $N2 $D/model_diff_final_vs_12efa141.json
+$V -W ignore -I $D/scripts/balance.py $B $N2
+$V -I $D/scripts/before_state.py $N2 $D/after.json
+(cd platform && PYTHONPATH=$PWD $V ../$D/scripts/tolerance_check.py ../$N2 ../$M "$P")
+(cd platform && IYALI26_RESEARCH_ROOT="$R" $V -m pytest -q -rA -p no:cacheprovider --continue-on-collection-errors)  # final
+
+# Before the audit (first candidate N = 12efa141): whole-model diff, balance, after-state.
+# model_diff.json, balance.txt and after.json were later rewritten for N2 by the commands above.
+$V -I model/reports/combined_candidate_20261020/scripts/model_diff.py $B $N $D/model_diff.json
+$V -W ignore -I $D/scripts/balance.py $B $N
+$V -I $D/scripts/before_state.py $N $D/after.json
+
+# From platform/: diagnostic LPs and the knockout comparison (Task A medium + PO1f, GLPK)
+PYTHONPATH="$PWD" $V ../$D/scripts/solves.py ../$B ../$N ../$M "$P" ../$D/solves.json
+PYTHONPATH="$PWD" $V ../$D/scripts/r752_max_check.py ../$N ../$M "$P"
+PYTHONPATH="$PWD" $V ../$D/scripts/ko_compare.py ../$B ../$N ../$M "$P" ../$D/ko_compare.tsv ../$D/ko_compare_summary.json

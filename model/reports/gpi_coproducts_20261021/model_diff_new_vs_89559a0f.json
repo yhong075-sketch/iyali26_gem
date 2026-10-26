@@ -1,0 +1,85 @@
+[
+ {
+  "section": "reactions",
+  "item": "R373",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "gpi_coproducts_curation_id": "GPI-COPRODUCTS-20261021",
+   "gpi_coproducts_status": "user_authorized_stoichiometry_correction",
+   "gpi_coproducts_authorization": "2026-10-21 user: Approved: implement the GPI co-product plan as written (new --gpi-coproducts flag requiring --gpi-chain-links, R373 + DAG, R375 + Dol-P, R_GPIGNT note fix, KO comparison included; R376 and the DAG formula left as findings). No commit or push.",
+   "gpi_coproducts_evidence": "https://www.kegg.jp/entry/R12351 ; https://www.kegg.jp/entry/K05285 ; KEGG gene yli:2908691 (RefSeq XP_505669, the kegg.genes of YALI1F27343g) is assigned to K05285",
+   "gpi_coproducts_evidence_tier": "co-product verified against KEGG R12351 and all PE-donor EtNP transfers in map00563 (2026-10-21); the gene assignment is a KEGG ortholog call, not experimental validation; mass balance not checkable (GPI intermediates have no formula and the model DAG formula C6H8O6 is not a diacylglycerol)",
+   "gpi_coproducts_rationale": "Ethanolamine phosphate transfer from PE releases 1,2-diacylglycerol; the reaction consumed PE and released nothing. DAG goes to the C_er pool m604, which R_DAGt_er_em returns to the ER membrane.",
+   "gpi_coproducts_previous_equation": "m598[C_er] + m599[C_er] = m600[C_er], without DAG"
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R373",
+  "field": "stoichiometry",
+  "before": {
+   "m598[C_er]": -1.0,
+   "m599[C_er]": -1.0,
+   "m600[C_er]": 1.0
+  },
+  "after": {
+   "m598[C_er]": -1.0,
+   "m599[C_er]": -1.0,
+   "m600[C_er]": 1.0,
+   "m604[C_er]": 1.0
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R375",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "gpi_coproducts_curation_id": "GPI-COPRODUCTS-20261021",
+   "gpi_coproducts_status": "user_authorized_stoichiometry_correction",
+   "gpi_coproducts_authorization": "2026-10-21 user: Approved: implement the GPI co-product plan as written (new --gpi-coproducts flag requiring --gpi-chain-links, R373 + DAG, R375 + Dol-P, R_GPIGNT note fix, KO comparison included; R376 and the DAG formula left as findings). No commit or push.",
+   "gpi_coproducts_evidence": "https://www.kegg.jp/entry/R05922 ; https://www.kegg.jp/entry/K05286 ; KEGG gene yli:2910629 (RefSeq XP_502394, the kegg.genes of YALI1D05270g) is assigned to K05286",
+   "gpi_coproducts_evidence_tier": "co-product verified against KEGG R05922, the same step: G00148 (Man)2 (EtN)1 to G00149 (Man)3 (EtN)1 (2026-10-21); Dol-P-Man minus Dol-P in the model is C6H10O5, one mannosyl residue; the gene assignment is a KEGG ortholog call, not experimental validation",
+   "gpi_coproducts_rationale": "Mannosyl transfer from dolichyl phosphate mannose releases dolichyl phosphate, as R372 and R374 already encode; the reaction consumed the dolichol carrier.",
+   "gpi_coproducts_previous_equation": "m502[C_er] + m601[C_er] = m602[C_er], without Dol-P"
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R375",
+  "field": "stoichiometry",
+  "before": {
+   "m502[C_er]": -1.0,
+   "m601[C_er]": -1.0,
+   "m602[C_er]": 1.0
+  },
+  "after": {
+   "m502[C_er]": -1.0,
+   "m503[C_er]": 1.0,
+   "m601[C_er]": -1.0,
+   "m602[C_er]": 1.0
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R_GPIGNT",
+  "field": "notes",
+  "before": {
+   "gpi_chain_links_curation_id": "GPI-CHAIN-LINKS-20261021",
+   "gpi_chain_links_status": "user_authorized_connectivity_fix",
+   "gpi_chain_links_authorization": "2026-10-21 user: Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open demand, co-product fix as a later change, KO comparison included). No commit or push.",
+   "gpi_chain_links_evidence": "https://www.kegg.jp/entry/R05916 ; https://www.kegg.jp/entry/2.4.1.198",
+   "gpi_chain_links_evidence_tier": "equation verified against KEGG R05916 (2026-10-20); cytosolic UDP-GlcNAc and ER-membrane PI are established/uncited; no Y. lipolytica gene assigned",
+   "gpi_chain_links_rationale": "No reaction made GlcNAc-PI (m596), so the GPI chain had no entry. UDP-GlcNAc and UDP are the cytosolic species with formulas (m403, m11); PI is the ER-membrane pool (m1648, made by R1839). The 2 H+ reconcile the stored charges (UDP-GlcNAc -2, UDP 0); KEGG does not balance protons. Irreversible: glycosyl transfer from a nucleotide sugar."
+  },
+  "after": {
+   "gpi_chain_links_curation_id": "GPI-CHAIN-LINKS-20261021",
+   "gpi_chain_links_status": "user_authorized_connectivity_fix",
+   "gpi_chain_links_authorization": "2026-10-21 user: Approved: implement the GPI chain plan with the defaults as written (baseline 164f235f, open demand, co-product fix as a later change, KO comparison included). No commit or push.",
+   "gpi_chain_links_evidence": "https://www.kegg.jp/entry/R05916 ; https://www.kegg.jp/entry/2.4.1.198",
+   "gpi_chain_links_evidence_tier": "equation verified against KEGG R05916 (2026-10-20); cytosolic UDP-GlcNAc and ER-membrane PI are established/uncited; no Y. lipolytica gene assigned",
+   "gpi_chain_links_rationale": "No reaction made GlcNAc-PI (m596), so the GPI chain had no entry. UDP-GlcNAc and UDP are the cytosolic species with formulas (m403, m11); PI is the ER-membrane pool (m1648, made by R1839). The 2 H+ are needed because the model stores UDP-GlcNAc (m403) at charge -2 and UDP (m11) at 0, as R778 and R211 do; KEGG writes the equation for neutral species. Irreversible: glycosyl transfer from a nucleotide sugar."
+  }
+ }
+]
