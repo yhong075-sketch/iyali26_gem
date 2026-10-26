@@ -5,6 +5,133 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-26: Heme/iron guard requires the full reviewed TPP line (builder code only, no model change; committed a6a5f81, not pushed)
+
+**Authorization.** The session that started this one asked for four low-severity findings from a code
+review of `47cdd5b` (`apply_heme_iron_biomass`) to be fixed after a plan the user approved. Two rounds,
+each approved by the user after reading its plan:
+
+> Round 1: "Approved: implement the heme guard plan as written (derive the TPP state from
+> tpp_requirement.json at spec time, compare TPP note values, require chemistry + proton lock, tests,
+> rebuild the 4 heme candidates to scratch, pytest compare, code review, STATE.md). No commit or push."
+
+> Round 2, which closes the finding left open by round 1's code review (the message as received ends
+> mid-sentence): "Approved: implement the full-TPP-line tightening as written (all chemistry and lock
+> targets with their curation notes, R1342 closed with its TPP notes, chemistry and lock files read only
+> in the TPP state, tests, rebuild the 4 heme candidates to scratch, pytest compare, code review, update
+> the 2026-1"
+
+**Findings, re-verified before the change.** All four reproduced in memory with the guard at HEAD
+`dcc60c1`, on `cf0825b8` (`E5_..._gpi_coproducts_20261021.xml`):
+1. Only the TPP note key names were compared. A biomass_C with `tpp_requirement_curation_id =
+   SOME-OTHER-TPP-CURATION` and status `rejected` was accepted and edited.
+2. The guard accepted the TPP requirement alone (m975 formula None, charge 0), and TPP + chemistry
+   without the proton lock. This held in memory and on the built candidates `8ae6c93b` (TPP only) and
+   `ef2265c1` (no lock).
+   - The full-line rule was only a CLI flag check (`main.py`, around line 140).
+   - That check is skipped when `--starting-model` is already a TPP candidate. This CLI path was not run
+     end to end.
+3. `added_stoichiometry` could repeat a base key, and the TPP state then silently replaced the base
+   coefficient: `m1000[C_cy]` −0.035251 → −0.05 was accepted.
+   - The TPP state was a hand copy of `tpp_requirement.json`'s after-state.
+   - The copy still matched that file, so it had not drifted.
+4. No test ran TPP → chemistry → proton lock → heme. No test ran the reverse order, which already failed
+   closed in the TPP guard.
+
+**Change.** Two files changed: `platform/scripts/gem_annotate/heme_iron_biomass.py` and
+`platform/tests/test_heme_iron_biomass.py`. `main.py`, the curation JSON files and all models are
+unchanged.
+- **Spec time:**
+  - The heme step loads `tpp_requirement.json` and validates it with `tpp_requirement._check_spec`.
+  - It requires the heme file's base composition, bounds, base note keys and TPP state to equal that
+    file's biomass_C before- and after-state. A repeated base key can no longer pass.
+  - Trade-off accepted by the user: a changed or missing `tpp_requirement.json` now fails every heme
+    build closed, including base-state builds.
+- **When biomass_C matches the TPP state:**
+  - All 7 TPP note values on biomass_C are compared.
+  - Every target of the three TPP-line curations must be in its after-state and carry that curation's own
+    notes, compared by value:
+    - **TPP requirement:** R1342 at `[0, 0]` with the TPP step's notes.
+    - **Thiamine phosphate chemistry:** all 7 species with the after formula and charge and the chemistry
+      notes, and the chemistry notes on R1342.
+    - **Proton lock:** R752, R408 and R750 with the lock step's full notes.
+  - The chemistry and lock curation files are validated by their own steps' `_check_spec`. They are read
+    only in this state, so a change to them cannot break base-state heme builds.
+  - A miss, including a missing reaction or species, fails with "combine only with the full reviewed TPP
+    line" and names the failing targets.
+  - Note values are XML-unescaped with `thiamine_proton_lock._unescaped`, which leaves non-string values
+    as they are, so they fail with ValueError instead of crashing.
+  - Round 1 first used stand-ins here (m975's formula and charge, and the bare lock note). Round 2 replaced
+    them.
+- **Tests:**
+  - The full chain applies and is idempotent.
+  - The reverse order fails closed and leaves the model unchanged.
+  - Rejected in the TPP state:
+    - TPP only, and no lock;
+    - the reviewed chemistry and the lock note set by hand without either curation;
+    - the lock on two of three reactions, the lock curation notes removed, and a bool lock note;
+    - R750 missing;
+    - R1342 reopened, a rejected TPP status on R1342, and the chemistry notes removed from R1342;
+    - the chemistry notes removed from m975 or m643, a drifted m976 formula, and m643 missing;
+    - another TPP curation ID, a `rejected` or bool TPP status on biomass_C.
+  - Rejected at spec time: drift of the TPP coefficient copy, the note-key copy, a repeated base key, the
+    base bounds, note keys or composition, and a changed `tpp_requirement.json`.
+  - A changed chemistry or lock file rejects the TPP state and leaves the base state applying.
+  - Each new case was run against the guard it replaces (HEAD for round 1, the round-1 guard for round 2)
+    and fails there. Most were accepted. The three base-drift cases were rejected later, with a
+    model-level message.
+  - Mutation check: each of the 11 clauses of the round-2 check was removed in turn, in memory, and the
+    full-line test then fails. A no-op control passes.
+
+**Results.** Verified this session.
+- **Builds are byte-identical.** The four recorded builds that use `--heme-iron-biomass` were rebuilt with
+  the patched guard, using the recorded argv with `--output-model` in a scratch folder, `PYTHONHASHSEED=0`
+  and the main checkout's `.venv` (Python 3.13.5).
+  - Outputs: `7f836c3a`, `e1586027`, `2c9cebd0` and `a1237821`, all identical to the recorded SHA-256.
+  - Matched starting states: base, base, after-TPP, after-TPP.
+  - A fifth record, `reports/heme_iron_biomass_20261022/build_final_guard_seed0.build.json`, repeats
+    `7f836c3a`'s build.
+  - Done after each round. Round 1: one whitespace character was restored after the rebuilds (AST
+    identical). Round 2: rebuilt with the final guard (SHA-256 `07f8d98e…`), all four identical again.
+- **pytest.** HEAD `dcc60c1`, round 1 and round 2 were compared test by test; the 324 results match.
+  - All three runs: 264 passed, 11 failed, 31 skipped, 18 errors.
+  - The only difference: the old `test_applies_after_the_reviewed_tpp_requirement_only` passed, and its
+    replacement `test_applies_after_the_full_reviewed_tpp_line_only` passes.
+  - Subtests went from 681 (HEAD) to 692 (round 1) to 706 (round 2) passed.
+  - The failures and errors already existed and are outside this change:
+    - `gem_review_lit` (4 modules cannot import `httpx2` in the `.venv`);
+    - `test_lp_sn12_candidate` (14 errors);
+    - CoA protonation curation (6 failures), vacuole supply and inputs (3);
+    - dFBA (1) and the lipid moiety ledger (1).
+  - The runs used `--continue-on-collection-errors`.
+- **Code review.** After each round, a fresh read-only reviewer was briefed from `code-reviewer.md` on the
+  unmerged branch `claude/code-review-subagent-1cae50`.
+  - **Round 1:** no bugs.
+    - Fixed: a whitespace slip.
+    - Added tests for the spec-time base checks, a changed `tpp_requirement.json` and a partial lock.
+    - Left open, then closed by round 2: the stand-in checks.
+  - **Round 2:** no fail-open path.
+    - Fixed: a non-string note value on a target crashed with AttributeError instead of ValueError. The
+      guard now uses the lock step's `_unescaped`. It never happens in builder output.
+    - Added tests for five checks that no test covered: R1342's TPP and chemistry notes, the species
+      formula and charge, the lock file's validation, and missing targets.
+
+**Limits.**
+- **Not checked in the TPP state, by design:**
+  - the chemistry step's cross-references (KEGG/ChEBI IDs, R1342's EC number);
+  - the reactions and partner species around the TPP metabolites;
+  - the lock step's one-proton residual;
+  - the TPP step's checks on R752, R753 and R933.
+
+  Each step's own guard checks these when the model is built, so only a hand edit made afterwards would
+  get past them.
+- **Extra notes pass.** Notes on a target beyond the curation's own are not compared, so an extra
+  unreviewed note there is accepted.
+- The `--starting-model` path was not run end to end.
+- The rebuilt XMLs were byte-identical to the committed ones and were not kept.
+
+**Publication.** Committed as `a6a5f81` on `claude/upbeat-lewin-91febd`, on the user's instruction; not pushed.
+
 ## 2026-10-23: Lipoylation module + acyl-ACP chemistry on the main candidate, candidate a1237821 (merged to main, PR #19)
 
 **Authorization.** The user, after reading the plan (the message as received ends mid-sentence):
