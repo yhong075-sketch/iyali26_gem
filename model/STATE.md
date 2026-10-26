@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-26: Heme/iron guard requires the full reviewed TPP line (builder code only, no model change; not committed)
+## 2026-10-26: Heme/iron guard requires the full reviewed TPP line (builder code only, no model change; committed a6a5f81, not pushed)
 
 **Authorization.** The session that started this one asked for four low-severity findings from a code
 review of `47cdd5b` (`apply_heme_iron_biomass`) to be fixed after a plan the user approved. Two rounds,
