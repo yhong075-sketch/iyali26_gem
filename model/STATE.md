@@ -63,6 +63,27 @@ session.
 instruction, it was merged into `main` via PR #19 (merge commit `6f19b00`). No reference model is
 designated by this merge.
 
+## 2026-10-23: fresh benchmark screen of the newest candidate 2c9cebd0 (computation only)
+
+**Authorization.** "can you do a screen test for the newest model?"; the user approved a fresh screen
+of `2c9cebd0` on the Task A medium + PO1f, Gurobi at 1e-9 with the knocked-flux check (1,079 LPs used),
+comparisons and a figure vs iYali21, no commit. No model change. Details:
+[REPORT.md](reports/screen_2c9cebd0_20261022/REPORT.md).
+
+**Results** (verified this session; mtDNA out of scope; user-defined negatives; development reference):
+- `2c9cebd0` (newest on `origin/main`, PR #18): WT 0.3124262915; 15 % 93 / 220 / 36 / 697, 16 unresolved,
+  MCC 0.345; lethal view 104 / 220 / 41 / 697. Largest residual over optimal knockouts 4.1e-10; every
+  closed reaction at 0.
+- Reproduces the build's own sweep exactly (no class change at any cutoff; growth within 5.2e-14).
+- **2c9cebd0 does not contain b3b9fe22's lipoylation and acyl-ACP steps** (not in its build argv;
+  `9f2356b` is on no remote branch). Versus b3b9fe22, 23 shared genes change call (10 acyl-ACP/lipoyl
+  genes back to non-essential; 12 heme/iron genes and THI80-like YALI1E25443g now essential); the
+  similar headline counts are a coincidence.
+- Figure [confusion_matrices_15pct_2c9cebd0.png](reports/figure_iyali21_vs_a56f3649_20261014/confusion_matrices_15pct_2c9cebd0.png):
+  iYali21 58 / 255 / 25 / 694 (MCC 0.254) vs 2c9cebd0 93 / 220 / 36 / 697 (MCC 0.345), no overlay.
+
+**Limits.** The build's heme open problems still apply. No independent audit. Uncommitted.
+
 ## 2026-10-22: TPP line and heme/iron + R2193 line combined, candidate 2c9cebd0 (not committed)
 
 **Authorization.** The user:
