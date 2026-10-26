@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-23: Lipoylation module + acyl-ACP chemistry on the main candidate, candidate a1237821 (not committed)
+## 2026-10-23: Lipoylation module + acyl-ACP chemistry on the main candidate, candidate a1237821 (merged to main, PR #19)
 
 **Authorization.** The user, after reading the plan (the message as received ends mid-sentence):
 
@@ -58,7 +58,10 @@ session.
   on `2c9cebd0` (audit).
 - α = 1e-5 is provisional, and it drives at least one of the new calls.
 - All open problems of `2c9cebd0` and of the two steps' reports stand.
-- Not committed or pushed.
+
+**Publication.** Committed as `11450bc` on `claude/loving-hermann-43c496`. On 2026-10-26, on the user's
+instruction, it was merged into `main` via PR #19 (merge commit `6f19b00`). No reference model is
+designated by this merge.
 
 ## 2026-10-22: TPP line and heme/iron + R2193 line combined, candidate 2c9cebd0 (not committed)
 
