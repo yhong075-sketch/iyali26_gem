@@ -1,0 +1,5212 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi FeasibilityTol/OptimalityTol 1e-09, reset per knockout, targeted check",
+ "check": {
+  "knocked_reaction_flux_tolerance": 1e-09,
+  "general_tolerance": 1e-06
+ },
+ "lp_timeout_seconds": 60,
+ "models": {
+  "baseline": {
+   "sha256": "2c9cebd0a5c53ec18bf1a583327099dc9e53fcf6b2fcbedd66cc7b9c54ea5a7b",
+   "genes": 1078
+  },
+  "candidate": {
+   "sha256": "a12378210c7c66720d99fb7bf71d14cb7538ea6a3cf3e08919c85fb3c9c47d82",
+   "genes": 1081
+  }
+ },
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "negative_class": "user-defined: model genes not on the consensus list",
+ "validation_status": "development reference, not independent validation",
+ "wt": {
+  "baseline": {
+   "status": "optimal",
+   "growth": 0.312426291487999,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.842170943040401e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "candidate": {
+   "status": "optimal",
+   "growth": 0.31242085277746734,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.4210854715202004e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  }
+ },
+ "in_model_positives": {
+  "baseline": 324,
+  "candidate": 326
+ },
+ "magnitudes_in_sweep": {
+  "baseline": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 2.9740654383658693e-12,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  },
+  "candidate": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 1.1652900866465643e-12,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  }
+ },
+ "sweep_points_failing_check": {
+  "baseline": [],
+  "candidate": []
+ },
+ "non_optimal_in_sweep": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "candidate": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "fresh_resolves": [],
+ "unresolved_after_fresh": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "candidate": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "scores": {
+  "baseline": {
+   "0.01": {
+    "TP": 75,
+    "FN": 238,
+    "FP": 29,
+    "TN": 704,
+    "unresolved": 16,
+    "recall": 0.23961661341853036,
+    "specificity": 0.9604365620736699,
+    "precision": 0.7211538461538461,
+    "mcc": 0.30614522106655534
+   },
+   "0.05": {
+    "TP": 81,
+    "FN": 232,
+    "FP": 31,
+    "TN": 702,
+    "unresolved": 16,
+    "recall": 0.25878594249201275,
+    "specificity": 0.9577080491132333,
+    "precision": 0.7232142857142857,
+    "mcc": 0.3206177443970623
+   },
+   "0.1": {
+    "TP": 85,
+    "FN": 228,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.2715654952076677,
+    "specificity": 0.9508867667121419,
+    "precision": 0.7024793388429752,
+    "mcc": 0.31849119520948566
+   },
+   "0.15": {
+    "TP": 93,
+    "FN": 220,
+    "FP": 36,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.2971246006389776,
+    "specificity": 0.9508867667121419,
+    "precision": 0.7209302325581395,
+    "mcc": 0.3453951379764147
+   }
+  },
+  "candidate": {
+   "0.01": {
+    "TP": 85,
+    "FN": 230,
+    "FP": 32,
+    "TN": 702,
+    "unresolved": 16,
+    "recall": 0.2698412698412698,
+    "specificity": 0.9564032697547684,
+    "precision": 0.7264957264957265,
+    "mcc": 0.3294431835936003
+   },
+   "0.05": {
+    "TP": 91,
+    "FN": 224,
+    "FP": 34,
+    "TN": 700,
+    "unresolved": 16,
+    "recall": 0.28888888888888886,
+    "specificity": 0.9536784741144414,
+    "precision": 0.728,
+    "mcc": 0.34319794733287073
+   },
+   "0.1": {
+    "TP": 95,
+    "FN": 220,
+    "FP": 39,
+    "TN": 695,
+    "unresolved": 16,
+    "recall": 0.30158730158730157,
+    "specificity": 0.946866485013624,
+    "precision": 0.7089552238805971,
+    "mcc": 0.34118189788178466
+   },
+   "0.15": {
+    "TP": 103,
+    "FN": 212,
+    "FP": 39,
+    "TN": 695,
+    "unresolved": 16,
+    "recall": 0.326984126984127,
+    "specificity": 0.946866485013624,
+    "precision": 0.7253521126760564,
+    "mcc": 0.36691815998869626
+   }
+  }
+ },
+ "candidate_vs_baseline": {
+  "growth_changed_over_1e-6": [
+   {
+    "gene": "YALI0B10406g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.3124208527774624
+   },
+   {
+    "gene": "YALI0D12573g",
+    "baseline": 0.3124262914879981,
+    "candidate": 0.31242085277746323
+   },
+   {
+    "gene": "YALI0D17490g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI0D27654g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI0E07787g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI0E12442g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI0E16192g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI0E18568g",
+    "baseline": 0.31242629148799866,
+    "candidate": 0.3124208527774624
+   },
+   {
+    "gene": "YALI1A00538g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1A00661g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A01198g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A01577g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1A01602g",
+    "baseline": 0.31242629148799694,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1A02198g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A02335g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A02653g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A02775g",
+    "baseline": 0.31242629148799794,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1A02974g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1A03069g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.31242085277746307
+   },
+   {
+    "gene": "YALI1A03210g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.3124208527774636
+   },
+   {
+    "gene": "YALI1A03512g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A04817g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746323
+   },
+   {
+    "gene": "YALI1A05116g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1A05459g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.3124208527774659
+   },
+   {
+    "gene": "YALI1A06229g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A06361g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.31242085277746423
+   },
+   {
+    "gene": "YALI1A06453g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.3124208527774636
+   },
+   {
+    "gene": "YALI1A06640g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1A06873g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A07014g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A07103g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A07575g",
+    "baseline": 0.3124262914879971,
+    "candidate": 0.3124208527774657
+   },
+   {
+    "gene": "YALI1A07887g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A08512g",
+    "baseline": 0.31242629148799644,
+    "candidate": 0.312420852777463
+   },
+   {
+    "gene": "YALI1A08546g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A08672g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A09121g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A09408g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1A09553g",
+    "baseline": 0.3124262914879963,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1A09694g",
+    "baseline": 0.3069917337060627,
+    "candidate": 0.3069863495243863
+   },
+   {
+    "gene": "YALI1A09766g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A09911g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A10254g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1A10708g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A11258g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A11654g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A12284g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.31242085277746484
+   },
+   {
+    "gene": "YALI1A12540g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A12688g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A13454g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A13994g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.31242085277746323
+   },
+   {
+    "gene": "YALI1A14024g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A14287g",
+    "baseline": 0.31242629148799567,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1A14721g",
+    "baseline": 0.3053239984201913,
+    "candidate": 0.3053189260689318
+   },
+   {
+    "gene": "YALI1A15132g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A15227g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A15624g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A15863g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A15925g",
+    "baseline": 0.31242629148799744,
+    "candidate": 0.31242085277746595
+   },
+   {
+    "gene": "YALI1A16292g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A16422g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1A16642g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1A16988g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1A17289g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A17640g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A18062g",
+    "baseline": 0.31242629148799916,
+    "candidate": 0.3124208527774654
+   },
+   {
+    "gene": "YALI1A18514g",
+    "baseline": 0.31242629148799733,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1A19862g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A20063g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1A20089g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1A20176g",
+    "baseline": 0.31207029926392615,
+    "candidate": 0.31206487294043445
+   },
+   {
+    "gene": "YALI1A20201g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A20528g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A20558g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A20611g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A21000g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A21156g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.31242085277746395
+   },
+   {
+    "gene": "YALI1A21372g",
+    "baseline": 0.31242629148799644,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1A21711g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1A21970g",
+    "baseline": 0.3124262914879963,
+    "candidate": 0.31242085277747894
+   },
+   {
+    "gene": "YALI1A22129g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.3124208527774662
+   },
+   {
+    "gene": "YALI1A22228g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.31242085277746523
+   },
+   {
+    "gene": "YALI1A22275g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1A22440g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.3124208527774635
+   },
+   {
+    "gene": "YALI1B00214g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1B00357g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B00578g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B00908g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1B01084g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1B01136g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B01428g",
+    "baseline": 0.009397298674844267,
+    "candidate": 0.009394306095151626
+   },
+   {
+    "gene": "YALI1B02194g",
+    "baseline": 0.31242629148799916,
+    "candidate": 0.3124208527774654
+   },
+   {
+    "gene": "YALI1B02283g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B02637g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B02733g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B02806g",
+    "baseline": 0.31242629148799644,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1B02833g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B03198g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B03719g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.31242085277746395
+   },
+   {
+    "gene": "YALI1B03910g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B04138g",
+    "baseline": 0.29582813416122317,
+    "candidate": 0.29582315176891943
+   },
+   {
+    "gene": "YALI1B04309g",
+    "baseline": 0.31216425241888074,
+    "candidate": 0.312158817609897
+   },
+   {
+    "gene": "YALI1B04433g",
+    "baseline": 0.3124262914879955,
+    "candidate": 0.3124208527774638
+   },
+   {
+    "gene": "YALI1B04589g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1B04831g",
+    "baseline": 0.3124262914879951,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1B05024g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B05072g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B05364g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B05609g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B05798g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1B07957g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B08123g",
+    "baseline": 0.312426291487997,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1B08461g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B08885g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B09025g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B09211g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B09367g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B10130g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1B10635g",
+    "baseline": 0.06100618418853417,
+    "candidate": 0.06095524382097528
+   },
+   {
+    "gene": "YALI1B10813g",
+    "baseline": 0.3124262914879969,
+    "candidate": 0.3124208527774641
+   },
+   {
+    "gene": "YALI1B11402g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B11448g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B11532g",
+    "baseline": 0.3124262914879981,
+    "candidate": 0.31242085277746684
+   },
+   {
+    "gene": "YALI1B12042g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.31242085277746484
+   },
+   {
+    "gene": "YALI1B12489g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1B12742g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1B12781g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B12966g",
+    "baseline": 0.31242629148799594,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1B12993g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1B13179g",
+    "baseline": 0.3058109193084931,
+    "candidate": 0.3058055701009328
+   },
+   {
+    "gene": "YALI1B13948g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1B14044g",
+    "baseline": 0.31242629148799517,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1B14382g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.31242085277746307
+   },
+   {
+    "gene": "YALI1B14733g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1B14826g",
+    "baseline": 0.3124262914879954,
+    "candidate": 0.31242085277746595
+   },
+   {
+    "gene": "YALI1B14978g",
+    "baseline": 0.31242629148799483,
+    "candidate": 0.312420852777466
+   },
+   {
+    "gene": "YALI1B15015g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1B15180g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B15440g",
+    "baseline": 0.3124262914879959,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1B15733g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B15928g",
+    "baseline": 0.31242629148799755,
+    "candidate": 0.31242085277746373
+   },
+   {
+    "gene": "YALI1B17155g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B17838g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B17871g",
+    "baseline": 0.3124262914879971,
+    "candidate": 0.31242085277747295
+   },
+   {
+    "gene": "YALI1B17927g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746334
+   },
+   {
+    "gene": "YALI1B18012g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B18292g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B18311g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B18499g",
+    "baseline": 0.31242629148799694,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1B18572g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1B18845g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B19021g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B19107g",
+    "baseline": 0.31242629148799694,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1B19217g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1B19348g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774637
+   },
+   {
+    "gene": "YALI1B19507g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1B19576g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1B19932g",
+    "baseline": 0.3124262914879974,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1B20108g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B20153g",
+    "baseline": 0.009397298674819353,
+    "candidate": 0.009394306095392204
+   },
+   {
+    "gene": "YALI1B20462g",
+    "baseline": 0.3124262914879937,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1B21088g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B21134g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746323
+   },
+   {
+    "gene": "YALI1B21155g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B21313g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B21356g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B21538g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B21618g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1B22321g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B22375g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B22614g",
+    "baseline": 0.009397298674819423,
+    "candidate": 0.009394306095158173
+   },
+   {
+    "gene": "YALI1B22883g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774656
+   },
+   {
+    "gene": "YALI1B23017g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B23153g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1B23237g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B23300g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B24424g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746245
+   },
+   {
+    "gene": "YALI1B24638g",
+    "baseline": 0.3124262914879985,
+    "candidate": 0.3124208527774642
+   },
+   {
+    "gene": "YALI1B25360g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B25395g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.31242085277746356
+   },
+   {
+    "gene": "YALI1B25506g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B25553g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B25906g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B26033g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B26112g",
+    "baseline": 0.3124262914879984,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1B26153g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B26205g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B26350g",
+    "baseline": 0.31242629148799883,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1B26679g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1B26749g",
+    "baseline": 0.3124262914879974,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1B27564g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B27645g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B28025g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B28349g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B28394g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B28454g",
+    "baseline": 0.3124262914879981,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1B28659g",
+    "baseline": 0.31242629148799744,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1B29133g",
+    "baseline": 0.3124262914879985,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1B29243g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B29419g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B29483g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.3124208527774657
+   },
+   {
+    "gene": "YALI1B29562g",
+    "baseline": 0.31242629148799733,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1B29867g",
+    "baseline": 0.31216425241888107,
+    "candidate": 0.3121588176098956
+   },
+   {
+    "gene": "YALI1B29883g",
+    "baseline": 0.3124262914879982,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1B29895g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1B30090g",
+    "baseline": 0.009397298674827028,
+    "candidate": 0.00939430609515034
+   },
+   {
+    "gene": "YALI1B30275g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.3124208527774656
+   },
+   {
+    "gene": "YALI1C00464g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C00550g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C00694g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.31242085277746223
+   },
+   {
+    "gene": "YALI1C00826g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C00999g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C01129g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C01520g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1C01944g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C01965g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.31242085277746373
+   },
+   {
+    "gene": "YALI1C02550g",
+    "baseline": 0.3121215217688666,
+    "candidate": 0.31211609366391596
+   },
+   {
+    "gene": "YALI1C03415g",
+    "baseline": 0.31242629148799705,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1C03848g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C04067g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C04093g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C04265g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1C04281g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1C04798g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C04991g",
+    "baseline": "absent",
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1C05386g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774689
+   },
+   {
+    "gene": "YALI1C05570g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774642
+   },
+   {
+    "gene": "YALI1C05908g",
+    "baseline": 0.3124262914879982,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1C05972g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C06006g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C06222g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C06681g",
+    "baseline": 0.3107522261187947,
+    "candidate": 0.3107469274459755
+   },
+   {
+    "gene": "YALI1C06951g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C07360g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C07423g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C07638g",
+    "baseline": 0.3124245184943271,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1C08017g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C08173g",
+    "baseline": 0.3124262914879957,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1C08197g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.31242085277746107
+   },
+   {
+    "gene": "YALI1C08262g",
+    "baseline": 0.2707586716664961,
+    "candidate": 0.27075383141598147
+   },
+   {
+    "gene": "YALI1C08523g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C08548g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C08702g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C09033g",
+    "baseline": 0.29835305346349666,
+    "candidate": 0.29834659783889594
+   },
+   {
+    "gene": "YALI1C09072g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.31242085277746684
+   },
+   {
+    "gene": "YALI1C09285g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C09308g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C09380g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1C09773g",
+    "baseline": 0.31242629148799794,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1C10232g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1C10293g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C10762g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C11773g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C12024g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1C12220g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C12619g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C13355g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C13768g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C15048g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C15180g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1C15420g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C15526g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.31242085277746545
+   },
+   {
+    "gene": "YALI1C15776g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C15945g",
+    "baseline": 0.31242629148799866,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1C15991g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1C16485g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C16621g",
+    "baseline": 0.31226426356532866,
+    "candidate": 0.3122588123081776
+   },
+   {
+    "gene": "YALI1C16932g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C17932g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C18258g",
+    "baseline": 0.31242629148799866,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1C18590g",
+    "baseline": 0.31242629148799844,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1C18771g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C18872g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C19814g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1C19943g",
+    "baseline": 0.31242629148799633,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1C20054g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C20198g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1C20224g",
+    "baseline": 0.31214352334700723,
+    "candidate": 0.31213809447677443
+   },
+   {
+    "gene": "YALI1C21946g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C22186g",
+    "baseline": 0.31242629148799467,
+    "candidate": 0.3124208527774638
+   },
+   {
+    "gene": "YALI1C22751g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C23601g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C23902g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C24124g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C24165g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C24367g",
+    "baseline": 0.31242629148799633,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1C24488g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C24567g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C24611g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C24647g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C25029g",
+    "baseline": 0.31242629148799717,
+    "candidate": 0.3124208527774661
+   },
+   {
+    "gene": "YALI1C25093g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774646
+   },
+   {
+    "gene": "YALI1C25190g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C25512g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C25598g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1C25782g",
+    "baseline": 0.31242629148799744,
+    "candidate": 0.31242085277746484
+   },
+   {
+    "gene": "YALI1C26036g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C26276g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C26939g",
+    "baseline": 0.31242629148799744,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1C27061g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1C27229g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C27933g",
+    "baseline": 0.312426291487997,
+    "candidate": 0.312420852777462
+   },
+   {
+    "gene": "YALI1C28263g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C28310g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C28479g",
+    "baseline": 0.31242629148799844,
+    "candidate": 0.31242085277746623
+   },
+   {
+    "gene": "YALI1C28497g",
+    "baseline": 0.3124262914879959,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1C28621g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C29104g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C29538g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C29920g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C30440g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C31122g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774655
+   },
+   {
+    "gene": "YALI1C31510g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C32031g",
+    "baseline": 0.3124082698652811,
+    "candidate": 0.31240283178216705
+   },
+   {
+    "gene": "YALI1C32119g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C32156g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1C32184g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C32609g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C32810g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746295
+   },
+   {
+    "gene": "YALI1C32886g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C33152g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C33270g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C33299g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1C33406g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1C353g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D00094g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D00376g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D00515g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D00581g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D00614g",
+    "baseline": 0.3124262914879974,
+    "candidate": 0.3124208527774675
+   },
+   {
+    "gene": "YALI1D00766g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1D01234g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D01489g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.3124208527774653
+   },
+   {
+    "gene": "YALI1D02000g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D02041g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D02416g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D02444g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D02625g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D02781g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1D03047g",
+    "baseline": 0.31242629148799467,
+    "candidate": 0.31242085277746395
+   },
+   {
+    "gene": "YALI1D03865g",
+    "baseline": 0.31137485565087714,
+    "candidate": 0.31136890044933424
+   },
+   {
+    "gene": "YALI1D04055g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D04261g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D04432g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1D04566g",
+    "baseline": 0.31242629148799816,
+    "candidate": 0.3124208527774635
+   },
+   {
+    "gene": "YALI1D05038g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D05111g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D05270g",
+    "baseline": 0.31242629148799944,
+    "candidate": 0.3124208527774658
+   },
+   {
+    "gene": "YALI1D05320g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.31242085277746423
+   },
+   {
+    "gene": "YALI1D05440g",
+    "baseline": 0.31242629148799544,
+    "candidate": 0.3124208527774628
+   },
+   {
+    "gene": "YALI1D05873g",
+    "baseline": 0.30840829150359667,
+    "candidate": 0.3084028929716383
+   },
+   {
+    "gene": "YALI1D06302g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1D06380g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D06883g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1D07089g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1D07451g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1D07486g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D07665g",
+    "baseline": 0.31242629148799733,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1D07696g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1D07981g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1D08000g",
+    "baseline": 0.3124262914879942,
+    "candidate": 0.31242085277746656
+   },
+   {
+    "gene": "YALI1D08082g",
+    "baseline": 0.31242629148799494,
+    "candidate": 0.312420852777466
+   },
+   {
+    "gene": "YALI1D08125g",
+    "baseline": 0.31242629148799894,
+    "candidate": 0.312420769885798
+   },
+   {
+    "gene": "YALI1D08205g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1D08339g",
+    "baseline": 0.3124262914879963,
+    "candidate": 0.31242085277746195
+   },
+   {
+    "gene": "YALI1D08564g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D08684g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D08884g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D08946g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.31242085277746706
+   },
+   {
+    "gene": "YALI1D09034g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D09203g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1D09277g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D09308g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D09453g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D09712g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D09870g",
+    "baseline": 0.312426291487996,
+    "candidate": 0.3124208527774671
+   },
+   {
+    "gene": "YALI1D10197g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D10264g",
+    "baseline": 0.3121028732822857,
+    "candidate": 0.3120974458259414
+   },
+   {
+    "gene": "YALI1D10495g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D10535g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D10768g",
+    "baseline": 0.31242629148799705,
+    "candidate": 0.3124208527774632
+   },
+   {
+    "gene": "YALI1D11015g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D11159g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1D11256g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D11686g",
+    "baseline": 0.3124262914879978,
+    "candidate": 0.312420852777463
+   },
+   {
+    "gene": "YALI1D11810g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D11984g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1D12493g",
+    "baseline": 0.31216425241887846,
+    "candidate": 0.31215881760989456
+   },
+   {
+    "gene": "YALI1D12723g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D12832g",
+    "baseline": 0.31242629148799567,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1D13201g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D13510g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774776
+   },
+   {
+    "gene": "YALI1D13963g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1D14058g",
+    "baseline": 0.06100618418853417,
+    "candidate": 0.06095524382097528
+   },
+   {
+    "gene": "YALI1D14199g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D14260g",
+    "baseline": 0.3053239984201913,
+    "candidate": 0.3053189260689318
+   },
+   {
+    "gene": "YALI1D14453g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D14639g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D14670g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D15030g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D15398g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D15424g",
+    "baseline": 0.2707586716664952,
+    "candidate": 0.2707538314159957
+   },
+   {
+    "gene": "YALI1D15734g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D15848g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774619
+   },
+   {
+    "gene": "YALI1D16144g",
+    "baseline": 0.3124262914879959,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1D16151g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D17299g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D17462g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D17482g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746334
+   },
+   {
+    "gene": "YALI1D17983g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D18037g",
+    "baseline": 0.23677246142081035,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1D18845g",
+    "baseline": 0.31242629148799644,
+    "candidate": 0.31242085277746645
+   },
+   {
+    "gene": "YALI1D18890g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D19108g",
+    "baseline": 0.31242629148799733,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1D19110g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D19252g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774643
+   },
+   {
+    "gene": "YALI1D19951g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D20061g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1D20222g",
+    "baseline": 0.29039595771363963,
+    "candidate": 0.29039069386365013
+   },
+   {
+    "gene": "YALI1D20257g",
+    "baseline": 0.31214352334700934,
+    "candidate": 0.31213809447677715
+   },
+   {
+    "gene": "YALI1D20359g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D20676g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D20706g",
+    "baseline": 0.31242629148799567,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1D21023g",
+    "baseline": 0.31242629148799683,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1D21408g",
+    "baseline": 0.3124262914879984,
+    "candidate": 0.31242085277746373
+   },
+   {
+    "gene": "YALI1D21511g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D21543g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D21631g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D22083g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.312420852777463
+   },
+   {
+    "gene": "YALI1D22274g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D22834g",
+    "baseline": 0.3124262914879991,
+    "candidate": 0.3124208527774668
+   },
+   {
+    "gene": "YALI1D22906g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.3124208527774655
+   },
+   {
+    "gene": "YALI1D22997g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D23067g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1D23128g",
+    "baseline": 0.3124262914879975,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1D23237g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D23885g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1D23995g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774657
+   },
+   {
+    "gene": "YALI1D24109g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1D24249g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D24333g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1D24649g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1D25037g",
+    "baseline": 0.3124261239028864,
+    "candidate": 0.31242068519819055
+   },
+   {
+    "gene": "YALI1D25359g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D25400g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D25664g",
+    "baseline": 0.3124262914879983,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1D26320g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D26360g",
+    "baseline": 0.3043695517626029,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1D26438g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D26610g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D26639g",
+    "baseline": 0.3124262914879983,
+    "candidate": 0.3124208527774638
+   },
+   {
+    "gene": "YALI1D27274g",
+    "baseline": 0.3124260901233861,
+    "candidate": 0.31242065141986447
+   },
+   {
+    "gene": "YALI1D27808g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D27826g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D28351g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D28569g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D29523g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D30256g",
+    "baseline": 0.3053239984201913,
+    "candidate": 0.3053189260689318
+   },
+   {
+    "gene": "YALI1D30570g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.31242085277746423
+   },
+   {
+    "gene": "YALI1D30618g",
+    "baseline": 0.3058109193084931,
+    "candidate": 0.3058055701009328
+   },
+   {
+    "gene": "YALI1D30866g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1D31719g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D32209g",
+    "baseline": 0.009397298674819953,
+    "candidate": 0.009394306095151267
+   },
+   {
+    "gene": "YALI1D32268g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D32550g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1D32568g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D32594g",
+    "baseline": 0.312426291487997,
+    "candidate": 0.312420852777462
+   },
+   {
+    "gene": "YALI1D32619g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D32754g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1D33380g",
+    "baseline": 0.3123660594808917,
+    "candidate": 0.31236062314802177
+   },
+   {
+    "gene": "YALI1D33465g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D33780g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1D33889g",
+    "baseline": 0.3124262914879995,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1D33961g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D34149g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D34288g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1D34529g",
+    "baseline": 0.30759789238642926,
+    "candidate": 0.30759225018118314
+   },
+   {
+    "gene": "YALI1D35593g",
+    "baseline": 0.312102279237416,
+    "candidate": 0.31209685180173297
+   },
+   {
+    "gene": "YALI1D35787g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774637
+   },
+   {
+    "gene": "YALI1D36215g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1E00574g",
+    "baseline": 0.3069917337060642,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1E00588g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E00760g",
+    "baseline": 0.06100618418853417,
+    "candidate": 0.06095524382097528
+   },
+   {
+    "gene": "YALI1E00907g",
+    "baseline": 0.3124262914880002,
+    "candidate": 0.31242085277746756
+   },
+   {
+    "gene": "YALI1E01019g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E01159g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E01235g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E01589g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E02413g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E02678g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E02832g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E02885g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1E02906g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E03039g",
+    "baseline": 0.3124262914879984,
+    "candidate": 0.31242085277746123
+   },
+   {
+    "gene": "YALI1E03300g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E03623g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1E03870g",
+    "baseline": 0.3124262914880008,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1E04744g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E04823g",
+    "baseline": 0.31242629148799794,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1E05004g",
+    "baseline": 0.3124262914879971,
+    "candidate": 0.3124208527774666
+   },
+   {
+    "gene": "YALI1E05074g",
+    "baseline": 0.312426291487995,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1E05103g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1E05180g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E05701g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E05833g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.3124208527774636
+   },
+   {
+    "gene": "YALI1E05929g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E06015g",
+    "baseline": 0.31242629148799494,
+    "candidate": 0.312420852777466
+   },
+   {
+    "gene": "YALI1E06056g",
+    "baseline": 0.31242629148799855,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1E06573g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E06616g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E07121g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E07601g",
+    "baseline": 0.3124262914879957,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1E07899g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E08382g",
+    "baseline": 0.3121642524188793,
+    "candidate": 0.3121588176098942
+   },
+   {
+    "gene": "YALI1E08530g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1E08575g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E08620g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E08937g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1E09329g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E10210g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E10364g",
+    "baseline": 0.3124262914879959,
+    "candidate": 0.3124208527774633
+   },
+   {
+    "gene": "YALI1E10492g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E10951g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E11255g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746484
+   },
+   {
+    "gene": "YALI1E11370g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E11415g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E11768g",
+    "baseline": 0.312426291487996,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1E11943g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1E12482g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E12893g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E12987g",
+    "baseline": 0.31242629148799694,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1E13223g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E13329g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E13472g",
+    "baseline": "absent",
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1E13514g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E13899g",
+    "baseline": 0.3121080479887588,
+    "candidate": 0.3121026203524406
+   },
+   {
+    "gene": "YALI1E14125g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E14153g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774653
+   },
+   {
+    "gene": "YALI1E14316g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1E14505g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E14619g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1E14709g",
+    "baseline": 0.31242629148799894,
+    "candidate": 0.31242085277746334
+   },
+   {
+    "gene": "YALI1E14925g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E15452g",
+    "baseline": 0.31242629148799683,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1E15555g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1E15804g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E16694g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E17162g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.31242085277746523
+   },
+   {
+    "gene": "YALI1E17214g",
+    "baseline": 0.3041558361485295,
+    "candidate": 0.3041505203453967
+   },
+   {
+    "gene": "YALI1E17258g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E17326g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E17355g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E17699g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E17754g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.31242085277746656
+   },
+   {
+    "gene": "YALI1E17935g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E18121g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E18171g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E18242g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E18441g",
+    "baseline": 0.31242629148799717,
+    "candidate": 0.3124208527774643
+   },
+   {
+    "gene": "YALI1E18480g",
+    "baseline": 0.31242629148799916,
+    "candidate": 0.3124208527774654
+   },
+   {
+    "gene": "YALI1E18539g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E18927g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E19014g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E19036g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E19172g",
+    "baseline": 0.3124262914879981,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1E19263g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E19557g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E19603g",
+    "baseline": 0.06100618418853417,
+    "candidate": 0.06095524382097528
+   },
+   {
+    "gene": "YALI1E19647g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E19682g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.3124208527774669
+   },
+   {
+    "gene": "YALI1E19852g",
+    "baseline": 0.3111781452506569,
+    "candidate": 0.31117294018921904
+   },
+   {
+    "gene": "YALI1E19958g",
+    "baseline": 0.3124262914879984,
+    "candidate": 0.3124208527774636
+   },
+   {
+    "gene": "YALI1E20016g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1E20049g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.3124208527774637
+   },
+   {
+    "gene": "YALI1E20159g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1E20192g",
+    "baseline": 0.3069917337060636,
+    "candidate": 0.30698634952438414
+   },
+   {
+    "gene": "YALI1E20626g",
+    "baseline": 0.3124262914879978,
+    "candidate": 0.3124208527774646
+   },
+   {
+    "gene": "YALI1E20666g",
+    "baseline": 0.3124262914879963,
+    "candidate": 0.31242085277747894
+   },
+   {
+    "gene": "YALI1E20766g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1E20885g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774666
+   },
+   {
+    "gene": "YALI1E21128g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E21230g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1E21312g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E21406g",
+    "baseline": 0.31242629148800066,
+    "candidate": 0.3124208527774633
+   },
+   {
+    "gene": "YALI1E21478g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E21552g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E21915g",
+    "baseline": 0.31212152176886726,
+    "candidate": 0.31211609366391485
+   },
+   {
+    "gene": "YALI1E21983g",
+    "baseline": 0.31242629148799594,
+    "candidate": 0.31242085277746395
+   },
+   {
+    "gene": "YALI1E22041g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E22238g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.31242085277746545
+   },
+   {
+    "gene": "YALI1E22262g",
+    "baseline": 0.3124262914879959,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1E22303g",
+    "baseline": 0.31180101531369026,
+    "candidate": 0.3117956564643015
+   },
+   {
+    "gene": "YALI1E22633g",
+    "baseline": 0.3124262914879973,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1E22718g",
+    "baseline": 0.31242629148799705,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1E22736g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E23809g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E23988g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1E24028g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24113g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24149g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24245g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24318g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24461g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1E24479g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24532g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24567g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E24922g",
+    "baseline": 0.31058143494251556,
+    "candidate": 0.3105761435056779
+   },
+   {
+    "gene": "YALI1E25018g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E25290g",
+    "baseline": 0.312426291487998,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALI1E25364g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E25400g",
+    "baseline": 0.3124262914879975,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1E25585g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E25932g",
+    "baseline": 0.3124262914879977,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1E26181g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E26513g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E26811g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774658
+   },
+   {
+    "gene": "YALI1E27113g",
+    "baseline": 0.3124262914879977,
+    "candidate": 0.3124208527774646
+   },
+   {
+    "gene": "YALI1E27218g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1E27279g",
+    "baseline": 0.312426291487996,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1E27441g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E27791g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E28097g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E28300g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E28545g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E28575g",
+    "baseline": 0.30840829150359667,
+    "candidate": 0.3084028929716383
+   },
+   {
+    "gene": "YALI1E28631g",
+    "baseline": 0.31242629148799816,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E28779g",
+    "baseline": 0.31242629148799383,
+    "candidate": 0.3124208527774636
+   },
+   {
+    "gene": "YALI1E29179g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E30014g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E30028g",
+    "baseline": 0.3124262914879974,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1E30173g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E30400g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E30496g",
+    "baseline": 0.312426291487994,
+    "candidate": 0.31242085277746395
+   },
+   {
+    "gene": "YALI1E30815g",
+    "baseline": 0.3124262914879981,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1E30886g",
+    "baseline": 0.2903959577136389,
+    "candidate": 0.2903906938636528
+   },
+   {
+    "gene": "YALI1E31685g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E31754g",
+    "baseline": 0.31242629148799583,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1E31947g",
+    "baseline": 0.3058109193084931,
+    "candidate": 0.3058055701009328
+   },
+   {
+    "gene": "YALI1E32054g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32118g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32180g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32241g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32315g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32332g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32603g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E32908g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E33150g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E33285g",
+    "baseline": 0.31242629148799633,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1E33302g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E34072g",
+    "baseline": 0.31216425241888024,
+    "candidate": 0.3121588176098943
+   },
+   {
+    "gene": "YALI1E34269g",
+    "baseline": 0.018023246933779415,
+    "candidate": 0.018012242218884943
+   },
+   {
+    "gene": "YALI1E34408g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1E34425g",
+    "baseline": 0.3124262914879972,
+    "candidate": 0.31242085277746484
+   },
+   {
+    "gene": "YALI1E35082g",
+    "baseline": 0.3053239984201913,
+    "candidate": 0.3053189260689318
+   },
+   {
+    "gene": "YALI1E35520g",
+    "baseline": 0.31242629148799717,
+    "candidate": 0.3124208527774661
+   },
+   {
+    "gene": "YALI1E35652g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E35815g",
+    "baseline": 0.31207029926392615,
+    "candidate": 0.31206487294043445
+   },
+   {
+    "gene": "YALI1E35955g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1E36437g",
+    "baseline": 0.31242629148799633,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1E36477g",
+    "baseline": 0.3122840242420069,
+    "candidate": 0.3122785904834706
+   },
+   {
+    "gene": "YALI1E36540g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E37063g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E37118g",
+    "baseline": 0.31242629148799606,
+    "candidate": 0.312420852777463
+   },
+   {
+    "gene": "YALI1E37603g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1E37764g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E37982g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E38034g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E38131g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E38308g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E38561g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E38701g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E38749g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1E38810g",
+    "baseline": 0.3124040902440353,
+    "candidate": 0.3123986523064254
+   },
+   {
+    "gene": "YALI1E38859g",
+    "baseline": 0.31242629148799633,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1E38912g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E39128g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E39221g",
+    "baseline": 0.009397298674819953,
+    "candidate": 0.009394306095155593
+   },
+   {
+    "gene": "YALI1E39248g",
+    "baseline": 0.31242629148799733,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1E39295g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E39395g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E39676g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1E39693g",
+    "baseline": 0.3069917337060636,
+    "candidate": 0.30698634952438414
+   },
+   {
+    "gene": "YALI1E40076g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E40471g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1E40502g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E40671g",
+    "baseline": 0.31242629148799633,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1E41148g",
+    "baseline": 0.3119794648996303,
+    "candidate": 0.31197411002897657
+   },
+   {
+    "gene": "YALI1E41251g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E41276g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E41315g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E41754g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E41850g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1E41893g",
+    "baseline": 0.3124262914879948,
+    "candidate": 0.31242085277746395
+   },
+   {
+    "gene": "YALI1F00472g",
+    "baseline": 0.3124262914879949,
+    "candidate": 0.3124208527774645
+   },
+   {
+    "gene": "YALI1F00616g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.31242085277746356
+   },
+   {
+    "gene": "YALI1F00654g",
+    "baseline": 0.312426291487997,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1F00821g",
+    "baseline": 0.31242629148799705,
+    "candidate": 0.31242085277746273
+   },
+   {
+    "gene": "YALI1F01456g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1F01755g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F01981g",
+    "baseline": 0.2713704360686966,
+    "candidate": 0.27136824505400997
+   },
+   {
+    "gene": "YALI1F02074g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.3124208527774632
+   },
+   {
+    "gene": "YALI1F02132g",
+    "baseline": 0.31242629148799805,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1F02481g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F02508g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F02518g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F02592g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F03136g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1F03371g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1F03452g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.3124208527774636
+   },
+   {
+    "gene": "YALI1F03527g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.31242085277746423
+   },
+   {
+    "gene": "YALI1F03803g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1F03883g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1F03908g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F04082g",
+    "baseline": 0.30699173370606325,
+    "candidate": 0.30698634952438575
+   },
+   {
+    "gene": "YALI1F04110g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F04157g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1F04185g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F04433g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F04455g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F05220g",
+    "baseline": 0.3124262914879975,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1F05415g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774665
+   },
+   {
+    "gene": "YALI1F05509g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F05574g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F06197g",
+    "baseline": 0.31195702419836957,
+    "candidate": 0.31195139762654484
+   },
+   {
+    "gene": "YALI1F06236g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F06351g",
+    "baseline": 0.31242629148799483,
+    "candidate": 0.31242085277746656
+   },
+   {
+    "gene": "YALI1F06858g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F06904g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F07384g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F07630g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1F07747g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F07847g",
+    "baseline": 0.29943659565534714,
+    "candidate": 0.2994314173930352
+   },
+   {
+    "gene": "YALI1F08075g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F08225g",
+    "baseline": 0.3124262914879982,
+    "candidate": 0.31242085277746384
+   },
+   {
+    "gene": "YALI1F08705g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F08845g",
+    "baseline": 0.3119932772750936,
+    "candidate": 0.311987855646423
+   },
+   {
+    "gene": "YALI1F08885g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F09003g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1F09433g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F09542g",
+    "baseline": 0.3124262914879941,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1F09598g",
+    "baseline": 0.3010906827712453,
+    "candidate": 0.30108350603486567
+   },
+   {
+    "gene": "YALI1F09747g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.31242085277746545
+   },
+   {
+    "gene": "YALI1F09856g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1F09965g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F10110g",
+    "baseline": 0.31242629148799794,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1F10122g",
+    "baseline": 0.3124262914879967,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1F10224g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F10253g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F10342g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F10633g",
+    "baseline": 0.312426291487996,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1F11049g",
+    "baseline": 0.30930435766262787,
+    "candidate": 0.3092989656916979
+   },
+   {
+    "gene": "YALI1F11199g",
+    "baseline": 0.31242629148799717,
+    "candidate": 0.3124208527774648
+   },
+   {
+    "gene": "YALI1F11396g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F11481g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F11583g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F11605g",
+    "baseline": 0.31242629148799733,
+    "candidate": 0.31242085277746523
+   },
+   {
+    "gene": "YALI1F11635g",
+    "baseline": 0.31242629148799805,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1F11827g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1F12176g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F12649g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F12666g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F12842g",
+    "baseline": 0.29637059695930795,
+    "candidate": 0.29636559149795144
+   },
+   {
+    "gene": "YALI1F12895g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1F12917g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F13017g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F13097g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F13170g",
+    "baseline": 0.31242629148799717,
+    "candidate": 0.3124208527774663
+   },
+   {
+    "gene": "YALI1F13202g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746545
+   },
+   {
+    "gene": "YALI1F13505g",
+    "baseline": 0.3010906827712453,
+    "candidate": 0.30108350603486805
+   },
+   {
+    "gene": "YALI1F13550g",
+    "baseline": 0.31242629148799844,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1F14495g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F14583g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.312420852777466
+   },
+   {
+    "gene": "YALI1F14882g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F15334g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F15367g",
+    "baseline": 0.3124262914879962,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1F15403g",
+    "baseline": 0.3124262914879974,
+    "candidate": 0.31242085277746423
+   },
+   {
+    "gene": "YALI1F15781g",
+    "baseline": 0.312426291487998,
+    "candidate": 0.3124208527774644
+   },
+   {
+    "gene": "YALI1F15961g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F16045g",
+    "baseline": 0.3124262914879987,
+    "candidate": 0.3124208527774626
+   },
+   {
+    "gene": "YALI1F16069g",
+    "baseline": 0.3124262914879964,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1F17082g",
+    "baseline": 0.31242629148799556,
+    "candidate": 0.3124208527774666
+   },
+   {
+    "gene": "YALI1F17337g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F17569g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18105g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18152g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18429g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18740g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18835g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18897g",
+    "baseline": 0.3124262914879963,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1F18920g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F18979g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F19090g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F19697g",
+    "baseline": 0.3124262914879984,
+    "candidate": 0.3124208527774633
+   },
+   {
+    "gene": "YALI1F20637g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALI1F20788g",
+    "baseline": 0.3114735020500049,
+    "candidate": 0.31146809646088264
+   },
+   {
+    "gene": "YALI1F20914g",
+    "baseline": 0.3123220130756303,
+    "candidate": 0.31231655931650776
+   },
+   {
+    "gene": "YALI1F20965g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F21467g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F21567g",
+    "baseline": 0.312426291487996,
+    "candidate": 0.31242085277746445
+   },
+   {
+    "gene": "YALI1F21690g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F21728g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F21875g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F21908g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F22321g",
+    "baseline": 0.31242629148799905,
+    "candidate": 0.3124208527774643
+   },
+   {
+    "gene": "YALI1F22436g",
+    "baseline": 0.2958281341612234,
+    "candidate": 0.29582315176891677
+   },
+   {
+    "gene": "YALI1F22568g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F22908g",
+    "baseline": 0.31242629148799705,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1F22993g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1F23664g",
+    "baseline": 0.30520818767233143,
+    "candidate": 0.3052028122480647
+   },
+   {
+    "gene": "YALI1F23706g",
+    "baseline": 0.31242629148799655,
+    "candidate": 0.3124208527774631
+   },
+   {
+    "gene": "YALI1F23922g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F24031g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F24171g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F24343g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1F24667g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1F24773g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F25444g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F25587g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1F25649g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F25908g",
+    "baseline": 0.31242629148799717,
+    "candidate": 0.31242085277746307
+   },
+   {
+    "gene": "YALI1F25951g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F25984g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F26167g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F26427g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F26924g",
+    "baseline": 0.3124262914879945,
+    "candidate": 0.31242085277746434
+   },
+   {
+    "gene": "YALI1F26967g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F27211g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1F27343g",
+    "baseline": 0.31242629148799494,
+    "candidate": 0.3124208527774652
+   },
+   {
+    "gene": "YALI1F27556g",
+    "baseline": 0.3058109193084931,
+    "candidate": 0.3058055701009328
+   },
+   {
+    "gene": "YALI1F27761g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1F27904g",
+    "baseline": 0.00939729867482119,
+    "candidate": 0.009394306095143117
+   },
+   {
+    "gene": "YALI1F27989g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F28064g",
+    "baseline": 0.3124262914879982,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1F28092g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.31242085277746556
+   },
+   {
+    "gene": "YALI1F28485g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1F28833g",
+    "baseline": 0.31242629148799755,
+    "candidate": 0.3124208527774647
+   },
+   {
+    "gene": "YALI1F29301g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F29751g",
+    "baseline": 0.31242629148799794,
+    "candidate": 0.3124208527774635
+   },
+   {
+    "gene": "YALI1F29836g",
+    "baseline": 0.3124262914879961,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1F29987g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746523
+   },
+   {
+    "gene": "YALI1F30034g",
+    "baseline": 0.31242629148799833,
+    "candidate": 0.31242085277746406
+   },
+   {
+    "gene": "YALI1F30179g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F30289g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F30479g",
+    "baseline": 0.31242629148799367,
+    "candidate": 0.31242085277746506
+   },
+   {
+    "gene": "YALI1F30703g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F30754g",
+    "baseline": 0.3123844701456243,
+    "candidate": 0.3123790328229241
+   },
+   {
+    "gene": "YALI1F30877g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746645
+   },
+   {
+    "gene": "YALI1F30903g",
+    "baseline": 0.31242629148799766,
+    "candidate": 0.3124208527774641
+   },
+   {
+    "gene": "YALI1F31153g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746573
+   },
+   {
+    "gene": "YALI1F31215g",
+    "baseline": 0.31242629148799916,
+    "candidate": 0.3124208527774654
+   },
+   {
+    "gene": "YALI1F31283g",
+    "baseline": 0.3124262914880007,
+    "candidate": 0.3124208527774646
+   },
+   {
+    "gene": "YALI1F31381g",
+    "baseline": 0.3124262893946998,
+    "candidate": 0.31242085068424014
+   },
+   {
+    "gene": "YALI1F31405g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.31242085277746473
+   },
+   {
+    "gene": "YALI1F31854g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F32232g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.3124208527774657
+   },
+   {
+    "gene": "YALI1F32287g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F32330g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F32363g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F32476g",
+    "baseline": 0.31242629148799955,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1F32534g",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746645
+   },
+   {
+    "gene": "YALI1F32841g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F32910g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F32969g",
+    "baseline": 0.3124262914879976,
+    "candidate": 0.31242085277746456
+   },
+   {
+    "gene": "YALI1F33143g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F33189g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F33246g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F33579g",
+    "baseline": 0.31242629148799606,
+    "candidate": 0.312420852777463
+   },
+   {
+    "gene": "YALI1F33681g",
+    "baseline": 0.3124262914879968,
+    "candidate": 0.3124208527774639
+   },
+   {
+    "gene": "YALI1F33754g",
+    "baseline": 0.31242629148799783,
+    "candidate": 0.31242085277746484
+   },
+   {
+    "gene": "YALI1F33819g",
+    "baseline": 0.3124262914879983,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1F33861g",
+    "baseline": 0.3121642524188816,
+    "candidate": 0.3121588176098944
+   },
+   {
+    "gene": "YALI1F33951g",
+    "baseline": 0.31242629148799805,
+    "candidate": 0.3124208527774651
+   },
+   {
+    "gene": "YALI1F34029g",
+    "baseline": 0.3124262914879979,
+    "candidate": 0.3124208527774656
+   },
+   {
+    "gene": "YALI1F34187g",
+    "baseline": 0.3124262914879966,
+    "candidate": 0.31242085277746545
+   },
+   {
+    "gene": "YALI1F34729g",
+    "baseline": "absent",
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1F35109g",
+    "baseline": 0.3096154882865283,
+    "candidate": 0.3096072661833699
+   },
+   {
+    "gene": "YALI1F35542g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F35690g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F35822g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F35868g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F36094g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F36415g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F36584g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F36733g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F36930g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F36966g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F37194g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F37272g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F37498g",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1F37559g",
+    "baseline": 0.009397298674822018,
+    "candidate": 0.009394306095155429
+   },
+   {
+    "gene": "YALI1F37658g",
+    "baseline": 0.31242629148799644,
+    "candidate": 0.31242085277746534
+   },
+   {
+    "gene": "YALI1F37714g",
+    "baseline": 0.31216033839649215,
+    "candidate": 0.3121549036556483
+   },
+   {
+    "gene": "YALI1F37916g",
+    "baseline": 0.3123863863687678,
+    "candidate": 0.3123809077820352
+   },
+   {
+    "gene": "YALI1F38116g",
+    "baseline": 0.31179045216782675,
+    "candidate": 0.3117850355719315
+   },
+   {
+    "gene": "YALI1F38220g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F38317g",
+    "baseline": 0.3124262914880014,
+    "candidate": 0.0
+   },
+   {
+    "gene": "YALI1F38386g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F38466g",
+    "baseline": 0.31242629148799755,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1F38476g",
+    "baseline": 0.31242629148799617,
+    "candidate": 0.312420852777464
+   },
+   {
+    "gene": "YALI1F38629g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F38820g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F38986g",
+    "baseline": 0.3124262914880002,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1F39058g",
+    "baseline": 0.31242629148799606,
+    "candidate": 0.312420852777465
+   },
+   {
+    "gene": "YALI1F39330g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F39426g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1F39620g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1M00056g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1M00064g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1M00260g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1M00267g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1M00296g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1M00318g",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YALI1M00335g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1M00338r",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALI1M00458g",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YALIUNK1",
+    "baseline": 0.312426291487998,
+    "candidate": 0.31242085277746645
+   },
+   {
+    "gene": "YALIUNK3",
+    "baseline": 0.3124262914879965,
+    "candidate": 0.3124208527774649
+   },
+   {
+    "gene": "YALIUNK4",
+    "baseline": 0.31242629148799667,
+    "candidate": 0.31242085277746495
+   },
+   {
+    "gene": "YALIfMp29",
+    "baseline": 0.2367724614208099,
+    "candidate": 0.23676834661612622
+   },
+   {
+    "gene": "YalifMp05",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   },
+   {
+    "gene": "YalifMp06",
+    "baseline": 0.312426291487999,
+    "candidate": 0.31242085277746734
+   }
+  ],
+  "class_changed": {
+   "0.01": [
+    {
+     "gene": "YALI1A20089g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C04991g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C07638g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C15991g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C26939g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D18037g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D26360g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E00574g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E13472g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E22262g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F34729g",
+     "experimental_positive": false,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F37498g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F38317g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    }
+   ],
+   "0.05": [
+    {
+     "gene": "YALI1A20089g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C04991g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C07638g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C15991g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C26939g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D18037g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D26360g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E00574g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E13472g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E22262g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F34729g",
+     "experimental_positive": false,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F37498g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F38317g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    }
+   ],
+   "0.1": [
+    {
+     "gene": "YALI1A20089g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C04991g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C07638g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C15991g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C26939g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D18037g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D26360g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E00574g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E13472g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E22262g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F34729g",
+     "experimental_positive": false,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F37498g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F38317g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    }
+   ],
+   "0.15": [
+    {
+     "gene": "YALI1A20089g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C04991g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C07638g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C15991g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1C26939g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D18037g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1D26360g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E00574g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E13472g",
+     "experimental_positive": true,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1E22262g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F34729g",
+     "experimental_positive": false,
+     "baseline": "absent",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F37498g",
+     "experimental_positive": false,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    },
+    {
+     "gene": "YALI1F38317g",
+     "experimental_positive": true,
+     "baseline": "non-essential",
+     "candidate": "essential"
+    }
+   ]
+  }
+ },
+ "lp_count": {
+  "sweep": 2161,
+  "fresh": 0
+ }
+}

@@ -67,6 +67,10 @@ def parse_args(argv=None):
                         help="Add heme a (1e-6) and iron(2+) (3.04e-5 mmol/gDW) to biomass_C at the Yeast8 consensus values (curated 2026-10-22, HEME-IRON-BIOMASS-20261022); requires --coq9-biomass-dilution")
     parser.add_argument("--r2193-iron-gpr", action="store_true",
                         help="Replace R2193's GPR (YALI1F07747g, a bHLH regulator, kept unlinked) with the two FET3/FTR1 pairs (YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g) (curated 2026-10-22, R2193-IRON-GPR-20261022)")
+    parser.add_argument("--lipoylation-module", action="store_true",
+                        help="Add the mitochondrial lipoylation route (LIP2-type, LIP5, LIP3-type), fill the ACP1 and lipoyl-H-protein formulas and add a provisional lipoyl growth-dilution requirement (curated 2026-10-20 decision)")
+    parser.add_argument("--acyl-acp-chemistry", action="store_true",
+                        help="Fill the acyl-ACP/ACP/fatty-acid formulas of the mtFAS and R2216-R2241 block, remove its surplus H+ and make its reversible cytosolic acyl-ACP hydrolases forward-only (curated 2026-10-20 decision); requires --lipoylation-module")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

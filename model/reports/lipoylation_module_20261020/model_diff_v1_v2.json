@@ -1,0 +1,117 @@
+[
+ {
+  "section": "reactions",
+  "item": "R2286",
+  "field": "notes",
+  "before": {
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020",
+   "lipoylation_evidence": "Lip2 is required for lipoylation of Lat1, Kgd2 and Gcv3 in S. cerevisiae (Schonauer et al. 2009). YALI1F34729g: 30% identity / 84% query coverage to Lip2 (Q06005); reciprocal top Swiss-Prot hits are LipB-family octanoyltransferases (S. pombe O36017, K. lactis O13476). Octanoyl is placed on the H-protein first by analogy to the Rhea/B. subtilis route; the yeast step order is not established. Returns ACP1 in the mitochondrion.",
+   "lipoylation_evidence_tier": "B (weak: 30% identity)",
+   "lipoylation_sources": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2749097/; https://www.rhea-db.org/rhea/17665"
+  },
+  "after": {
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020",
+   "lipoylation_evidence": "Lip2 is required for lipoylation of Lat1, Kgd2 and Gcv3 in S. cerevisiae (Schonauer et al. 2009). YALI1F34729g: 30% identity / 84% query coverage to Lip2 (Q06005). Reciprocity is family-level only: the reverse top hits are LipB-family octanoyltransferases (S. pombe O36017 first, a bacterial LipB second, K. lactis O13476 third); S. cerevisiae Lip2 is not among the top five. Not on the consensus essential list (Cas9 essential q 0.0023, Cas12a nonessential q 0.68). Octanoyl is placed on the H-protein first by analogy to the Rhea/B. subtilis route; the yeast step order is not established. Returns ACP1 in the mitochondrion.",
+   "lipoylation_evidence_tier": "B (weak: 30% identity)",
+   "lipoylation_sources": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2749097/; https://www.rhea-db.org/rhea/17665"
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R2287",
+  "field": "notes",
+  "before": {
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020",
+   "lipoylation_evidence": "Lip5 is required for lipoylation in S. cerevisiae (Schonauer et al. 2009). YALI1E13472g: 70% identity / 82% coverage to Lip5 (P32875); reciprocal top hit Swiss-Prot Q6C6C6 LIPA_YARLI (100%). Rhea 16585 gives the dihydrolipoyl-protein product, 2 SAM to 2 Met + 2 5&apos;-deoxyadenosine, sulfur from an auxiliary [4Fe-4S] cluster and reduced ferredoxin. Lumped here: the Fe-S sulfur as L-cysteine to L-alanine (cysteine desulfurase) and the electrons as NADPH; the NADPH coefficient follows the model&apos;s NADP(+) convention (C21H29N7O17P3, charge 0).",
+   "lipoylation_evidence_tier": "B",
+   "lipoylation_sources": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2749097/; https://www.rhea-db.org/rhea/16585"
+  },
+  "after": {
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020",
+   "lipoylation_evidence": "Lip5 is required for lipoylation in S. cerevisiae (Schonauer et al. 2009). YALI1E13472g: 70% identity / 82% coverage to Lip5 (P32875); reverse top hit Swiss-Prot Q6C6C6 LIPA_YARLI (100%; PE3, HAMAP-inferred, the same protein in strain CLIB122, so not independent identity evidence). Rhea 16585 writes the dihydrolipoyl-protein product, 2 SAM to 2 Met + 2 5&apos;-deoxyadenosine, with an auxiliary [4Fe-4S] cluster as sulfur source (released as 2 hydrogen sulfide + 4 Fe3+) and ferredoxin. Lumped here: the 2 inserted sulfur atoms as L-cysteine to L-alanine (cysteine desulfurase) and the electrons as NADPH. The chemistry needs 2 NADPH (4 electrons) with ChEBI charges; it is written as 4 NADPH because the model&apos;s NADP(+) (m178, C21H29N7O17P3) carries charge 0, so each NADPH to NADP(+) releases one H here. Written charge-balanced.",
+   "lipoylation_evidence_tier": "B",
+   "lipoylation_sources": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2749097/; https://www.rhea-db.org/rhea/16585"
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R2288",
+  "field": "annotation",
+  "before": {
+   "ec-code": "2.3.1.200",
+   "rhea": "16413"
+  },
+  "after": {}
+ },
+ {
+  "section": "reactions",
+  "item": "R2288",
+  "field": "name",
+  "before": "lipoyl amidotransferase, H-protein to E2, mitochondrial (LIP3-type)",
+  "after": "LIP3-dependent lipoylation of E2 lipoyl domains, mitochondrial (lumped; mechanism unresolved)"
+ },
+ {
+  "section": "reactions",
+  "item": "R2288",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020",
+   "lipoylation_evidence": "Lip3 and lipoylated Gcv3 are required for Lat1 and Kgd2 lipoylation in S. cerevisiae (Schonauer et al. 2009). Mechanism unresolved: Hermes and Cronan 2013 found Lip3 octanoyl-CoA:protein transferase activity but no amidotransfer and no ligase activity in vitro, and proposed that Lip3 octanoylates PDH and OGDH from octanoyl-CoA downstream of Gcv3 lipoylation; UniProt P47051 is PE3, a putative lipoate-protein ligase. This reaction lumps E2 lipoylation as transfer of the lipoyl moiety made on the H-protein; per E2 lipoyl the net cost (one mtFAS octanoyl and two sulfur insertions) is the same under both proposed mechanisms. No EC or Rhea identifier is asserted. YALI1C04991g: 37% identity / 70% coverage to Lip3/AIM22 (P47051); reverse top hits LPLA S. pombe and S. cerevisiae. YALI1E00574g (GCV3 ortholog, 39%/98%, reverse top hit GCSH_YEAST) is AND-ed because lipoylated Gcv3 is required. One pooled E2 lipoyl-domain species stands for Lat1 and Kgd2, and it is not connected to the PDH or OGDH reactions.",
+   "lipoylation_evidence_tier": "C (mechanism unresolved)",
+   "lipoylation_sources": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2749097/; https://pubmed.ncbi.nlm.nih.gov/23960015/"
+  }
+ },
+ {
+  "section": "metabolites",
+  "item": "m586[C_mi]",
+  "field": "name",
+  "before": "lipoylprotein_C12H18N2O4S2R2(C2H2NOR)n",
+  "after": "lipoylprotein_C8H13OS2R"
+ },
+ {
+  "section": "genes",
+  "item": "YALI1C04991g",
+  "field": "notes",
+  "before": {
+   "lipoylation_gene_function": "LIP3-type lipoyl amidotransferase candidate (lipoate-protein ligase family)",
+   "lipoylation_evidence_tier": "B",
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020"
+  },
+  "after": {
+   "lipoylation_gene_function": "LIP3 ortholog (lipoate-protein ligase family; yeast Lip3 shows octanoyl-CoA:protein transferase activity in vitro)",
+   "lipoylation_evidence_tier": "C",
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020"
+  }
+ },
+ {
+  "section": "genes",
+  "item": "YALI1E13472g",
+  "field": "notes",
+  "before": {
+   "lipoylation_gene_function": "lipoyl synthase, LIP5 ortholog (reciprocal Swiss-Prot Q6C6C6 LIPA_YARLI)",
+   "lipoylation_evidence_tier": "B",
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020"
+  },
+  "after": {
+   "lipoylation_gene_function": "lipoyl synthase, LIP5 ortholog (reverse top hit Q6C6C6 LIPA_YARLI, PE3)",
+   "lipoylation_evidence_tier": "B",
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020"
+  }
+ },
+ {
+  "section": "genes",
+  "item": "YALI1F34729g",
+  "field": "notes",
+  "before": {
+   "lipoylation_gene_function": "LIP2-type octanoyltransferase candidate (LipB family)",
+   "lipoylation_evidence_tier": "B",
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020"
+  },
+  "after": {
+   "lipoylation_gene_function": "LIP2-type octanoyltransferase candidate (LipB family; family-level reciprocity only)",
+   "lipoylation_evidence_tier": "B (weak)",
+   "lipoylation_module": "LIPOYLATION-MODULE-20261020"
+  }
+ }
+]

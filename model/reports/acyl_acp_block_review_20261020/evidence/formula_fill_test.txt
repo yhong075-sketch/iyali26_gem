@@ -1,0 +1,71 @@
+m1410[C_mi]   acetoacetyl-ACP_                         C4H5O2S*   -> C4H5O2SR
+m1415[C_mi]   3-hydroxybutanoyl-ACP_                   None       -> C4H7O2SR
+m1418[C_mi]   trans-but-2-enoyl-ACP_                   None       -> C4H5OSR
+m1411[C_mi]   butanoyl-ACP_                            None       -> C4H7OSR
+m1412[C_mi]   3-oxo-hexanoyl-ACP_                      None       -> C6H9O2SR
+m1416[C_mi]   3-hydroxyhexanoyl-ACP_                   None       -> C6H11O2SR
+m1419[C_mi]   trans-hex-2-enoyl-ACP_                   None       -> C6H9OSR
+m1413[C_mi]   hexanoyl-ACP_                            C6H11OS*   -> C6H11OSR
+m1414[C_mi]   3-oxo-octanoyl-ACP_                      None       -> C8H13O2SR
+m1417[C_mi]   3-hydroxyoctanoyl-ACP_                   None       -> C8H15O2SR
+m1420[C_mi]   trans-oct-2-enoyl-ACP_                   None       -> C8H13OSR
+m1901[C_mi]   Decanoyl_ACP                             ACP        -> C10H19OSR
+m1910[C_cy]   Decanoyl_ACP                             ACP        -> C10H19OSR
+m1902[C_mi]   Dodecanoyl_ACP                           ACP        -> C12H23OSR
+m1911[C_cy]   Dodecanoyl_ACP                           ACP        -> C12H23OSR
+m1903[C_mi]   Myristoyl_ACP                            ACP        -> C14H27OSR
+m1912[C_cy]   Myristoyl_ACP                            ACP        -> C14H27OSR
+m1904[C_mi]   cis_tetradec_7_enoyl_acyl_carrier_protei C141       -> C14H25OSR
+m1913[C_cy]   cis_tetradec_7_enoyl_acyl_carrier_protei C141       -> C14H25OSR
+m1905[C_mi]   Palmitoyl_ACP                            ACP        -> C16H31OSR
+m1914[C_cy]   Palmitoyl_ACP                            ACP        -> C16H31OSR
+m1906[C_mi]   cis_hexadec_9_enoyl_acyl_carrier_protein C161       -> C16H29OSR
+m1915[C_cy]   cis_hexadec_9_enoyl_acyl_carrier_protein C161       -> C16H29OSR
+m1907[C_mi]   Octadecanoyl_ACP                         ACP        -> C18H35OSR
+m1916[C_cy]   Octadecanoyl_ACP                         ACP        -> C18H35OSR
+m1908[C_mi]   cis_octadec_11_enoyl_acyl_carrier_protei None       -> C18H33OSR
+m1917[C_cy]   cis_octadec_11_enoyl_acyl_carrier_protei None       -> C18H33OSR
+m1909[C_mi]   Octadecynoyl_ACP                         ACP        -> C18H31OSR
+m1918[C_cy]   Octadecynoyl_ACP                         ACP        -> C18H31OSR
+m1919[C_cy]   Octanoyl_ACP                             ACP        -> C8H15OSR
+m1920[C_cy]   ACP                                      None       -> HSR
+m1922[C_cy]   octadecadienoate                         None       -> C18H32O2
+
+R1394  (0.0, 1000.0)      {'charge': -1.0, 'H': -1.0}  (NADPH coef 0) | m180[C_mi] + m28[C_mi] + m801[C_mi] --> m1410[C_mi] + m179[C_mi] + m44[C_mi]
+R1395  (0.0, 1000.0)      {'charge': -1.0, 'H': -1.0}  (NADPH coef 0) | m1411[C_mi] + m28[C_mi] + m801[C_mi] --> m1412[C_mi] + m179[C_mi] + m44[C_mi]
+R1396  (0.0, 1000.0)      {'charge': -1.0, 'H': -1.0}  (NADPH coef 0) | m1413[C_mi] + m28[C_mi] + m801[C_mi] --> m1414[C_mi] + m179[C_mi] + m44[C_mi]
+R1397  (0.0, 1000.0)      {'charge': -1.0}  (NADPH coef -1) | m1410[C_mi] + m176[C_mi] + m28[C_mi] --> m1415[C_mi] + m178[C_mi]
+R1398  (0.0, 1000.0)      {'charge': -1.0}  (NADPH coef -1) | m1412[C_mi] + m176[C_mi] + m28[C_mi] --> m1416[C_mi] + m178[C_mi]
+R1399  (0.0, 1000.0)      {'charge': -1.0}  (NADPH coef -1) | m1414[C_mi] + m176[C_mi] + m28[C_mi] --> m1417[C_mi] + m178[C_mi]
+R1400  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1415[C_mi] <=> m1418[C_mi] + m26[C_mi]
+R1401  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1416[C_mi] <=> m1419[C_mi] + m26[C_mi]
+R1402  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1417[C_mi] <=> m1420[C_mi] + m26[C_mi]
+R1403  (0.0, 1000.0)      {'charge': -1.0}  (NADPH coef -1) | m1418[C_mi] + m176[C_mi] + m28[C_mi] --> m1411[C_mi] + m178[C_mi]
+R1404  (0.0, 1000.0)      {'charge': -1.0}  (NADPH coef -1) | m1419[C_mi] + m176[C_mi] + m28[C_mi] --> m1413[C_mi] + m178[C_mi]
+R1405  (0.0, 1000.0)      {'charge': -1.0}  (NADPH coef -1) | m1420[C_mi] + m176[C_mi] + m28[C_mi] --> m1421[C_mi] + m178[C_mi]
+R2216  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1919[C_cy] <=> m1421[C_mi]
+R2217  (0.0, 1000.0)      {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1919[C_cy] + m32[C_cy] --> m10[C_cy] + m1226[C_cy] + m1920[C_cy]
+R2218  (0.0, 1000.0)      {'charge': -3.0, 'H': -1.0}  (NADPH coef -2) | m1421[C_mi] + 2.0 m176[C_mi] + 3.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1901[C_mi] + m26[
+R2219  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1910[C_cy] <=> m1901[C_mi]
+R2220  (0.0, 1000.0)      {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1910[C_cy] + m32[C_cy] --> m10[C_cy] + m1220[C_cy] + m1920[C_cy]
+R2221  (0.0, 1000.0)      {'charge': -3.0, 'H': -1.0}  (NADPH coef -2) | 2.0 m176[C_mi] + m1901[C_mi] + 3.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1902[C_mi] + m26[
+R2222  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1911[C_cy] <=> m1902[C_mi]
+R2223  (0.0, 1000.0)      {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1911[C_cy] + m32[C_cy] --> m10[C_cy] + m1221[C_cy] + m1920[C_cy]
+R2224  (0.0, 1000.0)      {'charge': -3.0, 'H': -1.0}  (NADPH coef -2) | 2.0 m176[C_mi] + m1902[C_mi] + 3.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1903[C_mi] + m26[
+R2225  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1912[C_cy] <=> m1903[C_mi]
+R2226  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1912[C_cy] + m32[C_cy] <=> m10[C_cy] + m1222[C_cy] + m1920[C_cy]
+R2227  (0.0, 1000.0)      {'charge': -4.0, 'H': -1.0}  (NADPH coef -3) | 3.0 m176[C_mi] + m1902[C_mi] + 4.0 m28[C_mi] + m64[C_mi] + m801[C_mi] --> 3.0 m178[C_mi] + m179[C_mi] + m1904[
+R2228  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1913[C_cy] <=> m1904[C_mi]
+R2229  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1913[C_cy] + m32[C_cy] <=> m10[C_cy] + m1920[C_cy] + m1921[C_cy]
+R2230  (0.0, 1000.0)      {'charge': -3.0, 'H': -1.0}  (NADPH coef -2) | 2.0 m176[C_mi] + m1903[C_mi] + 3.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1905[C_mi] + m26[
+R2231  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1914[C_cy] <=> m1905[C_mi]
+R2232  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1914[C_cy] + m32[C_cy] <=> m10[C_cy] + m1223[C_cy] + m1920[C_cy]
+R2233  (0.0, 1000.0)      {'charge': -4.0, 'H': -1.0}  (NADPH coef -3) | 3.0 m176[C_mi] + m1903[C_mi] + 4.0 m28[C_mi] + m64[C_mi] + m801[C_mi] --> 3.0 m178[C_mi] + m179[C_mi] + m1906[
+R2234  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1915[C_cy] <=> m1906[C_mi]
+R2235  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1915[C_cy] + m32[C_cy] <=> m10[C_cy] + m1224[C_cy] + m1920[C_cy]
+R2236  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1916[C_cy] <=> m1907[C_mi]
+R2237  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1916[C_cy] + m32[C_cy] <=> m1096[C_cy] + m10[C_cy] + m1920[C_cy]
+R2238  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1917[C_cy] <=> m1908[C_mi]
+R2239  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1917[C_cy] + m32[C_cy] <=> m10[C_cy] + m1467[C_cy] + m1920[C_cy]
+R2240  (-1000.0, 1000.0)  {}  (NADPH coef 0) | m1918[C_cy] <=> m1909[C_mi]
+R2241  (-1000.0, 1000.0)  {'charge': 1.0, 'H': 1.0}  (NADPH coef 0) | m1918[C_cy] + m32[C_cy] <=> m10[C_cy] + m1920[C_cy] + m1922[C_cy]
