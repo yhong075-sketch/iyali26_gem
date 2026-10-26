@@ -130,7 +130,7 @@ unchanged.
 - The `--starting-model` path was not run end to end.
 - The rebuilt XMLs were byte-identical to the committed ones and were not kept.
 
-**Publication.** Not committed; no push.
+**Publication.** Committed as `a6a5f81` on `claude/upbeat-lewin-91febd`, on the user's instruction; not pushed.
 
 ## 2026-10-23: Lipoylation module + acyl-ACP chemistry on the main candidate, candidate a1237821 (merged to main, PR #19)
 
