@@ -5,6 +5,61 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-23: Lipoylation module + acyl-ACP chemistry on the main candidate, candidate a1237821 (not committed)
+
+**Authorization.** The user, after reading the plan (the message as received ends mid-sentence):
+
+> "Approved: add --lipoylation-module and --acyl-acp-chemistry on top of 2c9cebd0 as planned (steps
+> after r2193, bring 9f2356b code/data/tests/reports without its XMLs, acyl test lipoylates 164f235f in
+> memory, seeds 0/1 + control, whole-model diff, Gurobi 1e-9 two-model KO sweep with knocked-flux check"
+
+The two decisions themselves date from 2026-10-20 (lipoylation) and 2026-10-21 (acyl-ACP block
+accepted) on the unmerged branch `claude/combined-candidate-20261019` (`9f2356b`). That branch's
+entries are not in this file.
+
+**Results** ([REPORT.md](reports/lipoylation_acylacp_on_2c9cebd0_20261023/REPORT.md)). Verified this
+session.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_20261023.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_20261023.xml)
+  (`a1237821…`) = `2c9cebd0` + `--lipoylation-module --acyl-acp-chemistry`.
+- **Code:**
+  - `9f2356b`'s two modules, data files, tests and report folders are copied unchanged.
+  - The steps run after the R2193 step, because the heme/iron guard pins `biomass_C`.
+  - The acyl-ACP test builds its `fdd00ac3` baseline in memory.
+  - One new test file (3 tests).
+- **Builds:**
+  - the control without the flags reproduces `2c9cebd0`;
+  - seeds 0 and 1 give identical bytes;
+  - the whole-model diff is exactly the two steps, the same 135 entries as `b3b9fe22` vs `164f235f`;
+  - every touched reaction is balanced or at its curated residual (R2290 is the 5'-dA sink by design).
+- **WT** (Task A medium + PO1f, Gurobi 1e-9): 0.3124208528 (−5.44e-6 vs `2c9cebd0`).
+- **Knockouts:** 2 models, 2,161 LPs. A reset per knockout and the targeted check; nothing was
+  flagged; the largest residual is 3e-12.
+  - 13 genes become essential at every cutoff:
+    - the 3 lipoylation genes;
+    - 10 of `b3b9fe22`'s 11 shared genes, on mtFAS, acetyl-CoA carboxylase, desaturase and
+      lipoyl-dehydrogenase reactions (model reaction names; gene names not verified).
+  - YALI1E07744g was already essential in `2c9cebd0`.
+  - At 15 %: 93 / 220 / 36 / 697 / 16 (MCC 0.345) → 103 / 212 / 39 / 695 / 16 (MCC 0.367). Development
+    reference; user-defined negatives.
+- **pytest:** identical test by test, plus 13 new passes.
+- **Independent audit:** [AUDIT.md](reports/lipoylation_acylacp_on_2c9cebd0_20261023/AUDIT.md).
+  - C1 and C3–C8 are supported; C2 is partially supported. The binding order constraint is "after
+    heme/iron", not "after R2193".
+  - For YALI1F34729g the audit verified that the call, and the whole WT cost, come from the provisional
+    α = 1e-5 lipoyl term.
+  - Responses: wording fixes; a tighter new test; the control, seed-1 and `b3b9fe22` XMLs kept under
+    `$IYALI26_RESEARCH_ROOT/artifacts/tasks/lipoylation_acylacp_on_2c9cebd0_20261023/`.
+
+**Limits.**
+- Only WT and single-gene knockouts on the Task A medium.
+- The class-change mechanisms are inferred from reaction membership, not traced.
+- The heme/iron step cannot be rerun as a no-op on the finished model. The TPP step already could not
+  on `2c9cebd0` (audit).
+- α = 1e-5 is provisional, and it drives at least one of the new calls.
+- All open problems of `2c9cebd0` and of the two steps' reports stand.
+- Not committed or pushed.
+
 ## 2026-10-22: TPP line and heme/iron + R2193 line combined, candidate 2c9cebd0 (not committed)
 
 **Authorization.** The user:

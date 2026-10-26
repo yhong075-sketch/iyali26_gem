@@ -93,6 +93,8 @@ def build_reference_chain(
     thiamine_proton_lock: bool = False,
     heme_iron_biomass: bool = False,
     r2193_iron_gpr: bool = False,
+    lipoylation_module: bool = False,
+    acyl_acp_chemistry: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -139,6 +141,8 @@ def build_reference_chain(
         # Only the full TPP line was reviewed together with the heme a + iron terms (2026-10-22).
         raise ValueError("The heme a + iron biomass terms combine only with the full reviewed TPP line "
                          "(TPP requirement, thiamine phosphate chemistry and proton lock)")
+    if acyl_acp_chemistry and not lipoylation_module:
+        raise ValueError("The acyl-ACP chemistry correction requires --lipoylation-module (ACP1 = HSR)")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -797,6 +801,17 @@ def build_reference_chain(
         from .r2193_iron_gpr import apply_r2193_iron_gpr
         selection["r2193_iron_gpr"] = apply_r2193_iron_gpr(model)
         logger.info("R2193 iron GPR: %s", selection["r2193_iron_gpr"])
+    if lipoylation_module:
+        # Opt-in: mitochondrial lipoylation route and provisional lipoyl requirement (2026-10-20). Must run
+        # after the heme/iron step: the heme guard pins the full biomass_C, this guard only its own terms.
+        from .lipoylation_module import apply_lipoylation_module
+        selection["lipoylation_module"] = apply_lipoylation_module(model)
+        logger.info("Lipoylation module: %s", selection["lipoylation_module"]["status"])
+    if acyl_acp_chemistry:
+        # Opt-in: acyl-ACP block formulas, surplus H+ and hydrolase directions (2026-10-20).
+        from .acyl_acp_chemistry import apply_acyl_acp_chemistry
+        selection["acyl_acp_chemistry"] = apply_acyl_acp_chemistry(model)
+        logger.info("Acyl-ACP chemistry: %s", selection["acyl_acp_chemistry"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -896,6 +911,8 @@ def build_model(args):
         thiamine_proton_lock=getattr(args, "thiamine_proton_lock", False),
         heme_iron_biomass=getattr(args, "heme_iron_biomass", False),
         r2193_iron_gpr=getattr(args, "r2193_iron_gpr", False),
+        lipoylation_module=getattr(args, "lipoylation_module", False),
+        acyl_acp_chemistry=getattr(args, "acyl_acp_chemistry", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
