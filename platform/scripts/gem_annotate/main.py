@@ -95,6 +95,7 @@ def build_reference_chain(
     r2193_iron_gpr: bool = False,
     lipoylation_module: bool = False,
     acyl_acp_chemistry: bool = False,
+    cofactor_biomass_terms: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -143,6 +144,8 @@ def build_reference_chain(
                          "(TPP requirement, thiamine phosphate chemistry and proton lock)")
     if acyl_acp_chemistry and not lipoylation_module:
         raise ValueError("The acyl-ACP chemistry correction requires --lipoylation-module (ACP1 = HSR)")
+    if cofactor_biomass_terms and not lipoylation_module:
+        raise ValueError("The cofactor biomass terms are defined on the lipoylation-module biomass_C; requires --lipoylation-module")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -812,6 +815,12 @@ def build_reference_chain(
         from .acyl_acp_chemistry import apply_acyl_acp_chemistry
         selection["acyl_acp_chemistry"] = apply_acyl_acp_chemistry(model)
         logger.info("Acyl-ACP chemistry: %s", selection["acyl_acp_chemistry"]["status"])
+    if cofactor_biomass_terms:
+        # Opt-in: six cofactor growth-dilution terms at the yeast-GEM values (2026-10-27). Must run after every
+        # other step that edits biomass_C: its guard pins the full reviewed a1237821 composition.
+        from .cofactor_biomass_terms import apply_cofactor_biomass_terms
+        selection["cofactor_biomass_terms"] = apply_cofactor_biomass_terms(model)
+        logger.info("Cofactor biomass terms: %s", selection["cofactor_biomass_terms"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -913,6 +922,7 @@ def build_model(args):
         r2193_iron_gpr=getattr(args, "r2193_iron_gpr", False),
         lipoylation_module=getattr(args, "lipoylation_module", False),
         acyl_acp_chemistry=getattr(args, "acyl_acp_chemistry", False),
+        cofactor_biomass_terms=getattr(args, "cofactor_biomass_terms", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

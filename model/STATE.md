@@ -5,6 +5,139 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-27: THF, FAD, riboflavin, NAD, NADP and CoA in biomass_C at the yeast-GEM values, candidate 00e8e397 (committed 5d3ccee, PR #24)
+
+**Authorization.** The user, 2026-10-27, after reading the draft plan (the message as received ends
+mid-sentence at the app's reply-button limit; the plan it approves "as written" is the task's TASK.md):
+
+> "Approved: implement the cofactor biomass-terms plan as written: --cofactor-biomass-terms on top of
+> a1237821 (running after --acyl-acp-chemistry), THF m479, FAD m528, riboflavin m926, NAD m122, NADP m41
+> and CoA m69 in biomass_C at the yeast-GEM 9.1.1 r_4598 values 6.34e-5, 1e-5, 9.9e-4, 2.65e-3, 5.7e"
+
+The target was chosen in a prioritisation discussion of the 2026-10-26 gap census (cofactor pseudo-gaps
+first; Kennedy closures R1725/R1726, the dolichol chain, UM7 and UM2 ranked below).
+
+**Results** ([REPORT.md](reports/cofactor_biomass_terms_20261027/REPORT.md),
+[TASK.md](reports/cofactor_biomass_terms_20261027/TASK.md), [AUDIT.md](reports/cofactor_biomass_terms_20261027/AUDIT.md)).
+Verified this session; independent audit supports C1–C7 and the mechanism of C8.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_20261027.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_20261027.xml)
+  (`00e8e39775b64cfeb79cfafff65ef82eaf4760eff1b64fcddc3ce93b40919592`) = `a1237821` + `--cofactor-biomass-terms`.
+  Not a designated reference.
+- **Change:** `biomass_C` consumes THF m479 6.34e-5, FAD m528 1e-5, riboflavin m926 9.9e-4, NAD m122 2.65e-3,
+  NADP m41 5.7e-4 and CoA m69 1.9e-4 mmol/gDW (cytosolic species; yeast-GEM 9.1.1 `r_4598`, raw file
+  `2ddfaaa7…` re-fetched and verified; *S. cerevisiae* values, provisional like TDP and heme a), plus seven
+  `cofactor_biomass_terms_*` notes. Whole-model diff: nothing else. The paper's remedy for a coenzyme
+  pseudo-gap (Ponce-de-León 2013, Fig. 2); same pattern as the TPP and heme a terms of 2026-10-22.
+- **Code:** data `curation/biomass/cofactor_biomass_terms.json`; guarded step
+  `platform/scripts/gem_annotate/cofactor_biomass_terms.py` (fails closed unless `biomass_C` is exactly the
+  a1237821 composition; the `baseline_model_sha256` field is provenance only); flag requires
+  `--lipoylation-module`, runs after `--acyl-acp-chemistry`; test `tests/test_cofactor_biomass_terms.py`
+  (5 tests, 23 subtests). Code review: one guard gap (before-state id read after the edit) fixed before the
+  final build. Full suite 264 → 269 passed, the same 11 failures / 18 errors as before.
+- **Builds:** control without the flag reproduces `a1237821…` byte for byte; seeds 0 and 1 identical.
+- **Phase 1 (in memory, Task A medium + PO1f, Gurobi 1e-9):** WT 0.3124209 → 0.3120049 (−0.13 %); every
+  term alone optimal (NAD costs 3.2e-4, the rest ≤ 7e-5); growth stays positive with pantothenate,
+  nicotinate and riboflavin uptake closed; pFBA routes: THF de novo (medium folate is a dead end in the
+  model), FAD from riboflavin uptake, CoA from pantothenate uptake, NAD through cytosolic NMNAT R580 and
+  NAD synthetase R568, NADP through NADH kinase R571. All six identities resolved by formula (KEGG) and
+  reactions.
+- **Knockouts (both models, Gurobi 1e-9, reset per knockout, knocked-flux check, 2,164 LPs, no flagged
+  point):** 11 genes become essential at every cutoff, all on the new routes: 8 on the consensus list
+  (folate YALI1A10254g, YALI1A03069g; riboflavin kinase YALI1B02806g; FAD synthetase YALI1D33889g; CoA
+  YALI1D33780g, YALI1C09380g, YALI1D24649g; NAD synthetase YALI1A21156g) and 3 new false positives
+  (R648 pair YALI1E07601g / YALI1C08173g, dephospho-CoA kinase YALI1F13202g; reported, not fixed).
+  At 15 %: 103 / 212 / 39 / 695 → 111 / 204 / 42 / 692 (MCC 0.367 → 0.383); 1 %, 5 %, 10 % in the report.
+  Development reference; user-defined negatives; mtDNA out of scope; 16 unresolved (infeasible) as before.
+- **Census (GLPK, census scripts):** open condition 756 → 722 blocked (37 freed, all cofactor pseudo-gaps,
+  a subset of the 51 the drain tests predicted: all of UM9, 10 of UM3, 5 of UM14, 4 of UM33, 2 of UM7, 3
+  NAD(P) kinases/NMNAT; the 14 others are mitochondrial copies), gaps 701 → 675, none new; Task A 887 → 852.
+  GLPK's three "newly blocked" calls (R1343, R1344, R970) are active at Gurobi 1e-9 on both models.
+- **Energy:** a biomass term cannot create a cycle; the no-uptake ATP maximum is 0 with the NGAM bound
+  relaxed.
+
+**Findings (not changed).**
+- **The 2026-10-26 census closure checks' "EGC max ATP no uptake = 0" values are masked infeasibles:**
+  `closure_check.py` writes a NaN objective as 0.0, and the no-uptake LP is infeasible on this candidate
+  because `xMAINTENANCE` has lower bound 7.8625 (verified by rerunning the Kennedy case; the auditor
+  reproduced it). The five closure cases of the census need a re-check with that bound relaxed.
+- CoA m69 and NAD m122 carry class-level ChEBI / MetaNetX ids ("coenzyme", "NAD unspecified"); NADP m41's
+  name says C21H28 but its formula is C21H29.
+- Medium folate is a dead end (R849 → m1051 only).
+- The riboflavin de novo genes are consensus-essential although YNB contains riboflavin; the model keeps
+  them non-essential on the Task A medium.
+
+**Limits.** Only the Task A medium + PO1f; the 21 other pseudo-gap reactions (FMN, PLP, dolichyl-P, siroheme,
+biotin, pantetheine-4'-P), the mitochondrial copies and yeast-GEM's NADH / NADPH / glutathione terms are not
+addressed; coefficients are not *Y. lipolytica* measurements; gene identities unverified. Committed in `5d3ccee`
+(census report in `dfb3888`), branch `claude/gap-metabolites-model-2c880a`, PR #24; main merged afterwards.
+
+## 2026-10-26: Ponce-de-León 2013 gap census of the newest candidate a1237821 (computation only; committed dfb3888, PR #24)
+
+**Authorization.** The user: "use the definition in this paper, and find the gap in our model", with
+Ponce-de-León, Montero & Peretó 2013 (BMC Syst Biol 7:114) attached. Computation and reporting only; no
+model change; no commit.
+
+**Results** ([REPORT.md](reports/gap_metabolites_ponce2013_20261026/REPORT.md),
+[TASK.md](reports/gap_metabolites_ponce2013_20261026/TASK.md)). Verified this session; the blocked sets are
+reproduced by GLPK and Gurobi (1e-9).
+- **Model:** `a1237821…` (newest on `main`, PR #19; not a designated reference). Primary condition: every
+  exchange open, the paper's "any medium"; secondary: Task A medium + PO1f.
+- **Census (open condition):** 756 / 2,316 reactions blocked (69 closed, 42 exchanges or demands, 416 with a
+  GPR, 229 orphans); 701 / 1,882 gap metabolites; strict RNP 128 / RNC 131; classes RNP 100, RNC 103,
+  single reversible 136, isolated 28, DNP 21, UNC 71, DNP+UNC 160, no root 82; 618 blocked reactions follow
+  from the roots; 212 unconnected modules (127, 37, 37, 32, 30, 19, …; 161 of one or two reactions). Pooled
+  roots: glycolate (never produced), 4-hydroxy-2-oxoglutarate (never consumed).
+- **Primary causes:** several roots 290, dead-end root 181, cofactor pseudo-gap 72, closed 69, coupling 57,
+  missing transport 52, behind a closure 18, missing exchange 17.
+- **Coenzyme pseudo-gaps (paper Fig. 2):** 72 reactions unblock when the cofactor is drained (THF 19, FAD
+  16, FMN 11, riboflavin 9, PLP 8, NADP 8, CoA 7, dolichyl-P 6, NAD 4, pantetheine-4'-P 4, siroheme 3,
+  biotin 2); the heme a / heme b / siroheme pseudo-gaps of a56f3649 (78 then) are gone since the heme a
+  biomass term.
+- **Largest modules:** complex sphingolipids (UM1, 127 reactions: three disconnected representations, the 20
+  inherited Golgi synthase closures, no biomass drain); the inherited vacuolar closures with the dipeptide
+  sets (UM2, 37; opening the 17 closures unblocks 34/37); riboflavin / FAD + legacy biomass leftovers + BCAA
+  fragments (UM3); the accepted acyl-ACP block (UM4); a mitochondrial IPS phospholipase copy with neither
+  input nor output (UM5); the lipid-particle dolichol backbone (UM6; IPP + FPP import 19/19); nuclear
+  transports (UM7); envelope phospholipase B products (UM8); de novo folate synthesis (UM9; THF drain 13/13,
+  DHFR opening 0/13); mitochondrial-membrane pools (UM10); nuclear thioredoxin (UM11); the Kennedy pathway
+  behind R1725 / R1726 (UM12 / UM19; opening 19/19, growth +5e-5 on Task A, no energy-generating cycle on
+  the corrected check, see below).
+  14 mitochondrial aminoacyl-tRNA modules are out of scope (no mitochondrial translation).
+- **Closures:** 68 of the 69 are (0,0) in the source model (R1342 by the TPP step). Closure checks (Kennedy,
+  DHFR, R91 / R92, the 20 Golgi synthases, R1371): no energy-generating cycle, growth +7e-5 at most.
+  **Correction 2026-10-27:** the energy-cycle values first reported were masked infeasibles (the skill's
+  `closure_check.py` writes a NaN objective as 0; the no-uptake LP is infeasible because `xMAINTENANCE` has
+  lower bound 7.8625), found by the cofactor biomass-terms session. Redone with the maintenance bound relaxed
+  and R_NTP1 maximised, Gurobi 1e-9: all ten LPs optimal at 0, so the conclusion holds on valid evidence
+  (REPORT.md section 6; `egc_check_relaxed.json` in the artifacts). Growth and FVA values were unaffected.
+- **Versus a56f3649:** 48 reactions became active (heme / iron 18, GPI 7, mtFAS 13, thiamine 7, transports
+  3) and 9 blocked (R2190 and eight acyl-ACP reactions, both documented decisions); 795 → 756 blocked.
+- **Task A medium:** 887 (GLPK) / 882 (Gurobi) blocked; 131 medium-only = 95 from absent nutrients + 31
+  reversible dead-end chains of absent carbon sources + 5 solver fringe (thiamine route at 3.75e-7 = TPP
+  coefficient × growth); 61 active reactions sit within 1e-9–1e-4 (open problem 1 of 2026-10-22 applies).
+- **Pipeline check:** a56f3649 reproduces the analysis skill's reference numbers exactly.
+- **Outputs:** CSV tables and three figures in the report folder; workbook, full tables, scripts and raw
+  outputs under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/gap_metabolites_ponce2013_20261026/`.
+- **Escher maps (user request, same day):** the 20 largest modules (UM1–UM20, 436 of the 756 blocked reactions)
+  as an offline interactive viewer, `reports/gap_metabolites_ponce2013_20261026/escher/gap_modules_escher.html`
+  (module and scenario drop-downs, gap-class node colours, census and fix-test values as reaction data, click
+  for equation / GPR / bounds), with SVG / PNG renders and map JSON in the artifacts folder. Automatic layout
+  (repeated hub nodes are the same pool); no new LP solves. On the user's follow-up, four cross-module
+  problem-class maps were added to the same viewer (cofactor pseudo-gaps by cofactor family, the 69 closures by
+  group with the 18 reactions an opening frees, missing transports / exchanges by root compartment, dead-end
+  roots by root class), each drawing the tested drain / opening / link / sink as a labelled TEST reaction with
+  the number of reactions it unblocks. All 108 map × scenario views verified headlessly. The viewer is
+  self-contained (Escher bundle inlined, 2.2 MB) and is kept in the git report folder by the user's decision
+  (2026-10-26), above the usual ~1 MB figure guideline. On 2026-10-27 the tooltip's BiGG link (a 404 for
+  iYali26 ids) was redirected to a self-contained dataset page, `escher/gap_dataset.html`, with an anchored entry
+  per metabolite and blocked reaction (census facts, fix evidence, links back to the maps); the user decided
+  (2026-10-27) to keep that 2.1 MB page in the git report folder next to the viewer as well.
+
+**Limits.** Fix and drain tests are LP evidence ("adding X unblocks n of N"), not curation recommendations;
+module narratives use the model's names, gene identities unverified; no independent audit; medium-condition
+sets carry the solver fringe. No model change, no reference designated. Not committed.
+
 ## 2026-10-26: Heme/iron guard requires the full reviewed TPP line (builder code only, no model change; committed a6a5f81, not pushed)
 
 **Authorization.** The session that started this one asked for four low-severity findings from a code

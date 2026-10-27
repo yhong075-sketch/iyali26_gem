@@ -71,6 +71,8 @@ def parse_args(argv=None):
                         help="Add the mitochondrial lipoylation route (LIP2-type, LIP5, LIP3-type), fill the ACP1 and lipoyl-H-protein formulas and add a provisional lipoyl growth-dilution requirement (curated 2026-10-20 decision)")
     parser.add_argument("--acyl-acp-chemistry", action="store_true",
                         help="Fill the acyl-ACP/ACP/fatty-acid formulas of the mtFAS and R2216-R2241 block, remove its surplus H+ and make its reversible cytosolic acyl-ACP hydrolases forward-only (curated 2026-10-20 decision); requires --lipoylation-module")
+    parser.add_argument("--cofactor-biomass-terms", action="store_true",
+                        help="Add THF (6.34e-5), FAD (1e-5), riboflavin (9.9e-4), NAD (2.65e-3), NADP (5.7e-4) and CoA (1.9e-4 mmol/gDW) to biomass_C at the yeast-GEM 9.1.1 r_4598 values (curated 2026-10-27, COFACTOR-BIOMASS-TERMS-20261027); requires --lipoylation-module and runs last")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
