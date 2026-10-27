@@ -1,0 +1,920 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi 1e-9 (checked_solve)",
+ "model": "../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_20261023.xml",
+ "terms": {
+  "m479[C_cy]": 6.34e-05,
+  "m528[C_cy]": 1e-05,
+  "m926[C_cy]": 0.00099,
+  "m122[C_cy]": 0.00265,
+  "m41[C_cy]": 0.00057,
+  "m69[C_cy]": 0.00019
+ },
+ "model_sha256": "a12378210c7c66720d99fb7bf71d14cb7538ea6a3cf3e08919c85fb3c9c47d82",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "baseline_wt": {
+  "status": "optimal",
+  "growth": 0.31242085277746734,
+  "max_bound_violation": 0.0,
+  "max_residual": 1.4210854715202004e-14,
+  "max_knocked_flux": 0.0,
+  "passed": true
+ },
+ "baseline_egc": {
+  "status": "infeasible",
+  "objective": "R_NTP1",
+  "max_atp_no_uptake": NaN
+ },
+ "six_terms_wt": {
+  "status": "optimal",
+  "growth": 0.3120049201947926,
+  "max_bound_violation": 0.0,
+  "max_residual": 2.1316282072803006e-14,
+  "max_knocked_flux": 0.0,
+  "passed": true
+ },
+ "six_terms_pfba": {
+  "status": "optimal",
+  "growth": 0.3120049201947926,
+  "watched_fluxes": {
+   "R377": 1.9781111940349316e-05,
+   "R274": 1.9781111940349316e-05,
+   "R14": 0.0,
+   "R277": 1.9781111940349316e-05,
+   "R278": 0.0,
+   "R273": 1.9781111940349316e-05,
+   "R749": 0.0,
+   "R271": 0.0032499680507170367,
+   "R272": 0.0,
+   "R849": 0.0,
+   "R811": 0.0,
+   "R378": 0.0,
+   "R34": 0.0,
+   "R12": 0.0,
+   "R11": 0.0,
+   "R699": 0.0,
+   "R700": 0.0,
+   "R1316": 0.0003120049201947926,
+   "R1315": 0.0,
+   "R1314": -0.0003120049201947926,
+   "R697": 3.1200492019479263e-06,
+   "R698": 0.0,
+   "R306": 3.1200492019479263e-06,
+   "R847": 0.0,
+   "R946": -5.928093483692498e-05,
+   "R616": 5.928093483692498e-05,
+   "R1908": 0.0,
+   "R1909": 0.0,
+   "R647": 5.928093483692498e-05,
+   "R648": 5.928093483692498e-05,
+   "R615": 5.928093483692498e-05,
+   "R1092": 5.928093483692498e-05,
+   "R1291": 0.0,
+   "R265": 0.0,
+   "R1268": 0.003643285558873192,
+   "R907": -0.003643285558873192,
+   "R576": 0.0,
+   "R578": 0.0,
+   "R579": 0.0,
+   "R580": 0.0010046558430272245,
+   "R568": 0.0010046558430272245,
+   "R569": 0.0,
+   "R565": 0.0,
+   "R566": 0.0,
+   "R571": 0.0001778428045110525,
+   "R572": 0.0
+  },
+  "exchanges_nonzero": {
+   "R946": -5.928093483692498e-05,
+   "R971": -1.9781111940349316e-05,
+   "R1003": -0.00118,
+   "R1016": -1.8932186753180535,
+   "R1030": 4.664050502272025,
+   "R1070": -2.414,
+   "R1147": 1.9781111940349316e-05,
+   "R1189": -9.796954494116487e-06,
+   "R1202": -0.00624,
+   "R1204": -0.01307,
+   "R1215": -0.00207,
+   "R1217": -0.00829,
+   "R1220": -0.00595,
+   "R1222": -0.00292,
+   "R1223": -0.00658,
+   "R1231": -0.01826,
+   "R1232": -0.00532,
+   "R1233": -0.006,
+   "R1234": -0.02599,
+   "R1263": -2.340036929665673e-05,
+   "R1268": 0.003643285558873192,
+   "R1287": -4.662849166077719,
+   "R1296": -0.025890541156144607,
+   "R1314": -0.0003120049201947926,
+   "R1333": -0.018325663035744122,
+   "R1340": -3.7440590423375107e-07,
+   "R1354": -0.042857619847797075,
+   "R1364": -4.319967392085395
+  },
+  "producers": {
+   "THF": [
+    {
+     "reaction": "R654",
+     "name": "phosphoribosylaminoimidazolecarboxamide formyltran",
+     "flux": 0.05383828905984314,
+     "net_production": 0.05383828905984314,
+     "gpr": "YALI1D32209g"
+    },
+    {
+     "reaction": "R1907",
+     "name": "empty",
+     "flux": 0.039097151954827526,
+     "net_production": 0.039097151954827526,
+     "gpr": "YALI1D03865g"
+    },
+    {
+     "reaction": "R545",
+     "name": "methionine synthase",
+     "flux": 0.022296549655063332,
+     "net_production": 0.022296549655063332,
+     "gpr": "YALI1E15659g"
+    },
+    {
+     "reaction": "R271",
+     "name": "dihydrofolate reductase",
+     "flux": 0.0032499680507170367,
+     "net_production": 0.0032499680507170367,
+     "gpr": "YALI1C17947g"
+    },
+    {
+     "reaction": "biomass_C",
+     "name": "biomass_C",
+     "flux": 0.3120049201947926,
+     "net_production": -1.9781111940349848e-05,
+     "gpr": ""
+    },
+    {
+     "reaction": "R358",
+     "name": "glycine hydroxymethyltransferase",
+     "flux": 0.11846217760851069,
+     "net_production": -0.11846217760851069,
+     "gpr": "YALI1D28569g or YALI1E19557g"
+    }
+   ],
+   "FAD": [
+    {
+     "reaction": "R306",
+     "name": "FMN adenylyltransferase",
+     "flux": 3.1200492019479263e-06,
+     "net_production": 3.1200492019479263e-06,
+     "gpr": "YALI1D33889g"
+    },
+    {
+     "reaction": "biomass_C",
+     "name": "biomass_C",
+     "flux": 0.3120049201947926,
+     "net_production": -3.1200492019479263e-06,
+     "gpr": ""
+    }
+   ],
+   "riboflavin": [
+    {
+     "reaction": "R1316",
+     "name": "riboflavin transport",
+     "flux": 0.0003120049201947926,
+     "net_production": 0.0003120049201947926,
+     "gpr": ""
+    },
+    {
+     "reaction": "R697",
+     "name": "riboflavin kinase",
+     "flux": 3.1200492019479263e-06,
+     "net_production": -3.1200492019479263e-06,
+     "gpr": "YALI1B02806g"
+    },
+    {
+     "reaction": "biomass_C",
+     "name": "biomass_C",
+     "flux": 0.3120049201947926,
+     "net_production": -0.0003088848709928447,
+     "gpr": ""
+    }
+   ],
+   "NAD": [
+    {
+     "reaction": "R534",
+     "name": "malate dehydrogenase, cytoplasmic",
+     "flux": -4.026437960429068,
+     "net_production": 4.026437960429068,
+     "gpr": "YALI1E17214g"
+    },
+    {
+     "reaction": "R568",
+     "name": "NAD synthase",
+     "flux": 0.0010046558430272245,
+     "net_production": 0.0010046558430272245,
+     "gpr": "YALI1A21156g"
+    },
+    {
+     "reaction": "R348",
+     "name": "glycerol-3-phosphate dehydrogenase (NAD)",
+     "flux": 0.0008277623055633303,
+     "net_production": 0.0008277623055633303,
+     "gpr": "YALI1B04433g"
+    },
+    {
+     "reaction": "R1594",
+     "name": "NAD transport, cytoplasm-ER membrane",
+     "flux": -9.42122336122817e-05,
+     "net_production": 9.42122336122817e-05,
+     "gpr": ""
+    },
+    {
+     "reaction": "biomass_C",
+     "name": "biomass_C",
+     "flux": 0.3120049201947926,
+     "net_production": -0.0008268130385162003,
+     "gpr": ""
+    },
+    {
+     "reaction": "R308",
+     "name": "formate dehydrogenase",
+     "flux": 0.016611270858897423,
+     "net_production": -0.016611270858897423,
+     "gpr": "YALI1B28349g or YALI1A12540g or YALI1B26033g or YALI1B29419g"
+    },
+    {
+     "reaction": "R417",
+     "name": "IMP dehydrogenase",
+     "flux": 0.018770340800886798,
+     "net_production": -0.018770340800886798,
+     "gpr": "YALI1D27148g"
+    },
+    {
+     "reaction": "R389",
+     "name": "histidinol dehydrogenase",
+     "flux": 0.014741137105015619,
+     "net_production": -0.029482274210031238,
+     "gpr": "YALI1A15879g"
+    },
+    {
+     "reaction": "R45",
+     "name": "3-isopropylmalate dehydrogenase",
+     "flux": 0.060700557223896896,
+     "net_production": -0.060700557223896896,
+     "gpr": "PO1f_plasmid_LEU2"
+    },
+    {
+     "reaction": "R718",
+     "name": "saccharopine dehydrogenase (NAD, L-lysine forming)",
+     "flux": 0.07985291307816894,
+     "net_production": -0.07985291307816894,
+     "gpr": "YALI1B20289g"
+    },
+    {
+     "reaction": "R641",
+     "name": "phosphoglycerate dehydrogenase",
+     "flux": 0.20868744842552056,
+     "net_production": -0.20868744842552056,
+     "gpr": "YALI1F13505g"
+    },
+    {
+     "reaction": "R2119",
+     "name": "3-Oxopropanoate:NAD+ oxidoreductase (decarboxylati",
+     "flux": 0.27161962733461903,
+     "net_production": -0.27161962733461903,
+     "gpr": "YALI1C02550g"
+    },
+    {
+     "note": "1 more consumers/producers omitted"
+    }
+   ],
+   "NADP": [
+    {
+     "reaction": "R330",
+     "name": "glutamate dehydrogenase (NADP)",
+     "flux": 1.3412267106903741,
+     "net_production": 1.3412267106903741,
+     "gpr": "YALI1F23664g"
+    },
+    {
+     "reaction": "R410",
+     "name": "hydroxymethylglutaryl CoA reductase",
+     "flux": 0.07194303051327584,
+     "net_production": 0.1438860610265517,
+     "gpr": "YALI1E05731g"
+    },
+    {
+     "reaction": "R719",
+     "name": "saccharopine dehydrogenase (NADP, L-glutamate form",
+     "flux": 0.07985291307816894,
+     "net_production": 0.07985291307816894,
+     "gpr": "YALI1D29481g"
+    },
+    {
+     "reaction": "R505",
+     "name": "L-aminoadipate-semialdehyde dehydrogenase (NADPH)",
+     "flux": 0.07985291307816894,
+     "net_production": 0.07985291307816894,
+     "gpr": "YALI1E07676g and YALI1E11510g"
+    },
+    {
+     "reaction": "R399",
+     "name": "homoserine dehydrogenase (NADP)",
+     "flux": 0.07827809114498988,
+     "net_production": 0.07827809114498988,
+     "gpr": "YALI1D01188g"
+    },
+    {
+     "reaction": "R164",
+     "name": "aspartate-semialdehyde dehydrogenase",
+     "flux": 0.07827809114498988,
+     "net_production": 0.07827809114498988,
+     "gpr": "YALI1D16809g"
+    },
+    {
+     "reaction": "R332",
+     "name": "glutamate-5-semialdehyde dehydrogenase",
+     "flux": 0.06438907939043974,
+     "net_production": 0.06438907939043974,
+     "gpr": "YALI1E35815g"
+    },
+    {
+     "reaction": "R689",
+     "name": "pyrroline-5-carboxylate reductase",
+     "flux": 0.06438907939043974,
+     "net_production": 0.06438907939043974,
+     "gpr": "YALI1B18955g"
+    },
+    {
+     "reaction": "R745",
+     "name": "sulfite reductase (NADPH2)",
+     "flux": 0.012085564631848272,
+     "net_production": 0.03625669389554481,
+     "gpr": "YALI1D14058g and YALI1E19603g"
+    },
+    {
+     "reaction": "R251",
+     "name": "cytochrome P450 lanosterol 14-alpha-demethylase (N",
+     "flux": 0.011943548345056659,
+     "net_production": 0.03583064503516997,
+     "gpr": "YALI1D05474g and YALI1B07094g and (YALI1D14199g or YALI1D063"
+    },
+    {
+     "reaction": "R185",
+     "name": "C-4 sterol methyl oxidase (4,4-dimethylzymosterol)",
+     "flux": 0.011943548345056659,
+     "net_production": 0.03583064503516997,
+     "gpr": "YALI1F14958g"
+    },
+    {
+     "reaction": "R724",
+     "name": "shikimate dehydrogenase",
+     "flux": 0.02609394587290514,
+     "net_production": 0.02609394587290514,
+     "gpr": "YALI1F16984g"
+    },
+    {
+     "note": "23 more consumers/producers omitted"
+    }
+   ],
+   "CoA": [
+    {
+     "reaction": "R561",
+     "name": "N-acetylglucosamine-6-phosphate synthase",
+     "flux": 0.2709319684905097,
+     "net_production": 0.2709319684905097,
+     "gpr": "YALI1D25450g"
+    },
+    {
+     "reaction": "R410",
+     "name": "hydroxymethylglutaryl CoA reductase",
+     "flux": 0.07194303051327584,
+     "net_production": 0.07194303051327584,
+     "gpr": "YALI1E05731g"
+    },
+    {
+     "reaction": "R401",
+     "name": "homoserine O-trans-acetylase",
+     "flux": 0.010880601630056067,
+     "net_production": 0.010880601630056067,
+     "gpr": "YALI1C33270g or YALI1E01235g"
+    },
+    {
+     "reaction": "R1392",
+     "name": "fatty-acyl-CoA synthase (n-C16:0CoA)",
+     "flux": 9.421223361228174e-05,
+     "net_production": 0.0006594856352859722,
+     "gpr": "YALI1B19844g and YALI1B25427g"
+    },
+    {
+     "reaction": "R1054",
+     "name": "coenzyme A transport",
+     "flux": -0.000593446610497041,
+     "net_production": 0.000593446610497041,
+     "gpr": ""
+    },
+    {
+     "reaction": "R1382",
+     "name": "coenzyme A: cytoplasm to LP",
+     "flux": -9.421223361228185e-05,
+     "net_production": 9.421223361228185e-05,
+     "gpr": ""
+    },
+    {
+     "reaction": "R1092",
+     "name": "dephospho-CoA kinase",
+     "flux": 5.928093483692498e-05,
+     "net_production": 5.928093483692498e-05,
+     "gpr": "YALI1F13202g"
+    },
+    {
+     "reaction": "biomass_C",
+     "name": "biomass_C",
+     "flux": 0.3120049201947926,
+     "net_production": -5.928093483701059e-05,
+     "gpr": ""
+    },
+    {
+     "reaction": "R2121",
+     "name": "3-Oxopropanoate:NADP+ oxidoreductase (CoA-malonyla",
+     "flux": 0.0006594856352859722,
+     "net_production": -0.0006594856352859722,
+     "gpr": "YALI1C02550g"
+    },
+    {
+     "reaction": "R90",
+     "name": "acetyl-CoA synthetase",
+     "flux": 0.010880601630056068,
+     "net_production": -0.010880601630056068,
+     "gpr": "YALI1F08845g"
+    },
+    {
+     "reaction": "R834",
+     "name": "coenzyme A transport",
+     "flux": 0.07194303051327586,
+     "net_production": -0.07194303051327586,
+     "gpr": "YALI1F20788g"
+    },
+    {
+     "reaction": "R2119",
+     "name": "3-Oxopropanoate:NAD+ oxidoreductase (decarboxylati",
+     "flux": 0.27161962733461903,
+     "net_production": -0.27161962733461903,
+     "gpr": "YALI1C02550g"
+    }
+   ]
+  }
+ },
+ "six_terms_egc": {
+  "status": "infeasible",
+  "objective": "R_NTP1",
+  "max_atp_no_uptake": NaN
+ },
+ "single_terms": {
+  "THF": {
+   "status": "optimal",
+   "growth": 0.3124138531225386,
+   "max_bound_violation": 0.0,
+   "max_residual": 3.552713678800501e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "growth_cost_vs_baseline": 6.999654928729893e-06
+  },
+  "FAD": {
+   "status": "optimal",
+   "growth": 0.3124200699134683,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.4424906541753444e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "growth_cost_vs_baseline": 7.828639990159481e-07
+  },
+  "riboflavin": {
+   "status": "optimal",
+   "growth": 0.31242085277746495,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.708944180085382e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "growth_cost_vs_baseline": 2.3869795029440866e-15
+  },
+  "NAD": {
+   "status": "optimal",
+   "growth": 0.3121041881892129,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.7763568394002505e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "growth_cost_vs_baseline": 0.0003166645882544117
+  },
+  "NADP": {
+   "status": "optimal",
+   "growth": 0.3123517018793226,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.245144174739533e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "growth_cost_vs_baseline": 6.915089814474307e-05
+  },
+  "CoA": {
+   "status": "optimal",
+   "growth": 0.3123983021093677,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.0889052973384049e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "growth_cost_vs_baseline": 2.2550668099641236e-05
+  }
+ },
+ "vitamins_closed": {
+  "R946 (pantothenate)": {
+   "status": "optimal",
+   "growth": 0.3119909204678834,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.1316282072803006e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "R1268 (nicotinate)": {
+   "status": "optimal",
+   "growth": 0.312004920194794,
+   "max_bound_violation": 0.0,
+   "max_residual": 4.085620730620576e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "R1314 (riboflavin)": {
+   "status": "optimal",
+   "growth": 0.31185928035057997,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.4210854715202004e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "R1127 (folate)": {
+   "status": "optimal",
+   "growth": 0.31200492019479287,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.6645352591003757e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "R946+R1268+R1314": {
+   "status": "optimal",
+   "growth": 0.3118452936901089,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.941507935324105e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  }
+ },
+ "vitamins_closed_pfba_producers": {
+  "THF": [
+   {
+    "reaction": "R654",
+    "name": "phosphoribosylaminoimidazolecarboxamide formyltran",
+    "flux": 0.05412092710887545,
+    "net_production": 0.05412092710887545,
+    "gpr": "YALI1D32209g"
+   },
+   {
+    "reaction": "R1907",
+    "name": "empty",
+    "flux": 0.039388390839558696,
+    "net_production": 0.039388390839558696,
+    "gpr": "YALI1D03865g"
+   },
+   {
+    "reaction": "R545",
+    "name": "methionine synthase",
+    "flux": 0.02228364848132829,
+    "net_production": 0.02228364848132829,
+    "gpr": "YALI1E15659g"
+   },
+   {
+    "reaction": "R271",
+    "name": "dihydrofolate reductase",
+    "flux": 0.0032483053171936524,
+    "net_production": 0.0032483053171936524,
+    "gpr": "YALI1C17947g"
+   },
+   {
+    "reaction": "biomass_C",
+    "name": "biomass_C",
+    "flux": 0.3118452936901089,
+    "net_production": -1.97709916199529e-05,
+    "gpr": ""
+   },
+   {
+    "reaction": "R358",
+    "name": "glycine hydroxymethyltransferase",
+    "flux": 0.11902150075533613,
+    "net_production": -0.11902150075533613,
+    "gpr": "YALI1D28569g or YALI1E19557g"
+   }
+  ],
+  "FAD": [
+   {
+    "reaction": "R306",
+    "name": "FMN adenylyltransferase",
+    "flux": 3.118452936901089e-06,
+    "net_production": 3.118452936901089e-06,
+    "gpr": "YALI1D33889g"
+   },
+   {
+    "reaction": "biomass_C",
+    "name": "biomass_C",
+    "flux": 0.3118452936901089,
+    "net_production": -3.118452936901089e-06,
+    "gpr": ""
+   }
+  ],
+  "riboflavin": [
+   {
+    "reaction": "R700",
+    "name": "riboflavin synthase",
+    "flux": 0.00031184529369010885,
+    "net_production": 0.00031184529369010885,
+    "gpr": "YALI1C01520g"
+   },
+   {
+    "reaction": "R697",
+    "name": "riboflavin kinase",
+    "flux": 3.118452936901089e-06,
+    "net_production": -3.118452936901089e-06,
+    "gpr": "YALI1B02806g"
+   },
+   {
+    "reaction": "biomass_C",
+    "name": "biomass_C",
+    "flux": 0.3118452936901089,
+    "net_production": -0.0003087268407532078,
+    "gpr": ""
+   }
+  ],
+  "NAD": [
+   {
+    "reaction": "R130",
+    "name": "alcohol dehydrogenase (ethanol to acetaldehyde)",
+    "flux": -2.1230159670452045,
+    "net_production": 2.1230159670452045,
+    "gpr": "YALI1A15227g or YALI1A16292g or YALI1D33961g or YALI1E09329g"
+   },
+   {
+    "reaction": "R534",
+    "name": "malate dehydrogenase, cytoplasmic",
+    "flux": -1.9041789485901979,
+    "net_production": 1.9041789485901979,
+    "gpr": "YALI1E17214g"
+   },
+   {
+    "reaction": "R568",
+    "name": "NAD synthase",
+    "flux": 0.0010041418456821236,
+    "net_production": 0.0010041418456821236,
+    "gpr": "YALI1A21156g"
+   },
+   {
+    "reaction": "R348",
+    "name": "glycerol-3-phosphate dehydrogenase (NAD)",
+    "flux": 0.000827338809666331,
+    "net_production": 0.000827338809666331,
+    "gpr": "YALI1B04433g"
+   },
+   {
+    "reaction": "R1594",
+    "name": "NAD transport, cytoplasm-ER membrane",
+    "flux": -9.416403318794033e-05,
+    "net_production": 9.416403318794033e-05,
+    "gpr": ""
+   },
+   {
+    "reaction": "biomass_C",
+    "name": "biomass_C",
+    "flux": 0.3118452936901089,
+    "net_production": -0.0008263900282787886,
+    "gpr": ""
+   },
+   {
+    "reaction": "R308",
+    "name": "formate dehydrogenase",
+    "flux": 0.01754102995253915,
+    "net_production": -0.01754102995253915,
+    "gpr": "YALI1B28349g or YALI1A12540g or YALI1B26033g or YALI1B29419g"
+   },
+   {
+    "reaction": "R417",
+    "name": "IMP dehydrogenase",
+    "flux": 0.019072582900204534,
+    "net_production": -0.019072582900204534,
+    "gpr": "YALI1D27148g"
+   },
+   {
+    "reaction": "R389",
+    "name": "histidinol dehydrogenase",
+    "flux": 0.014732536269316757,
+    "net_production": -0.029465072538633515,
+    "gpr": "YALI1A15879g"
+   },
+   {
+    "reaction": "R45",
+    "name": "3-isopropylmalate dehydrogenase",
+    "flux": 0.06066950188741068,
+    "net_production": -0.06066950188741068,
+    "gpr": "PO1f_plasmid_LEU2"
+   },
+   {
+    "reaction": "R718",
+    "name": "saccharopine dehydrogenase (NAD, L-lysine forming)",
+    "flux": 0.0798090149912484,
+    "net_production": -0.0798090149912484,
+    "gpr": "YALI1B20289g"
+   },
+   {
+    "reaction": "R641",
+    "name": "phosphoglycerate dehydrogenase",
+    "flux": 0.20923148362342373,
+    "net_production": -0.20923148362342373,
+    "gpr": "YALI1F13505g"
+   },
+   {
+    "note": "2 more consumers/producers omitted"
+   }
+  ],
+  "NADP": [
+   {
+    "reaction": "R330",
+    "name": "glutamate dehydrogenase (NADP)",
+    "flux": 1.3411837825667612,
+    "net_production": 1.3411837825667612,
+    "gpr": "YALI1F23664g"
+   },
+   {
+    "reaction": "R410",
+    "name": "hydroxymethylglutaryl CoA reductase",
+    "flux": 0.07190622335494636,
+    "net_production": 0.1438124467098927,
+    "gpr": "YALI1E05731g"
+   },
+   {
+    "reaction": "R719",
+    "name": "saccharopine dehydrogenase (NADP, L-glutamate form",
+    "flux": 0.0798090149912484,
+    "net_production": 0.0798090149912484,
+    "gpr": "YALI1D29481g"
+   },
+   {
+    "reaction": "R505",
+    "name": "L-aminoadipate-semialdehyde dehydrogenase (NADPH)",
+    "flux": 0.0798090149912484,
+    "net_production": 0.0798090149912484,
+    "gpr": "YALI1E07676g and YALI1E11510g"
+   },
+   {
+    "reaction": "R399",
+    "name": "homoserine dehydrogenase (NADP)",
+    "flux": 0.0782229655682359,
+    "net_production": 0.0782229655682359,
+    "gpr": "YALI1D01188g"
+   },
+   {
+    "reaction": "R164",
+    "name": "aspartate-semialdehyde dehydrogenase",
+    "flux": 0.0782229655682359,
+    "net_production": 0.0782229655682359,
+    "gpr": "YALI1D16809g"
+   },
+   {
+    "reaction": "R332",
+    "name": "glutamate-5-semialdehyde dehydrogenase",
+    "flux": 0.06435613694941515,
+    "net_production": 0.06435613694941515,
+    "gpr": "YALI1E35815g"
+   },
+   {
+    "reaction": "R689",
+    "name": "pyrroline-5-carboxylate reductase",
+    "flux": 0.06435613694941515,
+    "net_production": 0.06435613694941515,
+    "gpr": "YALI1B18955g"
+   },
+   {
+    "reaction": "R745",
+    "name": "sulfite reductase (NADPH2)",
+    "flux": 0.012077887554732282,
+    "net_production": 0.03623366266419684,
+    "gpr": "YALI1D14058g and YALI1E19603g"
+   },
+   {
+    "reaction": "R185",
+    "name": "C-4 sterol methyl oxidase (4,4-dimethylzymosterol)",
+    "flux": 0.011937437842457366,
+    "net_production": 0.0358123135273721,
+    "gpr": "YALI1F14958g"
+   },
+   {
+    "reaction": "R251",
+    "name": "cytochrome P450 lanosterol 14-alpha-demethylase (N",
+    "flux": 0.011937437842457366,
+    "net_production": 0.0358123135273721,
+    "gpr": "YALI1D05474g and YALI1B07094g and (YALI1D14199g or YALI1D063"
+   },
+   {
+    "reaction": "R724",
+    "name": "shikimate dehydrogenase",
+    "flux": 0.02607415968877007,
+    "net_production": 0.02607415968877007,
+    "gpr": "YALI1F16984g"
+   },
+   {
+    "note": "25 more consumers/producers omitted"
+   }
+  ],
+  "CoA": [
+   {
+    "reaction": "R561",
+    "name": "N-acetylglucosamine-6-phosphate synthase",
+    "flux": 0.27079335553815553,
+    "net_production": 0.27079335553815553,
+    "gpr": "YALI1D25450g"
+   },
+   {
+    "reaction": "R410",
+    "name": "hydroxymethylglutaryl CoA reductase",
+    "flux": 0.07190622335494636,
+    "net_production": 0.07190622335494636,
+    "gpr": "YALI1E05731g"
+   },
+   {
+    "reaction": "R401",
+    "name": "homoserine O-trans-acetylase",
+    "flux": 0.010873541030500894,
+    "net_production": 0.010873541030500894,
+    "gpr": "YALI1C33270g or YALI1E01235g"
+   },
+   {
+    "reaction": "R1392",
+    "name": "fatty-acyl-CoA synthase (n-C16:0CoA)",
+    "flux": 9.416403318794037e-05,
+    "net_production": 0.0006591482323155826,
+    "gpr": "YALI1B19844g and YALI1B25427g"
+   },
+   {
+    "reaction": "R1054",
+    "name": "coenzyme A transport",
+    "flux": -0.0005931429941050594,
+    "net_production": 0.0005931429941050594,
+    "gpr": ""
+   },
+   {
+    "reaction": "R1382",
+    "name": "coenzyme A: cytoplasm to LP",
+    "flux": -9.416403318794034e-05,
+    "net_production": 9.416403318794034e-05,
+    "gpr": ""
+   },
+   {
+    "reaction": "R1092",
+    "name": "dephospho-CoA kinase",
+    "flux": 5.92506058013087e-05,
+    "net_production": 5.92506058013087e-05,
+    "gpr": "YALI1F13202g"
+   },
+   {
+    "reaction": "biomass_C",
+    "name": "biomass_C",
+    "flux": 0.3118452936901089,
+    "net_production": -5.925060580112069e-05,
+    "gpr": ""
+   },
+   {
+    "reaction": "R2121",
+    "name": "3-Oxopropanoate:NADP+ oxidoreductase (CoA-malonyla",
+    "flux": 0.0006591482323155826,
+    "net_production": -0.0006591482323155826,
+    "gpr": "YALI1C02550g"
+   },
+   {
+    "reaction": "R90",
+    "name": "acetyl-CoA synthetase",
+    "flux": 0.010873541030500894,
+    "net_production": -0.010873541030500894,
+    "gpr": "YALI1F08845g"
+   },
+   {
+    "reaction": "R834",
+    "name": "coenzyme A transport",
+    "flux": 0.07190622335494642,
+    "net_production": -0.07190622335494642,
+    "gpr": "YALI1F20788g"
+   },
+   {
+    "reaction": "R2119",
+    "name": "3-Oxopropanoate:NAD+ oxidoreductase (decarboxylati",
+    "flux": 0.27148066256544856,
+    "net_production": -0.27148066256544856,
+    "gpr": "YALI1C02550g"
+   }
+  ]
+ },
+ "lp_count": 19
+}
