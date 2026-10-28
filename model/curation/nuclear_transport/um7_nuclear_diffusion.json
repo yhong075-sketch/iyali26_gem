@@ -1,0 +1,81 @@
+{
+ "schema_version": 1,
+ "curation_id": "UM7-NUCLEAR-DIFFUSION-20261028",
+ "status": "user_authorized",
+ "authorization": "2026-10-28 user, after reading the Stage 1 draft (model/reports/um7_nuclear_transports_20261028/TASK.md): \"Approve Option A\" = add two gene-less reversible nucleus-cytosol diffusion reactions for ADP-ribose (m1725[C_cy] / m818[C_nu]) and diphosphate (m203[C_cy] / m210[C_nu]) in the Transport, nucleus group, through a guarded --um7-nuclear-diffusion step on 9d655c2b. No commit or push.",
+ "baseline_model_sha256": "9d655c2bdbf82721a38f148a9a4ee0a385bb509ea7b591111107113c4aa8335c",
+ "report": "model/reports/um7_nuclear_transports_20261028/",
+ "reviewer": "Claude Code session (Stage 1 investigation, 2026-10-28); decision by the user; independent audit in the report",
+ "group": "Transport, nucleus",
+ "species": {
+  "m1725[C_cy]": {
+   "name": "ADP-ribose_C15H21N5O14P2",
+   "formula": "C15H21N5O14P2",
+   "charge": -2,
+   "compartment": "C_cy",
+   "reactions_before": ["R1912"]
+  },
+  "m818[C_nu]": {
+   "name": "ADP-ribose_C15H21N5O14P2",
+   "formula": "C15H21N5O14P2",
+   "charge": -2,
+   "compartment": "C_nu",
+   "reactions_before": ["R567"]
+  },
+  "m203[C_cy]": {
+   "name": "diphosphate_H4O7P2",
+   "formula": "H4O7P2",
+   "charge": 0,
+   "compartment": "C_cy"
+  },
+  "m210[C_nu]": {
+   "name": "diphosphate_H4O7P2",
+   "formula": "H4O7P2",
+   "charge": 0,
+   "compartment": "C_nu",
+   "reactions_before": ["R569", "R579", "R92"]
+  }
+ },
+ "new_reactions": [
+  {
+   "reaction_id": "R_ADPRtn",
+   "reaction_name": "ADP-ribose diffusion, nucleus",
+   "bounds": [-1000.0, 1000.0],
+   "gpr": "",
+   "stoichiometry": {"m1725[C_cy]": -1.0, "m818[C_nu]": 1.0},
+   "annotation": {"sbo": "SBO:0000185"},
+   "notes": {
+    "um7_nuclear_diffusion_curation_id": "UM7-NUCLEAR-DIFFUSION-20261028",
+    "um7_nuclear_diffusion_mechanism": "Passive diffusion through the nuclear pore complex (small molecules equilibrate between nucleoplasm and cytoplasm; Timney et al. 2016 J Cell Biol, PMC5057280). Gene-less, as the other Transport, nucleus diffusions.",
+    "um7_nuclear_diffusion_reason": "Joins the nuclear sirtuin step R567 (ADP-ribose made, no consumer) to the cytosolic ADP-ribose pyrophosphatase R1912 (Ysa1 ortholog YALI1F33579g; ADP-ribose consumed, no producer). yeast-GEM carries the same gene-less transport as r_4603.",
+    "um7_nuclear_diffusion_authorization": "User authorized Option A on 2026-10-28 (model/reports/um7_nuclear_transports_20261028/TASK.md)."
+   },
+   "evidence": [
+    {"claim": "Small molecules equilibrate passively between cytoplasm and nucleoplasm through the NPC (in vivo, S. cerevisiae)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5057280/", "tier": "verified (full text read this session); application to ADP-ribose inferred"},
+    {"claim": "Sir2, Hst1 and Hst4 are nuclear in S. cerevisiae; Y. lipolytica orthologs YALI1F15334g (SIR2/HST1) and YALI1D02416g (HST3) by reciprocal BLAST", "url": "https://rest.uniprot.org/uniprotkb/P06700.txt", "tier": "verified (S. cerevisiae); Y. lipolytica localization predicted only"},
+    {"claim": "Ysa1 hydrolyses ADP-ribose and O-acetyl-ADP-ribose to AMP and (acetyl-)ribose-5-P", "url": "https://pubmed.ncbi.nlm.nih.gov/19251690/", "tier": "verified"},
+    {"claim": "yeast-GEM r_4603 ADP-ribose transport nucleus-cytosol, gene-less", "url": "reference/external_models/yeast_gem/Yeast-GEM.xml (sha256 9fd2c572..., repo commit 80a6e27)", "tier": "verified (local file read this session); model precedent, not biological evidence"}
+   ]
+  },
+  {
+   "reaction_id": "R_PPItn",
+   "reaction_name": "diphosphate diffusion, nucleus",
+   "bounds": [-1000.0, 1000.0],
+   "gpr": "",
+   "stoichiometry": {"m203[C_cy]": -1.0, "m210[C_nu]": 1.0},
+   "annotation": {"sbo": "SBO:0000185"},
+   "notes": {
+    "um7_nuclear_diffusion_curation_id": "UM7-NUCLEAR-DIFFUSION-20261028",
+    "um7_nuclear_diffusion_mechanism": "Passive diffusion through the nuclear pore complex (small molecules equilibrate between nucleoplasm and cytoplasm; Timney et al. 2016 J Cell Biol, PMC5057280). Gene-less, as the other Transport, nucleus diffusions.",
+    "um7_nuclear_diffusion_reason": "Gives the PPi released by the nuclear NAD synthesis steps R569 (Qns1 ortholog) and R579 (Nma1 ortholog) an outlet to the cytosolic inorganic pyrophosphatase R419; nuclear PPi had no consumer or transport.",
+    "um7_nuclear_diffusion_authorization": "User authorized Option A on 2026-10-28 (model/reports/um7_nuclear_transports_20261028/TASK.md)."
+   },
+   "evidence": [
+    {"claim": "Small molecules equilibrate passively between cytoplasm and nucleoplasm through the NPC (in vivo, S. cerevisiae)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5057280/", "tier": "verified (full text read this session); application to PPi inferred"},
+    {"claim": "Nma2 and Npt1 are concentrated in the nucleus (S. cerevisiae)", "url": "https://pubmed.ncbi.nlm.nih.gov/11884393/", "tier": "verified"},
+    {"claim": "GFP-Qns1 is in nucleus and cytosol (S. cerevisiae)", "url": "https://pubmed.ncbi.nlm.nih.gov/12898714/", "tier": "verified"},
+    {"claim": "S. cerevisiae Ipp1 is nucleocytoplasmic with a functional NLS", "url": "https://pubmed.ncbi.nlm.nih.gov/30826332/", "tier": "verified (abstract read this session)"}
+   ]
+  }
+ ]
+}

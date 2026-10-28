@@ -99,6 +99,7 @@ def build_reference_chain(
     r2135_acyl_coa_pool: bool = False,
     r1726_cpt_open: bool = False,
     dolichol_route: bool = False,
+    um7_nuclear_diffusion: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -158,6 +159,9 @@ def build_reference_chain(
     if dolichol_route and not r1726_cpt_open:
         # Reviewed on ce9e1112 (2026-10-28); its guard pins that candidate's biomass_C.
         raise ValueError("The dolichol route curation was reviewed on the R1726 opening candidate; requires --r1726-cpt-open")
+    if um7_nuclear_diffusion and not dolichol_route:
+        # Reviewed on 9d655c2b (2026-10-28), the dolichol route candidate.
+        raise ValueError("The UM7 nuclear diffusion curation was reviewed on the dolichol route candidate; requires --dolichol-route")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -851,6 +855,12 @@ def build_reference_chain(
         from .dolichol_route import apply_dolichol_route
         selection["dolichol_route"] = apply_dolichol_route(model)
         logger.info("Dolichol route: %s", selection["dolichol_route"]["status"])
+    if um7_nuclear_diffusion:
+        # Opt-in: gene-less nucleus-cytosol diffusion of ADP-ribose (R_ADPRtn) and diphosphate (R_PPItn), gap-census
+        # UM7 (2026-10-28). Adds two reactions only; requires and runs after the dolichol route step.
+        from .um7_nuclear_diffusion import apply_um7_nuclear_diffusion
+        selection["um7_nuclear_diffusion"] = apply_um7_nuclear_diffusion(model)
+        logger.info("UM7 nuclear diffusion: %s", selection["um7_nuclear_diffusion"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -956,6 +966,7 @@ def build_model(args):
         r2135_acyl_coa_pool=getattr(args, "r2135_acyl_coa_pool", False),
         r1726_cpt_open=getattr(args, "r1726_cpt_open", False),
         dolichol_route=getattr(args, "dolichol_route", False),
+        um7_nuclear_diffusion=getattr(args, "um7_nuclear_diffusion", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

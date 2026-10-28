@@ -5,6 +5,75 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-28: UM7 nuclear NAD block joined to the cytosol (gene-less ADP-ribose and diphosphate diffusions), candidate 5f54eb22 (committed 3720370 on branch claude/hungry-mendel-f9f7df, not pushed)
+
+**Authorization.** The user, 2026-10-28, in this session: "Approve Option A" (Stage 1 draft), then, after the
+run stopped at the knockout gate, "Accept, restate gate"
+([TASK.md](reports/um7_nuclear_transports_20261028/TASK.md) sections 0 and 11;
+[STOP.md](reports/um7_nuclear_transports_20261028/STOP.md)).
+
+**Results** ([REPORT.md](reports/um7_nuclear_transports_20261028/REPORT.md),
+[AUDIT.md](reports/um7_nuclear_transports_20261028/AUDIT.md)). Verified this session.
+
+Independent audit: 9 claims supported and reproduced (SHAs, raw diff, WT, EGC, FVA spot checks, the PNP
+knockout and its four controls, pytest logs). Two are partial: the user's wording cannot be seen by the auditor,
+and there are two citation weak spots. Both are corrected in TASK.md section 12.
+
+- **Candidate:**
+  [E5_…_dolichol_route_v2_um7_nuclear_diffusion_20261028.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_20261028.xml)
+  (`5f54eb22086b06b2bd5e8715b89984060cd43c1a7fa21e33e5581d867ee54179`) = `9d655c2b` + `--um7-nuclear-diffusion`.
+  Not a designated reference. The brief named `ce9e1112` as the newest candidate, but PR #29 had been merged; the
+  UM7 reactions are identical in the two.
+- **Change** (whole-model diff vs `9d655c2b`: 3 entries):
+  - R_ADPRtn, ADP-ribose `m1725[C_cy]` ⇌ `m818[C_nu]`, added;
+  - R_PPItn, diphosphate `m203[C_cy]` ⇌ `m210[C_nu]`, added;
+  - both join the "Transport, nucleus" group. They are gene-less and reversible, SBO:0000185, and mass and
+    charge balanced.
+- **Code:**
+  - data `curation/nuclear_transport/um7_nuclear_diffusion.json`;
+  - step `platform/scripts/gem_annotate/um7_nuclear_diffusion.py`;
+  - flag `--um7-nuclear-diffusion`, which requires `--dolichol-route`;
+  - test `tests/test_um7_nuclear_diffusion.py` (6 tests, 24 subtests).
+- **pytest:** 314 → 320 passed; the same 19 failed and 14 errors before and after.
+- **Builds:** the control reproduces `9d655c2b` byte for byte; seeds 0 and 1 are identical.
+- **Solves (Task A + PO1f, Gurobi 1e-9, checked):**
+  - WT 0.3116608216 unchanged (+4.6e-15 relative). pFBA carries 0 through the new route at the optimum.
+  - No-uptake ATP and biomass are 0 (optimal, maintenance relaxed).
+  - Whole-model FVA blocked sets: open 705 → 695, Task A 837 → 828, nothing newly blocked.
+  - UM7 blocked 15 → 6 (open) and 15 → 8 (Task A; R579 / R1270 need NMN, which the medium lacks). R1912 (census
+    UM171) is freed, and R576 on Task A.
+  - Sweep 2 × 1,081: no class change at any cutoff. At 15 %: 112 / 203 / 42 / 692 (user-defined negatives,
+    development reference).
+- **Stop and restated gate:**
+  - `YALI1F37714g` (purine-nucleoside phosphorylase by KEGG EC; name not verified) knockout: 0.3114518 →
+    0.3115725 (+1.2e-4, no class change).
+  - Route: spare tryptophan → kynurenine NAD synthesis → nuclear R569 → sirtuin step R567 → R_ADPRtn → R1912.
+    Closing either link, R567 or R1912 restores the baseline value.
+  - Cause: R567 is a lumped NAD hydrolase with no acetylated substrate, so it acts as a free NAD sink once its
+    products have outlets.
+  - Accepted by the user as a documented consequence.
+- **Biology (TASK.md section 3):**
+  - Passive nuclear-pore diffusion (Timney 2016, in vivo, *S. cerevisiae*) is the mechanism.
+  - Nuclear sirtuins, NMNAT and Qns1 are experimental in *S. cerevisiae*.
+  - *Y. lipolytica* orthologs by reciprocal BLAST. Their localization is predicted only, and no *Y. lipolytica*
+    localization data exist.
+  - The homocitrate branch R396 (LYS1 predicted mitochondrial; no carrier known) and the closed R92 are left as
+    they are.
+
+**Escher figure** ([escher/](reports/um7_nuclear_transports_20261028/escher/README.md)): 9d655c2b vs 5f54eb22 on
+Task A + PO1f.
+- It shows capacity (FVA at 0 %), because pFBA is 0 on these reactions in both models.
+- 23 mapped reactions: blocked 18 → 9, flux-capable 3 → 14.
+- The viewer was checked in jsdom and headless Chrome; tooltips were not exercised.
+
+**Limits.**
+- R567 chemistry is unchanged; that is the cause of the PNP knockout gain. Constraining it is a separate question.
+- Diffusion of these exact metabolites is inferred from a general rule.
+- The new reactions carry no BiGG / MetaNetX ids.
+- Only the Task A medium was tested for growth and essentiality.
+- Budget: 3 builds against 3; about 60,000 LPs against about 20,000 planned (mostly whole-model FVA scans).
+- Committed in `3720370` on branch `claude/hungry-mendel-f9f7df` on the user's instruction (2026-10-28); not pushed.
+
 ## 2026-10-28: dolichol route joined (R2178 closed, lumped dehydrodolichyl-PP → dolichol step R_DOLSYN, Dol-P in biomass_C), candidate 9d655c2b (committed on branch claude/dolichol-chain-gap-dfec4d, not pushed)
 
 **Authorization.** The user, 2026-10-28: "Approve Option B" (Stage 1 draft), then, after the run stopped at

@@ -1,0 +1,203 @@
+{
+ "model": "model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_20261028.xml",
+ "sha256": "9d655c2bdbf82721a38f148a9a4ee0a385bb509ea7b591111107113c4aa8335c",
+ "new_ids_absent": {
+  "R_ADPRtn": true,
+  "R_PPItn": true
+ },
+ "species": {
+  "m818[C_nu]": {
+   "name": "ADP-ribose_C15H21N5O14P2",
+   "formula": "C15H21N5O14P2",
+   "charge": -2,
+   "compartment": "C_nu",
+   "reactions": [
+    "R567"
+   ]
+  },
+  "m1725[C_cy]": {
+   "name": "ADP-ribose_C15H21N5O14P2",
+   "formula": "C15H21N5O14P2",
+   "charge": -2,
+   "compartment": "C_cy",
+   "reactions": [
+    "R1912"
+   ]
+  },
+  "m210[C_nu]": {
+   "name": "diphosphate_H4O7P2",
+   "formula": "H4O7P2",
+   "charge": 0,
+   "compartment": "C_nu",
+   "reactions": [
+    "R569",
+    "R579",
+    "R92"
+   ]
+  },
+  "m203[C_cy]": {
+   "name": "diphosphate_H4O7P2",
+   "formula": "H4O7P2",
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions": [
+    "R1097",
+    "R1100",
+    "R114",
+    "R120",
+    "R129",
+    "R1309",
+    "R147",
+    "R153",
+    "R154",
+    "R156",
+    "R157",
+    "R1597",
+    "R1632",
+    "R165",
+    "R170",
+    "R175",
+    "R1934",
+    "R1935",
+    "R1943",
+    "R1944",
+    "R1945",
+    "R1952",
+    "R2024",
+    "R2085",
+    "R2108",
+    "R213",
+    "R2179",
+    "R2180",
+    "R248",
+    "R282",
+    "R291",
+    "R295",
+    "R306",
+    "R319",
+    "R321",
+    "R322",
+    "R336",
+    "R337",
+    "R368",
+    "R369",
+    "R378",
+    "R380",
+    "R392",
+    "R414",
+    "R419",
+    "R493",
+    "R522",
+    "R531",
+    "R540",
+    "R544",
+    "R547",
+    "R568",
+    "R574",
+    "R578",
+    "R580",
+    "R581",
+    "R611",
+    "R615",
+    "R617",
+    "R625",
+    "R635",
+    "R647",
+    "R652",
+    "R657",
+    "R673",
+    "R723",
+    "R739",
+    "R743",
+    "R754",
+    "R759",
+    "R771",
+    "R775",
+    "R778",
+    "R783",
+    "R793",
+    "R798",
+    "R800",
+    "R90",
+    "R_DOLSYN"
+   ]
+  }
+ },
+ "reactions": {
+  "R567": {
+   "equation": "m626[C_nu] + m817[C_nu] --> 2.0 m627[C_nu] + m818[C_nu] + m819[C_nu]",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D26320g or YALI1D02416g or YALI1F15334g",
+   "subsystem": "Purine metabolism"
+  },
+  "R569": {
+   "equation": "m206[C_nu] + m626[C_nu] + m821[C_nu] + m822[C_nu] --> m209[C_nu] + m210[C_nu] + m817[C_nu] + m823[C_nu]",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A21156g",
+   "subsystem": ""
+  },
+  "R579": {
+   "equation": "m206[C_nu] + m832[C_nu] --> m210[C_nu] + m817[C_nu]",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E30400g or YALI1A20611g",
+   "subsystem": ""
+  },
+  "R1912": {
+   "equation": "2.0 m10[C_cy] + m1725[C_cy] + m32[C_cy] --> m86[C_cy] + m889[C_cy]",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F33579g",
+   "subsystem": "Purine metabolism"
+  },
+  "R419": {
+   "equation": "m203[C_cy] + m32[C_cy] --> 2.0 m35[C_cy]",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C16485g or YALI1F18105g",
+   "subsystem": "Oxidative phosphorylation"
+  },
+  "R1082": {
+   "equation": "m820[C_cy] <=> m821[C_nu]",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "subsystem": "Transport, nucleus"
+  }
+ },
+ "um7_blocked_open_gurobi_1e-9": [
+  "R1000",
+  "R1001",
+  "R1017",
+  "R1055",
+  "R1082",
+  "R1212",
+  "R1214",
+  "R1267",
+  "R1270",
+  "R396",
+  "R567",
+  "R569",
+  "R579",
+  "R92",
+  "R965"
+ ],
+ "whole_model_blocked_counts_gurobi_1e-9": {
+  "open": 705,
+  "taskA": 837
+ }
+}
