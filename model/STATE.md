@@ -5,6 +5,61 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-27: Why consensus-essential genes are predicted non-essential, a1237821 (investigation only; committed fd9be09, PR #25)
+
+**Authorization.** Parent-session brief relayed from the user, 2026-10-27: investigation only, no model fixes;
+explain the false negatives per gene, use the literature reviewer where biology matters; no change to model XML,
+GPR, medium, benchmark or curated data; no commit or push. Details:
+[REPORT.md](reports/essentiality_fn_causes_20261027/REPORT.md), [TASK.md](reports/essentiality_fn_causes_20261027/TASK.md),
+per-gene table [fn_causes_a1237821.csv](reports/essentiality_fn_causes_20261027/fn_causes_a1237821.csv).
+Branch `claude/essentiality-fn-causes-c36ef9`, started at `5fb75e7`; `origin/main` merged in for PR #25.
+The screen used `a1237821`, not the later cofactor-biomass candidate `00e8e397` (entry below), which was not
+screened here.
+
+**Inputs.**
+- Model `a1237821…`, the newest candidate on `origin/main` (PR #19), exported byte-identically; no reference model
+  is designated.
+- Task A medium `6eca70fd…` + PO1f `35307853…`.
+- List `1e887f5a…`.
+- Gurobi 1e-9, reset per knockout, knocked-flux check.
+
+**Results** (verified this session unless marked):
+- **Screen** (1,082 LPs): WT 0.3124208528. At 15 %: 103 / 212 / 39 / 695, 16 unresolved, recall 0.327, MCC 0.367.
+  This equals the 2026-10-23 sweep.
+- **Out of scope:** 1,286 listed genes have no model counterpart.
+- **Development reference:** negatives are the user-defined class and mtDNA genes are out of scope.
+- **Causes of the 212 FN genes** (mechanical rule on saved LPs; about 130,000 LPs, mostly FVA):
+
+  | Cause | Genes | Detail |
+  | --- | ---: | --- |
+  | a. OR partner keeps the reaction open | 31 | Reaction-level KO < 15 %. 9 ATP synthase subunits: R171 has `or YALI1B28025g or YALI1B15733g` (ATP20/ATP19-like) as single-gene branches; reaction-level KO 0.1097. 6 aaRS: cytosolic R759/R723/R673 OR cytosolic and mitochondrial-type paralogs. |
+  | b. alternative route | 58 | Verified bypasses: reversible R2024 (ADK1-, IPP1-like), gene-less HMG-CoA carrier R1172 (ERG13-, ERG10-like), duplicate R2081 (GLN1-like). Complex I via NDH2-like R570 and shuttles (13 genes). Central carbon (26). |
+  | c. medium amino acids (flag f) | 13 | KO/WT 0.159–0.278; 0 with amino acids closed; depends on the assumed caps |
+  | d. product not demanded | 104 | Biomass has no NAD(P), FAD, FMN, CoA, folate, PLP, biotin, sphingolipid, GPI, glycoprotein or mitochondrial-protein term. 51 genes sit on reactions blocked in WT. |
+  | e. gene without reaction | 6 | |
+
+- **Literature** (Europe PMC, *Y. lipolytica*): 48 of 56 pairs had no hit. The R712 OR partner YALI1F02518g has
+  homology-only RPI support plus an erythritol phenotype (PMIDs 29910781, 34342539). One chain was refused by the
+  provider's content filter.
+
+**Candidates** (not changes; ranked in REPORT §6):
+1. The R171 single-gene OR branches.
+2. The cytosolic aaRS rules.
+3. R2024 direction and R1172.
+4. Other OR partners.
+5. Cofactor and other biomass demands, which need connected pathways first.
+6. Complex I bypass evidence.
+
+Changing the amino-acid caps is excluded as tuning.
+
+**Limits.**
+- Single-gene KOs on one medium only.
+- Gene names are homolog names from the list text; none is verified for *Y. lipolytica*.
+- That an edit would flip a gene is inferred.
+- Route lists show one optimum.
+- No independent audit.
+- pytest not run, because no platform code changed.
+- Nothing committed or pushed.
 ## 2026-10-27: THF, FAD, riboflavin, NAD, NADP and CoA in biomass_C at the yeast-GEM values, candidate 00e8e397 (committed 5d3ccee, PR #24)
 
 **Authorization.** The user, 2026-10-27, after reading the draft plan (the message as received ends
