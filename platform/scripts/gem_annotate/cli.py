@@ -79,6 +79,8 @@ def parse_args(argv=None):
                         help="Open the inherited (0, 0) cholinephosphotransferase R1726 to [0, 1000] and keep R1725 closed (curated 2026-10-27, R1726-CPT-OPEN-20261027); requires --r2135-acyl-coa-pool and runs after it")
     parser.add_argument("--dolichol-route", action="store_true",
                         help="Join the split dolichol route: close the gene-less placeholder R2178, add the lumped gene-less dehydrodolichyl-PP -> dolichol step R_DOLSYN and drain dolichyl phosphate m503[C_er] from biomass_C at 1e-4 mmol/gDW (curated 2026-10-28, DOLICHOL-ROUTE-20261028); requires --r1726-cpt-open and runs after it")
+    parser.add_argument("--r2171-pi-plc-1to1", action="store_true",
+                        help="Write the PI phospholipase C R2171 as PI + H2O -> DAG + inositol 1-phosphate + 2 H+ instead of 100 H2O / 100 Ins1P / 100 H+ (curated 2026-10-28, R2171-PI-PLC-1TO1-20261028); requires --dolichol-route and runs after it")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

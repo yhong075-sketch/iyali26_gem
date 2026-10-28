@@ -5,6 +5,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-28: R2171 written 1:1 (PI + H2O → DAG + Ins1P + 2 H+), inositol leak closed, candidate 965ab947 (not committed)
+
+**Authorization.** The user, 2026-10-28: "Approve Option A" of the Stage 2 draft
+([TASK.md](reports/r2171_pi_plc_1to1_20261028/TASK.md) section 9), after Stage 1 found the leak (entry below).
+
+**Results** ([REPORT.md](reports/r2171_pi_plc_1to1_20261028/REPORT.md),
+[AUDIT.md](reports/r2171_pi_plc_1to1_20261028/AUDIT.md)). Verified this session; independent audit: K1–K3 and K5–K11
+supported, K4 / K12 partially (documentation gaps, fixed). No science overclaim.
+- **Candidate:**
+  [E5_…_dolichol_route_v2_r2171_1to1_20261028.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_r2171_1to1_20261028.xml)
+  (`965ab947f2aadc2c69443e7a794358c502acfdf0892e78582278ff07a37429d7`) = `9d655c2b` + `--r2171-pi-plc-1to1`. Not a
+  designated reference.
+- **Change:** R2171 from `PI + 100 H2O → DAG + 100 Ins1P + 100 H+` (charge −100) to the KEGG R03332 form with 2 H+
+  (charge 0), plus notes; GPR `YALI1D13510g`, bounds and annotations unchanged. Whole-model diff: those two entries.
+- **Code:** data `curation/chemistry/r2171_pi_plc_1to1.json`; step `platform/scripts/gem_annotate/r2171_pi_plc.py`;
+  flag requires `--dolichol-route`; test `tests/test_r2171_pi_plc.py` (4 tests, 30 subtests). One code review: no
+  bugs, two low findings fixed (same model bytes).
+- **pytest:** 314 → 318 (only the new tests). **Builds:** control = `9d655c2b` byte for byte; seeds 0 / 1 identical,
+  also after the review fixes.
+- **Acceptance (Stage 1 check):** INO1-null without inositol now has growth 0 and inositol / Ins1P demand 0 on C1–C4
+  (was WT growth, 511–520 / 1000), also with R1720 open; acyl and phosphate tests 0; oleate control grows.
+- **Solves (Task A + PO1f, Gurobi 1e-9):** WT unchanged 0.3116608; no-uptake ATP and biomass 0. Sweep 2 × 1,082: no
+  class change at any cutoff; only the inositol transporter `YALI1F31381g` moves (0.3116608 → 0.3116574); 15 %
+  TP / FN / FP / TN 112 / 203 / 42 / 692 (MCC 0.386) on both. Census: Task A 840 → 840; open 708 → 705, the three freed
+  thiamine reactions unblocked in both models under Gurobi (not caused by the change).
+- **Escher:** [figures/](reports/r2171_pi_plc_1to1_20261028/figures/) (no inositol: before R2171 supplies it, after INO1).
+
+**Limits.** Gene identity is orthology plus an automatic PI-PLC X annotation (product unknown); mass balance not
+checkable (lumped PI / DAG). Task A + three media, one base model. The IPC / MIPC synthases, R2165, R2187 and R1720 are
+unchanged; R1720 can now be considered. Budget: 21 LPs outside the planned categories and a re-run sweep baseline
+(REPORT section 7). The candidate path is ≈ 289 characters; loads used short-path copies.
+
+## 2026-10-28: hidden-source check on 9d655c2b: R2171 is an inositol (and organic phosphate) source; no acyl or free-Pi leak (Stage 1, read-only; committed f240a78)
+
+**Authorization.** The user, 2026-10-28: "Approve Stage 1" for the draft
+([TASK.md](reports/lipid_source_leak_check_20261028/TASK.md) section 6): source-removal tests, demand maxima, R2171
+FVA, an in-memory R1720 variant and traces, ≤ 300 LPs, no model change, no commit or push.
+
+**Results** ([REPORT.md](reports/lipid_source_leak_check_20261028/REPORT.md); observed in runs this session; no
+independent audit yet):
+- **Model:** `9d655c2b` (`9d655c2bdbf8…`), Task A + PO1f and four other conditions, Gurobi 1e-9, every solve checked.
+  279 LPs.
+- **R2171 (PI + 100 H2O → DAG + 100 Ins1P + 100 H+) is an inositol source.** With INO1 `YALI1B05798g` knocked out and
+  no inositol uptake, growth equals WT on Task A, Task A + choline / ethanolamine, glycerol and oleate (R2171 2.4e-7,
+  IMPase 2.4e-5). Inositol demand reaches 511–520, Ins1P 1000 (the demand bound). Closing R2171 or R2168 gives 0.
+  With every phosphate exchange closed, Ins1P still reaches 1000, so R2171 also makes organic phosphate and carbon.
+  KEGG R03332 is 1:1; the 100× is inherited from iYli21.
+- **No acyl leak:** the FAS knockout has no growth and every acyl-CoA demand is 0 on Task A, + choline / ethanolamine
+  and glycerol; the oleate positive control grows.
+- **No free-Pi leak:** Pi demand 0 with phosphate closed (inferred reason: cytosolic inositol has no outlet).
+- **R1720 opened in memory:** no new leak, but the R2171 loop no longer needs R1726. Fix R2171 before R1720.
+- **Escher:** [figures/](reports/lipid_source_leak_check_20261028/figures/) (WT, INO1-null growth, full loop).
+
+**Limits.** The open condition (C5) is invalid here: its WT does not grow without the 15 formula-less exchanges, and
+its acyl demand came from hexadecane / triolein uptake missed by the name-based exchange list. One base model only.
+The run used a byte-identical short-path copy (cobra rejects 260+ character paths on macOS). Stage 2 (R2171 1:1,
+cyclic-phosphate lyase, or close) needs approval.
+
 ## 2026-10-28: dolichol route joined (R2178 closed, lumped dehydrodolichyl-PP → dolichol step R_DOLSYN, Dol-P in biomass_C), candidate 9d655c2b (committed on branch claude/dolichol-chain-gap-dfec4d, not pushed)
 
 **Authorization.** The user, 2026-10-28: "Approve Option B" (Stage 1 draft), then, after the run stopped at

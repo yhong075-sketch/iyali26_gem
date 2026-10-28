@@ -99,6 +99,7 @@ def build_reference_chain(
     r2135_acyl_coa_pool: bool = False,
     r1726_cpt_open: bool = False,
     dolichol_route: bool = False,
+    r2171_pi_plc_1to1: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -158,6 +159,9 @@ def build_reference_chain(
     if dolichol_route and not r1726_cpt_open:
         # Reviewed on ce9e1112 (2026-10-28); its guard pins that candidate's biomass_C.
         raise ValueError("The dolichol route curation was reviewed on the R1726 opening candidate; requires --r1726-cpt-open")
+    if r2171_pi_plc_1to1 and not dolichol_route:
+        # Reviewed on 9d655c2b (2026-10-28), where the Stage 1 source check found the inositol leak.
+        raise ValueError("The R2171 1:1 curation was reviewed on the dolichol route candidate; requires --dolichol-route")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -851,6 +855,12 @@ def build_reference_chain(
         from .dolichol_route import apply_dolichol_route
         selection["dolichol_route"] = apply_dolichol_route(model)
         logger.info("Dolichol route: %s", selection["dolichol_route"]["status"])
+    if r2171_pi_plc_1to1:
+        # Opt-in: R2171 written 1:1, PI + H2O -> DAG + Ins1P + 2 H+ (2026-10-28). Stoichiometry and notes only;
+        # requires and runs after the dolichol route.
+        from .r2171_pi_plc import apply_r2171_pi_plc_1to1
+        selection["r2171_pi_plc_1to1"] = apply_r2171_pi_plc_1to1(model)
+        logger.info("R2171 1:1: %s", selection["r2171_pi_plc_1to1"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -956,6 +966,7 @@ def build_model(args):
         r2135_acyl_coa_pool=getattr(args, "r2135_acyl_coa_pool", False),
         r1726_cpt_open=getattr(args, "r1726_cpt_open", False),
         dolichol_route=getattr(args, "dolichol_route", False),
+        r2171_pi_plc_1to1=getattr(args, "r2171_pi_plc_1to1", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

@@ -1,0 +1,80 @@
+{
+ "model": "E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_20261028.xml",
+ "sha256": "9d655c2bdbf82721a38f148a9a4ee0a385bb509ea7b591111107113c4aa8335c",
+ "R2171": {
+  "name": "1-Phosphatidyl-D-myo-inositol inositolphosphohydrolase",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "gpr": "YALI1D13510g",
+  "subsystem": "Inositol phosphate metabolism",
+  "stoichiometry": {
+   "m32[C_cy]": -100.0,
+   "m1393[C_cy]": -1.0,
+   "m10[C_cy]": 100.0,
+   "m813[C_cy]": 100.0,
+   "m1994[C_cy]": 1.0
+  },
+  "annotation": {
+   "sbo": "SBO:0000176",
+   "kegg.reaction": "R03332",
+   "metanetx.reaction": "MNXR148100",
+   "ec-code": [
+    "4.6.1.13",
+    "3.1.4.11",
+    "3.1.4.3"
+   ],
+   "keggr": "R03332"
+  },
+  "notes": {},
+  "charge_balance": -100.0
+ },
+ "species": {
+  "m32[C_cy]": {
+   "name": "H2O_H2O",
+   "formula": "H2O",
+   "charge": 0,
+   "compartment": "C_cy",
+   "kegg.compound": "C00001",
+   "metanetx.chemical": "WATER",
+   "n_reactions": 332
+  },
+  "m1393[C_cy]": {
+   "name": "1-phosphatidyl-1D-myo-inositol",
+   "formula": "C11H17O13P*2",
+   "charge": 0,
+   "compartment": "C_cy",
+   "kegg.compound": null,
+   "metanetx.chemical": "MNXM1364164",
+   "n_reactions": 11
+  },
+  "m10[C_cy]": {
+   "name": "H+_p+1",
+   "formula": "H",
+   "charge": 1,
+   "compartment": "C_cy",
+   "kegg.compound": "C00080",
+   "metanetx.chemical": "MNXM1",
+   "n_reactions": 463
+  },
+  "m813[C_cy]": {
+   "name": "1D-myo-inositol 1-phosphate_C6H11O9P",
+   "formula": "C6H11O9P",
+   "charge": -2,
+   "compartment": "C_cy",
+   "kegg.compound": "C01177",
+   "metanetx.chemical": "MNXM1364687",
+   "n_reactions": 5
+  },
+  "m1994[C_cy]": {
+   "name": "1,2-Diacyl-sn-glycerol",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "kegg.compound": null,
+   "metanetx.chemical": "MNXM1091588",
+   "n_reactions": 10
+  }
+ }
+}
