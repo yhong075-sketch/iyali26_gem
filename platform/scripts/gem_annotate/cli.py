@@ -75,6 +75,8 @@ def parse_args(argv=None):
                         help="Add THF (6.34e-5), FAD (1e-5), riboflavin (9.9e-4), NAD (2.65e-3), NADP (5.7e-4) and CoA (1.9e-4 mmol/gDW) to biomass_C at the yeast-GEM 9.1.1 r_4598 values (curated 2026-10-27, COFACTOR-BIOMASS-TERMS-20261027); requires --lipoylation-module")
     parser.add_argument("--r2135-acyl-coa-pool", action="store_true",
                         help="Replace acetyl-CoA by the ER-membrane pooled acyl-CoA m567 in R2135 and write R2145 as 1 PA + H2O -> 1 DAG + Pi (curated 2026-10-27, R2135-ACYL-COA-POOL-20261027); requires --cofactor-biomass-terms and runs after it")
+    parser.add_argument("--r1726-cpt-open", action="store_true",
+                        help="Open the inherited (0, 0) cholinephosphotransferase R1726 to [0, 1000] and keep R1725 closed (curated 2026-10-27, R1726-CPT-OPEN-20261027); requires --r2135-acyl-coa-pool and runs after it")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
