@@ -5,6 +5,57 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-28: dolichol route joined (R2178 closed, lumped dehydrodolichyl-PP → dolichol step R_DOLSYN, Dol-P in biomass_C), candidate 9d655c2b (committed on branch claude/dolichol-chain-gap-dfec4d, not pushed)
+
+**Authorization.** The user, 2026-10-28: "Approve Option B" (Stage 1 draft), then, after the run stopped at
+the knockout gate, "Accept, restate gate"
+([TASK.md](reports/dolichol_route_20261028/TASK.md) sections 0 and 11; [STOP.md](reports/dolichol_route_20261028/STOP.md)).
+
+**Results** ([REPORT.md](reports/dolichol_route_20261028/REPORT.md),
+[AUDIT.md](reports/dolichol_route_20261028/AUDIT.md)). Verified this session. Independent audit: D1–D7
+supported and reproduced (SHAs, diff, guards, solves, sweep, census, proton count); D8–D9 partial on
+evidence attribution, now corrected (TASK.md section 12).
+- **Candidate:**
+  [E5_…_r1726_cpt_dolichol_route_v2_20261028.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_20261028.xml)
+  (`9d655c2bdbf82721a38f148a9a4ee0a385bb509ea7b591111107113c4aa8335c`) = `ce9e1112` + `--dolichol-route`.
+  Not a designated reference. It supersedes the first build `a801aad0` (kept), which differs only in the
+  R_DOLSYN notes; the two pose the same optimization problem.
+- **Change** (whole-model diff vs `ce9e1112`: 6 entries):
+  - R2178 (gene-less "NO NAME", 6.5 O2 + dehydrodolichyl-PP → Dol-PP + 5 CO2 + 3 H2O) closed (0, 0), kept;
+  - R_DOLSYN added: m2019 + H2O + NAD + 2 NADPH + 2 H+ → dolichol m499 + PPi + NADH + 2 NADP, gene-less,
+    irreversible, N-Glycan biosynthesis (2 H+ by the model's NAD / NADP convention);
+  - dolichyl phosphate m503[C_er] in biomass_C at 1e-4 mmol/gDW.
+- **Code:** data `curation/dolichol/dolichol_route.json`; step `platform/scripts/gem_annotate/dolichol_route.py`;
+  flag `--dolichol-route` requires `--r1726-cpt-open`; test `tests/test_dolichol_route.py` (6 tests). One code
+  review, no bugs; its low fail-closed gap was fixed before the builds.
+- **pytest:** 278 → 284 passed; the same 11 failed and 18 errors before and after.
+- **Builds:** control = `ce9e1112` byte for byte; seeds 0 and 1 identical (`a801aad0`, then `9d655c2b`).
+- **Solves (Task A + PO1f, Gurobi 1e-9):**
+  - WT 0.3116824 → 0.3116608 (−6.9e-5 relative); R2179, R2180, R_DOLSYN, R287 forced at 3.1e-5.
+  - No-uptake ATP and biomass 0 (optimal, maintenance relaxed), also with R_DOLSYN reversible.
+  - Sweep 2 × 1,082: only SEC59 `YALI1E22718g` changes class (→ essential, all cutoffs); no knockout gains
+    absolute growth (largest +4.3e-14); 104 KO/WT ratios move by up to 3.2e-5, which stopped the run under
+    the approved 1e-6 gate (restated by the user). 15 %: 111 / 204 / 42 / 692 → 112 / 203 / 42 / 692
+    (user-defined negatives, development reference).
+  - The double cis-prenyltransferase knockout becomes lethal; CWH8 stays dispensable.
+- **Census (GLPK):** open condition 709 → 708 (R2179, R2180, R287 freed; R1343 / R1344 GLPK fringe,
+  unblocked at Gurobi 1e-9); Task A 843 → 840; nothing else newly blocked.
+
+**Limits.**
+- Evidence: orthology plus *S. cerevisiae* and human enzymology; the yeast Env9 assignment is a preprint;
+  the NAD+ of the Tda5 step is inferred from human DHRSX. No *Y. lipolytica* dolichol data.
+- R_DOLSYN is gene-less and not balance-checkable (m2019 has no formula, m499 a farnesol formula); its
+  charge is −2 in the model's NADP convention, against the platform rule on added H+.
+- The 1e-4 coefficient is an order of magnitude from an *S. cerevisiae* wet-weight figure.
+- Not addressed: the UM18 N-glycan chain, NUS1 (`YALI1F26726g`), the dolichol-family formulas, R2179 / m2020,
+  the Srt1 chain UM6. Only the Task A medium was tested.
+- Budget: 5 builds against 3; 262 check LPs against about 60.
+- Committed on branch `claude/dolichol-chain-gap-dfec4d` on the user's instruction ("Commit on branch", 2026-10-28); not pushed.
+
+**Escher figure** ([escher/](reports/dolichol_route_20261028/escher/README.md), computation only): ce9e1112 vs
+9d655c2b on Task A + PO1f; 38 mapped reactions, blocked 28 → 25, pFBA flux-carrying 4 → 9; viewer checked in
+headless Chrome and jsdom; tooltips not exercised.
+
 ## 2026-10-28: Escher flux maps of PR #26 (R2135 remap, R2145 1:1, R1726 opened); read-only
 
 **Authorization.** The user, 2026-10-28: "can you use the Escher to show what changed in our model?", then
