@@ -1,0 +1,347 @@
+{
+ "model": "../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_20261027.xml",
+ "sha256": "00e8e39775b64cfeb79cfafff65ef82eaf4760eff1b64fcddc3ce93b40919592",
+ "counts": {
+  "reactions": 2316,
+  "metabolites": 1882,
+  "genes": 1081
+ },
+ "targets": {
+  "R2135": {
+   "name": "AC-CoA transport",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "reversibility": true,
+   "gpr": "",
+   "stoichiometry": {
+    "m1984[C_er]": 1.0,
+    "m68[C_cy]": -1.0
+   },
+   "species": {
+    "m1984[C_er]": {
+     "name": "Acyl-coA",
+     "formula": null,
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "m68[C_cy]": {
+     "name": "acetyl-CoA_C23H38N7O17P3S",
+     "formula": "C23H38N7O17P3S",
+     "charge": 0,
+     "compartment": "C_cy"
+    }
+   },
+   "notes": {},
+   "annotation": {
+    "sbo": "SBO:0000185"
+   }
+  },
+  "R2145": {
+   "name": "diacylglycerol pyrophosphate phosphatase, yeast-specific",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "reversibility": false,
+   "gpr": "YALI1D35593g",
+   "stoichiometry": {
+    "m1993[C_cy]": -0.01,
+    "m1994[C_cy]": 0.01,
+    "m32[C_cy]": -1.0,
+    "m35[C_cy]": 1.0
+   },
+   "species": {
+    "m1993[C_cy]": {
+     "name": "phosphatidate",
+     "formula": null,
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m1994[C_cy]": {
+     "name": "1,2-Diacyl-sn-glycerol",
+     "formula": null,
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m32[C_cy]": {
+     "name": "H2O_H2O",
+     "formula": "H2O",
+     "charge": 0,
+     "compartment": "C_cy"
+    },
+    "m35[C_cy]": {
+     "name": "phosphate_H3O4P",
+     "formula": "H3O4P",
+     "charge": 0,
+     "compartment": "C_cy"
+    }
+   },
+   "notes": {},
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn09551",
+    "metanetx.reaction": "MNXR144651",
+    "seedr": "rxn09551"
+   }
+  }
+ },
+ "route": {
+  "R2134": {
+   "name": "acyl-CoA:sphingosine N-acyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F09542g or YALI1D05038g"
+  },
+  "R2168": {
+   "name": "acyl-CoA:1,2-diacyl-sn-glycerol O-acyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D10264g"
+  },
+  "R2144": {
+   "name": "phosphatidate transport",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R2169": {
+   "name": "1,2-Diacyl-sn-glycerol transport",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R2170": {
+   "name": "Triacylglycerol transport",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R1771": {
+   "name": "diacylglycerol acyltransferase",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E38810g"
+  },
+  "xPOOL_AC_EM": {
+   "name": "Acyl-CoAs pool",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R1726": {
+   "name": "cholinephosphotransferase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1C15420g"
+  },
+  "R1725": {
+   "name": "choline/ethanolaminephosphotransferase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1C15420g"
+  },
+  "R1720": {
+   "name": "DAG kinase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1F25444g"
+  }
+ },
+ "species": {
+  "m68[C_cy]": {
+   "name": "acetyl-CoA_C23H38N7O17P3S",
+   "formula": "C23H38N7O17P3S",
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "bigg.metabolite": "accoa",
+    "envipath": "32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/57bd5e24-9d14-4b91-bc60-64c8ea6c2d11",
+    "hmdb": "HMDB01206",
+    "kegg.compound": "C00024",
+    "lipidmaps": "LMFA07050281",
+    "metacyc.compound": "ACETYL-COA",
+    "reactome": [
+     "R-ALL-113559",
+     "R-ALL-113560",
+     "R-ALL-353123",
+     "R-ALL-6783328",
+     "R-ALL-727753",
+     "R-ALL-76183"
+    ],
+    "sabiork.compound": "1276",
+    "seed.compound": "cpd00022",
+    "vmhmetabolite": "accoa",
+    "metanetx.chemical": "MNXM1104266",
+    "inchi": "InChI=1S/C23H38N7O17P3S/c1-12(31)51-7-6-25-14(32)4-5-26-21(35)18(34)23(2,3)9-44-50(41,42)47-49(39,40)43-8-13-17(46-48(36,37)38)16(33)22(45-13)30-11-29-15-19(24)27-10-28-20(15)30/h10-11,13,16-18,22,33-34H,4-9H2,1-3H3,(H,25,32)(H,26,35)(H,39,40)(H,41,42)(H2,24,27,28)(H2,36,37,38)/p-4/t13-,16-,17-,18+,22-/m1/s1",
+    "inchikey": "ZSLZBFCDCINBPY-ZSJPKINUSA-J",
+    "chebi": [
+     "CHEBI:13712",
+     "CHEBI:15351",
+     "CHEBI:180918",
+     "CHEBI:22192",
+     "CHEBI:2408",
+     "CHEBI:40470",
+     "CHEBI:57288"
+    ],
+    "slm": "000000297",
+    "biggm": [
+     "M_accoa",
+     "accoa"
+    ],
+    "envipathm": "32de3cf4-e3e6-4168-956e-32fa5ddb0ce1/compound/57bd5e24-9d14-4b91-bc60-64c8ea6c2d11",
+    "keggc": [
+     "C00024",
+     "M_C00024"
+    ],
+    "lipidmapsm": "LMFA07050281",
+    "metacycm": "ACETYL-COA",
+    "reactomem": [
+     "R-ALL-113559",
+     "R-ALL-113560",
+     "R-ALL-353123",
+     "R-ALL-6783328",
+     "R-ALL-727753",
+     "R-ALL-76183"
+    ],
+    "sabiorkm": "1276",
+    "seedm": [
+     "M_cpd00022",
+     "cpd00022"
+    ],
+    "vmhm": [
+     "M_accoa",
+     "accoa"
+    ]
+   },
+   "reactions": [
+    "R1001",
+    "R1095",
+    "R1324",
+    "R1392",
+    "R1393",
+    "R1894",
+    "R191",
+    "R2003",
+    "R21",
+    "R2119",
+    "R2135",
+    "R2285",
+    "R356",
+    "R401",
+    "R411",
+    "R536",
+    "R561",
+    "R721",
+    "R82",
+    "R88",
+    "R90"
+   ]
+  },
+  "m567[C_em]": {
+   "name": "acyl-CoA_",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_em",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "reactome": "R-ALL-2534017",
+    "metanetx.chemical": "MNXM1136895",
+    "reactomem": "R-ALL-2534017"
+   },
+   "reactions": [
+    "R1719",
+    "R1772",
+    "R1843",
+    "R350",
+    "R352",
+    "xPOOL_AC_EM"
+   ]
+  },
+  "m1984[C_er]": {
+   "name": "Acyl-coA",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_er",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "reactome": "R-ALL-2534017",
+    "metanetx.chemical": "MNXM1136895",
+    "reactomem": "R-ALL-2534017"
+   },
+   "reactions": [
+    "R2134",
+    "R2135",
+    "R2168"
+   ]
+  },
+  "m1993[C_cy]": {
+   "name": "phosphatidate",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "bigg.metabolite": "pa_LM",
+    "metanetx.chemical": "MNXM1093594",
+    "biggm": [
+     "M_pa_LM",
+     "pa_LM"
+    ]
+   },
+   "reactions": [
+    "R2144",
+    "R2145"
+   ]
+  },
+  "m1994[C_cy]": {
+   "name": "1,2-Diacyl-sn-glycerol",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "annotation": {
+    "sbo": "SBO:0000247",
+    "bigg.metabolite": "12dgr_TB",
+    "metanetx.chemical": "MNXM1091588",
+    "biggm": [
+     "12dgr_TB",
+     "M_12dgr_TB"
+    ]
+   },
+   "reactions": [
+    "R2143",
+    "R2145",
+    "R2148",
+    "R2151",
+    "R2154",
+    "R2157",
+    "R2161",
+    "R2165",
+    "R2169",
+    "R2171"
+   ]
+  }
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "model": "../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_20261027.xml",
+ "sha256": "00e8e39775b64cfeb79cfafff65ef82eaf4760eff1b64fcddc3ce93b40919592",
+ "counts": {
+  "reactions": 2316,
+  "metabolites": 1882,
+  "genes": 1081
+ },
+ "targets": {
+  "R1726": {
+   "name": "cholinephosphotransferase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "reversibility": false,
+   "gpr": "YALI1C15420g",
+   "stoichiometry": {
+    "m1601[C_em]": 1.0,
+    "m1603[C_em]": -1.0,
+    "m1632[C_em]": 1.0,
+    "m1649[C_em]": -1.0,
+    "m377[C_em]": 1.0
+   },
+   "species": {
+    "m1601[C_em]": {
+     "name": "CMP_C9H14N3O8P",
+     "formula": "C9H14N3O8P",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m1603[C_em]": {
+     "name": "CDP-choline_C14H26N4O11P2",
+     "formula": "C14H26N4O11P2",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m1632[C_em]": {
+     "name": "phosphatidylcholine_C10H18NO8PR2",
+     "formula": "C10H18NO8PR2",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m1649[C_em]": {
+     "name": "diglyceride",
+     "formula": "C6H8O6",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m377[C_em]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_em"
+    }
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.8.2"
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "ec-code": "2.7.8.2"
+   }
+  },
+  "R1725": {
+   "name": "choline/ethanolaminephosphotransferase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "reversibility": false,
+   "gpr": "YALI1C15420g",
+   "stoichiometry": {
+    "m1601[C_em]": 1.0,
+    "m1602[C_em]": -1.0,
+    "m1633[C_em]": 1.0,
+    "m1649[C_em]": -1.0,
+    "m377[C_em]": 1.0
+   },
+   "species": {
+    "m1601[C_em]": {
+     "name": "CMP_C9H14N3O8P",
+     "formula": "C9H14N3O8P",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m1602[C_em]": {
+     "name": "CDP-ethanolamine_C11H20N4O11P2",
+     "formula": "C11H20N4O11P2",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m1633[C_em]": {
+     "name": "phosphatidylethanolamine_C7H12NO8PR2",
+     "formula": "C7H12NO8PR2",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m1649[C_em]": {
+     "name": "diglyceride",
+     "formula": "C6H8O6",
+     "charge": 0,
+     "compartment": "C_em"
+    },
+    "m377[C_em]": {
+     "name": "H+_p+1",
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_em"
+    }
+   },
+   "notes": {
+    "PROTEIN_CLASS": "2.7.8.1"
+   },
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn30109",
+    "metanetx.reaction": "MNXR179146",
+    "ec-code": "2.7.8.2",
+    "seedr": "rxn30109"
+   }
+  }
+ },
+ "route": {
+  "R212": {
+   "name": "choline kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E20159g"
+  },
+  "R213": {
+   "name": "choline phosphate cytididyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D22834g"
+  },
+  "R1603": {
+   "name": "CDP-choline transport, cytoplasm-ER membrane",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R293": {
+   "name": "ethanolamine kinase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E20159g"
+  },
+  "R2080": {
+   "name": "ATP:ethanolamine O-phosphotransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B12742g"
+  },
+  "R635": {
+   "name": "phosphoethanolamine cytidyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C08197g"
+  },
+  "R1602": {
+   "name": "CDP-ethanolamine transport, cytoplasm-ER membrane",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R1042": {
+   "name": "choline transport",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R1806": {
+   "name": "phosphatidylcholine transport, ER membrane-cell envelope",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R1842": {
+   "name": "phospholipase D",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22633g"
+  },
+  "R1743": {
+   "name": "PC phospholipase D",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22633g"
+  },
+  "R1776": {
+   "name": "diglyceride transport, cytoplasm-ER membrane",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  "R1720": {
+   "name": "DAG kinase",
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1F25444g"
+  },
+  "SPHPL": {
+   "name": "SPHPL",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E33285g"
+  },
+  "R629": {
+   "name": "phosphatidylserine decarboxylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D27274g"
+  },
+  "R630": {
+   "name": "phosphatidylserine decarboxylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D04432g"
+  },
+  "R631": {
+   "name": "phosphatidylserine decarboxylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D04432g"
+  },
+  "R1835": {
+   "name": "phosphatidylethanolamine methyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E07347g"
+  },
+  "R1845": {
+   "name": "phospholipid methyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E15432g"
+  },
+  "R1844": {
+   "name": "phospholipid methyltransferase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E15432g"
+  }
+ },
+ "gene_YALI1E31498g_in_model": false
+}

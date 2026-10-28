@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "curation_id": "R1726-CPT-OPEN-20261027",
+  "status": "user_authorized",
+  "authorization": "2026-10-27 user, after reading the Stage 1 draft (model/reports/kennedy_closures_20261027/TASK.md): \"Approve Option A\" = open R1726 to (0, 1000) via a guarded --r1726-cpt-open step; R1725 stays closed. The first run stopped (STOP.md); after the R2135 fix the user approved the re-run on e9d35857 (TASK.md section 13): \"Approve re-run\".",
+  "reaction_id": "R1726",
+  "reaction_name": "cholinephosphotransferase",
+  "ec_code": "2.7.8.2",
+  "gpr": "YALI1C15420g",
+  "before_bounds": [
+    0,
+    0
+  ],
+  "after_bounds": [
+    0,
+    1000
+  ],
+  "stoichiometry": {
+    "m1601[C_em]": 1.0,
+    "m1603[C_em]": -1.0,
+    "m1632[C_em]": 1.0,
+    "m1649[C_em]": -1.0,
+    "m377[C_em]": 1.0
+  },
+  "species": {
+    "m1601[C_em]": {
+      "formula": "C9H14N3O8P",
+      "charge": 0,
+      "compartment": "C_em"
+    },
+    "m1603[C_em]": {
+      "formula": "C14H26N4O11P2",
+      "charge": 0,
+      "compartment": "C_em"
+    },
+    "m1632[C_em]": {
+      "formula": "C10H18NO8PR2",
+      "charge": 0,
+      "compartment": "C_em"
+    },
+    "m1649[C_em]": {
+      "formula": "C6H8O6",
+      "charge": 0,
+      "compartment": "C_em"
+    },
+    "m377[C_em]": {
+      "formula": "H",
+      "charge": 1,
+      "compartment": "C_em"
+    }
+  },
+  "balance_note": "Formally unbalanced as inherited (charge +1; C, H, O -1; R +2): the lumped diglyceride m1649 has no R groups. The active neighbours on the same route (R1841, R1835, R1845, R1844, R1842, R1743) are unbalanced in the same lumped-lipid convention. Not changed here; the lumped lipid formulas belong to the lipid-unlump line.",
+  "kept_closed": {
+    "reaction_id": "R1725",
+    "reaction_name": "choline/ethanolaminephosphotransferase",
+    "gpr": "YALI1C15420g",
+    "bounds": [
+      0,
+      0
+    ],
+    "stoichiometry": {
+      "m1601[C_em]": 1.0,
+      "m1602[C_em]": -1.0,
+      "m1633[C_em]": 1.0,
+      "m1649[C_em]": -1.0,
+      "m377[C_em]": 1.0
+    },
+    "species": {
+      "m1601[C_em]": {
+        "formula": "C9H14N3O8P",
+        "charge": 0,
+        "compartment": "C_em"
+      },
+      "m1602[C_em]": {
+        "formula": "C11H20N4O11P2",
+        "charge": 0,
+        "compartment": "C_em"
+      },
+      "m1633[C_em]": {
+        "formula": "C7H12NO8PR2",
+        "charge": 0,
+        "compartment": "C_em"
+      },
+      "m1649[C_em]": {
+        "formula": "C6H8O6",
+        "charge": 0,
+        "compartment": "C_em"
+      },
+      "m377[C_em]": {
+        "formula": "H",
+        "charge": 1,
+        "compartment": "C_em"
+      }
+    },
+    "reasons": [
+      "Its only GPR gene YALI1C15420g is the CPT1 ortholog (KEGG K00994); S. cerevisiae CPT1 is relatively specific for CDP-choline and CDP-dimethylethanolamine (PMID 1847919).",
+      "The EPT1 ortholog YALI1E31498g (YALI0E26565g, KEGG K00993) is not in the model.",
+      "Opened, R1725 makes all PE from sphingoid-base lyase phosphoethanolamine and lets a PSD1 + PSD2 double knockout grow at wild-type rate on the Task A medium; S. cerevisiae psd1 psd2 mutants are ethanolamine auxotrophs (PMID 7890740)."
+    ]
+  },
+  "reviewed_model": {
+    "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_20261027.xml",
+    "sha256": "e9d358574eeb4369ecd39f63e5a2ad6c113c4681232c6504cb1ef42c4fe89b1b"
+  },
+  "review": "model/reports/kennedy_closures_20261027/TASK.md",
+  "reviewer": "Claude Code session (Stage 1 investigation, 2026-10-27); decision by the user",
+  "evidence": [
+    {
+      "url": "https://www.kegg.jp/entry/yli:2909135",
+      "claim": "YALI0C10989g (= YALI1C15420g by the W29 / CLIB122 S2 map) is RefSeq 'Cholinephosphotransferase 1', KO K00994 diacylglycerol cholinephosphotransferase (EC 2.7.8.2), module M00090 choline => PC.",
+      "tier": "verified",
+      "scope": "Computational orthology and RefSeq naming; not a Y. lipolytica experiment.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://rest.uniprot.org/uniprotkb/Q6CCA9",
+      "claim": "Q6CCA9 (YALI0_C10989g), diacylglycerol cholinephosphotransferase (EC 2.7.8.2), 394 aa, endomembrane multi-pass protein.",
+      "tier": "verified",
+      "scope": "Unreviewed entry, automatic (ARBA) annotation, annotation score 2.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://www.kegg.jp/entry/yli:2912382",
+      "claim": "YALI0E26565g (= YALI1E31498g) is RefSeq 'Choline/ethanolaminephosphotransferase 1', KO K00993 EPT1 (EC 2.7.8.1); not in the model.",
+      "tier": "verified",
+      "scope": "Computational orthology; reason R1725 stays closed, not used for R1726.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1847919/",
+      "claim": "S. cerevisiae CPT1 manifests relative specificity for CDP-choline and CDP-dimethylethanolamine; EPT1 uses CDP-ethanolamine, -monomethylethanolamine, -dimethylethanolamine and -choline; the cpt1 ept1 double null is viable.",
+      "tier": "verified",
+      "scope": "Abstract read; S. cerevisiae enzymology, applied to Y. lipolytica by orthology.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7961735/",
+      "claim": "In vivo the CPT1 gene product makes 95 % of PC via the CDP-choline pathway and EPT1 5 %; CPT1 is implicated in PC synthesis from choline released by PC turnover.",
+      "tier": "verified",
+      "scope": "Abstract read; S. cerevisiae.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://rest.uniprot.org/uniprotkb/P17898",
+      "claim": "CPT1 catalyses the final step of the CDP-choline route to PC; the route adds net PC only when exogenous choline is present and otherwise recycles choline from PC turnover.",
+      "tier": "verified",
+      "scope": "Swiss-Prot curated entry; S. cerevisiae.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7890740/",
+      "claim": "S. cerevisiae psd1 psd2 double mutants are auxotrophic for ethanolamine.",
+      "tier": "verified",
+      "scope": "Abstract read; S. cerevisiae; supports keeping R1725 closed.",
+      "accessed": "2026-10-27"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9505966/",
+      "claim": "Y. lipolytica phospholipid biosynthesis 'is still poorly understood'; no CPT1 / EPT1 experiment reported.",
+      "tier": "verified",
+      "scope": "Full text read (Szczepanska et al. 2022); absence of Y. lipolytica CPT1 / EPT1 work rests on one standard web search, not an exhaustive review.",
+      "accessed": "2026-10-27"
+    }
+  ],
+  "notes": {
+    "r1726_cpt_open_curation": "R1726-CPT-OPEN-20261027",
+    "r1726_previous_bounds": "[0, 0]",
+    "r1726_cpt_open_evidence": "YALI1C15420g = YALI0C10989g, KEGG K00994 CPT1 ortholog (orthology only); S. cerevisiae CPT1 makes 95 % of CDP-choline-route PC in vivo and is relatively specific for CDP-choline (PMID 7961735, 1847919).",
+    "r1726_cpt_open_limits": "Closure inherited from iYli21 with no recorded reason. No Y. lipolytica enzyme data. Without supplied choline the route only recycles choline from PC turnover; on the Task A medium it adds no growth. Requires the R2135 acyl-CoA pool fix: without it the PC turnover cycle fed an acetyl-CoA acyl leak. R1725 stays closed (CPT1-ortholog GPR, EPT1 ortholog absent, PSD-null rescue artefact).",
+    "r1726_cpt_open_sources": "https://www.kegg.jp/entry/yli:2909135; https://pubmed.ncbi.nlm.nih.gov/1847919/; https://pubmed.ncbi.nlm.nih.gov/7961735/; https://rest.uniprot.org/uniprotkb/P17898",
+    "r1726_cpt_open_authorization": "User authorized opt-in [0, 1000] for R1726, R1725 kept closed, on 2026-10-27."
+  }
+}

@@ -1,0 +1,290 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi FeasibilityTol/OptimalityTol 1e-09, reset per knockout, targeted check",
+ "check": {
+  "knocked_reaction_flux_tolerance": 1e-09,
+  "general_tolerance": 1e-06
+ },
+ "lp_timeout_seconds": 60,
+ "models": {
+  "baseline": {
+   "sha256": "e9d358574eeb4369ecd39f63e5a2ad6c113c4681232c6504cb1ef42c4fe89b1b",
+   "genes": 1081
+  },
+  "candidate": {
+   "sha256": "ce9e1112ee940531469457009234a2fd11de7f589c5948a7dec6b91118005294",
+   "genes": 1081
+  }
+ },
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "negative_class": "user-defined: model genes not on the consensus list",
+ "validation_status": "development reference, not independent validation",
+ "wt": {
+  "baseline": {
+   "status": "optimal",
+   "growth": 0.31168237334276644,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.8268372925511756e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "candidate": {
+   "status": "optimal",
+   "growth": 0.3116823733427652,
+   "max_bound_violation": 0.0,
+   "max_residual": 4.973799150320701e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  }
+ },
+ "in_model_positives": {
+  "baseline": 326,
+  "candidate": 326
+ },
+ "magnitudes_in_sweep": {
+  "baseline": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 1.7613932534743526e-10,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 1.524114168205415e-11,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  },
+  "candidate": {
+   "max_knocked_flux": {
+    "max": 0.0,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_bound_violation": {
+    "max": 6.830419480515235e-10,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   },
+   "max_residual": {
+    "max": 8.582301536108616e-13,
+    "count_over_1e-9": 0,
+    "count_over_1e-7": 0,
+    "count_over_1e-6": 0
+   }
+  }
+ },
+ "sweep_points_failing_check": {
+  "baseline": [],
+  "candidate": []
+ },
+ "non_optimal_in_sweep": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "candidate": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "fresh_resolves": [],
+ "unresolved_after_fresh": {
+  "baseline": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ],
+  "candidate": [
+   "YALI0F04114g",
+   "YALI1A03322g",
+   "YALI1A14736g",
+   "YALI1A17570g",
+   "YALI1B02487g",
+   "YALI1C17100g",
+   "YALI1D11769g",
+   "YALI1E12730g",
+   "YALI1E15606g",
+   "YALI1E19902g",
+   "YALI1E23635g",
+   "YALI1E40361g",
+   "YALI1F02758g",
+   "YALI1F05089g",
+   "YALI1F12013g",
+   "YALI1F32010g",
+   "YALI1M00131g",
+   "YALI1M00277g",
+   "YALI1M00325g",
+   "YALI1M00390g"
+  ]
+ },
+ "scores": {
+  "baseline": {
+   "0.01": {
+    "TP": 93,
+    "FN": 222,
+    "FP": 35,
+    "TN": 699,
+    "unresolved": 16,
+    "recall": 0.29523809523809524,
+    "specificity": 0.952316076294278,
+    "precision": 0.7265625,
+    "mcc": 0.34668795719602574
+   },
+   "0.05": {
+    "TP": 99,
+    "FN": 216,
+    "FP": 37,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.3142857142857143,
+    "specificity": 0.9495912806539509,
+    "precision": 0.7279411764705882,
+    "mcc": 0.3600808238204344
+   },
+   "0.1": {
+    "TP": 103,
+    "FN": 212,
+    "FP": 42,
+    "TN": 692,
+    "unresolved": 16,
+    "recall": 0.326984126984127,
+    "specificity": 0.9427792915531336,
+    "precision": 0.7103448275862069,
+    "mcc": 0.3582763548611518
+   },
+   "0.15": {
+    "TP": 111,
+    "FN": 204,
+    "FP": 42,
+    "TN": 692,
+    "unresolved": 16,
+    "recall": 0.3523809523809524,
+    "specificity": 0.9427792915531336,
+    "precision": 0.7254901960784313,
+    "mcc": 0.3833199715184121
+   }
+  },
+  "candidate": {
+   "0.01": {
+    "TP": 93,
+    "FN": 222,
+    "FP": 35,
+    "TN": 699,
+    "unresolved": 16,
+    "recall": 0.29523809523809524,
+    "specificity": 0.952316076294278,
+    "precision": 0.7265625,
+    "mcc": 0.34668795719602574
+   },
+   "0.05": {
+    "TP": 99,
+    "FN": 216,
+    "FP": 37,
+    "TN": 697,
+    "unresolved": 16,
+    "recall": 0.3142857142857143,
+    "specificity": 0.9495912806539509,
+    "precision": 0.7279411764705882,
+    "mcc": 0.3600808238204344
+   },
+   "0.1": {
+    "TP": 103,
+    "FN": 212,
+    "FP": 42,
+    "TN": 692,
+    "unresolved": 16,
+    "recall": 0.326984126984127,
+    "specificity": 0.9427792915531336,
+    "precision": 0.7103448275862069,
+    "mcc": 0.3582763548611518
+   },
+   "0.15": {
+    "TP": 111,
+    "FN": 204,
+    "FP": 42,
+    "TN": 692,
+    "unresolved": 16,
+    "recall": 0.3523809523809524,
+    "specificity": 0.9427792915531336,
+    "precision": 0.7254901960784313,
+    "mcc": 0.3833199715184121
+   }
+  }
+ },
+ "candidate_vs_baseline": {
+  "growth_changed_over_1e-6": [],
+  "class_changed": {
+   "0.01": [],
+   "0.05": [],
+   "0.1": [],
+   "0.15": []
+  }
+ },
+ "lp_count": {
+  "sweep": 2164,
+  "fresh": 0
+ }
+}

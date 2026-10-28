@@ -5,6 +5,137 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-27: Kennedy CDP-choline step R1726 opened on the R2135 candidate, R1725 kept closed, candidate ce9e1112 (committed b18d4c6)
+
+**Authorization.** The user, 2026-10-27: "Approve Option A" (first draft), then, after the stop and the R2135
+fix, "Approve re-run" for the re-run draft
+([TASK.md](reports/kennedy_closures_20261027/TASK.md) sections 0 and 13).
+
+**Results** ([REPORT.md](reports/kennedy_closures_20261027/REPORT.md),
+[AUDIT.md](reports/kennedy_closures_20261027/AUDIT.md); first run: [STOP.md](reports/kennedy_closures_20261027/STOP.md)).
+Verified this session. Independent audit: K1–K10 supported, reproduced independently (SHAs, diff, solves, sweep, census). K11 was partial on documentation only, now fixed (stale status lines, UM11/UM12 label, choline-control WT wording, subtest count, review record). No science overclaim.
+- **Candidate:**
+  [E5_…_r2135_pool_r1726_cpt_20261027.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml)
+  (`ce9e1112ee940531469457009234a2fd11de7f589c5948a7dec6b91118005294`) = `e9d35857` + `--r1726-cpt-open`.
+  Not a designated reference.
+- **Change:** R1726 (CDP-choline + DAG → PC, GPR `YALI1C15420g`, the CPT1 ortholog K00994) goes from (0, 0)
+  to (0, 1000), plus notes. Whole-model diff: those two entries only.
+- **R1725 stays closed**, with the reason recorded and guarded:
+  - its gene is the same CPT1 ortholog;
+  - the EPT1 ortholog `YALI1E31498g` is absent from the model;
+  - opened, it rescues a PSD-null strain through the sphingoid-base lyase, against *S. cerevisiae*
+    ethanolamine auxotrophy.
+- **Code:**
+  - data `curation/direction/r1726_cpt_open.json`;
+  - step `platform/scripts/gem_annotate/r1726_cpt_open.py`;
+  - the flag requires `--r2135-acyl-coa-pool`;
+  - test `tests/test_r1726_cpt_open.py` (5 tests, 25 subtests).
+- **Code reviews:** two rounds, no bugs; the low findings were fixed and changed no model byte.
+- **pytest:** 278 → 278 (only the renamed requirement test differs).
+- **Builds:** the control reproduces `e9d35857` byte for byte. Seeds 0 and 1 are identical, and recorded in
+  the logs.
+- **Solves (Task A + PO1f, Gurobi 1e-9):**
+  - WT unchanged at 0.3116824. R1726 is 0 at the optimum, [0, 0.0217] at 99.9 %.
+  - No-uptake ATP and biomass are 0.
+  - The FAS pair, desaturase and ligase knockouts are lethal; the PSD double knockout is lethal.
+  - With choline supplied, the PE-methylation knockouts become viable.
+  - Knockout sweep 2 × 1,082: **no class change, no growth change above 1e-6**; 111 / 204 / 42 / 692 at 15 %.
+- **Census (GLPK):** open condition 720 → 709, exactly UM12's 11 reactions; Task A 852 → 843; nothing newly
+  blocked.
+
+**Limits.**
+- The evidence is orthology and *S. cerevisiae*; no *Y. lipolytica* data.
+- R1726 is formally unbalanced in the lumped-lipid convention (unchanged).
+- R1725 / UM19, R1720 and other media are not addressed.
+- Budget: 6 builds against 3 planned (a second round after the review fixes).
+- Committed in `b18d4c6` on branch `claude/kennedy-closures-864c91`.
+
+## 2026-10-27: R2135 takes the ER-membrane acyl-CoA pool instead of acetyl-CoA, R2145 written 1:1, candidate e9d35857 (committed ee385ae)
+
+**Authorization.** The user, 2026-10-27, after reading the Stage 1 draft: "Approve Option A". This refers to
+Option A of the draft, whose section 12 gives the full sentence
+([TASK.md](reports/r2135_acyl_coa_pool_20261027/TASK.md) section 0). The work followed the Kennedy task's
+stop (next entry) and the user's "Pause R1726. Draft a Stage 1 plan … for R2135".
+
+**Results** ([REPORT.md](reports/r2135_acyl_coa_pool_20261027/REPORT.md),
+[AUDIT.md](reports/r2135_acyl_coa_pool_20261027/AUDIT.md)). Verified this session. Independent audit: C1, C2 and C4–C12 supported. C3 and C13 are partial: the
+PYTHONHASHSEED values are not stored in the build record, and the report had gaps that are now fixed (pFBA
+wording, rxn09551 provenance by annotation, the budget overrun of 6 builds and about 70 LPs, coverage). No
+blocking defect.
+- **Candidate:**
+  [E5_…_cofactor_biomass_r2135_pool_20261027.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_20261027.xml)
+  (`e9d358574eeb4369ecd39f63e5a2ad6c113c4681232c6504cb1ef42c4fe89b1b`) = `00e8e397` + `--r2135-acyl-coa-pool`.
+  Not a designated reference.
+- **Change (two inherited iYli21 reactions):**
+  - R2135 "AC-CoA transport": acetyl-CoA `m68[C_cy]` ⇌ `m1984[C_er]` becomes `m567[C_em]` ⇌ `m1984[C_er]`.
+    `m1984` and the ER-membrane pool `m567` are both MetaNetX MNXM1136895 "acyl-CoA". `m1984`'s consumers
+    R2134 / R2168 are KEGG R01496 / R02251, which use acyl-CoA C00040.
+  - R2145: `0.01 PA + H2O → 0.01 DAG + Pi` becomes 1:1. The 0.01 comes from ModelSEED rxn09551's lumped
+    species, but this model links them 1:1 to per-molecule PA and DAG, so the old form released phosphate
+    from water.
+  - Plus notes. Whole-model diff: those four entries only.
+- **Why:** the baseline built part of its TAG with acetyl-CoA as an acyl chain (R2135 → R2168, FVA minimum
+  above 0), and R2145 supplied about 70 % of its phosphate. Opening R1726 closed a loop that let acetyl-CoA
+  replace fatty-acid synthase entirely.
+- **Code:**
+  - data `curation/chemistry/r2135_acyl_coa_pool.json`;
+  - guarded step `platform/scripts/gem_annotate/r2135_acyl_coa_pool.py`, with the after-equations pinned
+    in code;
+  - flag requires `--cofactor-biomass-terms` and runs before `--r1726-cpt-open`;
+  - test `tests/test_r2135_acyl_coa_pool.py` (4 tests, 29 subtests).
+- **Code review:** one medium-low fail-closed gap and three low items, all fixed. The fix changed no model
+  byte.
+- **pytest:** 274 → 278 passed, the same 11 failures and 18 errors.
+- **Builds:** the control reproduces `00e8e397` byte for byte; seeds 0 and 1 are identical.
+- **Solves (Task A medium + PO1f, Gurobi 1e-9):**
+  - WT 0.3120049 → 0.3116824 (−0.10 %); phosphate uptake 0.0259 → 0.0846.
+  - No-uptake ATP and biomass are 0 (optimal, maintenance relaxed).
+  - Knockout sweep (2 × 1,082, knocked-flux check, no failing point): **no class change at any cutoff**;
+    at 15 % still 111 / 204 / 42 / 692.
+  - With R1726 opened in memory on top, 1,082 knockouts: no class change, no growth gain; the FAS / OLE1 /
+    FAA genes stay essential.
+- **Census (GLPK):** open condition 722 → 720 (R1343 / R1344, the known GLPK fringe pair); Task A 852;
+  nothing newly blocked.
+
+**Limits.**
+- Mass balance cannot be checked: the four lipid species have no formulas.
+- The remap target `m567` is a judgement; no transport has been measured.
+- The other 0.01-scaled reactions of R2143–R2187 are not changed.
+- Only the Task A medium was tested.
+- Committed in `ee385ae` on branch `claude/kennedy-closures-864c91`.
+
+## 2026-10-27: Kennedy closures R1725 / R1726, Option A built but stopped at the knockout check (no candidate; committed with the re-run in b18d4c6, see the first entry above)
+
+**Authorization.** The user, 2026-10-27: "Approve Option A" for the Kennedy Stage 1 draft (open R1726, keep
+R1725 closed; [TASK.md](reports/kennedy_closures_20261027/TASK.md)).
+
+**Outcome.** Stopped under the task's stop condition ([STOP.md](reports/kennedy_closures_20261027/STOP.md)).
+Verified this session.
+
+**What was built:**
+- the step `--r1726-cpt-open`, its data, test and review, all uncommitted;
+- builds: the control reproduces `00e8e397`; the R1726 build is `95316a85…`, in the artifacts folder only.
+
+**What was found:**
+- Whole-model diff: only R1726's bounds and notes.
+- The two-model knockout sweep showed four genes losing essentiality at every cutoff at unchanged WT growth:
+  - fatty-acid synthase `YALI1B19844g` / `YALI1B25427g`;
+  - desaturase `YALI1C07638g`;
+  - acyl-CoA ligase `YALI1D22124g`.
+
+  Cause: R1726 + PLD closed a loop through the acetyl-CoA → acyl-CoA mapping of R2135, fixed in the entry
+  above.
+
+**Stage 1 findings kept:**
+- R1725's only gene `YALI1C15420g` is the CPT1 ortholog (KEGG K00994). The EPT1 ortholog `YALI1E31498g` is
+  not in the model.
+- Opening R1725 lets the sphingoid-base lyase rescue a PSD1 + PSD2 double knockout, against *S. cerevisiae*
+  ethanolamine auxotrophy (PMID 7890740).
+- The DAG kinase R1720 is closed.
+
+**Next:** re-run on `e9d35857`. The stacked check above predicts no class change. Making `--r1726-cpt-open`
+require `--r2135-acyl-coa-pool` is part of that change. It needs the user's approval.
+
 ## 2026-10-27: Why consensus-essential genes are predicted non-essential, a1237821 (investigation only; committed fd9be09, PR #25)
 
 **Authorization.** Parent-session brief relayed from the user, 2026-10-27: investigation only, no model fixes;

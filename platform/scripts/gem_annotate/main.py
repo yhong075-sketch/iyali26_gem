@@ -96,6 +96,8 @@ def build_reference_chain(
     lipoylation_module: bool = False,
     acyl_acp_chemistry: bool = False,
     cofactor_biomass_terms: bool = False,
+    r2135_acyl_coa_pool: bool = False,
+    r1726_cpt_open: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -146,6 +148,12 @@ def build_reference_chain(
         raise ValueError("The acyl-ACP chemistry correction requires --lipoylation-module (ACP1 = HSR)")
     if cofactor_biomass_terms and not lipoylation_module:
         raise ValueError("The cofactor biomass terms are defined on the lipoylation-module biomass_C; requires --lipoylation-module")
+    if r2135_acyl_coa_pool and not cofactor_biomass_terms:
+        # The remap and rescale were reviewed only on the cofactor biomass-terms candidate 00e8e397 (2026-10-27).
+        raise ValueError("The R2135 acyl-CoA pool curation was reviewed on the cofactor biomass-terms candidate; requires --cofactor-biomass-terms")
+    if r1726_cpt_open and not r2135_acyl_coa_pool:
+        # Reviewed on e9d35857 (2026-10-27); without the R2135 fix its PC turnover cycle feeds an acetyl-CoA acyl leak.
+        raise ValueError("The R1726 opening was reviewed on the R2135 acyl-CoA pool candidate; requires --r2135-acyl-coa-pool")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -821,6 +829,18 @@ def build_reference_chain(
         from .cofactor_biomass_terms import apply_cofactor_biomass_terms
         selection["cofactor_biomass_terms"] = apply_cofactor_biomass_terms(model)
         logger.info("Cofactor biomass terms: %s", selection["cofactor_biomass_terms"]["status"])
+    if r2135_acyl_coa_pool:
+        # Opt-in: R2135 takes the ER-membrane acyl-CoA pool instead of acetyl-CoA, R2145 written 1:1 (2026-10-27).
+        # Runs after the cofactor step and before the R1726 opening, whose loop it closes.
+        from .r2135_acyl_coa_pool import apply_r2135_acyl_coa_pool
+        selection["r2135_acyl_coa_pool"] = apply_r2135_acyl_coa_pool(model)
+        logger.info("R2135 acyl-CoA pool: %s", selection["r2135_acyl_coa_pool"]["status"])
+    if r1726_cpt_open:
+        # Opt-in: Kennedy CDP-choline step R1726 opened, R1725 kept closed (2026-10-27). Bounds and notes only;
+        # requires and runs after the R2135 step, whose acyl-CoA fix its PC turnover cycle would otherwise exploit.
+        from .r1726_cpt_open import apply_r1726_cpt_open
+        selection["r1726_cpt_open"] = apply_r1726_cpt_open(model)
+        logger.info("R1726 opening: %s", selection["r1726_cpt_open"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -923,6 +943,8 @@ def build_model(args):
         lipoylation_module=getattr(args, "lipoylation_module", False),
         acyl_acp_chemistry=getattr(args, "acyl_acp_chemistry", False),
         cofactor_biomass_terms=getattr(args, "cofactor_biomass_terms", False),
+        r2135_acyl_coa_pool=getattr(args, "r2135_acyl_coa_pool", False),
+        r1726_cpt_open=getattr(args, "r1726_cpt_open", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
