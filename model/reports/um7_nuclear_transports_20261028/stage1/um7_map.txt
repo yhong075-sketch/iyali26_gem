@@ -1,0 +1,133 @@
+Set parameter Username
+Set parameter LicenseID to value 2843063
+Academic license - for non-commercial use only - expires 2027-07-10
+=== UM7 reactions ===
+R92     acetyl-CoA synthetase nuclear                      (0.0, 0.0)         subsys='Glycolysis/Gluconeogenesis'
+        m205[C_nu] + m206[C_nu] + m207[C_nu] --> m208[C_nu] + m209[C_nu] + m210[C_nu]
+        acetate_C2H4O2 + ATP_C10H16N5O13P3 + coenzyme A_C21H36N7O16P3S --> acetyl-CoA_C23H38N7O17P3S + AMP_C10H14N5O7P + diphosphate_H4O7P2
+        GPR=YALI1F08845g ann={'bigg.reaction': ['ACS', 'ACS_1', 'ACS_h', 'ACSm', 'ACSp', 'R_ACS', 'R_ACS_1', 'R_ACS_h', 'R_ACSm', 'R_ACSp'], 'kegg.reaction': 'R00235', 'metacyc.reaction': 'ACETATE--COA-LIGASE-RXN', 'rh': ['23176', '23177', '23178', '23179'], 'rhea': ['23176', '23177', '23178', '23179'], 'sabiork.reaction': '179', 'seed.reaction': ['rxn00175', 'rxn27659', 'rxn27660', 'rxn30338', 'rxn33879'], 'vmhreaction': ['ACS', 'ACSm', 'R_ACS', 'R_ACSm'], 'metanetx.reaction': 'MNXR190571', 'ec-code': '6.2.1.1', 'biggr': ['ACS', 'ACS_1', 'ACS_h', 'ACSm', 'ACSp', 'R_ACS', 'R_ACS_1', 'R_ACS_h', 'R_ACSm', 'R_ACSp'], 'keggr': 'R00235', 'metacycr': 'ACETATE--COA-LIGASE-RXN', 'sabiorkr': '179', 'seedr': ['rxn00175', 'rxn27659', 'rxn27660', 'rxn30338', 'rxn33879'], 'vmhr': ['ACS', 'ACSm', 'R_ACS', 'R_ACSm']}
+        notes={'PROTEIN_CLASS': '6.2.1.1'}
+R396    homocitrate synthase                               (0.0, 1000.0)      subsys='Lysine biosynthesis'
+        m208[C_nu] + m625[C_nu] + m626[C_nu] --> m207[C_nu] + m628[C_nu]
+        acetyl-CoA_C23H38N7O17P3S + 2-oxoglutarate_C5H6O5 + H2O_H2O --> coenzyme A_C21H36N7O16P3S + homocitrate_C7H10O7
+        GPR=YALI1F38776g ann={'bigg.reaction': ['AACT', 'HCITS', 'HCITSm', 'HCITSn', 'R_AACT', 'R_HCITS', 'R_HCITSm', 'R_HCITSn'], 'metanetx.reaction': 'MNXR198477', 'ec-code': '2.3.3.14', 'biggr': ['AACT', 'HCITS', 'HCITSm', 'HCITSn', 'R_AACT', 'R_HCITS', 'R_HCITSm', 'R_HCITSn']}
+        notes={'PROTEIN_CLASS': '2.3.3.14'}
+R567    NAD nucleosidase nuclear                           (0.0, 1000.0)      subsys='Purine metabolism'
+        m626[C_nu] + m817[C_nu] --> 2.0 m627[C_nu] + m818[C_nu] + m819[C_nu]
+        H2O_H2O + NAD_C21H27N7O14P2 --> 2.0 H+_p+1 + ADP-ribose_C15H21N5O14P2 + nicotinamide_C6H6N2O
+        GPR=YALI1D26320g or YALI1D02416g or YALI1F15334g ann={}
+        notes={'PROTEIN_CLASS': '3.2.2.5'}
+R568    NAD synthase                                       (0.0, 1000.0)      subsys='Nicotinate and nicotinamide metabolism'
+        m130[C_cy] + m141[C_cy] + m32[C_cy] + m820[C_cy] --> m122[C_cy] + m203[C_cy] + m50[C_cy] + m86[C_cy]
+        L-glutamine_C5H10N2O3 + ATP_C10H16N5O13P3 + H2O_H2O + deamido-NAD(+)_C21H26N6O15P2 --> NAD_C21H27N7O14P2 + diphosphate_H4O7P2 + L-glutamate_C5H9NO4 + AMP_C10H14N5O7P
+        GPR=YALI1A21156g ann={'bigg.reaction': ['DNGALh', 'NADS2', 'R_DNGALh', 'R_NADS2'], 'kegg.reaction': 'R00257', 'metacyc.reaction': 'NAD-SYNTH-GLN-RXN', 'rh': ['24384', '24385', '24386', '24387'], 'rhea': ['24384', '24385', '24386', '24387'], 'seed.reaction': ['rxn00190', 'rxn33083'], 'metanetx.reaction': 'MNXR190938', 'ec-code': '6.3.5.1', 'biggr': ['DNGALh', 'NADS2', 'R_DNGALh', 'R_NADS2'], 'keggr': 'R00257', 'metacycr': 'NAD-SYNTH-GLN-RXN', 'seedr': ['rxn00190', 'rxn33083']}
+        notes={'PROTEIN_CLASS': '6.3.5.1'}
+R569    NAD synthase                                       (0.0, 1000.0)      subsys=''
+        m206[C_nu] + m626[C_nu] + m821[C_nu] + m822[C_nu] --> m209[C_nu] + m210[C_nu] + m817[C_nu] + m823[C_nu]
+        ATP_C10H16N5O13P3 + H2O_H2O + deamido-NAD(+)_C21H26N6O15P2 + L-glutamine_C5H10N2O3 --> AMP_C10H14N5O7P + diphosphate_H4O7P2 + NAD_C21H27N7O14P2 + L-glutamate_C5H9NO4
+        GPR=YALI1A21156g ann={'bigg.reaction': ['DNGALh', 'NADS2', 'R_DNGALh', 'R_NADS2'], 'kegg.reaction': 'R00257', 'metacyc.reaction': 'NAD-SYNTH-GLN-RXN', 'rh': ['24384', '24385', '24386', '24387'], 'rhea': ['24384', '24385', '24386', '24387'], 'seed.reaction': ['rxn00190', 'rxn33083'], 'metanetx.reaction': 'MNXR190938', 'ec-code': '6.3.5.1', 'biggr': ['DNGALh', 'NADS2', 'R_DNGALh', 'R_NADS2'], 'keggr': 'R00257', 'metacycr': 'NAD-SYNTH-GLN-RXN', 'seedr': ['rxn00190', 'rxn33083']}
+        notes={}
+R579    nicotinamide-nucleotide adenylyltransferase        (0.0, 1000.0)      subsys=''
+        m206[C_nu] + m832[C_nu] --> m210[C_nu] + m817[C_nu]
+        ATP_C10H16N5O13P3 + NMN_C11H15N2O8P --> diphosphate_H4O7P2 + NAD_C21H27N7O14P2
+        GPR=YALI1E30400g or YALI1A20611g ann={'bigg.reaction': ['ANNAT', 'ANNATn', 'NMNAT', 'NMNATm', 'NMNATn', 'R_ANNAT', 'R_ANNATn', 'R_NMNAT', 'R_NMNATm', 'R_NMNATn'], 'kegg.reaction': 'R00137', 'metacyc.reaction': '2.7.7.1-RXN', 'rh': ['21360', '21361', '21362', '21363'], 'rhea': ['21360', '21361', '21362', '21363'], 'sabiork.reaction': '706', 'seed.reaction': ['rxn00105', 'rxn30218', 'rxn31803', 'rxn31815', 'rxn31816', 'rxn35311'], 'vmhreaction': ['NMNAT', 'NMNATm', 'NMNATn', 'NMNATr', 'R_NMNAT', 'R_NMNATm', 'R_NMNATn', 'R_NMNATr'], 'metanetx.reaction': 'MNXR95841', 'ec-code': ['2.7.7.1', '2.7.7.18'], 'biggr': ['ANNAT', 'ANNATn', 'NMNAT', 'NMNATm', 'NMNATn', 'R_ANNAT', 'R_ANNATn', 'R_NMNAT', 'R_NMNATm', 'R_NMNATn'], 'keggr': 'R00137', 'metacycr': '2.7.7.1-RXN', 'sabiorkr': '706', 'seedr': ['rxn00105', 'rxn30218', 'rxn31803', 'rxn31815', 'rxn31816', 'rxn35311'], 'vmhr': ['NMNAT', 'NMNATm', 'NMNATn', 'NMNATr', 'R_NMNAT', 'R_NMNATm', 'R_NMNATn', 'R_NMNATr']}
+        notes={}
+R580    nicotinate-nucleotide adenylyltransferase          (0.0, 1000.0)      subsys='Nicotinate and nicotinamide metabolism'
+        m141[C_cy] + m825[C_cy] --> m203[C_cy] + m820[C_cy]
+        ATP_C10H16N5O13P3 + nicotinate D-ribonucleotide_C11H14NO9P --> diphosphate_H4O7P2 + deamido-NAD(+)_C21H26N6O15P2
+        GPR=YALI1E30400g or YALI1A20611g ann={'bigg.reaction': ['NNATm', 'NNATn', 'NNATr', 'R_NNATm', 'R_NNATn', 'R_NNATr'], 'kegg.reaction': 'R03005', 'metacyc.reaction': 'NICONUCADENYLYLTRAN-RXN', 'rh': ['22860', '22861', '22862', '22863'], 'rhea': ['22860', '22861', '22862', '22863'], 'sabiork.reaction': '2857', 'seed.reaction': ['rxn02155', 'rxn30217', 'rxn31945', 'rxn35310'], 'metanetx.reaction': 'MNXR188513', 'ec-code': ['2.7.7.1', '2.7.7.18'], 'biggr': ['NNATm', 'NNATn', 'NNATr', 'R_NNATm', 'R_NNATn', 'R_NNATr'], 'keggr': 'R03005', 'metacycr': 'NICONUCADENYLYLTRAN-RXN', 'sabiorkr': '2857', 'seedr': ['rxn02155', 'rxn30217', 'rxn31945', 'rxn35310']}
+        notes={'PROTEIN_CLASS': '2.7.7.1'}
+R965    2-oxoglutarate transport                           (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m51[C_cy] <=> m625[C_nu]
+        2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5
+        GPR=- ann={'bigg.reaction': ['AKGt', 'AKGtc', 'AKGtex', 'AKGtm', 'AKGtp', 'EX_akg_e', 'R_AKGt', 'R_AKGtc', 'R_AKGtex', 'R_AKGtm', 'R_AKGtp', 'R_EX_akg_e', 'R_SK_akg_c', 'SK_akg_c'], 'rh': ['76231', '76232', '76233', '76234'], 'rhea': ['76231', '76232', '76233', '76234'], 'sabiork.reaction': '13794', 'seed.reaction': ['rxn08096', 'rxn10923', 'rxn13220', 'rxn30603', 'rxn31174', 'rxn33711'], 'vmhreaction': ['AKGte', 'AKGtex', 'AKGtp', 'R_AKGte', 'R_AKGtex', 'R_AKGtp'], 'metanetx.reaction': 'MNXR95663', 'biggr': ['AKGt', 'AKGtc', 'AKGtex', 'AKGtm', 'AKGtp', 'EX_akg_e', 'R_AKGt', 'R_AKGtc', 'R_AKGtex', 'R_AKGtm', 'R_AKGtp', 'R_EX_akg_e', 'R_SK_akg_c', 'SK_akg_c'], 'sabiorkr': '13794', 'seedr': ['rxn08096', 'rxn10923', 'rxn13220', 'rxn30603', 'rxn31174', 'rxn33711'], 'vmhr': ['AKGte', 'AKGtex', 'AKGtp', 'R_AKGte', 'R_AKGtex', 'R_AKGtp']}
+        notes={}
+R1000   acetate transport                                  (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m202[C_cy] <=> m205[C_nu]
+        acetate_C2H4O2 <=> acetate_C2H4O2
+        GPR=- ann={'bigg.reaction': ['ACtex', 'ACtg', 'ACth', 'ACtm', 'ACtp', 'ACtr', 'ACts', 'DM_ac_c', 'EX_ac_e', 'R_ACtex', 'R_ACtg', 'R_ACth', 'R_ACtm', 'R_ACtp', 'R_ACtr', 'R_ACts', 'R_DM_ac_c', 'R_EX_ac_e'], 'metacyc.reaction': 'TRANS-RXN-455', 'sabiork.reaction': '12184', 'seed.reaction': ['rxn08063', 'rxn09787', 'rxn09866', 'rxn10904', 'rxn28609', 'rxn31359', 'rxn06997', 'rxn21630'], 'vmhreaction': ['ACtex', 'ACtg', 'ACtr', 'ACtrpp', 'HMR_9679', 'R_ACtex', 'R_ACtg', 'R_ACtr', 'R_ACtrpp', 'R_HMR_9679'], 'metanetx.reaction': 'MNXR198283', 'biggr': ['ACtex', 'ACtg', 'ACth', 'ACtm', 'ACtp', 'ACtr', 'ACts', 'DM_ac_c', 'EX_ac_e', 'R_ACtex', 'R_ACtg', 'R_ACth', 'R_ACtm', 'R_ACtp', 'R_ACtr', 'R_ACts', 'R_DM_ac_c', 'R_EX_ac_e'], 'metacycr': 'TRANS-RXN-455', 'sabiorkr': '12184', 'seedr': ['rxn08063', 'rxn09787', 'rxn09866', 'rxn10904', 'rxn28609', 'rxn31359', 'rxn06997', 'rxn21630'], 'vmhr': ['ACtex', 'ACtg', 'ACtr', 'ACtrpp', 'HMR_9679', 'R_ACtex', 'R_ACtg', 'R_ACtr', 'R_ACtrpp', 'R_HMR_9679']}
+        notes={}
+R1001   acetyl-CoA transport                               (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m68[C_cy] <=> m208[C_nu]
+        acetyl-CoA_C23H38N7O17P3S <=> acetyl-CoA_C23H38N7O17P3S
+        GPR=- ann={'bigg.reaction': ['ACCOAT', 'ACCOAgt', 'ACCOAtm_1', 'ACCOAtn', 'ACCOAtr', 'ACCOAts', 'HMR_3106', 'R_ACCOAT', 'R_ACCOAgt', 'R_ACCOAtm_1', 'R_ACCOAtn', 'R_ACCOAtr', 'R_ACCOAts', 'R_HMR_3106', 'R_SK_accoa_h', 'SK_accoa_h'], 'rh': ['75039', '75040', '75041', '75042'], 'rhea': ['75039', '75040', '75041', '75042'], 'seed.reaction': ['rxn13213', 'rxn31564', 'rxn34186', 'rxn34187', 'rxn34188'], 'vmhreaction': ['ACCOAgt', 'ACCOAtn', 'ACCOAtr', 'HMR_3106', 'R_ACCOAgt', 'R_ACCOAtn', 'R_ACCOAtr', 'R_HMR_3106'], 'metanetx.reaction': 'MNXR190521', 'biggr': ['ACCOAT', 'ACCOAgt', 'ACCOAtm_1', 'ACCOAtn', 'ACCOAtr', 'ACCOAts', 'HMR_3106', 'R_ACCOAT', 'R_ACCOAgt', 'R_ACCOAtm_1', 'R_ACCOAtn', 'R_ACCOAtr', 'R_ACCOAts', 'R_HMR_3106', 'R_SK_accoa_h', 'SK_accoa_h'], 'seedr': ['rxn13213', 'rxn31564', 'rxn34186', 'rxn34187', 'rxn34188'], 'vmhr': ['ACCOAgt', 'ACCOAtn', 'ACCOAtr', 'HMR_3106', 'R_ACCOAgt', 'R_ACCOAtn', 'R_ACCOAtr', 'R_HMR_3106']}
+        notes={}
+R1017   AMP transport                                      (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m209[C_nu] <=> m86[C_cy]
+        AMP_C10H14N5O7P <=> AMP_C10H14N5O7P
+        GPR=- ann={'bigg.reaction': ['AMPt', 'AMPt_m', 'AMPtex', 'AMPth', 'AMPtn', 'AMPtp', 'AMPtr', 'EX_amp_e', 'HMR_7711', 'HMR_9665', 'R_AMPt', 'R_AMPt_m', 'R_AMPtex', 'R_AMPth', 'R_AMPtn', 'R_AMPtp', 'R_AMPtr', 'R_EX_amp_e', 'R_HMR_7711', 'R_HMR_9665'], 'seed.reaction': ['rxn08134', 'rxn13227', 'rxn29321', 'rxn31160', 'rxn31194', 'rxn31358'], 'vmhreaction': ['AMPtex', 'AMPtp', 'AMPtr', 'HMR_7711', 'HMR_7712', 'HMR_9665', 'R_AMPtex', 'R_AMPtp', 'R_AMPtr', 'R_HMR_7711', 'R_HMR_7712', 'R_HMR_9665'], 'metanetx.reaction': 'MNXR95830', 'biggr': ['AMPt', 'AMPt_m', 'AMPtex', 'AMPth', 'AMPtn', 'AMPtp', 'AMPtr', 'EX_amp_e', 'HMR_7711', 'HMR_9665', 'R_AMPt', 'R_AMPt_m', 'R_AMPtex', 'R_AMPth', 'R_AMPtn', 'R_AMPtp', 'R_AMPtr', 'R_EX_amp_e', 'R_HMR_7711', 'R_HMR_9665'], 'seedr': ['rxn08134', 'rxn13227', 'rxn29321', 'rxn31160', 'rxn31194', 'rxn31358'], 'vmhr': ['AMPtex', 'AMPtp', 'AMPtr', 'HMR_7711', 'HMR_7712', 'HMR_9665', 'R_AMPtex', 'R_AMPtp', 'R_AMPtr', 'R_HMR_7711', 'R_HMR_7712', 'R_HMR_9665']}
+        notes={}
+R1055   coenzyme A transport                               (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m69[C_cy] <=> m207[C_nu]
+        coenzyme A_C21H36N7O16P3S <=> coenzyme A_C21H36N7O16P3S
+        GPR=- ann={'bigg.reaction': ['COAt', 'COAtg', 'COAth', 'COAtim', 'COAtl', 'COAtn', 'COAtp', 'COAtr', 'COAts', 'EX_coa_e', 'R_COAt', 'R_COAtg', 'R_COAth', 'R_COAtim', 'R_COAtl', 'R_COAtn', 'R_COAtp', 'R_COAtr', 'R_COAts', 'R_EX_coa_e', 'R_SK_coa_c', 'SK_coa_c'], 'seed.reaction': ['rxn10832', 'rxn13243', 'rxn13244', 'rxn31203', 'rxn32206', 'rxn32207', 'rxn32211'], 'vmhreaction': ['COAt', 'COAtex', 'COAtg', 'COAtl', 'COAtm', 'COAtn', 'COAtp', 'COAtpp', 'COAtr', 'R_COAt', 'R_COAtex', 'R_COAtg', 'R_COAtl', 'R_COAtm', 'R_COAtn', 'R_COAtp', 'R_COAtpp', 'R_COAtr'], 'metanetx.reaction': 'MNXR96815', 'biggr': ['COAt', 'COAtg', 'COAth', 'COAtim', 'COAtl', 'COAtn', 'COAtp', 'COAtr', 'COAts', 'EX_coa_e', 'R_COAt', 'R_COAtg', 'R_COAth', 'R_COAtim', 'R_COAtl', 'R_COAtn', 'R_COAtp', 'R_COAtr', 'R_COAts', 'R_EX_coa_e', 'R_SK_coa_c', 'SK_coa_c'], 'seedr': ['rxn10832', 'rxn13243', 'rxn13244', 'rxn31203', 'rxn32206', 'rxn32207', 'rxn32211'], 'vmhr': ['COAt', 'COAtex', 'COAtg', 'COAtl', 'COAtm', 'COAtn', 'COAtp', 'COAtpp', 'COAtr', 'R_COAt', 'R_COAtex', 'R_COAtg', 'R_COAtl', 'R_COAtm', 'R_COAtn', 'R_COAtp', 'R_COAtpp', 'R_COAtr']}
+        notes={}
+R1082   deamino-NAD+ diffusion                             (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m820[C_cy] <=> m821[C_nu]
+        deamido-NAD(+)_C21H26N6O15P2 <=> deamido-NAD(+)_C21H26N6O15P2
+        GPR=- ann={'bigg.reaction': ['DNADtn', 'R_DNADtn'], 'metanetx.reaction': 'MNXR97625', 'biggr': ['DNADtn', 'R_DNADtn']}
+        notes={}
+R1212   L-glutamate transport                              (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m50[C_cy] <=> m823[C_nu]
+        L-glutamate_C5H9NO4 <=> L-glutamate_C5H9NO4
+        GPR=- ann={'bigg.reaction': ['EX_glu__L_e', 'GLUt3', 'GLUt7l', 'GLUt7m', 'GLUtc', 'GLUtex', 'GLUtr', 'R_EX_glu__L_e', 'R_GLUt3', 'R_GLUt7l', 'R_GLUt7m', 'R_GLUtc', 'R_GLUtex', 'R_GLUtr', 'R_SK_glu__L_c', 'SK_glu__L_c'], 'metacyc.reaction': ['TRANS-RXN-232', 'TRANS-RXN-234'], 'rh': ['66336', '66337', '66338', '66339'], 'rhea': ['66336', '66337', '66338', '66339'], 'sabiork.reaction': '12283', 'seed.reaction': ['rxn08633', 'rxn10917', 'rxn13304', 'rxn29088', 'rxn31191', 'rxn13120'], 'vmhreaction': ['GLU_Ltex', 'GLUt7l', 'GLUtr', 'R_GLU_Ltex', 'R_GLUt7l', 'R_GLUtr'], 'metanetx.reaction': 'MNXR145089', 'biggr': ['EX_glu__L_e', 'GLUt3', 'GLUt7l', 'GLUt7m', 'GLUtc', 'GLUtex', 'GLUtr', 'R_EX_glu__L_e', 'R_GLUt3', 'R_GLUt7l', 'R_GLUt7m', 'R_GLUtc', 'R_GLUtex', 'R_GLUtr', 'R_SK_glu__L_c', 'SK_glu__L_c'], 'metacycr': ['TRANS-RXN-232', 'TRANS-RXN-234'], 'sabiorkr': '12283', 'seedr': ['rxn08633', 'rxn10917', 'rxn13304', 'rxn29088', 'rxn31191', 'rxn13120'], 'vmhr': ['GLU_Ltex', 'GLUt7l', 'GLUtr', 'R_GLU_Ltex', 'R_GLUt7l', 'R_GLUtr']}
+        notes={}
+R1214   L-glutamine transport                              (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m130[C_cy] <=> m822[C_nu]
+        L-glutamine_C5H10N2O3 <=> L-glutamine_C5H10N2O3
+        GPR=- ann={'bigg.reaction': ['EX_gln__L_e', 'GLNt', 'GLNtex', 'GLNtm', 'R_EX_gln__L_e', 'R_GLNt', 'R_GLNtex', 'R_GLNtm', 'R_SK_gln__L_c', 'SK_gln__L_c'], 'metacyc.reaction': 'TRANS-RXN-233', 'rh': ['73419', '73420', '73421', '73422'], 'rhea': ['73419', '73420', '73421', '73422'], 'sabiork.reaction': ['13421', '14547'], 'seed.reaction': ['rxn08625', 'rxn10928', 'rxn29086', 'rxn29087', 'rxn33058'], 'vmhreaction': ['GLN_Ltex', 'GLNtm', 'R_GLN_Ltex', 'R_GLNtm', 'R_r1064', 'R_r2525', 'r1064', 'r2525'], 'metanetx.reaction': 'MNXR100259', 'biggr': ['EX_gln__L_e', 'GLNt', 'GLNtex', 'GLNtm', 'R_EX_gln__L_e', 'R_GLNt', 'R_GLNtex', 'R_GLNtm', 'R_SK_gln__L_c', 'SK_gln__L_c'], 'metacycr': 'TRANS-RXN-233', 'sabiorkr': ['13421', '14547'], 'seedr': ['rxn08625', 'rxn10928', 'rxn29086', 'rxn29087', 'rxn33058'], 'vmhr': ['GLN_Ltex', 'GLNtm', 'R_GLN_Ltex', 'R_GLNtm', 'R_r1064', 'R_r2525', 'r1064', 'r2525']}
+        notes={}
+R1267   nicotinamide diffusion                             (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m829[C_cy] <=> m819[C_nu]
+        nicotinamide_C6H6N2O <=> nicotinamide_C6H6N2O
+        GPR=- ann={'bigg.reaction': ['DM_ncam_c', 'EX_ncam_e', 'NCAMUP', 'R_DM_ncam_c', 'R_EX_ncam_e', 'R_NCAMUP'], 'seed.reaction': ['rxn10867', 'rxn32452', 'rxn32456'], 'vmhreaction': ['NCAMDe', 'NCAMUP', 'NCAMUPpp', 'NCAMtex', 'R_NCAMDe', 'R_NCAMUP', 'R_NCAMUPpp', 'R_NCAMtex'], 'metanetx.reaction': 'MNXR101918', 'biggr': ['DM_ncam_c', 'EX_ncam_e', 'NCAMUP', 'R_DM_ncam_c', 'R_EX_ncam_e', 'R_NCAMUP'], 'seedr': ['rxn10867', 'rxn32452', 'rxn32456'], 'vmhr': ['NCAMDe', 'NCAMUP', 'NCAMUPpp', 'NCAMtex', 'R_NCAMDe', 'R_NCAMUP', 'R_NCAMUPpp', 'R_NCAMtex']}
+        notes={}
+R1270   NMN transport                                      (-1000.0, 1000.0)  subsys='Transport, nucleus'
+        m831[C_cy] <=> m832[C_nu]
+        NMN_C11H15N2O8P <=> NMN_C11H15N2O8P
+        GPR=- ann={}
+        notes={}
+
+=== genes on UM7 ===
+YALI1A20611g 'G_YALI1A20611g' {'sbo': 'SBO:0000243', 'ncbigene': '2906512', 'kegg.genes': 'yli:2906512'} ['R578', 'R579', 'R580']
+YALI1A21156g 'COBRAProtein507' {'sbo': 'SBO:0000243', 'ncbigene': '2906552', 'uniprot': 'A0A1D8N5L3', 'kegg.genes': 'yli:2906552', 'refseq': 'XP_500272.1', 'ec-code': '6.3.5.1'} ['R568', 'R569']
+YALI1D02416g 'COBRAProtein504' {'sbo': 'SBO:0000243', 'ncbigene': '2910515', 'uniprot': 'A0A1D8NCV3', 'kegg.genes': 'yli:2910515'} ['R567']
+YALI1D26320g 'COBRAProtein505' {'sbo': 'SBO:0000243', 'ncbigene': '2910151', 'uniprot': 'A0A1H6Q8U0', 'kegg.genes': 'yli:2910151', 'refseq': 'XP_503085.2'} ['R567']
+YALI1E30400g 'COBRAProtein538' {'sbo': 'SBO:0000243'} ['R578', 'R579', 'R580']
+YALI1F08845g 'COBRAProtein88' {'sbo': 'SBO:0000243', 'ncbigene': '2908441', 'uniprot': 'A0A1D8NM68', 'kegg.genes': 'yli:2908441', 'refseq': 'XP_505057.1', 'ec-code': '6.2.1.1'} ['R2024', 'R2268', 'R90', 'R91', 'R92']
+YALI1F15334g 'COBRAProtein506' {'sbo': 'SBO:0000243', 'ncbigene': '2908621', 'uniprot': 'A0A1D8NN06', 'kegg.genes': 'yli:2908621', 'refseq': 'XP_505293.1'} ['R567']
+YALI1F38776g 'COBRAProtein421' {'sbo': 'SBO:0000243', 'uniprot': 'Q12726', 'refseq': 'XP_506079.1', 'ensembl': 'CAG78892', 'kegg.genes': 'yli:2907696', 'ec-code': '2.3.3.14'} ['R1170', 'R396']
+
+=== species of interest: every compartment copy (by base id) ===
+m32[C_cy]      H2O_H2O                                       H2O q=0 n_rxn=332
+m50[C_cy]      L-glutamate_C5H9NO4                           C5H9NO4 q=0 n_rxn=60
+m51[C_cy]      2-oxoglutarate_C5H6O5                         C5H6O5 q=0 n_rxn=32
+m68[C_cy]      acetyl-CoA_C23H38N7O17P3S                     C23H38N7O17P3S q=0 n_rxn=20
+m69[C_cy]      coenzyme A_C21H36N7O16P3S                     C21H36N7O16P3S q=0 n_rxn=40
+m86[C_cy]      AMP_C10H14N5O7P                               C10H14N5O7P q=0 n_rxn=51
+m122[C_cy]     NAD_C21H27N7O14P2                             C21H27N7O14P2 q=0 n_rxn=65
+m130[C_cy]     L-glutamine_C5H10N2O3                         C5H10N2O3 q=0 n_rxn=25
+m141[C_cy]     ATP_C10H16N5O13P3                             C10H16N5O13P3 q=0 n_rxn=182
+m202[C_cy]     acetate_C2H4O2                                C2H4O2 q=0 n_rxn=17
+m203[C_cy]     diphosphate_H4O7P2                            H4O7P2 q=0 n_rxn=79
+m205[C_nu]     acetate_C2H4O2                                C2H4O2 q=0 n_rxn=2
+m206[C_nu]     ATP_C10H16N5O13P3                             C10H16N5O13P3 q=0 n_rxn=13
+m207[C_nu]     coenzyme A_C21H36N7O16P3S                     C21H36N7O16P3S q=0 n_rxn=3
+m208[C_nu]     acetyl-CoA_C23H38N7O17P3S                     C23H38N7O17P3S q=0 n_rxn=3
+m209[C_nu]     AMP_C10H14N5O7P                               C10H14N5O7P q=0 n_rxn=3
+m210[C_nu]     diphosphate_H4O7P2                            H4O7P2 q=0 n_rxn=3
+m625[C_nu]     2-oxoglutarate_C5H6O5                         C5H6O5 q=0 n_rxn=2
+m626[C_nu]     H2O_H2O                                       H2O q=0 n_rxn=12
+m627[C_nu]     H+_p+1                                        H q=1 n_rxn=11
+m628[C_nu]     homocitrate_C7H10O7                           C7H10O7 q=0 n_rxn=1
+m817[C_nu]     NAD_C21H27N7O14P2                             C21H27N7O14P2 q=0 n_rxn=3
+m818[C_nu]     ADP-ribose_C15H21N5O14P2                      C15H21N5O14P2 q=-2 n_rxn=1
+m819[C_nu]     nicotinamide_C6H6N2O                          C6H6N2O q=0 n_rxn=2
+m820[C_cy]     deamido-NAD(+)_C21H26N6O15P2                  C21H26N6O15P2 q=0 n_rxn=3
+m821[C_nu]     deamido-NAD(+)_C21H26N6O15P2                  C21H26N6O15P2 q=0 n_rxn=2
+m822[C_nu]     L-glutamine_C5H10N2O3                         C5H10N2O3 q=0 n_rxn=2
+m823[C_nu]     L-glutamate_C5H9NO4                           C5H9NO4 q=0 n_rxn=2
+m825[C_cy]     nicotinate D-ribonucleotide_C11H14NO9P        C11H14NO9P q=0 n_rxn=5
+m829[C_cy]     nicotinamide_C6H6N2O                          C6H6N2O q=0 n_rxn=4
+m831[C_cy]     NMN_C11H15N2O8P                               C11H15N2O8P q=0 n_rxn=6
+m832[C_nu]     NMN_C11H15N2O8P                               C11H15N2O8P q=0 n_rxn=2
