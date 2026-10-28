@@ -1,0 +1,2370 @@
+..s.FFsF...F..sFsF..sssss..ss.................. [ 15%]
+............F.........................................sss....s..s......... [ 39%]
+...............F......................s..EEEEEEEEEEEEEE....................ssssssssssssss....................................................................................F...F....F...                                  [100%]
+==================================== ERRORS ====================================
+____________ ERROR collecting tests/test_gem_review_lit_caching.py _____________
+ImportError while importing test module '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-5eaeae/platform/tests/test_gem_review_lit_caching.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/miniconda3/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_gem_review_lit_caching.py:16: in <module>
+    import httpx2  # noqa: E402
+    ^^^^^^^^^^^^^
+E   ModuleNotFoundError: No module named 'httpx2'
+_____________ ERROR collecting tests/test_gem_review_lit_chain.py ______________
+ImportError while importing test module '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-5eaeae/platform/tests/test_gem_review_lit_chain.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/miniconda3/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_gem_review_lit_chain.py:15: in <module>
+    from pydantic_ai.messages import ModelResponse, ToolCallPart  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ModuleNotFoundError: No module named 'pydantic_ai'
+____________ ERROR collecting tests/test_gem_review_lit_extract.py _____________
+ImportError while importing test module '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-5eaeae/platform/tests/test_gem_review_lit_extract.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/miniconda3/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_gem_review_lit_extract.py:14: in <module>
+    from pydantic_ai import ModelRetry  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ModuleNotFoundError: No module named 'pydantic_ai'
+___________ ERROR collecting tests/test_gem_review_lit_providers.py ____________
+ImportError while importing test module '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-5eaeae/platform/tests/test_gem_review_lit_providers.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/miniconda3/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_gem_review_lit_providers.py:10: in <module>
+    from gem_review.lit.providers import (DEFAULT_LLM, LLM_ENV, PROVIDERS, load_env_file, provider_for,
+gem_review/lit/providers.py:14: in <module>
+    from pydantic_ai.models.anthropic import AnthropicModelSettings
+E   ModuleNotFoundError: No module named 'pydantic_ai'
+_ ERROR at setup of StrictSnCoreTests.test_cardiolipin_audit_is_empty_fail_closed_and_stereospecific _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+____ ERROR at setup of StrictSnCoreTests.test_cli_refuses_source_overwrite _____
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_coq_r39_mapping_sha_drift_fails_closed _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_coq_r39_r40_candidate_is_mitochondrial_and_evidence_gated _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_each_required_chain_is_not_bypassed _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_linoleoyl_charge_is_corrected_before_all_lipid_routes _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_lipid_exchange_metadata_is_explicit_and_gpr_free _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_r1521_substrate_formula_is_completed_without_ph_migration _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_r989_candidate_gpr_is_alphafold_limited_and_wet_lab_gated _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_required_lipid_routes_are_not_bypassed _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+____ ERROR at setup of StrictSnCoreTests.test_sbml_round_trip_and_function _____
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_source_contract_is_frozen_and_input_unchanged _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_structure_balance_and_template_copying _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+___ ERROR at setup of StrictSnCoreTests.test_tuple_order_and_biomass_weights ___
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../../../.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+=================================== FAILURES ===================================
+_ CoAProtonationCurationDataTests.test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy>
+
+    def test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:594: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_core_45_tuples_and_identity_annotation_targets_are_explicit _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_core_45_tuples_and_identity_annotation_targets_are_explicit>
+
+    def test_core_45_tuples_and_identity_annotation_targets_are_explicit(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:356: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_explicit_source_model_path_overrides_manifest_location _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_explicit_source_model_path_overrides_manifest_location>
+
+    def test_explicit_source_model_path_overrides_manifest_location(self) -> None:
+        curation = {
+            "source_model": "missing.xml",
+>           "source_sha256": hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(),
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+        }
+
+tests/test_coa_protonation_curation.py:306: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+/opt/miniconda3/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ CoAProtonationCurationDataTests.test_production_manifest_is_locked_to_the_post_annotation_model_snapshot _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_production_manifest_is_locked_to_the_post_annotation_model_snapshot>
+
+    def test_production_manifest_is_locked_to_the_post_annotation_model_snapshot(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:204: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_r2076_correction_is_withdrawn_and_decision_contract_is_exact _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_r2076_correction_is_withdrawn_and_decision_contract_is_exact>
+
+    def test_r2076_correction_is_withdrawn_and_decision_contract_is_exact(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:401: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_redox_and_focal_acid_groups_are_pinned __
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_redox_and_focal_acid_groups_are_pinned>
+
+    def test_redox_and_focal_acid_groups_are_pinned(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:631: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ DfbaNewFalseNegativeTests.test_positive_only_reference_never_implies_negative_labels _
+
+self = <test_dfba_new_fn_essentiality.DfbaNewFalseNegativeTests testMethod=test_positive_only_reference_never_implies_negative_labels>
+
+    def test_positive_only_reference_never_implies_negative_labels(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "positive_only.csv"
+            path.write_text(
+                "gene_id,source_gene_id,function,source,confidence\n"
+                "g_transport,g_transport,transport protein,"
+                "https://doi.org/10.1038/s42003-023-04996-8,"
+                "consensus_essential_in_at_least_2_of_3_screens\n"
+                "g_outside,g_outside,unmodeled protein,"
+                "https://doi.org/10.1038/s42003-023-04996-8,"
+                "consensus_essential_in_at_least_2_of_3_screens\n",
+                encoding="utf-8",
+            )
+            positive_ids, contract = load_experimental_reference(path)
+            tested_ids, coverage = experimental_reference_coverage(
+                positive_ids, toy_model(False), toy_model(True)
+            )
+    
+            self.assertEqual(positive_ids, ["g_outside", "g_transport"])
+            self.assertEqual(tested_ids, ["g_transport"])
+            self.assertTrue(contract["positive_only"])
+            self.assertEqual(contract["negative_label_count"], 0)
+            self.assertEqual(contract["unlisted_gene_semantics"], "unknown_not_nonessential")
+            self.assertEqual(coverage["jointly_testable_positive_gene_count"], 1)
+            self.assertEqual(coverage["untested_positive_gene_count"], 1)
+            self.assertEqual(coverage["absence_semantics"], "unknown_not_nonessential")
+            self.assertEqual(
+                coverage["partitions"]["reference_gene_ids_in_neither_model"]["gene_ids"],
+                ["g_outside"],
+            )
+            slurm = (PLATFORM_ROOT / "hpc/hpcc_dfba_new_fn.slurm").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn(
+                "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+                slurm,
+            )
+            self.assertIn("consensus_essential_genes.csv", slurm)
+>           self.assertIn(sha256(PLATFORM_ROOT / "tools/dfba_new_fn_essentiality.py"), slurm)
+E           AssertionError: '46865060be2da9945936a44eb27a9a332eb7b102d2be91c6cce6bb3e7b7d0ecb' not found in '#!/bin/bash -l\n#SBATCH --job-name=dfba_new_fn\n#SBATCH --partition=batch\n#SBATCH --account=iwheeldonlab\n#SBATCH --ntasks=1\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=4G\n#SBATCH --time=12:00:00\n#SBATCH --output=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/dfba_new_fn-%j.out\n#SBATCH --error=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/dfba_new_fn-%j.err\n\nset -uo pipefail\n\nRUNS_ROOT=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs\nREPO="${REPO:-/rhome/yhong075/iyali26_gem_lipid_unlump_a014}"\nPYTHON="${PYTHON:-/rhome/yhong075/iyali26_flow_phase2/.venv/bin/python}"\nBASELINE_MODEL="${BASELINE_MODEL:-/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml}"\nCANDIDATE_MODEL="${CANDIDATE_MODEL:-$REPO/model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.xml}"\nEXPECTED_BASELINE_SHA256="${EXPECTED_BASELINE_SHA256:-bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee}"\nEXPECTED_CANDIDATE_SHA256="${EXPECTED_CANDIDATE_SHA256:-d5bc83aadf07bfbd3e56b81188b30c96ee9c0858b4434020174b769aefff29e1}"\nEXPECTED_RUNNER_SHA256="${EXPECTED_RUNNER_SHA256:-b3529742fda1979ab487482ad15e21b61961aed0e518b21eec0fec6b49cdcb2d}"\nEXPECTED_LOADER_SHA256="${EXPECTED_LOADER_SHA256:-f80f0195b993d44f6c61cb42b0987bc4491097de71080841e0e5e2662b4ce100}"\nEXPECTED_FINGERPRINT_HELPER_SHA256="${EXPECTED_FINGERPRINT_HELPER_SHA256:-a567f2ac6b4698c0c8a0147e48d7cf2534e9b9cc3ff5fba1fa03404ecd505b63}"\nEXPECTED_DFBA_MEDIUM_SHA256="${EXPECTED_DFBA_MEDIUM_SHA256:-7e189e312ddbae7cea711c5dfabbfbc6d0b10803f82a689e6d589d11b7ec5ec4}"\nEXPECTED_EXPERIMENTAL_SHA256="${EXPECTED_EXPERIMENTAL_SHA256:-1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b}"\nEXPECTED_GIT_COMMIT="${EXPECTED_GIT_COMMIT:-}"\nEXPERIMENTAL_CSV="${EXPERIMENTAL_CSV:-/rhome/yhong075/iyali26_flow_phase2/data/essentiality/consensus_essential_genes.csv}"\nDFBA_MEDIUM_CSV="${DFBA_MEDIUM_CSV:-$REPO/data/media/po1f_csm_leu_dfba.csv}"\nRESCUE_DIAGNOSTIC_SUMMARY="${RESCUE_DIAGNOSTIC_SUMMARY:-}"\nEXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256="${EXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256:-}"\nDFBA_MODE="${DFBA_MODE:-single}"\nDFBA_HOURS="${DFBA_HOURS:-24}"\nDFBA_STEP_HOURS="${DFBA_STEP_HOURS:-0.1}"\nDFBA_INITIAL_BIOMASS_GDW_L="${DFBA_INITIAL_BIOMASS_GDW_L:-0.05}"\nDFBA_GROWTH_CUTOFF="${DFBA_GROWTH_CUTOFF:-0.01}"\nDFBA_SOLVER="${DFBA_SOLVER:-glpk}"\nDFBA_SHARD_COUNT="${DFBA_SHARD_COUNT:-32}"\nEXPECTED_SHARD_COUNT="${EXPECTED_SHARD_COUNT:-32}"\nRUN_ROOT="${RUN_ROOT:-}"\nJOB_ID="${SLURM_JOB_ID:-manual}"\nTASK_ID="${SLURM_ARRAY_TASK_ID:-}"\nOUTPUT_DIR="${OUTPUT_DIR:-}"\nSTATUS_PATH=""\nPREPARE_STATUS=0\n\nis_uint() {\n  [[ "$1" =~ ^[0-9]+$ ]]\n}\n\nprepare_output() {\n  case "$DFBA_MODE" in\n    single)\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_new_fn_${JOB_ID}}"\n      mkdir -p "$OUTPUT_DIR" || PREPARE_STATUS=2\n      STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      ;;\n    wt_diagnostic)\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_wt_diagnostic_${JOB_ID}}"\n      if ! mkdir "$OUTPUT_DIR"; then\n        PREPARE_STATUS=2\n        STATUS_PATH="$RUNS_ROOT/dfba_wt_diagnostic_${JOB_ID}.prepare_failed.json"\n      else\n        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      fi\n      ;;\n    rescue_diagnostic)\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_rescue_diagnostic_${JOB_ID}}"\n      if ! mkdir "$OUTPUT_DIR"; then\n        PREPARE_STATUS=2\n        STATUS_PATH="$RUNS_ROOT/dfba_rescue_diagnostic_${JOB_ID}.prepare_failed.json"\n      else\n        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      fi\n      ;;\n    shard)\n      if test -z "$RUN_ROOT" || ! is_uint "$TASK_ID" || ! is_uint "$DFBA_SHARD_COUNT"; then\n        PREPARE_STATUS=2\n        RUN_ROOT="${RUN_ROOT:-$RUNS_ROOT/dfba_new_fn_invalid_${JOB_ID}}"\n        mkdir -p "$RUN_ROOT" || true\n        STATUS_PATH="$RUN_ROOT/wrapper_status_${JOB_ID}.json"\n        return\n      fi\n      OUTPUT_DIR="$RUN_ROOT/shards/$(printf \'%03d\' "$TASK_ID")"\n      mkdir -p "$RUN_ROOT/shards" || PREPARE_STATUS=2\n      if test "$PREPARE_STATUS" -eq 0 && ! mkdir "$OUTPUT_DIR"; then\n        PREPARE_STATUS=2\n      fi\n      if test "$PREPARE_STATUS" -eq 0; then\n        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      else\n        STATUS_PATH="$RUN_ROOT/wrapper_status_shard_${TASK_ID}.json"\n      fi\n      ;;\n    aggregate)\n      if test -z "$RUN_ROOT"; then\n        PREPARE_STATUS=2\n        RUN_ROOT="$RUNS_ROOT/dfba_new_fn_invalid_${JOB_ID}"\n      fi\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUN_ROOT}"\n      test "$OUTPUT_DIR" = "$RUN_ROOT" || PREPARE_STATUS=2\n      mkdir -p "$RUN_ROOT" || PREPARE_STATUS=2\n      STATUS_PATH="$RUN_ROOT/wrapper_status.json"\n      ;;\n    *)\n      PREPARE_STATUS=2\n      RUN_ROOT="${RUN_ROOT:-$RUNS_ROOT/dfba_new_fn_invalid_${JOB_ID}}"\n      mkdir -p "$RUN_ROOT" || true\n      STATUS_PATH="$RUN_ROOT/wrapper_status_${JOB_ID}.json"\n      ;;\n  esac\n}\n\ncheck_contract() {\n  local status=0\n  test -n "$EXPECTED_GIT_COMMIT" || status=2\n  test -n "$EXPECTED_EXPERIMENTAL_SHA256" || status=2\n  test -n "$EXPERIMENTAL_CSV" || status=2\n  test -n "$DFBA_MEDIUM_CSV" || status=2\n  case "$DFBA_MODE" in single|wt_diagnostic|rescue_diagnostic|shard|aggregate) ;; *) status=2 ;; esac\n  test -z "$(git -C "$REPO" status --porcelain 2>/dev/null)" || status=2\n  test "$(git -C "$REPO" rev-parse HEAD 2>/dev/null)" = "$EXPECTED_GIT_COMMIT" || status=2\n  test -f "$REPO/scripts/dfba_new_fn_essentiality.py" || status=2\n  test -f "$REPO/scripts/gem_annotate/validate_essential_genes.py" || status=2\n  test -f "$REPO/scripts/lp_sn12_candidate.py" || status=2\n  test -f "$BASELINE_MODEL" || status=2\n  test -f "$CANDIDATE_MODEL" || status=2\n  test -f "$EXPERIMENTAL_CSV" || status=2\n  test -f "$DFBA_MEDIUM_CSV" || status=2\n  if test "$DFBA_MODE" = "rescue_diagnostic"; then\n    test -n "$RESCUE_DIAGNOSTIC_SUMMARY" || status=2\n    test -n "$EXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256" || status=2\n    test -f "$RESCUE_DIAGNOSTIC_SUMMARY" || status=2\n  fi\n  if test -f "$REPO/scripts/dfba_new_fn_essentiality.py"; then\n    test "$(sha256sum "$REPO/scripts/dfba_new_fn_essentiality.py" | awk \'{print $1}\')" = "$EXPECTED_RUNNER_SHA256" || status=2\n  fi\n  if test -f "$REPO/scripts/gem_annotate/validate_essential_genes.py"; then\n    test "$(sha256sum "$REPO/scripts/gem_annotate/validate_essential_genes.py" | awk \'{print $1}\')" = "$EXPECTED_LOADER_SHA256" || status=2\n  fi\n  if test -f "$REPO/scripts/lp_sn12_candidate.py"; then\n    test "$(sha256sum "$REPO/scripts/lp_sn12_candidate.py" | awk \'{print $1}\')" = "$EXPECTED_FINGERPRINT_HELPER_SHA256" || status=2\n  fi\n  if test -f "$BASELINE_MODEL"; then\n    test "$(sha256sum "$BASELINE_MODEL" | awk \'{print $1}\')" = "$EXPECTED_BASELINE_SHA256" || status=2\n  fi\n  if test -f "$CANDIDATE_MODEL"; then\n    test "$(sha256sum "$CANDIDATE_MODEL" | awk \'{print $1}\')" = "$EXPECTED_CANDIDATE_SHA256" || status=2\n  fi\n  if test -f "$DFBA_MEDIUM_CSV"; then\n    test "$(sha256sum "$DFBA_MEDIUM_CSV" | awk \'{print $1}\')" = "$EXPECTED_DFBA_MEDIUM_SHA256" || status=2\n  fi\n  if test -f "$EXPERIMENTAL_CSV"; then\n    test "$(sha256sum "$EXPERIMENTAL_CSV" | awk \'{print $1}\')" = "$EXPECTED_EXPERIMENTAL_SHA256" || status=2\n  fi\n  if test "$DFBA_MODE" = "rescue_diagnostic" && test -f "$RESCUE_DIAGNOSTIC_SUMMARY"; then\n    test "$(sha256sum "$RESCUE_DIAGNOSTIC_SUMMARY" | awk \'{print $1}\')" = "$EXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256" || status=2\n  fi\n  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "rescue_diagnostic" || test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then\n    test "$DFBA_HOURS" = "24" || status=2\n    test "$DFBA_STEP_HOURS" = "0.1" || status=2\n    test "$DFBA_INITIAL_BIOMASS_GDW_L" = "0.05" || status=2\n    test "$DFBA_GROWTH_CUTOFF" = "0.01" || status=2\n    test "$DFBA_SOLVER" = "glpk" || status=2\n  fi\n  if test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then\n    test "$DFBA_SHARD_COUNT" = "$EXPECTED_SHARD_COUNT" || status=2\n    test -n "$RUN_ROOT" || status=2\n  fi\n  if test "$DFBA_MODE" = "shard"; then\n    is_uint "$TASK_ID" || status=2\n    is_uint "$DFBA_SHARD_COUNT" || status=2\n    test "$TASK_ID" -lt "$DFBA_SHARD_COUNT" 2>/dev/null || status=2\n    if test -n "${SLURM_ARRAY_TASK_COUNT:-}"; then\n      test "$SLURM_ARRAY_TASK_COUNT" = "$DFBA_SHARD_COUNT" || status=2\n    fi\n  fi\n  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "rescue_diagnostic"; then\n    test -z "$TASK_ID" || status=2\n    test -z "${SLURM_ARRAY_JOB_ID:-}" || status=2\n  fi\n  if test "$DFBA_MODE" = "aggregate"; then\n    test -d "$RUN_ROOT/shards" || status=2\n  fi\n  return "$status"\n}\n\nwrite_wrapper_status() {\n  local preflight_status="$1" runner_status="$2" postflight_status="$3"\n  local summary_sha="" results_sha="" experimental_sha="" medium_sha="" rescue_summary_sha=""\n  local technical=false scientific_finding=false final_gate_deferred=false diagnostic_only=false diagnostic_recorded=false wrapper_passed=false\n  if test -f "$OUTPUT_DIR/summary.json"; then\n    summary_sha="$(sha256sum "$OUTPUT_DIR/summary.json" | awk \'{print $1}\')"\n  fi\n  if test -f "$OUTPUT_DIR/gene_results.tsv"; then\n    results_sha="$(sha256sum "$OUTPUT_DIR/gene_results.tsv" | awk \'{print $1}\')"\n  fi\n  if test -f "$EXPERIMENTAL_CSV"; then\n    experimental_sha="$(sha256sum "$EXPERIMENTAL_CSV" | awk \'{print $1}\')"\n  fi\n  if test -f "$DFBA_MEDIUM_CSV"; then\n    medium_sha="$(sha256sum "$DFBA_MEDIUM_CSV" | awk \'{print $1}\')"\n  fi\n  if test -f "$RESCUE_DIAGNOSTIC_SUMMARY"; then\n    rescue_summary_sha="$(sha256sum "$RESCUE_DIAGNOSTIC_SUMMARY" | awk \'{print $1}\')"\n  fi\n  if test "$DFBA_MODE" = "shard"; then\n    final_gate_deferred=true\n  fi\n  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "rescue_diagnostic"; then\n    diagnostic_only=true\n    if test "$runner_status" -eq 0 && test -n "$summary_sha"; then\n      diagnostic_recorded=true\n    fi\n  fi\n  if test "$DFBA_MODE" != "shard" && test "$runner_status" -eq 3; then\n    scientific_finding=true\n  fi\n  if test "$preflight_status" -eq 0 && test "$postflight_status" -eq 0 && { test "$runner_status" -eq 0 || test "$scientific_finding" = true; }; then\n    technical=true\n  fi\n  if test "$technical" = true && test "$runner_status" -eq 0; then\n    wrapper_passed=true\n  fi\n  mkdir -p "$(dirname "$STATUS_PATH")"\n  printf \'{"job_id":"%s","array_job_id":"%s","array_task_id":"%s","mode":"%s","run_root":"%s","shard_count":"%s","git_commit":"%s","job_script_sha256":"%s","partition":"%s","account":"%s","cpus_per_task":"%s","memory_per_node":"%s","time_limit":"%s","experimental_sha256":"%s","dynamic_medium_sha256":"%s","rescue_diagnostic_summary_sha256":"%s","preflight_exit_code":%d,"runner_exit_code":%d,"postflight_exit_code":%d,"technical_execution_completed":%s,"scientific_finding_recorded":%s,"final_scientific_gate_deferred_to_aggregate":%s,"diagnostic_only":%s,"diagnostic_recorded":%s,"wrapper_gate_passed":%s,"summary_sha256":"%s","gene_results_sha256":"%s","automatic_resubmit":false,"production_apply_performed":false}\\n\' \\\n    "$JOB_ID" "${SLURM_ARRAY_JOB_ID:-}" "$TASK_ID" "$DFBA_MODE" "$RUN_ROOT" "$DFBA_SHARD_COUNT" \\\n    "$(git -C "$REPO" rev-parse HEAD 2>/dev/null)" "$(sha256sum "$0" | awk \'{print $1}\')" \\\n    "${SLURM_JOB_PARTITION:-batch}" "${SLURM_JOB_ACCOUNT:-iwheeldonlab}" \\\n    "${SLURM_CPUS_PER_TASK:-1}" "${SLURM_MEM_PER_NODE:-4096}" "${SLURM_TIMELIMIT:-12:00:00}" \\\n    "$experimental_sha" "$medium_sha" "$rescue_summary_sha" "$preflight_status" "$runner_status" "$postflight_status" \\\n    "$technical" "$scientific_finding" "$final_gate_deferred" "$diagnostic_only" "$diagnostic_recorded" "$wrapper_passed" \\\n    "$summary_sha" "$results_sha" > "$STATUS_PATH"\n}\n\nprepare_output\nif test "$PREPARE_STATUS" -ne 0; then\n  write_wrapper_status "$PREPARE_STATUS" -1 -1\n  exit "$PREPARE_STATUS"\nfi\n\nPREFLIGHT_STATUS=0\ncheck_contract || PREFLIGHT_STATUS=$?\nif test "$PREFLIGHT_STATUS" -ne 0; then\n  write_wrapper_status "$PREFLIGHT_STATUS" -1 -1\n  exit "$PREFLIGHT_STATUS"\nfi\n\nRUN_ARGS=(\n  --baseline "$BASELINE_MODEL"\n  --candidate "$CANDIDATE_MODEL"\n  --experimental "$EXPERIMENTAL_CSV"\n  --dynamic-medium "$DFBA_MEDIUM_CSV"\n  --output-dir "$OUTPUT_DIR"\n  --hours "$DFBA_HOURS"\n  --step-hours "$DFBA_STEP_HOURS"\n  --initial-biomass "$DFBA_INITIAL_BIOMASS_GDW_L"\n  --growth-cutoff "$DFBA_GROWTH_CUTOFF"\n  --solver "$DFBA_SOLVER"\n)\nif test "$DFBA_MODE" = "shard"; then\n  RUN_ARGS+=(--shard-index "$TASK_ID" --shard-count "$DFBA_SHARD_COUNT")\nelif test "$DFBA_MODE" = "aggregate"; then\n  RUN_ARGS+=(--shard-count "$DFBA_SHARD_COUNT" --aggregate-shards "$RUN_ROOT/shards")\nelif test "$DFBA_MODE" = "wt_diagnostic"; then\n  RUN_ARGS+=(--wt-diagnostic)\nelif test "$DFBA_MODE" = "rescue_diagnostic"; then\n  RUN_ARGS+=(--rescue-diagnostic-summary "$RESCUE_DIAGNOSTIC_SUMMARY")\nfi\n\n"$PYTHON" "$REPO/scripts/dfba_new_fn_essentiality.py" "${RUN_ARGS[@]}"\nRUNNER_STATUS=$?\n\nPOSTFLIGHT_STATUS=0\ncheck_contract || POSTFLIGHT_STATUS=$?\nwrite_wrapper_status 0 "$RUNNER_STATUS" "$POSTFLIGHT_STATUS"\nif test "$POSTFLIGHT_STATUS" -ne 0; then\n  exit "$POSTFLIGHT_STATUS"\nfi\nexit "$RUNNER_STATUS"\n'
+
+tests/test_dfba_new_fn_essentiality.py:321: AssertionError
+_ LipidMoietyLedgerDataContractTests.test_documentation_states_chemical_and_capability_boundaries _
+
+self = <test_lipid_moiety_ledger.LipidMoietyLedgerDataContractTests testMethod=test_documentation_states_chemical_and_capability_boundaries>
+
+    def test_documentation_states_chemical_and_capability_boundaries(self) -> None:
+>       text = DOC_PATH.read_text(encoding="utf-8").lower()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lipid_moiety_ledger.py:308: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/lib/python3.13/pathlib/_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/miniconda3/lib/python3.13/pathlib/_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-5eaeae/docs/lipid_moiety_ledger.md')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/science-test-gap-fix-5eaeae/docs/lipid_moiety_ledger.md'
+
+/opt/miniconda3/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ExplicitInputTests.test_audit_saved_run_uses_archived_executed_source_without_optimization _
+
+self = <test_vacuole_explicit_inputs.ExplicitInputTests testMethod=test_audit_saved_run_uses_archived_executed_source_without_optimization>
+
+    @unittest.skipUnless((PREVIOUS / 'run').is_dir() and (TASK / 'previous_source_snapshot').is_dir(),
+                         'saved task folders not found; set IYALI26_RESEARCH_ROOT')
+    def test_audit_saved_run_uses_archived_executed_source_without_optimization(self):
+        config = json.loads((PREVIOUS/'config.json').read_text())
+>       identities = bind_inputs(config['model'], config['model_sha256'], config['candidate'],
+                                  build_manifest=PREVIOUS/'E5_vacuole_open.build.json')
+
+tests/test_vacuole_explicit_inputs.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/validate_vacuole_supply.py:374: in bind_inputs
+    if workspace(record['output']) != candidate_path:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/vacuole_open_supply_20260924/E5_vacuole_open.xml')
+
+    def workspace(path):
+        path = resolve_recorded_path(path)
+        # Authorized: the repository and the research workspace's task outputs.
+        if not any(path.is_relative_to(root) for root in (ROOT, load_project_paths().task_outputs)):
+>           raise ValueError('Path escapes authorized workspace: ' + str(path))
+E           ValueError: Path escapes authorized workspace: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/vacuole_open_supply_20260924/E5_vacuole_open.xml
+
+tools/diagnose_closed_energy.py:38: ValueError
+______ VacuoleSupplyTests.test_actual_run_identity_budget_and_restoration ______
+
+self = <test_vacuole_supply.VacuoleSupplyTests testMethod=test_actual_run_identity_budget_and_restoration>
+
+    def test_actual_run_identity_budget_and_restoration(self):
+        self.assertEqual(self.manifest["config"], self.config)
+        self.assertEqual(self.manifest["config_sha256"], hashlib.sha256((TASK / "config.json").read_bytes()).hexdigest())
+        for path, digest in {**self.config["input_configuration_sha256"], **self.manifest["source_sha256"]}.items():
+>           self.assertEqual(hashlib.sha256(resolve_recorded_path(path).read_bytes()).hexdigest(), digest, path)
+E           AssertionError: '0fb7ebd61cdb197d72122f31169a56b019cc2e24b0f363a82e2fab5da59d4c4b' != 'b182dbd6370063a6e10ebfceda6209d9c43cd4df565def64ed4ed48d72e7f08b'
+E           - 0fb7ebd61cdb197d72122f31169a56b019cc2e24b0f363a82e2fab5da59d4c4b
+E           + b182dbd6370063a6e10ebfceda6209d9c43cd4df565def64ed4ed48d72e7f08b
+E            : scripts/validate_vacuole_supply.py
+
+tests/test_vacuole_supply.py:52: AssertionError
+_ VacuoleSupplyTests.test_xml_only_four_bounds_and_real_context_rollback_without_solve _
+
+self = <test_vacuole_supply.VacuoleSupplyTests testMethod=test_xml_only_four_bounds_and_real_context_rollback_without_solve>
+
+    def test_xml_only_four_bounds_and_real_context_rollback_without_solve(self):
+        base = read_sbml_model(resolve_recorded_path(self.config["model"]))
+        model = read_sbml_model(resolve_recorded_path(self.config["candidate"]))
+        actual = reaction_diff(base, model)
+        expected = [{"reaction": rid, "field": "bounds", "before": [0., 0.], "after": bounds}
+                    for rid, bounds in self.config["connection_bounds"].items()]
+        self.assertEqual(sorted(actual, key=lambda r: r["reaction"]), sorted(expected, key=lambda r: r["reaction"]))
+        pools = dipeptides(model)
+>       before = signature(model)
+                 ^^^^^^^^^^^^^^^^
+
+tests/test_vacuole_supply.py:207: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <Model M_iYali26 at 0x33e49ff50>
+
+    def signature(model):
+        # Native sparse coefficients avoid repeatedly rendering 1877 symbolic rows.
+        # Names and ordering are included, so equal matrices cannot hide renamed rows.
+        model.solver.update()
+        native = model.solver.problem
+>       matrix = native.getA().tocsr()
+                 ^^^^^^^^^^^
+E       AttributeError: 'swig_runtime_data5.SwigPyObject' object has no attribute 'getA'
+
+tools/diagnose_dipeptide_supply.py:105: AttributeError
+=============================== warnings summary ===============================
+../../../../.venv/lib/python3.13/site-packages/memote/suite/results/models.py:39
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/lib/python3.13/site-packages/memote/suite/results/models.py:39: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_rescue_diagnostic_finds_the_minimum_snapshot_bound_relaxation
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/lib/python3.13/site-packages/cobra/util/solver.py:554: UserWarning: Solver status is 'infeasible'.
+    warn(f"Solver status is '{status}'.", UserWarning)
+
+tests/test_gpi_chain_links.py::GpiChainLinksTests::test_adds_only_the_five_links_and_survives_roundtrip
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/lib/python3.13/site-packages/cobra/core/metabolite.py:129: UserWarning: invalid character '*' found in formula 'C11H17O13P*2'
+    warn(f"invalid character '*' found in formula '{self.formula}'")
+
+tests/test_gpi_chain_links.py::GpiChainLinksTests::test_adds_only_the_five_links_and_survives_roundtrip
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/lib/python3.13/site-packages/cobra/core/metabolite.py:129: UserWarning: invalid character '*' found in formula 'C19H30NO18P*2'
+    warn(f"invalid character '*' found in formula '{self.formula}'")
+
+tests/test_gpi_chain_links.py::GpiChainLinksTests::test_stale_inputs_fail_closed_without_edits
+tests/test_gpi_coproducts.py::GpiCoproductsTests::test_stale_inputs_fail_closed_without_edits
+tests/test_heme_iron_biomass.py::HemeIronBiomassTests::test_stale_inputs_fail_closed_without_edits
+tests/test_r153_merge.py::R153MergeTests::test_merge_roundtrip_idempotence_and_conflicts
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.venv/lib/python3.13/site-packages/cobra/core/group.py:147: UserWarning: need to pass in a list
+    warn("need to pass in a list")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+____________ ClosedEnergyTests.test_closure_direction_and_isolation ____________
+----------------------------- Captured stdout call -----------------------------
+Set parameter Username
+Set parameter LicenseID to value 2843063
+Academic license - for non-commercial use only - expires 2027-07-10
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpa15wjwiy.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp5p8pz9nv.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+____________ ClosedEnergyTests.test_unreviewed_constraint_rejected _____________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp6pstjukt.lp
+Reading time = 0.00 seconds
+: 1878 rows, 4628 columns, 17626 nonzeros
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+_ CoAProtonationCurationDataTests.test_shared_core_tuples_and_identity_mappings_match_ledger_contract _
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuu
+_ CoAProtonationGateTests.test_approved_curation_requires_a_target_model_fingerprint _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpn9pq0any.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+_ CoAProtonationGateTests.test_fixture_zero_newly_unbalanced_gate_idempotence_and_fba _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp0hf2ul6v.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpaeg3bntk.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpg8b2orwe.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+_ CoAProtonationGateTests.test_fractional_boolean_and_nonfinite_live_charges_are_rejected _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp3wus82ks.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+uuu
+_ CoAProtonationGateTests.test_production_curation_is_blocked_before_any_mutation _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpq42k7v42.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+_ CoAProtonationGateTests.test_public_gate_rejects_curation_without_source_provenance _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpldcw179t.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+_______ CoAProtonationGateTests.test_unavailable_objective_fails_closed ________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpevwsrw2x.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpx03yg0s0.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpm8ikm3it.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+u
+_ CoAProtonationGateTests.test_unknown_prestate_missing_copy_and_new_copy_fail_closed _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpadi1swnb.lp
+Reading time = 0.00 seconds
+: 7 rows, 8 columns, 18 nonzeros
+_ CoQ9CurationTests.test_local_conflicts_preserve_changed_reactions_and_other_items_continue _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpggucmqb3.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpat1kz9qx.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmplon6lwwj.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmprx7wmqic.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpdrowi5_n.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+u
+_____ CoQ9CurationTests.test_qcycle_only_two_coefficients_and_idempotency ______
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmphx60gmnw.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp7zuxwpbc.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+__________ CoQ9CurationTests.test_targets_history_and_export_readback __________
+------------------------------ Captured log call -------------------------------
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R131 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R134 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R135 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R136 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R1379 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R1380 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R175 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R1893 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R1901 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R2070 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R333 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R345 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R36 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R47 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R584 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R715 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R724 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R725 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R781 not in model — skipping
+WARNING  scripts.gem_annotate.patches:patches.py:753   EC-overload: reaction R782 not in model — skipping
+_ CoQ9CurationTests.test_wrong_r305_name_is_not_used_to_create_new_reaction_identity _
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+_________ CoQ9FunctionalGPRTest.test_scope_conflicts_ko_and_roundtrip __________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpe1ii8ula.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp0il1o5d6.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp_zqubsk6.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp6_ikqt3f.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmplp8dtk6d.lp
+Reading time = 0.00 seconds
+: 18 rows, 16 columns, 74 nonzeros
+u
+_ CoqBiomassTests.test_pool_coupling_is_scoped_idempotent_and_rejects_invalid_inputs _
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+__________ CoQLiteraturePipelineTest.test_opt_in_and_execution_guards __________
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuu
+_ CoQLiteraturePipelineTest.test_serialization_equivalence_and_atomic_rejection _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpboldkgmr.lp
+Reading time = 0.00 seconds
+: 14 rows, 10 columns, 50 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmptxel05h2.lp
+Reading time = 0.00 seconds
+: 14 rows, 10 columns, 50 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpr1457ju0.lp
+Reading time = 0.00 seconds
+: 14 rows, 10 columns, 50 nonzeros
+u
+_ DfbaNewFalseNegativeTests.test_gene_becomes_a_new_false_negative_when_candidate_adds_bypass _
+----------------------------- Captured stdout call -----------------------------
+[1/1] g_transport: new_FN=True
+[1/1] g_transport: new_FN=False
+_ ChemistryCandidateTests.test_metadata_and_auto_balance_cannot_overwrite_candidate _
+------------------------------ Captured log call -------------------------------
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'water' (synonym 'h2o') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'dioxygen' (synonym 'oxygen') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'dioxygen' (synonym 'o2') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'hydron' (synonym 'h+') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'hydron' (synonym 'proton') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'carbon dioxide' (synonym 'co2') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'coenzyme A' (synonym 'coa') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: '5-phospho-alpha-D-ribose 1-diphosphate' (synonym 'prpp') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'adenylosuccinate' (synonym 'adenylo-succinate') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'S-adenosylmethioninamine' (synonym 's-adenosylmethioninamine') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'aminoacetone' (synonym 'aminoacetone') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: 'homocitrate' (synonym 'homocitrate') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: '2-oxoadipate' (synonym '2-oxoadipic acid') — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: "adenosine 3',5'-bisphosphate" (synonym "adenosine 3',5'-bismonophosphate") — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: "adenosine 5'-phosphosulfate" (synonym "5'-adenylyl sulfate") — check _DIRECT_MNXM_TABLE for coverage
+WARNING  scripts.gem_annotate.metabolites:metabolites.py:330 _SYNONYM_TABLE value not found in name_index even after normalization: '2-isopropylmaleate' (synonym '2-isopropylmaleic acid') — check _DIRECT_MNXM_TABLE for coverage
+_ DipeptideSupplyTests.test_all_diagnostics_restore_actual_model_even_on_exception _
+------------------------------ Captured log setup ------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+_ EnergyCandidateBehaviorTests.test_final_export_closed_ATP_and_normal_growth_positive_control _
+------------------------------ Captured log setup ------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmprg52254y.lp
+Reading time = 0.01 seconds
+: 1877 rows, 4628 columns, 17618 nonzeros
+energy_behavior/E5_closed_ATP_reproduction optimal 0.0
+energy_behavior/E5_real_growth_positive_control optimal 1.429177892279185
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+_ EnergyCandidateBehaviorTests.test_known_three_synthesis_directions_stay_closed_after_xml_reload _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp8f4oa35r.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17622 nonzeros
+energy_behavior/known_direction_R_PGAM1_PhosHydro optimal 0.0
+energy_behavior/known_direction_R_NTP3pp optimal 0.0
+energy_behavior/known_direction_R_NTP7 optimal 0.0
+_ EnergyCandidateBehaviorTests.test_remaining_full_model_anomaly_is_not_false_pass _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpadxyrdel.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17622 nonzeros
+energy_behavior/E3_remaining_ATP optimal 1000.0
+__ EnergyCandidateBehaviorTests.test_zero_feasible_and_real_culture_restored ___
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmputac88je.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17622 nonzeros
+energy_behavior/closed_exact_zero optimal 0.0
+energy_behavior/restored_PO1f_SD_Leu_growth optimal 1.871882306940297
+_ EnergyCandidateBuildTests.test_corrupt_persisted_lock_fails_before_metadata_edits _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp6lq71nng.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+_ EnergyCandidateBuildTests.test_cumulative_equivalence_idempotency_and_no_downgrade _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp6jn0ft14.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpfsl_gsu7.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+_____ EnergyCandidateBuildTests.test_default_noop_and_variant_exact_scope ______
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp0zsafg98.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpatvlw9ol.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp_ua8jjj0.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpjl33gxux.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpm3qralds.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpbhsd9ra2.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+u
+________ EnergyCandidateBuildTests.test_signature_conflicts_are_atomic _________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpvtncd5_w.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpk6eos92w.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpwne47jz0.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+u
+_ EnergyCandidateBuildTests.test_temporary_constraints_and_mass_row_edits_rejected _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpddyhnk6a.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17624 nonzeros
+__________ ERVLCFAStereochemistryTests.test_correction_is_idempotent ___________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpjak84djg.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpb8z_tjg9.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpc0f3cf8v.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp2eqphi59.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_final_target_gate_detects_postcondition_drift_without_mutating_model _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp_4p7cfo4.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpkev75to5.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_final_target_gate_rejects_excluded_peroxisomal_identity_drift _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpij34eeba.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpjeu7en4l.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_final_target_gate_rejects_reinserted_chemical_identity_annotation _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpq0uqg4c0.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpnm6blyi6.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_final_target_gate_rejects_uncurated_live_closure_tuple _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp38u4yzvh.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp4vpt4ao0.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_loader_rejects_source_sha_and_target_contract_drift _
+----------------------------- Captured stdout call -----------------------------
+u [ 30%]
+u
+_ ERVLCFAStereochemistryTests.test_malformed_or_unknown_curation_fails_before_mutation _
+----------------------------- Captured stdout call -----------------------------
+uu
+_ ERVLCFAStereochemistryTests.test_mnx_case_aliases_are_normalized_before_authoritative_curation _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpf5cl4btv.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpnz765g6h.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp_33rwtls.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_postcondition_failure_rolls_back_every_live_edit _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp4wp9okup.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_raw_source_is_corrected_offline_and_peroxisomal_copy_is_untouched _
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpcyp8d6bp.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpkn3470ve.lp
+Reading time = 0.00 seconds
+: 1868 rows, 4570 columns, 17546 nonzeros
+_ ERVLCFAStereochemistryTests.test_reaction_bounds_direction_and_stoichiometry_drift_fail_closed _
+----------------------------- Captured stdout call -----------------------------
+uuu
+______ FattyAcylCoAHandoffTests.test_d_nested_contract_drift_fails_closed ______
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuuuuu
+___ FattyAcylCoAHandoffTests.test_malformed_d_structures_are_handoff_errors ____
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+_ FattyAcylCoAHandoffTests.test_report_output_cannot_alias_an_authoritative_input _
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuu
+___ GpiChainLinksTests.test_adds_only_the_five_links_and_survives_roundtrip ____
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+____ GpiChainLinksTests.test_chain_dead_ends_gain_a_producer_and_a_consumer ____
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpl7066sls.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uuuuu
+________ GpiChainLinksTests.test_stale_inputs_fail_closed_without_edits ________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpldt3_uzu.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmper_4agul.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpkx2fbyo8.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpu5yv08o4.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpxogtgeb3.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp7ia1vjx0.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp6y_oewif.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpwfjonmft.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp_dij0zbs.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpdl756rvk.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+u
+_____________ GpiChainLinksTests.test_unexpected_scope_is_rejected _____________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp20ih65am.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp1_z_0s1k.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpx605w5xp.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4612 columns, 17572 nonzeros
+u
+________ GpiCoproductsTests.test_stale_inputs_fail_closed_without_edits ________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpbo8fzovl.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpuv7f99s_.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmptr8zwyae.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpbowvhuzq.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp3ykpmuc4.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp7v_7ixxr.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpam523tk2.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp5vfvvdpg.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpgd4w5h58.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpkub12f93.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpxz8ljw8c.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpvl3twq65.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp7cozzum1.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+u
+_____________ GpiCoproductsTests.test_unexpected_scope_is_rejected _____________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpnbprpmdc.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpfqckf9im.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpr5vmbe6n.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmptnf0pc1m.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17596 nonzeros
+u
+__ HemeIronBiomassTests.test_applies_after_the_reviewed_tpp_requirement_only ___
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp_otpg4e0.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpck9s0cfd.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpzlmqkgj7.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+u
+________ HemeIronBiomassTests.test_flag_requires_the_coq9_biomass_stage ________
+----------------------------- Captured stdout call -----------------------------
+uu
+_______ HemeIronBiomassTests.test_stale_inputs_fail_closed_without_edits _______
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpeu2hdjjo.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpdyx51ghu.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpvso5xi9w.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp5tm3vebo.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmper606ykj.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmppf6q_srk.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp9wqn3pug.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpne8ca41o.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp2r0zmo1m.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpqc4wmqz5.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpthaak0vq.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp0018qhid.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpbupcok7c.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpeasu8ln1.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp6g3o_lou.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpii399f0j.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+u
+____________ HemeIronBiomassTests.test_unexpected_scope_is_rejected ____________
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpzm3ruse4.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp8ug4il5x.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmps9jwfa56.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp880ig026.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp71xvujgs.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+u [ 43%]
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp422yb_1d.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpm642acpf.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpi7la7omv.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+uRead LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmp7jmi2x1s.lp
+Reading time = 0.00 seconds
+: 1876 rows, 4622 columns, 17600 nonzeros
+u
+_ LipidMoietyLedgerDataContractTests.test_biochemical_ph_anionic_tuples_and_canonical_mappings_are_complete _
+----------------------------- Captured stdout call -----------------------------
+uuuuuuu
+_ LipidMoietyLedgerFixtureV2Tests.test_coa_and_identity_annotation_drift_fail_closed _
+----------------------------- Captured stdout call -----------------------------
+uuu
+_ LipidMoietyLedgerFixtureV2Tests.test_fixture_reactions_are_charge_balanced_and_all_generated_lipids_are_neutral _
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu [ 47%]
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+__ LipidMoietyLedgerFixtureV2Tests.test_formula_and_charge_drift_fail_closed ___
+----------------------------- Captured stdout call -----------------------------
+uu
+_ LipidMoietyLedgerFixtureV2Tests.test_strict_loader_accepts_exact_tuples_and_scalar_or_list_annotations _
+----------------------------- Captured stdout call -----------------------------
+uuuuuuu
+_ LipidMoietyLedgerIntegrationTests.test_load_spec_binds_chain_ids_and_residues_to_declared_acyl_coas _
+----------------------------- Captured stdout call -----------------------------
+uu
+_ LipidMoietyLedgerIntegrationTests.test_manifest_preserves_architecture_neutral_lipids_and_95_balanced_reactions _
+----------------------------- Captured stdout call -----------------------------
+uuuuuu [ 49%]
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu [ 49%]
+uuuuuuuuuuuuuuuuu
+_ LipidMoietyLedgerIntegrationTests.test_public_compile_contract_and_inputs_remain_immutable _
+----------------------------- Captured stdout call -----------------------------
+uuu
+_ LipidMoietyLedgerIntegrationTests.test_schema_v2_rejects_exact_type_confusion _
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+____ LipidMoietyLedgerIntegrationTests.test_strict_spec_drift_fails_closed _____
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+_ LipidMoietyLedgerIntegrationTests.test_targeted_memote_candidate_evaluation_mass_charge_and_gpr_checks _
+------------------------------ Captured log call -------------------------------
+WARNING  memote.support.consistency_helpers:consistency_helpers.py:245 No biomass reaction detected. Consistency test results are unreliable if one exists.
+_ QuinonePipelineTests.test_changed_duplicate_and_branch_leave_input_untouched _
+------------------------------ Captured log call -------------------------------
+WARNING  scripts.gem_annotate.quinone:quinone.py:1021 Existing Q9 step correct_external_ndh2_gpr_and_remove_duplicate: R2063 differs from the reviewed external NDH2 duplicate
+WARNING  scripts.gem_annotate.quinone:quinone.py:1021 Existing Q9 step remove_spurious_quinone_branches: R189 no longer matches a reviewed quinone stoichiometry/bounds/compartment variant
+_ QuinonePipelineTests.test_existing_chain_reproduces_saved_local_mathematics_and_is_idempotent _
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+WARNING  cobra.medium.boundary_types:boundary_types.py:182 There are no boundary reactions in this model. Therefore, specific types of boundary reactions such as 'exchanges', 'demands' or 'sinks' cannot be identified.
+_ QuinonePipelineTests.test_unexpected_gpr_is_not_replaced_even_if_legacy_markers_remain _
+------------------------------ Captured log call -------------------------------
+WARNING  scripts.gem_annotate.quinone:quinone.py:1021 Existing Q9 step correct_external_ndh2_gpr_and_remove_duplicate: R570 has an unexpected GPR; refusing replacement: '(YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 and YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E06573g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1F32476g) or engineered_gene'
+_ R1025AssignmentTests.test_nuclear_assignment_roundtrip_and_precondition_conflicts _
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+_________ R1026AssignmentTests.test_assignment_roundtrip_and_conflicts _________
+----------------------------- Captured stdout call -----------------------------
+uu [ 60%]
+uuuu
+___ R1159DirectionTests.test_direction_preservation_rejection_and_roundtrip ____
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+_________ R132MitoAdhTests.test_stale_inputs_fail_closed_without_edits _________
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+__ R1521EvidenceContractTests.test_any_evidence_dependency_drift_is_rejected ___
+----------------------------- Captured stdout call -----------------------------
+uuuu
+_ R1521EvidenceContractTests.test_output_protects_every_authoritative_runtime_input _
+----------------------------- Captured stdout call -----------------------------
+uuuuuuu
+_ R153AssignmentTests.test_single_gene_knockout_roundtrip_and_conflict_guards __
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuu
+__________ R153GprRevisionTests.test_guards_fail_closed_without_edits __________
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuu [ 69%]
+uuu
+________ R153MergeTests.test_merge_roundtrip_idempotence_and_conflicts _________
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+______ R1889AssignmentTests.test_partial_rule_conflicts_ko_and_roundtrip _______
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuu
+___ R1931DirectionTests.test_direction_preservation_conflicts_and_roundtrip ____
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+_______________ R1964GprTests.test_either_gene_keeps_r1964_open ________________
+----------------------------- Captured stdout call -----------------------------
+uuu
+__________ R1964GprTests.test_stale_inputs_fail_closed_without_edits ___________
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuuuuuu
+_______________ R1964GprTests.test_unexpected_scope_is_rejected ________________
+----------------------------- Captured stdout call -----------------------------
+uuu
+_______ R2041DirectionTests.test_stale_inputs_fail_closed_without_edits ________
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuu
+_________ R2190ProductTests.test_sbml_roundtrip_keeps_the_after_state __________
+------------------------------ Captured log call -------------------------------
+ERROR    cobra.io.sbml:sbml.py:1022 No objective coefficients in model. Unclear what should be optimized
+________ R2190ProductTests.test_stale_inputs_fail_closed_without_edits _________
+----------------------------- Captured stdout call -----------------------------
+u [ 75%]
+uuuuuuuuu
+_____________ R2193IronGprTests.test_either_pair_keeps_r2193_open ______________
+----------------------------- Captured stdout call -----------------------------
+uuuuuuu
+________ R2193IronGprTests.test_stale_inputs_fail_closed_without_edits _________
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuuuu
+_____________ R2193IronGprTests.test_unexpected_scope_is_rejected ______________
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+_______ R539AssignmentTests.test_catalytic_scope_conflicts_and_roundtrip _______
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+_ ReferenceReactionTests.test_retention_survives_removal_and_duplicate_filters_idempotently _
+------------------------------ Captured log call -------------------------------
+WARNING  scripts.gem_annotate.gaps:gaps.py:439 chem_xref.tsv not available — MNXM→BiGG cache cannot be built
+WARNING  scripts.gem_annotate.gaps:gaps.py:756   SPHPL (MNXR188844): no active direction curation; retaining legacy reversible bounds
+WARNING  scripts.gem_annotate.gaps:gaps.py:439 chem_xref.tsv not available — MNXM→BiGG cache cannot be built
+_____ SelectionGprRestoreTests.test_rerun_after_sbml_round_trip_is_a_no_op _____
+------------------------------ Captured log call -------------------------------
+ERROR    cobra.io.sbml:sbml.py:1022 No objective coefficients in model. Unclear what should be optimized
+_____ SelectionGprRestoreTests.test_stale_inputs_fail_closed_without_edits _____
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuu [ 82%]
+u
+_ SelectionGprRestoreTests.test_unexpected_scope_or_unbalanced_target_is_rejected _
+----------------------------- Captured stdout call -----------------------------
+uuu
+__ ChangeSetRestoreTests.test_flags_are_opt_in_and_need_a_complete_selection ___
+----------------------------- Captured stdout call -----------------------------
+uu
+__________________ ChangeSetRestoreTests.test_gpr_propagation __________________
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+______ ChangeSetRestoreTests.test_rerun_after_sbml_round_trip_is_a_no_op _______
+----------------------------- Captured stdout call -----------------------------
+uu
+------------------------------ Captured log call -------------------------------
+ERROR    cobra.io.sbml:sbml.py:1022 No objective coefficients in model. Unclear what should be optimized
+ERROR    cobra.io.sbml:sbml.py:1022 No objective coefficients in model. Unclear what should be optimized
+________ ChangeSetRestoreTests.test_restores_targets_and_is_idempotent _________
+----------------------------- Captured stdout call -----------------------------
+uu
+______ ChangeSetRestoreTests.test_stale_inputs_fail_closed_without_edits _______
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuu
+__________ ChangeSetRestoreTests.test_unexpected_records_are_rejected __________
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+_________________ TklFragmentRestoreTests.test_gpr_propagation _________________
+----------------------------- Captured stdout call -----------------------------
+uu
+__________________ TklFragmentRestoreTests.test_record_scope ___________________
+----------------------------- Captured stdout call -----------------------------
+uu
+_____ TklFragmentRestoreTests.test_rerun_after_sbml_round_trip_is_a_no_op ______
+------------------------------ Captured log call -------------------------------
+ERROR    cobra.io.sbml:sbml.py:1022 No objective coefficients in model. Unclear what should be optimized
+_____ TklFragmentRestoreTests.test_stale_inputs_fail_closed_without_edits ______
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuu
+_ ThiaminePhosphateChemistryTests.test_spec_values_outside_the_reviewed_change_are_rejected_without_edits _
+----------------------------- Captured stdout call -----------------------------
+uuuu [ 89%]
+uuuuu
+_ ThiaminePhosphateChemistryTests.test_stale_inputs_fail_closed_without_edits __
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuuuuuu
+______ ThiaminePhosphateChemistryTests.test_unexpected_scope_is_rejected _______
+----------------------------- Captured stdout call -----------------------------
+uuuuuuu
+_ ProtonGateLockTests.test_lock_value_is_case_and_space_insensitive_and_strict _
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+_____ ThiamineProtonLockTests.test_stale_inputs_fail_closed_without_edits ______
+----------------------------- Captured stdout call -----------------------------
+uuuuuuuuu
+_____ ThiamineProtonLockTests.test_unexpected_scope_or_values_are_rejected _____
+----------------------------- Captured stdout call -----------------------------
+uuuuuuu
+_ TppRequirementTests.test_spec_values_outside_the_reviewed_change_are_rejected_without_edits _
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+_______ TppRequirementTests.test_stale_inputs_fail_closed_without_edits ________
+----------------------------- Captured stdout call -----------------------------
+uuuuuu [ 94%]
+uuuuuuuuuu
+____________ TppRequirementTests.test_unexpected_scope_is_rejected _____________
+----------------------------- Captured stdout call -----------------------------
+uuuuu
+__________ VacuoleCandidateTests.test_preflight_mismatches_are_atomic __________
+----------------------------- Captured stdout call -----------------------------
+uuuuuu
+=========================== short test summary info ============================
+PASSED tests/test_closed_energy.py::ClosedEnergyTests::test_closure_direction_and_isolation
+PASSED tests/test_closed_energy.py::ClosedEnergyTests::test_unreviewed_constraint_rejected
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_blocked_curation_is_not_wired_into_the_build_pipeline
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_legacy_tuple_group_cannot_omit_a_copy
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_loader_rejects_a_drifted_source_snapshot_digest
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_loader_rejects_r1521_handoff_tuple_drift
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_r1521_dependency_opens_declared_evidence_files
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_r1521_dependency_recomputes_the_declared_contract_digest
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_shared_core_tuples_and_identity_mappings_match_ledger_contract
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_approved_curation_requires_a_target_model_fingerprint
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_fixture_zero_newly_unbalanced_gate_idempotence_and_fba
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_fractional_boolean_and_nonfinite_live_charges_are_rejected
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_production_curation_is_blocked_before_any_mutation
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_public_gate_rejects_curation_without_source_provenance
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_unavailable_objective_fails_closed
+PASSED tests/test_coa_protonation_curation.py::CoAProtonationGateTests::test_unknown_prestate_missing_copy_and_new_copy_fail_closed
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_evidence_and_native_overlay_are_observed_not_forced
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_local_conflicts_preserve_changed_reactions_and_other_items_continue
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_metadata_preserves_full_mathematics_and_extra_constraint
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_nested_boolean_deduplication_keeps_or_and_members
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_off_and_metadata_idempotency
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_qcycle_only_two_coefficients_and_idempotency
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_real_cli_default_and_all_modes_forward_to_same_builder
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_targets_history_and_export_readback
+PASSED tests/test_coq9_curation.py::CoQ9CurationTests::test_wrong_r305_name_is_not_used_to_create_new_reaction_identity
+PASSED tests/test_coq9_functional_gpr.py::CoQ9FunctionalGPRTest::test_scope_conflicts_ko_and_roundtrip
+PASSED tests/test_coq9_respiratory_package.py::CoQ9RespiratoryPackageTests::test_applies_curated_targets_and_is_idempotent
+PASSED tests/test_coq9_respiratory_package.py::CoQ9RespiratoryPackageTests::test_duplicate_removal_requires_exact_counterpart
+PASSED tests/test_coq9_respiratory_package.py::CoQ9RespiratoryPackageTests::test_stale_r695_fails_before_any_edit
+PASSED tests/test_coq9_respiratory_package.py::CoQ9RespiratoryPackageTests::test_stale_target_fails_closed_without_edits
+PASSED tests/test_coq9_respiratory_package.py::CoQ9RespiratoryPackageTests::test_unexpected_scope_is_rejected
+PASSED tests/test_coq9_respiratory_package.py::CoQ9RespiratoryPackageTests::test_unexpected_user_of_orphan_metabolite_fails_before_any_edit
+PASSED tests/test_coq_biomass_candidate.py::CoqBiomassTests::test_pool_coupling_is_scoped_idempotent_and_rejects_invalid_inputs
+PASSED tests/test_coq_literature_pipeline.py::CoQLiteraturePipelineTest::test_opt_in_and_execution_guards
+PASSED tests/test_coq_literature_pipeline.py::CoQLiteraturePipelineTest::test_serialization_equivalence_and_atomic_rejection
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_aggregate_shards_defers_and_applies_the_final_gate
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_aggregate_shards_rejects_missing_or_wrong_gene_output
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_conflicting_experimental_labels_are_rejected
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_gene_becomes_a_new_false_negative_when_candidate_adds_bypass
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_gene_shards_are_deterministic_complete_and_bounded
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_model_and_numeric_contracts_fail_closed
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_po1f_medium_contract_and_nondepleting_pool
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_rescue_diagnostic_finds_the_minimum_snapshot_bound_relaxation
+PASSED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_wt_diagnostic_records_pfba_infeasibility_without_screening_genes
+PASSED tests/test_dipeptide_chemistry.py::ChemistryCandidateTests::test_default_atomic_conflict_idempotency_and_unchanged_lp
+PASSED tests/test_dipeptide_chemistry.py::ChemistryCandidateTests::test_export_and_explicit_identity_failures
+PASSED tests/test_dipeptide_chemistry.py::ChemistryCandidateTests::test_metadata_and_auto_balance_cannot_overwrite_candidate
+PASSED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_all_diagnostics_restore_actual_model_even_on_exception
+PASSED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_endogenous_module_disabled_and_missing_parameters_rejected
+PASSED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_invalid_supply_does_not_leak
+PASSED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_missing_formula_is_not_mass_balance_pass
+PASSED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_pfba_zero_does_not_mean_blocked
+PASSED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_saved_solution_rejects_changed_growth_or_missing_witness
+PASSED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_final_export_closed_ATP_and_normal_growth_positive_control
+PASSED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_known_three_synthesis_directions_stay_closed_after_xml_reload
+PASSED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_remaining_full_model_anomaly_is_not_false_pass
+PASSED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_unsolved_or_nonfinite_energy_never_passes
+PASSED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_zero_feasible_and_real_culture_restored
+PASSED tests/test_energy_candidate_build.py::EnergyCandidateBuildTests::test_corrupt_persisted_lock_fails_before_metadata_edits
+PASSED tests/test_energy_candidate_build.py::EnergyCandidateBuildTests::test_cumulative_equivalence_idempotency_and_no_downgrade
+PASSED tests/test_energy_candidate_build.py::EnergyCandidateBuildTests::test_default_noop_and_variant_exact_scope
+PASSED tests/test_energy_candidate_build.py::EnergyCandidateBuildTests::test_metadata_priority_and_export_reload
+PASSED tests/test_energy_candidate_build.py::EnergyCandidateBuildTests::test_signature_conflicts_are_atomic
+PASSED tests/test_energy_candidate_build.py::EnergyCandidateBuildTests::test_temporary_constraints_and_mass_row_edits_rejected
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_correction_is_idempotent
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_direct_curation_cannot_bypass_source_sha_and_leaves_model_unchanged
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_direct_curation_rechecks_the_actual_source_file_sha
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_direct_script_entry_resolves_without_running_the_builder
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_final_target_gate_detects_postcondition_drift_without_mutating_model
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_final_target_gate_rejects_excluded_peroxisomal_identity_drift
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_final_target_gate_rejects_reinserted_chemical_identity_annotation
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_final_target_gate_rejects_uncurated_live_closure_tuple
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_float_schema_version_is_rejected_even_with_a_matching_mock_digest
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_legacy_entry_forwards_to_reference_builder
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_loader_rejects_source_sha_and_target_contract_drift
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_malformed_or_unknown_curation_fails_before_mutation
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_missing_excluded_peroxisomal_copy_fails_closed
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_mnx_case_aliases_are_normalized_before_authoritative_curation
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_pH_tuple_is_recorded_but_not_part_of_the_neutral_patch
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_postcondition_failure_rolls_back_every_live_edit
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_raw_source_is_corrected_offline_and_peroxisomal_copy_is_untouched
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_reaction_bounds_direction_and_stoichiometry_drift_fail_closed
+PASSED tests/test_er_vlcfa_stereochemistry.py::ERVLCFAStereochemistryTests::test_recomputed_curation_digest_cannot_authorize_an_impossible_target_tuple
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_d_nested_contract_drift_fails_closed
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_d_review_inventory_ledgers_and_science_are_fail_closed
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_d_union_frontier_id_drift_fails_closed
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_generic_pool_cannot_become_a_chemical_tuple
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_malformed_activation_is_a_handoff_error
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_malformed_d_structures_are_handoff_errors
+PASSED tests/test_fatty_acyl_coa_handoff.py::FattyAcylCoAHandoffTests::test_report_output_cannot_alias_an_authoritative_input
+PASSED tests/test_gem_review_lit_retrieval.py::PairSelectionTest::test_refuses_whole_model
+PASSED tests/test_gem_review_lit_retrieval.py::PairSelectionTest::test_tier_and_explicit_ids
+PASSED tests/test_gem_review_lit_retrieval.py::TermsTest::test_queries
+PASSED tests/test_gem_review_lit_retrieval.py::ChunkTest::test_only_matching_paragraphs
+PASSED tests/test_gem_review_lit_retrieval.py::RetrievalTest::test_end_to_end_and_cache
+PASSED tests/test_gene_function_annotations.py::GeneFunctionAnnotationTests::test_candidate_roundtrip_idempotency_and_mathematics
+PASSED tests/test_gene_function_annotations.py::GeneFunctionAnnotationTests::test_wrong_identity_or_missing_caveat_rejected_before_edits
+PASSED tests/test_gpi_chain_links.py::GpiChainLinksTests::test_adds_only_the_five_links_and_survives_roundtrip
+PASSED tests/test_gpi_chain_links.py::GpiChainLinksTests::test_chain_dead_ends_gain_a_producer_and_a_consumer
+PASSED tests/test_gpi_chain_links.py::GpiChainLinksTests::test_flag_is_opt_in
+PASSED tests/test_gpi_chain_links.py::GpiChainLinksTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_gpi_chain_links.py::GpiChainLinksTests::test_unexpected_scope_is_rejected
+PASSED tests/test_gpi_coproducts.py::GpiCoproductsTests::test_changes_only_the_two_equations_and_survives_roundtrip
+PASSED tests/test_gpi_coproducts.py::GpiCoproductsTests::test_flag_requires_the_chain_links
+PASSED tests/test_gpi_coproducts.py::GpiCoproductsTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_gpi_coproducts.py::GpiCoproductsTests::test_unexpected_scope_is_rejected
+PASSED tests/test_heme_iron_biomass.py::HemeIronBiomassTests::test_adds_only_the_two_terms_and_survives_roundtrip
+PASSED tests/test_heme_iron_biomass.py::HemeIronBiomassTests::test_applies_after_the_reviewed_tpp_requirement_only
+PASSED tests/test_heme_iron_biomass.py::HemeIronBiomassTests::test_flag_requires_the_coq9_biomass_stage
+PASSED tests/test_heme_iron_biomass.py::HemeIronBiomassTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_heme_iron_biomass.py::HemeIronBiomassTests::test_unexpected_scope_is_rejected
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_biochemical_ph_anionic_tuples_and_canonical_mappings_are_complete
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_capability_boundary_retains_probabilities_only_for_explicit_soft_prior
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_manifest_contract_and_remaining_activation_blockers_are_explicit
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_residues_curated_tag_budget_and_architecture_are_closed
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_schema_v2_is_read_only_and_nonactivating
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_candidate_gprs_cover_all_generated_reactions_without_clearing_blocker
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_canonical_identifier_normalization_is_exact
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_coa_and_identity_annotation_drift_fail_closed
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_extra_wrong_value_in_a_canonical_namespace_is_rejected
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_fixture_reactions_are_charge_balanced_and_all_generated_lipids_are_neutral
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_formula_and_charge_drift_fail_closed
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_strict_loader_accepts_exact_tuples_and_scalar_or_list_annotations
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerFixtureV2Tests::test_verified_chemistry_gate_replaces_the_old_charge_blocker
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_cli_hash_seed_determinism_and_atomic_output_alias_guards
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_fba_pfba_supply_cut_and_determinism_contracts_hold
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_load_spec_binds_chain_ids_and_residues_to_declared_acyl_coas
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_manifest_preserves_architecture_neutral_lipids_and_95_balanced_reactions
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_manifest_reports_candidate_only_gpr_coverage
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_nonchemical_activation_blockers_and_capability_boundary_remain_open
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_probability_metadata_and_opt_in_soft_prior_are_well_formed
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_public_compile_contract_and_inputs_remain_immutable
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_schema_v2_rejects_exact_type_confusion
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_source_baseline_rejects_objective_drift_and_tiny_secondary_terms
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_source_chemistry_is_never_silently_repaired
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_strict_spec_drift_fails_closed
+PASSED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerIntegrationTests::test_targeted_memote_candidate_evaluation_mass_charge_and_gpr_checks
+PASSED tests/test_moiety_ledger_prototype.py::MoietyLedgerPrototypeTests::test_a_required_acyl_supply_cannot_be_replaced_by_the_other_chain
+PASSED tests/test_moiety_ledger_prototype.py::MoietyLedgerPrototypeTests::test_aggregate_pa_output_is_feasible
+PASSED tests/test_moiety_ledger_prototype.py::MoietyLedgerPrototypeTests::test_both_positional_routes_remain_feasible_and_are_indistinguishable
+PASSED tests/test_moiety_ledger_prototype.py::MoietyLedgerPrototypeTests::test_internal_ledger_reactions_are_element_and_charge_balanced
+PASSED tests/test_quinone_pipeline.py::QuinonePipelineTests::test_atomic_q9_chemistry_preserves_source_nad_and_other_curation_scope
+PASSED tests/test_quinone_pipeline.py::QuinonePipelineTests::test_changed_duplicate_and_branch_leave_input_untouched
+PASSED tests/test_quinone_pipeline.py::QuinonePipelineTests::test_existing_chain_reproduces_saved_local_mathematics_and_is_idempotent
+PASSED tests/test_quinone_pipeline.py::QuinonePipelineTests::test_reference_balancer_preserves_membrane_coupling_across_processes
+PASSED tests/test_quinone_pipeline.py::QuinonePipelineTests::test_unexpected_gpr_is_not_replaced_even_if_legacy_markers_remain
+PASSED tests/test_r1025_gpr_assignment.py::R1025AssignmentTests::test_nuclear_assignment_roundtrip_and_precondition_conflicts
+PASSED tests/test_r1026_gpr_assignment.py::R1026AssignmentTests::test_assignment_roundtrip_and_conflicts
+PASSED tests/test_r1159_direction.py::R1159DirectionTests::test_direction_preservation_rejection_and_roundtrip
+PASSED tests/test_r132_mito_adh.py::R132MitoAdhTests::test_flag_requires_the_respiratory_package
+PASSED tests/test_r132_mito_adh.py::R132MitoAdhTests::test_removes_r132_only_and_is_idempotent
+PASSED tests/test_r132_mito_adh.py::R132MitoAdhTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_r132_mito_adh.py::R132MitoAdhTests::test_unexpected_scope_is_rejected
+PASSED tests/test_r1521_current_snapshot_handoff.py::R1521EvidenceContractTests::test_any_evidence_dependency_drift_is_rejected
+PASSED tests/test_r1521_current_snapshot_handoff.py::R1521EvidenceContractTests::test_exact_balance_assessor_rejects_incomplete_or_invalid_tuples
+PASSED tests/test_r1521_current_snapshot_handoff.py::R1521EvidenceContractTests::test_frontier_sources_are_complete_disjoint_and_fail_closed
+PASSED tests/test_r1521_current_snapshot_handoff.py::R1521EvidenceContractTests::test_output_protects_every_authoritative_runtime_input
+PASSED tests/test_r153_gpr_assignment.py::R153AssignmentTests::test_single_gene_knockout_roundtrip_and_conflict_guards
+PASSED tests/test_r153_gpr_revision.py::R153GprRevisionTests::test_clears_gpr_keeps_gene_and_is_idempotent
+PASSED tests/test_r153_gpr_revision.py::R153GprRevisionTests::test_flag_is_opt_in
+PASSED tests/test_r153_gpr_revision.py::R153GprRevisionTests::test_guards_fail_closed_without_edits
+PASSED tests/test_r153_merge.py::R153MergeTests::test_merge_roundtrip_idempotence_and_conflicts
+PASSED tests/test_r1889_gpr_assignment.py::R1889AssignmentTests::test_partial_rule_conflicts_ko_and_roundtrip
+PASSED tests/test_r1931_direction.py::R1931DirectionTests::test_direction_preservation_conflicts_and_roundtrip
+PASSED tests/test_r1964_gpr.py::R1964GprTests::test_changes_only_r1964_and_new_gene_and_survives_roundtrip
+PASSED tests/test_r1964_gpr.py::R1964GprTests::test_either_gene_keeps_r1964_open
+PASSED tests/test_r1964_gpr.py::R1964GprTests::test_flag_is_opt_in
+PASSED tests/test_r1964_gpr.py::R1964GprTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_r1964_gpr.py::R1964GprTests::test_unexpected_scope_is_rejected
+PASSED tests/test_r2041_direction.py::R2041DirectionTests::test_flag_is_opt_in
+PASSED tests/test_r2041_direction.py::R2041DirectionTests::test_sets_only_the_lower_bound_and_notes_and_survives_roundtrip
+PASSED tests/test_r2041_direction.py::R2041DirectionTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_r2041_direction.py::R2041DirectionTests::test_unexpected_scope_is_rejected
+PASSED tests/test_r2190_product.py::R2190ProductTests::test_flag_is_opt_in
+PASSED tests/test_r2190_product.py::R2190ProductTests::test_replaces_the_product_only_and_is_idempotent
+PASSED tests/test_r2190_product.py::R2190ProductTests::test_rerun_rejects_a_drifted_after_state
+PASSED tests/test_r2190_product.py::R2190ProductTests::test_sbml_roundtrip_keeps_the_after_state
+PASSED tests/test_r2190_product.py::R2190ProductTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_r2190_product.py::R2190ProductTests::test_unexpected_or_unbalanced_curation_is_rejected
+PASSED tests/test_r2193_iron_gpr.py::R2193IronGprTests::test_changes_only_r2193_and_genes_and_survives_roundtrip
+PASSED tests/test_r2193_iron_gpr.py::R2193IronGprTests::test_context_exit_restores_the_baseline
+PASSED tests/test_r2193_iron_gpr.py::R2193IronGprTests::test_either_pair_keeps_r2193_open
+PASSED tests/test_r2193_iron_gpr.py::R2193IronGprTests::test_flag_is_opt_in
+PASSED tests/test_r2193_iron_gpr.py::R2193IronGprTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_r2193_iron_gpr.py::R2193IronGprTests::test_unexpected_scope_is_rejected
+PASSED tests/test_r539_gpr_assignment.py::R539AssignmentTests::test_catalytic_scope_conflicts_and_roundtrip
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_boolean_reordering_is_already_correct
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_conflicting_equation_gpr_and_species_are_preserved_locally
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_exact_pre_export_states_without_general_numeric_tolerance
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_exact_selection_preserves_other_fields_and_roundtrips
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_metadata_selection_must_preserve_experimental_trna_biomass
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_ntp1_keeps_balanced_hydrolysis_and_rejects_legacy_synthesis
+PASSED tests/test_reaction_selection.py::ReactionSelectionTests::test_second_application_does_not_accumulate_or_restore_old_notes
+PASSED tests/test_reference_reactions.py::ReferenceReactionTests::test_public_defaults_keep_reference_input_and_metadata
+PASSED tests/test_reference_reactions.py::ReferenceReactionTests::test_retention_survives_removal_and_duplicate_filters_idempotently
+PASSED tests/test_selection_gpr_restore.py::SelectionGprRestoreTests::test_baseline_candidate_changes_only_the_targets
+PASSED tests/test_selection_gpr_restore.py::SelectionGprRestoreTests::test_flag_is_opt_in_and_needs_a_complete_selection
+PASSED tests/test_selection_gpr_restore.py::SelectionGprRestoreTests::test_rerun_after_sbml_round_trip_is_a_no_op
+PASSED tests/test_selection_gpr_restore.py::SelectionGprRestoreTests::test_restores_balanced_targets_and_is_idempotent
+PASSED tests/test_selection_gpr_restore.py::SelectionGprRestoreTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_selection_gpr_restore.py::SelectionGprRestoreTests::test_unexpected_scope_or_unbalanced_target_is_rejected
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_baseline_candidate_changes_only_the_targets
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_flags_are_opt_in_and_need_a_complete_selection
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_gpr_propagation
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_r159_leaves_the_shared_carbamoyl_phosphate_pool
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_r671_keeps_only_its_recorded_residual
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_rerun_after_sbml_round_trip_is_a_no_op
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_restored_species_order_does_not_depend_on_the_hash_seed
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_restores_targets_and_is_idempotent
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_selection_gpr_restore_change_sets.py::ChangeSetRestoreTests::test_unexpected_records_are_rejected
+PASSED tests/test_selection_gpr_restore_change_sets.py::MisannotationRemovalTests::test_keeps_transketolase_and_removes_gatb
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_baseline_candidate_changes_only_the_targets
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_flag_is_opt_in_and_needs_a_complete_selection
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_gpr_propagation
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_record_scope
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_removes_fragment_keeps_gene_and_is_idempotent
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_rerun_after_sbml_round_trip_is_a_no_op
+PASSED tests/test_selection_gpr_tkl_fragment.py::TklFragmentRestoreTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_changes_only_the_targets_balances_and_survives_roundtrip
+PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_flag_requires_the_tpp_requirement
+PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_spec_values_outside_the_reviewed_change_are_rejected_without_edits
+PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_thiamine_phosphate_chemistry.py::ThiaminePhosphateChemistryTests::test_unexpected_scope_is_rejected
+PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_dict_lock_is_still_honoured_in_memory
+PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_gate_strips_the_h_without_a_lock
+PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_lock_value_is_case_and_space_insensitive_and_strict
+PASSED tests/test_thiamine_proton_lock.py::ProtonGateLockTests::test_plain_lock_is_honoured_after_an_sbml_roundtrip
+PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_adds_only_the_notes_and_survives_roundtrip
+PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_flag_requires_the_thiamine_phosphate_chemistry
+PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_thiamine_proton_lock.py::ThiamineProtonLockTests::test_unexpected_scope_or_values_are_rejected
+PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_build_time_notes_are_accepted
+PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_changes_only_the_two_targets_and_survives_roundtrip
+PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_flag_requires_the_gpi_coproducts
+PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_spec_values_outside_the_reviewed_change_are_rejected_without_edits
+PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_stale_inputs_fail_closed_without_edits
+PASSED tests/test_tpp_requirement.py::TppRequirementTests::test_unexpected_scope_is_rejected
+PASSED tests/test_vacuole_candidate.py::VacuoleCandidateTests::test_default_noop_bounded_scope_and_idempotency
+PASSED tests/test_vacuole_candidate.py::VacuoleCandidateTests::test_preflight_mismatches_are_atomic
+PASSED tests/test_vacuole_candidate.py::VacuoleCandidateTests::test_source_identity_export_reload_and_no_overwrite
+PASSED tests/test_vacuole_explicit_inputs.py::ExplicitInputTests::test_cli_never_falls_back_to_config_candidate
+PASSED tests/test_vacuole_explicit_inputs.py::ExplicitInputTests::test_explicit_paths_sha_and_manifest_binding
+PASSED tests/test_vacuole_explicit_inputs.py::ExplicitInputTests::test_mathematical_signature_ignores_chemistry_but_detects_constraints
+PASSED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_culture_growth_source_caps_and_pfba_objective
+PASSED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_joint_status_and_two_distinct_fva_growth_floors
+PASSED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_material_ledger_and_nominal_source_carbon_nitrogen
+PASSED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_twelve_closed_energy_maxima_and_three_zero_controls
+PASSED tests/test_vatpase_gpr_hypothesis.py::VatpaseHypothesisTests::test_exact_boolean_requirement_and_roundtrip
+PASSED tests/test_vatpase_gpr_hypothesis.py::VatpaseHypothesisTests::test_opt_in_and_separate_output_guards
+PASSED tests/test_vatpase_gpr_hypothesis.py::VatpaseHypothesisTests::test_second_reaction_conflict_does_not_partially_edit_first
+SKIPPED [1] tests/test_coa_protonation_curation.py:392: requires repository model.xml
+SKIPPED [1] tests/test_coa_protonation_curation.py:649: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_coa_protonation_curation.py:454: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_coa_protonation_curation.py:214: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_coa_protonation_curation.py:895: requires repository model.xml
+SKIPPED [1] tests/test_coa_protonation_curation.py:963: requires repository model.xml
+SKIPPED [1] tests/test_coa_protonation_curation.py:973: requires repository model.xml
+SKIPPED [1] tests/test_coa_protonation_curation.py:927: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_coa_protonation_curation.py:872: requires repository model.xml
+SKIPPED [1] tests/test_coa_protonation_curation.py:825: requires repository model.xml
+SKIPPED [1] tests/test_coa_protonation_curation.py:994: requires repository model.xml
+SKIPPED [1] tests/test_fatty_acyl_coa_handoff.py:359: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_fatty_acyl_coa_handoff.py:379: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_fatty_acyl_coa_handoff.py:219: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_fatty_acyl_coa_handoff.py:36: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_fatty_acyl_coa_handoff.py:318: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_lipid_moiety_ledger.py:689: canonical source tuples/annotations have not yet been rebuilt
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:253: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:388: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:374: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:402: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:420: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:172: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:257: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:291: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:279: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:338: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:269: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:395: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:246: requires explicit IYALI26_SOURCE_MODEL
+SKIPPED [1] tests/test_r1521_current_snapshot_handoff.py:200: requires explicit IYALI26_SOURCE_MODEL
+ERROR tests/test_gem_review_lit_caching.py
+ERROR tests/test_gem_review_lit_chain.py
+ERROR tests/test_gem_review_lit_extract.py
+ERROR tests/test_gem_review_lit_providers.py
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_cardiolipin_audit_is_empty_fail_closed_and_stereospecific
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_cli_refuses_source_overwrite
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_coq_r39_mapping_sha_drift_fails_closed
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_coq_r39_r40_candidate_is_mitochondrial_and_evidence_gated
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_each_required_chain_is_not_bypassed
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_linoleoyl_charge_is_corrected_before_all_lipid_routes
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_lipid_exchange_metadata_is_explicit_and_gpr_free
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_r1521_substrate_formula_is_completed_without_ph_migration
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_r989_candidate_gpr_is_alphafold_limited_and_wet_lab_gated
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_required_lipid_routes_are_not_bypassed
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_sbml_round_trip_and_function
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_source_contract_is_frozen_and_input_unchanged
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_structure_balance_and_template_copying
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_tuple_order_and_biomass_weights
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_core_45_tuples_and_identity_annotation_targets_are_explicit
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_explicit_source_model_path_overrides_manifest_location
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_production_manifest_is_locked_to_the_post_annotation_model_snapshot
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_r2076_correction_is_withdrawn_and_decision_contract_is_exact
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_redox_and_focal_acid_groups_are_pinned
+FAILED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_positive_only_reference_never_implies_negative_labels
+FAILED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_documentation_states_chemical_and_capability_boundaries
+FAILED tests/test_vacuole_explicit_inputs.py::ExplicitInputTests::test_audit_saved_run_uses_archived_executed_source_without_optimization
+FAILED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_actual_run_identity_budget_and_restoration
+FAILED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_xml_only_four_bounds_and_real_context_rollback_without_solve
+11 failed, 251 passed, 31 skipped, 8 warnings, 18 errors, 668 subtests passed in 490.14s (0:08:10)

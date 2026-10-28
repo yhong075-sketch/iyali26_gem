@@ -110,7 +110,7 @@ def fix_biomass_reaction(model, *, no_solve: bool = False) -> None:
         blocked_precursors = []
 
         with model:
-            model.solver = "glpk"
+            model.solver = "gurobi"
             # Temporarily open all exchange reactions so precursor availability is
             # not limited by missing transport — we test the network topology only.
             for ex in model.exchanges:

@@ -1,0 +1,216 @@
+{
+ "schema_version": 1,
+ "curation_id": "HEME-IRON-BIOMASS-20261022",
+ "status": "user_authorized_biomass_term",
+ "evidence_tier": "consensus_model_value",
+ "authorization": "2026-10-22 user: Approved: implement plan A as written (heme a 1e-6 + Fe2+ 3.04e-5 in biomass_C via an opt-in flag, baseline cf0825b8, iron cap unchanged, KO comparison included). No commit or push.",
+ "baseline_model_sha256": "cf0825b86c3533d8a12f697a994eba3d740671a68a367143ee32cbfdc8686b7c",
+ "report": "model/reports/heme_iron_biomass_20261022/",
+ "reviewer": "Claude (this session, 2026-10-22); independent audit in the report",
+ "biomass_reaction": "biomass_C",
+ "terms": {
+  "m1635[C_cy]": {
+   "name": "heme a_C49H56FeN4O6",
+   "formula": "C49H56FeN4O6",
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions_before": [
+    "R1709",
+    "R1710"
+   ],
+   "coefficient_mmol_per_gDW": 1e-06,
+   "source": "yeast-GEM v9.1.1 r_4598 cofactor pseudoreaction, heme a [c] s_3714 = -1e-6 mmol/gDW; source table cites Forster2003",
+   "source_url": "https://github.com/SysBioChalmers/yeast-GEM/blob/2d594ae1c4a2d550ccef120d96a58c7bbf586255/model/yeast-GEM.yml",
+   "source_table_url": "https://github.com/SysBioChalmers/yeast-GEM/blob/2d594ae1c4a2d550ccef120d96a58c7bbf586255/data/physiology/biomassComposition_Cofactor_Ion.tsv",
+   "primary_reference_status": "Forster2003 cited by yeast-GEM; not opened in this review",
+   "internal_precedent": "Source model biomass R1710 (yeast 8 biomass pseudoreaction, closed) carries heme a m1635[C_cy] at 1e-6"
+  },
+  "m948[C_cy]": {
+   "name": "iron_Fe",
+   "formula": null,
+   "charge": 0,
+   "compartment": "C_cy",
+   "reactions_before": [
+    "R2193",
+    "R727",
+    "R863"
+   ],
+   "coefficient_mmol_per_gDW": 3.04e-05,
+   "source": "yeast-GEM v9.1.1 r_4599 ion pseudoreaction, iron(2+) [c] s_0924 = -3.04e-5 mmol/gDW; source table cites DOI 10.22161/ijeab/2.2.2",
+   "source_url": "https://github.com/SysBioChalmers/yeast-GEM/blob/2d594ae1c4a2d550ccef120d96a58c7bbf586255/model/yeast-GEM.yml",
+   "source_table_url": "https://github.com/SysBioChalmers/yeast-GEM/blob/2d594ae1c4a2d550ccef120d96a58c7bbf586255/data/physiology/biomassComposition_Cofactor_Ion.tsv",
+   "primary_reference_status": "DOI 10.22161/ijeab/2.2.2 cited by yeast-GEM; not opened in this review"
+  }
+ },
+ "organism_caveat": "Saccharomyces cerevisiae consensus-model values, not Yarrowia lipolytica measurements",
+ "requires_reactions": {
+  "R1189": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m1273[C_ex]": -1.0
+   }
+  },
+  "R2193": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m1273[C_ex]": -1.0,
+    "m948[C_cy]": 1.0
+   }
+  },
+  "R863": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m523[C_mi]": 1.0,
+    "m948[C_cy]": -1.0
+   }
+  },
+  "R302": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m28[C_mi]": 2.0,
+    "m523[C_mi]": -1.0,
+    "m524[C_mi]": -1.0,
+    "m525[C_mi]": 1.0
+   }
+  },
+  "R384": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m204[C_mi]": 1.0,
+    "m26[C_mi]": -1.0,
+    "m28[C_mi]": -5.0,
+    "m525[C_mi]": -1.0,
+    "m608[C_mi]": 1.0,
+    "m610[C_mi]": -1.0
+   }
+  },
+  "R383": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m26[C_mi]": 1.0,
+    "m27[C_mi]": 1.0,
+    "m28[C_mi]": 2.0,
+    "m30[C_mi]": -1.0,
+    "m608[C_mi]": -1.0,
+    "m609[C_mi]": 1.0,
+    "m64[C_mi]": -1.0
+   }
+  },
+  "R1709": {
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m1635[C_cy]": 1.0,
+    "m609[C_mi]": -1.0
+   }
+  }
+ },
+ "requires_objective": "biomass_C",
+ "biomass_bounds_before": [
+  0.0,
+  1000.0
+ ],
+ "biomass_stoichiometry_before": {
+  "m1000[C_cy]": -0.035251,
+  "m10[C_cy]": 23.09,
+  "m1123[C_cy]": -0.943397,
+  "m1324[C_cy]": -0.235849,
+  "m1401[C_cy]": 1.0,
+  "m141[C_cy]": -23.09,
+  "m143[C_cy]": 23.09,
+  "m149[C_cy]": -0.059363,
+  "m1631[C_em]": -3.5e-05,
+  "m1640[C_lp]": -0.000234,
+  "m1648[C_em]": -7.5e-05,
+  "m1700[C_lp]": -0.000237,
+  "m1701[C_lp]": -0.000346,
+  "m1705[C_lp]": -5.8e-05,
+  "m294[C_cy]": -0.00686,
+  "m32[C_cy]": -23.09,
+  "m359[C_cy]": -0.003029,
+  "m35[C_cy]": 23.09,
+  "m401[C_cy]": -0.868358,
+  "m459[C_cy]": -0.010436,
+  "m465[C_cy]": -0.009226,
+  "m468[C_mi]": -0.0001,
+  "m505[C_cy]": -0.010353,
+  "m86[C_cy]": -0.055401,
+  "m89[C_cy]": -0.01007,
+  "m93[C_cy]": -0.050871,
+  "m95[C_cy]": -0.05721,
+  "m964[C_cy]": -0.02,
+  "trna_biomass_residue_R129": -0.567939,
+  "trna_biomass_residue_R154": -0.125563,
+  "trna_biomass_residue_R157": -0.186498,
+  "trna_biomass_residue_R165": -0.186531,
+  "trna_biomass_residue_R248": -0.003632,
+  "trna_biomass_residue_R336": -0.243866,
+  "trna_biomass_residue_R337": -0.243904,
+  "trna_biomass_residue_R368": -0.509943,
+  "trna_biomass_residue_R392": -0.053881,
+  "trna_biomass_residue_R493": -0.090566,
+  "trna_biomass_residue_R522": -0.19455,
+  "trna_biomass_residue_R531": -0.275005,
+  "trna_biomass_residue_R547": -0.044232,
+  "trna_biomass_residue_R625": -0.082571,
+  "trna_biomass_residue_R673": -0.206372,
+  "trna_biomass_residue_R723": -0.284699,
+  "trna_biomass_residue_R759": -0.210543,
+  "trna_biomass_residue_R771": -0.002154,
+  "trna_biomass_residue_R775": -0.041282,
+  "trna_biomass_residue_R798": -0.172773
+ },
+ "biomass_note_keys_before": [
+  "canonical_trna_biomass_mode",
+  "coq9_growth_dilution_candidate",
+  "experimental_trna_biomass_design",
+  "experimental_trna_biomass_mode",
+  "experimental_trna_biomass_template"
+ ],
+ "unchanged": "Medium and the R1189 iron cap (1.61e-5, 2026-10-12 concentration-ratio rule) are not part of this curation; heme b is not added",
+ "accepted_before_states": [
+  {
+   "id": "base",
+   "description": "biomass_C as reviewed on cf0825b8",
+   "added_stoichiometry": {},
+   "added_note_keys": []
+  },
+  {
+   "id": "after_TPP-REQUIREMENT-20261022",
+   "description": "biomass_C after the reviewed TPP requirement (tpp_requirement.json after-state; TPP parent 2fe51cc2): the base plus TPP and its notes",
+   "added_stoichiometry": {
+    "m975[C_cy]": -1.2e-06
+   },
+   "added_note_keys": [
+    "tpp_requirement_authorization",
+    "tpp_requirement_curation_id",
+    "tpp_requirement_evidence",
+    "tpp_requirement_evidence_tier",
+    "tpp_requirement_previous_state",
+    "tpp_requirement_rationale",
+    "tpp_requirement_status"
+   ]
+  }
+ ],
+ "combination_authorization": "2026-10-22 user: Approved: combine the TPP and heme/iron + R2193 lines as planned (heme guard accepts the reviewed TPP-line biomass as a second before-state, combined build with seed and control checks, three-model knockout sweep on Gurobi at 1e-9 with the knocked-flux check, audit, report). No commit or push."
+}

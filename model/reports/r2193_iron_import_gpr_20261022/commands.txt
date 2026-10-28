@@ -1,0 +1,30 @@
+# R2193 iron-import GPR investigation (2026-10-22). Read-only; no LPs, no model change.
+# R = /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research ; A = $R/artifacts/tasks/r2193_iron_import_gpr_20261022
+
+# Gene identity and origin
+grep -n F07747 $R/reference/ncbi/clib89_feature_table.txt                 # GeneID 2908631, XP_505019.3
+grep -n "F07747\|YALI0F05126" $R/reference/locus_map/*.csv                # iyli21_genes_vs_S2.csv, s2_metabolic_genes.csv
+# iron transport reactions/GPRs in eciYali5, yeast-GEM, iMM904 (cobra read of $R/reference/external_models/...)
+
+# KEGG (raw responses in $A/evidence/kegg)
+curl -s https://rest.kegg.jp/get/<K07243|K19791|K19792|K12346|K15113|K08197|K00521|...>
+curl -s https://rest.kegg.jp/link/yli/<KO>
+curl -s https://rest.kegg.jp/get/sce:<YMR319C|YMR058W|YER145C|YOL122C|YLR214W|YKR052C|YJL133W|YEL065W>
+
+# UniProt families (raw TSV in $A/evidence/uniprot)
+curl -s "https://rest.uniprot.org/uniprotkb/search?query=xref:refseq-<XP_...>&fields=accession,protein_name,gene_names,xref_pfam,xref_interpro,reviewed,length&format=tsv"
+
+# Proteomes and reciprocal BLAST (BLAST+ 2.17.0, /opt/miniconda3/envs/seqsearch; proteomes in $A/blast/proteomes + SHA256SUMS)
+curl -s -o yli_UP000001300.fasta.gz "https://rest.uniprot.org/uniprotkb/stream?query=proteome:UP000001300&format=fasta&compressed=true"
+curl -s -o sce_UP000002311_reviewed.fasta.gz "https://rest.uniprot.org/uniprotkb/stream?query=proteome:UP000002311+AND+reviewed:true&format=fasta&compressed=true"
+scripts/rbh_iron.sh $A/blast <space-free work dir>      # outputs copied here: sce_vs_yli.tsv, yli_vs_sce.tsv
+
+# Literature (Europe PMC REST; JSON/XML in $A/evidence/literature)
+#   search queries a/b/c and locus IDs; PMID 17011109 (Diffels 2006) core record; PMC4766638 (Pomraning 2016) full text;
+#   PMID 8599111 (Stearman 1996) core record; PMC12969333 (Ye 2026) full text + supplementary zip (mmc1.docx primers)
+curl -s "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12969333/supplementaryFiles" -o supplement.zip
+
+# Primer check: NCBI CDS (in $A/evidence/ncbi_cds)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=<XM_502497.1|XM_502525.1|XM_499767.1>&rettype=fasta_cds_na&retmode=text"
+
+# Protein detection: $R/reference/external_models/chalmers_yarrowia/eciYali5-GEM/code/debiaggi2025/R_Analysis/data/raw/proteomics.tsv

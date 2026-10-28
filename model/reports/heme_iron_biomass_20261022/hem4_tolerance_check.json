@@ -1,0 +1,55 @@
+{
+ "condition": "Task A medium + PO1f",
+ "gene": "YALI1F13039g",
+ "cases": [
+  {
+   "case": "GLPK warm start: WT solve, then knockout in the same context",
+   "status": "optimal",
+   "growth": 0.3124262956327276,
+   "R792": 3.1242629563272764e-07,
+   "R1709": 3.124262956327276e-07,
+   "R302": 3.124262956327276e-07,
+   "feasibility_tolerance": 1e-07,
+   "max_abs_residual": 7.13318293321663e-15,
+   "row_residuals": {
+    "m1635[C_cy]": 0.0,
+    "m609[C_mi]": 0.0,
+    "m525[C_mi]": 0.0,
+    "m645[C_cy]": 0.0
+   }
+  },
+  {
+   "case": "Gurobi fresh, feasibility tolerance default",
+   "status": "optimal",
+   "growth": 0.0,
+   "R792": 0.0,
+   "R1709": 0.0,
+   "R302": 0.0,
+   "feasibility_tolerance": 1e-07,
+   "max_abs_residual": 4.440892098500626e-15,
+   "row_residuals": {
+    "m1635[C_cy]": 0.0,
+    "m609[C_mi]": 0.0,
+    "m525[C_mi]": 0.0,
+    "m645[C_cy]": 0.0
+   }
+  },
+  {
+   "case": "Gurobi fresh, feasibility tolerance 1e-09",
+   "status": "optimal",
+   "growth": 0.0,
+   "R792": 0.0,
+   "R1709": 0.0,
+   "R302": 0.0,
+   "feasibility_tolerance": 1e-09,
+   "max_abs_residual": 4.440892098500626e-16,
+   "row_residuals": {
+    "m1635[C_cy]": 0.0,
+    "m609[C_mi]": 0.0,
+    "m525[C_mi]": 0.0,
+    "m645[C_cy]": 0.0
+   }
+  }
+ ],
+ "lp_count": 4
+}

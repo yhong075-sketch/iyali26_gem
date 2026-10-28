@@ -38,3 +38,6 @@ this folder.
     folder, never into `model/`.
   - Before handing back, run `python -m pytest` and compare with the previous run test by
     test.
+  - Then have a fresh read-only reviewer check the diff (Claude: the `code-reviewer` subagent).
+    Give it the task, the diff range and the tests run, not your reasoning. Fix what it finds or
+    report the disagreement.

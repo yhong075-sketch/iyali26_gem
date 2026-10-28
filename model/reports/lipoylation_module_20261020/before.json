@@ -1,0 +1,472 @@
+{
+ "model": "model/candidates/E5_coq9_resp_pkg_r132_combined_20261020.xml",
+ "model_sha256": "164f235f4fe823181df0cc83082d6058ee9cf59675777adfe93557e9a77583a6",
+ "recorded": "2026-10-20",
+ "species": {
+  "m179[C_mi]": {
+   "name": "ACP1_",
+   "formula": null,
+   "charge": 0,
+   "reactions": [
+    "R1394",
+    "R1395",
+    "R1396",
+    "R2218",
+    "R2221",
+    "R2224",
+    "R2227",
+    "R2230",
+    "R2233",
+    "R539",
+    "R78"
+   ]
+  },
+  "m586[C_mi]": {
+   "name": "lipoylprotein_C12H18N2O4S2R2(C2H2NOR)n",
+   "formula": "C12H18N2O4S2R2(C2H2NOR)n",
+   "charge": 0,
+   "reactions": [
+    "R362",
+    "R364"
+   ]
+  },
+  "m587[C_mi]": {
+   "name": "S(8)-aminomethyldihydrolipoylprotein_C9H18NOS2R",
+   "formula": "C9H18NOS2R",
+   "charge": 0,
+   "reactions": [
+    "R362",
+    "R363"
+   ]
+  },
+  "m588[C_mi]": {
+   "name": "dihydrolipoylprotein_C8H15OS2R",
+   "formula": "C8H15OS2R",
+   "charge": 0,
+   "reactions": [
+    "R363",
+    "R364"
+   ]
+  },
+  "m1421[C_mi]": {
+   "name": "octanoyl-ACP_C8H15OSR",
+   "formula": "C8H15OSR",
+   "charge": 0,
+   "reactions": [
+    "R1405",
+    "R2216",
+    "R2218"
+   ]
+  },
+  "m443[C_cy]": {
+   "name": "L-cysteine_C3H7NO2S",
+   "formula": "C3H7NO2S",
+   "charge": 0,
+   "reactions": [
+    "R1343",
+    "R1344",
+    "R1372",
+    "R2195",
+    "R2198",
+    "R2199",
+    "R2200",
+    "R245",
+    "R246",
+    "R247",
+    "R248",
+    "R320",
+    "R606",
+    "R647",
+    "R874",
+    "R_CYST_II",
+    "newBiom",
+    "r0210",
+    "xAMINOACID"
+   ]
+  }
+ },
+ "reactions": {
+  "R362": {
+   "stoichiometry": {
+    "m28[C_mi]": -1.0,
+    "m155[C_mi]": -1.0,
+    "m586[C_mi]": -1.0,
+    "m44[C_mi]": 1.0,
+    "m587[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A09694g",
+   "mass_balance": "not computable: No elements found in metabolite m586[C_mi]"
+  },
+  "R363": {
+   "stoichiometry": {
+    "m126[C_mi]": -1.0,
+    "m587[C_mi]": -1.0,
+    "m124[C_mi]": 1.0,
+    "m581[C_mi]": 1.0,
+    "m588[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F04082g",
+   "mass_balance": {
+    "charge": 1.0
+   }
+  },
+  "R364": {
+   "stoichiometry": {
+    "m27[C_mi]": -1.0,
+    "m588[C_mi]": -1.0,
+    "m28[C_mi]": 1.0,
+    "m30[C_mi]": 1.0,
+    "m586[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D26360g",
+   "mass_balance": "not computable: No elements found in metabolite m586[C_mi]"
+  },
+  "R78": {
+   "stoichiometry": {
+    "m71[C_mi]": -1.0,
+    "m179[C_mi]": -1.0,
+    "m73[C_mi]": 1.0,
+    "m180[C_mi]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "(YALI1F38317g and YALI1A20089g and YALI1C26939g and YALI1D18037g) or (YALI1D32594g and YALI1F37498g and YALI1E22262g)",
+   "mass_balance": {
+    "H": 1.0,
+    "S": 1.0,
+    "R": 1.0
+   }
+  },
+  "R539": {
+   "stoichiometry": {
+    "m179[C_mi]": -1.0,
+    "m198[C_mi]": -1.0,
+    "m73[C_mi]": 1.0,
+    "m801[C_mi]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22262g",
+   "mass_balance": {
+    "H": 1.0,
+    "S": 1.0,
+    "R": 1.0
+   }
+  },
+  "R1394": {
+   "stoichiometry": {
+    "m28[C_mi]": -1.0,
+    "m180[C_mi]": -1.0,
+    "m801[C_mi]": -1.0,
+    "m44[C_mi]": 1.0,
+    "m179[C_mi]": 1.0,
+    "m1410[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F38317g and YALI1D18037g",
+   "mass_balance": {
+    "charge": -1.0,
+    "H": -2.0,
+    "S": -1.0,
+    "R": -2.0
+   }
+  },
+  "R1395": {
+   "stoichiometry": {
+    "m28[C_mi]": -1.0,
+    "m801[C_mi]": -1.0,
+    "m1411[C_mi]": -1.0,
+    "m44[C_mi]": 1.0,
+    "m179[C_mi]": 1.0,
+    "m1412[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F38317g and YALI1D18037g",
+   "mass_balance": {
+    "charge": -1.0,
+    "H": -4.0,
+    "C": -2.0,
+    "O": -1.0,
+    "S": -1.0,
+    "R": -1.0
+   }
+  },
+  "R1396": {
+   "stoichiometry": {
+    "m28[C_mi]": -1.0,
+    "m801[C_mi]": -1.0,
+    "m1413[C_mi]": -1.0,
+    "m44[C_mi]": 1.0,
+    "m179[C_mi]": 1.0,
+    "m1414[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F38317g and YALI1D18037g",
+   "mass_balance": {
+    "charge": -1.0,
+    "H": -15.0,
+    "C": -8.0,
+    "O": -2.0,
+    "S": -2.0,
+    "R": -1.0
+   }
+  },
+  "R2218": {
+   "stoichiometry": {
+    "m28[C_mi]": -3.0,
+    "m176[C_mi]": -2.0,
+    "m801[C_mi]": -1.0,
+    "m1421[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m44[C_mi]": 1.0,
+    "m178[C_mi]": 2.0,
+    "m179[C_mi]": 1.0,
+    "m1901[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "mass_balance": {
+    "charge": -3.0,
+    "H": -21.0,
+    "C": -9.0,
+    "O": -1.0,
+    "P": 1.0,
+    "S": -2.0,
+    "R": -2.0,
+    "A": 1.0
+   }
+  },
+  "R2221": {
+   "stoichiometry": {
+    "m28[C_mi]": -3.0,
+    "m176[C_mi]": -2.0,
+    "m801[C_mi]": -1.0,
+    "m1901[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m44[C_mi]": 1.0,
+    "m178[C_mi]": 2.0,
+    "m179[C_mi]": 1.0,
+    "m1902[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "mass_balance": {
+    "charge": -3.0,
+    "H": -6.0,
+    "C": -2.0,
+    "S": -1.0,
+    "R": -1.0
+   }
+  },
+  "R2224": {
+   "stoichiometry": {
+    "m28[C_mi]": -3.0,
+    "m176[C_mi]": -2.0,
+    "m801[C_mi]": -1.0,
+    "m1902[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m44[C_mi]": 1.0,
+    "m178[C_mi]": 2.0,
+    "m179[C_mi]": 1.0,
+    "m1903[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "mass_balance": {
+    "charge": -3.0,
+    "H": -6.0,
+    "C": -2.0,
+    "S": -1.0,
+    "R": -1.0
+   }
+  },
+  "R2227": {
+   "stoichiometry": {
+    "m28[C_mi]": -4.0,
+    "m64[C_mi]": -1.0,
+    "m176[C_mi]": -3.0,
+    "m801[C_mi]": -1.0,
+    "m1902[C_mi]": -1.0,
+    "m26[C_mi]": 3.0,
+    "m44[C_mi]": 1.0,
+    "m178[C_mi]": 3.0,
+    "m179[C_mi]": 1.0,
+    "m1904[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "mass_balance": {
+    "charge": -4.0,
+    "H": -4.0,
+    "C": 138.0,
+    "P": -1.0,
+    "S": -1.0,
+    "R": -1.0,
+    "A": -1.0
+   }
+  },
+  "R2230": {
+   "stoichiometry": {
+    "m28[C_mi]": -3.0,
+    "m176[C_mi]": -2.0,
+    "m801[C_mi]": -1.0,
+    "m1903[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m44[C_mi]": 1.0,
+    "m178[C_mi]": 2.0,
+    "m179[C_mi]": 1.0,
+    "m1905[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "mass_balance": {
+    "charge": -3.0,
+    "H": -6.0,
+    "C": -2.0,
+    "S": -1.0,
+    "R": -1.0
+   }
+  },
+  "R2233": {
+   "stoichiometry": {
+    "m28[C_mi]": -4.0,
+    "m64[C_mi]": -1.0,
+    "m176[C_mi]": -3.0,
+    "m801[C_mi]": -1.0,
+    "m1903[C_mi]": -1.0,
+    "m26[C_mi]": 3.0,
+    "m44[C_mi]": 1.0,
+    "m178[C_mi]": 3.0,
+    "m179[C_mi]": 1.0,
+    "m1906[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g",
+   "mass_balance": {
+    "charge": -4.0,
+    "H": -4.0,
+    "C": 158.0,
+    "P": -1.0,
+    "S": -1.0,
+    "R": -1.0,
+    "A": -1.0
+   }
+  },
+  "R1405": {
+   "stoichiometry": {
+    "m28[C_mi]": -1.0,
+    "m176[C_mi]": -1.0,
+    "m1420[C_mi]": -1.0,
+    "m178[C_mi]": 1.0,
+    "m1421[C_mi]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C26939g",
+   "mass_balance": {
+    "charge": -1.0,
+    "H": 13.0,
+    "C": 8.0,
+    "O": 1.0,
+    "S": 1.0,
+    "R": 1.0
+   }
+  },
+  "R2216": {
+   "stoichiometry": {
+    "m1919[C_cy]": -1.0,
+    "m1421[C_mi]": 1.0
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "mass_balance": {
+    "A": -1.0,
+    "C": 7.0,
+    "P": -1.0,
+    "H": 15.0,
+    "O": 1.0,
+    "S": 1.0,
+    "R": 1.0
+   }
+  },
+  "R2217": {
+   "stoichiometry": {
+    "m32[C_cy]": -1.0,
+    "m1919[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m1226[C_cy]": 1.0,
+    "m1920[C_cy]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B19844g and YALI1B25427g",
+   "mass_balance": {
+    "charge": 1.0,
+    "H": 15.0,
+    "O": 1.0,
+    "A": -1.0,
+    "C": 7.0,
+    "P": -1.0
+   }
+  }
+ },
+ "biomass_C_terms_for_new_or_target_species": {
+  "m586[C_mi]": 0
+ },
+ "genes_present": {
+  "YALI1F34729g": false,
+  "YALI1E13472g": false,
+  "YALI1C04991g": false,
+  "YALI1E00574g": true
+ }
+}

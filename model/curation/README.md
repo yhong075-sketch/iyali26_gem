@@ -2,13 +2,40 @@
 
 Every biological decision the build applies lives in this folder as data, grouped by topic
 (`chemistry/`, `gpr/`, `direction/`, `coq9/`, `selection/`, `gapfill/`, `annotation/`,
-`essentiality/`, `candidates/`, `lipid_unlump/`). The builder finds each file by its unique name.
+`essentiality/`, `candidates/`, `lipid_unlump/`, `biomass/`). The builder finds each file by its unique name.
 `evidence/` holds supporting documents that model notes cite as `docs/curation/...` (ported from
 `main` on 2026-10-07).
 
 The sections below were moved unchanged from the former top-level README (2026-10-07);
 only paths were updated to the new layout. Commands run from `platform/`. Newer decisions
 are recorded in [../STATE.md](../STATE.md).
+
+## R2193 iron-import GPR (2026-10-22)
+
+- `gpr/r2193_iron_gpr.json` replaces R2193's GPR `YALI1F07747g` (a PHO4-like bHLH transcription
+  factor, kept in the model with no reaction) with the two FET3/FTR1 pairs:
+  `(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)`.
+  - The four new genes carry their NCBI Gene, RefSeq, UniProt and KEGG cross-references.
+  - The data records R2193's exact definition, the old gene's identity, and the evidence (orthology,
+    proteomics detection, the D08564g overexpression study).
+  - Applied by `--r2193-iron-gpr`.
+  - Reports: `../reports/r2193_iron_import_gpr_20261022/REPORT.md` (evidence) and
+    `../reports/r2193_iron_gpr_change_20261022/REPORT.md` (change).
+
+## Heme a and iron biomass terms (2026-10-22)
+
+- `biomass/heme_iron_biomass.json` adds heme a `m1635[C_cy]` (1e-6) and iron(2+) `m948[C_cy]`
+  (3.04e-5 mmol/gDW) to `biomass_C`.
+  - Values: yeast-GEM v9.1.1 cofactor and ion pseudoreactions; heme a also matches the source
+    model's closed R1710.
+  - The guard records the exact `biomass_C` stoichiometry it was reviewed on, requires
+    `biomass_C` as the only objective, and pins the supply route: iron import R1189/R2193/R863,
+    heme b → heme a R302/R384/R383, and heme a export R1709.
+  - Applied by `--heme-iron-biomass` (requires `--coq9-biomass-dilution`).
+  - Since the combination with the TPP line (2026-10-22), `accepted_before_states` lists the two reviewed
+    starting compositions: the base, and the base after `TPP-REQUIREMENT-20261022`. Report:
+    `../reports/combined_tpp_heme_r2193_20261022/REPORT.md`.
+  - Report: `../reports/heme_iron_biomass_20261022/REPORT.md`.
 
 ## R132 removal (2026-10-13)
 
@@ -375,6 +402,96 @@ links (curation ID `GPI-COPRODUCTS-20261021`). The flag requires `--gpi-chain-li
   in that note.
 - [Report](../reports/gpi_coproducts_20261021/REPORT.md). Focused regression:
   `python -m unittest tests.test_gpi_coproducts`.
+
+## Opt-in TPP requirement (2026-10-22)
+
+With `--tpp-requirement`, the build applies `thiamine/tpp_requirement.json` right after the GPI
+co-products (curation ID `TPP-REQUIREMENT-20261022`). The flag requires `--gpi-coproducts`.
+
+| Target | Change | Evidence |
+| --- | --- | --- |
+| `biomass_C` | consumes TPP `m975[C_cy]` at 1.2e-6 mmol/gDW | yeast-GEM 9.1.1 cofactor pseudoreaction `r_4598` (TDP, KEGG C00068); an *S. cerevisiae* value, provisional |
+| `R1342` (TMP kinase, gene-less) | closed, bounds (0, 0); equation and annotation kept | KEGG K00946 (thiL) has no gene in yli or sce; no W29 BLAST hit from 27 Swiss-Prot ThiL proteins |
+
+- Without the TPP term nothing drained cytosolic TPP to a sink (its consumers R753 and R933 end in
+  dead ends), so THI80 (R752) carried no flux. With the term but R1342 open, a THI80 knockout was
+  bypassed through R1342.
+- The stop conditions, checked before the model is changed:
+  - spec values other than one negative TPP term and R1342 at (0, 0);
+  - `biomass_C` not the sole objective;
+  - an unexpected identity of TPP, TTP (m976) or mitochondrial TPP (m1116), or a reaction on them
+    other than R1342, R752, R753 and R933;
+  - R752 (THI80, `YALI1E25443g`), R753 or R933 changed in GPR, bounds or stoichiometry;
+  - a target that differs from its recorded before- or after-state;
+  - notes outside this curation (compared after XML-unescaping, because `biomass_C`'s notes read
+    back escaped from SBML);
+  - a change already present without this curation's notes, or only one of the two present.
+- Without the flag, builds are unchanged.
+- Not included: the TMP (`m977`, annotated as a trichloromethoxypyridine) and TPP formulas, and
+  mitochondrial TPP use.
+- [Report](../reports/tpp_requirement_20261022/REPORT.md). Focused regression:
+  `python -m unittest tests.test_tpp_requirement`.
+
+## Opt-in thiamine phosphate chemistry (2026-10-22)
+
+With `--thiamine-phosphate-chemistry`, the build applies `chemistry/thiamine_phosphate_chemistry.json`
+right after the TPP requirement (curation ID `THIAMINE-P-CHEMISTRY-20261022`). The flag requires
+`--tpp-requirement`.
+
+| Species | Formula, charge | IDs |
+| --- | --- | --- |
+| TMP `m977[C_cy]`, `m973[C_ex]` | C12H18N4O4PS, +1 | KEGG C01081, CHEBI:9533, MNXM662, thmmp; replaces MNXM1137754, a trichloromethoxypyridine matched by the name "TMP" |
+| TPP `m975[C_cy]`, `m971[C_ex]`, `m1116[C_mi]` | C12H19N4O7P2S, +1 | KEGG C00068, CHEBI:9532, MNXM256, thmpp |
+| TTP `m976[C_cy]` | C12H20N4O10P3S, +1 | KEGG C03028, CHEBI:9534, MNXM1341, thmtp; replaces BiGG ttp / MNXM148527 |
+| HET-P `m643[C_cy]` | C6H10NO4PS, 0 | KEGG C04327, CHEBI:17857, MNXM960, 4mpetz |
+
+- **R1342's EC:** 2.7.4.9 (dTMP kinase, from MetaNetX MNXR104907's EC field) is removed; 2.7.4.16
+  stays.
+- **Why the KEGG fully protonated forms:** they match the still-neutral ATP, ADP, AMP, phosphate,
+  diphosphate and HMP-PP.
+- **H+ left in place:** R752, R408 and R750 keep the H+ of their pH 7.3 equations.
+- **Later migration:** these species, and HMP-PP, must move to their pH 7.3 forms together with ATP,
+  ADP, AMP, phosphate and diphosphate (`component_review` in `metabolite_microspecies.csv`; the
+  thiamine species and HMP-PP have no rows yet).
+- **What the step checks before writing:**
+  - spec values against the chemistry pinned in the code;
+  - the formula and charge of the 24 partner species, such as neutral ATP;
+  - that the TPP requirement is present;
+  - the stoichiometry of all 14 reactions on these species;
+  - the identity and reaction list of each species;
+  - before- or after-state;
+  - notes;
+  - all-or-nothing application.
+- [Report](../reports/thiamine_phosphate_chemistry_20261022/REPORT.md). Focused regression:
+  `python -m unittest tests.test_thiamine_phosphate_chemistry`.
+
+## Opt-in thiamine proton lock (2026-10-22)
+
+With `--thiamine-proton-lock`, the build applies `chemistry/thiamine_proton_lock.json` right after the
+thiamine phosphate chemistry (curation ID `THIAMINE-PROTON-LOCK-20261022`). The flag requires
+`--thiamine-phosphate-chemistry`.
+
+- **What it does:** R752, R408 and R750 get the note `lock_proton_water_stoichiometry: true` and
+  `thiamine_proton_lock_*` evidence notes.
+  - Their H+ is correct at pH 7.3.
+  - Under the current mixed forms (KEGG-form thiamine phosphates and HET-P, with neutral ATP, ADP, AMP
+    and phosphate) each is off by exactly that H+, which the proton/water gate would otherwise remove.
+  - The lock is honoured only by this gate (2026-10-22 or later). Other stoichiometry editors, such as
+    `tools/update_model.py`, ignore it.
+- **The gate change:**
+  - `microspecies.balance_protons_and_water` honours this plain-text note. It survives SBML.
+  - It also honours the in-memory dict `curated_reaction_correction` lock, which does not survive
+    SBML.
+  - With no reaction carrying the note, builds are unchanged: the default build was byte-identical
+    before and after the change.
+- **The stop conditions, checked before the model is changed:**
+  - spec values;
+  - each reaction's name, bounds, GPR and stoichiometry;
+  - a residual other than exactly {H: 1, charge: 1};
+  - conflicting or partial notes;
+  - all-or-nothing application.
+- [Report](../reports/thiamine_proton_lock_20261022/REPORT.md). Focused regression:
+  `python -m unittest tests.test_thiamine_proton_lock`.
 
 
 ### Optional E5 vacuole connection candidate (2026-09-24)

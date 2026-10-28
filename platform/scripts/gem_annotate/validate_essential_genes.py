@@ -12,7 +12,7 @@ Usage
         --model model.xml \\
         [--output results/essentiality_report.tsv] \\
         [--growth-cutoff 0.01] \\
-        [--solver glpk]
+        [--solver gurobi]
 
 Experimental CSV format
 -----------------------
@@ -323,8 +323,8 @@ def main():
         help="KO growth / WT growth threshold below which a gene is predicted essential (default: 0.01)"
     )
     parser.add_argument(
-        "--solver", type=str, default="glpk",
-        help="LP solver to use (default: glpk)"
+        "--solver", type=str, default="gurobi",
+        help="LP solver to use (default: gurobi)"
     )
     args = parser.parse_args()
 

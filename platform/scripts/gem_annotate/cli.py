@@ -57,6 +57,22 @@ def parse_args(argv=None):
                         help="Connect the blocked GPI-anchor chain R371-R376: gene-less step 1 (GlcNAc-PI synthesis), PE/DAG ER links, ER acetate export and an open GPI demand (curated 2026-10-21, GPI-CHAIN-LINKS-20261021)")
     parser.add_argument("--gpi-coproducts", action="store_true",
                         help="Add the missing co-products to the GPI chain: DAG on R373 and Dol-P on R375 (curated 2026-10-21, GPI-COPRODUCTS-20261021); requires --gpi-chain-links")
+    parser.add_argument("--tpp-requirement", action="store_true",
+                        help="Require TPP in biomass_C at 1.2e-6 mmol/gDW and close the gene-less TMP kinase R1342 (curated 2026-10-22, TPP-REQUIREMENT-20261022); requires --gpi-coproducts")
+    parser.add_argument("--thiamine-phosphate-chemistry", action="store_true",
+                        help="Give TMP, TPP, TTP and HET-P their KEGG fully protonated formulas and IDs, replacing the trichloromethoxypyridine mapping of TMP, and drop EC 2.7.4.9 from R1342 (curated 2026-10-22, THIAMINE-P-CHEMISTRY-20261022); requires --tpp-requirement")
+    parser.add_argument("--thiamine-proton-lock", action="store_true",
+                        help="Lock the pH 7.3 H+ of R752, R408 and R750 against the proton/water balance gate with the SBML-safe note lock_proton_water_stoichiometry: true (curated 2026-10-22, THIAMINE-PROTON-LOCK-20261022); requires --thiamine-phosphate-chemistry")
+    parser.add_argument("--heme-iron-biomass", action="store_true",
+                        help="Add heme a (1e-6) and iron(2+) (3.04e-5 mmol/gDW) to biomass_C at the Yeast8 consensus values (curated 2026-10-22, HEME-IRON-BIOMASS-20261022); requires --coq9-biomass-dilution")
+    parser.add_argument("--r2193-iron-gpr", action="store_true",
+                        help="Replace R2193's GPR (YALI1F07747g, a bHLH regulator, kept unlinked) with the two FET3/FTR1 pairs (YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g) (curated 2026-10-22, R2193-IRON-GPR-20261022)")
+    parser.add_argument("--lipoylation-module", action="store_true",
+                        help="Add the mitochondrial lipoylation route (LIP2-type, LIP5, LIP3-type), fill the ACP1 and lipoyl-H-protein formulas and add a provisional lipoyl growth-dilution requirement (curated 2026-10-20 decision)")
+    parser.add_argument("--acyl-acp-chemistry", action="store_true",
+                        help="Fill the acyl-ACP/ACP/fatty-acid formulas of the mtFAS and R2216-R2241 block, remove its surplus H+ and make its reversible cytosolic acyl-ACP hydrolases forward-only (curated 2026-10-20 decision); requires --lipoylation-module")
+    parser.add_argument("--cofactor-biomass-terms", action="store_true",
+                        help="Add THF (6.34e-5), FAD (1e-5), riboflavin (9.9e-4), NAD (2.65e-3), NADP (5.7e-4) and CoA (1.9e-4 mmol/gDW) to biomass_C at the yeast-GEM 9.1.1 r_4598 values (curated 2026-10-27, COFACTOR-BIOMASS-TERMS-20261027); requires --lipoylation-module and runs last")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
