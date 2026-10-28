@@ -56,6 +56,34 @@ evidence attribution, now corrected (TASK.md section 12).
 9d655c2b on Task A + PO1f; 38 mapped reactions, blocked 28 → 25, pFBA flux-carrying 4 → 9; viewer checked in
 headless Chrome and jsdom; tooltips not exercised.
 
+## 2026-10-28: Escher flux maps of PR #26 (R2135 remap, R2145 1:1, R1726 opened); read-only
+
+**Authorization.** The user, 2026-10-28: "can you use the Escher to show what changed in our model?", then
+"Approve plan" for seven pFBA scenarios, FVA on 17 key reactions, renders and an offline viewer, with no model
+or repository change; then "Add and push" for this entry.
+
+**Results** (verified this session; files in
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/kennedy_closures_20261027/escher/`, README.md there has inputs, SHAs,
+commands and the full table):
+- **Models:** `00e8e397` (before), `e9d35857` (R2135 fix), `ce9e1112` (+ R1726). Task A + PO1f, Gurobi 1e-9;
+  every WT solve passed the checks. About 260 LPs.
+- **Before the PR (S1):** acetyl-CoA entered TAG as an acyl chain through R2135 (0.593 umol gDW-1 h-1) and came
+  back as acyl-CoA and fatty acids through R1771 backwards and the lipid-particle lipases; fatty-acid synthase
+  carried 0.094. R2145 released 59.3 Pi; FVA at 99.9 % forces R2135 >= 0.019 and R2145 >= 1.87, and lets
+  phosphate leave the cell (uptake down to -154).
+- **R1726 opened on `00e8e397` (the stopped first run):** the loop closes through PC, PLD and PA; fatty-acid
+  synthase is 0 even without the knockout, which explains the FAS-null growth in STOP.md.
+- **After (S3 / S4):** no leak; fatty-acid synthase 0.687, phosphate uptake 84.6 and required (FVA [84.4, 89.6]);
+  R1726 is 0 at the optimum on the choline-free medium.
+- **`ce9e1112` with choline uptake 1:** PC is made through choline kinase, CDP-choline and R1726 (0.108), and PE
+  methylation stops; `e9d35857` does not use the choline.
+- **Deliverables:** 8 renders (7 scenarios + a structural map of the edits), `pr26_flux_maps.html` (checked in
+  jsdom: 43 reactions drawn per scenario), maps, data and scripts.
+
+**Limits.** pFBA shows one optimum; FVA covers 17 reactions only. Lumped pools are drawn with 2 of their 6–7
+species; biomass drains, PA synthesis from G3P, R1743 and R2134 are not drawn. Task A medium only. No model,
+curation or test file changed.
+
 ## 2026-10-27: Kennedy CDP-choline step R1726 opened on the R2135 candidate, R1725 kept closed, candidate ce9e1112 (committed b18d4c6)
 
 **Authorization.** The user, 2026-10-27: "Approve Option A" (first draft), then, after the stop and the R2135
@@ -292,6 +320,10 @@ Verified this session; independent audit supports C1–C7 and the mechanism of C
   GLPK's three "newly blocked" calls (R1343, R1344, R970) are active at Gurobi 1e-9 on both models.
 - **Energy:** a biomass term cannot create a cycle; the no-uptake ATP maximum is 0 with the NGAM bound
   relaxed.
+- **Escher figure (2026-10-28, computation only, committed 017c38d, branch `claude/cofactor-terms-escher`):**
+  [escher/](reports/cofactor_biomass_terms_20261027/escher/README.md) maps the 40 freed reactions plus the six
+  terms, coloured by pFBA flux (Task A + PO1f, Gurobi 1e-9, 168 LPs). 0 of the 40 carry flux before and 24
+  after; FVA at the optimum gives 25. The viewer draws in a headless check but was not opened in a real browser.
 
 **Findings (not changed).**
 - **The 2026-10-26 census closure checks' "EGC max ATP no uptake = 0" values are masked infeasibles:**
