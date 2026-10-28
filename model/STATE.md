@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-28: UM7 nuclear NAD block joined to the cytosol (gene-less ADP-ribose and diphosphate diffusions), candidate 5f54eb22 (not committed)
+## 2026-10-28: UM7 nuclear NAD block joined to the cytosol (gene-less ADP-ribose and diphosphate diffusions), candidate 5f54eb22 (committed 3720370 on branch claude/hungry-mendel-f9f7df, not pushed)
 
 **Authorization.** The user, 2026-10-28, in this session: "Approve Option A" (Stage 1 draft), then, after the
 run stopped at the knockout gate, "Accept, restate gate"
@@ -72,7 +72,7 @@ Task A + PO1f.
 - The new reactions carry no BiGG / MetaNetX ids.
 - Only the Task A medium was tested for growth and essentiality.
 - Budget: 3 builds against 3; about 60,000 LPs against about 20,000 planned (mostly whole-model FVA scans).
-- Not committed; the user has not asked for a commit.
+- Committed in `3720370` on branch `claude/hungry-mendel-f9f7df` on the user's instruction (2026-10-28); not pushed.
 
 ## 2026-10-28: dolichol route joined (R2178 closed, lumped dehydrodolichyl-PP → dolichol step R_DOLSYN, Dol-P in biomass_C), candidate 9d655c2b (committed on branch claude/dolichol-chain-gap-dfec4d, not pushed)
 

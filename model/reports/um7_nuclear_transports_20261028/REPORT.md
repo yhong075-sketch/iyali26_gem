@@ -5,8 +5,8 @@
 - **Candidate:**
   [`model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_20261028.xml`](../../candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_20261028.xml),
   SHA-256 `5f54eb22086b06b2bd5e8715b89984060cd43c1a7fa21e33e5581d867ee54179` = `9d655c2b` (dolichol route, the
-  newest candidate on `main` after PR #29) + `--um7-nuclear-diffusion`. Not a designated reference. Not
-  committed.
+  newest candidate on `main` after PR #29) + `--um7-nuclear-diffusion`. Not a designated reference.
+  Committed in `3720370` on branch `claude/hungry-mendel-f9f7df` (2026-10-28), not pushed.
 - **Change:** two gene-less, reversible reactions in the "Transport, nucleus" group (SBO:0000185), the same kind
   as the 33 nuclear diffusions the model already has:
   - **R_ADPRtn** "ADP-ribose diffusion, nucleus": ADP-ribose `m1725[C_cy]` ⇌ `m818[C_nu]`;
