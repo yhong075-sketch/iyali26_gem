@@ -1,0 +1,438 @@
+{
+ "baseline/as_built": {
+  "path": "../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_20261027.xml",
+  "sha256": "00e8e39775b64cfeb79cfafff65ef82eaf4760eff1b64fcddc3ce93b40919592",
+  "equations": {
+   "R2135": "m68[C_cy] <=> m1984[C_er]",
+   "R2145": "0.01 m1993[C_cy] + m32[C_cy] --> 0.01 m1994[C_cy] + m35[C_cy]"
+  },
+  "wt": {
+   "status": "optimal",
+   "growth": 0.31200492019479353,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.4305491622153297e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "pfba": {
+   "R2135": 0.0005934466104970428,
+   "R2168": 0.0005934466104970428,
+   "R2145": 0.059344661057684905,
+   "R2134": 0.0,
+   "R1726": 0.0,
+   "R2144": 0.000593446610576849,
+   "R2169": -0.0005934466104970428,
+   "R2170": -0.0005934466104970428,
+   "R1771": -0.0005204374591714611,
+   "R1296": -0.025890541120005037,
+   "R1842": 0.0
+  },
+  "fva_0.999": {
+   "R2135": [
+    1.896770002254815e-05,
+    0.0024058829939201647
+   ],
+   "R2168": [
+    1.896770002254815e-05,
+    0.0024058829939201647
+   ],
+   "R2145": [
+    0.0018735317627224834,
+    0.24058829939201648
+   ],
+   "R2134": [
+    0.0,
+    0.0
+   ],
+   "R1726": [
+    0.0,
+    0.0
+   ]
+  },
+  "no_uptake": [
+   {
+    "objective": "R_NTP1",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   },
+   {
+    "objective": "biomass_C",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   }
+  ],
+  "knockouts": {
+   "YALI1B19844g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.1407541578023483e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1B25427g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.1407541578023483e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1C07638g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.6645352591003757e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1D22124g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 3.552713678800501e-15,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   }
+  }
+ },
+ "baseline/r1726_open_in_memory": {
+  "path": "../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_20261027.xml",
+  "sha256": "00e8e39775b64cfeb79cfafff65ef82eaf4760eff1b64fcddc3ce93b40919592",
+  "equations": {
+   "R2135": "m68[C_cy] <=> m1984[C_er]",
+   "R2145": "0.01 m1993[C_cy] + m32[C_cy] --> 0.01 m1994[C_cy] + m35[C_cy]"
+  },
+  "wt": {
+   "status": "optimal",
+   "growth": 0.31205581100071444,
+   "max_bound_violation": 0.0,
+   "max_residual": 5.67323965583455e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "pfba": {
+   "R2135": 0.0006877710074455785,
+   "R2168": 0.0006877710074455785,
+   "R2145": 0.06877710074455785,
+   "R2134": 0.0,
+   "R1726": 0.0006147499476714113,
+   "R2144": 0.0006877710074455785,
+   "R2169": -0.0006877710074455785,
+   "R2170": -0.0006877710074455785,
+   "R1771": -0.0006147499476714113,
+   "R1296": -0.016566231660893896,
+   "R1842": 0.0006147499476714113
+  },
+  "fva_0.999": {
+   "R2135": [
+    0.00011138228460936837,
+    0.005645070663417936
+   ],
+   "R2168": [
+    0.00011138228460936837,
+    0.005645070663417936
+   ],
+   "R2145": [
+    0.011114996134506443,
+    0.5645070663417936
+   ],
+   "R2134": [
+    0.0,
+    0.0
+   ],
+   "R1726": [
+    0.0,
+    0.02235300314686257
+   ]
+  },
+  "no_uptake": [
+   {
+    "objective": "R_NTP1",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   },
+   {
+    "objective": "biomass_C",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   }
+  ],
+  "knockouts": {
+   "YALI1B19844g": {
+    "status": "optimal",
+    "growth": 0.31205581100071733,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.0658141036401503e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1B25427g": {
+    "status": "optimal",
+    "growth": 0.31205581100071733,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.0658141036401503e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1C07638g": {
+    "status": "optimal",
+    "growth": 0.3120558110007174,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.842170943040401e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1D22124g": {
+    "status": "optimal",
+    "growth": 0.3120558110007147,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.398081733190338e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   }
+  }
+ },
+ "candidate/as_built": {
+  "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/r2135_acyl_coa_pool_20261027/builds/candidate_seed0_round1.xml",
+  "sha256": "e9d358574eeb4369ecd39f63e5a2ad6c113c4681232c6504cb1ef42c4fe89b1b",
+  "equations": {
+   "R2135": "m567[C_em] <=> m1984[C_er]",
+   "R2145": "m1993[C_cy] + m32[C_cy] --> m1994[C_cy] + m35[C_cy]"
+  },
+  "wt": {
+   "status": "optimal",
+   "growth": 0.31168237334276644,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.8268372925511756e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "pfba": {
+   "R2135": 0.0,
+   "R2168": 0.0,
+   "R2145": 0.0,
+   "R2134": 0.0,
+   "R1726": 0.0,
+   "R2144": 0.0,
+   "R2169": 0.0,
+   "R2170": 0.0,
+   "R1771": 7.293367536220735e-05,
+   "R1296": -0.08455425396061919,
+   "R1842": 0.0
+  },
+  "fva_0.999": {
+   "R2135": [
+    0.0,
+    0.00596008622961451
+   ],
+   "R2168": [
+    0.0,
+    0.00596008622961451
+   ],
+   "R2145": [
+    0.0,
+    0.00596008622961451
+   ],
+   "R2134": [
+    0.0,
+    0.0
+   ],
+   "R1726": [
+    0.0,
+    0.0
+   ]
+  },
+  "no_uptake": [
+   {
+    "objective": "R_NTP1",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   },
+   {
+    "objective": "biomass_C",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   }
+  ],
+  "knockouts": {
+   "YALI1B19844g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.602362769721367e-13,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1B25427g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.602362769721367e-13,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1C07638g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.2434497875801753e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1D22124g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 6.217248937900877e-15,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   }
+  }
+ },
+ "candidate/r1726_open_in_memory": {
+  "path": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/artifacts/tasks/r2135_acyl_coa_pool_20261027/builds/candidate_seed0_round1.xml",
+  "sha256": "e9d358574eeb4369ecd39f63e5a2ad6c113c4681232c6504cb1ef42c4fe89b1b",
+  "equations": {
+   "R2135": "m567[C_em] <=> m1984[C_er]",
+   "R2145": "m1993[C_cy] + m32[C_cy] --> m1994[C_cy] + m35[C_cy]"
+  },
+  "wt": {
+   "status": "optimal",
+   "growth": 0.3116823733427652,
+   "max_bound_violation": 0.0,
+   "max_residual": 4.973799150320701e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "pfba": {
+   "R2135": 0.0,
+   "R2168": 0.0,
+   "R2145": 0.0,
+   "R2134": 0.0,
+   "R1726": 0.0,
+   "R2144": 0.0,
+   "R2169": 0.0,
+   "R2170": 0.0,
+   "R1771": 7.293367536220706e-05,
+   "R1296": -0.08455425396051112,
+   "R1842": 0.0
+  },
+  "fva_0.999": {
+   "R2135": [
+    0.0,
+    0.021903641131384828
+   ],
+   "R2168": [
+    0.0,
+    0.021903641131384828
+   ],
+   "R2145": [
+    0.0,
+    0.021903641131384828
+   ],
+   "R2134": [
+    0.0,
+    0.0
+   ],
+   "R1726": [
+    0.0,
+    0.021738867948727595
+   ]
+  },
+  "no_uptake": [
+   {
+    "objective": "R_NTP1",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   },
+   {
+    "objective": "biomass_C",
+    "status": "optimal",
+    "value": 0.0,
+    "relaxed": [
+     [
+      "xMAINTENANCE",
+      7.8625
+     ]
+    ]
+   }
+  ],
+  "knockouts": {
+   "YALI1B19844g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.8818280267396403e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1B25427g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.8818280267396403e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1C07638g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 8.867906409193438e-15,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "YALI1D22124g": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.7763568394002505e-15,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   }
+  }
+ }
+}

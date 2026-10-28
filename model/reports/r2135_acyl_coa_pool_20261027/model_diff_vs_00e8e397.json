@@ -1,0 +1,60 @@
+[
+ {
+  "section": "reactions",
+  "item": "R2135",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "r2135_acyl_coa_pool_curation": "R2135-ACYL-COA-POOL-20261027",
+   "r2135_previous_equation": "m68[C_cy] (acetyl-CoA) = m1984[C_er] (acyl-CoA), reversible",
+   "r2135_acyl_coa_pool_evidence": "m1984 is MetaNetX MNXM1136895 acyl-CoA, the same id and Reactome R-ALL-2534017 as the ER-membrane pooled acyl-CoA m567; its only consumers R2134 and R2168 are KEGG R01496 / R02251, which use acyl-CoA C00040, not acetyl-CoA C00024.",
+   "r2135_acyl_coa_pool_limits": "Inherited from iYli21 with no recorded reason. The pool-to-pool link is a species-identity correction, not a measured transport; m567 and m1984 have no formulas, so mass balance cannot be checked. As written, the reaction let acetyl-CoA stand in for long-chain acyl-CoA in TAG synthesis.",
+   "r2135_acyl_coa_pool_sources": "https://www.metanetx.org/chem_info/MNXM1136895; https://www.kegg.jp/entry/R02251; https://www.kegg.jp/entry/R01496; https://www.kegg.jp/entry/C00040",
+   "r2135_acyl_coa_pool_authorization": "User authorized the m68 to m567 remap on 2026-10-27."
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R2135",
+  "field": "stoichiometry",
+  "before": {
+   "m1984[C_er]": 1.0,
+   "m68[C_cy]": -1.0
+  },
+  "after": {
+   "m1984[C_er]": 1.0,
+   "m567[C_em]": -1.0
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R2145",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "r2145_rescale_curation": "R2135-ACYL-COA-POOL-20261027",
+   "r2145_previous_equation": "0.01 m1993[C_cy] + m32[C_cy] = 0.01 m1994[C_cy] + m35[C_cy], irreversible",
+   "r2145_rescale_evidence": "ModelSEED rxn09551 carries 0.01 on its lumped yeast-specific PA / DAG; in this model m1993 and m1994 are linked 1:1 to per-molecule PA and DAG (R2144, R2169), so the 0.01 form released one phosphate per 0.01 PA. Written as PA + H2O = DAG + Pi (EC 3.1.3.4).",
+   "r2145_rescale_limits": "m1993 and m1994 have no formulas, so mass balance cannot be checked. Other 0.01-scaled reactions of the R2143-R2187 block are not changed.",
+   "r2145_rescale_sources": "ModelSEED rxn09551 (Solr query, see the curation file); https://www.kegg.jp/entry/yli:2911239",
+   "r2145_rescale_authorization": "User authorized the 1:1 rescale on 2026-10-27."
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R2145",
+  "field": "stoichiometry",
+  "before": {
+   "m1993[C_cy]": -0.01,
+   "m1994[C_cy]": 0.01,
+   "m32[C_cy]": -1.0,
+   "m35[C_cy]": 1.0
+  },
+  "after": {
+   "m1993[C_cy]": -1.0,
+   "m1994[C_cy]": 1.0,
+   "m32[C_cy]": -1.0,
+   "m35[C_cy]": 1.0
+  }
+ }
+]
