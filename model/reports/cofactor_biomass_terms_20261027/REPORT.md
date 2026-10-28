@@ -165,6 +165,11 @@ FVA runs show the academic licence).
   thiamine thiazole / glycolaldehyde reactions the census already placed at GLPK's tolerance fringe; nothing
   is newly blocked. On the Task A medium they are GLPK-blocked on both models, as in the census.
 - Modules rise 212 → 215 because UM3 and UM7 lose their cofactor sections and split; no gap metabolite is new.
+- **Escher figure (added 2026-10-28):** [escher/](escher/README.md) draws the 40 reactions freed in either
+  condition plus the six biomass terms, coloured by pFBA flux on Task A + PO1f before and after
+  ([cofactor_terms_before_after.png](escher/cofactor_terms_before_after.png), viewer
+  [cofactor_terms_escher.html](escher/cofactor_terms_escher.html)). 0 of the 40 carry flux before and 24 after; 15 are
+  unblocked but forced to zero at optimal growth on that medium (de novo riboflavin, R278, the 5-formyl-THF set).
 
 ## 7. Code review (fresh read-only reviewer, before the final build)
 

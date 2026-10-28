@@ -241,6 +241,10 @@ Verified this session; independent audit supports C1–C7 and the mechanism of C
   GLPK's three "newly blocked" calls (R1343, R1344, R970) are active at Gurobi 1e-9 on both models.
 - **Energy:** a biomass term cannot create a cycle; the no-uptake ATP maximum is 0 with the NGAM bound
   relaxed.
+- **Escher figure (2026-10-28, computation only, not committed, branch `claude/cofactor-terms-escher`):**
+  [escher/](reports/cofactor_biomass_terms_20261027/escher/README.md) maps the 40 freed reactions plus the six
+  terms, coloured by pFBA flux (Task A + PO1f, Gurobi 1e-9, 168 LPs). 0 of the 40 carry flux before and 24
+  after; FVA at the optimum gives 25. The viewer draws in a headless check but was not opened in a real browser.
 
 **Findings (not changed).**
 - **The 2026-10-26 census closure checks' "EGC max ATP no uptake = 0" values are masked infeasibles:**
