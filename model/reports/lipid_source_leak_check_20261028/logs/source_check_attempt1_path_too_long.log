@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/kennedy-closures-864c91/platform/../model/reports/lipid_source_leak_check_20261028/scripts/source_check.py", line 148, in <module>
+    models[medium] = context(medium)
+                     ~~~~~~~^^^^^^^^
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/kennedy-closures-864c91/platform/../model/reports/lipid_source_leak_check_20261028/scripts/source_check.py", line 52, in context
+    ctx = load_effective_simulation_context(model_path=model_path, media_path=str(Path(media_dir) / medium),
+                                            strain_profile_path=profile)
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/kennedy-closures-864c91/platform/scripts/gem_annotate/essentiality_simulation_context.py", line 160, in load_effective_simulation_context
+    model = read_sbml_model(str(model_path))
+  File "/opt/miniconda3/lib/python3.13/site-packages/cobra/io/sbml.py", line 460, in read_sbml_model
+    raise e
+  File "/opt/miniconda3/lib/python3.13/site-packages/cobra/io/sbml.py", line 457, in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+  File "/opt/miniconda3/lib/python3.13/site-packages/cobra/io/sbml.py", line 504, in _get_doc_from_filename
+    raise IOError(
+    ...<3 lines>...
+    )
+OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/kennedy-closures-864c91/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_20261028.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
