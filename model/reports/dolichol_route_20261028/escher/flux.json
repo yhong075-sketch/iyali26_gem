@@ -1,0 +1,2150 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi 1e-9 (checked_solve)",
+ "medium": "../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+ "strain_profile": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+ "sections": {
+  "route": [
+   "R282",
+   "R322",
+   "R2179",
+   "R2180",
+   "R2178",
+   "R_DOLSYN",
+   "R287"
+  ],
+  "pools": [
+   "R1101",
+   "R2177",
+   "R2182",
+   "R2181",
+   "R288",
+   "R2102",
+   "R289",
+   "R372",
+   "R374",
+   "R375",
+   "R2106",
+   "R2138",
+   "biomass_C"
+  ],
+  "um6": [
+   "R217",
+   "R218",
+   "R219",
+   "R220",
+   "R221",
+   "R222",
+   "R223",
+   "R224",
+   "R225",
+   "R226",
+   "R227",
+   "R228",
+   "R229",
+   "R230",
+   "R231",
+   "R232",
+   "R233",
+   "R234",
+   "R235"
+  ]
+ },
+ "models": {
+  "ce9e1112": {
+   "file": "E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml",
+   "model_sha256": "ce9e1112ee940531469457009234a2fd11de7f589c5948a7dec6b91118005294",
+   "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+   "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+   "wt": {
+    "status": "optimal",
+    "growth": 0.3116823733427652,
+    "max_bound_violation": 0.0,
+    "max_residual": 4.973799150320701e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "uracil_exchanges": {
+    "R1354": [
+     "uracil exchange",
+     [
+      -1000.0,
+      1000.0
+     ]
+    ]
+   },
+   "R612_bounds": [
+    0.0,
+    0.0
+   ],
+   "absent": [
+    "R_DOLSYN"
+   ],
+   "bounds": {
+    "R282": [
+     0.0,
+     1000.0
+    ],
+    "R322": [
+     0.0,
+     1000.0
+    ],
+    "R2179": [
+     0.0,
+     1000.0
+    ],
+    "R2180": [
+     0.0,
+     1000.0
+    ],
+    "R2178": [
+     0.0,
+     1000.0
+    ],
+    "R287": [
+     0.0,
+     1000.0
+    ],
+    "R1101": [
+     -1000.0,
+     1000.0
+    ],
+    "R2177": [
+     0.0,
+     1000.0
+    ],
+    "R2182": [
+     -1000.0,
+     1000.0
+    ],
+    "R2181": [
+     0.0,
+     1000.0
+    ],
+    "R288": [
+     0.0,
+     1000.0
+    ],
+    "R2102": [
+     0.0,
+     1000.0
+    ],
+    "R289": [
+     0.0,
+     1000.0
+    ],
+    "R372": [
+     -1000.0,
+     1000.0
+    ],
+    "R374": [
+     -1000.0,
+     1000.0
+    ],
+    "R375": [
+     -1000.0,
+     1000.0
+    ],
+    "R2106": [
+     -1000.0,
+     1000.0
+    ],
+    "R2138": [
+     -1000.0,
+     1000.0
+    ],
+    "biomass_C": [
+     0.0,
+     1000.0
+    ],
+    "R217": [
+     0.0,
+     1000.0
+    ],
+    "R218": [
+     0.0,
+     1000.0
+    ],
+    "R219": [
+     0.0,
+     1000.0
+    ],
+    "R220": [
+     0.0,
+     1000.0
+    ],
+    "R221": [
+     0.0,
+     1000.0
+    ],
+    "R222": [
+     0.0,
+     1000.0
+    ],
+    "R223": [
+     0.0,
+     1000.0
+    ],
+    "R224": [
+     0.0,
+     1000.0
+    ],
+    "R225": [
+     0.0,
+     1000.0
+    ],
+    "R226": [
+     0.0,
+     1000.0
+    ],
+    "R227": [
+     0.0,
+     1000.0
+    ],
+    "R228": [
+     0.0,
+     1000.0
+    ],
+    "R229": [
+     0.0,
+     1000.0
+    ],
+    "R230": [
+     -1000.0,
+     1000.0
+    ],
+    "R231": [
+     -1000.0,
+     1000.0
+    ],
+    "R232": [
+     0.0,
+     1000.0
+    ],
+    "R233": [
+     0.0,
+     1000.0
+    ],
+    "R234": [
+     0.0,
+     1000.0
+    ],
+    "R235": [
+     0.0,
+     1000.0
+    ]
+   },
+   "pfba": {
+    "status": "optimal",
+    "growth": 0.3116823733427652,
+    "fluxes": {
+     "R282": 0.02389388242282972,
+     "R322": 0.02389388242282972,
+     "R2179": 0.0,
+     "R2180": 0.0,
+     "R2178": 0.0,
+     "R287": 0.0,
+     "R1101": 0.0,
+     "R2177": 0.0,
+     "R2182": 0.0,
+     "R2181": 0.0,
+     "R288": 0.0,
+     "R2102": 0.07350997607051783,
+     "R289": 0.07350997607051783,
+     "R372": 0.0,
+     "R374": 0.0,
+     "R375": 0.0,
+     "R2106": 0.0,
+     "R2138": 0.0,
+     "biomass_C": 0.3116823733427652,
+     "R217": 0.0,
+     "R218": 0.0,
+     "R219": 0.0,
+     "R220": 0.0,
+     "R221": 0.0,
+     "R222": 0.0,
+     "R223": 0.0,
+     "R224": 0.0,
+     "R225": 0.0,
+     "R226": 0.0,
+     "R227": 0.0,
+     "R228": 0.0,
+     "R229": 0.0,
+     "R230": 0.0,
+     "R231": 0.0,
+     "R232": 0.0,
+     "R233": 0.0,
+     "R234": 0.0,
+     "R235": 0.0
+    }
+   },
+   "fva_at_optimum": {
+    "R282": [
+     0.02389388242282972,
+     0.023893882422822817
+    ],
+    "R322": [
+     0.02389388242282972,
+     0.023893882422825096
+    ],
+    "R2179": [
+     0.0,
+     0.0
+    ],
+    "R2180": [
+     0.0,
+     0.0
+    ],
+    "R2178": [
+     0.0,
+     0.0
+    ],
+    "R287": [
+     0.0,
+     0.0
+    ],
+    "R1101": [
+     -0.07350997607051318,
+     0.0
+    ],
+    "R2177": [
+     0.0,
+     0.0
+    ],
+    "R2182": [
+     0.0,
+     0.0
+    ],
+    "R2181": [
+     0.0,
+     0.0
+    ],
+    "R288": [
+     0.0,
+     0.07350997607051507
+    ],
+    "R2102": [
+     0.0,
+     0.07350997607051507
+    ],
+    "R289": [
+     0.07350997607051783,
+     0.07350997607051783
+    ],
+    "R372": [
+     0.0,
+     0.0
+    ],
+    "R374": [
+     0.0,
+     0.0
+    ],
+    "R375": [
+     0.0,
+     0.0
+    ],
+    "R2106": [
+     0.0,
+     0.0
+    ],
+    "R2138": [
+     0.0,
+     0.0
+    ],
+    "biomass_C": [
+     0.3116823733427652,
+     0.31168237334276566
+    ],
+    "R217": [
+     0.0,
+     0.0
+    ],
+    "R218": [
+     0.0,
+     0.0
+    ],
+    "R219": [
+     0.0,
+     0.0
+    ],
+    "R220": [
+     0.0,
+     0.0
+    ],
+    "R221": [
+     0.0,
+     0.0
+    ],
+    "R222": [
+     0.0,
+     0.0
+    ],
+    "R223": [
+     0.0,
+     0.0
+    ],
+    "R224": [
+     0.0,
+     0.0
+    ],
+    "R225": [
+     0.0,
+     0.0
+    ],
+    "R226": [
+     0.0,
+     0.0
+    ],
+    "R227": [
+     0.0,
+     0.0
+    ],
+    "R228": [
+     0.0,
+     0.0
+    ],
+    "R229": [
+     0.0,
+     0.0
+    ],
+    "R230": [
+     0.0,
+     0.0
+    ],
+    "R231": [
+     0.0,
+     0.0
+    ],
+    "R232": [
+     0.0,
+     0.0
+    ],
+    "R233": [
+     0.0,
+     0.0
+    ],
+    "R234": [
+     0.0,
+     0.0
+    ],
+    "R235": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "9d655c2b": {
+   "file": "candidate_v2_seed1.xml",
+   "model_sha256": "9d655c2bdbf82721a38f148a9a4ee0a385bb509ea7b591111107113c4aa8335c",
+   "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+   "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+   "wt": {
+    "status": "optimal",
+    "growth": 0.311660821633612,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.5758827579616672e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "uracil_exchanges": {
+    "R1354": [
+     "uracil exchange",
+     [
+      -1000.0,
+      1000.0
+     ]
+    ]
+   },
+   "R612_bounds": [
+    0.0,
+    0.0
+   ],
+   "absent": [],
+   "bounds": {
+    "R282": [
+     0.0,
+     1000.0
+    ],
+    "R322": [
+     0.0,
+     1000.0
+    ],
+    "R2179": [
+     0.0,
+     1000.0
+    ],
+    "R2180": [
+     0.0,
+     1000.0
+    ],
+    "R2178": [
+     0.0,
+     0.0
+    ],
+    "R_DOLSYN": [
+     0.0,
+     1000.0
+    ],
+    "R287": [
+     0.0,
+     1000.0
+    ],
+    "R1101": [
+     -1000.0,
+     1000.0
+    ],
+    "R2177": [
+     0.0,
+     1000.0
+    ],
+    "R2182": [
+     -1000.0,
+     1000.0
+    ],
+    "R2181": [
+     0.0,
+     1000.0
+    ],
+    "R288": [
+     0.0,
+     1000.0
+    ],
+    "R2102": [
+     0.0,
+     1000.0
+    ],
+    "R289": [
+     0.0,
+     1000.0
+    ],
+    "R372": [
+     -1000.0,
+     1000.0
+    ],
+    "R374": [
+     -1000.0,
+     1000.0
+    ],
+    "R375": [
+     -1000.0,
+     1000.0
+    ],
+    "R2106": [
+     -1000.0,
+     1000.0
+    ],
+    "R2138": [
+     -1000.0,
+     1000.0
+    ],
+    "biomass_C": [
+     0.0,
+     1000.0
+    ],
+    "R217": [
+     0.0,
+     1000.0
+    ],
+    "R218": [
+     0.0,
+     1000.0
+    ],
+    "R219": [
+     0.0,
+     1000.0
+    ],
+    "R220": [
+     0.0,
+     1000.0
+    ],
+    "R221": [
+     0.0,
+     1000.0
+    ],
+    "R222": [
+     0.0,
+     1000.0
+    ],
+    "R223": [
+     0.0,
+     1000.0
+    ],
+    "R224": [
+     0.0,
+     1000.0
+    ],
+    "R225": [
+     0.0,
+     1000.0
+    ],
+    "R226": [
+     0.0,
+     1000.0
+    ],
+    "R227": [
+     0.0,
+     1000.0
+    ],
+    "R228": [
+     0.0,
+     1000.0
+    ],
+    "R229": [
+     0.0,
+     1000.0
+    ],
+    "R230": [
+     -1000.0,
+     1000.0
+    ],
+    "R231": [
+     -1000.0,
+     1000.0
+    ],
+    "R232": [
+     0.0,
+     1000.0
+    ],
+    "R233": [
+     0.0,
+     1000.0
+    ],
+    "R234": [
+     0.0,
+     1000.0
+    ],
+    "R235": [
+     0.0,
+     1000.0
+    ]
+   },
+   "pfba": {
+    "status": "optimal",
+    "growth": 0.311660821633612,
+    "fluxes": {
+     "R282": 0.023923396329417684,
+     "R322": 0.023892230247254325,
+     "R2179": 3.116608216335859e-05,
+     "R2180": 3.116608216335859e-05,
+     "R2178": 0.0,
+     "R_DOLSYN": 3.116608216335859e-05,
+     "R287": 3.116608216335859e-05,
+     "R1101": 3.116608216335859e-05,
+     "R2177": 0.0,
+     "R2182": 0.0,
+     "R2181": 0.0,
+     "R288": 0.0,
+     "R2102": 0.07350489312146576,
+     "R289": 0.07350489312146576,
+     "R372": 0.0,
+     "R374": 0.0,
+     "R375": 0.0,
+     "R2106": 0.0,
+     "R2138": 0.0,
+     "biomass_C": 0.311660821633612,
+     "R217": 0.0,
+     "R218": 0.0,
+     "R219": 0.0,
+     "R220": 0.0,
+     "R221": 0.0,
+     "R222": 0.0,
+     "R223": 0.0,
+     "R224": 0.0,
+     "R225": 0.0,
+     "R226": 0.0,
+     "R227": 0.0,
+     "R228": 0.0,
+     "R229": 0.0,
+     "R230": 0.0,
+     "R231": 0.0,
+     "R232": 0.0,
+     "R233": 0.0,
+     "R234": 0.0,
+     "R235": 0.0
+    }
+   },
+   "fva_at_optimum": {
+    "R282": [
+     0.023923396329417684,
+     0.02392339632941612
+    ],
+    "R322": [
+     0.023892230247254325,
+     0.023892230247252854
+    ],
+    "R2179": [
+     3.116608216335859e-05,
+     3.116608216335759e-05
+    ],
+    "R2180": [
+     3.116608216335859e-05,
+     3.116608216335746e-05
+    ],
+    "R2178": [
+     0.0,
+     0.0
+    ],
+    "R_DOLSYN": [
+     3.116608216335859e-05,
+     3.116608216335746e-05
+    ],
+    "R287": [
+     3.116608216335859e-05,
+     3.116608216335746e-05
+    ],
+    "R1101": [
+     -0.07347372703930505,
+     3.116608216335758e-05
+    ],
+    "R2177": [
+     0.0,
+     0.0
+    ],
+    "R2182": [
+     0.0,
+     0.0
+    ],
+    "R2181": [
+     0.0,
+     0.0
+    ],
+    "R288": [
+     0.0,
+     0.07350489312146831
+    ],
+    "R2102": [
+     0.0,
+     0.07350489312146774
+    ],
+    "R289": [
+     0.07350489312146576,
+     0.07350489312146576
+    ],
+    "R372": [
+     0.0,
+     0.0
+    ],
+    "R374": [
+     0.0,
+     0.0
+    ],
+    "R375": [
+     0.0,
+     0.0
+    ],
+    "R2106": [
+     0.0,
+     0.0
+    ],
+    "R2138": [
+     0.0,
+     0.0
+    ],
+    "biomass_C": [
+     0.311660821633612,
+     0.311660821633612
+    ],
+    "R217": [
+     0.0,
+     0.0
+    ],
+    "R218": [
+     0.0,
+     0.0
+    ],
+    "R219": [
+     0.0,
+     0.0
+    ],
+    "R220": [
+     0.0,
+     0.0
+    ],
+    "R221": [
+     0.0,
+     0.0
+    ],
+    "R222": [
+     0.0,
+     0.0
+    ],
+    "R223": [
+     0.0,
+     0.0
+    ],
+    "R224": [
+     0.0,
+     0.0
+    ],
+    "R225": [
+     0.0,
+     0.0
+    ],
+    "R226": [
+     0.0,
+     0.0
+    ],
+    "R227": [
+     0.0,
+     0.0
+    ],
+    "R228": [
+     0.0,
+     0.0
+    ],
+    "R229": [
+     0.0,
+     0.0
+    ],
+    "R230": [
+     0.0,
+     0.0
+    ],
+    "R231": [
+     0.0,
+     0.0
+    ],
+    "R232": [
+     0.0,
+     0.0
+    ],
+    "R233": [
+     0.0,
+     0.0
+    ],
+    "R234": [
+     0.0,
+     0.0
+    ],
+    "R235": [
+     0.0,
+     0.0
+    ]
+   }
+  }
+ },
+ "reactions": {
+  "R282": {
+   "name": "dimethylallyltranstransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E06759g",
+   "genes": [
+    "YALI1E06759g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m491[C_cy]": -1.0,
+    "m492[C_cy]": -1.0,
+    "m10[C_cy]": -3.0,
+    "m203[C_cy]": 1.0,
+    "m493[C_cy]": 1.0
+   }
+  },
+  "R322": {
+   "name": "geranyltranstransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E06759g",
+   "genes": [
+    "YALI1E06759g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m491[C_cy]": -1.0,
+    "m493[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m512[C_cy]": 1.0,
+    "m10[C_cy]": 3.0
+   }
+  },
+  "R2179": {
+   "name": "Geranyl-diphosphate:isopentenyl-diphosphate geranyltrans-transferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D21022g or YALI1E06759g",
+   "genes": [
+    "YALI1D21022g",
+    "YALI1E06759g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m491[C_cy]": -1.0,
+    "m493[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m2020[C_cy]": 1.0
+   }
+  },
+  "R2180": {
+   "name": "(2E,6E)-farnesyl-diphosphate:isopentenyl-diphosphate cistransferase (adding 10-55 isopentenyl units)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m10[C_cy]": -2.0,
+    "m491[C_cy]": -1.0,
+    "m2020[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m2019[C_cy]": 1.0
+   }
+  },
+  "R2178": {
+   "name": "NO NAME",
+   "lb": 0.0,
+   "ub": 0.0,
+   "gpr": "",
+   "genes": [],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m109[C_cy]": -6.5,
+    "m2019[C_cy]": -1.0,
+    "m32[C_cy]": 3.0,
+    "m82[C_cy]": 5.0,
+    "m2018[C_cy]": 1.0
+   }
+  },
+  "R_DOLSYN": {
+   "name": "dehydrodolichyl diphosphate to dolichol (lumped dephosphorylation, polyprenol oxidation, polyprenal and dolichal reduction)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "genes": [],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m10[C_cy]": -2.0,
+    "m122[C_cy]": -1.0,
+    "m2019[C_cy]": -1.0,
+    "m32[C_cy]": -1.0,
+    "m40[C_cy]": -2.0,
+    "m123[C_cy]": 1.0,
+    "m203[C_cy]": 1.0,
+    "m41[C_cy]": 2.0,
+    "m499[C_cy]": 1.0
+   }
+  },
+  "R287": {
+   "name": "dolichol kinase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E22718g",
+   "genes": [
+    "YALI1E22718g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m406[C_cy]": -1.0,
+    "m499[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m500[C_cy]": 1.0,
+    "m501[C_cy]": 1.0
+   }
+  },
+  "R1101": {
+   "name": "dolichol phosphate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "genes": [],
+   "subsystem": "Transport, ER",
+   "mets": {
+    "m501[C_cy]": -1.0,
+    "m503[C_er]": 1.0
+   }
+  },
+  "R2177": {
+   "name": "Dolichyl-diphosphate phosphohydrolase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D26639g",
+   "genes": [
+    "YALI1D26639g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m2018[C_cy]": -1.0,
+    "m10[C_cy]": 3.0,
+    "m35[C_cy]": 1.0,
+    "m501[C_cy]": 1.0
+   }
+  },
+  "R2182": {
+   "name": "Dolichyl diphosphate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "genes": [],
+   "subsystem": "Transport, ER",
+   "mets": {
+    "m2018[C_cy]": -1.0,
+    "m2021[C_er]": 1.0
+   }
+  },
+  "R2181": {
+   "name": "Dolichyl-diphosphate phosphohydrolase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D26639g",
+   "genes": [
+    "YALI1D26639g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m389[C_er]": -1.0,
+    "m2021[C_er]": -1.0,
+    "m102[C_er]": 3.0,
+    "m503[C_er]": 1.0,
+    "m952[C_er]": 1.0
+   }
+  },
+  "R288": {
+   "name": "dolichyl-phosphate D-mannosyltransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D08050g and YALI1B07538g and YALI1A19526g",
+   "genes": [
+    "YALI1A19526g",
+    "YALI1B07538g",
+    "YALI1D08050g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m343[C_cy]": -1.0,
+    "m501[C_cy]": -1.0,
+    "m268[C_cy]": 1.0,
+    "m502[C_er]": 1.0
+   }
+  },
+  "R2102": {
+   "name": "GDPmannose:dolichyl-phosphate O-beta-D-mannosyltransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D08050g and YALI1B07538g and YALI1A19526g",
+   "genes": [
+    "YALI1A19526g",
+    "YALI1B07538g",
+    "YALI1D08050g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m503[C_er]": -1.0,
+    "m1961[C_er]": -1.0,
+    "m502[C_er]": 1.0,
+    "m1962[C_er]": 1.0
+   }
+  },
+  "R289": {
+   "name": "dolichyl-phosphate-mannose--protein mannosyltransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C32184g or YALI1E07121g or YALI1E18121g or YALI1D13201g",
+   "genes": [
+    "YALI1C32184g",
+    "YALI1D13201g",
+    "YALI1E07121g",
+    "YALI1E18121g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m502[C_er]": -1.0,
+    "m102[C_er]": 1.0,
+    "m503[C_er]": 1.0,
+    "m504[C_er]": 1.0
+   }
+  },
+  "R372": {
+   "name": "GPI-anchor assembly, step 5",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1A21970g and YALI1E20666g",
+   "genes": [
+    "YALI1A21970g",
+    "YALI1E20666g"
+   ],
+   "subsystem": "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",
+   "mets": {
+    "m251[C_er]": -1.0,
+    "m502[C_er]": -1.0,
+    "m503[C_er]": 1.0,
+    "m598[C_er]": 1.0
+   }
+  },
+  "R374": {
+   "name": "GPI-anchor assembly, step 7",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F15403g",
+   "genes": [
+    "YALI1F15403g"
+   ],
+   "subsystem": "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",
+   "mets": {
+    "m502[C_er]": -1.0,
+    "m600[C_er]": -1.0,
+    "m503[C_er]": 1.0,
+    "m601[C_er]": 1.0
+   }
+  },
+  "R375": {
+   "name": "GPI-anchor assembly, step 8",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D05270g",
+   "genes": [
+    "YALI1D05270g"
+   ],
+   "subsystem": "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",
+   "mets": {
+    "m502[C_er]": -1.0,
+    "m601[C_er]": -1.0,
+    "m602[C_er]": 1.0,
+    "m503[C_er]": 1.0
+   }
+  },
+  "R2106": {
+   "name": "UDP-N-Acetyl-D-glucosamine:dolichyl-phosphate N-Acetyl-D-glucosamine phosphotransferase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B21618g",
+   "genes": [
+    "YALI1B21618g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m503[C_er]": -1.0,
+    "m1965[C_er]": -1.0,
+    "m1967[C_er]": 1.0,
+    "m1968[C_er]": 1.0
+   }
+  },
+  "R2138": {
+   "name": "UDPglucose:dolichyl-phosphate beta-D-glucosyltransferase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D07696g",
+   "genes": [
+    "YALI1D07696g"
+   ],
+   "subsystem": "N-Glycan biosynthesis",
+   "mets": {
+    "m503[C_er]": -1.0,
+    "m1988[C_er]": -1.0,
+    "m1966[C_er]": 1.0,
+    "m1989[C_er]": 1.0
+   }
+  },
+  "biomass_C": {
+   "name": "biomass_C",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "genes": [],
+   "subsystem": "",
+   "mets": {
+    "m32[C_cy]": -23.09,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m93[C_cy]": -0.050871,
+    "m95[C_cy]": -0.05721,
+    "m141[C_cy]": -23.09,
+    "m149[C_cy]": -0.059363,
+    "m294[C_cy]": -0.00686,
+    "m359[C_cy]": -0.003029,
+    "m401[C_cy]": -0.868358,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m505[C_cy]": -0.010353,
+    "m964[C_cy]": -0.02,
+    "m1000[C_cy]": -0.035251,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m1631[C_em]": -3.5e-05,
+    "m1640[C_lp]": -0.000234,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "trna_biomass_residue_R798": -0.172773,
+    "trna_biomass_residue_R129": -0.567939,
+    "trna_biomass_residue_R154": -0.125563,
+    "trna_biomass_residue_R157": -0.186498,
+    "trna_biomass_residue_R165": -0.186531,
+    "trna_biomass_residue_R248": -0.003632,
+    "trna_biomass_residue_R336": -0.243866,
+    "trna_biomass_residue_R337": -0.243904,
+    "trna_biomass_residue_R368": -0.509943,
+    "trna_biomass_residue_R392": -0.053881,
+    "trna_biomass_residue_R493": -0.090566,
+    "trna_biomass_residue_R522": -0.19455,
+    "trna_biomass_residue_R531": -0.275005,
+    "trna_biomass_residue_R547": -0.044232,
+    "trna_biomass_residue_R625": -0.082571,
+    "trna_biomass_residue_R673": -0.206372,
+    "trna_biomass_residue_R723": -0.284699,
+    "trna_biomass_residue_R759": -0.210543,
+    "trna_biomass_residue_R771": -0.002154,
+    "trna_biomass_residue_R775": -0.041282,
+    "m468[C_mi]": -0.0001,
+    "m975[C_cy]": -1.2e-06,
+    "m1635[C_cy]": -1e-06,
+    "m948[C_cy]": -3.04e-05,
+    "m586[C_mi]": -1e-05,
+    "m2065[C_mi]": -1e-05,
+    "m122[C_cy]": -0.00265,
+    "m41[C_cy]": -0.00057,
+    "m479[C_cy]": -6.34e-05,
+    "m528[C_cy]": -1e-05,
+    "m69[C_cy]": -0.00019,
+    "m926[C_cy]": -0.00099,
+    "m503[C_er]": -0.0001,
+    "m10[C_cy]": 23.09,
+    "m35[C_cy]": 23.09,
+    "m143[C_cy]": 23.09,
+    "m1401[C_cy]": 1.0,
+    "m2062[C_mi]": 1e-05,
+    "m2064[C_mi]": 1e-05
+   }
+  },
+  "R217": {
+   "name": "cis-prenyltransferase step 01",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m411[C_lp]": -1.0,
+    "m412[C_lp]": -1.0,
+    "m1249[C_lp]": -3.0,
+    "m413[C_lp]": 1.0,
+    "m414[C_lp]": 1.0
+   }
+  },
+  "R218": {
+   "name": "cis-prenyltransferase step 02",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m414[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m415[C_lp]": 1.0
+   }
+  },
+  "R219": {
+   "name": "cis-prenyltransferase step 03",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m415[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m416[C_lp]": 1.0
+   }
+  },
+  "R220": {
+   "name": "cis-prenyltransferase step 04",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m416[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m417[C_lp]": 1.0
+   }
+  },
+  "R221": {
+   "name": "cis-prenyltransferase step 05",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m417[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m418[C_lp]": 1.0
+   }
+  },
+  "R222": {
+   "name": "cis-prenyltransferase step 06",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m418[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m419[C_lp]": 1.0
+   }
+  },
+  "R223": {
+   "name": "cis-prenyltransferase step 07",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m419[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m420[C_lp]": 1.0
+   }
+  },
+  "R224": {
+   "name": "cis-prenyltransferase step 08",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m420[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m421[C_lp]": 1.0
+   }
+  },
+  "R225": {
+   "name": "cis-prenyltransferase step 09",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m421[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m422[C_lp]": 1.0
+   }
+  },
+  "R226": {
+   "name": "cis-prenyltransferase step 10",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m422[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m423[C_lp]": 1.0
+   }
+  },
+  "R227": {
+   "name": "cis-prenyltransferase step 11",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m423[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m424[C_lp]": 1.0
+   }
+  },
+  "R228": {
+   "name": "cis-prenyltransferase step 12",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m424[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m425[C_lp]": 1.0
+   }
+  },
+  "R229": {
+   "name": "cis-prenyltransferase step 13",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m425[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m426[C_lp]": 1.0
+   }
+  },
+  "R230": {
+   "name": "cis-prenyltransferase step 14",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m426[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m427[C_lp]": 1.0
+   }
+  },
+  "R231": {
+   "name": "cis-prenyltransferase step 15",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m427[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m428[C_lp]": 1.0
+   }
+  },
+  "R232": {
+   "name": "cis-prenyltransferase step 16",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m428[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m429[C_lp]": 1.0
+   }
+  },
+  "R233": {
+   "name": "cis-prenyltransferase step 17",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m429[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m430[C_lp]": 1.0
+   }
+  },
+  "R234": {
+   "name": "cis-prenyltransferase step 18",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m430[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m431[C_lp]": 1.0
+   }
+  },
+  "R235": {
+   "name": "cis-prenyltransferase step 19",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C26036g or YALI1D21543g",
+   "genes": [
+    "YALI1C26036g",
+    "YALI1D21543g"
+   ],
+   "subsystem": "Terpenoid backbone biosynthesis",
+   "mets": {
+    "m412[C_lp]": -1.0,
+    "m431[C_lp]": -1.0,
+    "m413[C_lp]": 1.0,
+    "m432[C_lp]": 1.0
+   }
+  }
+ },
+ "metabolites": {
+  "m491[C_cy]": {
+   "name": "isopentenyl diphosphate_C5H12O7P2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m492[C_cy]": {
+   "name": "prenyl diphosphate_C5H9O7P2",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m10[C_cy]": {
+   "name": "H+_p+1",
+   "comp": "C_cy",
+   "degree": 463
+  },
+  "m203[C_cy]": {
+   "name": "diphosphate_H4O7P2",
+   "comp": "C_cy",
+   "degree": 79
+  },
+  "m493[C_cy]": {
+   "name": "geranyl diphosphate_C10H20O7P2",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m512[C_cy]": {
+   "name": "farnesyl diphosphate_C15H25O7P2",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m2020[C_cy]": {
+   "name": "trans,trans-Farnesyl diphosphate",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m2019[C_cy]": {
+   "name": "Dehydrodolichol diphosphate",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m109[C_cy]": {
+   "name": "oxygen_O2",
+   "comp": "C_cy",
+   "degree": 52
+  },
+  "m32[C_cy]": {
+   "name": "H2O_H2O",
+   "comp": "C_cy",
+   "degree": 332
+  },
+  "m82[C_cy]": {
+   "name": "carbon dioxide_CO2",
+   "comp": "C_cy",
+   "degree": 52
+  },
+  "m2018[C_cy]": {
+   "name": "Dolichyl diphosphate",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m122[C_cy]": {
+   "name": "NAD_C21H27N7O14P2",
+   "comp": "C_cy",
+   "degree": 65
+  },
+  "m40[C_cy]": {
+   "name": "NADPH_C21H30N7O17P3",
+   "comp": "C_cy",
+   "degree": 68
+  },
+  "m123[C_cy]": {
+   "name": "NADH_C21H29N7O14P2",
+   "comp": "C_cy",
+   "degree": 58
+  },
+  "m41[C_cy]": {
+   "name": "NADP(+)_C21H28N7O17P3",
+   "comp": "C_cy",
+   "degree": 69
+  },
+  "m499[C_cy]": {
+   "name": "dolichol_C15H28O",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m406[C_cy]": {
+   "name": "CTP_C9H16N3O14P3",
+   "comp": "C_cy",
+   "degree": 13
+  },
+  "m500[C_cy]": {
+   "name": "CDP_C9H15N3O11P2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m501[C_cy]": {
+   "name": "dolichyl phosphate_C20H37O4P(C5H8)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m503[C_er]": {
+   "name": "dolichyl phosphate_C20H37O4P(C5H8)n",
+   "comp": "C_er",
+   "degree": 10
+  },
+  "m35[C_cy]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_cy",
+   "degree": 156
+  },
+  "m2021[C_er]": {
+   "name": "Dolichyl diphosphate",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m389[C_er]": {
+   "name": "H2O_H2O",
+   "comp": "C_er",
+   "degree": 55
+  },
+  "m102[C_er]": {
+   "name": "H+_p+1",
+   "comp": "C_er",
+   "degree": 35
+  },
+  "m952[C_er]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_er",
+   "degree": 5
+  },
+  "m343[C_cy]": {
+   "name": "GDP-alpha-D-mannose_C16H23N5O16P2",
+   "comp": "C_cy",
+   "degree": 12
+  },
+  "m268[C_cy]": {
+   "name": "GDP_C10H15N5O11P2",
+   "comp": "C_cy",
+   "degree": 24
+  },
+  "m502[C_er]": {
+   "name": "dolichyl D-mannosyl phosphate_C26H47O9P(C5H8)n",
+   "comp": "C_er",
+   "degree": 7
+  },
+  "m1961[C_er]": {
+   "name": "GDP-mannose",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m1962[C_er]": {
+   "name": "GDP",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m504[C_er]": {
+   "name": "mannan_",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m251[C_er]": {
+   "name": "6-(alpha-D-glucosaminyl)-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m598[C_er]": {
+   "name": "6-O-[alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl]-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m600[C_er]": {
+   "name": "6-O-{2-O-[(2-aminoethyl)phosphoryl]-alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl}-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m601[C_er]": {
+   "name": "6-O-{alpha-D-mannosyl-(1-6)-2-O-[(2-aminoethyl)phosphoryl]-alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl}-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m602[C_er]": {
+   "name": "6-O-{alpha-D-mannosyl-(1-2)-alpha-D-mannosyl-(1-6)-2-O-[(2-aminoethyl)phosphoryl]-alpha-D-mannosyl-(1-4)-alpha-D-glucosaminyl}-O-acyl-1-phosphatidyl-1D-myo-inositol_",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m1965[C_er]": {
+   "name": "UDP-N-acetyl-D-glucosamine",
+   "comp": "C_er",
+   "degree": 3
+  },
+  "m1967[C_er]": {
+   "name": "UMP",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m1968[C_er]": {
+   "name": "N-acetyl-D-glucosaminyldiphosphodolichol",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m1988[C_er]": {
+   "name": "UDP-glucose",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m1966[C_er]": {
+   "name": "UDP",
+   "comp": "C_er",
+   "degree": 3
+  },
+  "m1989[C_er]": {
+   "name": "Dolichyl beta-D-glucosyl phosphate",
+   "comp": "C_er",
+   "degree": 1
+  },
+  "m86[C_cy]": {
+   "name": "AMP_C10H14N5O7P",
+   "comp": "C_cy",
+   "degree": 51
+  },
+  "m89[C_cy]": {
+   "name": "dAMP_C10H14N5O6P",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m93[C_cy]": {
+   "name": "GMP_C10H14N5O8P",
+   "comp": "C_cy",
+   "degree": 16
+  },
+  "m95[C_cy]": {
+   "name": "CMP_C9H14N3O8P",
+   "comp": "C_cy",
+   "degree": 24
+  },
+  "m141[C_cy]": {
+   "name": "ATP_C10H16N5O13P3",
+   "comp": "C_cy",
+   "degree": 182
+  },
+  "m149[C_cy]": {
+   "name": "UMP_C9H13N2O9P",
+   "comp": "C_cy",
+   "degree": 26
+  },
+  "m294[C_cy]": {
+   "name": "trehalose_C12H22O11",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m359[C_cy]": {
+   "name": "zymosterol_C27H44O",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m401[C_cy]": {
+   "name": "chitin_H2O(C8H13NO5)n",
+   "comp": "C_cy",
+   "degree": 6
+  },
+  "m459[C_cy]": {
+   "name": "dCMP_C9H14N3O7P",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m465[C_cy]": {
+   "name": "dGMP_C10H14N5O7P",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m505[C_cy]": {
+   "name": "dTMP_C10H15N2O8P",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m964[C_cy]": {
+   "name": "sulphate_H2O4S",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m1000[C_cy]": {
+   "name": "ergosterol_C28H44O",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m1123[C_cy]": {
+   "name": "(1-3)-beta-D-glucan_",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m1324[C_cy]": {
+   "name": "mannan_",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m1631[C_em]": {
+   "name": "phosphatidyl-L-serine_C8H11NO10PR2",
+   "comp": "C_em",
+   "degree": 9
+  },
+  "m1640[C_lp]": {
+   "name": "triglyceride",
+   "comp": "C_lp",
+   "degree": 6
+  },
+  "m1648[C_em]": {
+   "name": "1-phosphatidyl-1D-myo-inositol",
+   "comp": "C_em",
+   "degree": 13
+  },
+  "m1700[C_lp]": {
+   "name": "phosphatidylethanolamine_C7H12NO8PR2",
+   "comp": "C_lp",
+   "degree": 6
+  },
+  "m1701[C_lp]": {
+   "name": "phosphatidylcholine_C10H18NO8PR2",
+   "comp": "C_lp",
+   "degree": 5
+  },
+  "m1705[C_lp]": {
+   "name": "phosphatidate",
+   "comp": "C_lp",
+   "degree": 5
+  },
+  "trna_biomass_residue_R798": {
+   "name": "Protein-incorporated L-valine_C5H11NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R129": {
+   "name": "Protein-incorporated L-alanine_C3H7NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R154": {
+   "name": "Protein-incorporated L-arginine_C6H14N4O2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R157": {
+   "name": "Protein-incorporated L-asparagine_C4H8N2O3 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R165": {
+   "name": "Protein-incorporated L-aspartate_C4H7NO4 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R248": {
+   "name": "Protein-incorporated L-cysteine_C3H7NO2S requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R336": {
+   "name": "Protein-incorporated L-glutamine_C5H10N2O3 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R337": {
+   "name": "Protein-incorporated L-glutamate_C5H9NO4 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R368": {
+   "name": "Protein-incorporated L-glycine_C2H5NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R392": {
+   "name": "Protein-incorporated L-histidine_C6H9N3O2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R493": {
+   "name": "Protein-incorporated L-isoleucine_C6H13NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R522": {
+   "name": "Protein-incorporated L-leucine_C6H13NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R531": {
+   "name": "Protein-incorporated L-lysine_C6H14N2O2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R547": {
+   "name": "Protein-incorporated L-methionine_C5H11NO2S requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R625": {
+   "name": "Protein-incorporated L-phenylalanine_C9H11NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R673": {
+   "name": "Protein-incorporated L-proline_C5H9NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R723": {
+   "name": "Protein-incorporated L-serine_C3H7NO3 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R759": {
+   "name": "Protein-incorporated L-threonine_C4H9NO3 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R771": {
+   "name": "Protein-incorporated L-tryptophan_C11H12N2O2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "trna_biomass_residue_R775": {
+   "name": "Protein-incorporated L-tyrosine_C9H11NO3 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m468[C_mi]": {
+   "name": "ubiquinone-9_C54H82O4",
+   "comp": "C_mi",
+   "degree": 9
+  },
+  "m975[C_cy]": {
+   "name": "TDP_",
+   "comp": "C_cy",
+   "degree": 5
+  },
+  "m1635[C_cy]": {
+   "name": "heme a_C49H56FeN4O6",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m948[C_cy]": {
+   "name": "iron_Fe",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m586[C_mi]": {
+   "name": "lipoylprotein_C8H13OS2R",
+   "comp": "C_mi",
+   "degree": 4
+  },
+  "m2065[C_mi]": {
+   "name": "lipoyl-E2 (N6-lipoyl-L-lysyl-[Lat1/Kgd2])_C8H13OS2R",
+   "comp": "C_mi",
+   "degree": 2
+  },
+  "m479[C_cy]": {
+   "name": "THF_C19H23N7O6",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m528[C_cy]": {
+   "name": "FAD_C27H33N9O15P2",
+   "comp": "C_cy",
+   "degree": 5
+  },
+  "m69[C_cy]": {
+   "name": "coenzyme A_C21H36N7O16P3S",
+   "comp": "C_cy",
+   "degree": 40
+  },
+  "m926[C_cy]": {
+   "name": "riboflavin_C17H20N4O6",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m143[C_cy]": {
+   "name": "ADP_C10H15N5O10P2",
+   "comp": "C_cy",
+   "degree": 146
+  },
+  "m1401[C_cy]": {
+   "name": "biomass_",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m2062[C_mi]": {
+   "name": "apo-glycine cleavage H-protein (L-lysyl-[GcvH])_HR",
+   "comp": "C_mi",
+   "degree": 3
+  },
+  "m2064[C_mi]": {
+   "name": "apo-E2 lipoyl domain (L-lysyl-[Lat1/Kgd2])_HR",
+   "comp": "C_mi",
+   "degree": 2
+  },
+  "m411[C_lp]": {
+   "name": "farnesyl diphosphate_C15H25O7P2",
+   "comp": "C_lp",
+   "degree": 1
+  },
+  "m412[C_lp]": {
+   "name": "isopentenyl diphosphate_C5H12O7P2",
+   "comp": "C_lp",
+   "degree": 19
+  },
+  "m1249[C_lp]": {
+   "name": "H+_p+1",
+   "comp": "C_lp",
+   "degree": 8
+  },
+  "m413[C_lp]": {
+   "name": "diphosphate_H4O7P2",
+   "comp": "C_lp",
+   "degree": 30
+  },
+  "m414[C_lp]": {
+   "name": "geranylgeranyl diphosphate_C20H36O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m415[C_lp]": {
+   "name": "pentaprenyl diphosphate_C25H44O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m416[C_lp]": {
+   "name": "hexaprenyl diphosphate_C30H52O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m417[C_lp]": {
+   "name": "heptaprenyl diphosphate_C35H60O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m418[C_lp]": {
+   "name": "octaprenyl diphosphate_C40H68O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m419[C_lp]": {
+   "name": "nonaprenyl diphosphate_C45H76O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m420[C_lp]": {
+   "name": "decaprenyl diphosphate_C50H84O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m421[C_lp]": {
+   "name": "undecaprenyl diphosphate_C55H92O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m422[C_lp]": {
+   "name": "dodecaprenyl diphosphate_C60H100O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m423[C_lp]": {
+   "name": "tridecaprenyl diphosphate_C65H108O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m424[C_lp]": {
+   "name": "tetradecaprenyl diphosphate_C70H116O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m425[C_lp]": {
+   "name": "pentadecaprenyl diphosphate_C75H124O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m426[C_lp]": {
+   "name": "hexadecaprenyl diphosphate_C80H132O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m427[C_lp]": {
+   "name": "heptadecaprenyl diphosphate_C85H140O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m428[C_lp]": {
+   "name": "octadecaprenyl diphosphate_C90H148O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m429[C_lp]": {
+   "name": "nonadecaprenyl diphosphate_C95H156O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m430[C_lp]": {
+   "name": "icosaprenyl diphosphate_C100H164O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m431[C_lp]": {
+   "name": "henicosaprenyl diphosphate_C105H172O7P2",
+   "comp": "C_lp",
+   "degree": 2
+  },
+  "m432[C_lp]": {
+   "name": "docosaprenyl diphosphate_C110H180O7P2",
+   "comp": "C_lp",
+   "degree": 1
+  }
+ },
+ "lp_count": 162
+}

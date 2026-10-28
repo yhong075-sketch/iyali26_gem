@@ -98,6 +98,7 @@ def build_reference_chain(
     cofactor_biomass_terms: bool = False,
     r2135_acyl_coa_pool: bool = False,
     r1726_cpt_open: bool = False,
+    dolichol_route: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -154,6 +155,9 @@ def build_reference_chain(
     if r1726_cpt_open and not r2135_acyl_coa_pool:
         # Reviewed on e9d35857 (2026-10-27); without the R2135 fix its PC turnover cycle feeds an acetyl-CoA acyl leak.
         raise ValueError("The R1726 opening was reviewed on the R2135 acyl-CoA pool candidate; requires --r2135-acyl-coa-pool")
+    if dolichol_route and not r1726_cpt_open:
+        # Reviewed on ce9e1112 (2026-10-28); its guard pins that candidate's biomass_C.
+        raise ValueError("The dolichol route curation was reviewed on the R1726 opening candidate; requires --r1726-cpt-open")
     if vatpase_gpr_hypothesis and (
         not no_solve or allow_network or coq9_mode != "metadata"
         or provisional_capacity_path is not None or trna_biomass_mode is not None
@@ -841,6 +845,12 @@ def build_reference_chain(
         from .r1726_cpt_open import apply_r1726_cpt_open
         selection["r1726_cpt_open"] = apply_r1726_cpt_open(model)
         logger.info("R1726 opening: %s", selection["r1726_cpt_open"]["status"])
+    if dolichol_route:
+        # Opt-in: R2178 closed, lumped dehydrodolichyl-PP -> dolichol step R_DOLSYN added, Dol-P m503[C_er] in
+        # biomass_C (2026-10-28). Requires and runs after the R1726 step; must stay after every biomass_C edit.
+        from .dolichol_route import apply_dolichol_route
+        selection["dolichol_route"] = apply_dolichol_route(model)
+        logger.info("Dolichol route: %s", selection["dolichol_route"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -945,6 +955,7 @@ def build_model(args):
         cofactor_biomass_terms=getattr(args, "cofactor_biomass_terms", False),
         r2135_acyl_coa_pool=getattr(args, "r2135_acyl_coa_pool", False),
         r1726_cpt_open=getattr(args, "r1726_cpt_open", False),
+        dolichol_route=getattr(args, "dolichol_route", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
