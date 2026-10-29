@@ -5,11 +5,12 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-29: R171 and R673 note wording revised in the curated data, candidates 25dabf62 and 059316ef (supersede ca43ae0c and 6af03c40 for note wording; committed efdde43 on claude/essential-gene-r171-pro-7e2477, not pushed)
+## 2026-10-29: R171 and R673 note wording revised in the curated data, candidates 25dabf62 and 059316ef (supersede ca43ae0c and 6af03c40 for note wording; committed efdde43 on claude/essential-gene-r171-pro-7e2477, PR #37)
 
 **Authorization.** The user, 2026-10-29: "Yes, fix notes", then "Approve, option A" for the plan in
 [TASK.md](reports/r171_r673_note_revision_20261029/TASK.md): edit the two curated data files in place, rebuild to a
 new candidate, mark `ca43ae0c` and `6af03c40` superseded. No commit.
+Committed in `efdde43` on the user's instruction ("Commit on branch", 2026-10-29); merged with `origin/main` (PR #35; the STATE.md top conflict resolved by keeping both entries) and pushed with a pull request to `main`, [PR #37](https://github.com/yhong075-sketch/iyali26_gem/pull/37), on the user's instruction ("Push and open PR", 2026-10-29). This covers the R171, R673 and note-revision entries below. Full pytest on the merged tree: identical per-test outcomes.
 
 **Results** ([REPORT.md](reports/r171_r673_note_revision_20261029/REPORT.md),
 [AUDIT.md](reports/r171_r673_note_revision_20261029/AUDIT.md)). Verified this session; the independent audit supports
@@ -51,7 +52,7 @@ all areas, with one wording imprecision and one candidate overstatement noted be
     - The R673 note calls `YALI1D19110g` "AIM10-like".
     - The data's evidence list says "best hit", "synteny partner" and "ortholog reference".
 
-## 2026-10-29: R673 prolyl-tRNA synthetase: TargetP / DeepLoc predictions, then the cytosolic reaction assigned to YALI1E05929g, candidate 6af03c40 (committed efdde43 on claude/essential-gene-r171-pro-7e2477, not pushed)
+## 2026-10-29: R673 prolyl-tRNA synthetase: TargetP / DeepLoc predictions, then the cytosolic reaction assigned to YALI1E05929g, candidate 6af03c40 (committed efdde43 on claude/essential-gene-r171-pro-7e2477, PR #37)
 
 **Authorization.** The user, 2026-10-29:
 - "Yes, run predictors" approved submitting the two W29 sequences to TargetP 2.0 and DeepLoc 2.1 and keeping the raw
@@ -113,7 +114,7 @@ Verified this session. The independent audit supports everything except the evid
   is recorded, not rebuilt; together with the R171 note wording, it is a candidate for one combined note revision.
 - One medium.
 
-## 2026-10-29: R171 ATP synthase rule without the single-gene OR branches, subunits e and j out of the AND (Option D), candidate ca43ae0c (committed efdde43 on claude/essential-gene-r171-pro-7e2477, not pushed)
+## 2026-10-29: R171 ATP synthase rule without the single-gene OR branches, subunits e and j out of the AND (Option D), candidate ca43ae0c (committed efdde43 on claude/essential-gene-r171-pro-7e2477, PR #37)
 
 **Authorization.** The user, 2026-10-29, answering "Which R171 option should I build (the plan above, on baseline
 d8d1bac7)?": **"Option D (Recommended)"**. That answer approved the plan in
