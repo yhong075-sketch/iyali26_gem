@@ -83,6 +83,8 @@ def parse_args(argv=None):
                         help="Add the gene-less nucleus-cytosol diffusions of ADP-ribose (R_ADPRtn) and diphosphate (R_PPItn) in the Transport, nucleus group, joining the nuclear NAD block (gap-census UM7) to the cytosol (curated 2026-10-28, UM7-NUCLEAR-DIFFUSION-20261028); requires --dolichol-route and runs after it")
     parser.add_argument("--r2171-pi-plc-1to1", action="store_true",
                         help="Write the PI phospholipase C R2171 as PI + H2O -> DAG + inositol 1-phosphate + 2 H+ instead of 100 H2O / 100 Ins1P / 100 H+ (curated 2026-10-28, R2171-PI-PLC-1TO1-20261028); requires --dolichol-route and runs after it")
+    parser.add_argument("--aars-thr-ser-split", action="store_true",
+                        help="Assign the cytosolic threonyl- and seryl-tRNA synthetase reactions R759 and R723 to their cytosolic enzymes (YALI1F14882g, YALI1F03908g) and R760 to the mitochondrial YALI1A09121g, keeping the DIA4-like YALI1B07957g unlinked (curated 2026-10-29, AARS-THR-SER-SPLIT-20261029)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
