@@ -101,6 +101,7 @@ def build_reference_chain(
     dolichol_route: bool = False,
     um7_nuclear_diffusion: bool = False,
     r2171_pi_plc_1to1: bool = False,
+    aars_thr_ser_split: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -871,6 +872,12 @@ def build_reference_chain(
         from .r2171_pi_plc import apply_r2171_pi_plc_1to1
         selection["r2171_pi_plc_1to1"] = apply_r2171_pi_plc_1to1(model)
         logger.info("R2171 1:1: %s", selection["r2171_pi_plc_1to1"]["status"])
+    if aars_thr_ser_split:
+        # Opt-in: R759/R723 to the cytosolic Thr/Ser synthetases, R760 to the mitochondrial one (2026-10-29). GPRs and
+        # notes only; reviewed on 965ab947, but no flag dependency: the step pins the before-state of its targets.
+        from .aars_thr_ser_split import apply_aars_thr_ser_split
+        selection["aars_thr_ser_split"] = apply_aars_thr_ser_split(model)
+        logger.info("aaRS Thr/Ser split: %s", selection["aars_thr_ser_split"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -978,6 +985,7 @@ def build_model(args):
         dolichol_route=getattr(args, "dolichol_route", False),
         um7_nuclear_diffusion=getattr(args, "um7_nuclear_diffusion", False),
         r2171_pi_plc_1to1=getattr(args, "r2171_pi_plc_1to1", False),
+        aars_thr_ser_split=getattr(args, "aars_thr_ser_split", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

@@ -5,6 +5,115 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-29: Thr/Ser synthetase split rebuilt on the combined UM7 + R2171 candidate, candidate d8d1bac7 (not committed)
+
+**Authorization.** The user, 2026-10-29: "Rebuild on 14f73bda", then "Approve as written" for
+[TASK.md](reports/aars_thr_ser_split_on_14f73bda_20261029/TASK.md) §4. No commit or push.
+
+**Results** ([REPORT.md](reports/aars_thr_ser_split_on_14f73bda_20261029/REPORT.md),
+[AUDIT.md](reports/aars_thr_ser_split_on_14f73bda_20261029/AUDIT.md)). Verified this session; the independent audit
+supports D1–D4, D6, D7 and partly D5, D8 (record-keeping gaps, fixed).
+- **Candidate:**
+  [E5_…_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_20261029.xml)
+  (`d8d1bac78138f59ba6beefcbddae7f93d0a20e245fea6f5dd9c79760ee535751`) = `14f73bda` + `--aars-thr-ser-split` =
+  `6abb6b38` + the UM7 diffusions, field for field. No code or data change; seeds 0 and 1 identical. Not a designated
+  reference.
+- **Control:** the `14f73bda` argv at HEAD `ca76de1` reproduces `14f73bda…` byte for byte.
+- **Diffs:** vs `14f73bda` the 9 intended differences; vs `6abb6b38` only R_ADPRtn, R_PPItn and the "Transport, nucleus"
+  group.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, 2,164 LPs): WT 0.3116608216 on both; only `YALI1F14882g` and `YALI1F03908g`
+  change, FN → TP at every cutoff; 15 %: 112 / 203 / 42 / 692 → 114 / 201 / 42 / 692; same 16 unresolved; no failing
+  point. User-defined negatives; development reference.
+
+**Limits.** Localisation inferred, as for `6abb6b38`. One medium. The libSBML error on R304 drops that reaction's notes
+in every build checked, including `14f73bda`: pre-existing data loss, cause not investigated.
+
+## 2026-10-29: Cytosolic Thr/Ser tRNA synthetase rules split from their mitochondrial paralogs, candidate 6abb6b38 (committed 6d0f0ff, PR #34)
+
+**Authorization.** The user, 2026-10-29: "Thr/Ser split first" (candidate 1 of the OR-rule review below), then
+"Approve as written" for the plan in [TASK.md](reports/aars_thr_ser_split_20261029/TASK.md) §5. No commit or push.
+
+**Results** ([REPORT.md](reports/aars_thr_ser_split_20261029/REPORT.md), [AUDIT.md](reports/aars_thr_ser_split_20261029/AUDIT.md)).
+Verified this session; the independent audit supports all 12 claims (C5 and C7 with stated limits).
+- **Candidate:**
+  [E5_…_dolichol_route_v2_r2171_1to1_aars_thr_ser_split_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_r2171_1to1_aars_thr_ser_split_20261029.xml)
+  (`6abb6b3873d826e7e5b3105853ac2a1144d4be8e9b0b6ce8fbb69611d3c7c4e4`) = `965ab947` + `--aars-thr-ser-split`. Not a
+  designated reference. Neither the UM7 sibling `5f54eb22` nor the combined UM7 + R2171 candidate `14f73bda` (merged
+  from PR #33 the same day) contains this change.
+- **Change:** R759 (cytosolic ThrRS) `YALI1A09121g or YALI1F14882g` → `YALI1F14882g`; R760 (mitochondrial) → `YALI1A09121g`;
+  R723 (cytosolic SerRS) `YALI1B07957g or YALI1F03908g` → `YALI1F03908g`; `YALI1B07957g` kept with no reaction; six notes
+  per reaction. R673 (prolyl) unchanged. Whole-model diff: 9 differences, all intended.
+- **Code:** data `curation/gpr/aars_thr_ser_split.json`; step `platform/scripts/gem_annotate/aars_thr_ser_split.py`;
+  flag `--aars-thr-ser-split` (no flag dependency), called after the R2171 step; test `tests/test_aars_thr_ser_split.py`
+  (6 tests, 21 subtests). Full pytest 318 → 324 passed, the same 19 failures and 20 errors; only the new tests differ.
+- **Builds:** control without the flag reproduces `965ab947…` byte for byte.
+- **Knockouts** (Task A medium + PO1f, Gurobi 1e-9, reset per knockout, targeted check, 2,164 LPs): WT unchanged
+  0.3116608216; only `YALI1F14882g` and `YALI1F03908g` change (growth → 0), FN → TP at 1 / 5 / 10 / 15 %. At 15 %:
+  112 / 203 / 42 / 692 → 114 / 201 / 42 / 692, recall 0.356 → 0.362, MCC 0.386 → 0.393; 16 unresolved unchanged; no
+  failing point. User-defined negatives; mtDNA out of scope; development reference.
+- `YALI1A09121g` and `YALI1B07957g` stay FN (R760 carries no flux; no mitochondrial seryl-tRNA reaction): category d.
+
+**Limits.** Compartment assignments are inferred from homology and UniProt (two locations automatic); no
+*Y. lipolytica* localisation experiment. One medium. Not combined with the UM7 line. The R304 libSBML notes error in
+every recent build log is pre-existing and not investigated. Next gates: the prolyl pair after a presequence
+prediction; R171's OR branches (review candidate 2); NCBI/UniProt cross-references for `YALI1A09121g`.
+
+## 2026-10-29: OR-rule review of R171 (ATP synthase) and the cytosolic aminoacyl-tRNA synthetase rules R759/R760, R723, R673 (investigation only, on 965ab947; committed 6d0f0ff, PR #34)
+
+**Authorization.** The user, 2026-10-29, after the assessment of recall levers in this session: "Scope the OR-rule review
+first: R171 single-gene branches and the cytosolic aaRS rules. Investigation and TASK.md only, no model change yet."
+Details: [TASK.md](reports/or_rule_review_r171_aars_20261029/TASK.md),
+[REPORT.md](reports/or_rule_review_r171_aars_20261029/REPORT.md), per-gene table
+[or_rule_review_genes.csv](reports/or_rule_review_r171_aars_20261029/or_rule_review_genes.csv). Branch
+`claude/essential-gene-prediction-e76be3` @ `ff5192d`. No model XML, GPR, curated data, medium, benchmark or platform code
+changed; nothing committed or pushed.
+
+**Inputs.** Model `965ab947…` (PR #31; `5f54eb22…` of PR #30 has the same gene set and identical rules on the five
+reactions, checked); Task A medium `6eca70fd…` + PO1f `35307853…`; list `1e887f5a…`; Gurobi 1e-9, basis reset per solve,
+knocked-flux and residual checks; 1,286 LPs in the complete run (1,630 over three attempts, two stopped by script errors).
+
+**Results** (verified this session unless marked).
+- The five rules are inherited verbatim from iYli21 (`source/iyli21.xml`, `6974b758…`).
+- **R171** is `(14-subunit AND) or YALI1B28025g or YALI1B15733g`. The OR branches are ATP synthase subunit g (ATP20,
+  138 aa) and subunit k (ATP19, 70 aa; UniProt B5FVB8, B5FVB3). Every single knockout of the 16 genes leaves R171 open
+  (KO/WT 1.0000); R171 closed gives 0.1097, below 15 % and above 10 %.
+- **In-memory variants** (only the 22 genes of the five rules can change class; a full sweep confirms it): removing the
+  OR branches flips the 9 consensus-essential core subunits FN → TP at 15 % only. New FP depend on how subunits e
+  (`YALI1E38131g`, TIM11-like, now an AND member) and j (`YALI0D17490g`, ATP18-like, AND member) are treated: A (14-AND
+  kept) +2 FP; B (16-AND) +4 FP; C (drop e) +1 FP; D (drop e and j) 0 FP. 15 % after A: 121 / 194 / 44 / 690 (MCC
+  0.408); after D: 121 / 194 / 42 / 692 (0.414).
+- **Evidence on e, g, k, j.** *Y. lipolytica* screens: e, g, k non-essential (g: Cas9 FS −2.80, q 0.085); j not screened.
+  Hahn 2016 (*Y. lipolytica* cryo-EM dimer, PMID 27373333): e, g, k dimer-specific; the DDM monomer lacking them
+  hydrolyses ATP at the dimer's rate; subunit i "non-essential". Liu 2015 (PMID 25759169): g and k not found in the
+  purified *Y. lipolytica* enzyme. Arnold 1998 (*S. cerevisiae*, PMID 9857174): e, g, k "not required for the
+  formation of enzymatically active ATP synthase". Vaillier 1999 (PMID 9867878): atp18Δ viable, half the ATPase
+  activity, low ADP/O. No *Y. lipolytica* knockout of any of the four in the sources opened.
+- **Cytosolic synthetase rules.** R759 (Thr; mitochondrial R760 carries the same rule), R723 (Ser) and R673 (Pro) each
+  read `cytosolic gene or mitochondrial-type paralog`; all six genes are consensus-essential and FN. Closing R759, R723
+  or R673 gives 0; R760 closed gives 1.0000 (dead-end mitochondrial tRNA). Assigning each cytosolic reaction to its
+  cytosolic gene (`YALI1F14882g`, `YALI1F03908g`, `YALI1E05929g`; R760 ← `YALI1A09121g`) flips 3 FN → TP at every cutoff
+  with no new FP; the paralogs stay FN (R760 blocked; no mitochondrial Ser or Pro charging reaction exists).
+- **Combined A + split, full 1,081-gene sweep:** 1 % 97 / 218 / 35 / 699, 5 % 103 / 212 / 37 / 697, 10 % 107 / 208 / 42 /
+  692, 15 % 124 / 191 / 44 / 690 (MCC 0.417); 16 unresolved unchanged; no failing point; equal to the recorded baseline
+  plus the predicted transitions. User-defined negatives; mtDNA out of scope; development reference.
+- **Localisation.** Thr and Ser pairs: UniProt names and locations, lengths against the yeast orthologs, UniRef50
+  (`YALI1F03908g` in SES1's cluster) and N-termini agree. Pro pair: the genome annotation's ancestral-locus assignment
+  (`YALI1E05929g` ↔ YHR020W, `YALI1D19110g` ↔ AIM10/YER087W) plus an N-terminal heuristic only. No *Y. lipolytica*
+  experimental localisation found (Europe PMC); no presequence predictor run (needs a web form).
+- `YALI0D17490g` is a CLIB122 identifier inside the YALI1 model; the S2 locus map pairs it with `YALI1_D21476g`, which is
+  in neither the consensus list nor the screen tables.
+
+**Candidates** (not changes; REPORT §8 has the acceptance criteria).
+1. Synthetase split for Thr and Ser now; Pro after a presequence prediction agrees with the synteny assignment.
+2. R171 without the two OR branches, with the e / j decision made on the catalytic evidence, never on the FP count.
+Follow-ups outside these edits: the `YALI0D17490g` → `YALI1D21476g` identifier (annotation line); the 0.1097 energy
+ceiling without ATP synthase (NGAM and the glucose cap, 2026-10-21 entry); mitochondrial Ser / Pro charging and the
+dead-end mitochondrial tRNAs (category d).
+
+**Limits.** One medium; the third screen's calls not read; no independent audit; pytest not run (no platform code
+changed); literature read through Europe PMC REST records and full texts with the fetch tool's paraphrase around short
+verbatim quotes; the Pro localisation is inferred. Large output (the sweep TSV) in
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/or_rule_review_r171_aars_20261029/`.
 ## 2026-10-29: UM11 nuclear RNR copies kept blocked by decision (Option B, documentation only, no model change; committed 423e194 on branch claude/wizardly-wing-a0d6c0)
 
 **Authorization.** The user, 2026-10-29, in this session, answered **"Option B"** after the Stage 1 draft

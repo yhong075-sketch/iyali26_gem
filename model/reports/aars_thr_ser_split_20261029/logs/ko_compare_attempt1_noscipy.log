@@ -1,0 +1,26 @@
+Set parameter Username
+INFO: Set parameter Username
+Set parameter LicenseID to value 2843063
+INFO: Set parameter LicenseID to value 2843063
+Academic license - for non-commercial use only - expires 2027-07-10
+INFO: Academic license - for non-commercial use only - expires 2027-07-10
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING: Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+Traceback (most recent call last):
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/platform/../model/reports/aars_thr_ser_split_20261029/scripts/ko_compare_two.py", line 123, in <module>
+    runs = {label: knockouts(label, path) for label, path in paths.items()}
+                   ~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/platform/../model/reports/aars_thr_ser_split_20261029/scripts/ko_compare_two.py", line 63, in knockouts
+    stoichiometry = matrix(model)
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/reports/combined_tpp_heme_r2193_20261022/scripts/checked_solve.py", line 37, in matrix
+    return create_stoichiometric_matrix(model, array_type="lil").tocsr()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/util/array.py", line 58, in create_stoichiometric_matrix
+    raise ValueError("Sparse matrices require scipy.")
+ValueError: Sparse matrices require scipy.

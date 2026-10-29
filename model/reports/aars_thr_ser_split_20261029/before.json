@@ -1,0 +1,355 @@
+{
+ "baseline_model": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_r2171_1to1_20261028.xml",
+  "sha256": "965ab947f2aadc2c69443e7a794358c502acfdf0892e78582278ff07a37429d7"
+ },
+ "genes": {
+  "YALI1A09121g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "name": "COBRAProtein641",
+   "notes": {},
+   "reactions": [
+    "R759",
+    "R760"
+   ]
+  },
+  "YALI1B07957g": {
+   "annotation": {
+    "ec-code": "6.1.1.11",
+    "kegg.genes": "yli:2907208",
+    "ncbigene": "2907208",
+    "refseq": "XP_500550.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8N6N5"
+   },
+   "name": "COBRAProtein619",
+   "notes": {},
+   "reactions": [
+    "R723"
+   ]
+  },
+  "YALI1F03908g": {
+   "annotation": {
+    "ec-code": "6.1.1.11",
+    "kegg.genes": "yli:2907782",
+    "ncbigene": "2907782",
+    "refseq": "XP_504912.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8NLN6"
+   },
+   "name": "COBRAProtein620",
+   "notes": {},
+   "reactions": [
+    "R723"
+   ]
+  },
+  "YALI1F14882g": {
+   "annotation": {
+    "ec-code": "6.1.1.3",
+    "kegg.genes": "yli:2907965",
+    "ncbigene": "2907965",
+    "refseq": "XP_505278.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1H6Q012"
+   },
+   "name": "COBRAProtein642",
+   "notes": {},
+   "reactions": [
+    "R759",
+    "R760"
+   ]
+  }
+ },
+ "reactions": {
+  "R673": {
+   "annotation": {
+    "bigg.reaction": [
+     "PROTRS",
+     "PROTRS_1",
+     "R_PROTRS",
+     "R_PROTRS_1"
+    ],
+    "biggr": [
+     "PROTRS",
+     "PROTRS_1",
+     "R_PROTRS",
+     "R_PROTRS_1"
+    ],
+    "ec-code": "6.1.1.15",
+    "metanetx.reaction": "MNXR146134",
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D19110g or YALI1E05929g",
+   "name": "prolyl-tRNA synthetase",
+   "notes": {
+    "PROTEIN_CLASS": "6.1.1.15"
+   },
+   "species": {
+    "m10[C_cy]": {
+     "charge": 1,
+     "compartment": "C_cy",
+     "formula": "H"
+    },
+    "m141[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C10H16N5O13P3"
+    },
+    "m203[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H4O7P2"
+    },
+    "m765[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C5H9NO2"
+    },
+    "m86[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C10H14N5O7P"
+    },
+    "m905[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": null
+    },
+    "m906[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "RC5H8NO"
+    }
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 1.0,
+    "m141[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m765[C_cy]": -1.0,
+    "m86[C_cy]": 1.0,
+    "m905[C_cy]": -1.0,
+    "m906[C_cy]": 1.0
+   },
+   "subsystem": "Aminoacyl-tRNA biosynthesis"
+  },
+  "R723": {
+   "annotation": {
+    "ec-code": "6.1.1.11",
+    "metacyc.reaction": "SERINE--TRNA-LIGASE-RXN",
+    "metacycr": "SERINE--TRNA-LIGASE-RXN",
+    "metanetx.reaction": "MNXR123879",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn27105",
+     "rxn38707"
+    ],
+    "seedr": [
+     "rxn27105",
+     "rxn38707"
+    ]
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B07957g or YALI1F03908g",
+   "name": "seryl-tRNA synthetase",
+   "notes": {
+    "PROTEIN_CLASS": "6.1.1.11"
+   },
+   "species": {
+    "m141[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C10H16N5O13P3"
+    },
+    "m203[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H4O7P2"
+    },
+    "m441[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C3H7NO3"
+    },
+    "m86[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C10H14N5O7P"
+    },
+    "m943[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": null
+    },
+    "m944[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C13H22NO12PR2(C5H8O6PR)n"
+    }
+   },
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m441[C_cy]": -1.0,
+    "m86[C_cy]": 1.0,
+    "m943[C_cy]": -1.0,
+    "m944[C_cy]": 1.0
+   },
+   "subsystem": "Aminoacyl-tRNA biosynthesis"
+  },
+  "R759": {
+   "annotation": {
+    "bigg.reaction": [
+     "R_THRTRS",
+     "R_THRTRS_1",
+     "R_THRTRSm",
+     "THRTRS",
+     "THRTRS_1",
+     "THRTRSm"
+    ],
+    "biggr": [
+     "R_THRTRS",
+     "R_THRTRS_1",
+     "R_THRTRSm",
+     "THRTRS",
+     "THRTRS_1",
+     "THRTRSm"
+    ],
+    "ec-code": "6.1.1.3",
+    "metanetx.reaction": "MNXR146545",
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A09121g or YALI1F14882g",
+   "name": "threonyl-tRNA synthetase",
+   "notes": {
+    "PROTEIN_CLASS": "6.1.1.3"
+   },
+   "species": {
+    "m141[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C10H16N5O13P3"
+    },
+    "m203[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H4O7P2"
+    },
+    "m770[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C4H9NO3"
+    },
+    "m86[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C10H14N5O7P"
+    },
+    "m978[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": null
+    },
+    "m979[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C14H24NO12PR2(C5H8O6PR)n"
+    }
+   },
+   "stoichiometry": {
+    "m141[C_cy]": -1.0,
+    "m203[C_cy]": 1.0,
+    "m770[C_cy]": -1.0,
+    "m86[C_cy]": 1.0,
+    "m978[C_cy]": -1.0,
+    "m979[C_cy]": 1.0
+   },
+   "subsystem": "Aminoacyl-tRNA biosynthesis"
+  },
+  "R760": {
+   "annotation": {
+    "bigg.reaction": [
+     "R_THRTRS",
+     "R_THRTRS_1",
+     "R_THRTRSm",
+     "THRTRS",
+     "THRTRS_1",
+     "THRTRSm"
+    ],
+    "biggr": [
+     "R_THRTRS",
+     "R_THRTRS_1",
+     "R_THRTRSm",
+     "THRTRS",
+     "THRTRS_1",
+     "THRTRSm"
+    ],
+    "ec-code": "6.1.1.3",
+    "metanetx.reaction": "MNXR146545",
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1A09121g or YALI1F14882g",
+   "name": "threonyl-tRNA synthetase",
+   "notes": {
+    "PROTEIN_CLASS": "6.1.1.3"
+   },
+   "species": {
+    "m204[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "H4O7P2"
+    },
+    "m46[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C10H16N5O13P3"
+    },
+    "m48[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C10H14N5O7P"
+    },
+    "m771[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C4H9NO3"
+    },
+    "m980[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": null
+    },
+    "m981[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C14H24NO12PR2(C5H8O6PR)n"
+    }
+   },
+   "stoichiometry": {
+    "m204[C_mi]": 1.0,
+    "m46[C_mi]": -1.0,
+    "m48[C_mi]": 1.0,
+    "m771[C_mi]": -1.0,
+    "m980[C_mi]": -1.0,
+    "m981[C_mi]": 1.0
+   },
+   "subsystem": "Aminoacyl-tRNA biosynthesis"
+  }
+ }
+}
