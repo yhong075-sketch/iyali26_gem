@@ -5,6 +5,103 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-29: UM11 nuclear RNR copies kept blocked by decision (Option B, documentation only, no model change; committed 423e194 on branch claude/wizardly-wing-a0d6c0)
+
+**Authorization.** The user, 2026-10-29, in this session, answered **"Option B"** after the Stage 1 draft
+([TASK.md](reports/um11_nuclear_rnr_20261029/TASK.md) section 0). Scope:
+- keep R707, R709, R711, R1914, R782 and the six nuclear nucleotide diffusions as they are, and record why;
+- no build, curated data or code;
+- no commit.
+
+Committed in `423e194` on branch `claude/wizardly-wing-a0d6c0` on the user's instruction ("Commit the working tree
+changes", 2026-10-29). Pushed with a pull request to `main` on the user's instruction relayed by the census session
+("Yes, tell the UM11 session to commit its work on its branch, push it and open a PR to main", 2026-10-29).
+
+**Results** ([REPORT.md](reports/um11_nuclear_rnr_20261029/REPORT.md),
+[AUDIT.md](reports/um11_nuclear_rnr_20261029/AUDIT.md),
+[escher/](reports/um11_nuclear_rnr_20261029/escher/README.md)).
+- **Audit:** an independent subagent re-derived the numbered claims with its own scripts (10,807 LPs).
+  - All were supported: the SHA and the diffs, WT, the blocked sets, the roots and GPRs, Options A and A′
+    (including A′'s whole-model scan, which Stage 1 had not run), the energy check, a knockout spot-check of 28
+    genes plus the RNR controls, the benchmark and the figure numbers.
+  - It found wording problems, fixed in REPORT.md and TASK.md section 10: the mtDNA count, and biology phrasing
+    beyond the abstracts.
+  - It did not reproduce the seed-1 rebuild, the A+ / C1 WT values or the headless-Chrome check.
+- **Model:** `14f73bda…`, the combined UM7 + R2171 baseline (entry below). Not a designated reference.
+  Conditions: Task A + PO1f and "open", Gurobi 1e-9.
+- **Mechanism (verified, computed):**
+  - The roots are nuclear thioredoxin: reduced TRX1 has no producer and the disulphide has no consumer. All 11
+    UM11 reactions are blocked under both conditions.
+  - Both thioredoxin links together (Option A) free exactly the 11; each alone frees none. The whole-model
+    blocked set goes 695 → 684 (open) and 828 → 817 (Task A), with none newly blocked. A nuclear TRR copy (A′)
+    also frees the 11 (whole-model scan by the audit).
+  - Every option keeps WT 0.3116608216 within 3e-15.
+  - Full sweeps (2 × 1,081 knockouts for each of A, A plus the R1914 water fix, and A′): no class change at any
+    cutoff, no knockout change > 1e-9.
+  - No energy-generating cycle (optimal, maintenance relaxed). The nuclear copies carry 0 in pFBA even when open.
+  - Each nuclear copy has the same GPR as its cytosolic twin, so none can be a knockout bypass.
+  - 15 % TP / FN / FP / TN 112 / 203 / 42 / 692 (user-defined negatives, development reference).
+- **Biology** (abstracts, UniProt and SGD fetched by an evidence subagent; four abstracts read by the main
+  session, more by the audit):
+  - In *S. cerevisiae*, the RNR holoenzyme forms in the cytoplasm. Rnr1 is cytoplasmic; Rnr2/Rnr4 are sequestered
+    in the nucleus and released in S phase or on damage. That the nuclear pool is itself inactive is inferred.
+  - No source places RNR catalysis in the nucleus, and no nuclear thioredoxin reductase is known.
+  - There are no *Y. lipolytica* data; gene identities come from reciprocal best hits.
+  - iYali4, iYli21, iYali5, Yeast-GEM 9.0.2 and iMM904 all carry the same blocked copies.
+- **Census report:** the UM11 paragraph of
+  [gap_metabolites_ponce2013_20261026/REPORT.md](reports/gap_metabolites_ponce2013_20261026/REPORT.md) section 4
+  records the decision.
+- **Figure** ([escher/um11_nuclear_rnr_asbuilt_vs_whatif.png](reports/um11_nuclear_rnr_20261029/escher/um11_nuclear_rnr_asbuilt_vs_whatif.png)):
+  as built vs the Option A what-if (not implemented), on Task A + PO1f, 9,476 LPs.
+  - The two thioredoxin roots are marked.
+  - 25 reactions; UM11 blocked 11 → 0 under the what-if; capacity > 0 on 12 → 25; pFBA non-zero 5 → 6, with the
+    nuclear copies 0 in both.
+  - The viewer was checked in jsdom and headless Chrome; the tooltips were not.
+
+**Follow-ups found (not changed; each affects another line):**
+1. RNR GPRs are an OR of large and small subunits.
+2. R702–R705 (NTP reductases with the thioredoxin gene only) bypass RNR.
+3. Together, 1 and 2 make the consensus-essential RNR genes `YALI1F39330g` / `YALI1B05072g` false negatives.
+   Only all three RNR genes knocked out plus R702–R705 closed gives 0 (verified).
+4. R1914 writes its water in the cytosol (from iYali4).
+5. TRX1-disulphide has no formula.
+6. A duplicate thioredoxin pair, `m2033` / `m2034`.
+7. A net-zero no-uptake loop R789 / R1104 / R1105 / R788 at ±1000.
+
+**Limits.**
+- Literature was gathered by a subagent and spot-checked, not every citation was opened by the main session,
+  and Huh 2003 was not opened at all.
+- Only Task A and "open" were tested.
+- Budget: Stage 1, 2 builds and about 35,600 LPs; Stage 2, 0 builds and 9,476 LPs.
+- Large outputs are in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/um11_nuclear_rnr_20261029/`.
+
+## 2026-10-29: UM7 and R2171 lines combined in one build, candidate 14f73bda (UM11 baseline; committed 423e194 on branch claude/wizardly-wing-a0d6c0)
+
+**Authorization.** The user, 2026-10-29, in the UM11 session, answered "Yes, build combined" to the proposal to
+build `9d655c2b`'s argv with both `--um7-nuclear-diffusion` and `--r2171-pi-plc-1to1` into a new file, with a
+whole-model diff against each parent. No other change, no commit. Later committed in `423e194` on branch `claude/wizardly-wing-a0d6c0` on the user's instruction ("Commit the working tree
+changes", 2026-10-29). Pushed with a pull request to `main` on the user's instruction relayed by the census session
+("Yes, tell the UM11 session to commit its work on its branch, push it and open a PR to main", 2026-10-29).
+
+**Results** ([REPORT.md](reports/combined_um7_r2171_20261029/REPORT.md)); verified this session, no independent
+audit.
+- **Candidate:**
+  [E5_…_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_20261029.xml)
+  (`14f73bda4b0772019e82ea18a27e198c5ba175e67fef205a51dbfb090809e757`). Built at HEAD `ff5192d` (= `origin/main`).
+  Seeds 0 and 1 give identical bytes. Not a designated reference.
+- **Whole-model diff vs `5f54eb22`:** only the R2171 stoichiometry and notes. **Vs `965ab947`:** only R_ADPRtn,
+  R_PPItn and the "Transport, nucleus" group. Each is field-identical to that parent's own diff against `9d655c2b`.
+- **Solves (Task A + PO1f, Gurobi 1e-9):**
+  - WT 0.3116608216, as in both parents.
+  - Whole-model FVA: 695 blocked under open exchanges, 828 under Task A.
+  - Knockout sweep (run as the UM11 baseline): 15 % TP / FN / FP / TN 112 / 203 / 42 / 692 (user-defined
+    negatives, development reference), 16 unresolved infeasible knockouts.
+  - No-uptake ATP and biomass 0 (optimal, maintenance relaxed).
+
+**Limits.** No separate sweep compares this file with each parent; that the union adds no class change is
+inferred from the parents' own sweeps and the field-level diffs. The path is ≈ 300 characters; LPs read
+SHA-checked short-path copies.
+
 ## 2026-10-28: UM2 vacuolar closures kept by decision (Option A0, documentation only, no model change; committed 10f1656 on branch claude/fervent-shannon-141b92, not pushed)
 
 **Authorization.** The user, 2026-10-28, in this session, chose **"Option A0"** after the Stage 1 draft
