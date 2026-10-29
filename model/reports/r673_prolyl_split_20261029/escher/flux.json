@@ -1,0 +1,945 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi 1e-9 (checked_solve)",
+ "ko_gene": "YALI1E05929g",
+ "scenarios": {
+  "wt_baseline": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.3116608216336117,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.976713335117425e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal",
+   "R673_bounds": [
+    0.0,
+    1000.0
+   ]
+  },
+  "ko_baseline": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.3116608216336117,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.976713335117425e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal",
+   "R673_bounds": [
+    0.0,
+    1000.0
+   ]
+  },
+  "wt_candidate": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.3116608216336117,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.976713335117425e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal",
+   "R673_bounds": [
+    0.0,
+    1000.0
+   ]
+  },
+  "ko_candidate": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.6645352591003757e-15,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [
+    "R673"
+   ],
+   "pfba_status": "optimal",
+   "R673_bounds": [
+    0,
+    0
+   ]
+  }
+ },
+ "baseline_sha256": "ca43ae0c12e01c13c7b2ca4792b745d00d4a28ed950f8e401aece37b2a0843d0",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "candidate_sha256": "6af03c405a691a76aa5857e23667dd9d34642b9c7d383f4ec17159966fb6f25a",
+ "mapped": {
+  "fixed": [
+   "R673",
+   "TRNA_BIOMASS_R673",
+   "R1387",
+   "R1710",
+   "R1225",
+   "R1372",
+   "R2040",
+   "R509",
+   "R689",
+   "R893"
+  ],
+  "largest_ko_change": []
+ },
+ "fluxes": {
+  "wt_baseline": {
+   "R673": 0.0643180670821717,
+   "TRNA_BIOMASS_R673": 0.0643180670821717,
+   "R1387": 0.0,
+   "R1710": 0.0,
+   "R1225": 0.0,
+   "R1372": 0.0,
+   "R2040": 0.0,
+   "R509": 0.0,
+   "R689": 0.0643180670821717,
+   "R893": 0.0
+  },
+  "ko_baseline": {
+   "R673": 0.0643180670821717,
+   "TRNA_BIOMASS_R673": 0.0643180670821717,
+   "R1387": 0.0,
+   "R1710": 0.0,
+   "R1225": 0.0,
+   "R1372": 0.0,
+   "R2040": 0.0,
+   "R509": 0.0,
+   "R689": 0.0643180670821717,
+   "R893": 0.0
+  },
+  "wt_candidate": {
+   "R673": 0.0643180670821717,
+   "TRNA_BIOMASS_R673": 0.0643180670821717,
+   "R1387": 0.0,
+   "R1710": 0.0,
+   "R1225": 0.0,
+   "R1372": 0.0,
+   "R2040": 0.0,
+   "R509": 0.0,
+   "R689": 0.0643180670821717,
+   "R893": 0.0
+  },
+  "ko_candidate": {
+   "R673": 0.0,
+   "TRNA_BIOMASS_R673": 0.0,
+   "R1387": 0.0,
+   "R1710": 0.0,
+   "R1225": 0.004614576770245812,
+   "R1372": 0.0,
+   "R2040": 0.0,
+   "R509": 0.0,
+   "R689": 0.005437270823072389,
+   "R893": 0.0
+  }
+ },
+ "reactions": {
+  "R673": {
+   "name": "prolyl-tRNA synthetase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E05929g",
+   "gpr_baseline": "YALI1D19110g or YALI1E05929g",
+   "genes": [
+    "YALI1E05929g"
+   ],
+   "subsystem": "Aminoacyl-tRNA biosynthesis",
+   "mets": {
+    "m141[C_cy]": -1.0,
+    "m765[C_cy]": -1.0,
+    "m905[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m86[C_cy]": 1.0,
+    "m203[C_cy]": 1.0,
+    "m906[C_cy]": 1.0
+   }
+  },
+  "TRNA_BIOMASS_R673": {
+   "name": "Biomass incorporation of L-proline_C5H9NO2 through charged tRNA",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "",
+   "mets": {
+    "m906[C_cy]": -1.0,
+    "trna_biomass_residue_R673": 1.0,
+    "m905[C_cy]": 1.0
+   }
+  },
+  "R1387": {
+   "name": "yeast 6 biomass pseudoreaction",
+   "lb": 0.0,
+   "ub": 0.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Model specific",
+   "mets": {
+    "m12[C_en]": -1.1348,
+    "m32[C_cy]": -59.276,
+    "m86[C_cy]": -0.046,
+    "m89[C_cy]": -0.0036,
+    "m93[C_cy]": -0.046,
+    "m95[C_cy]": -0.0447,
+    "m141[C_cy]": -59.276,
+    "m149[C_cy]": -0.0599,
+    "m274[C_cy]": -0.4588,
+    "m294[C_cy]": -0.0234,
+    "m315[C_cy]": -0.1607,
+    "m321[C_cy]": -0.1017,
+    "m336[C_cy]": -0.2975,
+    "m448[C_cy]": -0.0066,
+    "m459[C_cy]": -0.0024,
+    "m465[C_cy]": -0.0024,
+    "m505[C_cy]": -0.0036,
+    "m549[C_cy]": -0.5185,
+    "m554[C_cy]": -0.1054,
+    "m556[C_cy]": -0.3018,
+    "m591[C_cy]": -0.2904,
+    "m619[C_cy]": -0.0663,
+    "m747[C_cy]": -0.1927,
+    "m778[C_cy]": -0.2964,
+    "m795[C_cy]": -0.2862,
+    "m807[C_cy]": -0.0507,
+    "m862[C_cy]": -0.1339,
+    "m906[C_cy]": -0.1647,
+    "m926[C_cy]": -0.00099,
+    "m944[C_cy]": -0.1854,
+    "m964[C_cy]": -0.02,
+    "m979[C_cy]": -0.1914,
+    "m988[C_cy]": -0.0284,
+    "m996[C_cy]": -0.102,
+    "m1011[C_cy]": -0.2646,
+    "m1123[C_cy]": -1.1348,
+    "m1324[C_cy]": -0.8079,
+    "m1400[C_cy]": -1.0,
+    "m10[C_cy]": 59.305,
+    "m35[C_cy]": 58.7,
+    "m143[C_cy]": 59.276,
+    "m273[C_cy]": 0.4588,
+    "m314[C_cy]": 0.1607,
+    "m320[C_cy]": 0.1017,
+    "m335[C_cy]": 0.2975,
+    "m447[C_cy]": 0.0066,
+    "m553[C_cy]": 0.1054,
+    "m555[C_cy]": 0.3018,
+    "m590[C_cy]": 0.2904,
+    "m618[C_cy]": 0.0663,
+    "m746[C_cy]": 0.1927,
+    "m777[C_cy]": 0.2964,
+    "m794[C_cy]": 0.2862,
+    "m806[C_cy]": 0.0507,
+    "m861[C_cy]": 0.1339,
+    "m905[C_cy]": 0.1647,
+    "m943[C_cy]": 0.1854,
+    "m978[C_cy]": 0.1914,
+    "m987[C_cy]": 0.0284,
+    "m995[C_cy]": 0.102,
+    "m1010[C_cy]": 0.2646,
+    "m1401[C_cy]": 1.0
+   }
+  },
+  "R1710": {
+   "name": "yeast 8 biomass pseudoreaction",
+   "lb": 0.0,
+   "ub": 0.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "",
+   "mets": {
+    "m12[C_en]": -1.1348,
+    "m32[C_cy]": -59.276,
+    "m86[C_cy]": -0.046,
+    "m89[C_cy]": -0.0036,
+    "m93[C_cy]": -0.046,
+    "m95[C_cy]": -0.0447,
+    "m141[C_cy]": -59.276,
+    "m149[C_cy]": -0.0599,
+    "m274[C_cy]": -0.4588,
+    "m294[C_cy]": -0.0234,
+    "m315[C_cy]": -0.1607,
+    "m321[C_cy]": -0.1017,
+    "m336[C_cy]": -0.2975,
+    "m401[C_cy]": -1e-06,
+    "m448[C_cy]": -0.0066,
+    "m459[C_cy]": -0.0024,
+    "m465[C_cy]": -0.0024,
+    "m505[C_cy]": -0.0036,
+    "m549[C_cy]": -0.5185,
+    "m554[C_cy]": -0.1054,
+    "m556[C_cy]": -0.3018,
+    "m591[C_cy]": -0.2904,
+    "m619[C_cy]": -0.0663,
+    "m747[C_cy]": -0.1927,
+    "m778[C_cy]": -0.2964,
+    "m795[C_cy]": -0.2862,
+    "m807[C_cy]": -0.0507,
+    "m862[C_cy]": -0.1339,
+    "m906[C_cy]": -0.1647,
+    "m926[C_cy]": -0.00099,
+    "m944[C_cy]": -0.1854,
+    "m964[C_cy]": -0.02,
+    "m979[C_cy]": -0.1914,
+    "m988[C_cy]": -0.0284,
+    "m996[C_cy]": -0.102,
+    "m1011[C_cy]": -0.2646,
+    "m1123[C_cy]": -1.1348,
+    "m1324[C_cy]": -0.8079,
+    "m1400[C_cy]": -1.0,
+    "m1635[C_cy]": -1e-06,
+    "m10[C_cy]": 59.305,
+    "m35[C_cy]": 58.7,
+    "m143[C_cy]": 59.276,
+    "m273[C_cy]": 0.4588,
+    "m314[C_cy]": 0.1607,
+    "m320[C_cy]": 0.1017,
+    "m335[C_cy]": 0.2975,
+    "m447[C_cy]": 0.0066,
+    "m553[C_cy]": 0.1054,
+    "m555[C_cy]": 0.3018,
+    "m590[C_cy]": 0.2904,
+    "m618[C_cy]": 0.0663,
+    "m746[C_cy]": 0.1927,
+    "m777[C_cy]": 0.2964,
+    "m794[C_cy]": 0.2862,
+    "m806[C_cy]": 0.0507,
+    "m861[C_cy]": 0.1339,
+    "m905[C_cy]": 0.1647,
+    "m943[C_cy]": 0.1854,
+    "m978[C_cy]": 0.1914,
+    "m987[C_cy]": 0.0284,
+    "m995[C_cy]": 0.102,
+    "m1010[C_cy]": 0.2646,
+    "m1401[C_cy]": 1.0
+   }
+  },
+  "R1225": {
+   "name": "L-proline transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, mitochondrion",
+   "mets": {
+    "m765[C_cy]": -1.0,
+    "m904[C_mi]": 1.0
+   }
+  },
+  "R1372": {
+   "name": "yeast 5 biomass pseudoreaction",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Model specific",
+   "mets": {
+    "m32[C_cy]": -0.00180975692827605,
+    "m50[C_cy]": -8.17900264381083e-06,
+    "m74[C_cy]": -1.52593332906918e-06,
+    "m86[C_cy]": -1.55645199565057e-06,
+    "m89[C_cy]": -1.09562013027167e-07,
+    "m93[C_cy]": -1.55645199565057e-06,
+    "m95[C_cy]": -1.52593332906918e-06,
+    "m114[C_cy]": -1.0895163969554e-05,
+    "m130[C_cy]": -8.17900264381083e-06,
+    "m141[C_cy]": -0.00180975692827605,
+    "m149[C_cy]": -2.04475066095271e-06,
+    "m267[C_cy]": -5.24921065199799e-06,
+    "m272[C_cy]": -9.91856663894969e-06,
+    "m294[C_cy]": -7.14136798004378e-07,
+    "m310[C_cy]": -4.15053865506818e-06,
+    "m319[C_cy]": -5.24921065199799e-06,
+    "m441[C_cy]": -7.75174131167145e-06,
+    "m443[C_cy]": -1.30925079634136e-06,
+    "m459[C_cy]": -7.41603597927623e-08,
+    "m465[C_cy]": -7.41603597927623e-08,
+    "m505[C_cy]": -1.09562013027167e-07,
+    "m549[C_cy]": -1.58391879557381e-05,
+    "m615[C_cy]": -2.28889999360378e-06,
+    "m743[C_cy]": -5.24921065199799e-06,
+    "m765[C_cy]": -3.93690798899849e-06,
+    "m770[C_cy]": -6.01217731653258e-06,
+    "m772[C_cy]": -8.54522664278743e-07,
+    "m775[C_cy]": -7.62966664534592e-06,
+    "m793[C_cy]": -7.2939613129507e-06,
+    "m859[C_cy]": -3.47912799027774e-06,
+    "m926[C_cy]": -2.74667999232453e-08,
+    "m964[C_cy]": -6.10373331627673e-07,
+    "m992[C_cy]": -2.94505132510352e-06,
+    "m1008[C_cy]": -7.8432973114156e-06,
+    "m1123[C_cy]": -3.47912799027774e-05,
+    "m1324[C_cy]": -2.5055825263316e-05,
+    "m1400[C_cy]": -3.05186665813837e-05,
+    "m10[C_cy]": 0.00179144572832722,
+    "m35[C_cy]": 0.00180975692827605,
+    "m143[C_cy]": 0.00180975692827605,
+    "m1401[C_cy]": 3.05186665813837e-05
+   }
+  },
+  "R2040": {
+   "name": "proline transport (vacuole)",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, vacuole",
+   "mets": {
+    "m10[C_cy]": -1.0,
+    "m765[C_cy]": -1.0,
+    "m1007[C_va]": 1.0,
+    "m1867[C_va]": 1.0
+   }
+  },
+  "R509": {
+   "name": "L-hydroxyproline reductase (NADP)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B18955g",
+   "gpr_baseline": "YALI1B18955g",
+   "genes": [
+    "YALI1B18955g"
+   ],
+   "subsystem": "Arginine and proline metabolism",
+   "mets": {
+    "m10[C_cy]": -4.0,
+    "m40[C_cy]": -1.0,
+    "m764[C_cy]": -1.0,
+    "m41[C_cy]": 1.0,
+    "m765[C_cy]": 1.0,
+    "m32[C_cy]": 1.0
+   }
+  },
+  "R689": {
+   "name": "pyrroline-5-carboxylate reductase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B18955g",
+   "gpr_baseline": "YALI1B18955g",
+   "genes": [
+    "YALI1B18955g"
+   ],
+   "subsystem": "Arginine and proline metabolism",
+   "mets": {
+    "m10[C_cy]": -2.0,
+    "m40[C_cy]": -1.0,
+    "m924[C_cy]": -1.0,
+    "m41[C_cy]": 1.0,
+    "m765[C_cy]": 1.0
+   }
+  },
+  "R893": {
+   "name": "L-proline transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B21538g or YALI1B25553g or YALI1B25906g or YALI1C13768g or YALI1C24567g or YALI1E12893g or YALI1F26427g or YALI1B12781g or YALI1D18890g",
+   "gpr_baseline": "YALI1B21538g or YALI1B25553g or YALI1B25906g or YALI1C13768g or YALI1C24567g or YALI1E12893g or YALI1F26427g or YALI1B12781g or YALI1D18890g",
+   "genes": [
+    "YALI1B12781g",
+    "YALI1B21538g",
+    "YALI1B25553g",
+    "YALI1B25906g",
+    "YALI1C13768g",
+    "YALI1C24567g",
+    "YALI1D18890g",
+    "YALI1E12893g",
+    "YALI1F26427g"
+   ],
+   "subsystem": "Transport, extracellular",
+   "mets": {
+    "m342[C_ex]": -1.0,
+    "m1085[C_ex]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m765[C_cy]": 1.0
+   }
+  }
+ },
+ "metabolites": {
+  "m141[C_cy]": {
+   "name": "ATP_C10H16N5O13P3",
+   "comp": "C_cy",
+   "degree": 182
+  },
+  "m765[C_cy]": {
+   "name": "L-proline_C5H9NO2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m905[C_cy]": {
+   "name": "tRNA(Pro)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m10[C_cy]": {
+   "name": "H+_p+1",
+   "comp": "C_cy",
+   "degree": 463
+  },
+  "m86[C_cy]": {
+   "name": "AMP_C10H14N5O7P",
+   "comp": "C_cy",
+   "degree": 51
+  },
+  "m203[C_cy]": {
+   "name": "diphosphate_H4O7P2",
+   "comp": "C_cy",
+   "degree": 80
+  },
+  "m906[C_cy]": {
+   "name": "Pro-tRNA(Pro)_RC5H8NO",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "trna_biomass_residue_R673": {
+   "name": "Protein-incorporated L-proline_C5H9NO2 requirement (experimental B split)",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m12[C_en]": {
+   "name": "(1-6)-beta-D-glucan_",
+   "comp": "C_en",
+   "degree": 3
+  },
+  "m32[C_cy]": {
+   "name": "H2O_H2O",
+   "comp": "C_cy",
+   "degree": 332
+  },
+  "m89[C_cy]": {
+   "name": "dAMP_C10H14N5O6P",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m93[C_cy]": {
+   "name": "GMP_C10H14N5O8P",
+   "comp": "C_cy",
+   "degree": 16
+  },
+  "m95[C_cy]": {
+   "name": "CMP_C9H14N3O8P",
+   "comp": "C_cy",
+   "degree": 24
+  },
+  "m149[C_cy]": {
+   "name": "UMP_C9H13N2O9P",
+   "comp": "C_cy",
+   "degree": 26
+  },
+  "m274[C_cy]": {
+   "name": "Ala-tRNA(Ala)_C13H22NO11PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m294[C_cy]": {
+   "name": "trehalose_C12H22O11",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m315[C_cy]": {
+   "name": "Arg-tRNA(Arg)_C21H33N9O11PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m321[C_cy]": {
+   "name": "Asn-tRNA(Asn)_C14H23N2O12PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m336[C_cy]": {
+   "name": "Asp-tRNA(Asp)_C14H22NO13PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m448[C_cy]": {
+   "name": "Cys-tRNA(Cys)_C18H26N6O11PSR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m459[C_cy]": {
+   "name": "dCMP_C9H14N3O7P",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m465[C_cy]": {
+   "name": "dGMP_C10H14N5O7P",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m505[C_cy]": {
+   "name": "dTMP_C10H15N2O8P",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m549[C_cy]": {
+   "name": "glycogen_",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m554[C_cy]": {
+   "name": "Gln-tRNA(Gln)_C20H29N7O12PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m556[C_cy]": {
+   "name": "Glu-tRNA(Glu)_C20H28N6O13PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m591[C_cy]": {
+   "name": "Gly-tRNA(Gly)_C12H20NO11PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m619[C_cy]": {
+   "name": "His-tRNA(His)_C16H24N3O11PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m747[C_cy]": {
+   "name": "Ile-tRNA(Ile)_C21H32N6O11PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m778[C_cy]": {
+   "name": "Leu-tRNA(Leu)_C21H32N6O11PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m795[C_cy]": {
+   "name": "Lys-tRNA(Lys)_",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m807[C_cy]": {
+   "name": "Met-tRNA(Met)_C20H30N6O11PSR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m862[C_cy]": {
+   "name": "Phe-tRNA(Phe)_C19H26NO11PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m926[C_cy]": {
+   "name": "riboflavin_C17H20N4O6",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m944[C_cy]": {
+   "name": "Ser-tRNA(Ser)_C13H22NO12PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m964[C_cy]": {
+   "name": "sulphate_H2O4S",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m979[C_cy]": {
+   "name": "Thr-tRNA(Thr)_C14H24NO12PR2(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m988[C_cy]": {
+   "name": "Trp-tRNA(Trp)_C26H31N7O11PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m996[C_cy]": {
+   "name": "Tyr-tRNA(Tyr)_RC9H10NO2",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m1011[C_cy]": {
+   "name": "Val-tRNA(Val)_C20H30N6O11PR(C5H8O6PR)n",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m1123[C_cy]": {
+   "name": "(1-3)-beta-D-glucan_",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m1324[C_cy]": {
+   "name": "mannan_",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m1400[C_cy]": {
+   "name": "lipid_",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m35[C_cy]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_cy",
+   "degree": 156
+  },
+  "m143[C_cy]": {
+   "name": "ADP_C10H15N5O10P2",
+   "comp": "C_cy",
+   "degree": 146
+  },
+  "m273[C_cy]": {
+   "name": "tRNA(Ala)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m314[C_cy]": {
+   "name": "tRNA(Arg)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m320[C_cy]": {
+   "name": "tRNA(Asn)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m335[C_cy]": {
+   "name": "tRNA(Asp)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m447[C_cy]": {
+   "name": "tRNA(Cys)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m553[C_cy]": {
+   "name": "tRNA(Gln)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m555[C_cy]": {
+   "name": "tRNA(Glu)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m590[C_cy]": {
+   "name": "tRNA(Gly)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m618[C_cy]": {
+   "name": "tRNA(His)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m746[C_cy]": {
+   "name": "tRNA(Ile)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m777[C_cy]": {
+   "name": "tRNA(Leu)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m794[C_cy]": {
+   "name": "tRNA(Lys)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m806[C_cy]": {
+   "name": "tRNA(Met)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m861[C_cy]": {
+   "name": "tRNA(Phe)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m943[C_cy]": {
+   "name": "tRNA(Ser)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m978[C_cy]": {
+   "name": "tRNA(Thr)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m987[C_cy]": {
+   "name": "tRNA(Trp)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m995[C_cy]": {
+   "name": "tRNA(Tyr)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m1010[C_cy]": {
+   "name": "tRNA(Val)",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m1401[C_cy]": {
+   "name": "biomass_",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m401[C_cy]": {
+   "name": "chitin_H2O(C8H13NO5)n",
+   "comp": "C_cy",
+   "degree": 6
+  },
+  "m1635[C_cy]": {
+   "name": "heme a_C49H56FeN4O6",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m904[C_mi]": {
+   "name": "L-proline_C5H9NO2",
+   "comp": "C_mi",
+   "degree": 2
+  },
+  "m50[C_cy]": {
+   "name": "L-glutamate_C5H9NO4",
+   "comp": "C_cy",
+   "degree": 60
+  },
+  "m74[C_cy]": {
+   "name": "L-methionine_C5H11NO2S",
+   "comp": "C_cy",
+   "degree": 13
+  },
+  "m114[C_cy]": {
+   "name": "L-alanine_C3H7NO2",
+   "comp": "C_cy",
+   "degree": 17
+  },
+  "m130[C_cy]": {
+   "name": "L-glutamine_C5H10N2O3",
+   "comp": "C_cy",
+   "degree": 25
+  },
+  "m267[C_cy]": {
+   "name": "L-aspartate_C4H7NO4",
+   "comp": "C_cy",
+   "degree": 18
+  },
+  "m272[C_cy]": {
+   "name": "L-glycine_C2H5NO2",
+   "comp": "C_cy",
+   "degree": 19
+  },
+  "m310[C_cy]": {
+   "name": "L-arginine_C6H14N4O2",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m319[C_cy]": {
+   "name": "L-asparagine_C4H8N2O3",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m441[C_cy]": {
+   "name": "L-serine_C3H7NO3",
+   "comp": "C_cy",
+   "degree": 20
+  },
+  "m443[C_cy]": {
+   "name": "L-cysteine_C3H7NO2S",
+   "comp": "C_cy",
+   "degree": 20
+  },
+  "m615[C_cy]": {
+   "name": "L-histidine_C6H9N3O2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m743[C_cy]": {
+   "name": "L-isoleucine_C6H13NO2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m770[C_cy]": {
+   "name": "L-threonine_C4H9NO3",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m772[C_cy]": {
+   "name": "L-tryptophan_C11H12N2O2",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m775[C_cy]": {
+   "name": "L-leucine_C6H13NO2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m793[C_cy]": {
+   "name": "L-lysine_C6H14N2O2",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m859[C_cy]": {
+   "name": "L-phenylalanine_C9H11NO2",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m992[C_cy]": {
+   "name": "L-tyrosine_C9H11NO3",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m1008[C_cy]": {
+   "name": "L-valine_C5H11NO2",
+   "comp": "C_cy",
+   "degree": 7
+  },
+  "m1007[C_va]": {
+   "name": "H+_p+1",
+   "comp": "C_va",
+   "degree": 22
+  },
+  "m1867[C_va]": {
+   "name": "L-proline",
+   "comp": "C_va",
+   "degree": 2
+  },
+  "m40[C_cy]": {
+   "name": "NADPH_C21H30N7O17P3",
+   "comp": "C_cy",
+   "degree": 68
+  },
+  "m764[C_cy]": {
+   "name": "1-pyrroline-3-hydroxy-5-carboxylic acid_C5H6NO3",
+   "comp": "C_cy",
+   "degree": 1
+  },
+  "m41[C_cy]": {
+   "name": "NADP(+)_C21H28N7O17P3",
+   "comp": "C_cy",
+   "degree": 69
+  },
+  "m924[C_cy]": {
+   "name": "1-pyrroline-5-carboxylate_C5H6NO2",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m342[C_ex]": {
+   "name": "H+_p+1",
+   "comp": "C_ex",
+   "degree": 63
+  },
+  "m1085[C_ex]": {
+   "name": "L-proline_C5H9NO2",
+   "comp": "C_ex",
+   "degree": 2
+  }
+ },
+ "lp_count": 12
+}

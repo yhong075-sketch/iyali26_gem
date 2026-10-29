@@ -1,0 +1,21 @@
+# Run from platform/ at HEAD ff7fc62 with the uncommitted R171 and R673 changes (logs/build_head.txt). The seed is
+# the environment value for that run (not recorded in .build.json). <scratchpad> is this session's scratchpad.
+# ARGS = the d8d1bac7 argv + --r171-atp-synthase-gpr, i.e. the ca43ae0c argv (see ../../r171_atp_synthase_gpr_20261029/logs/build_commands.txt).
+
+# control (reproduces ca43ae0c byte for byte)
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/rebuild673/control_ca43ae0c.xml
+
+# candidate, attempt 1: failed at write time, OSError 63 "File name too long" (the appended name plus the temporary
+# prefix exceeded the 255-byte macOS limit); nothing was written (build_candidate_seed0_attempt1_name_too_long.log)
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --r673-prolyl-split --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_20261029.xml
+
+# candidate 6af03c40 (shorter name; same argv otherwise)
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --r673-prolyl-split --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_20261029.xml
+
+# seed check (identical bytes)
+PYTHONHASHSEED=1 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --r673-prolyl-split --output-model <scratchpad>/rebuild673/candidate_seed1.xml
+
+# results (shasum -a 256)
+# ca43ae0c12e01c13c7b2ca4792b745d00d4a28ed950f8e401aece37b2a0843d0  control_ca43ae0c.xml
+# 6af03c405a691a76aa5857e23667dd9d34642b9c7d383f4ec17159966fb6f25a  candidate (seed 0)
+# 6af03c405a691a76aa5857e23667dd9d34642b9c7d383f4ec17159966fb6f25a  candidate_seed1.xml

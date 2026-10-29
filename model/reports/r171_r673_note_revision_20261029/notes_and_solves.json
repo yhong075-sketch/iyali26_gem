@@ -1,0 +1,59 @@
+{
+ "notes": {
+  "R171": {
+   "changed_keys": [
+    "r171_atp_synthase_gpr_evidence"
+   ],
+   "curated_keys_equal_data": true
+  },
+  "R673": {
+   "changed_keys": [
+    "r673_prolyl_split_evidence"
+   ],
+   "curated_keys_equal_data": true
+  }
+ },
+ "solves": {
+  "wt": {
+   "status": "optimal",
+   "growth": 0.3116608216336117,
+   "max_bound_violation": 0.0,
+   "max_residual": 1.976713335117425e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true
+  },
+  "YALI1F04433g": {
+   "status": "optimal",
+   "growth": 0.034189979775491146,
+   "max_bound_violation": 0.0,
+   "max_residual": 4.263256414560601e-14,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "closed": [
+    "R171"
+   ],
+   "ratio": 0.10970252724189013
+  },
+  "YALI1E05929g": {
+   "status": "optimal",
+   "growth": 0.0,
+   "max_bound_violation": 0.0,
+   "max_residual": 2.6645352591003757e-15,
+   "max_knocked_flux": 0.0,
+   "passed": true,
+   "closed": [
+    "R673"
+   ],
+   "ratio": 0.0
+  }
+ },
+ "model_sha256": "25dabf62af2b28eb3d515a536680d4eb68fd0460f51253ea077e9f13d13d52b0",
+ "condition": {
+  "medium": "../model/conditions/media/po1f_csm_leu_w29uptake_20261012.csv",
+  "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+  "strain_profile": "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/strain_profiles/po1f_sd_leu.json",
+  "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+  "solver": "Gurobi via checked_solve.configure (FeasibilityTol / OptimalityTol 1e-9, reset per solve)"
+ },
+ "lp_count": 3
+}
