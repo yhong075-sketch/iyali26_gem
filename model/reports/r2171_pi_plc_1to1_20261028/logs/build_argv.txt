@@ -1,0 +1,6 @@
+BASE (zsh array, from the 9d655c2b .build.json argv): --offline --no-solve --coq9-curation qcycle --energy-candidate E5 --coq9-biomass-dilution --coq9-respiratory-package --r132-mito-adh --restore-selection-cleared-gprs --restore-selection-overwritten-gprs --restore-selection-cpa-ura2 --remove-selection-tkl-fragment-gpr --remove-r153-peptidase-gpr --r2041-forward --r2190-ribulose-product --r1964-gpr --gpi-chain-links --gpi-coproducts --tpp-requirement --thiamine-phosphate-chemistry --thiamine-proton-lock --heme-iron-biomass --r2193-iron-gpr --lipoylation-module --acyl-acp-chemistry --cofactor-biomass-terms --r2135-acyl-coa-pool --r1726-cpt-open --dolichol-route; candidate adds --r2171-pi-plc-1to1
+interpreter: /opt/miniconda3/bin/python
+control: $ART/control_no_flag.xml (PYTHONHASHSEED=0)
+candidate: ../model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_r2171_1to1_20261028.xml (PYTHONHASHSEED=0)
+seed check: $ART/candidate_seed1.xml (PYTHONHASHSEED=1)
+round 2 (after the review fixes): $ART/final_seed0.xml (PYTHONHASHSEED=0), $ART/final_seed1.xml (PYTHONHASHSEED=1), same BASE + --r2171-pi-plc-1to1

@@ -1,0 +1,49 @@
+{
+ "schema_version": 1,
+ "curation_id": "R2171-PI-PLC-1TO1-20261028",
+ "status": "user_authorized",
+ "reaction_id": "R2171",
+ "name": "1-Phosphatidyl-D-myo-inositol inositolphosphohydrolase",
+ "gpr": "YALI1D13510g",
+ "bounds": [0.0, 1000.0],
+ "kegg_reaction": "R03332",
+ "before_stoichiometry": {
+  "m1393[C_cy]": -1.0,
+  "m32[C_cy]": -100.0,
+  "m10[C_cy]": 100.0,
+  "m1994[C_cy]": 1.0,
+  "m813[C_cy]": 100.0
+ },
+ "after_stoichiometry": {
+  "m1393[C_cy]": -1.0,
+  "m32[C_cy]": -1.0,
+  "m10[C_cy]": 2.0,
+  "m1994[C_cy]": 1.0,
+  "m813[C_cy]": 1.0
+ },
+ "species": {
+  "m1393[C_cy]": {"name": "1-phosphatidyl-1D-myo-inositol", "formula": "C11H17O13P*2", "charge": 0, "compartment": "C_cy", "metanetx.chemical": "MNXM1364164"},
+  "m32[C_cy]": {"name": "H2O_H2O", "formula": "H2O", "charge": 0, "compartment": "C_cy"},
+  "m10[C_cy]": {"name": "H+_p+1", "formula": "H", "charge": 1, "compartment": "C_cy"},
+  "m1994[C_cy]": {"name": "1,2-Diacyl-sn-glycerol", "formula": null, "charge": 0, "compartment": "C_cy", "metanetx.chemical": "MNXM1091588"},
+  "m813[C_cy]": {"name": "1D-myo-inositol 1-phosphate_C6H11O9P", "formula": "C6H11O9P", "charge": -2, "compartment": "C_cy", "kegg.compound": "C01177"}
+ },
+ "notes": {
+  "r2171_pi_plc_curation": "R2171-PI-PLC-1TO1-20261028",
+  "r2171_previous_equation": "m1393[C_cy] PI + 100 m32[C_cy] H2O = 100 m10[C_cy] H+ + m1994[C_cy] DAG + 100 m813[C_cy] inositol 1-phosphate, irreversible (charge -100)",
+  "r2171_pi_plc_evidence": "Written 1:1 as its own KEGG link R03332 (PI + H2O = Ins1P + DAG) and ModelSEED rxn06362; 2 H+ balance charge under the model charges. The 100x form is in no source found and is inherited from iYli21. As written it let an INO1-null strain grow without inositol and made Ins1P without phosphate uptake (model/reports/lipid_source_leak_check_20261028).",
+  "r2171_pi_plc_limits": "Gene YALI1D13510g = YALI0D10813g: KEGG K01771 (EC 4.6.1.13, an enzyme KEGG calls bacterial, product inositol 1,2-cyclic phosphate) and UniProt Q6C9J1 (unreviewed, score 1, PI-PLC X domain only); its real activity and product are unknown. Mass balance not checkable (PI and DAG are lumped).",
+  "r2171_pi_plc_sources": "https://www.kegg.jp/entry/R03332; https://modelseed.org/solr/reactions/select?q=id:rxn06362; https://www.kegg.jp/entry/4.6.1.13; https://www.kegg.jp/entry/yli:2910441; https://rest.uniprot.org/uniprotkb/Q6C9J1",
+  "r2171_pi_plc_authorization": "User authorized writing R2171 as PI + H2O = DAG + Ins1P + 2 H+ (Option A) on 2026-10-28."
+ },
+ "evidence": [
+  {"url": "https://www.kegg.jp/entry/R03332", "claim": "KEGG R03332, the model's kegg.reaction link for R2171, is 1-Phosphatidyl-D-myo-inositol + H2O <=> Inositol 1-phosphate + 1,2-Diacyl-sn-glycerol, 1:1:1:1.", "tier": "verified", "scope": "Read via rest.kegg.jp.", "accessed": "2026-10-28"},
+  {"url": "https://modelseed.org/solr/reactions/select?wt=json&q=id:rxn06362", "claim": "ModelSEED rxn06362 and rxn39389 are the same 1:1 hydrolase (status OK); none of the 8 reactions named inositolphosphohydrolase has 100x coefficients.", "tier": "verified", "scope": "Solr name search.", "accessed": "2026-10-28"},
+  {"url": "https://www.kegg.jp/entry/4.6.1.13", "claim": "EC 4.6.1.13 forms 1D-myo-inositol 1,2-cyclic phosphate (R03364); KEGG comments that the enzyme is bacterial and that animal activity is EC 3.1.4.11.", "tier": "verified", "scope": "Read via rest.kegg.jp; reason the product of the gene is uncertain.", "accessed": "2026-10-28"},
+  {"url": "https://www.kegg.jp/entry/yli:2910441", "claim": "YALI0D10813g (= YALI1D13510g by the S2 locus map) is RefSeq 1-phosphatidylinositol phosphodiesterase, KO K01771 (EC 4.6.1.13), the only Y. lipolytica member of K01771.", "tier": "verified", "scope": "Orthology only.", "accessed": "2026-10-28"},
+  {"url": "https://rest.uniprot.org/uniprotkb/Q6C9J1", "claim": "Q6C9J1 (YALI0D10813p): unreviewed, annotation score 1, 305 aa, one phosphatidylinositol-specific phospholipase C X domain (SMART SM00148), no function text.", "tier": "verified", "scope": "Automatic annotation only.", "accessed": "2026-10-28"},
+  {"url": "model/reports/lipid_source_leak_check_20261028/REPORT.md", "claim": "On 9d655c2b, with INO1 knocked out and no inositol uptake, growth equals WT and inositol / Ins1P demand reach 511-520 / 1000; closing R2171 gives 0.", "tier": "verified", "scope": "Observed in runs (Stage 1), Task A + PO1f and three other media.", "accessed": "2026-10-28"}
+ ],
+ "reviewer": "Claude Code session (Opus 5.5), 2026-10-28; decision by the user",
+ "authorization": "2026-10-28 user, after reading the Stage 2 draft (model/reports/r2171_pi_plc_1to1_20261028/TASK.md): \"Approve Option A\" = write R2171 as PI + H2O -> DAG + Ins1P + 2 H+ via a guarded --r2171-pi-plc-1to1 step after --dolichol-route on 9d655c2b, conventional output name."
+}

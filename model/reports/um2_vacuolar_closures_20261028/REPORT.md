@@ -17,6 +17,9 @@
   - All 69 vacuolar and UM2 reactions and every vacuolar species are identical in the two files (checked
     2026-10-28). The as-built, C′ and "open all 17" checks were re-run on `5f54eb22` and reproduce
     (`stage1/stage1_um2_5f54eb22.log`).
+  - PR #31 then merged candidate `965ab947…` (`9d655c2b` + R2171 written 1:1; it does not include UM7). Its
+    69 vacuolar and UM2 reactions are identical to those of `5f54eb22` (checked 2026-10-29). The LPs were not
+    re-run on it.
   - Not a designated reference.
 - **Condition:** Task A medium + PO1f, Gurobi 13 at 1e-9, real HOME. The 15 % KO/WT cutoff is primary;
   1, 5 and 10 % are also reported.
