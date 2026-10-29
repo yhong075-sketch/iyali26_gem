@@ -1,0 +1,54 @@
+[
+ {
+  "scenario": "status",
+  "status_line": "AS BUILT (decision A0, unchanged): black = closed (0, 0) by inheritance, orange = open but blocked, light blue = can carry flux. Task A + PO1f. Task A medium + ",
+  "escher_not_loaded": false,
+  "reaction_groups": 39,
+  "node_circles": 222,
+  "labels": {
+   "R795": "R795 V-ATPase, vacuo\u2026",
+   "R1163": "R1163 H+ diffusion",
+   "R882": "R882 L-isoleucine tr\u2026",
+   "R2034": "R2034 cytosol nonspec\u2026"
+  }
+ },
+ {
+  "scenario": "capacity_as_built",
+  "status_line": "AS BUILT: capacity = max |flux| any feasible state can carry (FVA at 0 %), Task A + PO1f. Every UM2 reaction is 0. Task A medium + PO1f, Gurobi 1e-9. Hover or c",
+  "escher_not_loaded": false,
+  "reaction_groups": 39,
+  "node_circles": 222,
+  "labels": {
+   "R795": "R795 V-ATPase, vacuo\u2026 0.00",
+   "R1163": "R1163 H+ diffusion 0.00",
+   "R882": "R882 L-isoleucine tr\u2026 0.00",
+   "R2034": "R2034 cytosol nonspec\u2026 0.00"
+  }
+ },
+ {
+  "scenario": "capacity_whatif_cprime",
+  "status_line": "WHAT-IF C' (NOT implemented): pump, water, R1163 as a vac-&gt;cyt leak and the 11 AVT/ATG22 transports opened in memory. Capacity on Task A: futile ATP cycles o",
+  "escher_not_loaded": false,
+  "reaction_groups": 39,
+  "node_circles": 222,
+  "labels": {
+   "R795": "R795 V-ATPase, vacuo\u2026 55.5",
+   "R1163": "R1163 H+ diffusion 111",
+   "R882": "R882 L-isoleucine tr\u2026 55.5",
+   "R2034": "R2034 cytosol nonspec\u2026 0.00"
+  }
+ },
+ {
+  "scenario": "loop_whatif_open17",
+  "status_line": "WHAT-IF 'open all 17' with R1163 as written (NOT implemented): flux with NO uptake at all. Red = internal loop (H+ in by R1163, out with the amino-acid shuttles",
+  "escher_not_loaded": false,
+  "reaction_groups": 39,
+  "node_circles": 222,
+  "labels": {
+   "R795": "R795 V-ATPase, vacuo\u2026 0.00",
+   "R1163": "R1163 H+ diffusion 1.00e+3",
+   "R882": "R882 L-isoleucine tr\u2026 500",
+   "R2034": "R2034 cytosol nonspec\u2026 0.00"
+  }
+ }
+]

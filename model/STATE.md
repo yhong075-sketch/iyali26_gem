@@ -5,6 +5,61 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-28: UM2 vacuolar closures kept by decision (Option A0, documentation only, no model change; committed 10f1656 on branch claude/fervent-shannon-141b92, not pushed)
+
+**Authorization.** The user, 2026-10-28, in this session, chose **"Option A0"** after the Stage 1 draft
+([TASK.md](reports/um2_vacuolar_closures_20261028/TASK.md) section 0). Scope: keep every closure and document
+it. No build, no curated data, no code. Committed on the branch on the user's instruction ("Commit on branch", 2026-10-28); not pushed.
+
+**Results** ([REPORT.md](reports/um2_vacuolar_closures_20261028/REPORT.md),
+[AUDIT.md](reports/um2_vacuolar_closures_20261028/AUDIT.md),
+[escher/](reports/um2_vacuolar_closures_20261028/escher/README.md)).
+- **Models:** Stage 1 ran on `9d655c2b…`. UM7 (PR #30) was merged meanwhile; the newest candidate,
+  `5f54eb22…`, has identical UM2 / vacuolar reactions and species, and the key checks reproduce on it. PR #31's
+  `965ab947…` (= `9d655c2b` + R2171 1:1) also has identical UM2 / vacuolar reactions; LPs were not re-run on
+  it. Not a designated reference. Task A medium + PO1f, Gurobi 1e-9.
+- **History:** open in Yeast 7.11 and closed in iYali4 (2016), then inherited unchanged by iYali4_corr, iYli21,
+  iYali26 and iYali5. Open in the Chalmers rebuild iYali v4.1.2 and in Yeast-GEM. No record of who closed them
+  or why (2026-09-11 provenance task). A plausible motive, **inferred**: in Yeast-GEM the vacuolar H+
+  diffusion and the H+-coupled transports loop with no uptake (verified there).
+- **Mechanism (verified, computed):**
+  - Every opening tested (B, B′, C, C′, "open all 17") leaves WT unchanged (Δ < 3e-15).
+  - Full single-gene sweeps: 0 class changes at 1 / 5 / 10 / 15 % and 0 knockout gains. 15 % stays
+    112 / 203 / 42 / 692 (TP / FN / FP / TN; user-defined negatives; development reference).
+  - No energy-generating cycle (`xMAINTENANCE` relaxed, status optimal).
+  - On Task A, the reactions an opening frees carry flux only in ATP-burning futile cycles; pFBA is 0.
+  - R1163 in its written direction (cytosol → vacuole) forms an unbounded no-uptake loop.
+  - The polyamine transports stay blocked under every option.
+- **Biology (homology only):**
+  - W29 has reciprocal best hits of AVT1 / AVT3 / AVT6 / ATG22, and *Y. lipolytica* vacuoles pump protons.
+  - The closure records "no function in this steady-state model", not "absent in the organism".
+  - The V-ATPase false negatives come from a missing acidification requirement, not from the closure.
+- **Census report:** the UM2 entry of
+  [gap_metabolites_ponce2013_20261026/REPORT.md](reports/gap_metabolites_ponce2013_20261026/REPORT.md) section 4
+  now records the decision.
+- **Figure:** as built vs the C′ what-if (not implemented), status map, the loop of the census test, and an
+  offline viewer, checked in jsdom and headless Chrome; 14,388 LPs.
+
+**Follow-ups found (not changed):**
+1. R925 is unbalanced (−3 H / −3 charge, from the 2026-09-10 metadata selection).
+2. R870 is named aspartate but carries asparagine.
+3. R1163 is written uphill.
+4. The iYli21 dipeptide sets cannot work: secretion-only exchanges, gene-less vacuolar "cytosol" hydrolases,
+   no formulas. The yeast route is PTR2 (`YALI1D24836g`) uptake plus cytosolic hydrolysis.
+5. R2055 / R2056 (vacuolar His/Lys import) are open but blocked and miss the VBA1 reciprocal best hit
+   `YALI1B04391g`.
+
+**Limits.**
+- Literature from abstracts and UniProt, gathered by an evidence subagent. Two PMID links I added were wrong
+  in the draft and were corrected against PubMed.
+- No vacuolar storage, pH or starvation condition was tested; only the Task A medium and "every exchange
+  open".
+- The 2016 motive stays inferred.
+- **Audit:** an independent subagent re-derived 16 claim groups with its own scripts, all supported. It was cut
+  off twice by machine sleep before writing, so AUDIT.md was compiled from its logs by the main session.
+  Wording, the subagent biology and the Escher counts were not audited.
+- Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/um2_vacuolar_closures_20261028/`.
+
 ## 2026-10-28: R2171 written 1:1 (PI + H2O → DAG + Ins1P + 2 H+), inositol leak closed, candidate 965ab947 (committed af2ebab)
 
 **Authorization.** The user, 2026-10-28: "Approve Option A" of the Stage 2 draft
