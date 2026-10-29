@@ -5,11 +5,11 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-28: UM2 vacuolar closures kept by decision (Option A0, documentation only, no model change; not committed)
+## 2026-10-28: UM2 vacuolar closures kept by decision (Option A0, documentation only, no model change; committed 10f1656 on branch claude/fervent-shannon-141b92, not pushed)
 
 **Authorization.** The user, 2026-10-28, in this session, chose **"Option A0"** after the Stage 1 draft
 ([TASK.md](reports/um2_vacuolar_closures_20261028/TASK.md) section 0). Scope: keep every closure and document
-it. No build, no curated data, no code. Commit only on a further instruction.
+it. No build, no curated data, no code. Committed on the branch on the user's instruction ("Commit on branch", 2026-10-28); not pushed.
 
 **Results** ([REPORT.md](reports/um2_vacuolar_closures_20261028/REPORT.md),
 [AUDIT.md](reports/um2_vacuolar_closures_20261028/AUDIT.md),
