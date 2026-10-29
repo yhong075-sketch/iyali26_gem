@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-29: R171 and R673 note wording revised in the curated data, candidate 25dabf62 (supersedes ca43ae0c and 6af03c40 for note wording; not committed)
+## 2026-10-29: R171 and R673 note wording revised in the curated data, candidates 25dabf62 and 059316ef (supersede ca43ae0c and 6af03c40 for note wording; committed efdde43 on claude/essential-gene-r171-pro-7e2477, not pushed)
 
 **Authorization.** The user, 2026-10-29: "Yes, fix notes", then "Approve, option A" for the plan in
 [TASK.md](reports/r171_r673_note_revision_20261029/TASK.md): edit the two curated data files in place, rebuild to a
@@ -51,7 +51,7 @@ all areas, with one wording imprecision and one candidate overstatement noted be
     - The R673 note calls `YALI1D19110g` "AIM10-like".
     - The data's evidence list says "best hit", "synteny partner" and "ortholog reference".
 
-## 2026-10-29: R673 prolyl-tRNA synthetase: TargetP / DeepLoc predictions, then the cytosolic reaction assigned to YALI1E05929g, candidate 6af03c40 (not committed)
+## 2026-10-29: R673 prolyl-tRNA synthetase: TargetP / DeepLoc predictions, then the cytosolic reaction assigned to YALI1E05929g, candidate 6af03c40 (committed efdde43 on claude/essential-gene-r171-pro-7e2477, not pushed)
 
 **Authorization.** The user, 2026-10-29:
 - "Yes, run predictors" approved submitting the two W29 sequences to TargetP 2.0 and DeepLoc 2.1 and keeping the raw
@@ -113,7 +113,7 @@ Verified this session. The independent audit supports everything except the evid
   is recorded, not rebuilt; together with the R171 note wording, it is a candidate for one combined note revision.
 - One medium.
 
-## 2026-10-29: R171 ATP synthase rule without the single-gene OR branches, subunits e and j out of the AND (Option D), candidate ca43ae0c (not committed)
+## 2026-10-29: R171 ATP synthase rule without the single-gene OR branches, subunits e and j out of the AND (Option D), candidate ca43ae0c (committed efdde43 on claude/essential-gene-r171-pro-7e2477, not pushed)
 
 **Authorization.** The user, 2026-10-29, answering "Which R171 option should I build (the plan above, on baseline
 d8d1bac7)?": **"Option D (Recommended)"**. That answer approved the plan in
