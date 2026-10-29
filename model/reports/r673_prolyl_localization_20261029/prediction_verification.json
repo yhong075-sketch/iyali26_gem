@@ -1,0 +1,63 @@
+{
+ "jobs": {
+  "TargetP-2.0": {
+   "job_id": "6AE3BC76002509BB05EB4B1C",
+   "organism": "Non-Plant",
+   "format": "long"
+  },
+  "DeepLoc-2.1": {
+   "job_id": "6AE3BCA7002509D23808033B",
+   "encode": "Slow (High-quality, ProtT5)",
+   "format": "long",
+   "thresholds": {
+    "Cytoplasm": 0.4761,
+    "Nucleus": 0.5014,
+    "Extracellular": 0.6173,
+    "Cell membrane": 0.5646,
+    "Mitochondrion": 0.622,
+    "Plastid": 0.6395,
+    "Endoplasmic reticulum": 0.609,
+    "Lysosome/Vacuole": 0.5848,
+    "Golgi apparatus": 0.6494,
+    "Peroxisome": 0.7364
+   },
+   "membrane_thresholds": {
+    "Peripheral": "0.60",
+    "Transmembrane": "0.51",
+    "Lipid anchor": "0.82",
+    "Soluble": "0.50"
+   }
+  }
+ },
+ "target_fasta_sha256": "c45c02c369d7216712565a3749f6d6dd554b34c2cc4ea90f8c5c746031121350",
+ "files": {
+  "raw/deeploc/alpha_yali1d19110g_w29_xp_5028691.csv": "d081a9cd138bc9e825f7e18d79be9ae2e9a3bf37d4ee381039c907f6625ada9d",
+  "raw/deeploc/alpha_yali1e05929g_w29_xp_5035662.csv": "8391d75e8d5e4e53c62d2c867a31cf5fee4fbef0ef06d7d301a4f621216e8b1f",
+  "raw/deeploc/attention_png_sha256.txt": "dca8840e0bd750fae2f98ef3b80f4d396fdaea508f0f45c779970ca2857f1630",
+  "raw/deeploc/downloaded_at_utc.txt": "79548bedffdd8bdefce837772558a86c6c1ee39a25fcba0e50796891362d0f27",
+  "raw/deeploc/results.json": "c3fefe5e821a5bb4a06e7f9d1c514b917faf302b083303ba6925a20583838ce0",
+  "raw/deeploc/results_6AE3BCA7002509D23808033B.csv": "edcb25d9111079e6cbf76e74141aa67a71958c62c752e5cef0b3c8b11cc18fa5",
+  "raw/targetp/downloaded_at_utc.txt": "217e06bea4858ffea53530199ef55b7ef69a1432cacb21a1844b24eeb806abb4",
+  "raw/targetp/output.gff3": "cdc5b800bbdef0a468695382229da90d6562a53d76470e444f187eb2fccb662b",
+  "raw/targetp/output.json": "730f82ff67a036844d07c06681efd1758600480278a16f381270821274c63277",
+  "raw/targetp/output_YALI1D19110g_W29_XP_502869.1_pred.txt": "8fe3d2ed7d67441f4add4ffe533fc4f48c11f136cbf3535e65f2d1ed9e1ebdc1",
+  "raw/targetp/output_YALI1E05929g_W29_XP_503566.2_pred.txt": "ebb1e02c7ee623bfdc59d46126ad2fedceed789d191b4d65bb58af98d16597d8",
+  "raw/targetp/output_all_results.zip": "767025e2cfda04ddc35611d5e46b14a2ae8c522faaa343d99cb2b68c60b464a6",
+  "raw/targetp/output_mature.fasta": "cb2711a6df0f5c05364c9dc4b49aea498a66afd0e5975c3539dbca30f95d8b3f",
+  "raw/targetp/output_protein_type.txt": "4c9e72392d1fa8276e02383df9609cad339952a22d009820a4a23da843344440"
+ },
+ "checks": {
+  "targetp_failed_jobs_zero": true,
+  "targetp_zip_crc_ok": true,
+  "targetp_pred_equals_zip_YALI1E05929g_W29_XP_503566.2": true,
+  "targetp_prefix_YALI1E05929g_W29_XP_503566.2": true,
+  "targetp_prefix_length_YALI1E05929g_W29_XP_503566.2": 200,
+  "targetp_pred_equals_zip_YALI1D19110g_W29_XP_502869.1": true,
+  "targetp_prefix_YALI1D19110g_W29_XP_502869.1": true,
+  "targetp_prefix_length_YALI1D19110g_W29_XP_502869.1": 200,
+  "deeploc_failed_jobs_zero": true,
+  "deeploc_full_sequence_YALI1E05929g_W29_XP_503566.2": true,
+  "deeploc_full_sequence_YALI1D19110g_W29_XP_502869.1": true
+ },
+ "all_checks_passed": true
+}

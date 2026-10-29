@@ -1,0 +1,13 @@
+# Run from platform/ at HEAD ff7fc62 plus the uncommitted rounds (pass2/logs/build_head.txt). The seed is the
+# environment value for each run; .build.json does not record PYTHONHASHSEED.
+# ARGS = the 25dabf62 argv without --output-model (see ../logs/build_commands.txt).
+
+# candidate 059316ef (v3)
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_notes_v3_20261029.xml
+
+# seed check (identical bytes)
+PYTHONHASHSEED=1 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/rebuild_notes3/candidate_seed1.xml
+
+# results (shasum -a 256)
+# 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d  candidate (seed 0)
+# 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d  candidate_seed1.xml

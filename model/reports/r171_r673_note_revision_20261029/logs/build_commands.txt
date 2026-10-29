@@ -1,0 +1,13 @@
+# Run from platform/ at HEAD ff7fc62 with the uncommitted R171, R673 and note-revision changes (logs/build_head.txt).
+# The seed is the environment value set for each run; .build.json does not record PYTHONHASHSEED.
+# ARGS = the 6af03c40 argv without --output-model (the d8d1bac7 argv + --r171-atp-synthase-gpr --r673-prolyl-split).
+
+# candidate 25dabf62
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model ../model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_notes_v2_20261029.xml
+
+# seed check (identical bytes)
+PYTHONHASHSEED=1 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/rebuild_notes/candidate_seed1.xml
+
+# results (shasum -a 256)
+# 25dabf62af2b28eb3d515a536680d4eb68fd0460f51253ea077e9f13d13d52b0  candidate (seed 0)
+# 25dabf62af2b28eb3d515a536680d4eb68fd0460f51253ea077e9f13d13d52b0  candidate_seed1.xml

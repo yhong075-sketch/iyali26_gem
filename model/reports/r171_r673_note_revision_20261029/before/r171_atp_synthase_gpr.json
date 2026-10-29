@@ -1,0 +1,379 @@
+{
+ "schema_version": 1,
+ "assignment_id": "R171-ATP-SYNTHASE-GPR-20261029",
+ "status": "user_authorized_gpr_correction",
+ "authorization": "2026-10-29 user: Option D (Recommended) for R171, answering the question which R171 option to build, with the plan of TASK.md, on baseline d8d1bac7: 12-subunit AND, single-gene OR branches g and k removed, subunits e and j removed from the rule, the four genes kept in the model unlinked; flag --r171-atp-synthase-gpr. No commit or push.",
+ "reaction": {
+  "id": "R171",
+  "reaction_name": "ATP synthase",
+  "before_gpr": "(YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g) or YALI1B28025g or YALI1B15733g",
+  "after_gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI1F26967g",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "stoichiometry": {
+   "m10[C_cy]": -4.0,
+   "m197[C_mi]": -1.0,
+   "m26[C_mi]": 1.0,
+   "m28[C_mi]": 4.0,
+   "m46[C_mi]": 1.0,
+   "m58[C_mi]": -1.0
+  },
+  "species": {
+   "m10[C_cy]": {
+    "charge": 1,
+    "compartment": "C_cy",
+    "formula": "H"
+   },
+   "m197[C_mi]": {
+    "charge": 0,
+    "compartment": "C_mi",
+    "formula": "C10H15N5O10P2"
+   },
+   "m26[C_mi]": {
+    "charge": 0,
+    "compartment": "C_mi",
+    "formula": "H2O"
+   },
+   "m28[C_mi]": {
+    "charge": 1,
+    "compartment": "C_mi",
+    "formula": "H"
+   },
+   "m46[C_mi]": {
+    "charge": 0,
+    "compartment": "C_mi",
+    "formula": "C10H16N5O13P3"
+   },
+   "m58[C_mi]": {
+    "charge": 0,
+    "compartment": "C_mi",
+    "formula": "H3O4P"
+   }
+  },
+  "annotation": {
+   "bigg.reaction": [
+    "ATPSh",
+    "R_ATPSh"
+   ],
+   "biggr": [
+    "ATPSh",
+    "R_ATPSh"
+   ],
+   "ec-code": "7.1.2.2",
+   "metanetx.reaction": "MNXR153058",
+   "sbo": "SBO:0000185"
+  },
+  "before_notes": {
+   "PROTEIN_CLASS": "3.6.3.14",
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+  },
+  "notes": {
+   "r171_atp_synthase_gpr_curation_id": "R171-ATP-SYNTHASE-GPR-20261029",
+   "r171_atp_synthase_gpr_status": "user_authorized_gpr_correction",
+   "r171_atp_synthase_gpr_authorization": "2026-10-29 user: Option D (Recommended) for R171, answering the question which R171 option to build, with the plan of TASK.md, on baseline d8d1bac7: 12-subunit AND, single-gene OR branches g and k removed, subunits e and j removed from the rule, the four genes kept in the model unlinked; flag --r171-atp-synthase-gpr. No commit or push.",
+   "r171_atp_synthase_gpr_previous_gpr": "(YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI0D17490g and YALI1F26967g and YALI1E38131g) or YALI1B28025g or YALI1B15733g",
+   "r171_atp_synthase_gpr_unlinked_genes": "YALI1B28025g (subunit g, ATP20-like); YALI1B15733g (subunit k, ATP19-like); YALI1E38131g (subunit e, TIM11/ATP21-like); YALI0D17490g (subunit j, ATP18-like); kept in the model with no reaction",
+   "r171_atp_synthase_gpr_evidence": "AND members are the subunits whose loss is taken to close the reaction: ATP6/8/9 (mtDNA) and the nine nuclear core subunits (alpha, beta, gamma, delta, OSCP, b, d, h, f). Subunits e, g, k are dimer-specific and the Y. lipolytica monomer lacking them is catalytically active (Hahn 2016, PMID 27373333); g and k were not found in the purified Y. lipolytica enzyme (Liu 2015, PMID 25759169); S. cerevisiae e, g, k are not required for an enzymatically active ATP synthase (Arnold 1998, PMID 9857174); the S. cerevisiae subunit-j null keeps about half the ATPase activity (Vaillier 1999, PMID 9867878). OR-rule review 2026-10-29, REPORT section 7.1.",
+   "r171_atp_synthase_gpr_evidence_tier": "literature on the Y. lipolytica enzyme (structure, purified-enzyme composition, hydrolysis rather than synthesis) and S. cerevisiae mutants; no Y. lipolytica knockout of e, g, k or j; keep-or-drop of j is a judgement"
+  }
+ },
+ "genes": {
+  "YALI0D17490g": {
+   "annotation": {
+    "ensembl": "CAG81134",
+    "kegg.genes": "yli:2911301",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C8S0"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": []
+  },
+  "YALI1B05364g": {
+   "annotation": {
+    "ec-code": "7.1.2.2",
+    "ensembl": "CAG82701",
+    "kegg.genes": "yli:2907185",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6CFT7"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1B08885g": {
+   "annotation": {
+    "ensembl": "CAG82814",
+    "kegg.genes": "yli:2907546",
+    "refseq": "XP_500583.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6CFH9"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1B15733g": {
+   "annotation": {
+    "ensembl": "CAR64284",
+    "kegg.genes": "yli:7009411",
+    "refseq": "XP_002143014.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "B5FVB3"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": []
+  },
+  "YALI1B28025g": {
+   "annotation": {
+    "ensembl": "CAR64289",
+    "kegg.genes": "yli:7009423",
+    "refseq": "XP_002143021.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "B5FVB8"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": []
+  },
+  "YALI1D14639g": {
+   "annotation": {
+    "ensembl": "CAG80904",
+    "kegg.genes": "yli:2910601",
+    "refseq": "XP_502716.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C9E6"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1D15734g": {
+   "annotation": {
+    "ensembl": "CAG80939",
+    "kegg.genes": "yli:2910146",
+    "refseq": "XP_502751.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C9B1"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1D27826g": {
+   "annotation": {
+    "kegg.genes": "yli:2910195",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C877"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1E38131g": {
+   "annotation": {
+    "ensembl": "CAR64348",
+    "kegg.genes": "yli:7009589",
+    "refseq": "XP_002143092.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "B5FVG3"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": []
+  },
+  "YALI1F04110g": {
+   "annotation": {
+    "ensembl": "CAG77729",
+    "kegg.genes": "yli:2907762",
+    "refseq": "XP_504924.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C338"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1F04433g": {
+   "annotation": {
+    "ensembl": "CAG77741",
+    "kegg.genes": "yli:2907749",
+    "refseq": "XP_504936.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C326"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1F07384g": {
+   "annotation": {
+    "ensembl": "CAG77813",
+    "kegg.genes": "yli:2908594",
+    "refseq": "XP_505006.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C2V6"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1F26967g": {
+   "annotation": {
+    "ensembl": "CAG78466",
+    "kegg.genes": "yli:2907796",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C105"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1M00260g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1M00267g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  },
+  "YALI1M00318g": {
+   "annotation": {
+    "sbo": "SBO:0000243"
+   },
+   "reactions_before": [
+    "R171"
+   ],
+   "reactions_after": [
+    "R171"
+   ]
+  }
+ },
+ "unlinked_genes": {
+  "YALI1B28025g": {
+   "subunit": "g, ATP20-like",
+   "identity": "YALI0B21527g, UniProt B5FVB8, 138 aa",
+   "previous_role": "single-gene OR branch",
+   "reason": "a single accessory subunit has no evidence of catalysing ATP synthesis alone; dimer-specific (Hahn 2016), not found in the purified Y. lipolytica enzyme (Liu 2015)"
+  },
+  "YALI1B15733g": {
+   "subunit": "k, ATP19-like",
+   "identity": "YALI0B11913g, UniProt B5FVB3, 70 aa",
+   "previous_role": "single-gene OR branch",
+   "reason": "as g; not found in the purified Y. lipolytica enzyme (Liu 2015)"
+  },
+  "YALI1E38131g": {
+   "subunit": "e, TIM11/ATP21-like",
+   "identity": "YALI0E32164g, UniProt B5FVG3, 90 aa",
+   "previous_role": "AND member",
+   "reason": "dimer-specific; the Y. lipolytica monomer lacking e, g, k hydrolyses ATP at about the rate of the dimer (Hahn 2016); S. cerevisiae e, g, k not required for an enzymatically active ATP synthase (Arnold 1998)"
+  },
+  "YALI0D17490g": {
+   "subunit": "j, ATP18-like",
+   "identity": "CLIB122 id YALI0D17490g (S2 map: YALI1_D21476g), UniProt Q6C8S0, 62 aa",
+   "previous_role": "AND member",
+   "reason": "S. cerevisiae null viable with about half the specific ATPase activity and a low ADP/O ratio (Vaillier 1999, abstract): loss impairs, does not abolish, the activity; one S. cerevisiae abstract, no Y. lipolytica data, not screened"
+  }
+ },
+ "reviewed_model": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_20261029.xml",
+  "sha256": "d8d1bac78138f59ba6beefcbddae7f93d0a20e245fea6f5dd9c79760ee535751"
+ },
+ "review": "model/reports/or_rule_review_r171_aars_20261029/REPORT.md",
+ "report": "model/reports/r171_atp_synthase_gpr_20261029/REPORT.md",
+ "reviewer": "Claude Code session 2026-10-29 (review and implementation); option chosen by the user; independent audit in the report",
+ "evidence_tier": "literature on the Y. lipolytica enzyme (structure, purified-enzyme composition, hydrolysis rather than synthesis) and S. cerevisiae mutants; no Y. lipolytica knockout of e, g, k or j; keep-or-drop of j is a judgement",
+ "evidence": [
+  {
+   "url": "https://europepmc.org/article/MED/27373333",
+   "claim": "Y. lipolytica ATP synthase dimer (cryo-EM): e, g, k dimer-specific; DDM monomer lacking e, g, k hydrolyses ATP at about the rate of the dimer",
+   "tier": "Y. lipolytica structure and enzymology"
+  },
+  {
+   "url": "https://europepmc.org/article/MED/25759169",
+   "claim": "purified Y. lipolytica ATP synthase: subunits g, k and l not found; e listed (absent from the DDM preparation)",
+   "tier": "Y. lipolytica purified-enzyme composition"
+  },
+  {
+   "url": "https://europepmc.org/article/MED/9857174",
+   "claim": "S. cerevisiae: e, g, k not required for enzymatically active ATP synthase; e and g needed for the dimer",
+   "tier": "S. cerevisiae mutants (abstract)"
+  },
+  {
+   "url": "https://europepmc.org/article/MED/9867878",
+   "claim": "S. cerevisiae atp18 null: viable, low growth on non-fermentable medium, about 2-fold less specific ATPase activity, low ADP/O",
+   "tier": "S. cerevisiae mutant (abstract)"
+  },
+  {
+   "url": "https://www.uniprot.org/uniprotkb/B5FVB8/entry",
+   "claim": "YALI0B21527g: ATP synthase subunit g",
+   "tier": "database"
+  },
+  {
+   "url": "https://www.uniprot.org/uniprotkb/B5FVB3/entry",
+   "claim": "YALI0B11913g: ATP synthase subunit K",
+   "tier": "database"
+  },
+  {
+   "url": "https://www.uniprot.org/uniprotkb/B5FVG3/entry",
+   "claim": "YALI0E32164g: ATP synthase subunit e",
+   "tier": "database"
+  },
+  {
+   "url": "https://www.uniprot.org/uniprotkb/Q6C8S0/entry",
+   "claim": "YALI0D17490g: ATP synthase subunit J",
+   "tier": "database"
+  }
+ ]
+}
