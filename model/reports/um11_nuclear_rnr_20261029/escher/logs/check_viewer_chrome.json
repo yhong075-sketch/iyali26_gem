@@ -1,0 +1,67 @@
+[
+ {
+  "scenario": "status",
+  "status_line": "AS BUILT (decision B, unchanged): orange = blocked (the 11 UM11 reactions), light blue = can carry flux, purple = what-if link NOT in the model. Task A + PO1f. ",
+  "escher_not_loaded": false,
+  "reaction_groups": 25,
+  "node_circles": 156,
+  "labels": {
+   "R707": "R707 ribonucleotide \u2026",
+   "R1914": "R1914 ribonucleotide \u2026",
+   "R706": "R706 ribonucleotide \u2026",
+   "T_TRX1tn": "T_TRX1tn reduced thiored\u2026"
+  }
+ },
+ {
+  "scenario": "pfba_as_built",
+  "status_line": "AS BUILT: pFBA flux at the optimum, Task A + PO1f. Deoxynucleotides are made in the cytosol (R702, R710, R1913 at this optimum); every nuclear copy is 0. Task A",
+  "escher_not_loaded": false,
+  "reaction_groups": 25,
+  "node_circles": 156,
+  "labels": {
+   "R707": "R707 ribonucleotide \u2026 0.00",
+   "R1914": "R1914 ribonucleotide \u2026 0.00",
+   "R706": "R706 ribonucleotide \u2026 0.00",
+   "T_TRX1tn": "T_TRX1tn reduced thiored\u2026 (nd)"
+  }
+ },
+ {
+  "scenario": "capacity_as_built",
+  "status_line": "AS BUILT: capacity = max |flux| any feasible state can carry (FVA at 0 %), Task A + PO1f. Every UM11 reaction is 0. Task A medium + PO1f, Gurobi 1e-9. Hover or ",
+  "escher_not_loaded": false,
+  "reaction_groups": 25,
+  "node_circles": 156,
+  "labels": {
+   "R707": "R707 ribonucleotide \u2026 0.00",
+   "R1914": "R1914 ribonucleotide \u2026 0.00",
+   "R706": "R706 ribonucleotide \u2026 1.58",
+   "T_TRX1tn": "T_TRX1tn reduced thiored\u2026 (nd)"
+  }
+ },
+ {
+  "scenario": "capacity_whatif_A",
+  "status_line": "WHAT-IF A (NOT implemented): reduced and oxidized thioredoxin linked nucleus &lt;-&gt; cytosol in memory. All 11 gain capacity; nothing else in the model change",
+  "escher_not_loaded": false,
+  "reaction_groups": 25,
+  "node_circles": 156,
+  "labels": {
+   "R707": "R707 ribonucleotide \u2026 1.58",
+   "R1914": "R1914 ribonucleotide \u2026 1.63",
+   "R706": "R706 ribonucleotide \u2026 1.58",
+   "T_TRX1tn": "T_TRX1tn reduced thiored\u2026 1.63"
+  }
+ },
+ {
+  "scenario": "pfba_whatif_A",
+  "status_line": "WHAT-IF A (NOT implemented): pFBA flux at the optimum. Every nuclear copy is still 0: they add capacity, never growth. Task A medium + PO1f, Gurobi 1e-9. Hover ",
+  "escher_not_loaded": false,
+  "reaction_groups": 25,
+  "node_circles": 156,
+  "labels": {
+   "R707": "R707 ribonucleotide \u2026 0.00",
+   "R1914": "R1914 ribonucleotide \u2026 0.00",
+   "R706": "R706 ribonucleotide \u2026 0.000243",
+   "T_TRX1tn": "T_TRX1tn reduced thiored\u2026 0.00"
+  }
+ }
+]
