@@ -1,0 +1,805 @@
+Set parameter Username
+Set parameter LicenseID to value 2843063
+Academic license - for non-commercial use only - expires 2027-07-10
+
+##### homocitrate  (formula C7H10O7; match keys [])
+   copies: m628[C_nu]
+  -- m628[C_nu] homocitrate_C7H10O7 q=0
+     R396      produces reaction  (0.0, 1000.0)    GPR=YALI1F38776g                             homocitrate synthase
+                m208[C_nu] + m625[C_nu] + m626[C_nu] --> m207[C_nu] + m628[C_nu]
+
+##### diphosphate  (formula H4O7P2; match keys ['chebi:CHEBI:13420', 'chebi:CHEBI:18361', 'chebi:CHEBI:29888', 'chebi:CHEBI:33017'])
+   copies: m203[C_cy], m380[C_em], m1497[C_en], m413[C_lp], m204[C_mi], m385[C_mm], m210[C_nu], m518[C_pe]
+  -- m203[C_cy] diphosphate_H4O7P2 q=0
+     R1097     produces reaction  (0.0, 1000.0)    GPR=-                                        dihydroneopterin triphosphate pyrophosph
+                m282[C_cy] + m32[C_cy] --> m203[C_cy] + m484[C_cy]
+     R1100     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        diphosphate transport
+                m203[C_cy] <=> m518[C_pe]
+     R114      produces reaction  (0.0, 1000.0)    GPR=YALI1D07451g                             adenine phosphoribosyltransferase
+                5.0 m10[C_cy] + m145[C_cy] + m253[C_cy] --> m203[C_cy] + m86[C_cy]
+     R120      produces reaction  (0.0, 1000.0)    GPR=YALI1B24424g                             adenylate cyclase
+                m141[C_cy] --> m203[C_cy] + m87[C_cy]
+     R129      produces reaction  (0.0, 1000.0)    GPR=YALI1B05571g                             alanyl-tRNA synthetase
+                m114[C_cy] + m141[C_cy] + m273[C_cy] --> m203[C_cy] + m274[C_cy] + m86[C_cy]
+     R1309     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        pyrophosphate transport
+                m203[C_cy] <=> m204[C_mi]
+     R147      produces reaction  (0.0, 1000.0)    GPR=YALI1D35787g                             anthranilate phosphoribosyltransferase
+                2.0 m10[C_cy] + m253[C_cy] + m305[C_cy] --> m203[C_cy] + m306[C_cy]
+     R153      both     reaction  (-1000.0, 1000.0) GPR=-                                        argininosuccinate synthase
+                m141[C_cy] + m267[C_cy] + m313[C_cy] <=> m203[C_cy] + m312[C_cy] + m86[C_cy]
+     R154      produces reaction  (0.0, 1000.0)    GPR=YALI1E21345g                             arginyl-tRNA synthetase
+                m141[C_cy] + m310[C_cy] + m314[C_cy] --> m203[C_cy] + m315[C_cy] + m86[C_cy]
+     R156      produces reaction  (0.0, 1000.0)    GPR=YALI1A13454g or YALI1F35822g             asparagine synthase (glutamine-hydrolysi
+                m130[C_cy] + m141[C_cy] + m267[C_cy] + m32[C_cy] --> m203[C_cy] + m319[C_cy] + m50[C_cy] + m86[C_cy]
+     R157      produces reaction  (0.0, 1000.0)    GPR=YALI1E05907g                             Asparaginyl-tRNA synthetase
+                m141[C_cy] + m319[C_cy] + m320[C_cy] --> m203[C_cy] + m321[C_cy] + m86[C_cy]
+     R1597     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        diphosphate transport, cytoplasm-ER memb
+                m203[C_cy] <=> m380[C_em]
+     R1632     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        diphosphate transport, cytoplasm-lipid p
+                m203[C_cy] <=> m413[C_lp]
+     R165      produces reaction  (0.0, 1000.0)    GPR=YALI1D28087g                             Aspartyl-tRNA synthetase
+                m141[C_cy] + m267[C_cy] + m335[C_cy] --> m203[C_cy] + m336[C_cy] + m86[C_cy]
+     R170      produces reaction  (0.0, 1000.0)    GPR=YALI1C06626g                             ATP phosphoribosyltransferase
+                m141[C_cy] + m253[C_cy] --> m10[C_cy] + m203[C_cy] + m341[C_cy]
+     R175      produces reaction  (0.0, 1000.0)    GPR=YALI1E35955g                             biotin-[acetyl-CoA-carboxylase] ligase
+                m141[C_cy] + m348[C_cy] --> m10[C_cy] + m203[C_cy] + m349[C_cy]
+     R1934     produces reaction  (0.0, 1000.0)    GPR=YALI1B29883g                             GTP diphosphohydrolase (diphosphate-form
+                m266[C_cy] + m32[C_cy] --> m203[C_cy] + m93[C_cy]
+     R1935     produces reaction  (0.0, 1000.0)    GPR=YALI1B24424g                             GTP diphosphate-lyase (cyclizing; 3',5'-
+                m266[C_cy] --> m203[C_cy] + m92[C_cy]
+     R1943     produces reaction  (0.0, 1000.0)    GPR=YALI1B29883g                             Uridine triphosphate pyrophosphohydrolas
+                m32[C_cy] + m439[C_cy] --> m149[C_cy] + m203[C_cy]
+     R1944     produces reaction  (0.0, 1000.0)    GPR=YALI1B29883g                             Inosine 5'-triphosphate pyrophosphohydro
+                m32[C_cy] + m843[C_cy] --> m203[C_cy] + m91[C_cy]
+     R1945     produces reaction  (0.0, 1000.0)    GPR=YALI1B29883g                             2'-Deoxyguanosine 5'-triphosphate diphos
+                m32[C_cy] + m841[C_cy] --> m203[C_cy] + m465[C_cy]
+     R1952     produces reaction  (0.0, 1000.0)    GPR=YALI1B29883g                             2'-Deoxyinosine-5'-triphosphate pyrophos
+                m32[C_cy] + m845[C_cy] --> m10[C_cy] + m1808[C_cy] + m203[C_cy]
+     R2024     both     reaction  (-1000.0, 1000.0) GPR=YALI1F08845g                             Propanoate:CoA ligase (AMP-forming)
+                m141[C_cy] + m1874[C_cy] + m69[C_cy] <=> m1875[C_cy] + m203[C_cy] + m86[C_cy]
+     R2085     produces reaction  (0.0, 1000.0)    GPR=YALI1E24479g or YALI1F38986g             UMP:diphosphate phospho-alpha-D-ribosylt
+                5.0 m10[C_cy] + m253[C_cy] + m451[C_cy] --> m149[C_cy] + m203[C_cy]
+     R2108     produces reaction  (0.0, 1000.0)    GPR=YALI1E03762g                             UTP:N-acetyl-alpha-D-glucosamine-1-phosp
+                m10[C_cy] + m439[C_cy] + m878[C_cy] --> m1964[C_cy] + m203[C_cy]
+     R213      produces reaction  (0.0, 1000.0)    GPR=YALI1D22834g                             choline phosphate cytididyltransferase
+                m405[C_cy] + m406[C_cy] --> m203[C_cy] + m407[C_cy]
+     R2179     produces reaction  (0.0, 1000.0)    GPR=YALI1D21022g or YALI1E06759g             Geranyl-diphosphate:isopentenyl-diphosph
+                m491[C_cy] + m493[C_cy] --> m2020[C_cy] + m203[C_cy]
+     R2180     produces reaction  (0.0, 1000.0)    GPR=YALI1C26036g or YALI1D21543g             (2E,6E)-farnesyl-diphosphate:isopentenyl
+                2.0 m10[C_cy] + m2020[C_cy] + m491[C_cy] --> m2019[C_cy] + m203[C_cy]
+     R248      produces reaction  (0.0, 1000.0)    GPR=YALI1D18577g                             cysteinyl-tRNA synthetase
+                m141[C_cy] + m443[C_cy] + m447[C_cy] --> m203[C_cy] + m448[C_cy] + m86[C_cy]
+     R282      produces reaction  (0.0, 1000.0)    GPR=YALI1E06759g                             dimethylallyltranstransferase
+                3.0 m10[C_cy] + m491[C_cy] + m492[C_cy] --> m203[C_cy] + m493[C_cy]
+     R291      produces reaction  (0.0, 1000.0)    GPR=YALI1F25908g                             dUTP diphosphatase
+                m32[C_cy] + m462[C_cy] --> m203[C_cy] + m460[C_cy]
+     R295      produces reaction  (0.0, 1000.0)    GPR=YALI1D21022g                             farnesyltranstransferase
+                3.0 m10[C_cy] + m491[C_cy] + m512[C_cy] --> m203[C_cy] + m513[C_cy]
+     R306      produces reaction  (0.0, 1000.0)    GPR=YALI1D33889g                             FMN adenylyltransferase
+                m141[C_cy] + m527[C_cy] --> m203[C_cy] + m528[C_cy]
+     R319      produces reaction  (0.0, 1000.0)    GPR=YALI1F31405g                             galactose-1-phosphate uridylyltransferas
+                2.0 m10[C_cy] + m439[C_cy] + m545[C_cy] --> m203[C_cy] + m546[C_cy]
+     R321      produces reaction  (0.0, 1000.0)    GPR=-                                        geranylgeranyltranstransferase
+                m491[C_cy] + m513[C_cy] --> m203[C_cy] + m548[C_cy]
+     R322      produces reaction  (0.0, 1000.0)    GPR=YALI1E06759g                             geranyltranstransferase
+                m491[C_cy] + m493[C_cy] --> 3.0 m10[C_cy] + m203[C_cy] + m512[C_cy]
+     R336      produces reaction  (0.0, 1000.0)    GPR=YALI1C04882g                             glutaminyl-tRNA synthetase
+                m130[C_cy] + m141[C_cy] + m553[C_cy] --> m203[C_cy] + m554[C_cy] + m86[C_cy]
+     R337      produces reaction  (0.0, 1000.0)    GPR=YALI1E33633g                             glutamyl-tRNA synthetase
+                m141[C_cy] + m50[C_cy] + m555[C_cy] --> m203[C_cy] + m556[C_cy] + m86[C_cy]
+     R368      produces reaction  (0.0, 1000.0)    GPR=YALI1E17574g                             glycyl-tRNA synthetase
+                m141[C_cy] + m272[C_cy] + m590[C_cy] --> m203[C_cy] + m591[C_cy] + m86[C_cy]
+     R369      produces reaction  (0.0, 1000.0)    GPR=YALI1B21070g                             GMP synthase
+                2.0 m10[C_cy] + m130[C_cy] + m141[C_cy] + m32[C_cy] + m592[C_cy] --> m203[C_cy] + m50[C_cy] + m86[C_cy] + m93[C_cy]
+     R378      produces reaction  (0.0, 1000.0)    GPR=YALI1E02885g                             GTP cyclohydrolase II
+                m266[C_cy] + 3.0 m32[C_cy] --> 2.0 m10[C_cy] + m203[C_cy] + m34[C_cy] + m39[C_cy]
+     R380      produces reaction  (0.0, 1000.0)    GPR=YALI1E19958g                             guanine phosphoribosyltransferase
+                5.0 m10[C_cy] + m253[C_cy] + m595[C_cy] --> m203[C_cy] + m93[C_cy]
+     R392      produces reaction  (0.0, 1000.0)    GPR=YALI1E16068g                             histidyl-tRNA synthetase
+                m141[C_cy] + m615[C_cy] + m618[C_cy] --> m203[C_cy] + m619[C_cy] + m86[C_cy]
+     R414      produces reaction  (0.0, 1000.0)    GPR=YALI1E19958g                             hypoxanthine phosphoribosyltransferase (
+                5.0 m10[C_cy] + m253[C_cy] + m651[C_cy] --> m203[C_cy] + m91[C_cy]
+     R419      consumes reaction  (0.0, 1000.0)    GPR=YALI1C16485g or YALI1F18105g             inorganic diphosphatase
+                m203[C_cy] + m32[C_cy] --> 2.0 m35[C_cy]
+     R493      produces reaction  (0.0, 1000.0)    GPR=YALI1A00309g                             isoleucyl-tRNA synthetase
+                m141[C_cy] + m743[C_cy] + m746[C_cy] --> m203[C_cy] + m747[C_cy] + m86[C_cy]
+     R522      produces reaction  (0.0, 1000.0)    GPR=YALI1E29319g                             leucyl-tRNA synthetase
+                m141[C_cy] + m775[C_cy] + m777[C_cy] --> m203[C_cy] + m778[C_cy] + m86[C_cy]
+     R531      produces reaction  (0.0, 1000.0)    GPR=YALI1F21769g                             lysyl-tRNA synthetase
+                m141[C_cy] + m793[C_cy] + m794[C_cy] --> m203[C_cy] + m795[C_cy] + m86[C_cy]
+     R540      produces reaction  (0.0, 1000.0)    GPR=YALI1C08702g or YALI1E18171g             mannose-1-phosphate guanylyltransferase
+                m266[C_cy] + m802[C_cy] --> 2.0 m10[C_cy] + m203[C_cy] + m343[C_cy]
+     R544      produces reaction  (0.0, 1000.0)    GPR=YALI1B19079g                             methionine adenosyltransferase
+                m10[C_cy] + m141[C_cy] + m32[C_cy] + m74[C_cy] --> m203[C_cy] + m256[C_cy] + m35[C_cy]
+     R547      produces reaction  (0.0, 1000.0)    GPR=YALI1F37354g                             methionyl-tRNA synthetase
+                m141[C_cy] + m74[C_cy] + m806[C_cy] --> m203[C_cy] + m807[C_cy] + m86[C_cy]
+     R568      produces reaction  (0.0, 1000.0)    GPR=YALI1A21156g                             NAD synthase
+                m130[C_cy] + m141[C_cy] + m32[C_cy] + m820[C_cy] --> m122[C_cy] + m203[C_cy] + m50[C_cy] + m86[C_cy]
+     R574      produces reaction  (0.0, 1000.0)    GPR=YALI1B00214g                             NAPRtase
+                5.0 m10[C_cy] + m253[C_cy] + m824[C_cy] --> m203[C_cy] + m825[C_cy]
+     R578      produces reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinamide-nucleotide adenylyltransfer
+                m141[C_cy] + m831[C_cy] --> m122[C_cy] + m203[C_cy]
+     R580      produces reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinate-nucleotide adenylyltransferas
+                m141[C_cy] + m825[C_cy] --> m203[C_cy] + m820[C_cy]
+     R581      produces reaction  (0.0, 1000.0)    GPR=YALI1E08382g                             nicotinate-nucleotide diphosphorylase (c
+                5.0 m10[C_cy] + m253[C_cy] + m833[C_cy] --> m203[C_cy] + m825[C_cy] + m82[C_cy]
+     R611      both     reaction  (-1000.0, 1000.0) GPR=YALI1F28485g                             orotate phosphoribosyltransferase
+                m203[C_cy] + m852[C_cy] <=> 2.0 m10[C_cy] + m253[C_cy] + m540[C_cy]
+     R615      produces reaction  (0.0, 1000.0)    GPR=YALI1D24649g                             pantetheine-phosphate adenylyltransferas
+                m141[C_cy] + m854[C_cy] --> 2.0 m10[C_cy] + m203[C_cy] + m855[C_cy]
+     R617      produces reaction  (0.0, 1000.0)    GPR=YALI1B08123g                             pantothenate synthase
+                m141[C_cy] + m281[C_cy] + m54[C_cy] --> m203[C_cy] + m856[C_cy] + m86[C_cy]
+     R625      produces reaction  (0.0, 1000.0)    GPR=YALI1E27144g and YALI1D20473g            phenylalanyl-tRNA synthetase
+                m141[C_cy] + m859[C_cy] + m861[C_cy] --> m203[C_cy] + m862[C_cy] + m86[C_cy]
+     R635      produces reaction  (0.0, 1000.0)    GPR=YALI1C08197g                             phosphoethanolamine cytidyltransferase
+                m10[C_cy] + m406[C_cy] + m509[C_cy] --> m203[C_cy] + m880[C_cy]
+     R647      produces reaction  (0.0, 1000.0)    GPR=YALI1C09380g                             phosphopantothenate-cysteine ligase
+                m406[C_cy] + m443[C_cy] + m857[C_cy] --> 3.0 m10[C_cy] + m203[C_cy] + m887[C_cy] + m95[C_cy]
+     R652      produces reaction  (0.0, 1000.0)    GPR=YALI1A15879g                             phosphoribosyl-ATP pyrophosphatase
+                6.0 m10[C_cy] + m32[C_cy] + m341[C_cy] --> m203[C_cy] + m891[C_cy]
+     R657      produces reaction  (0.0, 1000.0)    GPR=YALI1B20153g                             phosphoribosylpyrophosphate amidotransfe
+                4.0 m10[C_cy] + m130[C_cy] + m253[C_cy] + m32[C_cy] --> m203[C_cy] + m50[C_cy] + m892[C_cy]
+     R673      produces reaction  (0.0, 1000.0)    GPR=YALI1D19110g or YALI1E05929g             prolyl-tRNA synthetase
+                m141[C_cy] + m765[C_cy] + m905[C_cy] --> m10[C_cy] + m203[C_cy] + m86[C_cy] + m906[C_cy]
+     R723      produces reaction  (0.0, 1000.0)    GPR=YALI1B07957g or YALI1F03908g             seryl-tRNA synthetase
+                m141[C_cy] + m441[C_cy] + m943[C_cy] --> m203[C_cy] + m86[C_cy] + m944[C_cy]
+     R739      produces reaction  (0.0, 1000.0)    GPR=YALI1A09939g                             squalene synthase
+                7.0 m10[C_cy] + m40[C_cy] + 2.0 m512[C_cy] --> 2.0 m203[C_cy] + m41[C_cy] + m961[C_cy]
+     R743      produces reaction  (0.0, 1000.0)    GPR=YALI1B10813g                             sulfate adenylyltransferase
+                m141[C_cy] + m964[C_cy] --> m203[C_cy] + m269[C_cy]
+     R754      produces reaction  (0.0, 1000.0)    GPR=YALI1C22186g                             thiamine-phosphate diphosphorylase
+                m10[C_cy] + m643[C_cy] + m886[C_cy] --> m203[C_cy] + m977[C_cy]
+     R759      produces reaction  (0.0, 1000.0)    GPR=YALI1A09121g or YALI1F14882g             threonyl-tRNA synthetase
+                m141[C_cy] + m770[C_cy] + m978[C_cy] --> m203[C_cy] + m86[C_cy] + m979[C_cy]
+     R771      produces reaction  (0.0, 1000.0)    GPR=YALI1B12010g                             tryptophanyl-tRNA synthetase
+                m141[C_cy] + m772[C_cy] + m987[C_cy] --> m203[C_cy] + m86[C_cy] + m988[C_cy]
+     R775      produces reaction  (0.0, 1000.0)    GPR=YALI1C21487g                             tyrosyl-tRNA synthetase
+                m141[C_cy] + m992[C_cy] + m995[C_cy] --> m203[C_cy] + m86[C_cy] + m996[C_cy]
+     R778      both     reaction  (-1000.0, 1000.0) GPR=YALI1E03762g                             UDP-N-acetylglucosamine diphosphorylase
+                m439[C_cy] + m878[C_cy] <=> 2.0 m10[C_cy] + m203[C_cy] + m403[C_cy]
+     R783      produces reaction  (0.0, 1000.0)    GPR=YALI1F38986g                             uracil phosphoribosyltransferase
+                5.0 m10[C_cy] + m253[C_cy] + m451[C_cy] --> m149[C_cy] + m203[C_cy]
+     R793      both     reaction  (-1000.0, 1000.0) GPR=YALI1A02775g                             UTP-glucose-1-phosphate uridylyltransfer
+                m439[C_cy] + m589[C_cy] <=> 2.0 m10[C_cy] + m203[C_cy] + m8[C_cy]
+     R798      produces reaction  (0.0, 1000.0)    GPR=YALI1F26873g                             valyl-tRNA synthetase
+                m1008[C_cy] + m1010[C_cy] + m141[C_cy] --> m1011[C_cy] + m203[C_cy] + m86[C_cy]
+     R800      produces reaction  (0.0, 1000.0)    GPR=YALI1E19958g                             xanthine phosphoribosyltransferase
+                3.0 m10[C_cy] + m253[C_cy] + m605[C_cy] --> m203[C_cy] + m592[C_cy]
+     R90       produces reaction  (0.0, 1000.0)    GPR=YALI1F08845g                             acetyl-CoA synthetase
+                m141[C_cy] + m202[C_cy] + m69[C_cy] --> m203[C_cy] + m68[C_cy] + m86[C_cy]
+     R_DOLSYN  produces reaction  (0.0, 1000.0)    GPR=-                                        dehydrodolichyl diphosphate to dolichol 
+                2.0 m10[C_cy] + m122[C_cy] + m2019[C_cy] + m32[C_cy] + 2.0 m40[C_cy] --> m123[C_cy] + m203[C_cy] + 2.0 m41[C_cy] + m499[C_cy]
+  -- m204[C_mi] diphosphate_H4O7P2 q=0
+     R1125     produces reaction  (0.0, 1000.0)    GPR=-                                        FMN adenylyltransferase
+                m46[C_mi] + m928[C_mi] --> m204[C_mi] + m563[C_mi]
+     R1292     produces reaction  (0.0, 1000.0)    GPR=-                                        panthetheine-phosphate adenylyltransfera
+                m1350[C_mi] + m46[C_mi] --> m204[C_mi] + 2.0 m28[C_mi] + m475[C_mi]
+     R1309     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        pyrophosphate transport
+                m203[C_cy] <=> m204[C_mi]
+     R155      produces reaction  (0.0, 1000.0)    GPR=YALI1E21345g                             arginyl-tRNA synthetase
+                m316[C_mi] + m317[C_mi] + m46[C_mi] --> m204[C_mi] + m318[C_mi] + m48[C_mi]
+     R158      produces reaction  (0.0, 1000.0)    GPR=YALI1E05833g                             asparaginyl-tRNA synthetase, miotchondri
+                m322[C_mi] + m323[C_mi] + m46[C_mi] --> m204[C_mi] + m324[C_mi] + m48[C_mi]
+     R166      produces reaction  (0.0, 1000.0)    GPR=YALI1F33819g                             Aspartyl-tRNA synthetase
+                m329[C_mi] + m337[C_mi] + m46[C_mi] --> m204[C_mi] + m338[C_mi] + m48[C_mi]
+     R1703     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        diphosphate transport, mitochondrion-mit
+                m204[C_mi] <=> m385[C_mm]
+     R278      produces reaction  (0.0, 1000.0)    GPR=YALI1A03069g                             dihydropteroate synthase
+                m47[C_mi] + m486[C_mi] --> m204[C_mi] + m28[C_mi] + m487[C_mi]
+     R338      produces reaction  (0.0, 1000.0)    GPR=YALI1E21230g                             glutamyl-tRNA synthetase
+                m29[C_mi] + m46[C_mi] + m557[C_mi] --> m204[C_mi] + m48[C_mi] + m558[C_mi]
+     R384      produces reaction  (0.0, 1000.0)    GPR=YALI1F31135g                             Heme O synthase
+                m26[C_mi] + 5.0 m28[C_mi] + m525[C_mi] + m610[C_mi] --> m204[C_mi] + m608[C_mi]
+     R393      produces reaction  (0.0, 1000.0)    GPR=YALI1E16068g                             histidyl-tRNA synthetase
+                m46[C_mi] + m620[C_mi] + m621[C_mi] --> m204[C_mi] + m48[C_mi] + m622[C_mi]
+     R407      produces reaction  (0.0, 1000.0)    GPR=YALI1F08349g                             4-hydroxybenzoate nonaprenyltransferase
+                m138[C_mi] + m640[C_mi] --> m204[C_mi] + m641[C_mi]
+     R420      consumes reaction  (0.0, 1000.0)    GPR=YALI1C16485g or YALI1F18105g             inorganic diphosphatase
+                m204[C_mi] + m26[C_mi] --> 2.0 m58[C_mi]
+     R494      produces reaction  (0.0, 1000.0)    GPR=YALI1C15180g                             isoleucyl-tRNA synthetase
+                m46[C_mi] + m745[C_mi] + m748[C_mi] --> m204[C_mi] + m48[C_mi] + m749[C_mi]
+     R523      produces reaction  (0.0, 1000.0)    GPR=YALI1F03527g                             leucyl-tRNA synthetase
+                m46[C_mi] + m776[C_mi] + m779[C_mi] --> m204[C_mi] + m48[C_mi] + m780[C_mi]
+     R532      produces reaction  (0.0, 1000.0)    GPR=YALI1D30570g                             lysyl-tRNA synthetase
+                m46[C_mi] + m796[C_mi] + m797[C_mi] --> m204[C_mi] + m48[C_mi] + m798[C_mi]
+     R548      produces reaction  (0.0, 1000.0)    GPR=YALI1D04566g                             methionyl-tRNA synthetase
+                m46[C_mi] + m808[C_mi] + m809[C_mi] --> m204[C_mi] + m48[C_mi] + m804[C_mi]
+     R575      produces reaction  (0.0, 1000.0)    GPR=YALI1B00214g                             NAPRtase
+                3.0 m28[C_mi] + m826[C_mi] + m827[C_mi] --> m204[C_mi] + m828[C_mi]
+     R582      produces reaction  (0.0, 1000.0)    GPR=YALI1E08382g                             nicotinate-nucleotide diphosphorylase (c
+                3.0 m28[C_mi] + m827[C_mi] + m834[C_mi] --> m204[C_mi] + m44[C_mi] + m828[C_mi]
+     R626      produces reaction  (0.0, 1000.0)    GPR=YALI1C25782g                             phenylalanyl-tRNA synthetase
+                m46[C_mi] + m863[C_mi] + m864[C_mi] --> m204[C_mi] + m48[C_mi] + m865[C_mi]
+     R760      produces reaction  (0.0, 1000.0)    GPR=YALI1A09121g or YALI1F14882g             threonyl-tRNA synthetase
+                m46[C_mi] + m771[C_mi] + m980[C_mi] --> m204[C_mi] + m48[C_mi] + m981[C_mi]
+     R763      produces reaction  (0.0, 1000.0)    GPR=YALI1C26017g                             all-trans-nonaprenyl-diphosphate synthas
+                4.0 m984[C_mi] + m985[C_mi] --> 4.0 m204[C_mi] + m640[C_mi]
+     R772      produces reaction  (0.0, 1000.0)    GPR=YALI1C25598g                             tryptophanyl-tRNA synthetase
+                m46[C_mi] + m989[C_mi] + m990[C_mi] --> m204[C_mi] + m48[C_mi] + m991[C_mi]
+     R776      produces reaction  (0.0, 1000.0)    GPR=YALI1E34408g                             tyrosyl-tRNA synthetase
+                m46[C_mi] + m997[C_mi] + m998[C_mi] --> m204[C_mi] + m48[C_mi] + m999[C_mi]
+     R799      produces reaction  (0.0, 1000.0)    GPR=YALI1F26873g                             valyl-tRNA synthetase
+                m1009[C_mi] + m1012[C_mi] + m46[C_mi] --> m1013[C_mi] + m204[C_mi] + m48[C_mi]
+     R91       CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F08845g                             acetyl-CoA synthetase
+                m201[C_mi] + m46[C_mi] + m73[C_mi] --> m204[C_mi] + m48[C_mi] + m71[C_mi]
+  -- m210[C_nu] diphosphate_H4O7P2 q=0
+     R569      produces reaction  (0.0, 1000.0)    GPR=YALI1A21156g                             NAD synthase
+                m206[C_nu] + m626[C_nu] + m821[C_nu] + m822[C_nu] --> m209[C_nu] + m210[C_nu] + m817[C_nu] + m823[C_nu]
+     R579      produces reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinamide-nucleotide adenylyltransfer
+                m206[C_nu] + m832[C_nu] --> m210[C_nu] + m817[C_nu]
+     R92       CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F08845g                             acetyl-CoA synthetase nuclear
+                m205[C_nu] + m206[C_nu] + m207[C_nu] --> m208[C_nu] + m209[C_nu] + m210[C_nu]
+
+##### ADP-ribose  (formula C15H21N5O14P2; match keys ['metanetx.chemical:MNXM1508085'])
+   copies: m1725[C_cy], m818[C_nu]
+  -- m1725[C_cy] ADP-ribose_C15H21N5O14P2 q=-2
+     R1912     consumes reaction  (0.0, 1000.0)    GPR=YALI1F33579g                             ADP-ribose ribophosphohydrolase
+                2.0 m10[C_cy] + m1725[C_cy] + m32[C_cy] --> m86[C_cy] + m889[C_cy]
+  -- m818[C_nu] ADP-ribose_C15H21N5O14P2 q=-2
+     R567      produces reaction  (0.0, 1000.0)    GPR=YALI1D26320g or YALI1D02416g or YALI1F15334g NAD nucleosidase nuclear
+                m626[C_nu] + m817[C_nu] --> 2.0 m627[C_nu] + m818[C_nu] + m819[C_nu]
+
+##### acetate  (formula C2H4O2; match keys ['chebi:CHEBI:13704', 'chebi:CHEBI:15366', 'chebi:CHEBI:193049', 'chebi:CHEBI:22165'])
+   copies: m202[C_cy], m597[C_er], m1025[C_ex], m201[C_mi], m205[C_nu]
+  -- m202[C_cy] acetate_C2H4O2 q=0
+     R1000     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        acetate transport
+                m202[C_cy] <=> m205[C_nu]
+     R134      produces reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (acetaldehyde, NA
+                m173[C_cy] + m32[C_cy] + m41[C_cy] --> m10[C_cy] + m202[C_cy] + m40[C_cy]
+     R1343     produces reaction  (0.0, 1000.0)    GPR=YALI1A09553g                             thiazole phosphate synthesis (ribose 5-p
+                m10[C_cy] + m272[C_cy] + m443[C_cy] + m444[C_cy] + m889[C_cy] --> m133[C_cy] + m202[C_cy] + 3.0 m32[C_cy] + m38[C_cy] + m4[C_cy] + m643[C_cy] + m82[C_cy]
+     R1344     produces reaction  (0.0, 1000.0)    GPR=-                                        thiazole phosphate synthesis (xylulose 5
+                m10[C_cy] + m272[C_cy] + m443[C_cy] + m444[C_cy] + m938[C_cy] --> m133[C_cy] + m202[C_cy] + 3.0 m32[C_cy] + m38[C_cy] + m4[C_cy] + m643[C_cy] + m82[C_cy]
+     R1378     produces reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g acetaldehyde dehydrogenase
+                m122[C_cy] + m173[C_cy] + m32[C_cy] --> m123[C_cy] + m202[C_cy]
+     R1947     produces reaction  (0.0, 1000.0)    GPR=YALI1E23988g                             N-Acetyl-D-glucosamine-6-phosphate amido
+                m32[C_cy] + m815[C_cy] --> m202[C_cy] + m550[C_cy]
+     R2003     both     reaction  (-1000.0, 1000.0) GPR=-                                        Acetyl-CoA:malonate CoA-transferase
+                2.0 m10[C_cy] + m1854[C_cy] + m68[C_cy] <=> m200[C_cy] + m202[C_cy]
+     R210      produces TRANSPORT (0.0, 1000.0)    GPR=YALI1F38476g                             chitin deacetylase
+                m32[C_cy] + m401[C_cy] --> m10[C_cy] + m202[C_cy] + m402[C_en]
+     R2198     produces reaction  (0.0, 1000.0)    GPR=YALI1D33380g or YALI1E10364g or YALI1F18920g O3-acetyl-L-serine:thiosulfate 2-amino-2
+                m2032[C_cy] + m2033[C_cy] + m446[C_cy] --> m10[C_cy] + m202[C_cy] + m2034[C_cy] + m443[C_cy] + m879[C_cy]
+     R2269     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        Acetate transport
+                m10[C_cy] + m2053[C_pe] <=> m202[C_cy]
+     R246      produces reaction  (0.0, 1000.0)    GPR=YALI1D21408g                             cystathionine gamma-synthase
+                m443[C_cy] + m444[C_cy] --> m202[C_cy] + m440[C_cy]
+     R247      produces reaction  (0.0, 1000.0)    GPR=YALI1E10364g or YALI1F18920g or YALI1D33380g cysteine synthase
+                m10[C_cy] + m445[C_cy] + m446[C_cy] --> m202[C_cy] + m443[C_cy]
+     R604      produces reaction  (0.0, 1000.0)    GPR=YALI1D33380g                             O-acetylhomoserine (thiol)-lyase
+                m444[C_cy] + m848[C_cy] --> m202[C_cy] + m74[C_cy]
+     R605      produces reaction  (0.0, 1000.0)    GPR=YALI1D33380g                             O-acetylhomoserine (thiol)-lyase
+                m10[C_cy] + m444[C_cy] + m445[C_cy] --> m162[C_cy] + m202[C_cy]
+     R813      both     TRANSPORT (-1000.0, 1000.0) GPR=YALI1E05180g or YALI1C32119g or YALI1E15804g or YALI1E32315g or YALI1F17569g or YALI1F21728g acetate transport
+                m202[C_cy] <=> m1025[C_ex]
+     R90       consumes reaction  (0.0, 1000.0)    GPR=YALI1F08845g                             acetyl-CoA synthetase
+                m141[C_cy] + m202[C_cy] + m69[C_cy] --> m203[C_cy] + m68[C_cy] + m86[C_cy]
+     R_ACt_er_cy both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        acetate transport, ER-cytoplasm
+                m597[C_er] <=> m202[C_cy]
+  -- m201[C_mi] acetate_C2H4O2 q=0
+     R135      produces reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (acetylaldehyde, 
+                m26[C_mi] + m278[C_mi] + m27[C_mi] --> m201[C_mi] + m30[C_mi]
+     R136      produces reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (acetylaldehyde, 
+                m178[C_mi] + m26[C_mi] + m278[C_mi] --> m176[C_mi] + m201[C_mi] + m28[C_mi]
+     R1708     both     reaction  (-1000.0, 1000.0) GPR=YALI1E36437g                             succinyl-CoA:acetate CoA transferase
+                m156[C_mi] + m201[C_mi] <=> m71[C_mi] + m810[C_mi]
+     R2070     produces reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g Acetaldehyde:NAD+ oxidoreductase
+                m26[C_mi] + m278[C_mi] + m27[C_mi] --> m201[C_mi] + m30[C_mi]
+     R89       produces reaction  (0.0, 1000.0)    GPR=YALI1E36437g                             acetyl-CoA hydrolase
+                m26[C_mi] + m71[C_mi] --> m201[C_mi] + m73[C_mi]
+     R91       CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F08845g                             acetyl-CoA synthetase
+                m201[C_mi] + m46[C_mi] + m73[C_mi] --> m204[C_mi] + m48[C_mi] + m71[C_mi]
+  -- m205[C_nu] acetate_C2H4O2 q=0
+     R1000     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        acetate transport
+                m202[C_cy] <=> m205[C_nu]
+     R92       CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F08845g                             acetyl-CoA synthetase nuclear
+                m205[C_nu] + m206[C_nu] + m207[C_nu] --> m208[C_nu] + m209[C_nu] + m210[C_nu]
+
+##### NAD  (formula C21H27N7O14P2; match keys ['chebi:CHEBI:13389', 'metanetx.chemical:MNXM64096'])
+   copies: m122[C_cy], m1458[C_em], m960[C_er], m27[C_mi], m817[C_nu], m116[C_pe]
+  -- m122[C_cy] NAD_C21H27N7O14P2 q=0
+     R130      both     reaction  (-1000.0, 1000.0) GPR=YALI1A15227g or YALI1A16292g or YALI1D33961g or YALI1E09329g or YALI1E21128g alcohol dehydrogenase (ethanol to acetal
+                m122[C_cy] + m275[C_cy] <=> m123[C_cy] + m173[C_cy]
+     R133      consumes reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (3-aminopropanal,
+                m122[C_cy] + m280[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m281[C_cy]
+     R1377     produces reaction  (0.0, 1000.0)    GPR=YALI1A15227g or YALI1A16292g or YALI1D33961g or YALI1E09329g or YALI1E21128g alcohol dehydrogenase, (acetaldehyde to 
+                m123[C_cy] + m173[C_cy] --> m122[C_cy] + m275[C_cy]
+     R1378     consumes reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g acetaldehyde dehydrogenase
+                m122[C_cy] + m173[C_cy] + m32[C_cy] --> m123[C_cy] + m202[C_cy]
+     R1594     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        NAD transport, cytoplasm-ER membrane
+                m122[C_cy] <=> m1458[C_em]
+     R1864     both     reaction  (-1000.0, 1000.0) GPR=YALI1F13170g or YALI1D33961g or YALI0E07787g or YALI1A16292g or YALI1E19014g or YALI1D02444g or YALI1A15227g or YALI1E09329g long-chain alcohol dehydrogenase (C10)
+                2.0 m122[C_cy] + m1789[C_cy] + m32[C_cy] <=> 2.0 m10[C_cy] + 2.0 m123[C_cy] + m1790[C_cy]
+     R1866     both     reaction  (-1000.0, 1000.0) GPR=YALI1F13170g or YALI1D33961g or YALI0E07787g or YALI1A16292g or YALI1E19014g or YALI1D02444g or YALI1A15227g or YALI1E09329g long-chain alcohol dehydrogenase (C12)
+                2.0 m122[C_cy] + m1792[C_cy] + m32[C_cy] <=> 2.0 m10[C_cy] + 2.0 m123[C_cy] + m1793[C_cy]
+     R1868     both     reaction  (-1000.0, 1000.0) GPR=YALI1F13170g or YALI1D33961g or YALI0E07787g or YALI1A16292g or YALI1E19014g or YALI1D02444g or YALI1A15227g or YALI1E09329g long-chain alcohol dehydrogenase (C16)
+                m122[C_cy] + m1794[C_cy] <=> m10[C_cy] + m123[C_cy] + m1795[C_cy]
+     R1885     consumes reaction  (0.0, 1000.0)    GPR=(YALI1B02194g and YALI1E18480g and YALI1A18062g and YALI1F31215g) or YALI1F13170g or YALI1D33961g or YALI0E07787g or YALI1A16292g or YALI1E19014g or YALI1D02444g or YALI1A15227g or YALI1E09329g long-chain aldehyde dehydrogenase (C10)
+                m122[C_cy] + m1790[C_cy] + m32[C_cy] --> m1220[C_cy] + m123[C_cy]
+     R1886     consumes reaction  (0.0, 1000.0)    GPR=(YALI1B02194g and YALI1E18480g and YALI1A18062g and YALI1F31215g) or YALI1F13170g or YALI1D33961g or YALI0E07787g or YALI1A16292g or YALI1E19014g or YALI1D02444g or YALI1A15227g or YALI1E09329g long-chain aldehyde dehydrogenase (C12)
+                m122[C_cy] + m1793[C_cy] + m32[C_cy] --> m1221[C_cy] + m123[C_cy]
+     R1910     both     reaction  (-1000.0, 1000.0) GPR=YALI1D02781g                             UDP-glucose:NAD+ 6-oxidoreductase
+                2.0 m122[C_cy] + m32[C_cy] + m8[C_cy] <=> 3.0 m10[C_cy] + 2.0 m123[C_cy] + m1723[C_cy]
+     R1931     consumes reaction  (0.0, 1000.0)    GPR=YALI1B12993g                             L-Glutamate 5-semialdehyde:NAD+ oxidored
+                m122[C_cy] + m32[C_cy] + m552[C_cy] --> m123[C_cy] + m50[C_cy]
+     R1953     consumes reaction  (0.0, 1000.0)    GPR=YALI1A06640g                             xanthine dehydrogenase
+                m122[C_cy] + m32[C_cy] + m605[C_cy] --> m123[C_cy] + m1818[C_cy]
+     R1962     both     reaction  (-1000.0, 1000.0) GPR=-                                        erythrose reductase
+                m10[C_cy] + m123[C_cy] + m1827[C_cy] <=> m122[C_cy] + m1825[C_cy]
+     R1964     both     reaction  (-1000.0, 1000.0) GPR=YALI1F03452g or YALI1E06616g             arabinitol dehydrogenase
+                m1015[C_cy] + m123[C_cy] <=> m122[C_cy] + m1823[C_cy]
+     R1997     both     reaction  (-1000.0, 1000.0) GPR=-                                        (R)-3-Hydroxybutanoate:NAD+ oxidoreducta
+                m122[C_cy] + m1848[C_cy] <=> m123[C_cy] + m1821[C_cy]
+     R2064     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g 4-aminobutanal:NAD+ 1-oxidoreductase; 4-
+                m122[C_cy] + m2039[C_cy] + m32[C_cy] --> 2.0 m10[C_cy] + m123[C_cy] + m2040[C_cy]
+     R2068     consumes reaction  (0.0, 1000.0)    GPR=YALI1D10197g or YALI1F06858g or YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g 3-aminopropanal:NAD+ oxidoreductase
+                m122[C_cy] + m280[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m281[C_cy]
+     R2069     both     reaction  (-1000.0, 1000.0) GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g D-Glyceraldehyde:NAD+ oxidoreductase
+                m123[C_cy] + m276[C_cy] <=> m122[C_cy] + m277[C_cy]
+     R2071     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g Indole-3-acetaldehyde:NAD+ oxidoreductas
+                m122[C_cy] + m2042[C_cy] + m32[C_cy] --> m123[C_cy] + m1259[C_cy]
+     R2074     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g (S)-Methylmalonate semialdehyde:NAD+ oxi
+                m122[C_cy] + m1975[C_cy] + m32[C_cy] --> m123[C_cy] + m2045[C_cy]
+     R2078     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g 3-aminopropanal:NAD+ oxidoreductase
+                m122[C_cy] + m280[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m281[C_cy]
+     R2079     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g D-Glyceraldehyde:NAD+ oxidoreductase
+                m122[C_cy] + m276[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1949[C_cy]
+     R2096     consumes reaction  (0.0, 1000.0)    GPR=YALI1D10197g or YALI1F06858g             3,4-Dihydroxyphenylacetaldehyde:NAD+ oxi
+                m122[C_cy] + m1952[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1950[C_cy]
+     R2099     consumes reaction  (0.0, 1000.0)    GPR=YALI1D10197g or YALI1F06858g             3,4-Dihydroxymandelaldehyde:NAD+ oxidore
+                m122[C_cy] + m1958[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1956[C_cy]
+     R2100     consumes reaction  (0.0, 1000.0)    GPR=YALI1A15227g or YALI1A16292g or YALI1D33961g or YALI1E21128g or YALI1F13170g 3,4-dihydroxyphenylethyleneglycol:NAD+ o
+                m122[C_cy] + m1959[C_cy] --> m10[C_cy] + m123[C_cy] + m1958[C_cy]
+     R2112     both     reaction  (-1000.0, 1000.0) GPR=YALI1C02550g                             (S)-Methylmalonate semialdehyde:NAD+ oxi
+                m122[C_cy] + m1975[C_cy] + m69[C_cy] <=> m123[C_cy] + m1970[C_cy] + m82[C_cy]
+     R2114     consumes reaction  (0.0, 1000.0)    GPR=YALI1F03883g                             3-Hydroxy-2-methylpropanoate:NAD+ oxidor
+                m122[C_cy] + m1974[C_cy] --> m10[C_cy] + m123[C_cy] + m1975[C_cy]
+     R2119     consumes reaction  (0.0, 1000.0)    GPR=YALI1C02550g                             3-Oxopropanoate:NAD+ oxidoreductase (dec
+                m10[C_cy] + m122[C_cy] + m1976[C_cy] + m69[C_cy] --> m123[C_cy] + m68[C_cy] + m82[C_cy]
+     R2190     both     reaction  (-1000.0, 1000.0) GPR=YALI1F03452g                             D-arabinitol:NAD+ 2-oxidoreductase
+                m122[C_cy] + m1823[C_cy] <=> m123[C_cy] + m2061[C_cy]
+     R2191     produces reaction  (0.0, 1000.0)    GPR=YALI1F05415g                             NO NAME
+                m109[C_cy] + m10[C_cy] + m123[C_cy] + m2026[C_cy] --> m122[C_cy] + m2027[C_cy] + m32[C_cy]
+     R2192     consumes reaction  (0.0, 1000.0)    GPR=YALI1D10197g or YALI1F06858g             Phenylacetaldehyde:NAD+ oxidoreductase
+                m122[C_cy] + m32[C_cy] + m866[C_cy] --> 2.0 m10[C_cy] + m123[C_cy] + m2026[C_cy]
+     R2253     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g and YALI1E18480g and YALI1A18062g and YALI1F31215g Aldehyde dehydrogenase (hydroxy-decanoat
+                m122[C_cy] + m1935[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1936[C_cy]
+     R2257     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g and YALI1E18480g and YALI1A18062g and YALI1F31215g Aldehyde dehydrogenase (hydroxy-dodecano
+                m122[C_cy] + m1939[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1940[C_cy]
+     R2261     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g and YALI1E18480g and YALI1A18062g and YALI1F31215g Aldehyde dehydrogenase (hydroxy-hexadeca
+                m122[C_cy] + m1943[C_cy] + m32[C_cy] --> m10[C_cy] + m123[C_cy] + m1944[C_cy]
+     R2284     consumes reaction  (0.0, 1000.0)    GPR=-                                        (2S,3S)-3-hydroxy-2-methylbutanoyl-CoA:N
+                m122[C_cy] + m2059[C_cy] --> m123[C_cy] + m2060[C_cy]
+     R254      consumes reaction  (0.0, 1000.0)    GPR=YALI1F38466g                             D-arabinose 1-dehydrogenase (NAD)
+                m122[C_cy] + m454[C_cy] --> m123[C_cy] + m452[C_cy]
+     R257      consumes reaction  (0.0, 1000.0)    GPR=YALI1E15452g                             D-sorbitol dehydrogenase (D-fructose pro
+                m122[C_cy] + m457[C_cy] --> m123[C_cy] + m458[C_cy]
+     R307      both     reaction  (-1000.0, 1000.0) GPR=YALI1F13170g                             formaldehyde dehydrogenase
+                m122[C_cy] + m529[C_cy] + m530[C_cy] <=> m123[C_cy] + m531[C_cy]
+     R308      consumes reaction  (0.0, 1000.0)    GPR=YALI1B28349g or YALI1A12540g or YALI1B26033g or YALI1B29419g or YALI1C10762g or YALI1C20054g or YALI1E17326g or YALI1E19036g or YALI1F18740g or YALI1F21467g or YALI1F36584g or YALI1F36930g formate dehydrogenase
+                m122[C_cy] + m34[C_cy] --> m123[C_cy] + m82[C_cy]
+     R329      consumes reaction  (0.0, 1000.0)    GPR=YALI1E11943g                             glutamate dehydrogenase (NAD)
+                m122[C_cy] + m32[C_cy] + m50[C_cy] --> m123[C_cy] + m38[C_cy] + m51[C_cy]
+     R331      produces reaction  (0.0, 1000.0)    GPR=YALI1B26112g                             glutamate synthase (NADH2)
+                m123[C_cy] + m130[C_cy] + m51[C_cy] --> m122[C_cy] + 2.0 m50[C_cy]
+     R344      both     reaction  (-1000.0, 1000.0) GPR=YALI1C08262g                             glyceraldehyde-3-phosphate dehydrogenase
+                m122[C_cy] + m35[C_cy] + m536[C_cy] <=> 2.0 m10[C_cy] + m123[C_cy] + m494[C_cy]
+     R348      produces reaction  (0.0, 1000.0)    GPR=YALI1B04433g                             glycerol-3-phosphate dehydrogenase (NAD)
+                2.0 m10[C_cy] + m123[C_cy] + m456[C_cy] --> m122[C_cy] + m562[C_cy]
+     R389      consumes reaction  (0.0, 1000.0)    GPR=YALI1A15879g                             histidinol dehydrogenase
+                2.0 m122[C_cy] + m32[C_cy] + m614[C_cy] --> m10[C_cy] + 2.0 m123[C_cy] + m615[C_cy]
+     R417      consumes reaction  (0.0, 1000.0)    GPR=YALI1D27148g                             IMP dehydrogenase
+                m122[C_cy] + m32[C_cy] + m91[C_cy] --> 2.0 m10[C_cy] + m123[C_cy] + m592[C_cy]
+     R45       consumes reaction  (0.0, 1000.0)    GPR=YALI1C00464g                             3-isopropylmalate dehydrogenase
+                m121[C_cy] + m122[C_cy] --> m123[C_cy] + m80[C_cy]
+     R513      consumes reaction  (0.0, 1000.0)    GPR=YALI1E15452g                             L-sorbitol dehydrogenase (L-sorbose-prod
+                m122[C_cy] + m768[C_cy] --> m123[C_cy] + m769[C_cy]
+     R517      consumes reaction  (0.0, 1000.0)    GPR=-                                        lactaldehyde dehydrogenase
+                m122[C_cy] + m32[C_cy] + m766[C_cy] --> m123[C_cy] + m7[C_cy]
+     R534      both     reaction  (-1000.0, 1000.0) GPR=YALI1E17214g                             malate dehydrogenase, cytoplasmic
+                m122[C_cy] + m539[C_cy] <=> m123[C_cy] + m328[C_cy]
+     R549      consumes reaction  (0.0, 1000.0)    GPR=YALI1B15928g                             methylenetetrahydrofolate dehydrogenase 
+                m122[C_cy] + m153[C_cy] --> m10[C_cy] + m123[C_cy] + m160[C_cy]
+     R565      consumes reaction  (0.0, 1000.0)    GPR=YALI1E28545g or YALI1E32908g             NAD kinase
+                m10[C_cy] + m122[C_cy] + m141[C_cy] --> m143[C_cy] + m41[C_cy]
+     R568      produces reaction  (0.0, 1000.0)    GPR=YALI1A21156g                             NAD synthase
+                m130[C_cy] + m141[C_cy] + m32[C_cy] + m820[C_cy] --> m122[C_cy] + m203[C_cy] + m50[C_cy] + m86[C_cy]
+     R570      produces TRANSPORT (0.0, 1000.0)    GPR=YALI1F32476g                             NADH dehydrogenase, cytosolic/mitochondr
+                m10[C_cy] + m123[C_cy] + m468[C_mi] --> m122[C_cy] + m471[C_mi]
+     R578      produces reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinamide-nucleotide adenylyltransfer
+                m141[C_cy] + m831[C_cy] --> m122[C_cy] + m203[C_cy]
+     R641      consumes reaction  (0.0, 1000.0)    GPR=YALI1F13505g                             phosphoglycerate dehydrogenase
+                m122[C_cy] + m884[C_cy] --> m123[C_cy] + m885[C_cy]
+     R718      both     reaction  (-1000.0, 1000.0) GPR=YALI1B20289g                             saccharopine dehydrogenase (NAD, L-lysin
+                m10[C_cy] + m122[C_cy] + m32[C_cy] + m940[C_cy] <=> m123[C_cy] + m51[C_cy] + m793[C_cy]
+     R726      consumes reaction  (0.0, 1000.0)    GPR=YALI1E14153g                             sirohydrochlorin dehydrogenase
+                7.0 m10[C_cy] + m122[C_cy] + m946[C_cy] --> m123[C_cy] + m947[C_cy]
+     R801      consumes reaction  (0.0, 1000.0)    GPR=YALI1E15452g                             xylitol dehydrogenase (D-xyulose-forming
+                m1014[C_cy] + m122[C_cy] --> m1015[C_cy] + m123[C_cy]
+     R903      consumes TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g or YALI1E19682g             NAD transport
+                m122[C_cy] --> m27[C_mi]
+     R904      consumes TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g                             NAD transport
+                m1093[C_mi] + m122[C_cy] --> m27[C_mi] + m89[C_cy]
+     R905      consumes TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g                             NAD transport
+                m122[C_cy] + m48[C_mi] --> m27[C_mi] + m86[C_cy]
+     R906      consumes TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g                             NAD transport
+                m1094[C_mi] + m122[C_cy] --> m27[C_mi] + m465[C_cy]
+     R_DOLSYN  consumes reaction  (0.0, 1000.0)    GPR=-                                        dehydrodolichyl diphosphate to dolichol 
+                2.0 m10[C_cy] + m122[C_cy] + m2019[C_cy] + m32[C_cy] + 2.0 m40[C_cy] --> m123[C_cy] + m203[C_cy] + 2.0 m41[C_cy] + m499[C_cy]
+     biomass_C consumes TRANSPORT (0.0, 1000.0)    GPR=-                                        biomass_C
+                0.035251 m1000[C_cy] + 0.943397 m1123[C_cy] + 0.00265 m122[C_cy] + 0.235849 m1324[C_cy] + 23.09 m141[C_cy] + 0.059363 m149[C_cy] + 3.5e-05 m1631[C_em] + 1e-06 m1635[C_cy] + 0.000234 m1640[C_lp] + 7.5e-05 m1648[C_em] + 0.000237 m1700[C_lp] + 0.000346 m1701[C_lp] + 5.8e-05 m1705[C_lp] + 1e-05 m2065[C_mi] + 0.00686 m294[C_cy] + 23.09 m32[C_cy] + 0.003029 m359[C_cy] + 0.868358 m401[C_cy] + 0.00057 m41[C_cy] + 0.010436 m459[C_cy] + 0.009226 m465[C_cy] + 0.0001 m468[C_mi] + 6.34e-05 m479[C_cy] + 0.0001 m503[C_er] + 0.010353 m505[C_cy] + 1e-05 m528[C_cy] + 1e-05 m586[C_mi] + 0.00019 m69[C_cy] + 0.055401 m86[C_cy] + 0.01007 m89[C_cy] + 0.00099 m926[C_cy] + 0.050871 m93[C_cy] + 3.04e-05 m948[C_cy] + 0.05721 m95[C_cy] + 0.02 m964[C_cy] + 1.2e-06 m975[C_cy] + 0.567939 trna_biomass_residue_R129 + 0.125563 trna_biomass_residue_R154 + 0.186498 trna_biomass_residue_R157 + 0.186531 trna_biomass_residue_R165 + 0.003632 trna_biomass_residue_R248 + 0.243866 trna_biomass_residue_R336 + 0.243904 trna_biomass_residue_R337 + 0.509943 trna_biomass_residue_R368 + 0.053881 trna_biomass_residue_R392 + 0.090566 trna_biomass_residue_R493 + 0.19455 trna_biomass_residue_R522 + 0.275005 trna_biomass_residue_R531 + 0.044232 trna_biomass_residue_R547 + 0.082571 trna_biomass_residue_R625 + 0.206372 trna_biomass_residue_R673 + 0.284699 trna_biomass_residue_R723 + 0.210543 trna_biomass_residue_R759 + 0.002154 trna_biomass_residue_R771 + 0.041282 trna_biomass_residue_R775 + 0.172773 trna_biomass_residue_R798 --> 23.09 m10[C_cy] + m1401[C_cy] + 23.09 m143[C_cy] + 1e-05 m2062[C_mi] + 1e-05 m2064[C_mi] + 23.09 m35[C_cy]
+  -- m27[C_mi] NAD_C21H27N7O14P2 q=0
+     R135      consumes reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (acetylaldehyde, 
+                m26[C_mi] + m278[C_mi] + m27[C_mi] --> m201[C_mi] + m30[C_mi]
+     R146      consumes reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g Aminobutyraldehyde dehydrogenase
+                m26[C_mi] + m27[C_mi] + m303[C_mi] --> m28[C_mi] + m304[C_mi] + m30[C_mi]
+     R1968     consumes reaction  (0.0, 1000.0)    GPR=YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g 4-methyl-2-oxopentanoate dehydrogenase
+                m27[C_mi] + m73[C_mi] + m84[C_mi] --> m1828[C_mi] + m30[C_mi] + m44[C_mi]
+     R1969     consumes reaction  (0.0, 1000.0)    GPR=YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g 3-methyl-2-oxopentanoate dehydrogenase
+                m27[C_mi] + m70[C_mi] + m73[C_mi] --> m1829[C_mi] + m30[C_mi] + m44[C_mi]
+     R1970     consumes reaction  (0.0, 1000.0)    GPR=YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g (S)3-methyl-2-oxopentanoate dehydrogenas
+                m27[C_mi] + m28[C_mi] + m489[C_mi] + m73[C_mi] --> m1830[C_mi] + m30[C_mi] + m44[C_mi]
+     R1975     consumes reaction  (0.0, 1000.0)    GPR=YALI1F31153g                             2-oxoadipate dehydrogenase
+                m27[C_mi] + 2.0 m28[C_mi] + m629[C_mi] + m73[C_mi] --> m1833[C_mi] + m30[C_mi] + m44[C_mi]
+     R1979     consumes reaction  (0.0, 1000.0)    GPR=YALI1C12024g                             (S)-3-Hydroxybutanoyl-CoA oxidoreductase
+                m1835[C_mi] + m27[C_mi] --> m190[C_mi] + m30[C_mi]
+     R2062     produces TRANSPORT (0.0, 1000.0)    GPR=YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29 NADH:ubiquinone oxidoreductase
+                4.0 m28[C_mi] + m30[C_mi] + m468[C_mi] --> 4.0 m10[C_cy] + m27[C_mi] + m471[C_mi]
+     R2070     consumes reaction  (0.0, 1000.0)    GPR=YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g Acetaldehyde:NAD+ oxidoreductase
+                m26[C_mi] + m278[C_mi] + m27[C_mi] --> m201[C_mi] + m30[C_mi]
+     R357      consumes reaction  (0.0, 1000.0)    GPR=YALI1E00574g and YALI1F04082g and YALI1D26360g and YALI1A09694g glycine cleavage system
+                m126[C_mi] + m155[C_mi] + m27[C_mi] --> m124[C_mi] + m30[C_mi] + m44[C_mi] + m581[C_mi]
+     R361      consumes reaction  (0.0, 1000.0)    GPR=YALI1E00574g and YALI1F04082g and YALI1D26360g and YALI1A09694g glycine-cleavage complex (lipoamide)
+                m27[C_mi] + m585[C_mi] --> m30[C_mi] + m583[C_mi]
+     R364      consumes reaction  (0.0, 1000.0)    GPR=YALI1D26360g                             glycine-cleavage complex (lipoylprotein)
+                m27[C_mi] + m588[C_mi] --> m30[C_mi] + m586[C_mi]
+     R383      produces reaction  (0.0, 1000.0)    GPR=YALI1B19490g and YALI1F32002g and YALI1B03314g heme O monooxygenase
+                m30[C_mi] + m608[C_mi] + m64[C_mi] --> m26[C_mi] + m27[C_mi] + 2.0 m28[C_mi] + m609[C_mi]
+     R398      consumes reaction  (0.0, 1000.0)    GPR=YALI1D13238g                             homoisocitrate dehydrogenase
+                m27[C_mi] + m624[C_mi] --> 2.0 m28[C_mi] + m30[C_mi] + m44[C_mi] + m629[C_mi]
+     R487      consumes reaction  (0.0, 1000.0)    GPR=YALI1E06015g and YALI1D08082g            isocitrate dehydrogenase (NAD+)
+                m27[C_mi] + m410[C_mi] --> m219[C_mi] + m30[C_mi] + m44[C_mi]
+     R500      consumes reaction  (0.0, 1000.0)    GPR=YALI1B12993g                             L-1-pyrroline-3-hydroxy-5-carboxylate de
+                2.0 m26[C_mi] + m27[C_mi] + m28[C_mi] + m753[C_mi] --> m30[C_mi] + m754[C_mi]
+     R501      both     reaction  (-1000.0, 1000.0) GPR=YALI1B12993g                             L-4-hydroxyglutamate semialdehyde dehydr
+                m26[C_mi] + m27[C_mi] + m755[C_mi] <=> m30[C_mi] + m754[C_mi]
+     R533      both     reaction  (-1000.0, 1000.0) GPR=YALI1D20676g or YALI1E17214g             malate dehydrogenase
+                m27[C_mi] + m538[C_mi] <=> m30[C_mi] + m77[C_mi]
+     R538      consumes reaction  (0.0, 1000.0)    GPR=YALI1E22303g                             malic enzyme (NADP)
+                m27[C_mi] + m538[C_mi] --> m30[C_mi] + m44[C_mi] + m6[C_mi]
+     R566      consumes reaction  (0.0, 1000.0)    GPR=YALI1E28545g or YALI1E32908g or YALI1E21312g NAD kinase
+                m27[C_mi] + m28[C_mi] + m46[C_mi] --> m178[C_mi] + m197[C_mi]
+     R573      CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F32476g                             NADH:ubiquinone oxidoreductase
+                m30[C_mi] + m468[C_mi] --> m27[C_mi] + m471[C_mi]
+     R693      consumes reaction  (0.0, 1000.0)    GPR=YALI1E31947g and YALI1F27556g and YALI1D26360g and YALI1B13179g and YALI1D30618g pyruvate dehydrogenase
+                m27[C_mi] + m6[C_mi] + m73[C_mi] --> m30[C_mi] + m44[C_mi] + m71[C_mi]
+     R695      produces reaction  (0.0, 1000.0)    GPR=YALI1E18269g and YALI1F34675g            2-nonaprenyl-3-methyl-6-methoxy-1,4-benz
+                m30[C_mi] + m61[C_mi] + m64[C_mi] --> m26[C_mi] + m27[C_mi] + m611[C_mi]
+     R9        consumes reaction  (0.0, 1000.0)    GPR=YALI1B12993g                             1-pyrroline-5-carboxylate dehydrogenase
+                m25[C_mi] + 2.0 m26[C_mi] + m27[C_mi] + m28[C_mi] --> m29[C_mi] + m30[C_mi]
+     R903      produces TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g or YALI1E19682g             NAD transport
+                m122[C_cy] --> m27[C_mi]
+     R904      produces TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g                             NAD transport
+                m1093[C_mi] + m122[C_cy] --> m27[C_mi] + m89[C_cy]
+     R905      produces TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g                             NAD transport
+                m122[C_cy] + m48[C_mi] --> m27[C_mi] + m86[C_cy]
+     R906      produces TRANSPORT (0.0, 1000.0)    GPR=YALI1E19682g                             NAD transport
+                m1094[C_mi] + m122[C_cy] --> m27[C_mi] + m465[C_cy]
+  -- m817[C_nu] NAD_C21H27N7O14P2 q=0
+     R567      consumes reaction  (0.0, 1000.0)    GPR=YALI1D26320g or YALI1D02416g or YALI1F15334g NAD nucleosidase nuclear
+                m626[C_nu] + m817[C_nu] --> 2.0 m627[C_nu] + m818[C_nu] + m819[C_nu]
+     R569      produces reaction  (0.0, 1000.0)    GPR=YALI1A21156g                             NAD synthase
+                m206[C_nu] + m626[C_nu] + m821[C_nu] + m822[C_nu] --> m209[C_nu] + m210[C_nu] + m817[C_nu] + m823[C_nu]
+     R579      produces reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinamide-nucleotide adenylyltransfer
+                m206[C_nu] + m832[C_nu] --> m210[C_nu] + m817[C_nu]
+
+##### NADP  (formula C21H29N7O17P3; match keys ['chebi:CHEBI:13397', 'chebi:CHEBI:13398', 'chebi:CHEBI:18009', 'chebi:CHEBI:21903'])
+   copies: m41[C_cy], m1439[C_em], m104[C_er], m1610[C_lp], m178[C_mi], m740[C_pe]
+  -- m41[C_cy] NADP(+)_C21H28N7O17P3 q=0
+     R12       produces reaction  (0.0, 1000.0)    GPR=YALI1D08339g                             2,5-diamino-6-ribosylamino-4(3H)-pyrimid
+                3.0 m10[C_cy] + m39[C_cy] + m40[C_cy] --> m36[C_cy] + m41[C_cy]
+     R1264     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        NADP(+) transport
+                m41[C_cy] <=> m104[C_er]
+     R131      produces reaction  (0.0, 1000.0)    GPR=YALI1C353g or YALI1B20108g or YALI1A21000g or YALI1A15863g or YALI1B09211g or YALI1B28394g or YALI1C12619g or YALI1C18771g or YALI1D05111g or YALI1E22041g or YALI1F10224g or YALI1F24773g or YALI1D09870g alcohol dehydrogenase (glycerol, NADP)
+                m10[C_cy] + m276[C_cy] + m40[C_cy] --> m277[C_cy] + m41[C_cy]
+     R134      consumes reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (acetaldehyde, NA
+                m173[C_cy] + m32[C_cy] + m41[C_cy] --> m10[C_cy] + m202[C_cy] + m40[C_cy]
+     R1392     produces reaction  (0.0, 1000.0)    GPR=YALI1B19844g and YALI1B25427g            fatty-acyl-CoA synthase (n-C16:0CoA)
+                14.0 m10[C_cy] + 7.0 m200[C_cy] + 14.0 m40[C_cy] + m68[C_cy] --> m1349[C_cy] + 7.0 m32[C_cy] + 14.0 m41[C_cy] + 7.0 m69[C_cy] + 7.0 m82[C_cy]
+     R1393     produces reaction  (0.0, 1000.0)    GPR=YALI1B19844g and YALI1B25427g and YALI1C15991g and YALI1E27279g fatty-acyl-CoA synthase (n-C18:0CoA)
+                16.0 m10[C_cy] + 8.0 m200[C_cy] + 16.0 m40[C_cy] + m68[C_cy] --> m1409[C_cy] + 8.0 m32[C_cy] + 16.0 m41[C_cy] + 8.0 m69[C_cy] + 8.0 m82[C_cy]
+     R150      produces reaction  (0.0, 1000.0)    GPR=YALI1D09870g                             arabinose reductase
+                m10[C_cy] + m308[C_cy] + m40[C_cy] --> m309[C_cy] + m41[C_cy]
+     R1591     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        NADP(+) transport, cytoplasm-ER membrane
+                m41[C_cy] <=> m1439[C_em]
+     R16       produces reaction  (0.0, 1000.0)    GPR=YALI1F27761g                             2-dehydropantoate 2-reductase
+                m10[C_cy] + m40[C_cy] + m53[C_cy] --> m41[C_cy] + m54[C_cy]
+     R1629     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        NADP(+) transport, cytoplasm-lipid parti
+                m41[C_cy] <=> m1610[C_lp]
+     R164      produces reaction  (0.0, 1000.0)    GPR=YALI1D16809g                             aspartate-semialdehyde dehydrogenase
+                m10[C_cy] + m327[C_cy] + m40[C_cy] --> m334[C_cy] + m35[C_cy] + m41[C_cy]
+     R176      produces reaction  (0.0, 1000.0)    GPR=YALI1B30181g                             C-14 sterol reductase
+                m10[C_cy] + m350[C_cy] + m40[C_cy] --> m351[C_cy] + m41[C_cy]
+     R177      produces reaction  (0.0, 1000.0)    GPR=(YALI1D14199g or YALI1D06380g) and YALI1A18344g and YALI1D15063g C-22 sterol desaturase (NADP)
+                m109[C_cy] + m10[C_cy] + m352[C_cy] + m40[C_cy] --> 2.0 m32[C_cy] + m353[C_cy] + m41[C_cy]
+     R178      consumes reaction  (0.0, 1000.0)    GPR=YALI1C30514g                             C-3 sterol dehydrogenase
+                m354[C_cy] + m41[C_cy] --> m10[C_cy] + m355[C_cy] + m40[C_cy] + m82[C_cy]
+     R179      consumes reaction  (0.0, 1000.0)    GPR=YALI1C30514g                             C-3 sterol dehydrogenase (4-methylzymost
+                m356[C_cy] + m41[C_cy] --> m10[C_cy] + m357[C_cy] + m40[C_cy] + m82[C_cy]
+     R180      produces reaction  (0.0, 1000.0)    GPR=YALI1B22820g                             C-3 sterol keto reductase (4-methylzymos
+                m10[C_cy] + m357[C_cy] + m40[C_cy] --> m358[C_cy] + m41[C_cy]
+     R181      produces reaction  (0.0, 1000.0)    GPR=YALI1B22820g                             C-3 sterol keto reductase (zymosterol)
+                m10[C_cy] + m355[C_cy] + m40[C_cy] --> m359[C_cy] + m41[C_cy]
+     R182      produces reaction  (0.0, 1000.0)    GPR=YALI1F14958g                             C-4 methyl sterol oxidase
+                m109[C_cy] + m10[C_cy] + m358[C_cy] + m40[C_cy] --> m32[C_cy] + m360[C_cy] + m41[C_cy]
+     R183      produces reaction  (0.0, 1000.0)    GPR=YALI1F14958g                             C-4 methyl sterol oxidase
+                m109[C_cy] + m10[C_cy] + m360[C_cy] + m40[C_cy] --> 2.0 m32[C_cy] + m361[C_cy] + m41[C_cy]
+     R184      produces reaction  (0.0, 1000.0)    GPR=YALI1F14958g                             C-4 methyl sterol oxidase
+                m109[C_cy] + m10[C_cy] + m361[C_cy] + m40[C_cy] --> m32[C_cy] + m354[C_cy] + m41[C_cy]
+     R185      produces reaction  (0.0, 1000.0)    GPR=YALI1F14958g                             C-4 sterol methyl oxidase (4,4-dimethylz
+                3.0 m109[C_cy] + 3.0 m10[C_cy] + m351[C_cy] + 3.0 m40[C_cy] --> 4.0 m32[C_cy] + m356[C_cy] + 3.0 m41[C_cy]
+     R186      produces reaction  (0.0, 1000.0)    GPR=YALI1D26496g                             C-5 sterol desaturase
+                m109[C_cy] + m10[C_cy] + m362[C_cy] + m40[C_cy] --> 2.0 m32[C_cy] + m352[C_cy] + m41[C_cy]
+     R1863     both     reaction  (-1000.0, 1000.0) GPR=YALI1E30815g or YALI1B18311g             alkane oxidase (C10)
+                m109[C_cy] + m10[C_cy] + m1786[C_cy] + m40[C_cy] <=> m1789[C_cy] + m32[C_cy] + m41[C_cy]
+     R1865     both     reaction  (-1000.0, 1000.0) GPR=YALI1B02833g or YALI1B18311g             alkane oxidase (C12)
+                m109[C_cy] + m10[C_cy] + m1791[C_cy] + m40[C_cy] <=> m1792[C_cy] + m32[C_cy] + m41[C_cy]
+     R1867     both     reaction  (-1000.0, 1000.0) GPR=YALI1B02833g or YALI1B18311g or YALI1F02132g alkane oxidase (C16)
+                m109[C_cy] + m10[C_cy] + m1788[C_cy] + m40[C_cy] <=> m1794[C_cy] + m32[C_cy] + m41[C_cy]
+     R1887     consumes reaction  (0.0, 1000.0)    GPR=(YALI1B02194g and YALI1E18480g and YALI1A18062g and YALI1F31215g) or YALI1F13170g or YALI1D33961g or YALI0E07787g or YALI1A16292g or YALI1E19014g or YALI1D02444g or YALI1A15227g or YALI1E09329g long-chain aldehyde dehydrogenase (C16)
+                m1795[C_cy] + m32[C_cy] + m41[C_cy] --> m10[C_cy] + m1223[C_cy] + m40[C_cy]
+     R1893     both     reaction  (-1000.0, 1000.0) GPR=YALI1B21134g                             mannitol dehydrogenase
+                m1804[C_cy] + m41[C_cy] <=> m10[C_cy] + m40[C_cy] + m458[C_cy]
+     R1950     CLOSED   reaction  (0.0, 0.0)       GPR=YALI1C17947g                             dihydrofolate:NADP+ oxidoreductase
+                5.0 m10[C_cy] + m41[C_cy] + m478[C_cy] --> m40[C_cy] + m479[C_cy]
+     R2000     produces reaction  (0.0, 1000.0)    GPR=-                                        D-Gluconate:NADP+ 5-oxidoreductase
+                m10[C_cy] + m1852[C_cy] + m40[C_cy] --> m1724[C_cy] + m41[C_cy]
+     R2067     consumes reaction  (0.0, 1000.0)    GPR=YALI1F33681g                             Succinate-semialdehyde:NADP+ oxidoreduct
+                m2041[C_cy] + m32[C_cy] + m41[C_cy] --> m40[C_cy] + m541[C_cy]
+     R2121     both     reaction  (-1000.0, 1000.0) GPR=YALI1C02550g                             3-Oxopropanoate:NADP+ oxidoreductase (Co
+                m1976[C_cy] + m41[C_cy] + m69[C_cy] <=> m200[C_cy] + m40[C_cy]
+     R2189     both     reaction  (-1000.0, 1000.0) GPR=YALI1F03136g                             Pyridoxine:NADP+ 4-oxidoreductase
+                m41[C_cy] + m923[C_cy] <=> m10[C_cy] + m40[C_cy] + m918[C_cy]
+     R2254     produces reaction  (0.0, 1000.0)    GPR=YALI1E30815g and YALI1D05474g            decanoate hydroxylase
+                m109[C_cy] + m10[C_cy] + m1220[C_cy] + m40[C_cy] --> m1934[C_cy] + m32[C_cy] + m41[C_cy]
+     R2258     produces reaction  (0.0, 1000.0)    GPR=YALI1E30815g and YALI1F02132g and YALI1D05474g Dodecanoate hydroxylase
+                m109[C_cy] + m10[C_cy] + m1221[C_cy] + m40[C_cy] --> m1938[C_cy] + m32[C_cy] + m41[C_cy]
+     R2262     produces reaction  (0.0, 1000.0)    GPR=YALI1F02132g and YALI1D05474g            Hexadecanoate hydroxylase
+                m109[C_cy] + m10[C_cy] + m1223[C_cy] + m40[C_cy] --> m1942[C_cy] + m32[C_cy] + m41[C_cy]
+     R251      produces reaction  (0.0, 1000.0)    GPR=YALI1D05474g and YALI1B07094g and (YALI1D14199g or YALI1D06380g) and YALI1D15063g cytochrome P450 lanosterol 14-alpha-deme
+                3.0 m109[C_cy] + 3.0 m10[C_cy] + 3.0 m40[C_cy] + m449[C_cy] --> 4.0 m32[C_cy] + m34[C_cy] + m350[C_cy] + 3.0 m41[C_cy]
+     R255      consumes reaction  (0.0, 1000.0)    GPR=YALI1A21000g or YALI1A15863g or YALI1B09211g or YALI1B28394g or YALI1C12619g or YALI1C18771g or YALI1D05111g or YALI1E22041g or YALI1F10224g D-arabinose 1-dehydrogenase (NADP)
+                m41[C_cy] + m454[C_cy] --> m10[C_cy] + m40[C_cy] + m452[C_cy]
+     R271      produces reaction  (0.0, 1000.0)    GPR=YALI1C17947g                             dihydrofolate reductase
+                3.0 m10[C_cy] + m40[C_cy] + m478[C_cy] --> m41[C_cy] + m479[C_cy]
+     R325      consumes reaction  (0.0, 1000.0)    GPR=YALI1E26811g                             glucose 6-phosphate dehydrogenase
+                m296[C_cy] + m41[C_cy] --> m10[C_cy] + m168[C_cy] + m40[C_cy]
+     R330      produces reaction  (0.0, 1000.0)    GPR=YALI1F23664g                             glutamate dehydrogenase (NADP)
+                m10[C_cy] + m38[C_cy] + m40[C_cy] + m51[C_cy] --> m32[C_cy] + m41[C_cy] + m50[C_cy]
+     R332      produces reaction  (0.0, 1000.0)    GPR=YALI1E35815g                             glutamate-5-semialdehyde dehydrogenase
+                3.0 m10[C_cy] + m40[C_cy] + m551[C_cy] --> m35[C_cy] + m41[C_cy] + m552[C_cy]
+     R339      produces reaction  (0.0, 1000.0)    GPR=YALI1B17838g or (YALI1C06951g and YALI1E21406g) glutathione oxidoreductase
+                m10[C_cy] + m40[C_cy] + m559[C_cy] --> m41[C_cy] + 2.0 m530[C_cy]
+     R345      consumes reaction  (0.0, 1000.0)    GPR=YALI1A21000g or YALI1A15863g or YALI1B09211g or YALI1B28394g or YALI1C12619g or YALI1C18771g or YALI1D05111g or YALI1E22041g or YALI1F10224g or YALI1F24773g glycerol dehydrogenase (NADP-dependent)
+                m277[C_cy] + m41[C_cy] --> m10[C_cy] + m40[C_cy] + m490[C_cy]
+     R399      produces reaction  (0.0, 1000.0)    GPR=YALI1D01188g                             homoserine dehydrogenase (NADP)
+                m10[C_cy] + m334[C_cy] + m40[C_cy] --> m41[C_cy] + m630[C_cy]
+     R410      produces reaction  (0.0, 1000.0)    GPR=YALI1E05731g                             hydroxymethylglutaryl CoA reductase
+                2.0 m10[C_cy] + 2.0 m40[C_cy] + m646[C_cy] --> 2.0 m41[C_cy] + m647[C_cy] + m69[C_cy]
+     R488      consumes reaction  (0.0, 1000.0)    GPR=YALI1F06197g                             isocitrate dehydrogenase (NADP)
+                m41[C_cy] + m738[C_cy] --> m10[C_cy] + m40[C_cy] + m51[C_cy] + m82[C_cy]
+     R499      produces reaction  (0.0, 1000.0)    GPR=YALI1D12493g                             kynurenine 3-monooxygenase
+                m109[C_cy] + m10[C_cy] + m40[C_cy] + m752[C_cy] --> m112[C_cy] + m32[C_cy] + m41[C_cy]
+     R504      both     reaction  (-1000.0, 1000.0) GPR=YALI1C09773g                             L-allo-threonine dehydrogenase
+                m41[C_cy] + m757[C_cy] <=> m10[C_cy] + m40[C_cy] + m580[C_cy]
+     R505      both     reaction  (-1000.0, 1000.0) GPR=YALI1E07676g and YALI1E11510g            L-aminoadipate-semialdehyde dehydrogenas
+                m10[C_cy] + m40[C_cy] + m52[C_cy] <=> m32[C_cy] + m41[C_cy] + m758[C_cy]
+     R509      produces reaction  (0.0, 1000.0)    GPR=YALI1B18955g                             L-hydroxyproline reductase (NADP)
+                4.0 m10[C_cy] + m40[C_cy] + m764[C_cy] --> m32[C_cy] + m41[C_cy] + m765[C_cy]
+     R510      produces reaction  (0.0, 1000.0)    GPR=YALI1D09870g or YALI1D09034g or YALI1D15398g or YALI1F12666g or YALI1F32287g or YALI1C28263g or YALI1D11256g or YALI1D14453g or YALI1F12649g L-lactaldehyde:NADP+ 1-oxidoreductase
+                m10[C_cy] + m302[C_cy] + m40[C_cy] --> m41[C_cy] + m766[C_cy]
+     R512      consumes reaction  (0.0, 1000.0)    GPR=YALI1C09773g                             L-serine dehydrogenase
+                m41[C_cy] + m441[C_cy] --> 2.0 m10[C_cy] + m40[C_cy] + m767[C_cy]
+     R550      both     reaction  (-1000.0, 1000.0) GPR=YALI1E01589g or YALI1F38386g             methylenetetrahydrofolate dehydrogenase 
+                m153[C_cy] + m41[C_cy] <=> 2.0 m10[C_cy] + m160[C_cy] + m40[C_cy]
+     R565      produces reaction  (0.0, 1000.0)    GPR=YALI1E28545g or YALI1E32908g             NAD kinase
+                m10[C_cy] + m122[C_cy] + m141[C_cy] --> m143[C_cy] + m41[C_cy]
+     R60       produces reaction  (0.0, 1000.0)    GPR=YALI1B19021g or YALI1B00578g             5,10-methylenetetrahydrofolate reductase
+                m10[C_cy] + m153[C_cy] + m40[C_cy] --> m154[C_cy] + m41[C_cy]
+     R639      consumes reaction  (0.0, 1000.0)    GPR=YALI1B20462g                             phosphogluconate dehydrogenase
+                m169[C_cy] + m41[C_cy] --> m10[C_cy] + m40[C_cy] + m82[C_cy] + m96[C_cy]
+     R671      consumes reaction  (0.0, 1000.0)    GPR=YALI1F23441g                             prephenate dehydrogenase (NADP)
+                m408[C_cy] + m41[C_cy] --> m10[C_cy] + m40[C_cy] + m82[C_cy] + m903[C_cy]
+     R689      produces reaction  (0.0, 1000.0)    GPR=YALI1B18955g                             pyrroline-5-carboxylate reductase
+                2.0 m10[C_cy] + m40[C_cy] + m924[C_cy] --> m41[C_cy] + m765[C_cy]
+     R719      both     reaction  (-1000.0, 1000.0) GPR=YALI1D29481g                             saccharopine dehydrogenase (NADP, L-glut
+                m10[C_cy] + m40[C_cy] + m50[C_cy] + m758[C_cy] <=> m32[C_cy] + m41[C_cy] + m940[C_cy]
+     R724      produces reaction  (0.0, 1000.0)    GPR=YALI1F16984g                             shikimate dehydrogenase
+                m10[C_cy] + m40[C_cy] + m99[C_cy] --> m41[C_cy] + m945[C_cy]
+     R739      produces reaction  (0.0, 1000.0)    GPR=YALI1A09939g                             squalene synthase
+                7.0 m10[C_cy] + m40[C_cy] + 2.0 m512[C_cy] --> 2.0 m203[C_cy] + m41[C_cy] + m961[C_cy]
+     R742      consumes reaction  (0.0, 1000.0)    GPR=YALI1F33681g                             succinate-semialdehyde dehydrogenase (NA
+                m134[C_cy] + m32[C_cy] + m41[C_cy] --> m40[C_cy] + m541[C_cy]
+     R745      produces reaction  (0.0, 1000.0)    GPR=YALI1D14058g and YALI1E19603g            sulfite reductase (NADPH2)
+                2.0 m10[C_cy] + 3.0 m40[C_cy] + m879[C_cy] --> 3.0 m32[C_cy] + 3.0 m41[C_cy] + m445[C_cy]
+     R755      produces reaction  (0.0, 1000.0)    GPR=YALI1D35735g and YALI1F02309g            thioredoxin reductase (NADPH)
+                m10[C_cy] + m40[C_cy] + m633[C_cy] --> m41[C_cy] + m632[C_cy]
+     R802      produces reaction  (0.0, 1000.0)    GPR=YALI1D09870g                             xylose reductase
+                m1016[C_cy] + m10[C_cy] + m40[C_cy] --> m1014[C_cy] + m41[C_cy]
+     R_ALCDH_nadp_hi both     reaction  (-1000.0, 1000.0) GPR=YALI1A15227g or YALI1E09329g or YALI1E21128g R_ALCDH_nadp_hi
+                m275[C_cy] + m41[C_cy] <=> m10[C_cy] + m173[C_cy] + m40[C_cy]
+     R_DOLSYN  produces reaction  (0.0, 1000.0)    GPR=-                                        dehydrodolichyl diphosphate to dolichol 
+                2.0 m10[C_cy] + m122[C_cy] + m2019[C_cy] + m32[C_cy] + 2.0 m40[C_cy] --> m123[C_cy] + m203[C_cy] + 2.0 m41[C_cy] + m499[C_cy]
+     R_MDHy    both     reaction  (-1000.0, 1000.0) GPR=YALI1E17214g                             R_MDHy
+                m41[C_cy] + m539[C_cy] <=> m10[C_cy] + m328[C_cy] + m40[C_cy]
+     biomass_C consumes TRANSPORT (0.0, 1000.0)    GPR=-                                        biomass_C
+                0.035251 m1000[C_cy] + 0.943397 m1123[C_cy] + 0.00265 m122[C_cy] + 0.235849 m1324[C_cy] + 23.09 m141[C_cy] + 0.059363 m149[C_cy] + 3.5e-05 m1631[C_em] + 1e-06 m1635[C_cy] + 0.000234 m1640[C_lp] + 7.5e-05 m1648[C_em] + 0.000237 m1700[C_lp] + 0.000346 m1701[C_lp] + 5.8e-05 m1705[C_lp] + 1e-05 m2065[C_mi] + 0.00686 m294[C_cy] + 23.09 m32[C_cy] + 0.003029 m359[C_cy] + 0.868358 m401[C_cy] + 0.00057 m41[C_cy] + 0.010436 m459[C_cy] + 0.009226 m465[C_cy] + 0.0001 m468[C_mi] + 6.34e-05 m479[C_cy] + 0.0001 m503[C_er] + 0.010353 m505[C_cy] + 1e-05 m528[C_cy] + 1e-05 m586[C_mi] + 0.00019 m69[C_cy] + 0.055401 m86[C_cy] + 0.01007 m89[C_cy] + 0.00099 m926[C_cy] + 0.050871 m93[C_cy] + 3.04e-05 m948[C_cy] + 0.05721 m95[C_cy] + 0.02 m964[C_cy] + 1.2e-06 m975[C_cy] + 0.567939 trna_biomass_residue_R129 + 0.125563 trna_biomass_residue_R154 + 0.186498 trna_biomass_residue_R157 + 0.186531 trna_biomass_residue_R165 + 0.003632 trna_biomass_residue_R248 + 0.243866 trna_biomass_residue_R336 + 0.243904 trna_biomass_residue_R337 + 0.509943 trna_biomass_residue_R368 + 0.053881 trna_biomass_residue_R392 + 0.090566 trna_biomass_residue_R493 + 0.19455 trna_biomass_residue_R522 + 0.275005 trna_biomass_residue_R531 + 0.044232 trna_biomass_residue_R547 + 0.082571 trna_biomass_residue_R625 + 0.206372 trna_biomass_residue_R673 + 0.284699 trna_biomass_residue_R723 + 0.210543 trna_biomass_residue_R759 + 0.002154 trna_biomass_residue_R771 + 0.041282 trna_biomass_residue_R775 + 0.172773 trna_biomass_residue_R798 --> 23.09 m10[C_cy] + m1401[C_cy] + 23.09 m143[C_cy] + 1e-05 m2062[C_mi] + 1e-05 m2064[C_mi] + 23.09 m35[C_cy]
+  -- m178[C_mi] NADP(+)_C21H28N7O17P3 q=0
+     R136      consumes reaction  (0.0, 1000.0)    GPR=YALI1C04093g or YALI1D10197g or YALI1E00588g or YALI1F06858g aldehyde dehydrogenase (acetylaldehyde, 
+                m178[C_mi] + m26[C_mi] + m278[C_mi] --> m176[C_mi] + m201[C_mi] + m28[C_mi]
+     R1385     both     reaction  (-1000.0, 1000.0) GPR=YALI1F06197g                             isocitrate dehydrogenase
+                m178[C_mi] + m410[C_mi] <=> m176[C_mi] + m219[C_mi] + m28[C_mi] + m44[C_mi]
+     R1397     produces reaction  (0.0, 1000.0)    GPR=YALI1F37498g                             3-oxoacyl-ACP reductase (3-hydroxybutano
+                m1410[C_mi] + m176[C_mi] + m28[C_mi] --> m1415[C_mi] + m178[C_mi]
+     R1398     produces reaction  (0.0, 1000.0)    GPR=YALI1F37498g                             3-oxoacyl-ACP reductase (3-hydroxyhexano
+                m1412[C_mi] + m176[C_mi] + m28[C_mi] --> m1416[C_mi] + m178[C_mi]
+     R1399     produces reaction  (0.0, 1000.0)    GPR=YALI1F37498g                             3-oxoacyl-ACP reductase (3-hydroxyoctano
+                m1414[C_mi] + m176[C_mi] + m28[C_mi] --> m1417[C_mi] + m178[C_mi]
+     R1403     produces reaction  (0.0, 1000.0)    GPR=YALI1C26939g                             enoyl-ACP reductase (butanoyl-ACP)
+                m1418[C_mi] + m176[C_mi] + m28[C_mi] --> m1411[C_mi] + m178[C_mi]
+     R1404     produces reaction  (0.0, 1000.0)    GPR=YALI1C26939g                             enoyl-ACP reductase (hexanoyl-ACP)
+                m1419[C_mi] + m176[C_mi] + m28[C_mi] --> m1413[C_mi] + m178[C_mi]
+     R1405     produces reaction  (0.0, 1000.0)    GPR=YALI1C26939g                             enoyl-ACP reductase (octanoyl-ACP)
+                m1420[C_mi] + m176[C_mi] + m28[C_mi] --> m1421[C_mi] + m178[C_mi]
+     R1951     CLOSED   reaction  (0.0, 0.0)       GPR=YALI1C17947g                             dihydrofolate:NADP+ oxidoreductase
+                m178[C_mi] + 5.0 m28[C_mi] + m480[C_mi] --> m126[C_mi] + m176[C_mi]
+     R2218     produces reaction  (0.0, 1000.0)    GPR=YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g fatty acyl ACP synthase n C100ACP mitoch
+                m1421[C_mi] + 2.0 m176[C_mi] + 2.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1901[C_mi] + m26[C_mi] + m44[C_mi]
+     R2221     produces reaction  (0.0, 1000.0)    GPR=YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g fatty acyl ACP synthase n C120ACP mitoch
+                2.0 m176[C_mi] + m1901[C_mi] + 2.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1902[C_mi] + m26[C_mi] + m44[C_mi]
+     R2224     produces reaction  (0.0, 1000.0)    GPR=YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g fatty acyl ACP synthase n C140ACP mitoch
+                2.0 m176[C_mi] + m1902[C_mi] + 2.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1903[C_mi] + m26[C_mi] + m44[C_mi]
+     R2227     produces reaction  (0.0, 1000.0)    GPR=YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g fatty acyl ACP synthase n C141ACP mitoch
+                3.0 m176[C_mi] + m1902[C_mi] + 3.0 m28[C_mi] + m64[C_mi] + m801[C_mi] --> 3.0 m178[C_mi] + m179[C_mi] + m1904[C_mi] + 3.0 m26[C_mi] + m44[C_mi]
+     R2230     produces reaction  (0.0, 1000.0)    GPR=YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g fatty acyl ACP synthase n C160ACP mitoch
+                2.0 m176[C_mi] + m1903[C_mi] + 2.0 m28[C_mi] + m801[C_mi] --> 2.0 m178[C_mi] + m179[C_mi] + m1905[C_mi] + m26[C_mi] + m44[C_mi]
+     R2233     produces reaction  (0.0, 1000.0)    GPR=YALI1D18037g and YALI1D32594g and YALI1F38317g and YALI1C27933g fatty acyl ACP synthase n C161ACP mitoch
+                3.0 m176[C_mi] + m1903[C_mi] + 3.0 m28[C_mi] + m64[C_mi] + m801[C_mi] --> 3.0 m178[C_mi] + m179[C_mi] + m1906[C_mi] + 3.0 m26[C_mi] + m44[C_mi]
+     R2287     produces reaction  (0.0, 1000.0)    GPR=YALI1E13472g                             lipoyl synthase, mitochondrial (LIP5, lu
+                4.0 m176[C_mi] + m2063[C_mi] + 2.0 m2066[C_mi] + 2.0 m60[C_mi] --> 4.0 m178[C_mi] + 2.0 m2067[C_mi] + m588[C_mi] + 2.0 m756[C_mi] + 2.0 m808[C_mi]
+     R272      produces reaction  (0.0, 1000.0)    GPR=YALI1C17947g                             dihydrofolate reductase
+                m176[C_mi] + 3.0 m28[C_mi] + m480[C_mi] --> m126[C_mi] + m178[C_mi]
+     R340      produces reaction  (0.0, 1000.0)    GPR=YALI1E21406g and YALI1F28092g            glutathione oxidoreductase
+                m176[C_mi] + m28[C_mi] + m560[C_mi] --> m178[C_mi] + 2.0 m561[C_mi]
+     R497      produces reaction  (0.0, 1000.0)    GPR=YALI1D03952g                             ketol-acid reductoisomerase (2-aceto-2-h
+                m176[C_mi] + m28[C_mi] + m43[C_mi] --> m178[C_mi] + m488[C_mi]
+     R551      both     reaction  (-1000.0, 1000.0) GPR=YALI1E01589g or YALI1F38386g             methylenetetrahydrofolate dehydrogenase 
+                m124[C_mi] + m178[C_mi] <=> m176[C_mi] + 2.0 m28[C_mi] + m803[C_mi]
+     R560      produces reaction  (0.0, 1000.0)    GPR=YALI1B22853g                             N-acetyl-g-glutamyl-phosphate reductase
+                m176[C_mi] + m212[C_mi] --> m178[C_mi] + m218[C_mi] + m58[C_mi]
+     R566      produces reaction  (0.0, 1000.0)    GPR=YALI1E28545g or YALI1E32908g or YALI1E21312g NAD kinase
+                m27[C_mi] + m28[C_mi] + m46[C_mi] --> m178[C_mi] + m197[C_mi]
+     R756      produces reaction  (0.0, 1000.0)    GPR=(YALI1E27791g and YALI1D35735g) or (YALI1E21406g and YALI1F02309g) thioredoxin reductase (NADPH)
+                m176[C_mi] + m28[C_mi] + m635[C_mi] --> m178[C_mi] + m634[C_mi]
+     R76       produces reaction  (0.0, 1000.0)    GPR=YALI1D03952g                             acetohydroxy acid isomeroreductase
+                m175[C_mi] + m176[C_mi] + 2.0 m28[C_mi] --> m177[C_mi] + m178[C_mi]
+
+##### nicotinamide  (formula C6H6N2O; match keys ['chebi:CHEBI:14645', 'chebi:CHEBI:17154', 'chebi:CHEBI:25521', 'chebi:CHEBI:44258'])
+   copies: m829[C_cy], m819[C_nu]
+  -- m829[C_cy] nicotinamide_C6H6N2O q=0
+     R1267     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        nicotinamide diffusion
+                m829[C_cy] <=> m819[C_nu]
+     R576      consumes reaction  (0.0, 1000.0)    GPR=YALI1A22129g                             nicotinamidase
+                m32[C_cy] + m829[C_cy] --> m38[C_cy] + m824[C_cy]
+     R577      consumes reaction  (0.0, 1000.0)    GPR=YALI1A09408g                             nicotinamide N-methyltransferase
+                m256[C_cy] + m829[C_cy] --> m255[C_cy] + m830[C_cy]
+     R675      produces reaction  (0.0, 1000.0)    GPR=YALI1F05220g and YALI1F37714g and YALI1B17871g purine-nucleoside phosphorylase
+                m35[C_cy] + m908[C_cy] --> m10[C_cy] + m829[C_cy] + m888[C_cy]
+  -- m819[C_nu] nicotinamide_C6H6N2O q=0
+     R1267     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        nicotinamide diffusion
+                m829[C_cy] <=> m819[C_nu]
+     R567      produces reaction  (0.0, 1000.0)    GPR=YALI1D26320g or YALI1D02416g or YALI1F15334g NAD nucleosidase nuclear
+                m626[C_nu] + m817[C_nu] --> 2.0 m627[C_nu] + m818[C_nu] + m819[C_nu]
+
+##### acetyl-CoA  (formula C23H38N7O17P3S; match keys ['chebi:CHEBI:13712', 'chebi:CHEBI:15351', 'chebi:CHEBI:180918', 'chebi:CHEBI:22192'])
+   copies: m68[C_cy], m71[C_mi], m208[C_nu], m183[C_pe]
+  -- m68[C_cy] acetyl-CoA_C23H38N7O17P3S q=0
+     R1001     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        acetyl-CoA transport
+                m68[C_cy] <=> m208[C_nu]
+     R1095     consumes reaction  (0.0, 1000.0)    GPR=-                                        diamine transaminase
+                3.0 m10[C_cy] + m68[C_cy] + m902[C_cy] --> m69[C_cy] + m901[C_cy]
+     R1324     consumes reaction  (0.0, 1000.0)    GPR=-                                        spermidine acetyltransferase
+                2.0 m10[C_cy] + m467[C_cy] + m68[C_cy] --> m69[C_cy] + m898[C_cy]
+     R1392     consumes reaction  (0.0, 1000.0)    GPR=YALI1B19844g and YALI1B25427g            fatty-acyl-CoA synthase (n-C16:0CoA)
+                14.0 m10[C_cy] + 7.0 m200[C_cy] + 14.0 m40[C_cy] + m68[C_cy] --> m1349[C_cy] + 7.0 m32[C_cy] + 14.0 m41[C_cy] + 7.0 m69[C_cy] + 7.0 m82[C_cy]
+     R1393     consumes reaction  (0.0, 1000.0)    GPR=YALI1B19844g and YALI1B25427g and YALI1C15991g and YALI1E27279g fatty-acyl-CoA synthase (n-C18:0CoA)
+                16.0 m10[C_cy] + 8.0 m200[C_cy] + 16.0 m40[C_cy] + m68[C_cy] --> m1409[C_cy] + 8.0 m32[C_cy] + 16.0 m41[C_cy] + 8.0 m69[C_cy] + 8.0 m82[C_cy]
+     R1894     produces reaction  (0.0, 1000.0)    GPR=YALI1E41315g or YALI1D32268g             ATP-citrate lyase
+                m141[C_cy] + m435[C_cy] + m69[C_cy] --> m143[C_cy] + m328[C_cy] + m35[C_cy] + m68[C_cy]
+     R191      both     reaction  (-1000.0, 1000.0) GPR=YALI1F28064g                             carnitine O-acetyltransferase
+                m369[C_cy] + m68[C_cy] <=> m370[C_cy] + m69[C_cy]
+     R2003     both     reaction  (-1000.0, 1000.0) GPR=-                                        Acetyl-CoA:malonate CoA-transferase
+                2.0 m10[C_cy] + m1854[C_cy] + m68[C_cy] <=> m200[C_cy] + m202[C_cy]
+     R21       consumes reaction  (0.0, 1000.0)    GPR=YALI1B09592g                             2-isopropylmalate synthase
+                m32[C_cy] + m67[C_cy] + m68[C_cy] --> m66[C_cy] + m69[C_cy]
+     R2119     produces reaction  (0.0, 1000.0)    GPR=YALI1C02550g                             3-Oxopropanoate:NAD+ oxidoreductase (dec
+                m10[C_cy] + m122[C_cy] + m1976[C_cy] + m69[C_cy] --> m123[C_cy] + m68[C_cy] + m82[C_cy]
+     R2285     produces reaction  (0.0, 1000.0)    GPR=YALI0E18568g                             Acetyl-CoA:propanoyl-CoA 2-C-acetyltrans
+                m2060[C_cy] + m69[C_cy] --> m1970[C_cy] + m68[C_cy]
+     R356      produces reaction  (0.0, 1000.0)    GPR=-                                        glycine C-acetyltransferase
+                m580[C_cy] + m69[C_cy] --> m272[C_cy] + m68[C_cy]
+     R401      consumes reaction  (0.0, 1000.0)    GPR=YALI1C33270g or YALI1E01235g             homoserine O-trans-acetylase
+                m630[C_cy] + m68[C_cy] --> m444[C_cy] + m69[C_cy]
+     R411      consumes reaction  (0.0, 1000.0)    GPR=YALI1F38116g                             hydroxymethylglutaryl CoA synthase
+                m189[C_cy] + m32[C_cy] + m68[C_cy] --> m646[C_cy] + m69[C_cy]
+     R536      consumes reaction  (0.0, 1000.0)    GPR=YALI1D24249g or YALI1E18927g             malate synthase
+                m271[C_cy] + m32[C_cy] + m68[C_cy] --> m539[C_cy] + m69[C_cy]
+     R561      both     reaction  (-1000.0, 1000.0) GPR=YALI1D25450g                             N-acetylglucosamine-6-phosphate synthase
+                m550[C_cy] + m68[C_cy] <=> m69[C_cy] + m815[C_cy]
+     R721      consumes reaction  (0.0, 1000.0)    GPR=-                                        serine O-acetyltransferase
+                m441[C_cy] + m68[C_cy] --> m446[C_cy] + m69[C_cy]
+     R82       both     reaction  (-1000.0, 1000.0) GPR=YALI1B11532g                             acetyl-CoA C-acetyltransferase
+                2.0 m68[C_cy] <=> m189[C_cy] + m69[C_cy]
+     R88       consumes reaction  (0.0, 1000.0)    GPR=YALI1C15991g and YALI1E35955g            acetyl-CoA carboxylase
+                m10[C_cy] + m141[C_cy] + m199[C_cy] + m68[C_cy] --> m143[C_cy] + m200[C_cy] + m35[C_cy]
+     R90       produces reaction  (0.0, 1000.0)    GPR=YALI1F08845g                             acetyl-CoA synthetase
+                m141[C_cy] + m202[C_cy] + m69[C_cy] --> m203[C_cy] + m68[C_cy] + m86[C_cy]
+  -- m71[C_mi] acetyl-CoA_C23H38N7O17P3S q=0
+     R1170     consumes reaction  (0.0, 1000.0)    GPR=YALI1F38776g                             homocitrate synthase
+                m219[C_mi] + m26[C_mi] + m71[C_mi] --> m73[C_mi] + m75[C_mi]
+     R1708     both     reaction  (-1000.0, 1000.0) GPR=YALI1E36437g                             succinyl-CoA:acetate CoA transferase
+                m156[C_mi] + m201[C_mi] <=> m71[C_mi] + m810[C_mi]
+     R193      both     reaction  (-1000.0, 1000.0) GPR=YALI1B13948g                             carnitine O-acetyltransferase
+                m373[C_mi] + m73[C_mi] <=> m374[C_mi] + m71[C_mi]
+     R1974     produces reaction  (0.0, 1000.0)    GPR=YALI1B29483g                             hydroxymethylglutaryl-CoA lyase
+                m648[C_mi] --> m1812[C_mi] + m28[C_mi] + m71[C_mi]
+     R22       consumes reaction  (0.0, 1000.0)    GPR=YALI1B09592g                             2-isopropylmalate synthase
+                m26[C_mi] + m70[C_mi] + m71[C_mi] --> m72[C_mi] + m73[C_mi]
+     R236      consumes reaction  (0.0, 1000.0)    GPR=YALI1E01019g or YALI1E03300g             citrate synthase
+                m26[C_mi] + m71[C_mi] + m77[C_mi] --> m433[C_mi] + m73[C_mi]
+     R412      consumes reaction  (0.0, 1000.0)    GPR=YALI1F38116g                             hydroxymethylglutaryl CoA synthase
+                m190[C_mi] + m26[C_mi] + m71[C_mi] --> m648[C_mi] + m73[C_mi]
+     R562      consumes reaction  (0.0, 1000.0)    GPR=YALI1B21356g or YALI1E16002g             N-acteylglutamate synthase
+                m29[C_mi] + m71[C_mi] --> m211[C_mi] + m73[C_mi]
+     R693      produces reaction  (0.0, 1000.0)    GPR=YALI1E31947g and YALI1F27556g and YALI1D26360g and YALI1B13179g and YALI1D30618g pyruvate dehydrogenase
+                m27[C_mi] + m6[C_mi] + m73[C_mi] --> m30[C_mi] + m44[C_mi] + m71[C_mi]
+     R78       both     reaction  (-1000.0, 1000.0) GPR=(YALI1F38317g and YALI1A20089g and YALI1C26939g and YALI1D18037g) or (YALI1D32594g and YALI1F37498g and YALI1E22262g) acetyl-CoA ACP transacylase
+                m179[C_mi] + m71[C_mi] <=> m180[C_mi] + m73[C_mi]
+     R83       both     reaction  (-1000.0, 1000.0) GPR=YALI1E13899g                             acetyl-CoA C-acetyltransferase
+                2.0 m71[C_mi] <=> m190[C_mi] + m73[C_mi]
+     R87       consumes reaction  (0.0, 1000.0)    GPR=YALI1C15991g                             acetyl-Coa carboxylase
+                m196[C_mi] + m28[C_mi] + m46[C_mi] + m71[C_mi] --> m197[C_mi] + m198[C_mi] + m58[C_mi]
+     R89       consumes reaction  (0.0, 1000.0)    GPR=YALI1E36437g                             acetyl-CoA hydrolase
+                m26[C_mi] + m71[C_mi] --> m201[C_mi] + m73[C_mi]
+     R91       CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F08845g                             acetyl-CoA synthetase
+                m201[C_mi] + m46[C_mi] + m73[C_mi] --> m204[C_mi] + m48[C_mi] + m71[C_mi]
+  -- m208[C_nu] acetyl-CoA_C23H38N7O17P3S q=0
+     R1001     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        acetyl-CoA transport
+                m68[C_cy] <=> m208[C_nu]
+     R396      consumes reaction  (0.0, 1000.0)    GPR=YALI1F38776g                             homocitrate synthase
+                m208[C_nu] + m625[C_nu] + m626[C_nu] --> m207[C_nu] + m628[C_nu]
+     R92       CLOSED   reaction  (0.0, 0.0)       GPR=YALI1F08845g                             acetyl-CoA synthetase nuclear
+                m205[C_nu] + m206[C_nu] + m207[C_nu] --> m208[C_nu] + m209[C_nu] + m210[C_nu]
+
+##### NMN  (formula C11H15N2O8P; match keys [])
+   copies: m832[C_nu]
+  -- m832[C_nu] NMN_C11H15N2O8P q=0
+     R1270     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        NMN transport
+                m831[C_cy] <=> m832[C_nu]
+     R579      consumes reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinamide-nucleotide adenylyltransfer
+                m206[C_nu] + m832[C_nu] --> m210[C_nu] + m817[C_nu]
+
+##### deamido-NAD  (formula C21H26N6O15P2; match keys ['chebi:CHEBI:14103', 'chebi:CHEBI:14104', 'chebi:CHEBI:14105', 'chebi:CHEBI:18304'])
+   copies: m820[C_cy], m821[C_nu]
+  -- m820[C_cy] deamido-NAD(+)_C21H26N6O15P2 q=0
+     R1082     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        deamino-NAD+ diffusion
+                m820[C_cy] <=> m821[C_nu]
+     R568      consumes reaction  (0.0, 1000.0)    GPR=YALI1A21156g                             NAD synthase
+                m130[C_cy] + m141[C_cy] + m32[C_cy] + m820[C_cy] --> m122[C_cy] + m203[C_cy] + m50[C_cy] + m86[C_cy]
+     R580      produces reaction  (0.0, 1000.0)    GPR=YALI1E30400g or YALI1A20611g             nicotinate-nucleotide adenylyltransferas
+                m141[C_cy] + m825[C_cy] --> m203[C_cy] + m820[C_cy]
+  -- m821[C_nu] deamido-NAD(+)_C21H26N6O15P2 q=0
+     R1082     both     TRANSPORT (-1000.0, 1000.0) GPR=-                                        deamino-NAD+ diffusion
+                m820[C_cy] <=> m821[C_nu]
+     R569      consumes reaction  (0.0, 1000.0)    GPR=YALI1A21156g                             NAD synthase
+                m206[C_nu] + m626[C_nu] + m821[C_nu] + m822[C_nu] --> m209[C_nu] + m210[C_nu] + m817[C_nu] + m823[C_nu]

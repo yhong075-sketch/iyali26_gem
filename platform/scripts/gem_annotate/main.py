@@ -99,6 +99,7 @@ def build_reference_chain(
     r2135_acyl_coa_pool: bool = False,
     r1726_cpt_open: bool = False,
     dolichol_route: bool = False,
+    um7_nuclear_diffusion: bool = False,
     r2171_pi_plc_1to1: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
@@ -159,6 +160,9 @@ def build_reference_chain(
     if dolichol_route and not r1726_cpt_open:
         # Reviewed on ce9e1112 (2026-10-28); its guard pins that candidate's biomass_C.
         raise ValueError("The dolichol route curation was reviewed on the R1726 opening candidate; requires --r1726-cpt-open")
+    if um7_nuclear_diffusion and not dolichol_route:
+        # Reviewed on 9d655c2b (2026-10-28), the dolichol route candidate.
+        raise ValueError("The UM7 nuclear diffusion curation was reviewed on the dolichol route candidate; requires --dolichol-route")
     if r2171_pi_plc_1to1 and not dolichol_route:
         # Reviewed on 9d655c2b (2026-10-28), where the Stage 1 source check found the inositol leak.
         raise ValueError("The R2171 1:1 curation was reviewed on the dolichol route candidate; requires --dolichol-route")
@@ -855,6 +859,12 @@ def build_reference_chain(
         from .dolichol_route import apply_dolichol_route
         selection["dolichol_route"] = apply_dolichol_route(model)
         logger.info("Dolichol route: %s", selection["dolichol_route"]["status"])
+    if um7_nuclear_diffusion:
+        # Opt-in: gene-less nucleus-cytosol diffusion of ADP-ribose (R_ADPRtn) and diphosphate (R_PPItn), gap-census
+        # UM7 (2026-10-28). Adds two reactions only; requires and runs after the dolichol route step.
+        from .um7_nuclear_diffusion import apply_um7_nuclear_diffusion
+        selection["um7_nuclear_diffusion"] = apply_um7_nuclear_diffusion(model)
+        logger.info("UM7 nuclear diffusion: %s", selection["um7_nuclear_diffusion"]["status"])
     if r2171_pi_plc_1to1:
         # Opt-in: R2171 written 1:1, PI + H2O -> DAG + Ins1P + 2 H+ (2026-10-28). Stoichiometry and notes only;
         # requires and runs after the dolichol route.
@@ -966,6 +976,7 @@ def build_model(args):
         r2135_acyl_coa_pool=getattr(args, "r2135_acyl_coa_pool", False),
         r1726_cpt_open=getattr(args, "r1726_cpt_open", False),
         dolichol_route=getattr(args, "dolichol_route", False),
+        um7_nuclear_diffusion=getattr(args, "um7_nuclear_diffusion", False),
         r2171_pi_plc_1to1=getattr(args, "r2171_pi_plc_1to1", False),
     )
     output = args.output_model

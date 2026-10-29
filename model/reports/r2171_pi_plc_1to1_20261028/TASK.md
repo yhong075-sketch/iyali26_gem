@@ -6,7 +6,7 @@ conventional output name). No commit or push. Sections 0–9 below are the draft
 and the status line.
 
 **Status: completed 2026-10-28 on branch `claude/lipid-source-leak-check` (base `origin/main` `0093c89`,
-unchanged); candidate `965ab947`, [REPORT.md](REPORT.md), [AUDIT.md](AUDIT.md). Not committed.** Correction found by
+unchanged); candidate `965ab947`, [REPORT.md](REPORT.md), [AUDIT.md](AUDIT.md). Committed `af2ebab`.** Correction found by
 the audit: section 5 item 5 says the dolichol `ko_compare.tsv` has a "`9d655c2b` side"; its sides are `ce9e1112` and
 `a801aad0` (recorded there as the same optimization problem as `9d655c2b`). The baseline sweep was re-run instead
 (REPORT section 6).

@@ -5,7 +5,7 @@
 - **Candidate:**
   [`model/candidates/E5_…_dolichol_route_v2_r2171_1to1_20261028.xml`](../../candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_r2171_1to1_20261028.xml),
   SHA-256 `965ab947f2aadc2c69443e7a794358c502acfdf0892e78582278ff07a37429d7` = `9d655c2b` + `--r2171-pi-plc-1to1`.
-  Not a designated reference. Not committed.
+  Not a designated reference. Committed `af2ebab`.
 - **Authorization:** "Approve Option A" (user, 2026-10-28), the sentence in TASK.md section 9.
 - **Change:** R2171 (PI phospholipase C, GPR `YALI1D13510g`, KEGG R03332) goes from
   `PI + 100 H2O → DAG + 100 Ins1P + 100 H+` (charge −100) to `PI + H2O → DAG + Ins1P + 2 H+` (charge 0), plus six notes.
