@@ -5,6 +5,29 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-29: Thr/Ser synthetase split rebuilt on the combined UM7 + R2171 candidate, candidate d8d1bac7 (not committed)
+
+**Authorization.** The user, 2026-10-29: "Rebuild on 14f73bda", then "Approve as written" for
+[TASK.md](reports/aars_thr_ser_split_on_14f73bda_20261029/TASK.md) §4. No commit or push.
+
+**Results** ([REPORT.md](reports/aars_thr_ser_split_on_14f73bda_20261029/REPORT.md),
+[AUDIT.md](reports/aars_thr_ser_split_on_14f73bda_20261029/AUDIT.md)). Verified this session; the independent audit
+supports D1–D4, D6, D7 and partly D5, D8 (record-keeping gaps, fixed).
+- **Candidate:**
+  [E5_…_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_20261029.xml)
+  (`d8d1bac78138f59ba6beefcbddae7f93d0a20e245fea6f5dd9c79760ee535751`) = `14f73bda` + `--aars-thr-ser-split` =
+  `6abb6b38` + the UM7 diffusions, field for field. No code or data change; seeds 0 and 1 identical. Not a designated
+  reference.
+- **Control:** the `14f73bda` argv at HEAD `ca76de1` reproduces `14f73bda…` byte for byte.
+- **Diffs:** vs `14f73bda` the 9 intended differences; vs `6abb6b38` only R_ADPRtn, R_PPItn and the "Transport, nucleus"
+  group.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, 2,164 LPs): WT 0.3116608216 on both; only `YALI1F14882g` and `YALI1F03908g`
+  change, FN → TP at every cutoff; 15 %: 112 / 203 / 42 / 692 → 114 / 201 / 42 / 692; same 16 unresolved; no failing
+  point. User-defined negatives; development reference.
+
+**Limits.** Localisation inferred, as for `6abb6b38`. One medium. The libSBML error on R304 drops that reaction's notes
+in every build checked, including `14f73bda`: pre-existing data loss, cause not investigated.
+
 ## 2026-10-29: Cytosolic Thr/Ser tRNA synthetase rules split from their mitochondrial paralogs, candidate 6abb6b38 (committed 6d0f0ff, PR #34)
 
 **Authorization.** The user, 2026-10-29: "Thr/Ser split first" (candidate 1 of the OR-rule review below), then
