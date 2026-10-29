@@ -267,6 +267,13 @@ blocked reactions with their facts and LP evidence). No new LP solves were run f
     the cytosolic copies unblock 12/13; sinks 0/13.
 11. **UM11 (11, nucleus):** nuclear ribonucleotide reductase copies with a nuclear thioredoxin that is never
     regenerated (TRX1 [nu] RNP / TRX1-disulphide RNC). Linking to the cytosolic pair unblocks 11/11.
+    **Decision 2026-10-29 (user, Option B): the nuclear copies stay blocked; no model change.**
+    - Every opening tested on `14f73bda` (both thioredoxin links, the same plus R1914's water, or a nuclear TRR
+      copy) frees the 11 and nothing else. The TRR copy's whole-model scan was run by the audit.
+    - None changes WT, any knockout or the energy check; the nuclear copies carry 0 at the optimum.
+    - In yeast the RNR holoenzyme forms in the cytoplasm: Rnr1 is cytoplasmic, and Rnr2/Rnr4 are sequestered in
+      the nucleus until released. Every ancestor model carries the same blocked copies.
+    - See [um11_nuclear_rnr_20261029/REPORT.md](../um11_nuclear_rnr_20261029/REPORT.md).
 12. **UM12 (11) and UM19 (8): the Kennedy pathway behind the inherited closures R1726 and R1725.** Choline
     and ethanolamine uptake, kinases, cytidylyltransferases and CDP-choline / CDP-ethanolamine transports.
     Opening R1725 + R1726 unblocks 19/19; on the Task A medium growth goes 0.312421 → 0.312472 and the

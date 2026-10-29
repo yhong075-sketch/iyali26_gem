@@ -1,0 +1,35 @@
+[
+ {
+  "section": "reactions",
+  "item": "R2171",
+  "field": "notes",
+  "before": {},
+  "after": {
+   "r2171_pi_plc_curation": "R2171-PI-PLC-1TO1-20261028",
+   "r2171_previous_equation": "m1393[C_cy] PI + 100 m32[C_cy] H2O = 100 m10[C_cy] H+ + m1994[C_cy] DAG + 100 m813[C_cy] inositol 1-phosphate, irreversible (charge -100)",
+   "r2171_pi_plc_evidence": "Written 1:1 as its own KEGG link R03332 (PI + H2O = Ins1P + DAG) and ModelSEED rxn06362; 2 H+ balance charge under the model charges. The 100x form is in no source found and is inherited from iYli21. As written it let an INO1-null strain grow without inositol and made Ins1P without phosphate uptake (model/reports/lipid_source_leak_check_20261028).",
+   "r2171_pi_plc_limits": "Gene YALI1D13510g = YALI0D10813g: KEGG K01771 (EC 4.6.1.13, an enzyme KEGG calls bacterial, product inositol 1,2-cyclic phosphate) and UniProt Q6C9J1 (unreviewed, score 1, PI-PLC X domain only); its real activity and product are unknown. Mass balance not checkable (PI and DAG are lumped).",
+   "r2171_pi_plc_sources": "https://www.kegg.jp/entry/R03332; https://modelseed.org/solr/reactions/select?q=id:rxn06362; https://www.kegg.jp/entry/4.6.1.13; https://www.kegg.jp/entry/yli:2910441; https://rest.uniprot.org/uniprotkb/Q6C9J1",
+   "r2171_pi_plc_authorization": "User authorized writing R2171 as PI + H2O = DAG + Ins1P + 2 H+ (Option A) on 2026-10-28."
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R2171",
+  "field": "stoichiometry",
+  "before": {
+   "m10[C_cy]": 100.0,
+   "m1393[C_cy]": -1.0,
+   "m1994[C_cy]": 1.0,
+   "m32[C_cy]": -100.0,
+   "m813[C_cy]": 100.0
+  },
+  "after": {
+   "m10[C_cy]": 2.0,
+   "m1393[C_cy]": -1.0,
+   "m1994[C_cy]": 1.0,
+   "m32[C_cy]": -1.0,
+   "m813[C_cy]": 1.0
+  }
+ }
+]
