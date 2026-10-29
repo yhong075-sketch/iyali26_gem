@@ -172,6 +172,27 @@ completeness, and those gaps were fixed.
 - `YALI0D17490g` → `YALI1D21476g` is an identifier question for the annotation line.
 - Not traced: a WT pFBA flux of about 18 through R659 / r0210 / R_CYST_II.
 - Next gate: round 2, the prolyl pair R673, needs the user's approval of a TargetP / DeepLoc submission.
+## 2026-10-29: 11 unused candidate XMLs removed from the working tree (housekeeping, no model change)
+
+**Authorization.** The user, 2026-10-29: "Plan step 3", then "Strict: 14 files" (remove the candidate XMLs that no
+code or test loads, keep their sidecars, add a restore table, test before and after, commit, no push).
+
+**Results.** 11 files removed from `model/candidates/` (156 MB; the folder goes from 691 MB to 535 MB per checkout).
+Their `.build.json` and `.coq9_genes.tsv` files stay. [candidates/README.md](candidates/README.md) moves their rows to
+a restore table that names the commit to restore each one from. Git history keeps every file, so `.git` does not shrink.
+- **Restorable, verified this session:** for each file, the working-copy SHA-256, the README prefix, the blob in the
+  named commit and the SHA in its `.build.json` all agree. Every named commit is on `origin/main`.
+- **Tests:** full pytest at HEAD `f212874` before and after: identical per-test outcomes (324 passed, 19 failed,
+  20 errors, 31 skipped, 858 subtests; the failures and errors are pre-existing).
+- **Plan changed during the work:** the approved set had 14 files. The first after-run turned 9 tests from pass to
+  error, because `test_r2135_acyl_coa_pool.py`, `test_r1726_cpt_open.py` and `test_dolichol_route.py` build their
+  baseline name from two string literals, which the line grep missed. `00e8e397`, `e9d35857` and `ce9e1112` were
+  kept; a rescan that joins adjacent literals found no other use.
+
+**Limits.** Markdown links to the removed files (2 older REPORT.md files, 4 links in earlier entries here) resolve
+only at the commit named in the restore table. Ten report reproduction scripts still load files that were kept on purpose
+(`0ac2addf`, `c98961e9`, the r1964, r2041 and r2190 builds). New candidates (about 14 MB each) will grow the folder
+again; there is no retirement rule yet.
 
 ## 2026-10-29: Thr/Ser synthetase split rebuilt on the combined UM7 + R2171 candidate, candidate d8d1bac7 (not committed)
 
