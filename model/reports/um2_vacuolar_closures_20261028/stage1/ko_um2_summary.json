@@ -1,0 +1,754 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi 1e-09, reset per knockout, targeted check",
+ "model_sha256": "9d655c2bdbf82721a38f148a9a4ee0a385bb509ea7b591111107113c4aa8335c",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "negative_class": "user-defined: model genes not on the consensus list; mtDNA genes out of scope",
+ "validation_status": "development reference, not independent validation",
+ "groups": {
+  "pump": {
+   "R795": [
+    0,
+    1000
+   ]
+  },
+  "water": {
+   "R1363": [
+    0,
+    1000
+   ]
+  },
+  "hdiff": {
+   "R1163": [
+    0,
+    1000
+   ]
+  },
+  "hleak": {
+   "R1163": [
+    -1000,
+    0
+   ]
+  },
+  "aaimp": {
+   "R869": [
+    0,
+    1000
+   ],
+   "R878": [
+    0,
+    1000
+   ],
+   "R887": [
+    0,
+    1000
+   ],
+   "R897": [
+    0,
+    1000
+   ]
+  },
+  "aaexp": {
+   "R870": [
+    0,
+    1000
+   ],
+   "R879": [
+    0,
+    1000
+   ],
+   "R883": [
+    0,
+    1000
+   ],
+   "R888": [
+    0,
+    1000
+   ],
+   "R898": [
+    0,
+    1000
+   ]
+  },
+  "aspglu": {
+   "R871": [
+    0,
+    1000
+   ],
+   "R876": [
+    0,
+    1000
+   ]
+  },
+  "pa": {
+   "R918": [
+    0,
+    1000
+   ],
+   "R925": [
+    0,
+    1000
+   ],
+   "R927": [
+    0,
+    1000
+   ]
+  }
+ },
+ "fresh_resolves": [],
+ "variants": {
+  "as_built": {
+   "wt": {
+    "status": "optimal",
+    "growth": 0.311660821633612,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.5758827579616672e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "scores": {
+    "0.01": {
+     "TP": 94,
+     "FN": 221,
+     "FP": 35,
+     "TN": 699,
+     "unresolved": 16,
+     "recall": 0.2984126984126984,
+     "specificity": 0.952316076294278,
+     "precision": 0.7286821705426356,
+     "mcc": 0.34996024857964886
+    },
+    "0.05": {
+     "TP": 100,
+     "FN": 215,
+     "FP": 37,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.31746031746031744,
+     "specificity": 0.9495912806539509,
+     "precision": 0.7299270072992701,
+     "mcc": 0.3632794115134185
+    },
+    "0.1": {
+     "TP": 104,
+     "FN": 211,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.33015873015873015,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7123287671232876,
+     "mcc": 0.36144901303506266
+    },
+    "0.15": {
+     "TP": 112,
+     "FN": 203,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.35555555555555557,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7272727272727273,
+     "mcc": 0.3863984832820024
+    }
+   },
+   "non_optimal": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "failing_check": [],
+   "unresolved": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ]
+  },
+  "pump+water": {
+   "wt": {
+    "status": "optimal",
+    "growth": 0.31166082163361186,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.8673176571784864e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "scores": {
+    "0.01": {
+     "TP": 94,
+     "FN": 221,
+     "FP": 35,
+     "TN": 699,
+     "unresolved": 16,
+     "recall": 0.2984126984126984,
+     "specificity": 0.952316076294278,
+     "precision": 0.7286821705426356,
+     "mcc": 0.34996024857964886
+    },
+    "0.05": {
+     "TP": 100,
+     "FN": 215,
+     "FP": 37,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.31746031746031744,
+     "specificity": 0.9495912806539509,
+     "precision": 0.7299270072992701,
+     "mcc": 0.3632794115134185
+    },
+    "0.1": {
+     "TP": 104,
+     "FN": 211,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.33015873015873015,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7123287671232876,
+     "mcc": 0.36144901303506266
+    },
+    "0.15": {
+     "TP": 112,
+     "FN": 203,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.35555555555555557,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7272727272727273,
+     "mcc": 0.3863984832820024
+    }
+   },
+   "non_optimal": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "failing_check": [],
+   "unresolved": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "wt_delta": -1.1102230246251565e-16,
+   "growth_changed_over_1e-6": [],
+   "ko_gain_over_1e-6": [],
+   "class_changed": {
+    "0.01": [],
+    "0.05": [],
+    "0.1": [],
+    "0.15": []
+   }
+  },
+  "pump+water+hleak": {
+   "wt": {
+    "status": "optimal",
+    "growth": 0.311660821633609,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.2320104206725866e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "scores": {
+    "0.01": {
+     "TP": 94,
+     "FN": 221,
+     "FP": 35,
+     "TN": 699,
+     "unresolved": 16,
+     "recall": 0.2984126984126984,
+     "specificity": 0.952316076294278,
+     "precision": 0.7286821705426356,
+     "mcc": 0.34996024857964886
+    },
+    "0.05": {
+     "TP": 100,
+     "FN": 215,
+     "FP": 37,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.31746031746031744,
+     "specificity": 0.9495912806539509,
+     "precision": 0.7299270072992701,
+     "mcc": 0.3632794115134185
+    },
+    "0.1": {
+     "TP": 104,
+     "FN": 211,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.33015873015873015,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7123287671232876,
+     "mcc": 0.36144901303506266
+    },
+    "0.15": {
+     "TP": 112,
+     "FN": 203,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.35555555555555557,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7272727272727273,
+     "mcc": 0.3863984832820024
+    }
+   },
+   "non_optimal": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "failing_check": [],
+   "unresolved": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "wt_delta": -2.9976021664879227e-15,
+   "growth_changed_over_1e-6": [],
+   "ko_gain_over_1e-6": [],
+   "class_changed": {
+    "0.01": [],
+    "0.05": [],
+    "0.1": [],
+    "0.15": []
+   }
+  },
+  "pump+water+aaimp+aaexp+aspglu": {
+   "wt": {
+    "status": "optimal",
+    "growth": 0.3116608216336123,
+    "max_bound_violation": 0.0,
+    "max_residual": 3.2214966913697574e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "scores": {
+    "0.01": {
+     "TP": 94,
+     "FN": 221,
+     "FP": 35,
+     "TN": 699,
+     "unresolved": 16,
+     "recall": 0.2984126984126984,
+     "specificity": 0.952316076294278,
+     "precision": 0.7286821705426356,
+     "mcc": 0.34996024857964886
+    },
+    "0.05": {
+     "TP": 100,
+     "FN": 215,
+     "FP": 37,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.31746031746031744,
+     "specificity": 0.9495912806539509,
+     "precision": 0.7299270072992701,
+     "mcc": 0.3632794115134185
+    },
+    "0.1": {
+     "TP": 104,
+     "FN": 211,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.33015873015873015,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7123287671232876,
+     "mcc": 0.36144901303506266
+    },
+    "0.15": {
+     "TP": 112,
+     "FN": 203,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.35555555555555557,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7272727272727273,
+     "mcc": 0.3863984832820024
+    }
+   },
+   "non_optimal": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "failing_check": [],
+   "unresolved": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "wt_delta": 3.3306690738754696e-16,
+   "growth_changed_over_1e-6": [],
+   "ko_gain_over_1e-6": [],
+   "class_changed": {
+    "0.01": [],
+    "0.05": [],
+    "0.1": [],
+    "0.15": []
+   }
+  },
+  "pump+water+hleak+aaimp+aaexp+aspglu": {
+   "wt": {
+    "status": "optimal",
+    "growth": 0.31166082163361103,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.1316282072803006e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "scores": {
+    "0.01": {
+     "TP": 94,
+     "FN": 221,
+     "FP": 35,
+     "TN": 699,
+     "unresolved": 16,
+     "recall": 0.2984126984126984,
+     "specificity": 0.952316076294278,
+     "precision": 0.7286821705426356,
+     "mcc": 0.34996024857964886
+    },
+    "0.05": {
+     "TP": 100,
+     "FN": 215,
+     "FP": 37,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.31746031746031744,
+     "specificity": 0.9495912806539509,
+     "precision": 0.7299270072992701,
+     "mcc": 0.3632794115134185
+    },
+    "0.1": {
+     "TP": 104,
+     "FN": 211,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.33015873015873015,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7123287671232876,
+     "mcc": 0.36144901303506266
+    },
+    "0.15": {
+     "TP": 112,
+     "FN": 203,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.35555555555555557,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7272727272727273,
+     "mcc": 0.3863984832820024
+    }
+   },
+   "non_optimal": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "failing_check": [],
+   "unresolved": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "wt_delta": -9.43689570931383e-16,
+   "growth_changed_over_1e-6": [],
+   "ko_gain_over_1e-6": [],
+   "class_changed": {
+    "0.01": [],
+    "0.05": [],
+    "0.1": [],
+    "0.15": []
+   }
+  },
+  "pump+water+hdiff+aaimp+aaexp+aspglu+pa": {
+   "wt": {
+    "status": "optimal",
+    "growth": 0.31166082163360986,
+    "max_bound_violation": 0.0,
+    "max_residual": 8.526512829121202e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "scores": {
+    "0.01": {
+     "TP": 94,
+     "FN": 221,
+     "FP": 35,
+     "TN": 699,
+     "unresolved": 16,
+     "recall": 0.2984126984126984,
+     "specificity": 0.952316076294278,
+     "precision": 0.7286821705426356,
+     "mcc": 0.34996024857964886
+    },
+    "0.05": {
+     "TP": 100,
+     "FN": 215,
+     "FP": 37,
+     "TN": 697,
+     "unresolved": 16,
+     "recall": 0.31746031746031744,
+     "specificity": 0.9495912806539509,
+     "precision": 0.7299270072992701,
+     "mcc": 0.3632794115134185
+    },
+    "0.1": {
+     "TP": 104,
+     "FN": 211,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.33015873015873015,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7123287671232876,
+     "mcc": 0.36144901303506266
+    },
+    "0.15": {
+     "TP": 112,
+     "FN": 203,
+     "FP": 42,
+     "TN": 692,
+     "unresolved": 16,
+     "recall": 0.35555555555555557,
+     "specificity": 0.9427792915531336,
+     "precision": 0.7272727272727273,
+     "mcc": 0.3863984832820024
+    }
+   },
+   "non_optimal": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "failing_check": [],
+   "unresolved": [
+    "YALI0F04114g",
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E12730g",
+    "YALI1E15606g",
+    "YALI1E19902g",
+    "YALI1E23635g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F05089g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00131g",
+    "YALI1M00277g",
+    "YALI1M00325g",
+    "YALI1M00390g"
+   ],
+   "wt_delta": -2.1094237467877974e-15,
+   "growth_changed_over_1e-6": [],
+   "ko_gain_over_1e-6": [],
+   "class_changed": {
+    "0.01": [],
+    "0.05": [],
+    "0.1": [],
+    "0.15": []
+   }
+  }
+ },
+ "lp_count": 6492,
+ "seconds": 472.4467187500559
+}

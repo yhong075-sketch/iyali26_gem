@@ -1,0 +1,201 @@
+Set parameter Username
+Set parameter LicenseID to value 2843063
+Academic license - for non-commercial use only - expires 2027-07-10
+compartments: {'C_cy': 'cytoplasm', 'C_mi': 'mitochondria', 'C_en': 'endosome', 'C_vm': 'vacuolar membrane', 'C_er': 'endoplasmic reticulum', 'C_pe': 'peroxisome', 'C_nu': 'nucleus', 'C_ex': 'extracellular', 'C_em': 'endosomal membrane', 'C_go': 'Golgi apparatus', 'C_mm': 'mitochondrial membrane', 'C_lp': 'lipid particle', 'C_gm': 'Golgi membrane', 'C_va': 'vacuole'}
+vacuolar species: 44
+reactions touching C_va/C_vm: 61
+    R7 [0.0,1000.0] 1-phosphatidylinositol-3-phosphate 5-kinase | Inositol phosphate metabolism | GPR: YALI1E34425g
+       m15[C_vm] + m16[C_vm] --> m17[C_vm] + m18[C_vm] + m19[C_vm]   ||   1-phosphatidyl-1D-myo-inositol 3-phosphate + ATP_C10H16N5O13P3 --> 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate + ADP_C10H15N5O10P2 + H+_p+1
+       notes: {"PROTEIN_CLASS": "2.7.1.150"}
+    R631 [0.0,1000.0] phosphatidylserine decarboxylase | Glycerophospholipid metabolism | GPR: YALI1D04432g
+       m19[C_vm] + m875[C_vm] --> m876[C_vm] + m877[C_vm]   ||   H+_p+1 + phosphatidyl-L-serine_C8H11NO10PR2 --> carbon dioxide_CO2 + phosphatidylethanolamine_C7H12NO8PR2
+       notes: {"PROTEIN_CLASS": "4.1.1.65"}
+    R665 [0.0,1000.0] phosphatidylinositol 3-kinase | Inositol phosphate metabolism | GPR: YALI1F13097g or YALI1E40076g
+       m16[C_vm] + m897[C_vm] --> m15[C_vm] + m18[C_vm] + m19[C_vm]   ||   ATP_C10H16N5O13P3 + 1-phosphatidyl-1D-myo-inositol --> 1-phosphatidyl-1D-myo-inositol 3-phosphate + ADP_C10H15N5O10P2 + H+_p+1
+       notes: {"PROTEIN_CLASS": "2.7.1.137"}
+    R696 [0.0,0.0] reduced glutathione via ABC system |  | GPR: YALI1E30014g or YALI1F15961g
+       m141[C_cy] + m32[C_cy] + m530[C_cy] --> m143[C_cy] + m35[C_cy] + m925[C_va]   ||   ATP_C10H16N5O13P3 + H2O_H2O + glutathione_C10H17N3O6S --> ADP_C10H15N5O10P2 + phosphate_H3O4P + glutathione_C10H17N3O6S
+       notes: {"metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910", "metadata_selected_fields": "stoichiometry", "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797", "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"}
+    R746 [0.0,0.0] taurcholate via ABC system |  | GPR: YALI1E17258g
+       m141[C_cy] + m32[C_cy] + m965[C_cy] --> m143[C_cy] + m35[C_cy] + m966[C_va]   ||   ATP_C10H16N5O13P3 + H2O_H2O + taurocholic acid_C26H44NO7S --> ADP_C10H15N5O10P2 + phosphate_H3O4P + taurocholic acid_C26H44NO7S
+       notes: {"metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910", "metadata_selected_fields": "stoichiometry", "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797", "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"}
+UM2 R795 [0.0,0.0] V-ATPase, vacuole | ATPase | GPR: (YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)
+       2.0 m10[C_cy] + m141[C_cy] + m32[C_cy] --> 2.0 m1007[C_va] + m143[C_cy] + m35[C_cy]   ||   2.0 H+_p+1 + ATP_C10H16N5O13P3 + H2O_H2O --> 2.0 H+_p+1 + ADP_C10H15N5O10P2 + phosphate_H3O4P
+       notes: {"metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910", "metadata_selected_fields": "stoichiometry", "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797", "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"}
+    R853 [0.0,0.0] glutathione transport | Transport, vacuole | GPR: YALI1E30173g or YALI1D31719g or YALI1A20558g or YALI1A17289g or YALI1C25190g or YALI1E10951g or YALI1F39426g or YALI1E30014g or YALI1F15961g
+       m530[C_cy] --> m925[C_va]   ||   glutathione_C10H17N3O6S --> glutathione_C10H17N3O6S
+    R859 [0.0,0.0] glycogen vacuolar 'transport' via autophagy | Transport, vacuole | GPR: 
+       m549[C_cy] --> m1058[C_va]   ||   glycogen_ --> glycogen_
+UM2 R869 [0.0,0.0] L-asparagine transport | Transport, vacuole | GPR: YALI1F37658g
+       m1007[C_va] + m319[C_cy] --> m1066[C_va] + m10[C_cy]   ||   H+_p+1 + L-asparagine_C4H8N2O3 --> L-asparagine_C4H8N2O3 + H+_p+1
+UM2 R870 [0.0,0.0] L-aspartate transport | Transport, vacuole | GPR: YALI1E13514g
+       m1007[C_va] + m1066[C_va] --> m10[C_cy] + m319[C_cy]   ||   H+_p+1 + L-asparagine_C4H8N2O3 --> H+_p+1 + L-asparagine_C4H8N2O3
+UM2 R871 [0.0,0.0] L-aspartate transport | Transport, vacuole | GPR: YALI1D14670g
+       m1007[C_va] + m1067[C_va] --> m10[C_cy] + m267[C_cy]   ||   H+_p+1 + L-aspartate_C4H7NO4 --> H+_p+1 + L-aspartate_C4H7NO4
+UM2 R876 [0.0,0.0] L-glutamate transport | Transport, vacuole | GPR: YALI1D14670g
+       m1007[C_va] + m1071[C_va] --> m10[C_cy] + m50[C_cy]   ||   H+_p+1 + L-glutamate_C5H9NO4 --> H+_p+1 + L-glutamate_C5H9NO4
+UM2 R878 [0.0,0.0] L-glutamine transport | Transport, vacuole | GPR: YALI1F37658g
+       m1007[C_va] + m130[C_cy] --> m1073[C_va] + m10[C_cy]   ||   H+_p+1 + L-glutamine_C5H10N2O3 --> L-glutamine_C5H10N2O3 + H+_p+1
+UM2 R879 [0.0,0.0] L-glutamine transport | Transport, vacuole | GPR: YALI1E13514g
+       m1007[C_va] + m1073[C_va] --> m10[C_cy] + m130[C_cy]   ||   H+_p+1 + L-glutamine_C5H10N2O3 --> H+_p+1 + L-glutamine_C5H10N2O3
+UM2 R882 [0.0,1000.0] L-isoleucine transport | Transport, vacuole | GPR: YALI1F37658g
+       m1007[C_va] + m743[C_cy] --> m1076[C_va] + m10[C_cy]   ||   H+_p+1 + L-isoleucine_C6H13NO2 --> L-isoleucine_C6H13NO2 + H+_p+1
+UM2 R883 [0.0,0.0] L-isoleucine transport | Transport, vacuole | GPR: YALI1C04798g or YALI1E13514g
+       m1007[C_va] + m1076[C_va] --> m10[C_cy] + m743[C_cy]   ||   H+_p+1 + L-isoleucine_C6H13NO2 --> H+_p+1 + L-isoleucine_C6H13NO2
+UM2 R887 [0.0,0.0] L-leucine transport, vacuoluar | Transport, vacuole | GPR: YALI1F37658g
+       m1007[C_va] + m775[C_cy] --> m1080[C_va] + m10[C_cy]   ||   H+_p+1 + L-leucine_C6H13NO2 --> L-leucine_C6H13NO2 + H+_p+1
+UM2 R888 [0.0,0.0] L-leucine transport, vacuoluar | Transport, vacuole | GPR: YALI1E13514g or YALI1C04798g
+       m1007[C_va] + m1080[C_va] --> m10[C_cy] + m775[C_cy]   ||   H+_p+1 + L-leucine_C6H13NO2 --> H+_p+1 + L-leucine_C6H13NO2
+UM2 R897 [0.0,0.0] L-tyrosine transport | Transport, vacuole | GPR: YALI1E21478g or YALI1F37658g
+       m1007[C_va] + m992[C_cy] --> m1089[C_va] + m10[C_cy]   ||   H+_p+1 + L-tyrosine_C9H11NO3 --> L-tyrosine_C9H11NO3 + H+_p+1
+UM2 R898 [0.0,0.0] L-tyrosine transport | Transport, vacuole | GPR: YALI1E13514g or YALI1C04798g
+       m1007[C_va] + m1089[C_va] --> m10[C_cy] + m992[C_cy]   ||   H+_p+1 + L-tyrosine_C9H11NO3 --> H+_p+1 + L-tyrosine_C9H11NO3
+UM2 R918 [0.0,0.0] putrescine transport | Transport, vacuole | GPR: YALI1A15624g or YALI1F10342g
+       m1007[C_va] + m850[C_cy] --> m10[C_cy] + m1102[C_va]   ||   H+_p+1 + putrescine_C4H12N2 --> H+_p+1 + putrescine_C4H12N2
+UM2 R925 [0.0,0.0] spermidine transport | Transport, vacuole | GPR: YALI1A15624g or YALI1F10342g
+       m1007[C_va] + 2.0 m10[C_cy] + m467[C_cy] --> m1110[C_va]   ||   H+_p+1 + 2.0 H+_p+1 + spermidine_C7H19N3 --> spermidine_C7H19N3
+       notes: {"metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910", "metadata_selected_fields": "stoichiometry", "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797", "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"}
+UM2 R927 [0.0,0.0] spermine transport | Transport, vacuole | GPR: YALI1B27564g or YALI1A15624g or YALI1F10342g
+       m1007[C_va] + m902[C_cy] --> m10[C_cy] + m1112[C_va]   ||   H+_p+1 + spermine_C10H26N4 --> H+_p+1 + spermine_C10H26N4
+    R1138 [0.0,0.0] glucose transport, vacuolar | Transport, vacuole | GPR: 
+       m295[C_cy] --> m1236[C_va]   ||   D-glucose_C6H12O6 --> D-glucose_C6H12O6
+UM2 R1163 [0.0,0.0] H+ diffusion | Transport, vacuole | GPR: 
+       m10[C_cy] --> m1007[C_va]   ||   H+_p+1 --> H+_p+1
+    R1297 [0.0,0.0] phosphate transport | Transport, vacuole | GPR: 
+       m35[C_cy] --> m1354[C_va]   ||   phosphate_H3O4P --> phosphate_H3O4P
+    R1349 [0.0,0.0] trehalose vacuolar transport | Transport, vacuole | GPR: 
+       m294[C_cy] --> m1380[C_va]   ||   trehalose_C12H22O11 --> trehalose_C12H22O11
+UM2 R1363 [0.0,0.0] water diffusion | Transport, vacuole | GPR: 
+       m32[C_cy] --> m1384[C_va]   ||   H2O_H2O --> H2O_H2O
+    R1653 [-1000.0,1000.0] H2O transport, cytoplasm-vacuolar membrane | Transport, vacuolar membrane | GPR: 
+       m32[C_cy] <=> m1617[C_vm]   ||   H2O_H2O <=> H2O_H2O
+    R1654 [-1000.0,1000.0] phosphate transport, cytoplasm-vacuolar membrane | Transport, vacuolar membrane | GPR: 
+       m35[C_cy] <=> m1618[C_vm]   ||   phosphate_H3O4P <=> phosphate_H3O4P
+    R1655 [-1000.0,1000.0] H+ transport, cytoplasm-vacuolar membrane | Transport, vacuolar membrane | GPR: 
+       m10[C_cy] <=> m19[C_vm]   ||   H+_p+1 <=> H+_p+1
+    R1656 [-1000.0,1000.0] ATP transport, cytoplasm-vacuolar membrane | Transport, vacuolar membrane | GPR: 
+       m141[C_cy] <=> m16[C_vm]   ||   ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3
+    R1657 [-1000.0,1000.0] ADP transport, cytoplasm-vacuolar membrane | Transport, vacuolar membrane | GPR: 
+       m143[C_cy] <=> m18[C_vm]   ||   ADP_C10H15N5O10P2 <=> ADP_C10H15N5O10P2
+    R1658 [-1000.0,1000.0] carbon dioxide transport, cytoplasm-vacuolar membrane | Transport, vacuolar membrane | GPR: 
+       m82[C_cy] <=> m876[C_vm]   ||   carbon dioxide_CO2 <=> carbon dioxide_CO2
+    R1716 [0.0,1000.0] phosphatidylinositol 4-kinase | Inositol phosphate metabolism | GPR: YALI1A02974g
+       m16[C_vm] + m897[C_vm] --> m1643[C_vm] + m18[C_vm] + m19[C_vm]   ||   ATP_C10H16N5O13P3 + 1-phosphatidyl-1D-myo-inositol --> 1-phosphatidyl-1D-myo-inositol 4-phosphate + ADP_C10H15N5O10P2 + H+_p+1
+       notes: {"PROTEIN_CLASS": "2.7.1.67"}
+    R1757 [0.0,1000.0] PI 3,5-P2 phosphatase | Inositol phosphate metabolism | GPR: YALI1E39248g and YALI1B29562g
+       m1617[C_vm] + m17[C_vm] --> m15[C_vm] + m1618[C_vm]   ||   H2O_H2O + 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate --> 1-phosphatidyl-1D-myo-inositol 3-phosphate + phosphate_H3O4P
+    R1758 [0.0,1000.0] DGPP phosphatase | Glycerolipid metabolism | GPR: YALI1B19107g
+       m1617[C_vm] + m1685[C_vm] --> m1618[C_vm] + m1686[C_vm] + m19[C_vm]   ||   H2O_H2O + 1,2-diacylglycerol 3-diphosphate_ --> phosphate_H3O4P + phosphatidate + H+_p+1
+    R1761 [0.0,1000.0] lysoPA phosphatase, vacuolar membrane |  | GPR: YALI1B19107g
+       m1617[C_vm] + m1691[C_vm] --> m1618[C_vm] + m1692[C_vm]   ||   H2O_H2O + 1-acyl-sn-glycerol 3-phosphate --> phosphate_H3O4P + 1-monoglyceride_
+    R1770 [-1000.0,1000.0] PA kinase, vacuolar membrane |  | GPR: 
+       m1686[C_vm] + m16[C_vm] <=> m1685[C_vm] + m18[C_vm]   ||   phosphatidate + ATP_C10H16N5O13P3 <=> 1,2-diacylglycerol 3-diphosphate_ + ADP_C10H15N5O10P2
+    R1774 [0.0,1000.0] diacylglycerol pyrophosphate phosphatase | Glycerolipid metabolism | GPR: YALI1B19107g
+       m1617[C_vm] + m1686[C_vm] --> m1618[C_vm] + m1703[C_vm]   ||   H2O_H2O + phosphatidate --> phosphate_H3O4P + diglyceride
+       notes: {"PROTEIN_CLASS": "3.1.3.4"}
+    R1783 [-1000.0,1000.0] 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate transport, vacuolar membrane-cytoplasm | Transport, vacuolar membrane | GPR: 
+       m17[C_vm] <=> m1683[C_cy]   ||   1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate
+    R1800 [-1000.0,1000.0] phosphatidate transport, ER membrane-vacuolar membrane | Transport, ER membrane to vacuolar membrane | GPR: 
+       m378[C_em] <=> m1686[C_vm]   ||   phosphatidate <=> phosphatidate
+    R1801 [-1000.0,1000.0] 1-phosphatidyl-1D-myo-inositol transport, ER membrane-vacuolar membrane | Transport, ER membrane to vacuolar membrane | GPR: 
+       m1648[C_em] <=> m897[C_vm]   ||   1-phosphatidyl-1D-myo-inositol <=> 1-phosphatidyl-1D-myo-inositol
+    R1802 [-1000.0,1000.0] phosphatidyl-L-serine transport, ER membrane-vacuolar membrane | Transport, ER membrane to vacuolar membrane | GPR: 
+       m1631[C_em] <=> m875[C_vm]   ||   phosphatidyl-L-serine_C8H11NO10PR2 <=> phosphatidyl-L-serine_C8H11NO10PR2
+    R1803 [-1000.0,1000.0] phosphatidylethanolamine transport, vacuolar membrane-ER membrane | Transport, ER membrane to vacuolar membrane | GPR: 
+       m877[C_vm] <=> m1633[C_em]   ||   phosphatidylethanolamine_C7H12NO8PR2 <=> phosphatidylethanolamine_C7H12NO8PR2
+    R1804 [-1000.0,1000.0] 1-phosphatidyl-1D-myo-inositol 3-phosphate transport, vacuolar membrane-ER membrane | Transport, ER membrane to vacuolar membrane | GPR: 
+       m15[C_vm] <=> m1677[C_em]   ||   1-phosphatidyl-1D-myo-inositol 3-phosphate <=> 1-phosphatidyl-1D-myo-inositol 3-phosphate
+    R1813 [-1000.0,1000.0] 1-phosphatidyl-1D-myo-inositol 3-phosphate transport, vacuolar membrane-Golgi membrane | Transport, ER membrane to vacuolar membrane | GPR: 
+       m15[C_vm] <=> m1678[C_gm]   ||   1-phosphatidyl-1D-myo-inositol 3-phosphate <=> 1-phosphatidyl-1D-myo-inositol 3-phosphate
+    R1814 [-1000.0,1000.0] 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate transport, vacuolar membrane-cell envelope | Transport, ER membrane to vacuolar membrane | GPR: 
+       m17[C_vm] <=> m22[C_en]   ||   1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate <=> 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate
+UM2 R2020 [-1000.0,1000.0] Gly-Asp transport via proton antiport | Transport, vacuole | GPR: 
+       m10[C_cy] + m1870[C_cy] <=> m1007[C_va] + m1871[C_va]   ||   H+_p+1 + Gly-Asp <=> H+_p+1 + Gly-Asp
+UM2 R2021 [0.0,1000.0] cytosol nonspecific dipeptidase | Amino acid metabolism | GPR: 
+       m1384[C_va] + m1871[C_va] --> m1067[C_va] + m1863[C_va]   ||   H2O_H2O + Gly-Asp --> L-aspartate_C4H7NO4 + L-glycine
+UM2 R2028 [-1000.0,1000.0] Gly-glu transport via proton antiport | Transport, vacuole | GPR: 
+       m10[C_cy] + m1861[C_cy] <=> m1007[C_va] + m1862[C_va]   ||   H+_p+1 + Gly_Glu <=> H+_p+1 + Gly_Glu
+UM2 R2029 [0.0,1000.0] cytosol nonspecific dipeptidase | Transport, vacuole | GPR: 
+       m1384[C_va] + m1862[C_va] --> m1071[C_va] + m1863[C_va]   ||   H2O_H2O + Gly_Glu --> L-glutamate_C5H9NO4 + L-glycine
+UM2 R2030 [-1000.0,1000.0] Glycine transport (vacuole) | Transport, vacuole | GPR: 
+       m10[C_cy] + m272[C_cy] <=> m1007[C_va] + m1863[C_va]   ||   H+_p+1 + L-glycine_C2H5NO2 <=> H+_p+1 + L-glycine
+UM2 R2033 [-1000.0,1000.0] Ala-Gly transport via proton antiport | Transport, vacuole | GPR: 
+       m1877[C_cy] <=> m1878[C_va]   ||   Ala-Gly <=> Ala-Gly
+UM2 R2034 [0.0,1000.0] cytosol nonspecific dipeptidase | Amino acid metabolism | GPR: 
+       m1384[C_va] + m1878[C_va] --> m1863[C_va] + m1879[C_va]   ||   H2O_H2O + Ala-Gly --> L-glycine + L-alanine
+UM2 R2035 [-1000.0,1000.0] L-alanine transport (vacuole) | Transport, vacuole | GPR: 
+       m114[C_cy] <=> m1879[C_va]   ||   L-alanine_C3H7NO2 <=> L-alanine
+UM2 R2038 [-1000.0,1000.0] Gly-Pro transport via proton antiport | Amino acid metabolism | GPR: 
+       m10[C_cy] + m1865[C_cy] <=> m1007[C_va] + m1866[C_va]   ||   H+_p+1 + Gly-Pro <=> H+_p+1 + Gly-Pro
+UM2 R2039 [0.0,1000.0] cytosol nonspecific dipeptidase | Amino acid metabolism | GPR: 
+       m1384[C_va] + m1866[C_va] --> m1863[C_va] + m1867[C_va]   ||   H2O_H2O + Gly-Pro --> L-glycine + L-proline
+UM2 R2040 [-1000.0,1000.0] proline transport (vacuole) | Transport, vacuole | GPR: 
+       m10[C_cy] + m765[C_cy] <=> m1007[C_va] + m1867[C_va]   ||   H+_p+1 + L-proline_C5H9NO2 <=> H+_p+1 + L-proline
+    R2055 [0.0,1000.0] L-histidine transport | Transport, vacuolar | GPR: YALI1F35690g or YALI1D29523g or YALI1E21478g
+       m615[C_cy] --> m1887[c_va]   ||   L-histidine_C6H9N3O2 --> L-histidine
+    R2056 [0.0,1000.0] L-lysine transport | Transport, vacuolar | GPR: YALI1F35690g or YALI1D29523g or YALI1E21478g
+       m793[C_cy] --> m1888[C_va]   ||   L-lysine_C6H14N2O2 --> L-lysine
+
+UM2 not touching vacuole:
+R2018 [0.0,1000.0] Gly-Asp exchange | Exchange | 
+       m1869[C_ex] -->    ||   Gly-Asp --> 
+R2019 [-1000.0,1000.0] Gly-Asp transport via proton antiport | Transport, extracellular | 
+       m1869[C_ex] + m342[C_ex] <=> m10[C_cy] + m1870[C_cy]   ||   Gly-Asp + H+_p+1 <=> H+_p+1 + Gly-Asp
+R2026 [0.0,1000.0] Gly-Glu exchange | Exchange | 
+       m1860[C_ex] -->    ||   Gly_Glu --> 
+R2027 [-1000.0,1000.0] Gly-glu transport via proton antiport | Transport, extracellular | 
+       m1860[C_ex] + m342[C_ex] <=> m10[C_cy] + m1861[C_cy]   ||   Gly_Glu + H+_p+1 <=> H+_p+1 + Gly_Glu
+R2031 [0.0,1000.0] Ala-Gly exchange | Exchange | 
+       m1876[C_ex] -->    ||   Ala-Gly --> 
+R2032 [-1000.0,1000.0] Ala-Gly transport via proton antiport | Transport, extracellular | 
+       m1876[C_ex] <=> m1877[C_cy]   ||   Ala-Gly <=> Ala-Gly
+R2036 [0.0,1000.0] Gly-Pro exchange | Exchange | 
+       m1864[C_ex] -->    ||   Gly-Pro --> 
+R2037 [-1000.0,1000.0] Gly-Pro transport via proton antiport | Transport, extracellular | 
+       m1864[C_ex] + m342[C_ex] <=> m10[C_cy] + m1865[C_cy]   ||   Gly-Pro + H+_p+1 <=> H+_p+1 + Gly-Pro
+
+vacuolar species list:
+m1007[C_va] H+_p+1 H 1 22 ['R1163', 'R2020', 'R2028', 'R2030', 'R2038', 'R2040', 'R795', 'R869', 'R870', 'R871', 'R876', 'R878', 'R879', 'R882', 'R883', 'R887', 'R888', 'R897', 'R898', 'R918', 'R925', 'R927']
+m1058[C_va] glycogen_ C24H42O21 0 1 ['R859']
+m1066[C_va] L-asparagine_C4H8N2O3 C4H8N2O3 0 2 ['R869', 'R870']
+m1067[C_va] L-aspartate_C4H7NO4 C4H7NO4 0 2 ['R2021', 'R871']
+m1071[C_va] L-glutamate_C5H9NO4 C5H9NO4 0 2 ['R2029', 'R876']
+m1073[C_va] L-glutamine_C5H10N2O3 C5H10N2O3 0 2 ['R878', 'R879']
+m1076[C_va] L-isoleucine_C6H13NO2 C6H13NO2 0 2 ['R882', 'R883']
+m1080[C_va] L-leucine_C6H13NO2 C6H13NO2 0 2 ['R887', 'R888']
+m1089[C_va] L-tyrosine_C9H11NO3 C9H11NO3 0 2 ['R897', 'R898']
+m1102[C_va] putrescine_C4H12N2 C4H12N2 0 1 ['R918']
+m1110[C_va] spermidine_C7H19N3 C7H19N3 0 1 ['R925']
+m1112[C_va] spermine_C10H26N4 C10H26N4 0 1 ['R927']
+m1236[C_va] D-glucose_C6H12O6 C6H12O6 0 1 ['R1138']
+m1354[C_va] phosphate_H3O4P H3O4P 0 1 ['R1297']
+m1380[C_va] trehalose_C12H22O11 C12H22O11 0 1 ['R1349']
+m1384[C_va] H2O_H2O H2O 0 5 ['R1363', 'R2021', 'R2029', 'R2034', 'R2039']
+m15[C_vm] 1-phosphatidyl-1D-myo-inositol 3-phosphate C11H15O16P2*2 -3 5 ['R1757', 'R1804', 'R1813', 'R665', 'R7']
+m1617[C_vm] H2O_H2O H2O 0 5 ['R1653', 'R1757', 'R1758', 'R1761', 'R1774']
+m1618[C_vm] phosphate_H3O4P H3O4P 0 5 ['R1654', 'R1757', 'R1758', 'R1761', 'R1774']
+m1643[C_vm] 1-phosphatidyl-1D-myo-inositol 4-phosphate C11H15O16P2*2 -3 1 ['R1716']
+m1685[C_vm] 1,2-diacylglycerol 3-diphosphate_ C5H8O11P2*2 0 2 ['R1758', 'R1770']
+m1686[C_vm] phosphatidate None 0 4 ['R1758', 'R1770', 'R1774', 'R1800']
+m1691[C_vm] 1-acyl-sn-glycerol 3-phosphate None 0 1 ['R1761']
+m1692[C_vm] 1-monoglyceride_ None 0 1 ['R1761']
+m16[C_vm] ATP_C10H16N5O13P3 C10H16N5O13P3 0 5 ['R1656', 'R1716', 'R1770', 'R665', 'R7']
+m1703[C_vm] diglyceride C6H8O6 0 1 ['R1774']
+m17[C_vm] 1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate C11H14O19P3*2 -5 4 ['R1757', 'R1783', 'R1814', 'R7']
+m1862[C_va] Gly_Glu None 0 2 ['R2028', 'R2029']
+m1863[C_va] L-glycine None 0 5 ['R2021', 'R2029', 'R2030', 'R2034', 'R2039']
+m1866[C_va] Gly-Pro None 0 2 ['R2038', 'R2039']
+m1867[C_va] L-proline C5H9NO2 0 2 ['R2039', 'R2040']
+m1871[C_va] Gly-Asp None 0 2 ['R2020', 'R2021']
+m1878[C_va] Ala-Gly None 0 2 ['R2033', 'R2034']
+m1879[C_va] L-alanine C3H7NO2 0 2 ['R2034', 'R2035']
+m1887[c_va] L-histidine C6H9N3O2 0 1 ['R2055']
+m1888[C_va] L-lysine C6H15N2O2 1 1 ['R2056']
+m18[C_vm] ADP_C10H15N5O10P2 C10H15N5O10P2 0 5 ['R1657', 'R1716', 'R1770', 'R665', 'R7']
+m19[C_vm] H+_p+1 H 1 6 ['R1655', 'R1716', 'R1758', 'R631', 'R665', 'R7']
+m875[C_vm] phosphatidyl-L-serine_C8H11NO10PR2 C8H11NO10PR2 0 2 ['R1802', 'R631']
+m876[C_vm] carbon dioxide_CO2 CO2 0 2 ['R1658', 'R631']
+m877[C_vm] phosphatidylethanolamine_C7H12NO8PR2 C7H12NO8PR2 0 2 ['R1803', 'R631']
+m897[C_vm] 1-phosphatidyl-1D-myo-inositol C11H17O13P*2 0 3 ['R1716', 'R1801', 'R665']
+m925[C_va] glutathione_C10H17N3O6S C10H17N3O6S 0 2 ['R696', 'R853']
+m966[C_va] taurocholic acid_C26H44NO7S C26H44NO7S 0 1 ['R746']

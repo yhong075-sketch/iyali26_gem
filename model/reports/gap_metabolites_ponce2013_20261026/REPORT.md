@@ -223,6 +223,10 @@ blocked reactions with their facts and LP evidence). No new LP solves were run f
    source model; the four dipeptide uptake / hydrolysis sets (Gly-Asp, Gly-Glu, Ala-Gly, Gly-Pro;
    R2018–R2040) hang on vacuolar H+ and water. Opening the 17 closures unblocks 34/37, everything 37/37.
    These closures have a recorded history (STATE.md 2026-09-10/11); not a new gap.
+   **Decision 2026-10-28 (user, Option A0): the closures stay.** They are inherited from iYali4 (2016) with no
+   recorded reason. Every opening gives only futile ATP cycles on Task A, with no growth, knockout or energy
+   change. R1163 in its written direction makes a no-uptake loop. See
+   [um2_vacuolar_closures_20261028/REPORT.md](../um2_vacuolar_closures_20261028/REPORT.md).
 3. **UM3 (37): three unrelated parts joined by cytosolic FAD/FADH2 and the legacy biomass reactions.**
    (a) Riboflavin → FMN → FAD synthesis and transport (R11, R12, R34, R378, R697–R700, R306, R1125,
    R1315 / R1316, R847): a coenzyme pseudo-gap, a FAD + FMN drain unblocks 18/37. (b) Unique components of
