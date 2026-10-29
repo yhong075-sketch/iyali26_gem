@@ -5,13 +5,17 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-29: UM11 nuclear RNR copies kept blocked by decision (Option B, documentation only, no model change; not committed)
+## 2026-10-29: UM11 nuclear RNR copies kept blocked by decision (Option B, documentation only, no model change; committed 423e194 on branch claude/wizardly-wing-a0d6c0)
 
 **Authorization.** The user, 2026-10-29, in this session, answered **"Option B"** after the Stage 1 draft
 ([TASK.md](reports/um11_nuclear_rnr_20261029/TASK.md) section 0). Scope:
 - keep R707, R709, R711, R1914, R782 and the six nuclear nucleotide diffusions as they are, and record why;
 - no build, curated data or code;
 - no commit.
+
+Committed in `423e194` on branch `claude/wizardly-wing-a0d6c0` on the user's instruction ("Commit the working tree
+changes", 2026-10-29). Pushed with a pull request to `main` on the user's instruction relayed by the census session
+("Yes, tell the UM11 session to commit its work on its branch, push it and open a PR to main", 2026-10-29).
 
 **Results** ([REPORT.md](reports/um11_nuclear_rnr_20261029/REPORT.md),
 [AUDIT.md](reports/um11_nuclear_rnr_20261029/AUDIT.md),
@@ -71,11 +75,13 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 - Budget: Stage 1, 2 builds and about 35,600 LPs; Stage 2, 0 builds and 9,476 LPs.
 - Large outputs are in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/um11_nuclear_rnr_20261029/`.
 
-## 2026-10-29: UM7 and R2171 lines combined in one build, candidate 14f73bda (UM11 baseline; not committed)
+## 2026-10-29: UM7 and R2171 lines combined in one build, candidate 14f73bda (UM11 baseline; committed 423e194 on branch claude/wizardly-wing-a0d6c0)
 
 **Authorization.** The user, 2026-10-29, in the UM11 session, answered "Yes, build combined" to the proposal to
 build `9d655c2b`'s argv with both `--um7-nuclear-diffusion` and `--r2171-pi-plc-1to1` into a new file, with a
-whole-model diff against each parent. No other change, no commit.
+whole-model diff against each parent. No other change, no commit. Later committed in `423e194` on branch `claude/wizardly-wing-a0d6c0` on the user's instruction ("Commit the working tree
+changes", 2026-10-29). Pushed with a pull request to `main` on the user's instruction relayed by the census session
+("Yes, tell the UM11 session to commit its work on its branch, push it and open a PR to main", 2026-10-29).
 
 **Results** ([REPORT.md](reports/combined_um7_r2171_20261029/REPORT.md)); verified this session, no independent
 audit.

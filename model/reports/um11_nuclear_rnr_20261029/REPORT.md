@@ -29,7 +29,9 @@ Evidence tags:
   `14f73bda4b0772019e82ea18a27e198c5ba175e67fef205a51dbfb090809e757`, which is `9d655c2b` plus the UM7 and
   R2171 flags. It is documented separately in
   [combined_um7_r2171_20261029/REPORT.md](../combined_um7_r2171_20261029/REPORT.md).
-- **Nothing is committed.**
+- Committed in `423e194` on branch `claude/wizardly-wing-a0d6c0` on the user's instruction ("Commit the working tree
+  changes", 2026-10-29). Pushed with a pull request to `main` on the user's instruction relayed by the census session
+  ("Yes, tell the UM11 session to commit its work on its branch, push it and open a PR to main", 2026-10-29).
 
 ## 2. Inputs (verified)
 

@@ -16,7 +16,7 @@
   - any model, curated-data or code change;
   - Options A, A+, A′, C1 and C2;
   - the RNR GPRs, R702–R705, R1914's water, and the thioredoxin formula (follow-ups in section 9).
-- **No commit or push is authorized.**
+- **No commit or push is authorized.** (Both were authorized later, 2026-10-29; see REPORT.md section 1.)
 - **Baseline:** `14f73bda…` (section 1), built earlier in this session on the user's instruction. It is
   documented in `model/reports/combined_um7_r2171_20261029/`.
 - **Budget for Stage 2:** 0 builds; about 2,000 LPs for the figure. The figure also runs whole-model FVA for the

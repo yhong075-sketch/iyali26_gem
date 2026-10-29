@@ -13,7 +13,9 @@ The two newest merged candidates are siblings built on `9d655c2b`:
 No candidate carried both flags, so the lineage had no single head. The UM11 session proposed one build with
 both flags as its baseline. **Authorization:** the user, 2026-10-29, in the UM11 session, answered
 "Yes, build combined" to that proposal. Scope: one builder run to a new file, whole-model diffs against each
-parent, no other change, no commit.
+parent, no other change, no commit. Later committed in `423e194` on branch `claude/wizardly-wing-a0d6c0` on the user's instruction ("Commit the working tree
+changes", 2026-10-29). Pushed with a pull request to `main` on the user's instruction relayed by the census session
+("Yes, tell the UM11 session to commit its work on its branch, push it and open a PR to main", 2026-10-29).
 
 ## 2. What was run (verified)
 
