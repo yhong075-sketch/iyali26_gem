@@ -5,13 +5,15 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-30: Trehalose removed from biomass_C, candidate 164542fb (committed 53242c3 on claude/trehalose-biomass-24e3c1, not pushed)
+## 2026-10-30: Trehalose removed from biomass_C, candidate 164542fb (committed 53242c3 on claude/trehalose-biomass-24e3c1, PR #40)
 
 **Authorization.** The user, 2026-10-30: "Approve C on e1e7c868"
 ([TASK.md](reports/trehalose_biomass_20261030/TASK.md) §6 option C as written in §9, baseline `e1e7c868`, §9
 budget; option D, the R143 rule, deferred to its own round). No commit or push. Brief from the session that started
 this one: the trehalose false-positive group, first among the ready rounds of the 2026-10-29 ranking. Committed on
-the user's instruction ("Commit on branch", 2026-10-30), without the superseded first build `d2e4c0c4`; not pushed.
+the user's instruction ("Commit on branch", 2026-10-30), without the superseded first build `d2e4c0c4`; pushed with a
+pull request to `main`, [PR #40](https://github.com/yhong075-sketch/iyali26_gem/pull/40), on the user's instruction
+("Push and open PR", 2026-10-30).
 
 **Results** ([REPORT.md](reports/trehalose_biomass_20261030/REPORT.md),
 [AUDIT.md](reports/trehalose_biomass_20261030/AUDIT.md),
