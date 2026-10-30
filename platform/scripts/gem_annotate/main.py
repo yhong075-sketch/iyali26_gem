@@ -104,6 +104,7 @@ def build_reference_chain(
     aars_thr_ser_split: bool = False,
     r171_atp_synthase_gpr: bool = False,
     r673_prolyl_split: bool = False,
+    aconitase_aco2_split: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -892,6 +893,12 @@ def build_reference_chain(
         from .r673_prolyl_split import apply_r673_prolyl_split
         selection["r673_prolyl_split"] = apply_r673_prolyl_split(model)
         logger.info("R673 prolyl split: %s", selection["r673_prolyl_split"]["status"])
+    if aconitase_aco2_split:
+        # Opt-in: R1556/R216/R238 to the ACO1-type aconitase YALI1D11984g; the ACO2-type YALI1E17935g kept unlinked
+        # (2026-10-29). GPRs and notes only; no flag dependency: the step pins the before-state of its targets.
+        from .aconitase_aco2_split import apply_aconitase_aco2_split
+        selection["aconitase_aco2_split"] = apply_aconitase_aco2_split(model)
+        logger.info("Aconitase ACO2 split: %s", selection["aconitase_aco2_split"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -1002,6 +1009,7 @@ def build_model(args):
         aars_thr_ser_split=getattr(args, "aars_thr_ser_split", False),
         r171_atp_synthase_gpr=getattr(args, "r171_atp_synthase_gpr", False),
         r673_prolyl_split=getattr(args, "r673_prolyl_split", False),
+        aconitase_aco2_split=getattr(args, "aconitase_aco2_split", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

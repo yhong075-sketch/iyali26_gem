@@ -1,0 +1,1133 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi 1e-9 (checked_solve)",
+ "ko_gene": "YALI1D11984g",
+ "scenarios": {
+  "wt_baseline": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.3116608216336117,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.976713335117425e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal"
+  },
+  "ko_baseline": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.31166082163361014,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.4868995751603507e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [
+    "R239"
+   ],
+   "pfba_status": "optimal"
+  },
+  "wt_candidate": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.3116608216336117,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.976713335117425e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal"
+  },
+  "ko_candidate": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.007611905996864479,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.1436424130975434e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [
+    "R216",
+    "R239",
+    "R238",
+    "R1556"
+   ],
+   "pfba_status": "optimal"
+  }
+ },
+ "baseline_sha256": "059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "candidate_sha256": "e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897",
+ "mapped": {
+  "fixed": [
+   "R1044",
+   "R1046",
+   "R1047",
+   "R1385",
+   "R1556",
+   "R1875",
+   "R1894",
+   "R216",
+   "R236",
+   "R238",
+   "R239",
+   "R487",
+   "R488",
+   "R490",
+   "R735",
+   "R736",
+   "R817",
+   "R831",
+   "R832",
+   "R833"
+  ],
+  "largest_ko_change": [
+   "R659",
+   "r0210",
+   "R_CYST_II",
+   "R1360",
+   "R815",
+   "R171",
+   "R915",
+   "R940",
+   "R1364",
+   "R305",
+   "R2062",
+   "R1052"
+  ],
+  "metabolites": [
+   "m433[C_mi]",
+   "m409[C_mi]",
+   "m410[C_mi]",
+   "m435[C_cy]",
+   "m436[C_cy]",
+   "m738[C_cy]"
+  ]
+ },
+ "fluxes": {
+  "wt_baseline": {
+   "R1044": 0.0,
+   "R1046": 0.0,
+   "R1047": 0.0,
+   "R1385": 0.14138146186810074,
+   "R1556": 0.0796610553809951,
+   "R1875": 0.0,
+   "R1894": 2.7741142716308786e-12,
+   "R216": 1.4906696637755372,
+   "R236": 1.5703307191593066,
+   "R238": 1.4906696637755372,
+   "R239": 0.0796610553809951,
+   "R487": 1.3492882019074366,
+   "R488": 0.0,
+   "R490": 0.0796610553809951,
+   "R735": 0.0,
+   "R736": 0.0,
+   "R817": 0.0,
+   "R831": -0.07966105538376919,
+   "R832": 0.0,
+   "R833": 0.0,
+   "R659": 17.996862300026354,
+   "r0210": 17.789616745318607,
+   "R_CYST_II": -17.78841311122546,
+   "R1360": -21.291275554321526,
+   "R815": 18.271346112779902,
+   "R171": 17.14259868703364,
+   "R915": 14.225090503519233,
+   "R940": 4.249441808373188,
+   "R1364": -4.249441808373188,
+   "R305": 9.007665744485562,
+   "R2062": 7.7663454959622245,
+   "R1052": -4.9691997424340855
+  },
+  "ko_baseline": {
+   "R1044": 0.0,
+   "R1046": 0.0,
+   "R1047": 0.0,
+   "R1385": 0.14138146186809983,
+   "R1556": 0.0,
+   "R1875": 0.0,
+   "R1894": 1.2213008382389035e-12,
+   "R216": 1.5703307191565032,
+   "R236": 1.5703307191577247,
+   "R238": 1.5703307191565032,
+   "R239": 0.0,
+   "R487": 1.3492882019074193,
+   "R488": 0.0,
+   "R490": 0.07966105538098428,
+   "R735": 0.0,
+   "R736": 0.0,
+   "R817": 0.0,
+   "R831": -0.07966105538220557,
+   "R832": 0.0,
+   "R833": 0.07966105538098428,
+   "R659": 17.996862300026297,
+   "r0210": 17.78961674531853,
+   "R_CYST_II": -17.78841311122538,
+   "R1360": -21.291275554323146,
+   "R815": 18.271346112780027,
+   "R171": 17.142598687033782,
+   "R915": 14.225090503519322,
+   "R940": 4.249441808373081,
+   "R1364": -4.249441808373081,
+   "R305": 9.00766574448546,
+   "R2062": 7.766345495962151,
+   "R1052": -4.9691997424324645
+  },
+  "wt_candidate": {
+   "R1044": 0.0,
+   "R1046": 0.0,
+   "R1047": 0.0,
+   "R1385": 0.14138146186810074,
+   "R1556": 0.0796610553809951,
+   "R1875": 0.0,
+   "R1894": 2.7741142716308786e-12,
+   "R216": 1.4906696637755372,
+   "R236": 1.5703307191593066,
+   "R238": 1.4906696637755372,
+   "R239": 0.0796610553809951,
+   "R487": 1.3492882019074366,
+   "R488": 0.0,
+   "R490": 0.0796610553809951,
+   "R735": 0.0,
+   "R736": 0.0,
+   "R817": 0.0,
+   "R831": -0.07966105538376919,
+   "R832": 0.0,
+   "R833": 0.0,
+   "R659": 17.996862300026354,
+   "r0210": 17.789616745318607,
+   "R_CYST_II": -17.78841311122546,
+   "R1360": -21.291275554321526,
+   "R815": 18.271346112779902,
+   "R171": 17.14259868703364,
+   "R915": 14.225090503519233,
+   "R940": 4.249441808373188,
+   "R1364": -4.249441808373188,
+   "R305": 9.007665744485562,
+   "R2062": 7.7663454959622245,
+   "R1052": -4.9691997424340855
+  },
+  "ko_candidate": {
+   "R1044": -0.010100872137328774,
+   "R1046": 0.0,
+   "R1047": 0.0,
+   "R1385": 0.0,
+   "R1556": 0.0,
+   "R1875": 0.0,
+   "R1894": 0.006626445798434071,
+   "R216": 0.0,
+   "R236": 0.016727317935762844,
+   "R238": 0.0,
+   "R239": 0.0,
+   "R487": 0.0,
+   "R488": 0.0,
+   "R490": 0.0,
+   "R735": 0.0,
+   "R736": 0.0,
+   "R817": 0.0,
+   "R831": -0.016727317935762844,
+   "R832": 0.0,
+   "R833": 0.0,
+   "R659": 0.0,
+   "r0210": -0.0025291242746121943,
+   "R_CYST_II": 0.0025291242746121943,
+   "R1360": -8.968860877080235,
+   "R815": 5.992367446656113,
+   "R171": 5.99236948664692,
+   "R915": 5.900119926089738,
+   "R940": -1.893792728433325,
+   "R1364": 1.893792728433325,
+   "R305": 3.4722095110546394,
+   "R2062": 2.5788366364280995,
+   "R1052": -1.287669894643746
+  }
+ },
+ "reactions": {
+  "R1044": {
+   "name": "citrate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, extracellular",
+   "equation": "citrate_C6H8O7 <=> citrate_C6H8O7",
+   "mets": {
+    "m1187[C_ex]": -1.0,
+    "m435[C_cy]": 1.0
+   }
+  },
+  "R1046": {
+   "name": "citrate/isocitrate antiport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, peroxisome",
+   "equation": "citrate_C6H8O7 + isocitrate_C6H8O7 <=> citrate_C6H8O7 + isocitrate_C6H8O7",
+   "mets": {
+    "m435[C_cy]": -1.0,
+    "m739[C_pe]": -1.0,
+    "m434[C_pe]": 1.0,
+    "m738[C_cy]": 1.0
+   }
+  },
+  "R1047": {
+   "name": "citrate/malate antiport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, peroxisome",
+   "equation": "citrate_C6H8O7 + (S)-malate_C4H6O5 <=> citrate_C6H8O7 + (S)-malate_C4H6O5",
+   "mets": {
+    "m434[C_pe]": -1.0,
+    "m539[C_cy]": -1.0,
+    "m435[C_cy]": 1.0,
+    "m799[C_pe]": 1.0
+   }
+  },
+  "R1385": {
+   "name": "isocitrate dehydrogenase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F06197g",
+   "gpr_baseline": "YALI1F06197g",
+   "genes": [
+    "YALI1F06197g"
+   ],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "NADP(+)_C21H28N7O17P3 + isocitrate_C6H8O7 <=> NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 + H+_p+1 + carbon dioxide_CO2",
+   "mets": {
+    "m178[C_mi]": -1.0,
+    "m410[C_mi]": -1.0,
+    "m44[C_mi]": 1.0,
+    "m176[C_mi]": 1.0,
+    "m219[C_mi]": 1.0,
+    "m28[C_mi]": 1.0
+   }
+  },
+  "R1556": {
+   "name": "cis-aconitate(3-) to isocitrate",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D11984g",
+   "gpr_baseline": "YALI1D11984g or YALI1E17935g",
+   "genes": [
+    "YALI1D11984g"
+   ],
+   "subsystem": "",
+   "equation": "H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m436[C_cy]": -1.0,
+    "m738[C_cy]": 1.0
+   }
+  },
+  "R1875": {
+   "name": "isocitrate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, extracellular",
+   "equation": "isocitrate_C6H8O7 <=> isocitrate_C6H8O7",
+   "mets": {
+    "m1803[C_ex]": -1.0,
+    "m738[C_cy]": 1.0
+   }
+  },
+  "R1894": {
+   "name": "ATP-citrate lyase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E41315g or YALI1D32268g",
+   "gpr_baseline": "YALI1E41315g or YALI1D32268g",
+   "genes": [
+    "YALI1D32268g",
+    "YALI1E41315g"
+   ],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "ATP_C10H16N5O13P3 + citrate_C6H8O7 + coenzyme A_C21H36N7O16P3S --> ADP_C10H15N5O10P2 + oxaloacetate_C4H4O5 + phosphate_H3O4P + acetyl-CoA_C23H38N7O17P3S",
+   "mets": {
+    "m69[C_cy]": -1.0,
+    "m141[C_cy]": -1.0,
+    "m435[C_cy]": -1.0,
+    "m35[C_cy]": 1.0,
+    "m68[C_cy]": 1.0,
+    "m143[C_cy]": 1.0,
+    "m328[C_cy]": 1.0
+   }
+  },
+  "R216": {
+   "name": "cis-aconitate(3-) to isocitrate",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D11984g",
+   "gpr_baseline": "YALI1D11984g or YALI1E17935g",
+   "genes": [
+    "YALI1D11984g"
+   ],
+   "subsystem": "Glyoxylate and dicarboxylate metabolism",
+   "equation": "H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7",
+   "mets": {
+    "m26[C_mi]": -1.0,
+    "m409[C_mi]": -1.0,
+    "m410[C_mi]": 1.0
+   }
+  },
+  "R236": {
+   "name": "citrate synthase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E01019g or YALI1E03300g",
+   "gpr_baseline": "YALI1E01019g or YALI1E03300g",
+   "genes": [
+    "YALI1E01019g",
+    "YALI1E03300g"
+   ],
+   "subsystem": "Glyoxylate and dicarboxylate metabolism",
+   "equation": "H2O_H2O + acetyl-CoA_C23H38N7O17P3S + oxaloacetate_C4H4O5 --> citrate_C6H8O7 + coenzyme A_C21H36N7O16P3S",
+   "mets": {
+    "m26[C_mi]": -1.0,
+    "m71[C_mi]": -1.0,
+    "m77[C_mi]": -1.0,
+    "m73[C_mi]": 1.0,
+    "m433[C_mi]": 1.0
+   }
+  },
+  "R238": {
+   "name": "citrate to cis-aconitate(3-)",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D11984g",
+   "gpr_baseline": "YALI1D11984g or YALI1E17935g",
+   "genes": [
+    "YALI1D11984g"
+   ],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6",
+   "mets": {
+    "m433[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m409[C_mi]": 1.0
+   }
+  },
+  "R239": {
+   "name": "citrate to cis-aconitate(3-), cytoplasmic",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D11984g",
+   "gpr_baseline": "YALI1D11984g",
+   "genes": [
+    "YALI1D11984g"
+   ],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6",
+   "mets": {
+    "m435[C_cy]": -1.0,
+    "m32[C_cy]": 1.0,
+    "m436[C_cy]": 1.0
+   }
+  },
+  "R487": {
+   "name": "isocitrate dehydrogenase (NAD+)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E06015g and YALI1D08082g",
+   "gpr_baseline": "YALI1E06015g and YALI1D08082g",
+   "genes": [
+    "YALI1D08082g",
+    "YALI1E06015g"
+   ],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "NAD_C21H27N7O14P2 + isocitrate_C6H8O7 --> 2-oxoglutarate_C5H6O5 + NADH_C21H29N7O14P2 + carbon dioxide_CO2",
+   "mets": {
+    "m27[C_mi]": -1.0,
+    "m410[C_mi]": -1.0,
+    "m30[C_mi]": 1.0,
+    "m44[C_mi]": 1.0,
+    "m219[C_mi]": 1.0
+   }
+  },
+  "R488": {
+   "name": "isocitrate dehydrogenase (NADP)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F06197g",
+   "gpr_baseline": "YALI1F06197g",
+   "genes": [
+    "YALI1F06197g"
+   ],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "NADP(+)_C21H28N7O17P3 + isocitrate_C6H8O7 --> H+_p+1 + NADPH_C21H30N7O17P3 + 2-oxoglutarate_C5H6O5 + carbon dioxide_CO2",
+   "mets": {
+    "m41[C_cy]": -1.0,
+    "m738[C_cy]": -1.0,
+    "m40[C_cy]": 1.0,
+    "m51[C_cy]": 1.0,
+    "m82[C_cy]": 1.0,
+    "m10[C_cy]": 1.0
+   }
+  },
+  "R490": {
+   "name": "isocitrate lyase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C24124g or YALI1F39620g",
+   "gpr_baseline": "YALI1C24124g or YALI1F39620g",
+   "genes": [
+    "YALI1C24124g",
+    "YALI1F39620g"
+   ],
+   "subsystem": "Glyoxylate and dicarboxylate metabolism",
+   "equation": "isocitrate_C6H8O7 --> glyoxylate_C2H2O3 + succinate_C4H6O4",
+   "mets": {
+    "m738[C_cy]": -1.0,
+    "m271[C_cy]": 1.0,
+    "m541[C_cy]": 1.0
+   }
+  },
+  "R735": {
+   "name": "spontaneous cis-aconitate(3-) to trans-aconitate",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "cis-aconitate_C6H6O6 <=> 3.0 H+_p+1 + trans-aconitate",
+   "mets": {
+    "m409[C_mi]": -1.0,
+    "m955[C_mi]": 1.0,
+    "m28[C_mi]": 3.0
+   }
+  },
+  "R736": {
+   "name": "spontaneous cis-aconitate(3-) to trans-aconitate",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Citrate cycle (TCA cycle)",
+   "equation": "cis-aconitate_C6H6O6 <=> 3.0 H+_p+1 + trans-aconitate",
+   "mets": {
+    "m436[C_cy]": -1.0,
+    "m956[C_cy]": 1.0,
+    "m10[C_cy]": 3.0
+   }
+  },
+  "R817": {
+   "name": "AKG transporter, mitochonrial",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B14382g",
+   "gpr_baseline": "YALI1B14382g",
+   "genes": [
+    "YALI1B14382g"
+   ],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "citrate_C6H8O7 + 2-oxoglutarate_C5H6O5 <=> 2-oxoglutarate_C5H6O5 + citrate_C6H8O7",
+   "mets": {
+    "m51[C_cy]": -1.0,
+    "m433[C_mi]": -1.0,
+    "m219[C_mi]": 1.0,
+    "m435[C_cy]": 1.0
+   }
+  },
+  "R831": {
+   "name": "citrate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F33754g",
+   "gpr_baseline": "YALI1F33754g",
+   "genes": [
+    "YALI1F33754g"
+   ],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "citrate_C6H8O7 + (S)-malate_C4H6O5 <=> citrate_C6H8O7 + (S)-malate_C4H6O5",
+   "mets": {
+    "m435[C_cy]": -1.0,
+    "m538[C_mi]": -1.0,
+    "m433[C_mi]": 1.0,
+    "m539[C_cy]": 1.0
+   }
+  },
+  "R832": {
+   "name": "citrate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F33754g",
+   "gpr_baseline": "YALI1F33754g",
+   "genes": [
+    "YALI1F33754g"
+   ],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "citrate_C6H8O7 + phosphoenolpyruvate_C3H5O6P <=> phosphoenolpyruvate_C3H5O6P + citrate_C6H8O7",
+   "mets": {
+    "m56[C_mi]": -1.0,
+    "m435[C_cy]": -1.0,
+    "m107[C_cy]": 1.0,
+    "m433[C_mi]": 1.0
+   }
+  },
+  "R833": {
+   "name": "citrate transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F33754g",
+   "gpr_baseline": "YALI1F33754g",
+   "genes": [
+    "YALI1F33754g"
+   ],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "isocitrate_C6H8O7 + citrate_C6H8O7 <=> citrate_C6H8O7 + isocitrate_C6H8O7",
+   "mets": {
+    "m410[C_mi]": -1.0,
+    "m435[C_cy]": -1.0,
+    "m433[C_mi]": 1.0,
+    "m738[C_cy]": 1.0
+   }
+  },
+  "R659": {
+   "name": "phosphoserine phosphatase (L-serine)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B26749g",
+   "gpr_baseline": "YALI1B26749g",
+   "genes": [
+    "YALI1B26749g"
+   ],
+   "subsystem": "Glycine, serine and threonine metabolism",
+   "equation": "2.0 H+_p+1 + H2O_H2O + 3-phospho-serine_C3H6NO6P --> phosphate_H3O4P + L-serine_C3H7NO3",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m893[C_cy]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m35[C_cy]": 1.0,
+    "m441[C_cy]": 1.0
+   }
+  },
+  "r0210": {
+   "name": "r0210",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E11255g",
+   "gpr_baseline": "YALI1E11255g",
+   "genes": [
+    "YALI1E11255g"
+   ],
+   "subsystem": "",
+   "equation": "H+_p+1 + L-serine_C3H7NO3 + hydrogen sulfide_HS <=> H2O_H2O + L-cysteine_C3H7NO2S",
+   "mets": {
+    "m445[C_cy]": -1.0,
+    "m10[C_cy]": -1.0,
+    "m441[C_cy]": -1.0,
+    "m443[C_cy]": 1.0,
+    "m32[C_cy]": 1.0
+   }
+  },
+  "R_CYST_II": {
+   "name": "R_CYST_II",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E10364g",
+   "gpr_baseline": "YALI1E10364g",
+   "genes": [
+    "YALI1E10364g"
+   ],
+   "subsystem": "",
+   "equation": "H+_p+1 + hydrogen sulfide_HS + 3-phospho-serine_C3H6NO6P <=> phosphate_H3O4P + L-cysteine_C3H7NO2S",
+   "mets": {
+    "m893[C_cy]": -1.0,
+    "m445[C_cy]": -1.0,
+    "m10[C_cy]": -1.0,
+    "m443[C_cy]": 1.0,
+    "m35[C_cy]": 1.0
+   }
+  },
+  "R1360": {
+   "name": "water diffusion",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "H2O_H2O <=> H2O_H2O",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m26[C_mi]": 1.0
+   }
+  },
+  "R815": {
+   "name": "ADP/ATP transporter",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1A10708g or YALI1D10535g or YALI1F26167g",
+   "gpr_baseline": "YALI1A10708g or YALI1D10535g or YALI1F26167g",
+   "genes": [
+    "YALI1A10708g",
+    "YALI1D10535g",
+    "YALI1F26167g"
+   ],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "ADP_C10H15N5O10P2 + ATP_C10H16N5O13P3 <=> ATP_C10H16N5O13P3 + ADP_C10H15N5O10P2",
+   "mets": {
+    "m46[C_mi]": -1.0,
+    "m143[C_cy]": -1.0,
+    "m141[C_cy]": 1.0,
+    "m197[C_mi]": 1.0
+   }
+  },
+  "R171": {
+   "name": "ATP synthase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI1F26967g",
+   "gpr_baseline": "YALI1M00260g and YALI1M00267g and YALI1M00318g and YALI1F04433g and YALI1F04110g and YALI1D27826g and YALI1D15734g and YALI1D14639g and YALI1B08885g and YALI1F07384g and YALI1B05364g and YALI1F26967g",
+   "genes": [
+    "YALI1B05364g",
+    "YALI1B08885g",
+    "YALI1D14639g",
+    "YALI1D15734g",
+    "YALI1D27826g",
+    "YALI1F04110g",
+    "YALI1F04433g",
+    "YALI1F07384g",
+    "YALI1F26967g",
+    "YALI1M00260g",
+    "YALI1M00267g",
+    "YALI1M00318g"
+   ],
+   "subsystem": "Oxidative phosphorylation",
+   "equation": "4.0 H+_p+1 + ADP_C10H15N5O10P2 + phosphate_H3O4P --> H2O_H2O + 4.0 H+_p+1 + ATP_C10H16N5O13P3",
+   "mets": {
+    "m10[C_cy]": -4.0,
+    "m58[C_mi]": -1.0,
+    "m197[C_mi]": -1.0,
+    "m26[C_mi]": 1.0,
+    "m28[C_mi]": 4.0,
+    "m46[C_mi]": 1.0
+   }
+  },
+  "R915": {
+   "name": "phosphate transport",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C07423g or YALI1F19090g",
+   "gpr_baseline": "YALI1C07423g or YALI1F19090g",
+   "genes": [
+    "YALI1C07423g",
+    "YALI1F19090g"
+   ],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "H+_p+1 + phosphate_H3O4P --> H+_p+1 + phosphate_H3O4P",
+   "mets": {
+    "m10[C_cy]": -1.0,
+    "m35[C_cy]": -1.0,
+    "m28[C_mi]": 1.0,
+    "m58[C_mi]": 1.0
+   }
+  },
+  "R940": {
+   "name": "water diffusion",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F01981g",
+   "gpr_baseline": "YALI1F01981g",
+   "genes": [
+    "YALI1F01981g"
+   ],
+   "subsystem": "Transport, extracellular",
+   "equation": "H2O_H2O <=> H2O_H2O",
+   "mets": {
+    "m214[C_ex]": -1.0,
+    "m32[C_cy]": 1.0
+   }
+  },
+  "R1364": {
+   "name": "water exchange",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Exchange",
+   "equation": "H2O_H2O <=> ",
+   "mets": {
+    "m214[C_ex]": -1.0
+   }
+  },
+  "R305": {
+   "name": "ubiquinol-9:cytochrome-c reductase (complex III)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g",
+   "gpr_baseline": "YALI1M00390g and YALI1A14736g and YALI1E40361g and YALI1A03322g and YALI1F32010g and YALI1B02487g and YALI1C17100g and YALI1F02758g and YALI1A17570g and YALI1F12013g and YALI1D11769g",
+   "genes": [
+    "YALI1A03322g",
+    "YALI1A14736g",
+    "YALI1A17570g",
+    "YALI1B02487g",
+    "YALI1C17100g",
+    "YALI1D11769g",
+    "YALI1E40361g",
+    "YALI1F02758g",
+    "YALI1F12013g",
+    "YALI1F32010g",
+    "YALI1M00390g"
+   ],
+   "subsystem": "Oxidative phosphorylation",
+   "equation": "2.0 H+_p+1 + 2.0 ferricytochrome c_ + ubiquinol-9_C54H84O4 --> 4.0 H+_p+1 + 2.0 ferrocytochrome c_ + ubiquinone-9_C54H82O4",
+   "mets": {
+    "m2[C_mi]": -2.0,
+    "m28[C_mi]": -2.0,
+    "m471[C_mi]": -1.0,
+    "m3[C_mi]": 2.0,
+    "m10[C_cy]": 4.0,
+    "m468[C_mi]": 1.0
+   }
+  },
+  "R2062": {
+   "name": "NADH:ubiquinone oxidoreductase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29",
+   "gpr_baseline": "YALI1A21711g and YALI1B00908g and YALI1B19507g and YALI1B26679g and YALI1C04281g and YALI1D00766g and YALI1D06302g and YALI1D07089g and YALI1D09203g and YALI1D18037g and YALI1D24109g and YALI1D32550g and YALI1E27218g and YALI1E37603g and YALI1F01456g and YALI1F03371g and YALI1F09003g and YALI1F22993g and YALI1F24343g and YALI1M00056g and YALI1M00064g and YALI1M00296g and YALI1M00335g and YALI1M00338r and YALI1M00458g and YALIfMp29",
+   "genes": [
+    "YALI1A21711g",
+    "YALI1B00908g",
+    "YALI1B19507g",
+    "YALI1B26679g",
+    "YALI1C04281g",
+    "YALI1D00766g",
+    "YALI1D06302g",
+    "YALI1D07089g",
+    "YALI1D09203g",
+    "YALI1D18037g",
+    "YALI1D24109g",
+    "YALI1D32550g",
+    "YALI1E27218g",
+    "YALI1E37603g",
+    "YALI1F01456g",
+    "YALI1F03371g",
+    "YALI1F09003g",
+    "YALI1F22993g",
+    "YALI1F24343g",
+    "YALI1M00056g",
+    "YALI1M00064g",
+    "YALI1M00296g",
+    "YALI1M00335g",
+    "YALI1M00338r",
+    "YALI1M00458g",
+    "YALIfMp29"
+   ],
+   "subsystem": "Oxidative phosphorylation",
+   "equation": "4.0 H+_p+1 + NADH_C21H29N7O14P2 + ubiquinone-9_C54H82O4 --> 4.0 H+_p+1 + NAD_C21H27N7O14P2 + ubiquinol-9_C54H84O4",
+   "mets": {
+    "m30[C_mi]": -1.0,
+    "m468[C_mi]": -1.0,
+    "m28[C_mi]": -4.0,
+    "m27[C_mi]": 1.0,
+    "m471[C_mi]": 1.0,
+    "m10[C_cy]": 4.0
+   }
+  },
+  "R1052": {
+   "name": "CO2 transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, mitochondrion",
+   "equation": "carbon dioxide_CO2 <=> carbon dioxide_CO2",
+   "mets": {
+    "m82[C_cy]": -1.0,
+    "m44[C_mi]": 1.0
+   }
+  }
+ },
+ "metabolites": {
+  "m1187[C_ex]": {
+   "name": "citrate_C6H8O7",
+   "comp": "C_ex",
+   "degree": 2
+  },
+  "m435[C_cy]": {
+   "name": "citrate_C6H8O7",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m739[C_pe]": {
+   "name": "isocitrate_C6H8O7",
+   "comp": "C_pe",
+   "degree": 2
+  },
+  "m434[C_pe]": {
+   "name": "citrate_C6H8O7",
+   "comp": "C_pe",
+   "degree": 3
+  },
+  "m738[C_cy]": {
+   "name": "isocitrate_C6H8O7",
+   "comp": "C_cy",
+   "degree": 6
+  },
+  "m539[C_cy]": {
+   "name": "(S)-malate_C4H6O5",
+   "comp": "C_cy",
+   "degree": 12
+  },
+  "m799[C_pe]": {
+   "name": "(S)-malate_C4H6O5",
+   "comp": "C_pe",
+   "degree": 4
+  },
+  "m178[C_mi]": {
+   "name": "NADP(+)_C21H28N7O17P3",
+   "comp": "C_mi",
+   "degree": 24
+  },
+  "m410[C_mi]": {
+   "name": "isocitrate_C6H8O7",
+   "comp": "C_mi",
+   "degree": 4
+  },
+  "m44[C_mi]": {
+   "name": "carbon dioxide_CO2",
+   "comp": "C_mi",
+   "degree": 32
+  },
+  "m176[C_mi]": {
+   "name": "NADPH_C21H30N7O17P3",
+   "comp": "C_mi",
+   "degree": 24
+  },
+  "m219[C_mi]": {
+   "name": "2-oxoglutarate_C5H6O5",
+   "comp": "C_mi",
+   "degree": 13
+  },
+  "m28[C_mi]": {
+   "name": "H+_p+1",
+   "comp": "C_mi",
+   "degree": 88
+  },
+  "m32[C_cy]": {
+   "name": "H2O_H2O",
+   "comp": "C_cy",
+   "degree": 332
+  },
+  "m436[C_cy]": {
+   "name": "cis-aconitate_C6H6O6",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m1803[C_ex]": {
+   "name": "isocitrate_C6H8O7",
+   "comp": "C_ex",
+   "degree": 2
+  },
+  "m69[C_cy]": {
+   "name": "coenzyme A_C21H36N7O16P3S",
+   "comp": "C_cy",
+   "degree": 40
+  },
+  "m141[C_cy]": {
+   "name": "ATP_C10H16N5O13P3",
+   "comp": "C_cy",
+   "degree": 182
+  },
+  "m35[C_cy]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_cy",
+   "degree": 156
+  },
+  "m68[C_cy]": {
+   "name": "acetyl-CoA_C23H38N7O17P3S",
+   "comp": "C_cy",
+   "degree": 20
+  },
+  "m143[C_cy]": {
+   "name": "ADP_C10H15N5O10P2",
+   "comp": "C_cy",
+   "degree": 146
+  },
+  "m328[C_cy]": {
+   "name": "oxaloacetate_C4H4O5",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m26[C_mi]": {
+   "name": "H2O_H2O",
+   "comp": "C_mi",
+   "degree": 84
+  },
+  "m409[C_mi]": {
+   "name": "cis-aconitate_C6H6O6",
+   "comp": "C_mi",
+   "degree": 3
+  },
+  "m71[C_mi]": {
+   "name": "acetyl-CoA_C23H38N7O17P3S",
+   "comp": "C_mi",
+   "degree": 14
+  },
+  "m77[C_mi]": {
+   "name": "oxaloacetate_C4H4O5",
+   "comp": "C_mi",
+   "degree": 6
+  },
+  "m73[C_mi]": {
+   "name": "coenzyme A_C21H36N7O16P3S",
+   "comp": "C_mi",
+   "degree": 24
+  },
+  "m433[C_mi]": {
+   "name": "citrate_C6H8O7",
+   "comp": "C_mi",
+   "degree": 6
+  },
+  "m27[C_mi]": {
+   "name": "NAD_C21H27N7O14P2",
+   "comp": "C_mi",
+   "degree": 28
+  },
+  "m30[C_mi]": {
+   "name": "NADH_C21H29N7O14P2",
+   "comp": "C_mi",
+   "degree": 24
+  },
+  "m41[C_cy]": {
+   "name": "NADP(+)_C21H28N7O17P3",
+   "comp": "C_cy",
+   "degree": 69
+  },
+  "m40[C_cy]": {
+   "name": "NADPH_C21H30N7O17P3",
+   "comp": "C_cy",
+   "degree": 68
+  },
+  "m51[C_cy]": {
+   "name": "2-oxoglutarate_C5H6O5",
+   "comp": "C_cy",
+   "degree": 32
+  },
+  "m82[C_cy]": {
+   "name": "carbon dioxide_CO2",
+   "comp": "C_cy",
+   "degree": 52
+  },
+  "m10[C_cy]": {
+   "name": "H+_p+1",
+   "comp": "C_cy",
+   "degree": 463
+  },
+  "m271[C_cy]": {
+   "name": "glyoxylate_C2H2O3",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m541[C_cy]": {
+   "name": "succinate_C4H6O4",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m955[C_mi]": {
+   "name": "trans-aconitate",
+   "comp": "C_mi",
+   "degree": 1
+  },
+  "m956[C_cy]": {
+   "name": "trans-aconitate",
+   "comp": "C_cy",
+   "degree": 1
+  },
+  "m538[C_mi]": {
+   "name": "(S)-malate_C4H6O5",
+   "comp": "C_mi",
+   "degree": 7
+  },
+  "m56[C_mi]": {
+   "name": "phosphoenolpyruvate_C3H5O6P",
+   "comp": "C_mi",
+   "degree": 2
+  },
+  "m107[C_cy]": {
+   "name": "phosphoenolpyruvate_C3H5O6P",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m893[C_cy]": {
+   "name": "3-phospho-serine_C3H6NO6P",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m441[C_cy]": {
+   "name": "L-serine_C3H7NO3",
+   "comp": "C_cy",
+   "degree": 20
+  },
+  "m445[C_cy]": {
+   "name": "hydrogen sulfide_HS",
+   "comp": "C_cy",
+   "degree": 5
+  },
+  "m443[C_cy]": {
+   "name": "L-cysteine_C3H7NO2S",
+   "comp": "C_cy",
+   "degree": 20
+  },
+  "m46[C_mi]": {
+   "name": "ATP_C10H16N5O13P3",
+   "comp": "C_mi",
+   "degree": 32
+  },
+  "m197[C_mi]": {
+   "name": "ADP_C10H15N5O10P2",
+   "comp": "C_mi",
+   "degree": 15
+  },
+  "m58[C_mi]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_mi",
+   "degree": 16
+  },
+  "m214[C_ex]": {
+   "name": "H2O_H2O",
+   "comp": "C_ex",
+   "degree": 13
+  },
+  "m2[C_mi]": {
+   "name": "ferricytochrome c_",
+   "comp": "C_mi",
+   "degree": 7
+  },
+  "m471[C_mi]": {
+   "name": "ubiquinol-9_C54H84O4",
+   "comp": "C_mi",
+   "degree": 7
+  },
+  "m3[C_mi]": {
+   "name": "ferrocytochrome c_",
+   "comp": "C_mi",
+   "degree": 7
+  },
+  "m468[C_mi]": {
+   "name": "ubiquinone-9_C54H82O4",
+   "comp": "C_mi",
+   "degree": 9
+  }
+ },
+ "lp_count": 12
+}
