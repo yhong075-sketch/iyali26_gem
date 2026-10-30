@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-30: Trehalose removed from biomass_C, candidate 164542fb (committed on claude/trehalose-biomass-24e3c1, not pushed)
+## 2026-10-30: Trehalose removed from biomass_C, candidate 164542fb (committed 53242c3 on claude/trehalose-biomass-24e3c1, not pushed)
 
 **Authorization.** The user, 2026-10-30: "Approve C on e1e7c868"
 ([TASK.md](reports/trehalose_biomass_20261030/TASK.md) §6 option C as written in §9, baseline `e1e7c868`, §9

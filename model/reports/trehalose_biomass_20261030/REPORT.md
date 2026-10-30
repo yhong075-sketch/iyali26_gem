@@ -5,7 +5,8 @@
 SHA-256 `164542fb6056f01e257ecfaed1b456961e8a07e46e9e4e1942f79489d5014beb` = `e1e7c868` + `--trehalose-biomass-removal`.
 `biomass_C` no longer drains trehalose `m294[C_cy]` (was 0.00686 mmol/gDW); nothing else in the model changed.
 The three genes on the trehalose-6-phosphate synthase reaction R143 go from essential to non-essential at every
-cutoff (FP → TN); no other gene changes class. Not a designated reference. Uncommitted.
+cutoff (FP → TN); no other gene changes class. Not a designated reference. Committed `53242c3` on
+`claude/trehalose-biomass-24e3c1` (user instruction "Commit on branch", 2026-10-30), not pushed.
 
 The first build, `d2e4c0c4b02c7e48…` (`…_treh_biomass_20261030.xml`), was swept, drawn and audited; after the audit
 two evidence notes were reworded (§6) and the model rebuilt as v2. v2 differs from `d2e4c0c4` only in those two
