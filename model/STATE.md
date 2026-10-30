@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-30: R24 homocitrate dehydration to YALI1D11984g or YALI1E17935g (option C), candidate f505571d (on claude/nice-bouman-b161f4, not committed, not pushed)
+## 2026-10-30: R24 homocitrate dehydration to YALI1D11984g or YALI1E17935g (option C), candidate f505571d (committed ff4dd32 on claude/nice-bouman-b161f4, not pushed)
 
 **Authorization.** The user, 2026-10-30, after the R24 review: "Option C", then "Approve plan". The approved plan:
 commit the review (`ac8921d`); merge the local, unpushed `refs/heads/claude/aconitase-aco2-split-1c492f` (`a006df1`)

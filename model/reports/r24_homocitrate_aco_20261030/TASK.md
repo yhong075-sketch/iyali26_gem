@@ -53,4 +53,4 @@ Nothing else may change: no name, bound, stoichiometry, formula, charge or annot
 Two builds (candidate, control), plus a seed-1 candidate build; one whole-model diff; 5 LPs on the candidate (WT +
 4 knockouts; the first draft said 6, corrected after the audit); two pytest runs; one audit agent.
 Stop after REPORT.md and the STATE.md entry. The approved plan did not cover committing this round: commit only on
-the user's instruction. No push.
+the user's instruction. Committed as `ff4dd32` on the user's instruction ("Commit on branch", 2026-10-30). No push.
