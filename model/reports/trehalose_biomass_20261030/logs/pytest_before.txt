@@ -1,0 +1,1837 @@
+................. [  3%]
+F.s.FFsF...F..sFsF..sssss..ss...................................F.....FFF...EE [ 19%]
+EEEEFFF.F................................................ [ 31%]
+............................................sss....s..s..............................................................F......... [ 58%]
+.............s..........EEEEEEEEEEEEEE....................ssssssssssssss...................................................................................................................F...F....F...  [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of DolicholRouteTests.test_flag_is_opt_in_and_requires_the_r1726_opening _
+
+cls = <class 'test_dolichol_route.DolicholRouteTests'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dolichol_route.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5...ned_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of DolicholRouteTests.test_makes_exactly_the_three_edits_and_survives_roundtrip _
+
+cls = <class 'test_dolichol_route.DolicholRouteTests'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dolichol_route.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5...ned_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+____ ERROR at setup of DolicholRouteTests.test_partial_states_are_rejected _____
+
+cls = <class 'test_dolichol_route.DolicholRouteTests'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dolichol_route.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5...ned_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_______ ERROR at setup of DolicholRouteTests.test_spec_matches_the_task ________
+
+cls = <class 'test_dolichol_route.DolicholRouteTests'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dolichol_route.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5...ned_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of DolicholRouteTests.test_stale_inputs_fail_closed_without_edits _
+
+cls = <class 'test_dolichol_route.DolicholRouteTests'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dolichol_route.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5...ned_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+____ ERROR at setup of DolicholRouteTests.test_unexpected_scope_is_rejected ____
+
+cls = <class 'test_dolichol_route.DolicholRouteTests'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dolichol_route.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5...ned_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_20261027.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_cardiolipin_audit_is_empty_fail_closed_and_stereospecific _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+____ ERROR at setup of StrictSnCoreTests.test_cli_refuses_source_overwrite _____
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_coq_r39_mapping_sha_drift_fails_closed _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_coq_r39_r40_candidate_is_mitochondrial_and_evidence_gated _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_each_required_chain_is_not_bypassed _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_linoleoyl_charge_is_corrected_before_all_lipid_routes _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_lipid_exchange_metadata_is_explicit_and_gpr_free _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_r1521_substrate_formula_is_completed_without_ph_migration _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_r989_candidate_gpr_is_alphafold_limited_and_wet_lab_gated _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_required_lipid_routes_are_not_bypassed _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+____ ERROR at setup of StrictSnCoreTests.test_sbml_round_trip_and_function _____
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_source_contract_is_frozen_and_input_unchanged _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+_ ERROR at setup of StrictSnCoreTests.test_structure_balance_and_template_copying _
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+___ ERROR at setup of StrictSnCoreTests.test_tuple_order_and_biomass_weights ___
+
+cls = <class 'test_lp_sn12_candidate.StrictSnCoreTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.curation = json.loads(CURATION_PATH.read_text())
+>       cls.source = cobra.io.read_sbml_model(str(MODEL_PATH))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lp_sn12_candidate.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:460: in read_sbml_model
+    raise e
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:457: in read_sbml_model
+    doc = _get_doc_from_filename(filename)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+filename = '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+    def _get_doc_from_filename(filename: Union[str, IO, Path]) -> "libsbml.SBMLDocument":
+        """Get SBMLDocument from given filename.
+    
+        Parameters
+        ----------
+        filename : path to SBML, or SBML string, or filehandle
+    
+        Returns
+        -------
+        libsbml.SBMLDocument
+    
+        Raises
+        ------
+        IOError if file not readable or does not contain SBML.
+        CobraSBMLError if input type is not valid.
+        """
+        if isinstance(filename, Path) and {".bz2", ".gz"}.isdisjoint(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename.read_text())
+        elif isinstance(filename, Path) and {".bz2", ".gz"}.intersection(filename.suffixes):
+            doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(str(filename))
+        elif isinstance(filename, str):
+            if "<sbml" in filename:
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromString(filename)
+            elif (
+                ("win" in platform) and (len(filename) < 260) or "win" not in platform
+            ) and Path(filename).exists():
+                doc: libsbml.SBMLDocument = libsbml.readSBMLFromFile(filename)
+            else:
+                # string representation
+>               raise IOError(
+                    f"The file with '{filename}' does not exist, "
+                    f"or is not an SBML string. Provide the path to "
+                    f"an existing SBML file or a valid SBML string representation:\n"
+E                   OSError: The file with '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml' does not exist, or is not an SBML string. Provide the path to an existing SBML file or a valid SBML string representation:
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/io/sbml.py:504: OSError
+=================================== FAILURES ===================================
+____________ ClosedEnergyTests.test_closure_direction_and_isolation ____________
+
+self = <test_closed_energy.ClosedEnergyTests testMethod=test_closure_direction_and_isolation>
+
+    def test_closure_direction_and_isolation(self):
+        config = json.loads((DEFAULT/'config.json').read_text())
+        original = load_baseline(config).model
+>       before = signature(original)
+                 ^^^^^^^^^^^^^^^^^^^
+
+tests/test_closed_energy.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+_ CoAProtonationCurationDataTests.test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy>
+
+    def test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:594: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_core_45_tuples_and_identity_annotation_targets_are_explicit _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_core_45_tuples_and_identity_annotation_targets_are_explicit>
+
+    def test_core_45_tuples_and_identity_annotation_targets_are_explicit(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:356: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_explicit_source_model_path_overrides_manifest_location _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_explicit_source_model_path_overrides_manifest_location>
+
+    def test_explicit_source_model_path_overrides_manifest_location(self) -> None:
+        curation = {
+            "source_model": "missing.xml",
+>           "source_sha256": hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(),
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+        }
+
+tests/test_coa_protonation_curation.py:306: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/lib/python3.13/pathlib/_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml'
+
+/opt/miniconda3/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ CoAProtonationCurationDataTests.test_production_manifest_is_locked_to_the_post_annotation_model_snapshot _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_production_manifest_is_locked_to_the_post_annotation_model_snapshot>
+
+    def test_production_manifest_is_locked_to_the_post_annotation_model_snapshot(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:204: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_r2076_correction_is_withdrawn_and_decision_contract_is_exact _
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_r2076_correction_is_withdrawn_and_decision_contract_is_exact>
+
+    def test_r2076_correction_is_withdrawn_and_decision_contract_is_exact(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:401: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ CoAProtonationCurationDataTests.test_redox_and_focal_acid_groups_are_pinned __
+
+self = <test_coa_protonation_curation.CoAProtonationCurationDataTests testMethod=test_redox_and_focal_acid_groups_are_pinned>
+
+    def test_redox_and_focal_acid_groups_are_pinned(self) -> None:
+>       curation = load_coa_protonation_curation()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_coa_protonation_curation.py:631: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_coa_protonation_curation.py:43: in load_coa_protonation_curation
+    return coa_patches.load_coa_protonation_curation(
+scripts/gem_annotate/patches.py:3610: in load_coa_protonation_curation
+    _validate_curation_source_file(curation, source_model_path)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+curation = {'activation_blockers': [{'identity_resolution': {'biological_identity': {'connectivity': 'Succinyl thioester on termi...he separate cardiolipin gate is reviewed.', 'activation_state': 'blocked', 'convention': 'biochemical-pH anionic', ...}
+source_model_path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml')
+
+    def _validate_curation_source_file(
+        curation: dict, source_model_path: str | Path | None = None
+    ) -> Path:
+        """Verify that the manifest is tied to this exact post-annotation snapshot."""
+    
+        source_path = (
+            Path(source_model_path).resolve()
+            if source_model_path is not None
+            else load_project_paths().resolve_legacy_path(
+                "model.xml" if curation["source_model"] == _COA_PROTONATION_SOURCE_MODEL else curation["source_model"]
+            )
+        )
+        if not source_path.is_file():
+>           raise CoAProtonationCurationError(
+                f"CoA protonation source model is unavailable: {source_path}"
+            )
+E           scripts.gem_annotate.patches.CoAProtonationCurationError: CoA protonation source model is unavailable: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/iyali26_gem/model.xml
+
+scripts/gem_annotate/patches.py:3514: CoAProtonationCurationError
+_ DfbaNewFalseNegativeTests.test_positive_only_reference_never_implies_negative_labels _
+
+self = <test_dfba_new_fn_essentiality.DfbaNewFalseNegativeTests testMethod=test_positive_only_reference_never_implies_negative_labels>
+
+    def test_positive_only_reference_never_implies_negative_labels(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "positive_only.csv"
+            path.write_text(
+                "gene_id,source_gene_id,function,source,confidence\n"
+                "g_transport,g_transport,transport protein,"
+                "https://doi.org/10.1038/s42003-023-04996-8,"
+                "consensus_essential_in_at_least_2_of_3_screens\n"
+                "g_outside,g_outside,unmodeled protein,"
+                "https://doi.org/10.1038/s42003-023-04996-8,"
+                "consensus_essential_in_at_least_2_of_3_screens\n",
+                encoding="utf-8",
+            )
+            positive_ids, contract = load_experimental_reference(path)
+            tested_ids, coverage = experimental_reference_coverage(
+                positive_ids, toy_model(False), toy_model(True)
+            )
+    
+            self.assertEqual(positive_ids, ["g_outside", "g_transport"])
+            self.assertEqual(tested_ids, ["g_transport"])
+            self.assertTrue(contract["positive_only"])
+            self.assertEqual(contract["negative_label_count"], 0)
+            self.assertEqual(contract["unlisted_gene_semantics"], "unknown_not_nonessential")
+            self.assertEqual(coverage["jointly_testable_positive_gene_count"], 1)
+            self.assertEqual(coverage["untested_positive_gene_count"], 1)
+            self.assertEqual(coverage["absence_semantics"], "unknown_not_nonessential")
+            self.assertEqual(
+                coverage["partitions"]["reference_gene_ids_in_neither_model"]["gene_ids"],
+                ["g_outside"],
+            )
+            slurm = (PLATFORM_ROOT / "hpc/hpcc_dfba_new_fn.slurm").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn(
+                "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+                slurm,
+            )
+            self.assertIn("consensus_essential_genes.csv", slurm)
+>           self.assertIn(sha256(PLATFORM_ROOT / "tools/dfba_new_fn_essentiality.py"), slurm)
+E           AssertionError: '46865060be2da9945936a44eb27a9a332eb7b102d2be91c6cce6bb3e7b7d0ecb' not found in '#!/bin/bash -l\n#SBATCH --job-name=dfba_new_fn\n#SBATCH --partition=batch\n#SBATCH --account=iwheeldonlab\n#SBATCH --ntasks=1\n#SBATCH --cpus-per-task=1\n#SBATCH --mem=4G\n#SBATCH --time=12:00:00\n#SBATCH --output=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/dfba_new_fn-%j.out\n#SBATCH --error=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs/dfba_new_fn-%j.err\n\nset -uo pipefail\n\nRUNS_ROOT=/rhome/yhong075/iyali26_gem_lipid_unlump_a014_runs\nREPO="${REPO:-/rhome/yhong075/iyali26_gem_lipid_unlump_a014}"\nPYTHON="${PYTHON:-/rhome/yhong075/iyali26_flow_phase2/.venv/bin/python}"\nBASELINE_MODEL="${BASELINE_MODEL:-/rhome/yhong075/iyali26_gem_lipid_unlump_a014_inputs/model_bc2aac8fecd8f2f5.xml}"\nCANDIDATE_MODEL="${CANDIDATE_MODEL:-$REPO/model_lipid_unlump_strict_sn_candidate_bc2aac8f_r989_r1521_r39_coq_provisional.xml}"\nEXPECTED_BASELINE_SHA256="${EXPECTED_BASELINE_SHA256:-bc2aac8fecd8f2f5f20de7bb3c988bf46b3a5831e525f556498ed51159bc1bee}"\nEXPECTED_CANDIDATE_SHA256="${EXPECTED_CANDIDATE_SHA256:-d5bc83aadf07bfbd3e56b81188b30c96ee9c0858b4434020174b769aefff29e1}"\nEXPECTED_RUNNER_SHA256="${EXPECTED_RUNNER_SHA256:-b3529742fda1979ab487482ad15e21b61961aed0e518b21eec0fec6b49cdcb2d}"\nEXPECTED_LOADER_SHA256="${EXPECTED_LOADER_SHA256:-f80f0195b993d44f6c61cb42b0987bc4491097de71080841e0e5e2662b4ce100}"\nEXPECTED_FINGERPRINT_HELPER_SHA256="${EXPECTED_FINGERPRINT_HELPER_SHA256:-a567f2ac6b4698c0c8a0147e48d7cf2534e9b9cc3ff5fba1fa03404ecd505b63}"\nEXPECTED_DFBA_MEDIUM_SHA256="${EXPECTED_DFBA_MEDIUM_SHA256:-7e189e312ddbae7cea711c5dfabbfbc6d0b10803f82a689e6d589d11b7ec5ec4}"\nEXPECTED_EXPERIMENTAL_SHA256="${EXPECTED_EXPERIMENTAL_SHA256:-1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b}"\nEXPECTED_GIT_COMMIT="${EXPECTED_GIT_COMMIT:-}"\nEXPERIMENTAL_CSV="${EXPERIMENTAL_CSV:-/rhome/yhong075/iyali26_flow_phase2/data/essentiality/consensus_essential_genes.csv}"\nDFBA_MEDIUM_CSV="${DFBA_MEDIUM_CSV:-$REPO/data/media/po1f_csm_leu_dfba.csv}"\nRESCUE_DIAGNOSTIC_SUMMARY="${RESCUE_DIAGNOSTIC_SUMMARY:-}"\nEXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256="${EXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256:-}"\nDFBA_MODE="${DFBA_MODE:-single}"\nDFBA_HOURS="${DFBA_HOURS:-24}"\nDFBA_STEP_HOURS="${DFBA_STEP_HOURS:-0.1}"\nDFBA_INITIAL_BIOMASS_GDW_L="${DFBA_INITIAL_BIOMASS_GDW_L:-0.05}"\nDFBA_GROWTH_CUTOFF="${DFBA_GROWTH_CUTOFF:-0.01}"\nDFBA_SOLVER="${DFBA_SOLVER:-glpk}"\nDFBA_SHARD_COUNT="${DFBA_SHARD_COUNT:-32}"\nEXPECTED_SHARD_COUNT="${EXPECTED_SHARD_COUNT:-32}"\nRUN_ROOT="${RUN_ROOT:-}"\nJOB_ID="${SLURM_JOB_ID:-manual}"\nTASK_ID="${SLURM_ARRAY_TASK_ID:-}"\nOUTPUT_DIR="${OUTPUT_DIR:-}"\nSTATUS_PATH=""\nPREPARE_STATUS=0\n\nis_uint() {\n  [[ "$1" =~ ^[0-9]+$ ]]\n}\n\nprepare_output() {\n  case "$DFBA_MODE" in\n    single)\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_new_fn_${JOB_ID}}"\n      mkdir -p "$OUTPUT_DIR" || PREPARE_STATUS=2\n      STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      ;;\n    wt_diagnostic)\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_wt_diagnostic_${JOB_ID}}"\n      if ! mkdir "$OUTPUT_DIR"; then\n        PREPARE_STATUS=2\n        STATUS_PATH="$RUNS_ROOT/dfba_wt_diagnostic_${JOB_ID}.prepare_failed.json"\n      else\n        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      fi\n      ;;\n    rescue_diagnostic)\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUNS_ROOT/dfba_rescue_diagnostic_${JOB_ID}}"\n      if ! mkdir "$OUTPUT_DIR"; then\n        PREPARE_STATUS=2\n        STATUS_PATH="$RUNS_ROOT/dfba_rescue_diagnostic_${JOB_ID}.prepare_failed.json"\n      else\n        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      fi\n      ;;\n    shard)\n      if test -z "$RUN_ROOT" || ! is_uint "$TASK_ID" || ! is_uint "$DFBA_SHARD_COUNT"; then\n        PREPARE_STATUS=2\n        RUN_ROOT="${RUN_ROOT:-$RUNS_ROOT/dfba_new_fn_invalid_${JOB_ID}}"\n        mkdir -p "$RUN_ROOT" || true\n        STATUS_PATH="$RUN_ROOT/wrapper_status_${JOB_ID}.json"\n        return\n      fi\n      OUTPUT_DIR="$RUN_ROOT/shards/$(printf \'%03d\' "$TASK_ID")"\n      mkdir -p "$RUN_ROOT/shards" || PREPARE_STATUS=2\n      if test "$PREPARE_STATUS" -eq 0 && ! mkdir "$OUTPUT_DIR"; then\n        PREPARE_STATUS=2\n      fi\n      if test "$PREPARE_STATUS" -eq 0; then\n        STATUS_PATH="$OUTPUT_DIR/wrapper_status.json"\n      else\n        STATUS_PATH="$RUN_ROOT/wrapper_status_shard_${TASK_ID}.json"\n      fi\n      ;;\n    aggregate)\n      if test -z "$RUN_ROOT"; then\n        PREPARE_STATUS=2\n        RUN_ROOT="$RUNS_ROOT/dfba_new_fn_invalid_${JOB_ID}"\n      fi\n      OUTPUT_DIR="${OUTPUT_DIR:-$RUN_ROOT}"\n      test "$OUTPUT_DIR" = "$RUN_ROOT" || PREPARE_STATUS=2\n      mkdir -p "$RUN_ROOT" || PREPARE_STATUS=2\n      STATUS_PATH="$RUN_ROOT/wrapper_status.json"\n      ;;\n    *)\n      PREPARE_STATUS=2\n      RUN_ROOT="${RUN_ROOT:-$RUNS_ROOT/dfba_new_fn_invalid_${JOB_ID}}"\n      mkdir -p "$RUN_ROOT" || true\n      STATUS_PATH="$RUN_ROOT/wrapper_status_${JOB_ID}.json"\n      ;;\n  esac\n}\n\ncheck_contract() {\n  local status=0\n  test -n "$EXPECTED_GIT_COMMIT" || status=2\n  test -n "$EXPECTED_EXPERIMENTAL_SHA256" || status=2\n  test -n "$EXPERIMENTAL_CSV" || status=2\n  test -n "$DFBA_MEDIUM_CSV" || status=2\n  case "$DFBA_MODE" in single|wt_diagnostic|rescue_diagnostic|shard|aggregate) ;; *) status=2 ;; esac\n  test -z "$(git -C "$REPO" status --porcelain 2>/dev/null)" || status=2\n  test "$(git -C "$REPO" rev-parse HEAD 2>/dev/null)" = "$EXPECTED_GIT_COMMIT" || status=2\n  test -f "$REPO/scripts/dfba_new_fn_essentiality.py" || status=2\n  test -f "$REPO/scripts/gem_annotate/validate_essential_genes.py" || status=2\n  test -f "$REPO/scripts/lp_sn12_candidate.py" || status=2\n  test -f "$BASELINE_MODEL" || status=2\n  test -f "$CANDIDATE_MODEL" || status=2\n  test -f "$EXPERIMENTAL_CSV" || status=2\n  test -f "$DFBA_MEDIUM_CSV" || status=2\n  if test "$DFBA_MODE" = "rescue_diagnostic"; then\n    test -n "$RESCUE_DIAGNOSTIC_SUMMARY" || status=2\n    test -n "$EXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256" || status=2\n    test -f "$RESCUE_DIAGNOSTIC_SUMMARY" || status=2\n  fi\n  if test -f "$REPO/scripts/dfba_new_fn_essentiality.py"; then\n    test "$(sha256sum "$REPO/scripts/dfba_new_fn_essentiality.py" | awk \'{print $1}\')" = "$EXPECTED_RUNNER_SHA256" || status=2\n  fi\n  if test -f "$REPO/scripts/gem_annotate/validate_essential_genes.py"; then\n    test "$(sha256sum "$REPO/scripts/gem_annotate/validate_essential_genes.py" | awk \'{print $1}\')" = "$EXPECTED_LOADER_SHA256" || status=2\n  fi\n  if test -f "$REPO/scripts/lp_sn12_candidate.py"; then\n    test "$(sha256sum "$REPO/scripts/lp_sn12_candidate.py" | awk \'{print $1}\')" = "$EXPECTED_FINGERPRINT_HELPER_SHA256" || status=2\n  fi\n  if test -f "$BASELINE_MODEL"; then\n    test "$(sha256sum "$BASELINE_MODEL" | awk \'{print $1}\')" = "$EXPECTED_BASELINE_SHA256" || status=2\n  fi\n  if test -f "$CANDIDATE_MODEL"; then\n    test "$(sha256sum "$CANDIDATE_MODEL" | awk \'{print $1}\')" = "$EXPECTED_CANDIDATE_SHA256" || status=2\n  fi\n  if test -f "$DFBA_MEDIUM_CSV"; then\n    test "$(sha256sum "$DFBA_MEDIUM_CSV" | awk \'{print $1}\')" = "$EXPECTED_DFBA_MEDIUM_SHA256" || status=2\n  fi\n  if test -f "$EXPERIMENTAL_CSV"; then\n    test "$(sha256sum "$EXPERIMENTAL_CSV" | awk \'{print $1}\')" = "$EXPECTED_EXPERIMENTAL_SHA256" || status=2\n  fi\n  if test "$DFBA_MODE" = "rescue_diagnostic" && test -f "$RESCUE_DIAGNOSTIC_SUMMARY"; then\n    test "$(sha256sum "$RESCUE_DIAGNOSTIC_SUMMARY" | awk \'{print $1}\')" = "$EXPECTED_RESCUE_DIAGNOSTIC_SUMMARY_SHA256" || status=2\n  fi\n  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "rescue_diagnostic" || test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then\n    test "$DFBA_HOURS" = "24" || status=2\n    test "$DFBA_STEP_HOURS" = "0.1" || status=2\n    test "$DFBA_INITIAL_BIOMASS_GDW_L" = "0.05" || status=2\n    test "$DFBA_GROWTH_CUTOFF" = "0.01" || status=2\n    test "$DFBA_SOLVER" = "glpk" || status=2\n  fi\n  if test "$DFBA_MODE" = "shard" || test "$DFBA_MODE" = "aggregate"; then\n    test "$DFBA_SHARD_COUNT" = "$EXPECTED_SHARD_COUNT" || status=2\n    test -n "$RUN_ROOT" || status=2\n  fi\n  if test "$DFBA_MODE" = "shard"; then\n    is_uint "$TASK_ID" || status=2\n    is_uint "$DFBA_SHARD_COUNT" || status=2\n    test "$TASK_ID" -lt "$DFBA_SHARD_COUNT" 2>/dev/null || status=2\n    if test -n "${SLURM_ARRAY_TASK_COUNT:-}"; then\n      test "$SLURM_ARRAY_TASK_COUNT" = "$DFBA_SHARD_COUNT" || status=2\n    fi\n  fi\n  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "rescue_diagnostic"; then\n    test -z "$TASK_ID" || status=2\n    test -z "${SLURM_ARRAY_JOB_ID:-}" || status=2\n  fi\n  if test "$DFBA_MODE" = "aggregate"; then\n    test -d "$RUN_ROOT/shards" || status=2\n  fi\n  return "$status"\n}\n\nwrite_wrapper_status() {\n  local preflight_status="$1" runner_status="$2" postflight_status="$3"\n  local summary_sha="" results_sha="" experimental_sha="" medium_sha="" rescue_summary_sha=""\n  local technical=false scientific_finding=false final_gate_deferred=false diagnostic_only=false diagnostic_recorded=false wrapper_passed=false\n  if test -f "$OUTPUT_DIR/summary.json"; then\n    summary_sha="$(sha256sum "$OUTPUT_DIR/summary.json" | awk \'{print $1}\')"\n  fi\n  if test -f "$OUTPUT_DIR/gene_results.tsv"; then\n    results_sha="$(sha256sum "$OUTPUT_DIR/gene_results.tsv" | awk \'{print $1}\')"\n  fi\n  if test -f "$EXPERIMENTAL_CSV"; then\n    experimental_sha="$(sha256sum "$EXPERIMENTAL_CSV" | awk \'{print $1}\')"\n  fi\n  if test -f "$DFBA_MEDIUM_CSV"; then\n    medium_sha="$(sha256sum "$DFBA_MEDIUM_CSV" | awk \'{print $1}\')"\n  fi\n  if test -f "$RESCUE_DIAGNOSTIC_SUMMARY"; then\n    rescue_summary_sha="$(sha256sum "$RESCUE_DIAGNOSTIC_SUMMARY" | awk \'{print $1}\')"\n  fi\n  if test "$DFBA_MODE" = "shard"; then\n    final_gate_deferred=true\n  fi\n  if test "$DFBA_MODE" = "wt_diagnostic" || test "$DFBA_MODE" = "rescue_diagnostic"; then\n    diagnostic_only=true\n    if test "$runner_status" -eq 0 && test -n "$summary_sha"; then\n      diagnostic_recorded=true\n    fi\n  fi\n  if test "$DFBA_MODE" != "shard" && test "$runner_status" -eq 3; then\n    scientific_finding=true\n  fi\n  if test "$preflight_status" -eq 0 && test "$postflight_status" -eq 0 && { test "$runner_status" -eq 0 || test "$scientific_finding" = true; }; then\n    technical=true\n  fi\n  if test "$technical" = true && test "$runner_status" -eq 0; then\n    wrapper_passed=true\n  fi\n  mkdir -p "$(dirname "$STATUS_PATH")"\n  printf \'{"job_id":"%s","array_job_id":"%s","array_task_id":"%s","mode":"%s","run_root":"%s","shard_count":"%s","git_commit":"%s","job_script_sha256":"%s","partition":"%s","account":"%s","cpus_per_task":"%s","memory_per_node":"%s","time_limit":"%s","experimental_sha256":"%s","dynamic_medium_sha256":"%s","rescue_diagnostic_summary_sha256":"%s","preflight_exit_code":%d,"runner_exit_code":%d,"postflight_exit_code":%d,"technical_execution_completed":%s,"scientific_finding_recorded":%s,"final_scientific_gate_deferred_to_aggregate":%s,"diagnostic_only":%s,"diagnostic_recorded":%s,"wrapper_gate_passed":%s,"summary_sha256":"%s","gene_results_sha256":"%s","automatic_resubmit":false,"production_apply_performed":false}\\n\' \\\n    "$JOB_ID" "${SLURM_ARRAY_JOB_ID:-}" "$TASK_ID" "$DFBA_MODE" "$RUN_ROOT" "$DFBA_SHARD_COUNT" \\\n    "$(git -C "$REPO" rev-parse HEAD 2>/dev/null)" "$(sha256sum "$0" | awk \'{print $1}\')" \\\n    "${SLURM_JOB_PARTITION:-batch}" "${SLURM_JOB_ACCOUNT:-iwheeldonlab}" \\\n    "${SLURM_CPUS_PER_TASK:-1}" "${SLURM_MEM_PER_NODE:-4096}" "${SLURM_TIMELIMIT:-12:00:00}" \\\n    "$experimental_sha" "$medium_sha" "$rescue_summary_sha" "$preflight_status" "$runner_status" "$postflight_status" \\\n    "$technical" "$scientific_finding" "$final_gate_deferred" "$diagnostic_only" "$diagnostic_recorded" "$wrapper_passed" \\\n    "$summary_sha" "$results_sha" > "$STATUS_PATH"\n}\n\nprepare_output\nif test "$PREPARE_STATUS" -ne 0; then\n  write_wrapper_status "$PREPARE_STATUS" -1 -1\n  exit "$PREPARE_STATUS"\nfi\n\nPREFLIGHT_STATUS=0\ncheck_contract || PREFLIGHT_STATUS=$?\nif test "$PREFLIGHT_STATUS" -ne 0; then\n  write_wrapper_status "$PREFLIGHT_STATUS" -1 -1\n  exit "$PREFLIGHT_STATUS"\nfi\n\nRUN_ARGS=(\n  --baseline "$BASELINE_MODEL"\n  --candidate "$CANDIDATE_MODEL"\n  --experimental "$EXPERIMENTAL_CSV"\n  --dynamic-medium "$DFBA_MEDIUM_CSV"\n  --output-dir "$OUTPUT_DIR"\n  --hours "$DFBA_HOURS"\n  --step-hours "$DFBA_STEP_HOURS"\n  --initial-biomass "$DFBA_INITIAL_BIOMASS_GDW_L"\n  --growth-cutoff "$DFBA_GROWTH_CUTOFF"\n  --solver "$DFBA_SOLVER"\n)\nif test "$DFBA_MODE" = "shard"; then\n  RUN_ARGS+=(--shard-index "$TASK_ID" --shard-count "$DFBA_SHARD_COUNT")\nelif test "$DFBA_MODE" = "aggregate"; then\n  RUN_ARGS+=(--shard-count "$DFBA_SHARD_COUNT" --aggregate-shards "$RUN_ROOT/shards")\nelif test "$DFBA_MODE" = "wt_diagnostic"; then\n  RUN_ARGS+=(--wt-diagnostic)\nelif test "$DFBA_MODE" = "rescue_diagnostic"; then\n  RUN_ARGS+=(--rescue-diagnostic-summary "$RESCUE_DIAGNOSTIC_SUMMARY")\nfi\n\n"$PYTHON" "$REPO/scripts/dfba_new_fn_essentiality.py" "${RUN_ARGS[@]}"\nRUNNER_STATUS=$?\n\nPOSTFLIGHT_STATUS=0\ncheck_contract || POSTFLIGHT_STATUS=$?\nwrite_wrapper_status 0 "$RUNNER_STATUS" "$POSTFLIGHT_STATUS"\nif test "$POSTFLIGHT_STATUS" -ne 0; then\n  exit "$POSTFLIGHT_STATUS"\nfi\nexit "$RUNNER_STATUS"\n'
+
+tests/test_dfba_new_fn_essentiality.py:321: AssertionError
+_ DipeptideSupplyTests.test_all_diagnostics_restore_actual_model_even_on_exception _
+
+self = <test_dipeptide_supply.DipeptideSupplyTests testMethod=test_all_diagnostics_restore_actual_model_even_on_exception>
+
+    def test_all_diagnostics_restore_actual_model_even_on_exception(self):
+        model = self.sim.model
+>       before = signature(model)
+                 ^^^^^^^^^^^^^^^^
+
+tests/test_dipeptide_supply.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+------------------------------ Captured log setup ------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+_ DipeptideSupplyTests.test_endogenous_module_disabled_and_missing_parameters_rejected _
+
+self = <test_dipeptide_supply.DipeptideSupplyTests testMethod=test_endogenous_module_disabled_and_missing_parameters_rejected>
+
+    def test_endogenous_module_disabled_and_missing_parameters_rejected(self):
+        spec={'enabled':False,**dict.fromkeys(ENDO_REQUIRED)}
+>       before=signature(self.sim.model)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_dipeptide_supply.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+____________ DipeptideSupplyTests.test_invalid_supply_does_not_leak ____________
+
+self = <test_dipeptide_supply.DipeptideSupplyTests testMethod=test_invalid_supply_does_not_leak>
+
+    def test_invalid_supply_does_not_leak(self):
+        model=self.sim.model
+>       before=signature(model)
+               ^^^^^^^^^^^^^^^^
+
+tests/test_dipeptide_supply.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+_ EnergyCandidateBehaviorTests.test_final_export_closed_ATP_and_normal_growth_positive_control _
+
+self = <test_energy_candidate_behavior.EnergyCandidateBehaviorTests testMethod=test_final_export_closed_ATP_and_normal_growth_positive_control>
+
+    def test_final_export_closed_ATP_and_normal_growth_positive_control(self):
+        sim=load_model(TASK/'candidates/E5.xml',self.config)
+>       before=signature(sim.model)
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests/test_energy_candidate_behavior.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+------------------------------ Captured log setup ------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+------------------------------ Captured log call -------------------------------
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+WARNING  cobra.medium.boundary_types:boundary_types.py:90 Could not identify an external compartment by name and choosing one with the most boundary reactions. That might be complete nonsense or change suddenly. Consider renaming your compartments using `Model.compartments` to fix this.
+_ EnergyCandidateBehaviorTests.test_known_three_synthesis_directions_stay_closed_after_xml_reload _
+
+self = <test_energy_candidate_behavior.EnergyCandidateBehaviorTests testMethod=test_known_three_synthesis_directions_stay_closed_after_xml_reload>
+
+    def test_known_three_synthesis_directions_stay_closed_after_xml_reload(self):
+        model,_ = close_model(self.sim.model, self.config)
+        for rid,sign in [('R_PGAM1_PhosHydro',1),('R_NTP3pp',1),('R_NTP7',-1)]:
+            with model:
+                r=model.reactions.get_by_id(rid)
+                model.objective=model.problem.Objective(sign*r.flux_expression,direction='max')
+>               result,_=self.solve(model,'known_direction_'+rid)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_energy_candidate_behavior.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_energy_candidate_behavior.py:27: in solve
+    return self.budget.solve(model, self.out.name+'/'+label, self.out/(label+'.json'),
+tools/validate_energy_candidates.py:70: in solve
+    problem = signature(model)
+              ^^^^^^^^^^^^^^^^
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpdgnidtii.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17622 nonzeros
+_ EnergyCandidateBehaviorTests.test_remaining_full_model_anomaly_is_not_false_pass _
+
+self = <test_energy_candidate_behavior.EnergyCandidateBehaviorTests testMethod=test_remaining_full_model_anomaly_is_not_false_pass>
+
+    def test_remaining_full_model_anomaly_is_not_false_pass(self):
+        model,_=close_model(self.sim.model,self.config)
+>       result,_=self.solve(model,'E3_remaining_ATP')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_energy_candidate_behavior.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_energy_candidate_behavior.py:27: in solve
+    return self.budget.solve(model, self.out.name+'/'+label, self.out/(label+'.json'),
+tools/validate_energy_candidates.py:70: in solve
+    problem = signature(model)
+              ^^^^^^^^^^^^^^^^
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Read LP format model from file /var/folders/01/z8grkxsj5dv_mj51ywy14r4w0000gn/T/tmpd2y7xlp3.lp
+Reading time = 0.00 seconds
+: 1877 rows, 4628 columns, 17622 nonzeros
+__ EnergyCandidateBehaviorTests.test_zero_feasible_and_real_culture_restored ___
+
+self = <test_energy_candidate_behavior.EnergyCandidateBehaviorTests testMethod=test_zero_feasible_and_real_culture_restored>
+
+    def test_zero_feasible_and_real_culture_restored(self):
+>       original=self.sim.model; before=signature(original)
+                                        ^^^^^^^^^^^^^^^^^^^
+
+tests/test_energy_candidate_behavior.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/diagnose_dipeptide_supply.py:105: in signature
+    matrix = native.getA().tocsr()
+             ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   ModuleNotFoundError: No module named 'scipy'
+
+src/gurobipy/_model.pyx:4566: ModuleNotFoundError
+_ LipidMoietyLedgerDataContractTests.test_documentation_states_chemical_and_capability_boundaries _
+
+self = <test_lipid_moiety_ledger.LipidMoietyLedgerDataContractTests testMethod=test_documentation_states_chemical_and_capability_boundaries>
+
+    def test_documentation_states_chemical_and_capability_boundaries(self) -> None:
+>       text = DOC_PATH.read_text(encoding="utf-8").lower()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_lipid_moiety_ledger.py:308: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/lib/python3.13/pathlib/_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/miniconda3/lib/python3.13/pathlib/_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/docs/lipid_moiety_ledger.md')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/trehalose-biomass-24e3c1/docs/lipid_moiety_ledger.md'
+
+/opt/miniconda3/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ExplicitInputTests.test_audit_saved_run_uses_archived_executed_source_without_optimization _
+
+self = <test_vacuole_explicit_inputs.ExplicitInputTests testMethod=test_audit_saved_run_uses_archived_executed_source_without_optimization>
+
+    @unittest.skipUnless((PREVIOUS / 'run').is_dir() and (TASK / 'previous_source_snapshot').is_dir(),
+                         'saved task folders not found; set IYALI26_RESEARCH_ROOT')
+    def test_audit_saved_run_uses_archived_executed_source_without_optimization(self):
+        config = json.loads((PREVIOUS/'config.json').read_text())
+>       identities = bind_inputs(config['model'], config['model_sha256'], config['candidate'],
+                                  build_manifest=PREVIOUS/'E5_vacuole_open.build.json')
+
+tests/test_vacuole_explicit_inputs.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/validate_vacuole_supply.py:374: in bind_inputs
+    if workspace(record['output']) != candidate_path:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/vacuole_open_supply_20260924/E5_vacuole_open.xml')
+
+    def workspace(path):
+        path = resolve_recorded_path(path)
+        # Authorized: the repository and the research workspace's task outputs.
+        if not any(path.is_relative_to(root) for root in (ROOT, load_project_paths().task_outputs)):
+>           raise ValueError('Path escapes authorized workspace: ' + str(path))
+E           ValueError: Path escapes authorized workspace: /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/artifacts/vacuole_open_supply_20260924/E5_vacuole_open.xml
+
+tools/diagnose_closed_energy.py:38: ValueError
+______ VacuoleSupplyTests.test_actual_run_identity_budget_and_restoration ______
+
+self = <test_vacuole_supply.VacuoleSupplyTests testMethod=test_actual_run_identity_budget_and_restoration>
+
+    def test_actual_run_identity_budget_and_restoration(self):
+        self.assertEqual(self.manifest["config"], self.config)
+        self.assertEqual(self.manifest["config_sha256"], hashlib.sha256((TASK / "config.json").read_bytes()).hexdigest())
+        for path, digest in {**self.config["input_configuration_sha256"], **self.manifest["source_sha256"]}.items():
+>           self.assertEqual(hashlib.sha256(resolve_recorded_path(path).read_bytes()).hexdigest(), digest, path)
+E           AssertionError: '0fb7ebd61cdb197d72122f31169a56b019cc2e24b0f363a82e2fab5da59d4c4b' != 'b182dbd6370063a6e10ebfceda6209d9c43cd4df565def64ed4ed48d72e7f08b'
+E           - 0fb7ebd61cdb197d72122f31169a56b019cc2e24b0f363a82e2fab5da59d4c4b
+E           + b182dbd6370063a6e10ebfceda6209d9c43cd4df565def64ed4ed48d72e7f08b
+E            : scripts/validate_vacuole_supply.py
+
+tests/test_vacuole_supply.py:52: AssertionError
+_ VacuoleSupplyTests.test_xml_only_four_bounds_and_real_context_rollback_without_solve _
+
+self = <test_vacuole_supply.VacuoleSupplyTests testMethod=test_xml_only_four_bounds_and_real_context_rollback_without_solve>
+
+    def test_xml_only_four_bounds_and_real_context_rollback_without_solve(self):
+        base = read_sbml_model(resolve_recorded_path(self.config["model"]))
+        model = read_sbml_model(resolve_recorded_path(self.config["candidate"]))
+        actual = reaction_diff(base, model)
+        expected = [{"reaction": rid, "field": "bounds", "before": [0., 0.], "after": bounds}
+                    for rid, bounds in self.config["connection_bounds"].items()]
+        self.assertEqual(sorted(actual, key=lambda r: r["reaction"]), sorted(expected, key=lambda r: r["reaction"]))
+        pools = dipeptides(model)
+>       before = signature(model)
+                 ^^^^^^^^^^^^^^^^
+
+tests/test_vacuole_supply.py:207: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <Model M_iYali26 at 0x34c5f8410>
+
+    def signature(model):
+        # Native sparse coefficients avoid repeatedly rendering 1877 symbolic rows.
+        # Names and ordering are included, so equal matrices cannot hide renamed rows.
+        model.solver.update()
+        native = model.solver.problem
+>       matrix = native.getA().tocsr()
+                 ^^^^^^^^^^^
+E       AttributeError: 'swig_runtime_data5.SwigPyObject' object has no attribute 'getA'
+
+tools/diagnose_dipeptide_supply.py:105: AttributeError
+=============================== warnings summary ===============================
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/memote/suite/results/__init__.py:25
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/memote/suite/results/__init__.py:25: SyntaxWarning: invalid escape sequence '\ '
+    * The ``ResultHistoryManager`` uses the different ``ResultManager``\ s to
+
+../../workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/memote/suite/results/models.py:39
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/memote/suite/results/models.py:39: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+tests/test_aars_thr_ser_split.py: 1 warning
+tests/test_aconitase_aco2_split.py: 1 warning
+tests/test_gpi_chain_links.py: 1 warning
+tests/test_gpi_coproducts.py: 1 warning
+tests/test_heme_iron_biomass.py: 1 warning
+tests/test_r153_merge.py: 1 warning
+tests/test_r171_atp_synthase_gpr.py: 1 warning
+tests/test_r1726_cpt_open.py: 1 warning
+tests/test_r2135_acyl_coa_pool.py: 1 warning
+tests/test_r2171_pi_plc.py: 1 warning
+tests/test_r673_prolyl_split.py: 1 warning
+tests/test_um7_nuclear_diffusion.py: 1 warning
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/core/group.py:147: UserWarning: need to pass in a list
+    warn("need to pass in a list")
+
+tests/test_acyl_acp_chemistry.py::AcylAcpChemistryTests::test_changes_only_the_block_and_balances_elements
+tests/test_acyl_acp_chemistry.py::AcylAcpChemistryTests::test_rerun_and_lipoylation_rerun_are_no_ops_after_sbml_round_trip
+tests/test_acyl_acp_chemistry.py::AcylAcpChemistryTests::test_stale_or_partial_inputs_fail_closed_without_edits
+tests/test_lipoylation_acylacp_on_2c9cebd0.py::LipoylationAcylAcpOnMainTests::test_both_steps_change_only_their_targets
+tests/test_lipoylation_acylacp_on_2c9cebd0.py::LipoylationAcylAcpOnMainTests::test_heme_guard_rejects_lipoylated_biomass
+tests/test_lipoylation_acylacp_on_2c9cebd0.py::LipoylationAcylAcpOnMainTests::test_reruns_are_no_ops_after_sbml_round_trip
+tests/test_lipoylation_module.py::LipoylationModuleTests::test_applies_only_the_curated_targets_and_balances
+tests/test_lipoylation_module.py::LipoylationModuleTests::test_rerun_is_a_no_op_also_after_sbml_round_trip
+tests/test_lipoylation_module.py::LipoylationModuleTests::test_stale_or_partial_inputs_fail_closed_without_edits
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/core/metabolite.py:129: UserWarning: invalid character '*' found in formula 'C4H5O2S*'
+    warn(f"invalid character '*' found in formula '{self.formula}'")
+
+tests/test_acyl_acp_chemistry.py::AcylAcpChemistryTests::test_changes_only_the_block_and_balances_elements
+tests/test_acyl_acp_chemistry.py::AcylAcpChemistryTests::test_rerun_and_lipoylation_rerun_are_no_ops_after_sbml_round_trip
+tests/test_acyl_acp_chemistry.py::AcylAcpChemistryTests::test_stale_or_partial_inputs_fail_closed_without_edits
+tests/test_lipoylation_acylacp_on_2c9cebd0.py::LipoylationAcylAcpOnMainTests::test_both_steps_change_only_their_targets
+tests/test_lipoylation_acylacp_on_2c9cebd0.py::LipoylationAcylAcpOnMainTests::test_heme_guard_rejects_lipoylated_biomass
+tests/test_lipoylation_acylacp_on_2c9cebd0.py::LipoylationAcylAcpOnMainTests::test_reruns_are_no_ops_after_sbml_round_trip
+tests/test_lipoylation_module.py::LipoylationModuleTests::test_applies_only_the_curated_targets_and_balances
+tests/test_lipoylation_module.py::LipoylationModuleTests::test_rerun_is_a_no_op_also_after_sbml_round_trip
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/core/metabolite.py:129: UserWarning: invalid character '*' found in formula 'C6H11OS*'
+    warn(f"invalid character '*' found in formula '{self.formula}'")
+
+tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_rescue_diagnostic_finds_the_minimum_snapshot_bound_relaxation
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/util/solver.py:554: UserWarning: Solver status is 'infeasible'.
+    warn(f"Solver status is '{status}'.", UserWarning)
+
+tests/test_gpi_chain_links.py::GpiChainLinksTests::test_adds_only_the_five_links_and_survives_roundtrip
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/core/metabolite.py:129: UserWarning: invalid character '*' found in formula 'C11H17O13P*2'
+    warn(f"invalid character '*' found in formula '{self.formula}'")
+
+tests/test_gpi_chain_links.py::GpiChainLinksTests::test_adds_only_the_five_links_and_survives_roundtrip
+  /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/workflow-automation-review-6765da/platform/.venv/lib/python3.13/site-packages/cobra/core/metabolite.py:129: UserWarning: invalid character '*' found in formula 'C19H30NO18P*2'
+    warn(f"invalid character '*' found in formula '{self.formula}'")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_closed_energy.py::ClosedEnergyTests::test_closure_direction_and_isolation
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_c24_c26_closure_members_are_exact_and_source_tuples_cover_every_copy
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_core_45_tuples_and_identity_annotation_targets_are_explicit
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_explicit_source_model_path_overrides_manifest_location
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_production_manifest_is_locked_to_the_post_annotation_model_snapshot
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_r2076_correction_is_withdrawn_and_decision_contract_is_exact
+FAILED tests/test_coa_protonation_curation.py::CoAProtonationCurationDataTests::test_redox_and_focal_acid_groups_are_pinned
+FAILED tests/test_dfba_new_fn_essentiality.py::DfbaNewFalseNegativeTests::test_positive_only_reference_never_implies_negative_labels
+FAILED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_all_diagnostics_restore_actual_model_even_on_exception
+FAILED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_endogenous_module_disabled_and_missing_parameters_rejected
+FAILED tests/test_dipeptide_supply.py::DipeptideSupplyTests::test_invalid_supply_does_not_leak
+FAILED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_final_export_closed_ATP_and_normal_growth_positive_control
+FAILED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_known_three_synthesis_directions_stay_closed_after_xml_reload
+FAILED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_remaining_full_model_anomaly_is_not_false_pass
+FAILED tests/test_energy_candidate_behavior.py::EnergyCandidateBehaviorTests::test_zero_feasible_and_real_culture_restored
+FAILED tests/test_lipid_moiety_ledger.py::LipidMoietyLedgerDataContractTests::test_documentation_states_chemical_and_capability_boundaries
+FAILED tests/test_vacuole_explicit_inputs.py::ExplicitInputTests::test_audit_saved_run_uses_archived_executed_source_without_optimization
+FAILED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_actual_run_identity_budget_and_restoration
+FAILED tests/test_vacuole_supply.py::VacuoleSupplyTests::test_xml_only_four_bounds_and_real_context_rollback_without_solve
+ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_flag_is_opt_in_and_requires_the_r1726_opening
+ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_makes_exactly_the_three_edits_and_survives_roundtrip
+ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_partial_states_are_rejected
+ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_spec_matches_the_task
+ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_stale_inputs_fail_closed_without_edits
+ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_unexpected_scope_is_rejected
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_cardiolipin_audit_is_empty_fail_closed_and_stereospecific
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_cli_refuses_source_overwrite
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_coq_r39_mapping_sha_drift_fails_closed
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_coq_r39_r40_candidate_is_mitochondrial_and_evidence_gated
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_each_required_chain_is_not_bypassed
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_linoleoyl_charge_is_corrected_before_all_lipid_routes
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_lipid_exchange_metadata_is_explicit_and_gpr_free
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_r1521_substrate_formula_is_completed_without_ph_migration
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_r989_candidate_gpr_is_alphafold_limited_and_wet_lab_gated
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_required_lipid_routes_are_not_bypassed
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_sbml_round_trip_and_function
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_source_contract_is_frozen_and_input_unchanged
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_structure_balance_and_template_copying
+ERROR tests/test_lp_sn12_candidate.py::StrictSnCoreTests::test_tuple_order_and_biomass_weights
+19 failed, 409 passed, 31 skipped, 34 warnings, 20 errors, 960 subtests passed in 923.97s (0:15:23)

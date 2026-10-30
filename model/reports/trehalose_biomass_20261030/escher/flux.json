@@ -1,0 +1,777 @@
+{
+ "condition": "Task A medium + PO1f, Gurobi 1e-9 (checked_solve)",
+ "ko_gene": "YALI1E17616g",
+ "scenarios": {
+  "wt_baseline": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.3116608216336117,
+    "max_bound_violation": 0.0,
+    "max_residual": 1.976713335117425e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal"
+  },
+  "ko_baseline": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.0,
+    "max_bound_violation": 0.0,
+    "max_residual": 8.881784197001252e-16,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [
+    "R143"
+   ],
+   "pfba_status": "optimal"
+  },
+  "wt_candidate": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.31229636510178727,
+    "max_bound_violation": 0.0,
+    "max_residual": 8.526512829121202e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [],
+   "pfba_status": "optimal"
+  },
+  "ko_candidate": {
+   "checked": {
+    "status": "optimal",
+    "growth": 0.31229636510179515,
+    "max_bound_violation": 0.0,
+    "max_residual": 2.4868995751603507e-14,
+    "max_knocked_flux": 0.0,
+    "passed": true
+   },
+   "closed_by_knockout": [
+    "R143"
+   ],
+   "pfba_status": "optimal"
+  }
+ },
+ "baseline_sha256": "e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897",
+ "medium_sha256": "6eca70fd2557f014ab8fa6ed3609ebf5fc181a0a76c131d6a377b14febb08f45",
+ "strain_profile_sha256": "35307853a477d0b8540919acc6cd18d922e1e010ce98fb355316172a15048383",
+ "baseline_trehalose_coefficient": -0.00686,
+ "candidate_sha256": "d2e4c0c4b02c7e48f182d4f0b7d12964bd4818478cee311f56a87c67019ab017",
+ "candidate_trehalose_coefficient": 0.0,
+ "mapped": {
+  "branch": [
+   "R1013",
+   "R1349",
+   "R142",
+   "R143",
+   "R767"
+  ],
+  "supply": [
+   "R1910",
+   "R1988",
+   "R2139",
+   "R2186",
+   "R325",
+   "R326",
+   "R366",
+   "R387",
+   "R4",
+   "R5",
+   "R559",
+   "R638",
+   "R777",
+   "R779",
+   "R780",
+   "R793",
+   "R_G6PPer"
+  ],
+  "drain": "biomass_C_trehalose_term"
+ },
+ "fluxes": {
+  "wt_baseline": {
+   "R1013": 0.0,
+   "R1349": 0.0,
+   "R142": 0.0,
+   "R143": 0.002137993236406576,
+   "R767": 0.002137993236406576,
+   "R1910": 0.0,
+   "R1988": 0.0,
+   "R2139": 0.0,
+   "R2186": 0.0,
+   "R325": 0.0,
+   "R326": 2.1157041293805023,
+   "R366": 0.0,
+   "R387": 2.414,
+   "R4": 0.2940198841466844,
+   "R5": 0.0,
+   "R559": 0.0,
+   "R638": 0.29615787738309096,
+   "R777": 0.0,
+   "R779": 0.0,
+   "R780": 0.0,
+   "R793": 0.29615787738309096,
+   "R_G6PPer": 0.0,
+   "biomass_C_trehalose_term": 0.002137993236406576
+  },
+  "ko_baseline": {
+   "R1013": 0.0,
+   "R1349": 0.0,
+   "R142": 0.0,
+   "R143": 0.0,
+   "R767": 0.0,
+   "R1910": 0.0,
+   "R1988": 0.0,
+   "R2139": 0.0,
+   "R2186": 0.0,
+   "R325": 0.0,
+   "R326": 0.3276041666666667,
+   "R366": 0.0,
+   "R387": 0.3276041666666667,
+   "R4": 0.0,
+   "R5": 0.0,
+   "R559": 0.0,
+   "R638": 0.0,
+   "R777": 0.0,
+   "R779": 0.0,
+   "R780": 0.0,
+   "R793": 0.0,
+   "R_G6PPer": 0.0,
+   "biomass_C_trehalose_term": 0.0
+  },
+  "wt_candidate": {
+   "R1013": 0.0,
+   "R1349": 0.0,
+   "R142": 0.0,
+   "R143": 0.0,
+   "R767": 0.0,
+   "R1910": 0.0,
+   "R1988": 0.0,
+   "R2139": 0.0,
+   "R2186": 0.0,
+   "R325": 0.0,
+   "R326": 2.1193805460520694,
+   "R366": 0.0,
+   "R387": 2.414,
+   "R4": 0.2946194539479308,
+   "R5": 0.0,
+   "R559": 0.0,
+   "R638": 0.2946194539479308,
+   "R777": 0.0,
+   "R779": 0.0,
+   "R780": 0.0,
+   "R793": 0.2946194539479308,
+   "R_G6PPer": 0.0,
+   "biomass_C_trehalose_term": -0.0
+  },
+  "ko_candidate": {
+   "R1013": 0.0,
+   "R1349": 0.0,
+   "R142": 0.0,
+   "R143": 0.0,
+   "R767": 0.0,
+   "R1910": 0.0,
+   "R1988": 0.0,
+   "R2139": 0.0,
+   "R2186": 0.0,
+   "R325": 0.0,
+   "R326": 2.119380546052062,
+   "R366": 0.0,
+   "R387": 2.414,
+   "R4": 0.29461945394793826,
+   "R5": 0.0,
+   "R559": 0.0,
+   "R638": 0.29461945394793826,
+   "R777": 0.0,
+   "R779": 0.0,
+   "R780": 0.0,
+   "R793": 0.29461945394793826,
+   "R_G6PPer": 0.0,
+   "biomass_C_trehalose_term": -0.0
+  }
+ },
+ "reactions": {
+  "R1013": {
+   "name": "alpha,alpha-trehalose exchange",
+   "lb": -0.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Exchange",
+   "equation": "trehalose_C12H22O11 --> ",
+   "mets": {
+    "m1167[C_ex]": -1.0
+   }
+  },
+  "R1349": {
+   "name": "trehalose vacuolar transport",
+   "lb": 0.0,
+   "ub": 0.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, vacuole",
+   "equation": "trehalose_C12H22O11 --> trehalose_C12H22O11",
+   "mets": {
+    "m294[C_cy]": -1.0,
+    "m1380[C_va]": 1.0
+   }
+  },
+  "R142": {
+   "name": "alpha,alpha-trehalase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D19108g",
+   "gpr_baseline": "YALI1D19108g",
+   "genes": [
+    "YALI1D19108g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "trehalose_C12H22O11 + H2O_H2O --> 2.0 D-glucose_C6H12O6",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m294[C_cy]": -1.0,
+    "m295[C_cy]": 2.0
+   }
+  },
+  "R143": {
+   "name": "alpha,alpha-trehalose-phosphate synthase (UDP-forming)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D17620g and YALI1E17616g and YALI1E36568g",
+   "gpr_baseline": "YALI1D17620g and YALI1E17616g and YALI1E36568g",
+   "genes": [
+    "YALI1D17620g",
+    "YALI1E17616g",
+    "YALI1E36568g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "D-glucose 6-phosphate_C6H13O9P + UDP-D-glucose_C15H22N2O17P2 --> UDP_C9H14N2O12P2 + alpha,alpha-trehalose 6-phosphate_C12H21O14P",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m296[C_cy]": -1.0,
+    "m11[C_cy]": 1.0,
+    "m297[C_cy]": 1.0
+   }
+  },
+  "R767": {
+   "name": "trehalose-phosphatase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D17620g",
+   "gpr_baseline": "YALI1D17620g",
+   "genes": [
+    "YALI1D17620g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "2.0 H+_p+1 + alpha,alpha-trehalose 6-phosphate_C12H21O14P + H2O_H2O --> trehalose_C12H22O11 + phosphate_H3O4P",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m297[C_cy]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m35[C_cy]": 1.0,
+    "m294[C_cy]": 1.0
+   }
+  },
+  "R1910": {
+   "name": "UDP-glucose:NAD+ 6-oxidoreductase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D02781g",
+   "gpr_baseline": "YALI1D02781g",
+   "genes": [
+    "YALI1D02781g"
+   ],
+   "subsystem": "Pentose and glucuronate interconversions",
+   "equation": "2.0 NAD_C21H27N7O14P2 + H2O_H2O + UDP-D-glucose_C15H22N2O17P2 <=> 3.0 H+_p+1 + 2.0 NADH_C21H29N7O14P2 + UDP-D-glucuronate",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m32[C_cy]": -1.0,
+    "m122[C_cy]": -2.0,
+    "m10[C_cy]": 3.0,
+    "m123[C_cy]": 2.0,
+    "m1723[C_cy]": 1.0
+   }
+  },
+  "R1988": {
+   "name": "Salicin 6-phosphate glucohydrolase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Carbohydrate metabolism",
+   "equation": "2.0 H+_p+1 + Salicin-6-phosphate + H2O_H2O --> Salicyl alcohol + D-glucose 6-phosphate_C6H13O9P",
+   "mets": {
+    "m32[C_cy]": -1.0,
+    "m1842[C_cy]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m296[C_cy]": 1.0,
+    "m1843[C_cy]": 1.0
+   }
+  },
+  "R2139": {
+   "name": "UDP-glucose transport",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "",
+   "gpr_baseline": "",
+   "genes": [],
+   "subsystem": "Transport, ER",
+   "equation": "UDP-glucose <=> UDP-D-glucose_C15H22N2O17P2",
+   "mets": {
+    "m1988[C_er]": -1.0,
+    "m8[C_cy]": 1.0
+   }
+  },
+  "R2186": {
+   "name": "UDP-glucose:glycogen 4-alpha-D-glucosyltransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F24667g",
+   "gpr_baseline": "YALI1F24667g",
+   "genes": [
+    "YALI1F24667g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "H2O_H2O + UDP-D-glucose_C15H22N2O17P2 --> H+_p+1 + UDP_C9H14N2O12P2 + Amylose",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m32[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m11[C_cy]": 1.0,
+    "m2024[C_cy]": 1.0
+   }
+  },
+  "R325": {
+   "name": "glucose 6-phosphate dehydrogenase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E26811g",
+   "gpr_baseline": "YALI1E26811g",
+   "genes": [
+    "YALI1E26811g"
+   ],
+   "subsystem": "Pentose phosphate pathway",
+   "equation": "D-glucose 6-phosphate_C6H13O9P + NADP(+)_C21H28N7O17P3 --> H+_p+1 + 6-O-phosphono-D-glucono-1,5-lactone_C6H11O9P + NADPH_C21H30N7O17P3",
+   "mets": {
+    "m41[C_cy]": -1.0,
+    "m296[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m40[C_cy]": 1.0,
+    "m168[C_cy]": 1.0
+   }
+  },
+  "R326": {
+   "name": "glucose-6-phosphate isomerase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F11049g",
+   "gpr_baseline": "YALI1F11049g",
+   "genes": [
+    "YALI1F11049g"
+   ],
+   "subsystem": "Glycolysis/Gluconeogenesis",
+   "equation": "D-glucose 6-phosphate_C6H13O9P <=> 2.0 H+_p+1 + D-fructose 6-phosphate_C6H11O9P",
+   "mets": {
+    "m296[C_cy]": -1.0,
+    "m166[C_cy]": 1.0,
+    "m10[C_cy]": 2.0
+   }
+  },
+  "R366": {
+   "name": "glycogen (starch) synthase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "(YALI1C29104g and YALI1F24667g) or (YALI1F12176g and YALI1F24667g)",
+   "gpr_baseline": "(YALI1C29104g and YALI1F24667g) or (YALI1F12176g and YALI1F24667g)",
+   "genes": [
+    "YALI1C29104g",
+    "YALI1F12176g",
+    "YALI1F24667g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "H2O_H2O + UDP-D-glucose_C15H22N2O17P2 --> H+_p+1 + UDP_C9H14N2O12P2 + glycogen_",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m32[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m11[C_cy]": 1.0,
+    "m549[C_cy]": 1.0
+   }
+  },
+  "R387": {
+   "name": "hexokinase (D-glucose:ATP)",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B29133g or YALI1E18539g",
+   "gpr_baseline": "YALI1B29133g or YALI1E18539g",
+   "genes": [
+    "YALI1B29133g",
+    "YALI1E18539g"
+   ],
+   "subsystem": "Glycolysis/Gluconeogenesis",
+   "equation": "ATP_C10H16N5O13P3 + D-glucose_C6H12O6 --> ADP_C10H15N5O10P2 + D-glucose 6-phosphate_C6H13O9P",
+   "mets": {
+    "m141[C_cy]": -1.0,
+    "m295[C_cy]": -1.0,
+    "m143[C_cy]": 1.0,
+    "m296[C_cy]": 1.0
+   }
+  },
+  "R4": {
+   "name": "1,3-beta-glucan synthase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C01944g or YALI1E25018g",
+   "gpr_baseline": "YALI1C01944g or YALI1E25018g",
+   "genes": [
+    "YALI1C01944g",
+    "YALI1E25018g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "47.0 H2O_H2O + UDP-D-glucose_C15H22N2O17P2 --> 92.0 H+_p+1 + UDP_C9H14N2O12P2 + (1-3)-beta-D-glucan_",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m32[C_cy]": -47.0,
+    "m9[C_en]": 1.0,
+    "m10[C_cy]": 92.0,
+    "m11[C_cy]": 1.0
+   }
+  },
+  "R5": {
+   "name": "(1-6)-beta-glucan synthase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1C19943g",
+   "gpr_baseline": "YALI1C19943g",
+   "genes": [
+    "YALI1C19943g"
+   ],
+   "subsystem": "Starch and sucrose metabolism",
+   "equation": "UDP-D-glucose_C15H22N2O17P2 --> H+_p+1 + UDP_C9H14N2O12P2 + (1-6)-beta-D-glucan_",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m10[C_cy]": 1.0,
+    "m11[C_cy]": 1.0,
+    "m12[C_en]": 1.0
+   }
+  },
+  "R559": {
+   "name": "myo-inositol-1-phosphate synthase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1B05798g",
+   "gpr_baseline": "YALI1B05798g",
+   "genes": [
+    "YALI1B05798g"
+   ],
+   "subsystem": "Inositol phosphate metabolism",
+   "equation": "D-glucose 6-phosphate_C6H13O9P --> 2.0 H+_p+1 + 1D-myo-inositol 1-phosphate_C6H11O9P",
+   "mets": {
+    "m296[C_cy]": -1.0,
+    "m813[C_cy]": 1.0,
+    "m10[C_cy]": 2.0
+   }
+  },
+  "R638": {
+   "name": "phosphoglucomutase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E02616g",
+   "gpr_baseline": "YALI1E02616g",
+   "genes": [
+    "YALI1E02616g"
+   ],
+   "subsystem": "Glycolysis/Gluconeogenesis",
+   "equation": "D-glucose 6-phosphate_C6H13O9P <=> D-glucose 1-phosphate_C6H13O9P",
+   "mets": {
+    "m296[C_cy]": -1.0,
+    "m589[C_cy]": 1.0
+   }
+  },
+  "R777": {
+   "name": "UDP-glucose:ergosterol glucosyltransferase",
+   "lb": 0.0,
+   "ub": 1000.0,
+   "gpr": "YALI1D23067g",
+   "gpr_baseline": "YALI1D23067g",
+   "genes": [
+    "YALI1D23067g"
+   ],
+   "subsystem": "",
+   "equation": "ergosterol_C28H44O + 2.0 H+_p+1 + UDP-D-glucose_C15H22N2O17P2 --> ergosterol 3-beta-D-glucoside_C34H54O6 + UDP_C9H14N2O12P2",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m1000[C_cy]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m11[C_cy]": 1.0,
+    "m1001[C_cy]": 1.0
+   }
+  },
+  "R779": {
+   "name": "UDPglucose 4-epimerase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E31754g",
+   "gpr_baseline": "YALI1E31754g",
+   "genes": [
+    "YALI1E31754g"
+   ],
+   "subsystem": "Galactose metabolism",
+   "equation": "2.0 H+_p+1 + UDP-D-glucose_C15H22N2O17P2 <=> UDP-D-galactose_C15H24N2O17P2",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m10[C_cy]": -2.0,
+    "m546[C_cy]": 1.0
+   }
+  },
+  "R780": {
+   "name": "UDPglucose--hexose-1-phosphate uridylyltransferase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1F31405g",
+   "gpr_baseline": "YALI1F31405g",
+   "genes": [
+    "YALI1F31405g"
+   ],
+   "subsystem": "Galactose metabolism",
+   "equation": "4.0 H+_p+1 + alpha-D-galactose 1-phosphate_C6H11O9P + UDP-D-glucose_C15H22N2O17P2 <=> UDP-D-galactose_C15H24N2O17P2 + D-glucose 1-phosphate_C6H13O9P",
+   "mets": {
+    "m8[C_cy]": -1.0,
+    "m545[C_cy]": -1.0,
+    "m10[C_cy]": -4.0,
+    "m546[C_cy]": 1.0,
+    "m589[C_cy]": 1.0
+   }
+  },
+  "R793": {
+   "name": "UTP-glucose-1-phosphate uridylyltransferase",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1A02775g",
+   "gpr_baseline": "YALI1A02775g",
+   "genes": [
+    "YALI1A02775g"
+   ],
+   "subsystem": "Galactose metabolism",
+   "equation": "UTP_C9H15N2O15P3 + D-glucose 1-phosphate_C6H13O9P <=> 2.0 H+_p+1 + diphosphate_H4O7P2 + UDP-D-glucose_C15H22N2O17P2",
+   "mets": {
+    "m439[C_cy]": -1.0,
+    "m589[C_cy]": -1.0,
+    "m10[C_cy]": 2.0,
+    "m8[C_cy]": 1.0,
+    "m203[C_cy]": 1.0
+   }
+  },
+  "R_G6PPer": {
+   "name": "R_G6PPer",
+   "lb": -1000.0,
+   "ub": 1000.0,
+   "gpr": "YALI1E41893g",
+   "gpr_baseline": "YALI1E41893g",
+   "genes": [
+    "YALI1E41893g"
+   ],
+   "subsystem": "",
+   "equation": "D-glucose_C6H12O6 + phosphate_H3O4P <=> D-glucose 6-phosphate_C6H13O9P + H2O_H2O",
+   "mets": {
+    "m295[C_cy]": -1.0,
+    "m952[C_er]": -1.0,
+    "m296[C_cy]": 1.0,
+    "m389[C_er]": 1.0
+   }
+  }
+ },
+ "metabolites": {
+  "m1167[C_ex]": {
+   "name": "trehalose_C12H22O11",
+   "comp": "C_ex",
+   "degree": 1
+  },
+  "m294[C_cy]": {
+   "name": "trehalose_C12H22O11",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m1380[C_va]": {
+   "name": "trehalose_C12H22O11",
+   "comp": "C_va",
+   "degree": 1
+  },
+  "m32[C_cy]": {
+   "name": "H2O_H2O",
+   "comp": "C_cy",
+   "degree": 332
+  },
+  "m295[C_cy]": {
+   "name": "D-glucose_C6H12O6",
+   "comp": "C_cy",
+   "degree": 9
+  },
+  "m8[C_cy]": {
+   "name": "UDP-D-glucose_C15H22N2O17P2",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m296[C_cy]": {
+   "name": "D-glucose 6-phosphate_C6H13O9P",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m11[C_cy]": {
+   "name": "UDP_C9H14N2O12P2",
+   "comp": "C_cy",
+   "degree": 18
+  },
+  "m297[C_cy]": {
+   "name": "alpha,alpha-trehalose 6-phosphate_C12H21O14P",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m10[C_cy]": {
+   "name": "H+_p+1",
+   "comp": "C_cy",
+   "degree": 463
+  },
+  "m35[C_cy]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_cy",
+   "degree": 156
+  },
+  "m122[C_cy]": {
+   "name": "NAD_C21H27N7O14P2",
+   "comp": "C_cy",
+   "degree": 65
+  },
+  "m123[C_cy]": {
+   "name": "NADH_C21H29N7O14P2",
+   "comp": "C_cy",
+   "degree": 58
+  },
+  "m1723[C_cy]": {
+   "name": "UDP-D-glucuronate",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m1842[C_cy]": {
+   "name": "Salicin-6-phosphate",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m1843[C_cy]": {
+   "name": "Salicyl alcohol",
+   "comp": "C_cy",
+   "degree": 1
+  },
+  "m1988[C_er]": {
+   "name": "UDP-glucose",
+   "comp": "C_er",
+   "degree": 2
+  },
+  "m2024[C_cy]": {
+   "name": "Amylose",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m41[C_cy]": {
+   "name": "NADP(+)_C21H28N7O17P3",
+   "comp": "C_cy",
+   "degree": 69
+  },
+  "m40[C_cy]": {
+   "name": "NADPH_C21H30N7O17P3",
+   "comp": "C_cy",
+   "degree": 68
+  },
+  "m168[C_cy]": {
+   "name": "6-O-phosphono-D-glucono-1,5-lactone_C6H11O9P",
+   "comp": "C_cy",
+   "degree": 2
+  },
+  "m166[C_cy]": {
+   "name": "D-fructose 6-phosphate_C6H11O9P",
+   "comp": "C_cy",
+   "degree": 11
+  },
+  "m549[C_cy]": {
+   "name": "glycogen_",
+   "comp": "C_cy",
+   "degree": 8
+  },
+  "m141[C_cy]": {
+   "name": "ATP_C10H16N5O13P3",
+   "comp": "C_cy",
+   "degree": 182
+  },
+  "m143[C_cy]": {
+   "name": "ADP_C10H15N5O10P2",
+   "comp": "C_cy",
+   "degree": 146
+  },
+  "m9[C_en]": {
+   "name": "(1-3)-beta-D-glucan_",
+   "comp": "C_en",
+   "degree": 2
+  },
+  "m12[C_en]": {
+   "name": "(1-6)-beta-D-glucan_",
+   "comp": "C_en",
+   "degree": 3
+  },
+  "m813[C_cy]": {
+   "name": "1D-myo-inositol 1-phosphate_C6H11O9P",
+   "comp": "C_cy",
+   "degree": 5
+  },
+  "m589[C_cy]": {
+   "name": "D-glucose 1-phosphate_C6H13O9P",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m1000[C_cy]": {
+   "name": "ergosterol_C28H44O",
+   "comp": "C_cy",
+   "degree": 10
+  },
+  "m1001[C_cy]": {
+   "name": "ergosterol 3-beta-D-glucoside_C34H54O6",
+   "comp": "C_cy",
+   "degree": 1
+  },
+  "m546[C_cy]": {
+   "name": "UDP-D-galactose_C15H24N2O17P2",
+   "comp": "C_cy",
+   "degree": 4
+  },
+  "m545[C_cy]": {
+   "name": "alpha-D-galactose 1-phosphate_C6H11O9P",
+   "comp": "C_cy",
+   "degree": 3
+  },
+  "m439[C_cy]": {
+   "name": "UTP_C9H15N2O15P3",
+   "comp": "C_cy",
+   "degree": 16
+  },
+  "m203[C_cy]": {
+   "name": "diphosphate_H4O7P2",
+   "comp": "C_cy",
+   "degree": 80
+  },
+  "m952[C_er]": {
+   "name": "phosphate_H3O4P",
+   "comp": "C_er",
+   "degree": 5
+  },
+  "m389[C_er]": {
+   "name": "H2O_H2O",
+   "comp": "C_er",
+   "degree": 55
+  }
+ },
+ "lp_count": 12
+}
