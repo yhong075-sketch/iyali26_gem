@@ -5,6 +5,42 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-30: R24 homocitrate dehydration to YALI1D11984g or YALI1E17935g (option C), candidate f505571d (on claude/nice-bouman-b161f4, not committed, not pushed)
+
+**Authorization.** The user, 2026-10-30, after the R24 review: "Option C", then "Approve plan". The approved plan:
+commit the review (`ac8921d`); merge the local, unpushed `refs/heads/claude/aconitase-aco2-split-1c492f` (`a006df1`)
+into this branch (merge `199dec2`); implement option C through the pipeline. No push. Options H (3 H+) and N (name
+and cross-references) were not in scope. Details: [TASK.md](reports/r24_homocitrate_aco_20261030/TASK.md),
+[REPORT.md](reports/r24_homocitrate_aco_20261030/REPORT.md), [AUDIT.md](reports/r24_homocitrate_aco_20261030/AUDIT.md).
+
+**Results** (verified this session; independent audit found no bug that changes the model, knockouts or erratum; its
+fixes are applied).
+- **Candidate:**
+  [E5_…_aco_split_r24_aco_20261030.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_r24_aco_20261030.xml)
+  (`f505571d3da6d76920f242e334aa74521d0f754c452b65eb12791e89c079e3c6`) = `e1e7c868` + `--r24-homocitrate-aconitase`.
+  Seeds 0 and 1 identical; the control build (flag off) is byte-identical to `e1e7c868`. Not a designated reference.
+- **Change:** R24 `YALI1E03387g` → `YALI1D11984g or YALI1E17935g`, plus 6 notes. `YALI1E03387g` keeps R395.
+  `YALI1E17935g`, unlinked after the aconitase split, is now on R24 only. Whole-model diff: 5 differences, all
+  intended.
+- **Pipeline:** `model/curation/gpr/r24_homocitrate_aconitase.json`, `apply_r24_homocitrate_aconitase` (fails
+  closed; must run after `--aconitase-aco2-split`), `tests/test_r24_homocitrate_aconitase.py`.
+- **Solves** (Task A + PO1f, Gurobi 1e-9; 5 LPs, all optimal): WT 0.3116608216.
+  - `YALI1E03387g` 0.0694: FN / FN / TP / TP.
+  - `YALI1D11984g` 0.0244: FN / TP / TP / TP.
+  - `YALI1E17935g` 1.0: TN.
+  - No class change at 1/5/10/15 %. User-defined negatives; development reference.
+- **pytest:** 421 passed after; only the 6 new tests changed outcome on the code side. TASK criterion 5 is not met
+  as written: 29 tests error in the before run (archived at 199dec2 under the long scratchpad path) and pass after.
+  Each fails on cobra's 260-character path limit or a missing sibling `model.xml`.
+- **Erratum to the review:** in its in-memory variant C, the `YALI1D11984g` knockout wrongly also closed R24. The
+  cause is cobra 0.30.0: a reactionless gene has no model link after an SBML read, so `knock_out()` is not undone
+  on context exit. Same growth (difference 9e-19); no review number changes. Erratum added to the review REPORT §2.
+
+**Limits.** One medium. `YALI1E17935g` activity on homocitrate is unproven in *Y. lipolytica*; it rests on
+*S. cerevisiae* genetics and homology, and option B is the fallback. R24's name and cross-references, m76's
+cross-references and the 3 H+ are unchanged. The aconitase round's files still say `YALI1E17935g` has no reaction,
+which is no longer true of `f505571d`. The aconitase round is on this branch only by a local merge.
+
 ## 2026-10-29: R24 / R395 homocitrate steps reviewed on e1e7c868 (investigation only, no model change; committed ac8921d on claude/nice-bouman-b161f4)
 
 **Authorization.** Brief from the session that started this one, 2026-10-29: "Investigation only, no model change",

@@ -79,6 +79,14 @@ a SHA-checked short copy of `e1e7c868`.
 | D ACO2-type only | `YALI1E17935g` | 0.0694 | 0.0244 | **0.0694** | 0.0244 |
 | E keep LYS4 and add both | `YALI1E03387g or YALI1D11984g or YALI1E17935g` | 0.0694 | 0.0244 | 1.0 | 0.0244 |
 
+**Erratum (2026-10-30, found in [r24_homocitrate_aco_20261030](../r24_homocitrate_aco_20261030/REPORT.md) §4).**
+In variant C the single `YALI1D11984g` knockout also closed R24 (`closed_reactions` in variants.json), which an OR
+rule should not do. Cause, verified: in cobra 0.30.0 a gene with no reactions after an SBML read (`YALI1E17935g` in
+`e1e7c868`) has no model link, so its `knock_out()` in variant A was not undone on context exit, and `YALI1E17935g`
+stayed non-functional in variants B–E. Only that one row closed a reaction it should not have. Its growth equals the
+correct value from the built candidate (difference 9e-19), so no number, class or score above changes. variants.json is
+kept as run.
+
 **Classes** (essential when KO/WT < cutoff; 1 / 5 / 10 / 15 %):
 - `YALI1E03387g` (listed): FN / FN / TP / TP in every option. R395 still closes.
 - `YALI1D11984g` (listed): FN / TP / TP / TP in every option.
