@@ -5,6 +5,41 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-30: V-ATPase false negatives, diagnosis and options (investigation only, no model change, not committed)
+
+**Authorization.** The user, 2026-10-30: "how can we solve the VTPase problem?", then "Save as report". Read-only; no
+LP, build or model change.
+
+**Results** ([REPORT.md](reports/vatpase_fn_options_20261030/REPORT.md), [TASK.md](reports/vatpase_fn_options_20261030/TASK.md)).
+Model `059316ef…` from `origin/main`. An eight-agent workflow ran with three adversarial reviewers. The lead re-ran
+the decisive static checks.
+- **Two stacked causes:**
+  - The R794/R795 rule `(12-gene core incl. a1) or (a2 and c'')` is closed by 0 of 14 single knockouts (Boolean,
+    verified).
+  - The corrected rule `core and (a1 or a2)` is closed by 12 of 14 (verified). Even so, closing R794 cannot lower
+    maximum growth. Biomass has no Golgi or vacuolar species, and R2048 is forced to 0 by the dead-end ER `m674`
+    (verified). R794's protons can only leak back or be destroyed, so the pump is a pure ATP drain (static argument;
+    parts reviewer-only).
+- **Options:**
+  - Rule correction: 0 flips; correct for its own sake.
+  - Iron coupling on R2193: mechanically 10 flips, but the biology is refuted. Hughes 2020 shows no uptake defect,
+    D09277g is FET5-like, and the genome has other iron routes.
+  - Generic Golgi H+ demand: 10 flips, but no measured flux, so it would be match-rate tuning.
+  - Vacuolar cysteine storage: not representable in FBA, and it reopens A0.
+- **Recommendation:**
+  - Keep the 11 counted as FN under a structural label.
+  - Gate any coupling on a *Y. lipolytica* inhibitor experiment with iron, copper and cysteine rescue arms.
+  - No targeted *Y. lipolytica* V-ATPase mutant exists; essentiality rests on pooled screens.
+
+**Limits.** No solver run on `059316ef`. The FN labels come from the `6af03c40` sweep (notes-only difference,
+recalled). Literature was opened by agents, mostly abstracts. Side findings left unchanged:
+- R_NDP7g has an extra H and charge;
+- R2048 placeholder chemistry;
+- YALI0E16192g has no screen row (W29 locus typed as a pseudogene);
+- V-ATPase A subunit on R_NTP1.
+
+Literature files are in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/vatpase_fn_options_20261030/`.
+
 ## 2026-10-29: Thr/Ser synthetase split rebuilt on the combined UM7 + R2171 candidate, candidate d8d1bac7 (not committed)
 
 **Authorization.** The user, 2026-10-29: "Rebuild on 14f73bda", then "Approve as written" for
