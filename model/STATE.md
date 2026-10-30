@@ -5,6 +5,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (committed c8813ae on claude/aconitase-aco2-split-1c492f, PR #39)
+
+**Authorization.** The user, 2026-10-29: "Approve the aconitase plan in TASK.md §7 on baseline 059316ef"
+([TASK.md](reports/aconitase_aco2_split_20261029/TASK.md)), after "you can download it, just remember to add in
+gitignore" (Biopython 1.85 in the git-ignored `.tools/align-venv`; `/.tools/` added to `.gitignore`). No commit or
+push. Brief from the session that started this one: the first-ranked lever of the 2026-10-29 read-only review.
+Committed in `c8813ae` on the user's instruction ("Commit on branch", 2026-10-29); pushed with a pull request to `main`, [PR #39](https://github.com/yhong075-sketch/iyali26_gem/pull/39), on the user's instruction ("Push and open PR", 2026-10-30), then merged with `origin/main` (PR #38; the STATE.md top conflict resolved by keeping both entries) on the user's instruction ("Yes, resolve it", 2026-10-30).
+
+**Results** ([REPORT.md](reports/aconitase_aco2_split_20261029/REPORT.md),
+[AUDIT.md](reports/aconitase_aco2_split_20261029/AUDIT.md),
+[escher/](reports/aconitase_aco2_split_20261029/escher/README.md)). Verified this session. The independent audit
+found no unsupported claim; its partly supported points (residual-growth wording, test file changed after the full
+run, control built before the flag existed) were fixed. The code review found no bug and one test gap, fixed.
+- **Candidate:**
+  [E5_…_r673_prolyl_split_aco_split_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_20261029.xml)
+  (`e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897`) = `059316ef` + `--aconitase-aco2-split`. Not
+  a designated reference.
+- **Change:** R1556 (cytosol), R216 and R238 (mitochondrion) `YALI1D11984g or YALI1E17935g` → `YALI1D11984g`; R239
+  already read `YALI1D11984g`. `YALI1E17935g` kept with no reaction; six notes per reaction. Diff: 7 differences, all
+  intended; no stoichiometry, bound, formula or charge change.
+- **Ground:**
+  - Identity (verified this session): `YALI1D11984g` = YALI0D09361g = Q6C9P6, PANTHER SF3 (ACO1);
+    `YALI1E17935g` = YALI0E14949g = Q6C5V2, SF2 (ACO2). Pairwise identity 77.7 % to Aco1p vs 52.3 % to Aco2p, and
+    70.3 % to Aco2p vs 54.9 % to Aco1p.
+  - Function (abstracts read this session): Fazius 2012, yeast Aco2p lysine-only, filamentous-fungal homologues
+    inactive.
+  - That `YALI1E17935g` does not catalyse the citrate steps in *Y. lipolytica* is **inferred**; no
+    *Y. lipolytica* data.
+- **Code:**
+  - data `curation/gpr/aconitase_aco2_split.json`;
+  - step `aconitase_aco2_split.py`;
+  - flag `--aconitase-aco2-split`, called after the R673 step;
+  - test `tests/test_aconitase_aco2_split.py` (6 tests, 29 subtests).
+
+  Full pytest: 336 → 342 passed, the same 19 failures and 20 errors; only the new tests differ.
+- **Builds:** the control reproduces `059316ef` byte for byte, both before the code edits and with the final code;
+  seeds 0 and 1 are identical.
+- **Knockouts** (Task A + PO1f, Gurobi 13.0.2 at 1e-9, 2,164 LPs):
+  - WT unchanged at 0.3116608216.
+  - Only `YALI1D11984g` changes: 0.311661 → 0.0076119, KO/WT 0.0244. FN → TP at 5, 10 and 15 %, **not at 1 %**.
+  - At 15 %: 124 / 191 / 42 / 692 → 125 / 190 / 42 / 692. Recall 0.3937 → 0.3968, precision 0.7470 → 0.7485,
+    MCC 0.4225 → 0.4255.
+  - At 5 % and 10 %, +1 TP each.
+  - The same 16 unresolved; no failing point. User-defined negatives; mtDNA out of scope; development reference.
+- **Residual growth** (one pFBA optimum): no glutamate in the medium; arginine-derived ornithine feeds glutamate;
+  arginine and aspartate uptakes at their bounds. The 1 % class probably depends on the Task A medium's assumed
+  amino-acid bounds (inferred).
+
+**Limits.**
+- Function is transferred from yeast and fungi (abstracts only).
+- No active-site comparison and no gene tree were done.
+- The model's own UniProt IDs A0A1D8NDY4 and A0A1H6Q7Y5 are deleted in UniProt. They are sequence-identical to
+  Q6C9P6 / Q6C5V2; the annotation was not changed.
+- One medium. Out-of-scope positives not classified by reason.
+- **Follow-up, not done:** R24 / R395 (homocitrate steps, LYS4-like `YALI1E03387g` only; R24 named
+  "2-methylcitrate dehydratase"), against Fazius 2012, which assigns the homocitrate → homoaconitate step to
+  aconitases. R238's inherited note `PROTEIN_CLASS: 4.2.1.4`.
+
 ## 2026-10-29: Evidence pipeline M1, rule core (no LLM, no model change; committed aa9c4fd on claude/evidence-pipeline-ec8347)
 
 **Authorization.** The user, 2026-10-29: answers to the M0 questions, then "Approve M1 plan" (including the ECO OBO

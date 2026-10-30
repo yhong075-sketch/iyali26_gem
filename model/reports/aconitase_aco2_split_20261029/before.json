@@ -1,0 +1,910 @@
+{
+ "baseline_model": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_notes_v3_20261029.xml",
+  "sha256": "059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d"
+ },
+ "genes": {
+  "YALI1D11984g": {
+   "annotation": {
+    "ec-code": "4.2.1.-",
+    "kegg.genes": "yli:2910842",
+    "ncbigene": "2910842",
+    "refseq": "XP_502616.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8NDY4"
+   },
+   "name": "COBRAProtein246",
+   "notes": {},
+   "reactions": [
+    "R1556",
+    "R216",
+    "R238",
+    "R239"
+   ]
+  },
+  "YALI1E03387g": {
+   "annotation": {
+    "ec-code": "4.2.1.36",
+    "ensembl": "CAG79050",
+    "kegg.genes": "yli:2912118",
+    "refseq": "XP_503471.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C791"
+   },
+   "name": "COBRAProtein33",
+   "notes": {},
+   "reactions": [
+    "R24",
+    "R395"
+   ]
+  },
+  "YALI1E17935g": {
+   "annotation": {
+    "ec-code": "4.2.1.-",
+    "kegg.genes": "yli:2911538",
+    "ncbigene": "2911538",
+    "refseq": "XP_503960.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1H6Q7Y5"
+   },
+   "name": "COBRAProtein247",
+   "notes": {},
+   "reactions": [
+    "R1556",
+    "R216",
+    "R238"
+   ]
+  }
+ },
+ "model_counts": {
+  "genes": 1081,
+  "metabolites": 1882,
+  "reactions": 2319
+ },
+ "reactions": {
+  "R1170": {
+   "annotation": {
+    "bigg.reaction": [
+     "AACT",
+     "HCITS",
+     "HCITSm",
+     "HCITSn",
+     "R_AACT",
+     "R_HCITS",
+     "R_HCITSm",
+     "R_HCITSn"
+    ],
+    "biggr": [
+     "AACT",
+     "HCITS",
+     "HCITSm",
+     "HCITSn",
+     "R_AACT",
+     "R_HCITS",
+     "R_HCITSm",
+     "R_HCITSn"
+    ],
+    "ec-code": "2.3.3.14",
+    "metanetx.reaction": "MNXR198477",
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "m219[C_mi] + m26[C_mi] + m71[C_mi] --> m73[C_mi] + m75[C_mi]",
+   "equation_names": "2-oxoglutarate_C5H6O5 + H2O_H2O + acetyl-CoA_C23H38N7O17P3S --> coenzyme A_C21H36N7O16P3S + homocitrate_C7H10O7",
+   "gpr": "YALI1F38776g",
+   "id": "R1170",
+   "name": "homocitrate synthase",
+   "notes": {
+    "PROTEIN_CLASS": "2.3.3.14"
+   },
+   "species": {
+    "m219[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C5H6O5",
+     "name": "2-oxoglutarate_C5H6O5"
+    },
+    "m26[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m71[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C23H38N7O17P3S",
+     "name": "acetyl-CoA_C23H38N7O17P3S"
+    },
+    "m73[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C21H36N7O16P3S",
+     "name": "coenzyme A_C21H36N7O16P3S"
+    },
+    "m75[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C7H10O7",
+     "name": "homocitrate_C7H10O7"
+    }
+   },
+   "stoichiometry": {
+    "m219[C_mi]": -1.0,
+    "m26[C_mi]": -1.0,
+    "m71[C_mi]": -1.0,
+    "m73[C_mi]": 1.0,
+    "m75[C_mi]": 1.0
+   }
+  },
+  "R1556": {
+   "annotation": {
+    "ec-code": "4.2.1.-",
+    "metanetx.reaction": "MNXR173260",
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn15281",
+    "seedr": "rxn15281"
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "equation": "m32[C_cy] + m436[C_cy] <=> m738[C_cy]",
+   "equation_names": "H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7",
+   "gpr": "YALI1D11984g or YALI1E17935g",
+   "id": "R1556",
+   "name": "cis-aconitate(3-) to isocitrate",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.3"
+   },
+   "species": {
+    "m32[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m436[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H6O6",
+     "name": "cis-aconitate_C6H6O6"
+    },
+    "m738[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H8O7",
+     "name": "isocitrate_C6H8O7"
+    }
+   },
+   "stoichiometry": {
+    "m32[C_cy]": -1.0,
+    "m436[C_cy]": -1.0,
+    "m738[C_cy]": 1.0
+   }
+  },
+  "R216": {
+   "annotation": {
+    "ec-code": "4.2.1.-",
+    "metanetx.reaction": "MNXR173260",
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn15281",
+    "seedr": "rxn15281"
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "m26[C_mi] + m409[C_mi] <=> m410[C_mi]",
+   "equation_names": "H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7",
+   "gpr": "YALI1D11984g or YALI1E17935g",
+   "id": "R216",
+   "name": "cis-aconitate(3-) to isocitrate",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.3"
+   },
+   "species": {
+    "m26[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m409[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C6H6O6",
+     "name": "cis-aconitate_C6H6O6"
+    },
+    "m410[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C6H8O7",
+     "name": "isocitrate_C6H8O7"
+    }
+   },
+   "stoichiometry": {
+    "m26[C_mi]": -1.0,
+    "m409[C_mi]": -1.0,
+    "m410[C_mi]": 1.0
+   }
+  },
+  "R238": {
+   "annotation": {
+    "bigg.reaction": [
+     "ACN_a_m",
+     "ACONTa",
+     "ACONTa_1",
+     "R_ACN_a_m",
+     "R_ACONTa",
+     "R_ACONTa_1",
+     "R_r0317",
+     "r0317"
+    ],
+    "biggr": [
+     "ACN_a_m",
+     "ACONTa",
+     "ACONTa_1",
+     "R_ACN_a_m",
+     "R_ACONTa",
+     "R_ACONTa_1",
+     "R_r0317",
+     "r0317"
+    ],
+    "ec-code": "4.2.1.-",
+    "kegg.reaction": "R01325",
+    "keggr": "R01325",
+    "metacyc.reaction": "ACONITATEDEHYDR-RXN",
+    "metacycr": "ACONITATEDEHYDR-RXN",
+    "metanetx.reaction": "MNXR154367",
+    "rh": [
+     "10228",
+     "10229",
+     "10230",
+     "10231"
+    ],
+    "rhea": [
+     "10228",
+     "10229",
+     "10230",
+     "10231"
+    ],
+    "sabiork.reaction": "268",
+    "sabiorkr": "268",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn00974",
+     "rxn19039",
+     "rxn30619",
+     "rxn31223",
+     "rxn33227",
+     "rxn33231"
+    ],
+    "seedr": [
+     "rxn00974",
+     "rxn19039",
+     "rxn30619",
+     "rxn31223",
+     "rxn33227",
+     "rxn33231"
+    ],
+    "vmhr": [
+     "R_r0317",
+     "r0317"
+    ],
+    "vmhreaction": [
+     "R_r0317",
+     "r0317"
+    ]
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "m433[C_mi] <=> m26[C_mi] + m409[C_mi]",
+   "equation_names": "citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6",
+   "gpr": "YALI1D11984g or YALI1E17935g",
+   "id": "R238",
+   "name": "citrate to cis-aconitate(3-)",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.4"
+   },
+   "species": {
+    "m26[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m409[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C6H6O6",
+     "name": "cis-aconitate_C6H6O6"
+    },
+    "m433[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C6H8O7",
+     "name": "citrate_C6H8O7"
+    }
+   },
+   "stoichiometry": {
+    "m26[C_mi]": 1.0,
+    "m409[C_mi]": 1.0,
+    "m433[C_mi]": -1.0
+   }
+  },
+  "R239": {
+   "annotation": {
+    "bigg.reaction": [
+     "ACN_a_m",
+     "ACONTa",
+     "ACONTa_1",
+     "R_ACN_a_m",
+     "R_ACONTa",
+     "R_ACONTa_1",
+     "R_r0317",
+     "r0317"
+    ],
+    "biggr": [
+     "ACN_a_m",
+     "ACONTa",
+     "ACONTa_1",
+     "R_ACN_a_m",
+     "R_ACONTa",
+     "R_ACONTa_1",
+     "R_r0317",
+     "r0317"
+    ],
+    "ec-code": "4.2.1.-",
+    "kegg.reaction": "R01325",
+    "keggr": "R01325",
+    "metacyc.reaction": "ACONITATEDEHYDR-RXN",
+    "metacycr": "ACONITATEDEHYDR-RXN",
+    "metanetx.reaction": "MNXR154367",
+    "rh": [
+     "10228",
+     "10229",
+     "10230",
+     "10231"
+    ],
+    "rhea": [
+     "10228",
+     "10229",
+     "10230",
+     "10231"
+    ],
+    "sabiork.reaction": "268",
+    "sabiorkr": "268",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn00974",
+     "rxn19039",
+     "rxn30619",
+     "rxn31223",
+     "rxn33227",
+     "rxn33231"
+    ],
+    "seedr": [
+     "rxn00974",
+     "rxn19039",
+     "rxn30619",
+     "rxn31223",
+     "rxn33227",
+     "rxn33231"
+    ],
+    "vmhr": [
+     "R_r0317",
+     "r0317"
+    ],
+    "vmhreaction": [
+     "R_r0317",
+     "r0317"
+    ]
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "equation": "m435[C_cy] <=> m32[C_cy] + m436[C_cy]",
+   "equation_names": "citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6",
+   "gpr": "YALI1D11984g",
+   "id": "R239",
+   "name": "citrate to cis-aconitate(3-), cytoplasmic",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.4"
+   },
+   "species": {
+    "m32[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m435[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H8O7",
+     "name": "citrate_C6H8O7"
+    },
+    "m436[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H6O6",
+     "name": "cis-aconitate_C6H6O6"
+    }
+   },
+   "stoichiometry": {
+    "m32[C_cy]": 1.0,
+    "m435[C_cy]": -1.0,
+    "m436[C_cy]": 1.0
+   }
+  },
+  "R24": {
+   "annotation": {
+    "bigg.reaction": [
+     "MCITD",
+     "R_MCITD"
+    ],
+    "biggr": [
+     "MCITD",
+     "R_MCITD"
+    ],
+    "ec-code": "4.2.1.36",
+    "metanetx.reaction": "MNXR145545",
+    "rh": [
+     "57496",
+     "57497",
+     "57498",
+     "57499"
+    ],
+    "rhea": [
+     "57496",
+     "57497",
+     "57498",
+     "57499"
+    ],
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "m75[C_mi] <=> m26[C_mi] + 3.0 m28[C_mi] + m76[C_mi]",
+   "equation_names": "homocitrate_C7H10O7 <=> H2O_H2O + 3.0 H+_p+1 + but-1-ene-1,2,4-tricarboxylic acid_C7H5O6",
+   "gpr": "YALI1E03387g",
+   "id": "R24",
+   "name": "2-methylcitrate dehydratase",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.114"
+   },
+   "species": {
+    "m26[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m28[C_mi]": {
+     "charge": 1,
+     "compartment": "C_mi",
+     "formula": "H",
+     "name": "H+_p+1"
+    },
+    "m75[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C7H10O7",
+     "name": "homocitrate_C7H10O7"
+    },
+    "m76[C_mi]": {
+     "charge": -3,
+     "compartment": "C_mi",
+     "formula": "C7H5O6",
+     "name": "but-1-ene-1,2,4-tricarboxylic acid_C7H5O6"
+    }
+   },
+   "stoichiometry": {
+    "m26[C_mi]": 1.0,
+    "m28[C_mi]": 3.0,
+    "m75[C_mi]": -1.0,
+    "m76[C_mi]": 1.0
+   }
+  },
+  "R395": {
+   "annotation": {
+    "bigg.reaction": [
+     "HACNHm",
+     "R_HACNHm"
+    ],
+    "biggr": [
+     "HACNHm",
+     "R_HACNHm"
+    ],
+    "ec-code": "4.2.1.36",
+    "kegg.reaction": "R04371",
+    "keggr": "R04371",
+    "metacyc.reaction": "HOMOACONITATE-HYDRATASE-RXN",
+    "metacycr": "HOMOACONITATE-HYDRATASE-RXN",
+    "metanetx.reaction": "MNXR100552",
+    "rh": [
+     "15485",
+     "15486",
+     "15487",
+     "15488"
+    ],
+    "rhea": [
+     "15485",
+     "15486",
+     "15487",
+     "15488"
+    ],
+    "sabiork.reaction": "4067",
+    "sabiorkr": "4067",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn03034",
+     "rxn30155"
+    ],
+    "seedr": [
+     "rxn03034",
+     "rxn30155"
+    ]
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "m26[C_mi] + 3.0 m28[C_mi] + m76[C_mi] <=> m624[C_mi]",
+   "equation_names": "H2O_H2O + 3.0 H+_p+1 + but-1-ene-1,2,4-tricarboxylic acid_C7H5O6 <=> homoisocitrate_C7H10O7",
+   "gpr": "YALI1E03387g",
+   "id": "R395",
+   "name": "homoacontinate hydratase",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.36"
+   },
+   "species": {
+    "m26[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m28[C_mi]": {
+     "charge": 1,
+     "compartment": "C_mi",
+     "formula": "H",
+     "name": "H+_p+1"
+    },
+    "m624[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C7H10O7",
+     "name": "homoisocitrate_C7H10O7"
+    },
+    "m76[C_mi]": {
+     "charge": -3,
+     "compartment": "C_mi",
+     "formula": "C7H5O6",
+     "name": "but-1-ene-1,2,4-tricarboxylic acid_C7H5O6"
+    }
+   },
+   "stoichiometry": {
+    "m26[C_mi]": -1.0,
+    "m28[C_mi]": -3.0,
+    "m624[C_mi]": 1.0,
+    "m76[C_mi]": -1.0
+   }
+  },
+  "R396": {
+   "annotation": {
+    "bigg.reaction": [
+     "AACT",
+     "HCITS",
+     "HCITSm",
+     "HCITSn",
+     "R_AACT",
+     "R_HCITS",
+     "R_HCITSm",
+     "R_HCITSn"
+    ],
+    "biggr": [
+     "AACT",
+     "HCITS",
+     "HCITSm",
+     "HCITSn",
+     "R_AACT",
+     "R_HCITS",
+     "R_HCITSm",
+     "R_HCITSn"
+    ],
+    "ec-code": "2.3.3.14",
+    "metanetx.reaction": "MNXR198477",
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_nu"
+   ],
+   "equation": "m208[C_nu] + m625[C_nu] + m626[C_nu] --> m207[C_nu] + m628[C_nu]",
+   "equation_names": "acetyl-CoA_C23H38N7O17P3S + 2-oxoglutarate_C5H6O5 + H2O_H2O --> coenzyme A_C21H36N7O16P3S + homocitrate_C7H10O7",
+   "gpr": "YALI1F38776g",
+   "id": "R396",
+   "name": "homocitrate synthase",
+   "notes": {
+    "PROTEIN_CLASS": "2.3.3.14"
+   },
+   "species": {
+    "m207[C_nu]": {
+     "charge": 0,
+     "compartment": "C_nu",
+     "formula": "C21H36N7O16P3S",
+     "name": "coenzyme A_C21H36N7O16P3S"
+    },
+    "m208[C_nu]": {
+     "charge": 0,
+     "compartment": "C_nu",
+     "formula": "C23H38N7O17P3S",
+     "name": "acetyl-CoA_C23H38N7O17P3S"
+    },
+    "m625[C_nu]": {
+     "charge": 0,
+     "compartment": "C_nu",
+     "formula": "C5H6O5",
+     "name": "2-oxoglutarate_C5H6O5"
+    },
+    "m626[C_nu]": {
+     "charge": 0,
+     "compartment": "C_nu",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m628[C_nu]": {
+     "charge": 0,
+     "compartment": "C_nu",
+     "formula": "C7H10O7",
+     "name": "homocitrate_C7H10O7"
+    }
+   },
+   "stoichiometry": {
+    "m207[C_nu]": 1.0,
+    "m208[C_nu]": -1.0,
+    "m625[C_nu]": -1.0,
+    "m626[C_nu]": -1.0,
+    "m628[C_nu]": 1.0
+   }
+  },
+  "R735": {
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "m409[C_mi] <=> 3.0 m28[C_mi] + m955[C_mi]",
+   "equation_names": "cis-aconitate_C6H6O6 <=> 3.0 H+_p+1 + trans-aconitate",
+   "gpr": "",
+   "id": "R735",
+   "name": "spontaneous cis-aconitate(3-) to trans-aconitate",
+   "notes": {
+    "PROTEIN_CLASS": "5.3.3.7"
+   },
+   "species": {
+    "m28[C_mi]": {
+     "charge": 1,
+     "compartment": "C_mi",
+     "formula": "H",
+     "name": "H+_p+1"
+    },
+    "m409[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C6H6O6",
+     "name": "cis-aconitate_C6H6O6"
+    },
+    "m955[C_mi]": {
+     "charge": -3,
+     "compartment": "C_mi",
+     "formula": "C6H3O6",
+     "name": "trans-aconitate"
+    }
+   },
+   "stoichiometry": {
+    "m28[C_mi]": 3.0,
+    "m409[C_mi]": -1.0,
+    "m955[C_mi]": 1.0
+   }
+  },
+  "R736": {
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "equation": "m436[C_cy] <=> 3.0 m10[C_cy] + m956[C_cy]",
+   "equation_names": "cis-aconitate_C6H6O6 <=> 3.0 H+_p+1 + trans-aconitate",
+   "gpr": "",
+   "id": "R736",
+   "name": "spontaneous cis-aconitate(3-) to trans-aconitate",
+   "notes": {
+    "PROTEIN_CLASS": "5.3.3.7"
+   },
+   "species": {
+    "m10[C_cy]": {
+     "charge": 1,
+     "compartment": "C_cy",
+     "formula": "H",
+     "name": "H+_p+1"
+    },
+    "m436[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H6O6",
+     "name": "cis-aconitate_C6H6O6"
+    },
+    "m956[C_cy]": {
+     "charge": -3,
+     "compartment": "C_cy",
+     "formula": "C6H3O6",
+     "name": "trans-aconitate"
+    }
+   },
+   "stoichiometry": {
+    "m10[C_cy]": 3.0,
+    "m436[C_cy]": -1.0,
+    "m956[C_cy]": 1.0
+   }
+  },
+  "R95": {
+   "annotation": {
+    "bigg.reaction": [
+     "ACN_a_m",
+     "ACONTa",
+     "ACONTa_1",
+     "R_ACN_a_m",
+     "R_ACONTa",
+     "R_ACONTa_1",
+     "R_r0317",
+     "r0317"
+    ],
+    "biggr": [
+     "ACN_a_m",
+     "ACONTa",
+     "ACONTa_1",
+     "R_ACN_a_m",
+     "R_ACONTa",
+     "R_ACONTa_1",
+     "R_r0317",
+     "r0317"
+    ],
+    "ec-code": "4.2.1.79",
+    "kegg.reaction": "R01325",
+    "keggr": "R01325",
+    "metacyc.reaction": "ACONITATEDEHYDR-RXN",
+    "metacycr": "ACONITATEDEHYDR-RXN",
+    "metanetx.reaction": "MNXR154367",
+    "rh": [
+     "10228",
+     "10229",
+     "10230",
+     "10231"
+    ],
+    "rhea": [
+     "10228",
+     "10229",
+     "10230",
+     "10231"
+    ],
+    "sabiork.reaction": "268",
+    "sabiorkr": "268",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn00974",
+     "rxn19039",
+     "rxn30619",
+     "rxn31223",
+     "rxn33227",
+     "rxn33231"
+    ],
+    "seedr": [
+     "rxn00974",
+     "rxn19039",
+     "rxn30619",
+     "rxn31223",
+     "rxn33227",
+     "rxn33231"
+    ],
+    "vmhr": [
+     "R_r0317",
+     "r0317"
+    ],
+    "vmhreaction": [
+     "R_r0317",
+     "r0317"
+    ]
+   },
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_mi"
+   ],
+   "equation": "3.0 m28[C_mi] + m79[C_mi] <=> m217[C_mi]",
+   "equation_names": "3.0 H+_p+1 + 2-methylcitrate_C7H7O7 <=> (2S,3R)-3-hydroxybutane-1,2,3-tricarboxylic acid_C7H10O7",
+   "gpr": "YALI1F03803g",
+   "id": "R95",
+   "name": "aconitase",
+   "notes": {
+    "PROTEIN_CLASS": "4.2.1.79"
+   },
+   "species": {
+    "m217[C_mi]": {
+     "charge": 0,
+     "compartment": "C_mi",
+     "formula": "C7H10O7",
+     "name": "(2S,3R)-3-hydroxybutane-1,2,3-tricarboxylic acid_C7H10O7"
+    },
+    "m28[C_mi]": {
+     "charge": 1,
+     "compartment": "C_mi",
+     "formula": "H",
+     "name": "H+_p+1"
+    },
+    "m79[C_mi]": {
+     "charge": -3,
+     "compartment": "C_mi",
+     "formula": "C7H7O7",
+     "name": "2-methylcitrate_C7H7O7"
+    }
+   },
+   "stoichiometry": {
+    "m217[C_mi]": 1.0,
+    "m28[C_mi]": -3.0,
+    "m79[C_mi]": -1.0
+   }
+  }
+ },
+ "targets": [
+  "R1556",
+  "R216",
+  "R238"
+ ]
+}
