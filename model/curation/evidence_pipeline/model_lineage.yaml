@@ -1,0 +1,24 @@
+# parent_model chain (D8; user, 2026-10-29). Publication details are as the user supplied them;
+# they were not opened in this session.
+iYali26:
+  title: "iYali26 (this repository)"
+  year: 2026
+  parent: iYli21
+iYli21:
+  title: "iYli21 (model/source/iyli21.xml)"
+  year: 2022
+  parent: iYali4
+  publication: "Guo et al. 2022, PMID 35664225 (user-supplied, not opened)"
+  origin_tags: >-
+    Built on iYali4 as template (iYali4 used the CLIB122 annotation; Guo et al. remapped YALI0 to YALI1);
+    additions predicted by BlastKOALA on the W29 annotation; gap-fills curated against Biolog data.
+    Per-reaction origin (yeast-GEM transfer / BlastKOALA / Biolog gap-fill) is in the iYli21 supplement,
+    which is not in the workspace, so reactions carry origin "unknown" for now.
+iYali4:
+  title: "iYali4"
+  parent: yeast-GEM
+  publication: "template of iYli21; derived from yeast-GEM (user-supplied)"
+yeast-GEM:
+  title: "yeast-GEM (S. cerevisiae consensus network)"
+  parent: null
+  publication: "consensus S. cerevisiae GEM (user-supplied lineage)"

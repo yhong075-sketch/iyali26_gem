@@ -5,6 +5,63 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-29: Evidence pipeline M1, rule core (no LLM, no model change; not committed)
+
+**Authorization.** The user, 2026-10-29: answers to the M0 questions, then "Approve M1 plan" (including the ECO OBO
+download and an evidence-only pytest CI job). After that came three corrections: the lineage iYali26 → iYli21 → iYali4 →
+yeast-GEM; one `essentiality_threshold` of 15 % shared with the benchmark; and the ECO release pinned with a branch
+check. Details: [TASK.md](reports/evidence_pipeline_m1_20261029/TASK.md),
+[REPORT.md](reports/evidence_pipeline_m1_20261029/REPORT.md),
+[SPEC.md](curation/evidence_pipeline/SPEC.md) (spec SHA-256 `70166392…`, deviations D1–D45).
+
+**Results** (verified this session).
+- **Code:** `platform/evidence/` holds the schemas, weights YAML, taxonomy, id_map (cardinality; only 1:1 resolves),
+  pair classifier, L4 aggregator, L5 verdict engine (model as input), trace/load_bearing, converters, SQLite store
+  and CLI.
+- **Tests and CI:** 67 evidence tests pass, including the 12 cases of spec §5 and the ECO check (existence,
+  non-obsolete, branch), with the LLM absent. The existing suite is unchanged at 324 passed, 19 failed, 20 errors,
+  31 skipped. CI job: `.github/workflows/pytest-evidence.yml`.
+- **Pilot:** 30 reactions on `d8d1bac7`. Existence: 8 SUPPORTED (6 from internal W29 13C data, 2 from hand-written
+  literature claims) and 22 UNSUPPORTED (iYli21 inclusion only; never a removal). GPR: 3 SUPPORTED, 27 UNSUPPORTED.
+  No CONTRADICTED verdict. 12 Cas9-vs-Cas12a gene-level contradictions are unresolved and become R1 cases for M3.
+- **Determinism:** identical content hash `f8af81d0…` under two hash seeds. The database is in
+  `$IYALI26_RESEARCH_ROOT/artifacts/evidence_pipeline/`; the snapshot is in
+  `curation/evidence_pipeline/snapshots/`.
+- **Review:** an independent review found 17 issues and the re-review 7 more; all are fixed except one documented
+  disagreement (REPORT §5).
+
+**Limits.** The hand-written claims (9) were written by Claude and are not human-verified. The 13C data is
+unpublished. Compartment, bounds and cofactor verdicts have no real claims yet. R7 and flux centrality are not
+computed. Open: hedged-claim scoring (D35), the score-≥ 3 gate (D39), dispositions for the 15 non-YALI1 genes, and
+the commit target.
+
+## 2026-10-29: Evidence pipeline M0 survey (read-only; reviewer interface and report; not committed)
+
+**Authorization.** User request relayed by the parent session: follow `EVIDENCE_PIPELINE_PROMPT.md`,
+M0 only (read-only survey, reviewer interface, M0 report), then stop and ask the §10 questions.
+Details: [TASK.md](reports/evidence_pipeline_m0_20261029/TASK.md),
+[REPORT.md](reports/evidence_pipeline_m0_20261029/REPORT.md).
+
+**Results** (read this session from `origin/main` `f212874`; no computation).
+- Reviewer: the adversarial workflow is the essentiality FN loop (Codex literature reviewer + skeptic +
+  human gate). Agents only on `codex/module-agent-workflow`; ledger code on `main`; 240 stored cases on old
+  model SHAs and SD-Leu (85 reviewed: skeptic block 77, pass 4, downgrade 4). Not wired to anything.
+- Model: no confidence scores, no pubmed/doi/eco annotations in `d8d1bac7`; 2,270 of 2,319 reaction IDs
+  from iYli21; 15 non-YALI1 gene IDs.
+- ID map: `LocusCrosswalk` (one-to-one YALI0↔YALI1 from the S2 tables) covers the spec's §1.1 discipline.
+- `gem_review.lit` supplies quote verification, cache and providers; claim schema, organism handling
+  (LLM boolean vs code-computed distance), quote length (25 vs 40) and LLM call records differ from the
+  spec.
+- User answers to the M0 questions (REPORT §8) recorded as deviations D1–D19 in
+  [SPEC.md](curation/evidence_pipeline/SPEC.md) (spec copied verbatim, SHA-256 `70166392…`). Reference model
+  for M1: `d8d1bac7`. Reviewer doc moved to `curation/evidence_pipeline/reviewer_interface.md`
+  (`/docs/` is git-ignored).
+- Separate CI fix: `35c959b` cherry-picked onto `main` as PR #36 (diff-pr.yml YAML).
+- Open: iYli21 ancestry; whether the 10 % L4b threshold relates to the 15 % benchmark cutoff; M1 plan
+  approval.
+
+**Limits.** Survey via `git show` before the worktree could be synced (later fast-forwarded to `main` `18590fc` by `git merge --ff-only`, the app's sync being refused for an unconfirmed origin). No pytest run. No pipeline code.
+
 ## 2026-10-29: 11 unused candidate XMLs removed from the working tree (housekeeping, no model change)
 
 **Authorization.** The user, 2026-10-29: "Plan step 3", then "Strict: 14 files" (remove the candidate XMLs that no

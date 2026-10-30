@@ -1,0 +1,30 @@
+# M1 pilot (~30 reactions; user decision 2026-10-29). `python -m evidence pilot` turns this into
+# pilot_reactions.csv. Reactions of the lipid-unlump line are read only.
+
+essentiality:          # reviewed essentiality FN cases, compared with the prior skeptic judgments
+  passed: 4
+  downgraded: 4
+  blocked: 4           # drawn with `seed` among single-reaction blocked cases
+  seed: 20261029
+
+phosphatidate_hub:     # reactions that make, use or move phosphatidate (PA) and their next steps
+  - {reaction_id: R353,  note: "glycerol-3-phosphate/DHAP acyltransferase (GPAT): G3P -> lysoPA"}
+  - {reaction_id: R1846, note: "lysoPA acyltransferase (LPAAT), lipid particle, open"}
+  - {reaction_id: R1843, note: "lysoPA acyltransferase (LPAAT), closed (0, 0) in the model"}
+  - {reaction_id: R2145, note: "PA phosphatase step PA -> DAG + Pi, written 1:1 on 2026-10-27"}
+  - {reaction_id: R1773, note: "diacylglycerol pyrophosphate phosphatase"}
+  - {reaction_id: R1720, note: "DAG kinase, closed (0, 0)"}
+  - {reaction_id: R196,  note: "CDP-diacylglycerol synthase (PA -> CDP-DAG)"}
+  - {reaction_id: R1841, note: "PS synthase (CDP-DAG consumer); cached literature with a pss1 deletion"}
+  - {reaction_id: R1842, note: "phospholipase D (PC -> PA); cached literature on SPO14"}
+  - {reaction_id: R1743, note: "PC phospholipase D, same gene as R1842"}
+  - {reaction_id: R2168, note: "acyl-CoA:DAG acyltransferase (DAG -> TAG); cached literature on DGA2"}
+  - {reaction_id: R2144, note: "phosphatidate transport, gene-less"}
+
+central_carbon:        # controls with W29 13C-MFA rows (w29_13c_reaction_map.csv)
+  - {reaction_id: R326, note: "glucose-6-phosphate isomerase; 13C row R4 net"}
+  - {reaction_id: R313, note: "fructose-bisphosphate aldolase; 13C row R6 net"}
+  - {reaction_id: R694, note: "pyruvate kinase; 13C row R10 net"}
+  - {reaction_id: R325, note: "glucose-6-phosphate dehydrogenase; 13C row R11"}
+  - {reaction_id: R236, note: "citrate synthase (mitochondrial); 13C row R20"}
+  - {reaction_id: R487, note: "isocitrate dehydrogenase (NAD+), two-subunit AND rule; 13C row R23"}

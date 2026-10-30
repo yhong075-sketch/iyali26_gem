@@ -1,0 +1,54 @@
+# M1 hand-written literature claims. Written by Claude (Opus 5.5) in the M1 session from passages
+# already cached by gem_review (gem_review_lit_20261019); NOT human-verified. Each quote is verified by
+# code against the cached chunk text. Organism, strain and level are written here; taxon distance and
+# ECO are computed in code. Gene IDs are as written in the paper (YALI0) and normalised by id_map.
+extraction_run_id: "hand-m1-claude-opus-5.5-20261029"
+claims:
+  # R2168 acyl-CoA:DAG acyltransferase, DGA2 (Beopoulos et al. 2012)
+  - {pmid: "21808970", retrieval: YALI1D10264g__R2168.json, chunk_id: "21808970:abstract", reaction_id: R2168,
+     gene: YALI0D07986g, predicate: gene_encodes, polarity: positive, assertion_strength: assertive,
+     claim_level: PHENOTYPE_KO, method: "deletion mutants and TAG measurement (from the abstract context)",
+     level_justification: "abstract attributes TAG synthesis to Dga2p in a study of deletion strains; the quote itself does not name the method",
+     quote: "Dga2p makes a major contribution to TAG synthesis via an acyl-CoA-dependent mechanism and is not involved in SE synthesis."}
+  - {pmid: "21808970", retrieval: YALI1D10264g__R2168.json, chunk_id: "21808970:abstract", reaction_id: R2168,
+     predicate: reaction_exists, polarity: positive, assertion_strength: assertive, claim_level: PHENOTYPE_KO,
+     method: "deletion mutants and TAG measurement (from the abstract context)",
+     level_justification: "acyl-CoA-dependent TAG synthesis attributed to a native enzyme",
+     quote: "Dga2p makes a major contribution to TAG synthesis via an acyl-CoA-dependent mechanism"}
+  - {pmid: "21808970", retrieval: YALI1D10264g__R2168.json, chunk_id: "PMC3275733:p26", reaction_id: R2168,
+     gene: YALI0D07986g, predicate: gene_encodes, polarity: positive, assertion_strength: assertive,
+     claim_level: HOMOLOGY_ANNOTATION, method: "phylogenetic tree",
+     level_justification: "sequence clustering with the DGAT1 family",
+     quote: "YlDGA2 clusters with the DGAT1 family, even though DGAT1-type enzymes have not been described in other yeast species."}
+  # R1841 phosphatidylserine synthase, PSS1 (Matsuse et al. 2024)
+  - {pmid: "39293814", retrieval: YALI1D10930g__R1841.json, chunk_id: "PMC11462088:p28", reaction_id: R1841,
+     gene: YALI0D08514g, predicate: gene_encodes, polarity: positive, assertion_strength: assertive,
+     claim_level: PHENOTYPE_KO, method: "pss1 deletion, lipid extract analysis",
+     level_justification: "loss of PS in the deletion strain",
+     quote: "PS species were not detected in the lipid extracts of the pss1Δ strain, confirming that PSS1 encodes a PS synthase in Y. lipolytica."}
+  - {pmid: "39293814", retrieval: YALI1D10930g__R1841.json, chunk_id: "PMC11462088:p28", reaction_id: R1841,
+     predicate: reaction_exists, polarity: positive, assertion_strength: assertive, claim_level: PHENOTYPE_KO,
+     method: "pss1 deletion, lipid extract analysis", level_justification: "PS made in the wild type and lost on deletion",
+     quote: "PS species were not detected in the lipid extracts of the pss1Δ strain"}
+  - {pmid: "39293814", retrieval: YALI1D10930g__R1841.json, chunk_id: "PMC11462088:p20", reaction_id: R1841,
+     gene: YALI0D08514g, predicate: gene_encodes, polarity: positive, assertion_strength: assertive,
+     claim_level: HOMOLOGY_ANNOTATION, method: "sequence identity to S. cerevisiae Pss1",
+     level_justification: "~60 % identity",
+     quote: "The product of YALI0D08514g showed ~60% identity with the Pss1 of S. cerevisiae."}
+  - {pmid: "39293814", retrieval: YALI1D10930g__R1841.json, chunk_id: "39293814:abstract", reaction_id: R1841,
+     gene: YALI0D08514g, predicate: gene_encodes, polarity: positive, assertion_strength: assertive,
+     claim_level: PHENOTYPE_KO, method: "pss1 deletion, lipid extract analysis",
+     level_justification: "same finding as p28, stated in the abstract",
+     quote: "PS was undetectable in the lipid extracts of the pss1Δ strain."}
+  # R1842 phospholipase D, SPO14 (Szczepańska et al. 2022)
+  - {pmid: "36142650", retrieval: YALI1E22633g__R1842.json, chunk_id: "PMC9505966:p7", reaction_id: R1842,
+     gene: YALI0E18898g, predicate: gene_encodes, polarity: positive, assertion_strength: assertive,
+     claim_level: ORTHOLOGY, organism: Saccharomyces cerevisiae,
+     method: "author statement on the S. cerevisiae ortholog", is_original_finding: false,
+     level_justification: "function known in S. cerevisiae; the paper says Y. lipolytica phospholipases are not characterised",
+     quote: "S. cerevisiae where it is responsible for the continuous hydrolysis of phosphatidylcholine to choline and PA."}
+  - {pmid: "36142650", retrieval: YALI1E22633g__R1842.json, chunk_id: "PMC9505966:p7", reaction_id: R1842,
+     gene: YALI0E18898g, predicate: gene_encodes, polarity: positive, assertion_strength: hedged,
+     claim_level: PHENOTYPE_KO, strain: PS07, method: "SPO14 deletion in an engineered W29-derived strain, PL and PC content",
+     level_justification: "higher PC after deleting SPO14 is consistent with PLD consuming PC; indirect, so hedged",
+     quote: "the strain PS07 showed the highest PL production when cultured on glucose. Compared to W29, the level of PC exhibited a nearly sixfold increase"}
