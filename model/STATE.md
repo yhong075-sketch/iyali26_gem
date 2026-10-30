@@ -5,6 +5,47 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-29: R24 / R395 homocitrate steps reviewed on e1e7c868 (investigation only, no model change; not committed)
+
+**Authorization.** Brief from the session that started this one, 2026-10-29: "Investigation only, no model change",
+in-memory variants only; the follow-up recorded by the aconitase round. Baseline `e1e7c868…` (aconitase candidate,
+uncommitted on `claude/aconitase-aco2-split-1c492f`, not on `origin/main`).
+
+**Results** ([REPORT.md](reports/r24_homocitrate_review_20261029/REPORT.md),
+[TASK.md](reports/r24_homocitrate_review_20261029/TASK.md)). Verified this session unless marked; no independent
+audit.
+- **R24's gene.**
+  - LYS4-like `YALI1E03387g` (Swiss-Prot Q6C791, by similarity) is not supported for homocitrate → cis-homoaconitate.
+    Fazius 2012 full text: homoaconitases show no homocitrate activity, while aconitase plus homoaconitase convert it.
+    In yeast, *aco1 aco2* is lysine-auxotrophic and each single mutant grows.
+  - Candidates: ACO1-type `YALI1D11984g`, and ACO2-type `YALI1E17935g`.
+  - The ACO2-type's activity in *Y. lipolytica* is unknown. Its Aco2-clade K609 is shared by inactive *Aspergillus*
+    AcoB, so it does not show activity.
+- **R395** stays `YALI1E03387g`.
+- **Annotation.**
+  - R24's name and cross-refs are 2-methylcitrate dehydratase: Rhea 57496, MNXR145545, BiGG MCITD, with `ec-code`
+    4.2.1.36.
+  - Product m76 is named homoaconitate but annotated as 2-methyl-cis-aconitate (KEGG C04225, ChEBI 57872).
+  - Correct IDs: KEGG R03444 / RHEA:26101, C04002 / ChEBI 58174.
+  - The name is inherited from Yeast-GEM r_0027 (inferred).
+- **3 H+.** A protonation artefact: neutral homocitrate and homoisocitrate against trianionic homoaconitate. The
+  source XML has no H+. FBA-neutral (statically verified). Physiologically there are no H+ (ChEBI).
+- **Direction.** Reversible is fine. The network allows only forward net flux (statically verified).
+- **In-memory knockouts** (Task A + PO1f, Gurobi 1e-9, 25 LPs):
+  - WT is unchanged in every variant.
+  - Options B (ACO1-type), C (both aconitases) and E: no class change for any gene.
+  - Option D (ACO2-type only): `YALI1E17935g` TN → FP at 10 % and 15 %.
+  - `YALI1E03387g` stays FN / FN / TP / TP: lysine bound, R395 closed.
+  - `YALI1D11984g` stays FN / TP / TP / TP.
+  - User-defined negatives; development reference.
+
+**Waiting for the user's choice**: GPR options A–E; option H (protons) and option N (annotation) are independent.
+REPORT §5 recommends C, with B as the conservative alternative. Each is its own `curation-change` round.
+
+**Limits.** One medium. No *Y. lipolytica* data on either aconitase with homocitrate. Fazius' yeast coupled assays are
+"not shown". Attributing the H+ addition to the build's proton/water balancer is inferred. Seen in passing:
+nuclear-homocitrate dead end R396 / m628, and the R95 / m217 annotations (not reviewed).
+
 ## 2026-10-29: Evidence pipeline M1, rule core (no LLM, no model change; committed aa9c4fd on claude/evidence-pipeline-ec8347)
 
 **Authorization.** The user, 2026-10-29: answers to the M0 questions, then "Approve M1 plan" (including the ECO OBO
