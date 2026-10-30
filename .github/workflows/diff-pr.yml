@@ -12,6 +12,8 @@ on:
 jobs:
   diff:
     runs-on: ubuntu-latest
+    # A crashed memote worker otherwise hangs the job until GitHub's 6-hour limit.
+    timeout-minutes: 45
     permissions:
       contents: read
 
@@ -35,7 +37,10 @@ jobs:
         previous="${RUNNER_TEMP}/main_model.xml"
         git show "origin/main:${model}" > "$previous"
         mkdir -p memote-diff
-        memote report diff --filename "memote-diff/diff_${GITHUB_SHA}.html" "$model" "$previous"
+        # memote tests the two models in parallel workers; GLPK aborted one worker in this MILP test
+        # (run 41006117293) and the pool then waited forever. Both models skip it, so the diff stays fair.
+        memote report diff --skip test_inconsistent_min_stoichiometry \
+          --filename "memote-diff/diff_${GITHUB_SHA}.html" "$model" "$previous"
     - name: Upload diff report
       uses: actions/upload-artifact@v4
       with:
