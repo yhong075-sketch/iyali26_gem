@@ -1,0 +1,113 @@
+{
+ "baseline_model": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_20261029.xml (read from a SHA-checked short copy)",
+  "sha256": "ca43ae0c12e01c13c7b2ca4792b745d00d4a28ed950f8e401aece37b2a0843d0"
+ },
+ "genes": {
+  "YALI1D19110g": {
+   "annotation": {
+    "ec-code": "6.1.1.15",
+    "kegg.genes": "yli:2910171",
+    "ncbigene": "2910171",
+    "refseq": "XP_502869.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8NEQ1"
+   },
+   "name": "COBRAProtein591",
+   "notes": {},
+   "reactions": [
+    "R673"
+   ]
+  },
+  "YALI1E05929g": {
+   "annotation": {
+    "ec-code": "6.1.1.15",
+    "kegg.genes": "yli:2912271",
+    "ncbigene": "2912271",
+    "refseq": "XP_503566.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1H6Q518"
+   },
+   "name": "COBRAProtein592",
+   "notes": {},
+   "reactions": [
+    "R673"
+   ]
+  }
+ },
+ "reaction": {
+  "annotation": {
+   "bigg.reaction": [
+    "PROTRS",
+    "PROTRS_1",
+    "R_PROTRS",
+    "R_PROTRS_1"
+   ],
+   "biggr": [
+    "PROTRS",
+    "PROTRS_1",
+    "R_PROTRS",
+    "R_PROTRS_1"
+   ],
+   "ec-code": "6.1.1.15",
+   "metanetx.reaction": "MNXR146134",
+   "sbo": "SBO:0000176"
+  },
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "gpr": "YALI1D19110g or YALI1E05929g",
+  "id": "R673",
+  "name": "prolyl-tRNA synthetase",
+  "notes": {
+   "PROTEIN_CLASS": "6.1.1.15"
+  },
+  "species": {
+   "m10[C_cy]": {
+    "charge": 1,
+    "compartment": "C_cy",
+    "formula": "H"
+   },
+   "m141[C_cy]": {
+    "charge": 0,
+    "compartment": "C_cy",
+    "formula": "C10H16N5O13P3"
+   },
+   "m203[C_cy]": {
+    "charge": 0,
+    "compartment": "C_cy",
+    "formula": "H4O7P2"
+   },
+   "m765[C_cy]": {
+    "charge": 0,
+    "compartment": "C_cy",
+    "formula": "C5H9NO2"
+   },
+   "m86[C_cy]": {
+    "charge": 0,
+    "compartment": "C_cy",
+    "formula": "C10H14N5O7P"
+   },
+   "m905[C_cy]": {
+    "charge": 0,
+    "compartment": "C_cy",
+    "formula": null
+   },
+   "m906[C_cy]": {
+    "charge": 0,
+    "compartment": "C_cy",
+    "formula": "RC5H8NO"
+   }
+  },
+  "stoichiometry": {
+   "m10[C_cy]": 1.0,
+   "m141[C_cy]": -1.0,
+   "m203[C_cy]": 1.0,
+   "m765[C_cy]": -1.0,
+   "m86[C_cy]": 1.0,
+   "m905[C_cy]": -1.0,
+   "m906[C_cy]": 1.0
+  }
+ }
+}

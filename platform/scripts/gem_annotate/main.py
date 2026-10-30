@@ -102,6 +102,8 @@ def build_reference_chain(
     um7_nuclear_diffusion: bool = False,
     r2171_pi_plc_1to1: bool = False,
     aars_thr_ser_split: bool = False,
+    r171_atp_synthase_gpr: bool = False,
+    r673_prolyl_split: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -878,6 +880,18 @@ def build_reference_chain(
         from .aars_thr_ser_split import apply_aars_thr_ser_split
         selection["aars_thr_ser_split"] = apply_aars_thr_ser_split(model)
         logger.info("aaRS Thr/Ser split: %s", selection["aars_thr_ser_split"]["status"])
+    if r171_atp_synthase_gpr:
+        # Opt-in: R171 ATP synthase as the 12-gene core AND; subunits g, k, e and j kept unlinked (2026-10-29). GPR and
+        # notes only; no flag dependency: the step pins the before-state of R171 and its 16 genes.
+        from .r171_atp_synthase_gpr import apply_r171_atp_synthase_gpr
+        selection["r171_atp_synthase_gpr"] = apply_r171_atp_synthase_gpr(model)
+        logger.info("R171 ATP synthase GPR: %s", selection["r171_atp_synthase_gpr"]["status"])
+    if r673_prolyl_split:
+        # Opt-in: R673 to the cytosolic prolyl-tRNA synthetase YALI1E05929g; YALI1D19110g kept unlinked (2026-10-29).
+        # GPR and notes only; no flag dependency: the step pins the before-state of R673 and both genes.
+        from .r673_prolyl_split import apply_r673_prolyl_split
+        selection["r673_prolyl_split"] = apply_r673_prolyl_split(model)
+        logger.info("R673 prolyl split: %s", selection["r673_prolyl_split"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -986,6 +1000,8 @@ def build_model(args):
         um7_nuclear_diffusion=getattr(args, "um7_nuclear_diffusion", False),
         r2171_pi_plc_1to1=getattr(args, "r2171_pi_plc_1to1", False),
         aars_thr_ser_split=getattr(args, "aars_thr_ser_split", False),
+        r171_atp_synthase_gpr=getattr(args, "r171_atp_synthase_gpr", False),
+        r673_prolyl_split=getattr(args, "r673_prolyl_split", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

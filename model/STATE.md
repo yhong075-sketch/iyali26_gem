@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-29: Evidence pipeline M1, rule core (no LLM, no model change; not committed)
+## 2026-10-29: Evidence pipeline M1, rule core (no LLM, no model change; committed aa9c4fd on claude/evidence-pipeline-ec8347)
 
 **Authorization.** The user, 2026-10-29: answers to the M0 questions, then "Approve M1 plan" (including the ECO OBO
 download and an evidence-only pytest CI job). After that came three corrections: the lineage iYali26 → iYli21 → iYali4 →
@@ -35,7 +35,7 @@ unpublished. Compartment, bounds and cofactor verdicts have no real claims yet. 
 computed. Open: hedged-claim scoring (D35), the score-≥ 3 gate (D39), dispositions for the 15 non-YALI1 genes, and
 the commit target.
 
-## 2026-10-29: Evidence pipeline M0 survey (read-only; reviewer interface and report; not committed)
+## 2026-10-29: Evidence pipeline M0 survey (read-only; reviewer interface and report; committed aa9c4fd on claude/evidence-pipeline-ec8347)
 
 **Authorization.** User request relayed by the parent session: follow `EVIDENCE_PIPELINE_PROMPT.md`,
 M0 only (read-only survey, reviewer interface, M0 report), then stop and ask the §10 questions.
@@ -62,6 +62,174 @@ Details: [TASK.md](reports/evidence_pipeline_m0_20261029/TASK.md),
 
 **Limits.** Survey via `git show` before the worktree could be synced (later fast-forwarded to `main` `18590fc` by `git merge --ff-only`, the app's sync being refused for an unconfirmed origin). No pytest run. No pipeline code.
 
+## 2026-10-29: R171 and R673 note wording revised in the curated data, candidates 25dabf62 and 059316ef (supersede ca43ae0c and 6af03c40 for note wording; committed efdde43 on claude/essential-gene-r171-pro-7e2477, PR #37)
+
+**Authorization.** The user, 2026-10-29: "Yes, fix notes", then "Approve, option A" for the plan in
+[TASK.md](reports/r171_r673_note_revision_20261029/TASK.md): edit the two curated data files in place, rebuild to a
+new candidate, mark `ca43ae0c` and `6af03c40` superseded. No commit.
+Committed in `efdde43` on the user's instruction ("Commit on branch", 2026-10-29); merged with `origin/main` (PR #35; the STATE.md top conflict resolved by keeping both entries) and pushed with a pull request to `main`, [PR #37](https://github.com/yhong075-sketch/iyali26_gem/pull/37), on the user's instruction ("Push and open PR", 2026-10-29). This covers the R171, R673 and note-revision entries below. Full pytest on the merged tree: identical per-test outcomes.
+
+**Results** ([REPORT.md](reports/r171_r673_note_revision_20261029/REPORT.md),
+[AUDIT.md](reports/r171_r673_note_revision_20261029/AUDIT.md)). Verified this session; the independent audit supports
+all areas, with one wording imprecision and one candidate overstatement noted below.
+- **Candidate:**
+  [E5_…_r673_prolyl_split_notes_v2_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_notes_v2_20261029.xml)
+  (`25dabf62af2b28eb3d515a536680d4eb68fd0460f51253ea077e9f13d13d52b0`): the same argv as `6af03c40`. Seeds 0 and 1
+  are identical. Not a designated reference.
+- **Edits:**
+  - R171 note: the monomer lacking e, g, k "hydrolyses ATP at about the rate of the dimer (ATP hydrolysis, not
+    synthesis, was measured)", replacing "catalytically active".
+  - R673 note: YHR020W is "a putative prolyl-tRNA synthetase with no UniProt location"; `YALI1D19110g` is "similar to
+    *C. albicans* P78600 (annotated cytoplasmic) and to YER087W AIM10 (a probable mitochondrial ProRS)"; homology
+    names are mixed.
+  - The R673 evidence list now uses the UniProt wording and adds P78600.
+  - The R171 step's docstring was reworded.
+  - UniProt P38708, P39965 and P78600 were re-fetched (verified).
+- **Diff vs `6af03c40`:** exactly the two note keys; raw XML 2 lines. The optimisation problem is identical
+  (structurally verified), so the R673 round's scores carry over (15 %: 124 / 191 / 42 / 692).
+  - Sanity solves: WT 0.3116608216; `YALI1F04433g` KO/WT 0.10970; `YALI1E05929g` 0.
+- **pytest:** focused 12 passed; full suite unchanged test by test (336 passed, 19 failed, 20 errors).
+
+**Limits.**
+- Under option A, rebuilding the old argv no longer reproduces `ca43ae0c` or `6af03c40`. Both stay on disk, marked
+  superseded.
+- **Open, not changed:** "no UniProt location" is exact only for the Subcellular location section (P38708 has GO
+  cytoplasm, IEA). "Rests on the two predictors and synteny" may overstate: the ancestral-locus tags come from the
+  homology annotation (inferred). Both are put to the user.
+- **Second pass, same day** (user: "Yes, apply both", then "Approve as written"; REPORT §7–§8):
+  - The R673 note and evidence tier now read "no UniProt subcellular-location annotation" and "rests on the two
+    predictors; the ancestral-locus tags come from the same homology annotation".
+  - Candidate
+    [E5_…_r673_prolyl_split_notes_v3_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_notes_v3_20261029.xml)
+    (`059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d`) is the newest of the line. Seeds are
+    identical, and `25dabf62` is marked superseded.
+  - Diff vs `25dabf62`: only those two R673 note keys. Sanity solves unchanged; full pytest unchanged; audited.
+  - Left as recorded limits:
+    - P78600's GO CC is mitochondrion (IEA), although its name and subcellular location say cytoplasm.
+    - The R673 note calls `YALI1D19110g` "AIM10-like".
+    - The data's evidence list says "best hit", "synteny partner" and "ortholog reference".
+
+## 2026-10-29: R673 prolyl-tRNA synthetase: TargetP / DeepLoc predictions, then the cytosolic reaction assigned to YALI1E05929g, candidate 6af03c40 (committed efdde43 on claude/essential-gene-r171-pro-7e2477, PR #37)
+
+**Authorization.** The user, 2026-10-29:
+- "Yes, run predictors" approved submitting the two W29 sequences to TargetP 2.0 and DeepLoc 2.1 and keeping the raw
+  outputs, with no model change.
+- "Approve as written" approved the R673 plan in
+  [r673_prolyl_localization_20261029/TASK.md](reports/r673_prolyl_localization_20261029/TASK.md) §4 on `ca43ae0c`.
+
+No commit or push. This is item 2 of the brief (candidate 1b of the OR-rule review).
+
+**Predictions** ([REPORT](reports/r673_prolyl_localization_20261029/REPORT.md)). Verified this session. Raw outputs were
+saved and checked.
+- `YALI1E05929g` (W29 XP_503566.2, 528 aa):
+  - TargetP Other 0.99995.
+  - DeepLoc Cytoplasm 0.752; Mitochondrion 0.222 (threshold 0.622).
+- `YALI1D19110g` (XP_502869.1, 445 aa):
+  - TargetP mTP 0.625, cleavage at 13–14.
+  - DeepLoc Mitochondrion 0.844.
+- Jobs `6AE3BC76002509BB05EB4B1C` (TargetP) and `6AE3BCA7002509D23808033B` (DeepLoc).
+- The decision rule was written before the run, and the outputs meet it.
+- The W29 gene model of `YALI1E05929g` starts 11 residues upstream of the CLIB122 model. The 517-aa variant was not
+  run.
+- The annotation evidence is mixed. `YALI1D19110g` is also "similar to *C. albicans* ProRS cytoplasmic", and YHR020W
+  has no UniProt location. The call rests on the predictors plus synteny.
+
+**Change and results** ([REPORT](reports/r673_prolyl_split_20261029/REPORT.md),
+[AUDIT](reports/r673_prolyl_split_20261029/AUDIT.md), [escher/](reports/r673_prolyl_split_20261029/escher/README.md)).
+Verified this session. The independent audit supports everything except the evidence wording, which was then fixed.
+- **Candidate:**
+  [E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_20261029.xml)
+  (`6af03c405a691a76aa5857e23667dd9d34642b9c7d383f4ec17159966fb6f25a`) = `ca43ae0c` + `--r673-prolyl-split`.
+  - The name is shorter than the line's, because the appended name exceeded the macOS 255-byte limit. The first build
+    failed without writing a file.
+  - Not a designated reference.
+- **Change:**
+  - R673 `YALI1D19110g or YALI1E05929g` becomes `YALI1E05929g`.
+  - `YALI1D19110g` is kept with no reaction.
+  - Six notes are added.
+  - Diff: 3 differences, all intended.
+- **Code:**
+  - data `curation/gpr/r673_prolyl_split.json`;
+  - step `r673_prolyl_split.py`;
+  - flag `--r673-prolyl-split`, called after the R171 step;
+  - test `tests/test_r673_prolyl_split.py` (6 tests, 22 subtests).
+
+  Full pytest: 330 → 336 passed, the same 19 failures and 20 errors.
+- **Builds:** the control reproduces `ca43ae0c` byte for byte; seeds 0 and 1 are identical.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, 2,164 LPs):
+  - WT unchanged.
+  - Only `YALI1E05929g` changes (growth 0.3117 → 0): FN → TP at every cutoff.
+  - At 15 %: 123 / 192 / 42 / 692 → 124 / 191 / 42 / 692. Recall 0.390 → 0.394, precision 0.745 → 0.747, MCC 0.420 →
+    0.423.
+  - At 1 %, 5 % and 10 %, +1 TP each.
+  - The same 16 unresolved; no failing point. User-defined negatives; development reference.
+- `YALI1D19110g` stays FN: the model has no mitochondrial prolyl-tRNA reaction (category d).
+
+**Limits.**
+- Localisation is predicted only, and the two tools are not independent.
+- The R673 note calls YHR020W / AIM10 "the cytoplasmic / mitochondrial ProRS" and omits the *C. albicans* hit. This
+  is recorded, not rebuilt; together with the R171 note wording, it is a candidate for one combined note revision.
+- One medium.
+
+## 2026-10-29: R171 ATP synthase rule without the single-gene OR branches, subunits e and j out of the AND (Option D), candidate ca43ae0c (committed efdde43 on claude/essential-gene-r171-pro-7e2477, PR #37)
+
+**Authorization.** The user, 2026-10-29, answering "Which R171 option should I build (the plan above, on baseline
+d8d1bac7)?": **"Option D (Recommended)"**. That answer approved the plan in
+[TASK.md](reports/r171_atp_synthase_gpr_20261029/TASK.md) §5 and the baseline `d8d1bac7`. No commit or push.
+Item 1 of the brief from the session that started this one (candidate 2 of the OR-rule review below).
+
+**Results** ([REPORT.md](reports/r171_atp_synthase_gpr_20261029/REPORT.md),
+[AUDIT.md](reports/r171_atp_synthase_gpr_20261029/AUDIT.md),
+[escher/](reports/r171_atp_synthase_gpr_20261029/escher/README.md)). Verified this session. The independent audit
+supports builds, diff, rule, guard, test, sweep and figure; it partly supports the catalytic write-up and
+completeness, and those gaps were fixed.
+- **Candidate:**
+  [E5_…_aars_thr_ser_split_r171_atp_synthase_gpr_20261029.xml](candidates/E5_coq9_resp_pkg_r132_combined_gpi_tpp_thiamine_p_lock_heme_iron_r2193_gpr_lipoylation_acylacp_cofactor_biomass_r2135_pool_r1726_cpt_dolichol_route_v2_um7_nuclear_diffusion_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_20261029.xml)
+  (`ca43ae0c12e01c13c7b2ca4792b745d00d4a28ed950f8e401aece37b2a0843d0`) = `d8d1bac7` + `--r171-atp-synthase-gpr`. Not a
+  designated reference.
+- **Change:**
+  - R171 `(14-subunit AND) or YALI1B28025g or YALI1B15733g` becomes the 12-gene AND of ATP6/8/9 and the nine nuclear
+    core subunits.
+  - g (`YALI1B28025g`), k (`YALI1B15733g`), e (`YALI1E38131g`) and j (`YALI0D17490g`) are kept in the model with no
+    reaction.
+  - Seven notes are added.
+  - Whole-model diff: 6 differences (R171 rule, notes, four gene links), all intended.
+- **Ground:**
+  - No evidence that g or k catalyses alone.
+  - e, g and k are dimer-specific: the *Y. lipolytica* monomer without them hydrolyses ATP (Hahn 2016). The
+    *S. cerevisiae* e, g and k are not required for an active enzyme (Arnold 1998).
+  - The *S. cerevisiae* j null keeps about half the activity (Vaillier 1999, abstract).
+  - All of this is recalled from the review. The strict reading "loss closes the reaction" is the user's choice.
+- **Code:**
+  - data `curation/gpr/r171_atp_synthase_gpr.json`;
+  - step `platform/scripts/gem_annotate/r171_atp_synthase_gpr.py`;
+  - flag `--r171-atp-synthase-gpr` (no flag dependency), called after the aaRS split;
+  - test `tests/test_r171_atp_synthase_gpr.py` (6 tests, 51 subtests).
+
+  Full pytest: 324 → 330 passed, the same 19 failures and 20 errors; only the new tests differ.
+- **Builds:** the control without the flag reproduces `d8d1bac7…` byte for byte; seeds 0 and 1 are identical.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, basis reset per knockout, targeted check, 2,164 LPs):
+  - WT unchanged at 0.3116608216.
+  - Only the 12 AND members change: growth 0.034190, KO/WT 0.1097.
+  - 9 nuclear core subunits go FN → TP at 15 % only; the 3 mtDNA genes are out of scope.
+  - At 15 %: 114 / 201 / 42 / 692 → 123 / 192 / 42 / 692. Recall 0.362 → 0.390, specificity 0.943, precision
+    0.731 → 0.745, MCC 0.393 → 0.420.
+  - No change at 1, 5 or 10 %. The same 16 unresolved; no failing point.
+  - User-defined negatives; development reference.
+- **Figure:** pFBA of the α-subunit knockout before vs after (12 LPs).
+  - Before, R171 stays open and the fluxes equal WT.
+  - After, R171 is closed. The chain runs at about twice the WT rate, and the proton leak R1384 (155.7) dissipates
+    the gradient. ATP is substrate-level only.
+
+**Limits.**
+- The literature was read in the review, not re-opened here. No *Y. lipolytica* knockout exists for e, g, k or j.
+- The retained AND members rest mainly on the consensus screens, which are also the benchmark list.
+- The R171 note says "catalytically active" where the measured activity was hydrolysis. This is recorded, not
+  rebuilt.
+- One medium. The gain exists only at 15 % because of the fermentative 0.1097 ceiling (2026-10-21 line).
+- `YALI0D17490g` → `YALI1D21476g` is an identifier question for the annotation line.
+- Not traced: a WT pFBA flux of about 18 through R659 / r0210 / R_CYST_II.
+- Next gate: round 2, the prolyl pair R673, needs the user's approval of a TargetP / DeepLoc submission.
 ## 2026-10-29: 11 unused candidate XMLs removed from the working tree (housekeeping, no model change)
 
 **Authorization.** The user, 2026-10-29: "Plan step 3", then "Strict: 14 files" (remove the candidate XMLs that no
