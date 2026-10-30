@@ -5,12 +5,13 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (not committed)
+## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (committed c8813ae on claude/aconitase-aco2-split-1c492f)
 
 **Authorization.** The user, 2026-10-29: "Approve the aconitase plan in TASK.md §7 on baseline 059316ef"
 ([TASK.md](reports/aconitase_aco2_split_20261029/TASK.md)), after "you can download it, just remember to add in
 gitignore" (Biopython 1.85 in the git-ignored `.tools/align-venv`; `/.tools/` added to `.gitignore`). No commit or
 push. Brief from the session that started this one: the first-ranked lever of the 2026-10-29 read-only review.
+Committed in `c8813ae` on the user's instruction ("Commit on branch", 2026-10-29); not pushed.
 
 **Results** ([REPORT.md](reports/aconitase_aco2_split_20261029/REPORT.md),
 [AUDIT.md](reports/aconitase_aco2_split_20261029/AUDIT.md),
