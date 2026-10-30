@@ -1,0 +1,169 @@
+# Evidence pipeline rule tables (spec §1.3, §1.5, §2.1, §2.2; SPEC.md in this folder).
+# One committed file; its `version` is stored on every assertion and verdict. Frozen in V1/V2:
+# change it only as a reported decision and bump the version.
+
+version: "evidence-weights-v1 2026-10-29"
+
+eco:
+  release: "releases/2026-07-10"   # must match the header of eco_terms.tsv
+  # Branch roots used by the ECO test: each level's ECO term must descend from its branch.
+  branches:
+    experimental: "ECO:0000006"
+    similarity: "ECO:0000041"
+    automatic: "ECO:0000501"
+    author_statement: "ECO:0000204"
+    curator_inference: "ECO:0000205"
+    computational: "ECO:0007672"
+
+# claim_level -> ECO term, expected branch, band.
+# Bands (spec §1.5): functional / parts; levels in neither band are "statement".
+levels:
+  STRUCTURE:                     {eco: "ECO:0000314", branch: experimental,      band: functional}
+  ACTIVITY_PURIFIED:             {eco: "ECO:0000314", branch: experimental,      band: functional}
+  ACTIVITY_HETEROLOGOUS:         {eco: "ECO:0000314", branch: experimental,      band: functional}
+  FLUX_13C:                      {eco: "ECO:0000314", branch: experimental,      band: functional}
+  ACTIVITY_CRUDE:                {eco: "ECO:0000314", branch: experimental,      band: functional}
+  LOCALIZATION_DIRECT:           {eco: "ECO:0000314", branch: experimental,      band: functional}
+  PHENOTYPE_COMPLEMENTATION:     {eco: "ECO:0000315", branch: experimental,      band: functional}
+  PHENOTYPE_KO:                  {eco: "ECO:0000315", branch: experimental,      band: functional}
+  PHENOTYPE_OE:                  {eco: "ECO:0000315", branch: experimental,      band: functional}
+  EXPRESSION_PROTEIN:            {eco: "ECO:0000270", branch: experimental,      band: parts}
+  EXPRESSION_TRANSCRIPT:         {eco: "ECO:0000270", branch: experimental,      band: parts}
+  PHYSIOLOGY:                    {eco: "ECO:0000314", branch: experimental,      band: functional}
+  ORTHOLOGY:                     {eco: "ECO:0000266", branch: similarity,        band: statement}
+  HOMOLOGY_ANNOTATION:           {eco: "ECO:0000250", branch: similarity,        band: parts}
+  GENOMIC_PRESENCE:              {eco: "ECO:0000501", branch: automatic,         band: parts}
+  AUTHOR_STATEMENT_TRACEABLE:    {eco: "ECO:0000304", branch: author_statement,  band: statement}
+  AUTHOR_STATEMENT_NONTRACEABLE: {eco: "ECO:0000303", branch: author_statement,  band: statement}
+  MODEL_INCLUSION:               {eco: "ECO:0000305", branch: curator_inference, band: statement}
+  # Spec: "0000305 (or a more specific computational ECO term, verify)". ECO:0007669 is
+  # "computational evidence used in automatic assertion" in the pinned release.
+  MODEL_VALIDATION:              {eco: "ECO:0007669", branch: computational,     band: statement}
+
+# Per-predicate directness, most direct first; levels in one inner list are equal (≈).
+# A level absent from a predicate's list is inadmissible for that predicate.
+directness:
+  reaction_exists:
+    - [FLUX_13C, ACTIVITY_PURIFIED, STRUCTURE]
+    - [ACTIVITY_CRUDE]
+    - [PHENOTYPE_KO]
+    - [PHYSIOLOGY]
+    - [EXPRESSION_PROTEIN]
+    - [EXPRESSION_TRANSCRIPT]
+    - [ORTHOLOGY]
+    - [HOMOLOGY_ANNOTATION]
+    - [GENOMIC_PRESENCE]
+    - [AUTHOR_STATEMENT_TRACEABLE, AUTHOR_STATEMENT_NONTRACEABLE]
+    - [MODEL_VALIDATION]
+    - [MODEL_INCLUSION]
+  gene_encodes:
+    - [ACTIVITY_HETEROLOGOUS, ACTIVITY_PURIFIED, STRUCTURE]
+    - [PHENOTYPE_COMPLEMENTATION]
+    - [PHENOTYPE_KO]
+    - [PHENOTYPE_OE]
+    - [ORTHOLOGY]
+    - [HOMOLOGY_ANNOTATION]
+    - [AUTHOR_STATEMENT_TRACEABLE, AUTHOR_STATEMENT_NONTRACEABLE]
+    - [MODEL_VALIDATION]
+    - [MODEL_INCLUSION]
+  localized_in:
+    - [LOCALIZATION_DIRECT]
+    - [ACTIVITY_PURIFIED]          # only with fractionation (method mentions it)
+    - [ORTHOLOGY]
+    - [HOMOLOGY_ANNOTATION]
+    - [MODEL_INCLUSION]
+  cofactor:
+    # STRUCTURE is admissible for COFACTOR in the spec's level table but missing from its
+    # ranking; placed with the activity levels (SPEC.md Deviations).
+    - [ACTIVITY_PURIFIED, ACTIVITY_HETEROLOGOUS, STRUCTURE]
+    - [ACTIVITY_CRUDE]
+    - [ORTHOLOGY]
+    - [HOMOLOGY_ANNOTATION]
+  directionality.biochemical:
+    - [ACTIVITY_PURIFIED, ACTIVITY_HETEROLOGOUS]
+    - [ACTIVITY_CRUDE]
+    - [ORTHOLOGY]
+    - [HOMOLOGY_ANNOTATION]
+  directionality.physiological:
+    - [FLUX_13C]
+  flux_active_under:
+    - [FLUX_13C]
+    - [PHYSIOLOGY]
+    - [EXPRESSION_PROTEIN, EXPRESSION_TRANSCRIPT]
+  essential_under:
+    - [PHENOTYPE_KO]
+    - [MODEL_VALIDATION]
+  subsystem_member:
+    - [MODEL_INCLUSION, AUTHOR_STATEMENT_TRACEABLE, AUTHOR_STATEMENT_NONTRACEABLE, HOMOLOGY_ANNOTATION, ORTHOLOGY]
+
+# Derived confidence (spec §2.1, Thiele & Palsson scale). The first matching rule, highest
+# score first, wins for a claim; the assertion takes the best claim of its winning side.
+# `predicates` limits a rule; `max_taxon` defaults to 1 (organism-specific).
+confidence:
+  - {score: 4, levels: [ACTIVITY_PURIFIED, ACTIVITY_HETEROLOGOUS, STRUCTURE]}
+  - {score: 4, levels: [FLUX_13C], predicates: [reaction_exists, flux_active_under, directionality.physiological]}
+  - {score: 4, levels: [LOCALIZATION_DIRECT], predicates: [localized_in]}
+  - {score: 3, levels: [PHENOTYPE_COMPLEMENTATION, PHENOTYPE_KO, PHENOTYPE_OE]}
+  - {score: 2, levels: [EXPRESSION_PROTEIN, EXPRESSION_TRANSCRIPT, PHYSIOLOGY]}
+  - {score: 2, levels: [ACTIVITY_CRUDE], predicates: [reaction_exists]}
+  - {score: 2, levels: [ORTHOLOGY], max_taxon: 3,
+     transfer_from: [ACTIVITY_PURIFIED, ACTIVITY_HETEROLOGOUS, ACTIVITY_CRUDE]}
+  - {score: 1, levels: any}
+unresolved_cap: 2
+
+# Organism scope (spec §1.1; user decision 2026-10-29). Strain names compare case-insensitively
+# with spaces removed; a null strain is never W29 (distance 1 for Y. lipolytica).
+taxonomy:
+  canonical_strains: [W29, Po1d, Po1f, Po1g, Po1h, "PO1f::Cas9"]
+  species_names: [Yarrowia lipolytica, Candida lipolytica, Saccharomycopsis lipolytica, Endomycopsis lipolytica]
+  genus: Yarrowia
+  saccharomycotina_genera: [Saccharomyces, Candida, Komagataella, Pichia, Kluyveromyces, Debaryomyces,
+                            Scheffersomyces, Ogataea, Lachancea, Zygosaccharomyces, Wickerhamomyces,
+                            Meyerozyma, Lipomyces, Hansenula, Cyberlindnera, Torulaspora, Clavispora]
+  fungi_genera: [Schizosaccharomyces, Aspergillus, Neurospora, Fusarium, Penicillium, Trichoderma,
+                 Cryptococcus, Ustilago, Rhizopus, Mucor, Mortierella, Magnaporthe, Botrytis, Rhodotorula,
+                 Rhodosporidium, Phaffia]
+
+# Literature compartment words -> model compartment IDs (d8d1bac7: C_cy, C_mi, C_pe, C_er, ...).
+compartments:
+  cytosol: C_cy
+  cytoplasm: C_cy
+  mitochondria: C_mi
+  mitochondrion: C_mi
+  mitochondrial matrix: C_mi
+  mitochondrial membrane: C_mm
+  peroxisome: C_pe
+  endoplasmic reticulum: C_er
+  er membrane: C_em
+  nucleus: C_nu
+  golgi: C_go
+  golgi membrane: C_gm
+  vacuole: C_va
+  vacuolar membrane: C_vm
+  lipid particle: C_lp
+  lipid body: C_lp
+  lipid droplet: C_lp
+  extracellular: C_ex
+  endosome: C_en
+
+# Subsystem precedence (spec §1.6): the primary subsystem comes from the first ontology present.
+subsystem_precedence: [model_groups, kegg_pathway]
+
+# Single essentiality threshold, KO/WT growth strictly below it = essential (user decision
+# 2026-10-29). Shared with model/expected/benchmark.md (15 % primary); L4b reports also show
+# the sensitivity values.
+essentiality_threshold: 0.15
+essentiality_sensitivity: [0.05, 0.10, 0.15, 0.20]
+
+# L5 human-queue priority = model impact x uncertainty (spec §2.2).
+priority:
+  uncertainty: {CONFLICTING: 4, CONTRADICTED: 3, PARTIAL: 2, UNSUPPORTED: 1, SUPPORTED: 0}
+  impact:
+    base: 1
+    essential_in_simulation: 1     # any GPR gene essential at essentiality_threshold
+    phosphatidate_hub: 1           # reaction in the pilot's phosphatidate-hub group
+    # flux centrality: not computed in M1
+
+# Pairing and aggregation constants.
+independence_window_years: 5
+independence_min_shared_authors: 2
