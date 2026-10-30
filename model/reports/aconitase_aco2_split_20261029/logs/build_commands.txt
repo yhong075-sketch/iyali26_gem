@@ -1,0 +1,23 @@
+# Run from platform/ with /opt/miniconda3/bin/python (Python 3.13.5). <scratchpad> is this session's scratchpad.
+# ARGS = the 059316ef argv from its .build.json without --output-model (37 arguments; ../scripts/args_059316ef.txt, copied from
+# <scratchpad>/build/; passed by ../scripts/run_build.zsh (copy; its HERE is the folder it runs from), which runs
+# PYTHONHASHSEED=$SEED /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS [EXTRA] --output-model OUT).
+# Tree state: build_head_control.txt (control), build_head.txt (candidate and seed check).
+
+# control (flag off; reproduces 059316ef byte for byte)
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/build/control_059316ef.xml
+
+# candidate e1e7c868
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --aconitase-aco2-split --output-model /Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/aconitase-aco2-split-1c492f/model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_20261029.xml
+
+# seed check (identical bytes)
+PYTHONHASHSEED=1 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --aconitase-aco2-split --output-model <scratchpad>/build/candidate_seed1.xml
+
+# results (shasum -a 256)
+# 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d  control_059316ef.xml
+# e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897  candidate (seed 0)
+# e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897  candidate_seed1.xml
+
+# control again with the final code (after the cli.py / main.py edits; build_head_control_final.txt), flag off
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/build/control_final_059316ef.xml
+# 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d  control_final_059316ef.xml
