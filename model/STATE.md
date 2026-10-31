@@ -5,6 +5,47 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-30: Trehalose removed from biomass_C, candidate 164542fb (committed 53242c3 on claude/trehalose-biomass-24e3c1, PR #40)
+
+**Authorization.** The user, 2026-10-30: "Approve C on e1e7c868"
+([TASK.md](reports/trehalose_biomass_20261030/TASK.md) §6 option C as written in §9, baseline `e1e7c868`, §9
+budget; option D, the R143 rule, deferred to its own round). No commit or push. Brief from the session that started
+this one: the trehalose false-positive group, first among the ready rounds of the 2026-10-29 ranking. Committed on
+the user's instruction ("Commit on branch", 2026-10-30), without the superseded first build `d2e4c0c4`; pushed with a
+pull request to `main`, [PR #40](https://github.com/yhong075-sketch/iyali26_gem/pull/40), on the user's instruction
+("Push and open PR", 2026-10-30).
+
+**Results** ([REPORT.md](reports/trehalose_biomass_20261030/REPORT.md),
+[AUDIT.md](reports/trehalose_biomass_20261030/AUDIT.md),
+[escher/](reports/trehalose_biomass_20261030/escher/README.md)). Verified this session. The independent audit found
+no unsupported claim; its partly supported points (evidence wording in the notes and TASK.md, objective direction
+unchecked, a figure label) were fixed and the model rebuilt as v2.
+- **Candidate:**
+  [E5_…_aco_split_treh_biomass_v2_20261030.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_v2_20261030.xml)
+  (`164542fb6056f01e257ecfaed1b456961e8a07e46e9e4e1942f79489d5014beb`) = `e1e7c868` + `--trehalose-biomass-removal`.
+  First build `d2e4c0c4…` (same LP; two note texts differ) kept until the user decides. Not a designated reference.
+- **Change:** `biomass_C` loses trehalose `m294[C_cy]` −0.00686 mmol/gDW and gains seven `trehalose_biomass_*`
+  notes; nothing else differs (whole-model diff and raw XML diff, 2 entries). Not re-normalised.
+- **Ground:**
+  - Flores et al. 2011 ([PMID 21931609](https://europepmc.org/article/MED/21931609), full text read): WT trehalose
+    < 1 nmol/mg DW on minimal glucose medium (Table 4), also up to stationary phase and on glycerol; the *tps1*
+    disruptant grows on glucose at least as fast as WT (139 vs 149 min); no trehalose detected in `nth1 tps1` or
+    heat-shocked `tps1`. The model's 6.86 nmol/mg is more than 6.8× the reported bound.
+  - The 0.00686 has no source: it is the eciYali5-GEM script's `xCARBOHYDRATE` value, iYali4's `xBIOMASS` trehalose
+    0.0032 scaled about 2.14×.
+  - `YALI1E17616g` = `YALI0E14685g` = UniProt O74932 TPS1 (EMBL AJ011032, the Flores cDNA), verified.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, reset per knockout, 2,164 LPs, no failing point): WT 0.3116608 →
+  0.3122964 (+0.20 %). Only `YALI1E17616g` (TPS1), `YALI1D17620g` ("TPS2", homology) and `YALI1E36568g` ("TPS3")
+  change: essential → non-essential at 1, 5, 10 and 15 % (all user-defined negatives, FP → TN). 15 %:
+  125 / 190 / 42 / 692 → 125 / 190 / 39 / 695 (MCC 0.4255 → 0.4338); FP −3 at every cutoff; recall unchanged.
+- **Build checks:** control reproduces `e1e7c868` (twice); seeds 0/1 identical for both builds; pytest the same
+  19 failed and 20 errors (identical IDs) before and after both versions, +5 new tests (19 subtests).
+
+**Limits.** The measurement is an upper bound ("< 1"), in strain CJM 645 on YNB-glutamate glucose, not PO1f on the
+Task A medium; heat shock (7–20 nmol/mg DW) is not modelled. The R143 rule `TPS2 and TPS1 and TPS3` is unchanged
+(option D, own round if wanted). Trehalose terms of the non-objective `xBIOMASS`, `newBiom`, `R1372` unchanged.
+Scores use the development consensus list (user-defined negatives), not independent validation.
+
 ## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (committed c8813ae on claude/aconitase-aco2-split-1c492f, PR #39)
 
 **Authorization.** The user, 2026-10-29: "Approve the aconitase plan in TASK.md §7 on baseline 059316ef"

@@ -1,0 +1,28 @@
+# Run from platform/ with /opt/miniconda3/bin/python (Python 3.13.5). <scratchpad> is this session's scratchpad.
+# ARGS = the e1e7c868 argv from its .build.json without the __main__ path and --output-model (38 arguments;
+# ../scripts/args_e1e7c868.txt), passed by ../scripts/run_build.zsh, which runs
+# PYTHONHASHSEED=$SEED /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS [EXTRA] --output-model OUT.
+# Tree state: build_head.txt (all three builds).
+
+# control (flag off; reproduces e1e7c868 byte for byte)
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/build/control_e1e7c868.xml
+
+# candidate d2e4c0c4
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --trehalose-biomass-removal --output-model model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_20261030.xml
+
+# seed check (identical bytes)
+PYTHONHASHSEED=1 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --trehalose-biomass-removal --output-model <scratchpad>/build/candidate_seed1.xml
+
+# results (shasum -a 256)
+# e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897  control_e1e7c868.xml
+# d2e4c0c4b02c7e48f182d4f0b7d12964bd4818478cee311f56a87c67019ab017  candidate (seed 0)
+# d2e4c0c4b02c7e48f182d4f0b7d12964bd4818478cee311f56a87c67019ab017  candidate_seed1.xml
+
+# v2, after the audit (two reworded biomass_C evidence notes; guard: objective direction, isclose coefficient).
+# Tree state: build_head_v2.txt. Same ARGS and run_build.zsh.
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --output-model <scratchpad>/build_v2/control_e1e7c868.xml
+PYTHONHASHSEED=0 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --trehalose-biomass-removal --output-model model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_v2_20261030.xml
+PYTHONHASHSEED=1 /opt/miniconda3/bin/python -m scripts.gem_annotate ARGS --trehalose-biomass-removal --output-model <scratchpad>/build_v2/candidate_v2_seed1.xml
+# e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897  control_e1e7c868.xml
+# 164542fb6056f01e257ecfaed1b456961e8a07e46e9e4e1942f79489d5014beb  candidate v2 (seed 0)
+# 164542fb6056f01e257ecfaed1b456961e8a07e46e9e4e1942f79489d5014beb  candidate_v2_seed1.xml
