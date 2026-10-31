@@ -5,6 +5,42 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-30: R24 homocitrate dehydration to YALI1D11984g or YALI1E17935g (option C), candidate f505571d (committed ff4dd32 on claude/nice-bouman-b161f4, not pushed)
+
+**Authorization.** The user, 2026-10-30, after the R24 review: "Option C", then "Approve plan". The approved plan:
+commit the review (`ac8921d`); merge the local, unpushed `refs/heads/claude/aconitase-aco2-split-1c492f` (`a006df1`)
+into this branch (merge `199dec2`); implement option C through the pipeline. No push. Options H (3 H+) and N (name
+and cross-references) were not in scope. Details: [TASK.md](reports/r24_homocitrate_aco_20261030/TASK.md),
+[REPORT.md](reports/r24_homocitrate_aco_20261030/REPORT.md), [AUDIT.md](reports/r24_homocitrate_aco_20261030/AUDIT.md).
+
+**Results** (verified this session; independent audit found no bug that changes the model, knockouts or erratum; its
+fixes are applied).
+- **Candidate:**
+  [E5_…_aco_split_r24_aco_20261030.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_r24_aco_20261030.xml)
+  (`f505571d3da6d76920f242e334aa74521d0f754c452b65eb12791e89c079e3c6`) = `e1e7c868` + `--r24-homocitrate-aconitase`.
+  Seeds 0 and 1 identical; the control build (flag off) is byte-identical to `e1e7c868`. Not a designated reference.
+- **Change:** R24 `YALI1E03387g` → `YALI1D11984g or YALI1E17935g`, plus 6 notes. `YALI1E03387g` keeps R395.
+  `YALI1E17935g`, unlinked after the aconitase split, is now on R24 only. Whole-model diff: 5 differences, all
+  intended.
+- **Pipeline:** `model/curation/gpr/r24_homocitrate_aconitase.json`, `apply_r24_homocitrate_aconitase` (fails
+  closed; must run after `--aconitase-aco2-split`), `tests/test_r24_homocitrate_aconitase.py`.
+- **Solves** (Task A + PO1f, Gurobi 1e-9; 5 LPs, all optimal): WT 0.3116608216.
+  - `YALI1E03387g` 0.0694: FN / FN / TP / TP.
+  - `YALI1D11984g` 0.0244: FN / TP / TP / TP.
+  - `YALI1E17935g` 1.0: TN.
+  - No class change at 1/5/10/15 %. User-defined negatives; development reference.
+- **pytest:** 421 passed after; only the 6 new tests changed outcome on the code side. TASK criterion 5 is not met
+  as written: 29 tests error in the before run (archived at 199dec2 under the long scratchpad path) and pass after.
+  Each fails on cobra's 260-character path limit or a missing sibling `model.xml`.
+- **Erratum to the review:** in its in-memory variant C, the `YALI1D11984g` knockout wrongly also closed R24. The
+  cause is cobra 0.30.0: a reactionless gene has no model link after an SBML read, so `knock_out()` is not undone
+  on context exit. Same growth (difference 9e-19); no review number changes. Erratum added to the review REPORT §2.
+
+**Limits.** One medium. `YALI1E17935g` activity on homocitrate is unproven in *Y. lipolytica*; it rests on
+*S. cerevisiae* genetics and homology, and option B is the fallback. R24's name and cross-references, m76's
+cross-references and the 3 H+ are unchanged. The aconitase round's files still say `YALI1E17935g` has no reaction,
+which is no longer true of `f505571d`. The aconitase round is on this branch only by a local merge.
+
 ## 2026-10-30: Certified-infeasible knockouts scored as growth 0; COX9 out of scope (benchmark rule change, committed 8e8004f on claude/cx34-infeasible-discussion-7b0c5b, PR #41)
 
 **Authorization.** The user, 2026-10-30: "Plan this rule", then "Approve D1–D3" on
@@ -132,6 +168,47 @@ unchecked, a figure label) were fixed and the model rebuilt as v2.
 Task A medium; heat shock (7–20 nmol/mg DW) is not modelled. The R143 rule `TPS2 and TPS1 and TPS3` is unchanged
 (option D, own round if wanted). Trehalose terms of the non-objective `xBIOMASS`, `newBiom`, `R1372` unchanged.
 Scores use the development consensus list (user-defined negatives), not independent validation.
+
+## 2026-10-29: R24 / R395 homocitrate steps reviewed on e1e7c868 (investigation only, no model change; committed ac8921d on claude/nice-bouman-b161f4)
+
+**Authorization.** Brief from the session that started this one, 2026-10-29: "Investigation only, no model change",
+in-memory variants only; the follow-up recorded by the aconitase round. Baseline `e1e7c868…` (aconitase candidate,
+uncommitted on `claude/aconitase-aco2-split-1c492f`, not on `origin/main`).
+
+**Results** ([REPORT.md](reports/r24_homocitrate_review_20261029/REPORT.md),
+[TASK.md](reports/r24_homocitrate_review_20261029/TASK.md)). Verified this session unless marked; no independent
+audit.
+- **R24's gene.**
+  - LYS4-like `YALI1E03387g` (Swiss-Prot Q6C791, by similarity) is not supported for homocitrate → cis-homoaconitate.
+    Fazius 2012 full text: homoaconitases show no homocitrate activity, while aconitase plus homoaconitase convert it.
+    In yeast, *aco1 aco2* is lysine-auxotrophic and each single mutant grows.
+  - Candidates: ACO1-type `YALI1D11984g`, and ACO2-type `YALI1E17935g`.
+  - The ACO2-type's activity in *Y. lipolytica* is unknown. Its Aco2-clade K609 is shared by inactive *Aspergillus*
+    AcoB, so it does not show activity.
+- **R395** stays `YALI1E03387g`.
+- **Annotation.**
+  - R24's name and cross-refs are 2-methylcitrate dehydratase: Rhea 57496, MNXR145545, BiGG MCITD, with `ec-code`
+    4.2.1.36.
+  - Product m76 is named homoaconitate but annotated as 2-methyl-cis-aconitate (KEGG C04225, ChEBI 57872).
+  - Correct IDs: KEGG R03444 / RHEA:26101, C04002 / ChEBI 58174.
+  - The name is inherited from Yeast-GEM r_0027 (inferred).
+- **3 H+.** A protonation artefact: neutral homocitrate and homoisocitrate against trianionic homoaconitate. The
+  source XML has no H+. FBA-neutral (statically verified). Physiologically there are no H+ (ChEBI).
+- **Direction.** Reversible is fine. The network allows only forward net flux (statically verified).
+- **In-memory knockouts** (Task A + PO1f, Gurobi 1e-9, 25 LPs):
+  - WT is unchanged in every variant.
+  - Options B (ACO1-type), C (both aconitases) and E: no class change for any gene.
+  - Option D (ACO2-type only): `YALI1E17935g` TN → FP at 10 % and 15 %.
+  - `YALI1E03387g` stays FN / FN / TP / TP: lysine bound, R395 closed.
+  - `YALI1D11984g` stays FN / TP / TP / TP.
+  - User-defined negatives; development reference.
+
+**Waiting for the user's choice**: GPR options A–E; option H (protons) and option N (annotation) are independent.
+REPORT §5 recommends C, with B as the conservative alternative. Each is its own `curation-change` round.
+
+**Limits.** One medium. No *Y. lipolytica* data on either aconitase with homocitrate. Fazius' yeast coupled assays are
+"not shown". Attributing the H+ addition to the build's proton/water balancer is inferred. Seen in passing:
+nuclear-homocitrate dead end R396 / m628, and the R95 / m217 annotations (not reviewed).
 
 ## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (committed c8813ae on claude/aconitase-aco2-split-1c492f, PR #39)
 

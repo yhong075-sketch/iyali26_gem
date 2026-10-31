@@ -1,0 +1,178 @@
+{
+ "schema_version": 1,
+ "assignment_id": "R24-HOMOCITRATE-ACO-20261030",
+ "status": "user_authorized_gpr_correction",
+ "authorization": "2026-10-30 user: Option C, then Approve plan (reports/r24_homocitrate_aco_20261030: R24 to YALI1D11984g or YALI1E17935g, flag --r24-homocitrate-aconitase, built after --aconitase-aco2-split). No push.",
+ "reactions": {
+  "R24": {
+   "reaction_name": "2-methylcitrate dehydratase",
+   "before_gpr": "YALI1E03387g",
+   "after_gpr": "YALI1D11984g or YALI1E17935g",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "stoichiometry": {
+    "m26[C_mi]": 1.0,
+    "m28[C_mi]": 3.0,
+    "m75[C_mi]": -1.0,
+    "m76[C_mi]": 1.0
+   },
+   "species": {
+    "m26[C_mi]": {
+     "formula": "H2O",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m28[C_mi]": {
+     "formula": "H",
+     "charge": 1,
+     "compartment": "C_mi"
+    },
+    "m75[C_mi]": {
+     "formula": "C7H10O7",
+     "charge": 0,
+     "compartment": "C_mi"
+    },
+    "m76[C_mi]": {
+     "formula": "C7H5O6",
+     "charge": -3,
+     "compartment": "C_mi"
+    }
+   },
+   "annotation": {
+    "bigg.reaction": [
+     "MCITD",
+     "R_MCITD"
+    ],
+    "biggr": [
+     "MCITD",
+     "R_MCITD"
+    ],
+    "ec-code": "4.2.1.36",
+    "metanetx.reaction": "MNXR145545",
+    "rh": [
+     "57496",
+     "57497",
+     "57498",
+     "57499"
+    ],
+    "rhea": [
+     "57496",
+     "57497",
+     "57498",
+     "57499"
+    ],
+    "sbo": "SBO:0000176"
+   },
+   "before_notes": {
+    "PROTEIN_CLASS": "4.2.1.114"
+   },
+   "notes": {
+    "r24_homocitrate_aco_curation_id": "R24-HOMOCITRATE-ACO-20261030",
+    "r24_homocitrate_aco_status": "user_authorized_gpr_correction",
+    "r24_homocitrate_aco_authorization": "2026-10-30 user: Option C, then Approve plan (reports/r24_homocitrate_aco_20261030: R24 to YALI1D11984g or YALI1E17935g, flag --r24-homocitrate-aconitase, built after --aconitase-aco2-split). No push.",
+    "r24_homocitrate_aco_previous_gpr": "YALI1E03387g; the LYS4-like homoaconitase, kept on R395",
+    "r24_homocitrate_aco_evidence": "YALI1E03387g (YALI0E02728g, Swiss-Prot Q6C791 LYS4, by similarity) is a homoaconitase; its only reviewed activity is homoisocitrate to cis-homoaconitate (RHEA:15485), the R395 step, and it stays on R395. Yeast and A. fumigatus homoaconitases show no homocitrate activity; homocitrate is converted by aconitase plus homoaconitase (Fazius 2012, PMC3556520, Table 1 and Results). In S. cerevisiae each aco1 or aco2 single mutant grows without lysine, while the aco1 aco2 double mutant is completely lysine auxotrophic (same paper), so either aconitase alone supports the step; R24 therefore reads YALI1D11984g (ACO1-type, Q6C9P6) or YALI1E17935g (ACO2-type, Q6C5V2). The ACO2-type member stands on transfer from S. cerevisiae: Aspergillus Aco2-clade AcoB proteins were inactive, and the Aco2-clade lysine at Aco2p 610 is shared by those inactive proteins. Report reports/r24_homocitrate_aco_20261030; review reports/r24_homocitrate_review_20261029.",
+    "r24_homocitrate_aco_evidence_tier": "YALI1D11984g: homology plus S. cerevisiae and fungal biochemistry and genetics. YALI1E17935g: homology plus S. cerevisiae Aco2p biochemistry only; inactive Aco2-clade homologues exist in Aspergillus. No Y. lipolytica enzymology, knockout or localisation for either aconitase on homocitrate."
+   }
+  }
+ },
+ "genes": {
+  "YALI1E03387g": {
+   "annotation": {
+    "ec-code": "4.2.1.36",
+    "ensembl": "CAG79050",
+    "kegg.genes": "yli:2912118",
+    "refseq": "XP_503471.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "Q6C791"
+   },
+   "reactions_before": [
+    "R24",
+    "R395"
+   ],
+   "reactions_after": [
+    "R395"
+   ]
+  },
+  "YALI1D11984g": {
+   "annotation": {
+    "ec-code": "4.2.1.-",
+    "kegg.genes": "yli:2910842",
+    "ncbigene": "2910842",
+    "refseq": "XP_502616.2",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8NDY4"
+   },
+   "reactions_before": [
+    "R1556",
+    "R216",
+    "R238",
+    "R239"
+   ],
+   "reactions_after": [
+    "R1556",
+    "R216",
+    "R238",
+    "R239",
+    "R24"
+   ]
+  },
+  "YALI1E17935g": {
+   "annotation": {
+    "ec-code": "4.2.1.-",
+    "kegg.genes": "yli:2911538",
+    "ncbigene": "2911538",
+    "refseq": "XP_503960.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1H6Q7Y5"
+   },
+   "reactions_before": [],
+   "reactions_after": [
+    "R24"
+   ]
+  }
+ },
+ "reviewed_model": {
+  "path": "model/candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_20261029.xml",
+  "sha256": "e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897"
+ },
+ "not_in_scope": "R24 name, cross-references and PROTEIN_CLASS note; m76 cross-references; the 3 H+ of R24 and R395 (review options N and H)",
+ "task": "model/reports/r24_homocitrate_aco_20261030/TASK.md",
+ "report": "model/reports/r24_homocitrate_aco_20261030/REPORT.md",
+ "reviewer": "Claude Code session 2026-10-29/30 (evidence and implementation); decision by the user; independent audit in the report",
+ "evidence_tier": "YALI1D11984g: homology plus S. cerevisiae and fungal biochemistry and genetics. YALI1E17935g: homology plus S. cerevisiae Aco2p biochemistry only; inactive Aco2-clade homologues exist in Aspergillus. No Y. lipolytica enzymology, knockout or localisation for either aconitase on homocitrate.",
+ "evidence": [
+  {
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3556520/",
+   "claim": "Fazius 2012 full text: Lys4p and LysF show no activity with homocitrate (Table 1); aconitase plus homoaconitase convert homocitrate to homoisocitrate (yeast part not shown); aco1 and aco2 single mutants grow without lysine, the double mutant is completely lysine auxotrophic; Aspergillus AcoB proteins inactive",
+   "tier": "S. cerevisiae and fungal biochemistry and genetics (full text)",
+   "raw": "model/reports/r24_homocitrate_review_20261029/evidence/PMC3556520_fulltext.txt"
+  },
+  {
+   "url": "https://rest.uniprot.org/uniprotkb/Q6C791.json",
+   "claim": "YALI1E03387g: Swiss-Prot Homoaconitase, mitochondrial, LYS4, EC 4.2.1.36, catalytic activity RHEA:15485 only, by similarity",
+   "tier": "homology (reviewed entry)",
+   "raw": "model/reports/r24_homocitrate_review_20261029/evidence/uniprot_Q6C791.json"
+  },
+  {
+   "url": "https://rest.uniprot.org/uniprotkb/Q6C9P6.json",
+   "claim": "YALI1D11984g: ACO1-type aconitase, PANTHER PTHR43160:SF3",
+   "tier": "homology",
+   "raw": "model/reports/r24_homocitrate_review_20261029/evidence/uniprot_Q6C9P6.json"
+  },
+  {
+   "url": "https://rest.uniprot.org/uniprotkb/Q6C5V2.json",
+   "claim": "YALI1E17935g: ACO2-type aconitase, PANTHER PTHR43160:SF2 homocitrate dehydratase",
+   "tier": "homology",
+   "raw": "model/reports/r24_homocitrate_review_20261029/evidence/uniprot_Q6C5V2.json"
+  },
+  {
+   "url": "https://rest.uniprot.org/uniprotkb/P39533.fasta",
+   "claim": "residue aligned to Aco2p K610: R in Aco1p, YALI1D11984g and Af AcoA; K in YALI1E17935g and in the inactive Af and An AcoB (not diagnostic of activity)",
+   "tier": "homology",
+   "raw": "model/reports/r24_homocitrate_review_20261029/logs/aco2_k610_position.log"
+  }
+ ]
+}

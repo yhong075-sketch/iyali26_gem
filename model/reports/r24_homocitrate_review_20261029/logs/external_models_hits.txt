@@ -1,0 +1,53 @@
+##### /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-nice-bouman-b161f4/51d18fd7-57f6-4125-9620-c6519834beff/scratchpad/ext/iyali26_source.xml 2285
+R1170 | homocitrate synthase | (0.0, 1000.0) | YALI1F38776g
+     2-oxoglutarate_C5H6O5 + H2O_H2O + acetyl-CoA_C23H38N7O17P3S --> H+_p+1 + coenzyme A_C21H36N7O16P3S + homocitrate_C7H10O7
+R24 | 2-methylcitrate dehydratase | (-1000.0, 1000.0) | YALI1E03387g
+     homocitrate_C7H10O7 <=> H2O_H2O + but-1-ene-1,2,4-tricarboxylic acid_C7H5O6
+R395 | homoacontinate hydratase | (-1000.0, 1000.0) | YALI1E03387g
+     H2O_H2O + but-1-ene-1,2,4-tricarboxylic acid_C7H5O6 <=> homoisocitrate_C7H10O7
+R396 | homocitrate synthase | (0.0, 1000.0) | YALI1F38776g
+     acetyl-CoA_C23H38N7O17P3S + 2-oxoglutarate_C5H6O5 + H2O_H2O --> coenzyme A_C21H36N7O16P3S + H+_p+1 + homocitrate_C7H10O7
+R398 | homoisocitrate dehydrogenase | (0.0, 1000.0) | YALI1D13238g
+     NAD_C21H27N7O14P2 + homoisocitrate_C7H10O7 --> H+_p+1 + NADH_C21H29N7O14P2 + carbon dioxide_CO2 + 2-oxoadipic acid_C6H6O5
+##### /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-nice-bouman-b161f4/51d18fd7-57f6-4125-9620-c6519834beff/scratchpad/ext/yeast.xml 4131
+r_0027 | 2-methylcitrate dehydratase | (-1000.0, 1000.0) | YDR234W
+     homocitrate <=> but-1-ene-1,2,4-tricarboxylic acid + H2O
+r_0542 | homoacontinate hydratase | (-1000.0, 1000.0) | YJL200C or YDR234W
+     but-1-ene-1,2,4-tricarboxylic acid + H2O <=> homoisocitrate
+r_0543 | homocitrate synthase | (0.0, 1000.0) | YDL131W or YDL182W
+     2-oxoglutarate + acetyl-CoA + H2O --> coenzyme A + H+ + homocitrate
+r_0545 | homoisocitrate dehydrogenase | (0.0, 1000.0) | YIL094C
+     homoisocitrate + NAD --> 2-oxoadipic acid + carbon dioxide + NADH
+r_1838 | homocitrate synthase | (0.0, 1000.0) | YDL131W or YDL182W
+     2-oxoglutarate + acetyl-CoA + H2O --> coenzyme A + H+ + homocitrate
+##### /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-nice-bouman-b161f4/51d18fd7-57f6-4125-9620-c6519834beff/scratchpad/ext/imm904.xml 1577
+HACNHm | Homoacontinate hydratase  mitochondrial | (-999999.0, 999999.0) | YDR234W
+     But 1 ene 1 2 4 tricarboxylate C7H5O6 + H2O H2O <=> Homoisocitrate C7H7O7
+HCITSm | Homocitrate synthase | (0.0, 999999.0) | 
+     Acetyl-CoA + 2-Oxoglutarate + H2O H2O --> Coenzyme A + H+ + 2 Hydroxybutane 1 2 4 tricarboxylate C7H7O7
+HCITSn | Homocitrate synthase | (0.0, 999999.0) | YDL131W or YDL182W
+     Acetyl-CoA + 2-Oxoglutarate + H2O H2O --> Coenzyme A + H+ + 2 Hydroxybutane 1 2 4 tricarboxylate C7H7O7
+HICITDm | Homoisocitrate dehydrogenase | (-999999.0, 999999.0) | YIL094C
+     Homoisocitrate C7H7O7 + Nicotinamide adenine dinucleotide <=> H+ + Nicotinamide adenine dinucleotide - reduced + Oxaloglutarate C7H5O7
+MCITDm | 2 methylcitrate dehydratase  mitochondrial | (-999999.0, 999999.0) | 
+     2 Hydroxybutane 1 2 4 tricarboxylate C7H7O7 <=> But 1 ene 1 2 4 tricarboxylate C7H5O6 + H2O H2O
+##### /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-nice-bouman-b161f4/51d18fd7-57f6-4125-9620-c6519834beff/scratchpad/ext/ilb1027.xml 4456
+##### /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-nice-bouman-b161f4/51d18fd7-57f6-4125-9620-c6519834beff/scratchpad/ext/eciyali5.xml 3968
+117 | 2-methylcitrate dehydratase | (0.0, 1000.0) | YALI0F02497g
+     2-methylcitrate + 9.85986447532003 prot_Q6C354 --> (2S,3R)-3-hydroxybutane-1,2,3-tricarboxylic acid
+117_REV | 2-methylcitrate dehydratase (reversible) | (0.0, 1000.0) | YALI0F02497g
+     (2S,3R)-3-hydroxybutane-1,2,3-tricarboxylic acid + 2.85980199275255 prot_Q6C354 --> 2-methylcitrate
+1838 | homocitrate synthase | (0.0, 1000.0) | YALI0F31075g
+     2-oxoglutarate + H2O + acetyl-CoA + 5.00473226537056 prot_Q12726 --> H+_p+1 + coenzyme A + homocitrate
+27 | homoaconitase | (0.0, 1000.0) | YALI0E02728g
+     homocitrate + 8.19833333333333 prot_Q6C791 --> H2O + but-1-ene-1,2,4-tricarboxylic acid
+27_REV | homoaconitase (reversible) | (0.0, 1000.0) | YALI0E02728g
+     H2O + but-1-ene-1,2,4-tricarboxylic acid + 1.88197466928666 prot_Q6C791 --> homocitrate
+542 | homoacontinate hydratase | (0.0, 1000.0) | YALI0E02728g
+     H2O + but-1-ene-1,2,4-tricarboxylic acid + 1.88197466928666 prot_Q6C791 --> homoisocitrate
+542_REV | homoacontinate hydratase (reversible) | (0.0, 1000.0) | YALI0E02728g
+     homoisocitrate + 38.0609718353451 prot_Q6C791 --> H2O + but-1-ene-1,2,4-tricarboxylic acid
+543 | homocitrate synthase | (0.0, 1000.0) | YALI0F31075g
+     acetyl-CoA + 2-oxoglutarate + H2O + 5.00473226537056 prot_Q12726 --> coenzyme A + H+_p+1 + homocitrate
+545 | homoisocitrate dehydrogenase | (0.0, 1000.0) | YALI0D10593g
+     NAD + homoisocitrate + 0.643447712418301 prot_Q6C9K0 --> H+_p+1 + NADH + carbon dioxide + 2-oxoadipic acid

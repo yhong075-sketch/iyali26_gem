@@ -93,6 +93,8 @@ def parse_args(argv=None):
                         help="Assign the aconitase reactions R1556 (cytosol), R216 and R238 (mitochondrion) to the ACO1-type YALI1D11984g alone, keeping the ACO2-type (homocitrate-specific or inactive by homology) YALI1E17935g unlinked (curated 2026-10-29, ACONITASE-ACO2-SPLIT-20261029)")
     parser.add_argument("--trehalose-biomass-removal", action="store_true",
                         help="Remove trehalose m294[C_cy] (0.00686 mmol/gDW, no source) from biomass_C: Y. lipolytica contains below 1 nmol/mg DW and a tps1 mutant grows on glucose (Flores 2011); biomass_C must equal the reviewed e1e7c868 state (curated 2026-10-30, TREHALOSE-BIOMASS-20261030)")
+    parser.add_argument("--r24-homocitrate-aconitase", action="store_true",
+                        help="Assign the mitochondrial homocitrate dehydration R24 to the aconitases YALI1D11984g or YALI1E17935g instead of the LYS4-like YALI1E03387g, which stays on R395; needs --aconitase-aco2-split (curated 2026-10-30, R24-HOMOCITRATE-ACO-20261030)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
