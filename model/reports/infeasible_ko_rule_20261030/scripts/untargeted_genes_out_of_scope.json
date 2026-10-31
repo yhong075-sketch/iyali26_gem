@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "decided": "2026-10-30",
+  "authorization": "User, 2026-10-30: 'Approve D1–D3' on model/reports/infeasible_ko_rule_20261030/TASK.md (D2: YALI0F04114g out of scope, like the mtDNA genes).",
+  "rule": "Model genes that no guide of the Cas9 or Cas12a screen library targets are out of scope for the essentiality benchmark: they are excluded from TP/FN/FP/TN and reported separately. They stay in the model and in GPRs.",
+  "identification": "Every library guide (acCRISPR, Ramesh et al. 2023, Supplementary Data 1 and 2) exact-matched on both strands against the gene's W29 locus; no guide lies in it.",
+  "evidence": {
+    "YALI0F04114g": "COX9; W29 locus NC_090775.1:624482-625376 (RefSeq pseudogene YALI1_F06244g, 'nonfunctional due to frameshift'; sequence identical to CLIB122 and intact when spliced). No guide in the locus: $IYALI26_RESEARCH_ROOT/artifacts/tasks/cox9_blast_20261030/out/run7_guides_in_cox9_region.tsv."
+  },
+  "genes": [
+    "YALI0F04114g"
+  ]
+}

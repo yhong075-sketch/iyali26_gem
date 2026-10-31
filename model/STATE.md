@@ -5,6 +5,91 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-10-30: Certified-infeasible knockouts scored as growth 0; COX9 out of scope (benchmark rule change, committed on claude/cx34-infeasible-discussion-7b0c5b)
+
+**Authorization.** The user, 2026-10-30: "Plan this rule", then "Approve D1–D3" on
+[TASK.md](reports/infeasible_ko_rule_20261030/TASK.md):
+- D1: the rule text;
+- D2: COX9 out of scope;
+- D3: later rounds copy the new script.
+
+Committed on the user's instruction ("Commit on branch", 2026-10-30); not pushed. Worktree
+`claude/cx34-infeasible-discussion-7b0c5b` @ `7aa4baf` (= `origin/main`). No model change.
+
+**Rule** (now in [benchmark.md](expected/benchmark.md) § Classification). An infeasible knockout scores as growth 0
+only when it is certified as a maintenance shortfall:
+1. the sweep solve and a fresh re-solve are both `infeasible`;
+2. the only forced flux is `xMAINTENANCE`;
+3. the maximum of `xMAINTENANCE` with its lower bound set to 0 is optimal, passes the targeted check, and stays
+   below the bound by more than 1e-6;
+4. WT is optimal.
+
+Any other failed solve stays unresolved, and the earlier-rule counts are reported alongside.
+Also new: [untargeted_genes_out_of_scope.json](expected/untargeted_genes_out_of_scope.json), which lists
+`YALI0F04114g` (COX9).
+
+**Results** ([REPORT.md](reports/infeasible_ko_rule_20261030/REPORT.md),
+[REVIEW.md](reports/infeasible_ko_rule_20261030/REVIEW.md)). Verified: observed in this run.
+
+**Run setup:**
+- Model `e1e7c868…`, Task A medium, PO1f, list `1e887f5a…`.
+- Gurobi at 1e-9, reset per knockout, targeted check.
+- 1,123 LPs in all.
+
+**Acceptance:**
+- WT is 0.3116608216, identical to the aconitase run.
+- Rule A reproduces the aconitase scores exactly at all four cutoffs.
+- All 20 infeasible knockouts are certified (16 scored + 4 mtDNA). Each has a maximum maintenance flux of 4.828
+  against 7.8625, a margin of 3.0345.
+- Only those 20 knockouts change class.
+- The WT maintenance ceiling is 63.333.
+
+**15 % scores:**
+- Earlier rule: 125 / 190 / 42 / 692 with 16 unresolved.
+- **New primary** (rule B, mtDNA and untargeted genes out of scope): **136 / 190 / 46 / 692**, 0 unresolved.
+  Recall 0.4172, precision 0.7473, MCC 0.4344.
+- These numbers match the prediction written in TASK.md before the run.
+
+**Other cutoffs (new primary):**
+- 1 %: 108 / 218 / 39 / 699.
+- 5 %: 115 / 211 / 41 / 697.
+- 10 %: 119 / 207 / 46 / 692.
+
+Negatives are the user-defined class; mtDNA genes are out of scope; development reference.
+
+**Findings recorded this day.** Read-only unless marked.
+- **Identities of the 16 genes.** Homology only: the CLIB122 locus-map annotation plus UniProt/Pfam. The
+  *Y. lipolytica* data are from CLIB122 and the *S. cerevisiae* homologs from S288C. No *Y. lipolytica* experiment.
+  - Complex III: RIP1 (A03322g), core 1 / MPP-β (A14736g), CYT1 (A17570g), QCR9 (B02487g), QCR10 (C17100g),
+    cytochrome c (D11769g, a carrier, not a subunit), QCR7 (E40361g), QCR8 (F02758g), QCR2 (F12013g), QCR6
+    (F32010g).
+  - Complex IV: COX6 (E12730g), COX7 (E15606g), COX12 (E19902g), COX4 (E23635g), COX5A (F05089g), COX9
+    (YALI0F04114g).
+  - Table: side-session notes `cx34_subunit_identities_20261030.md`.
+- **The 5 negatives.** All have negative fitness scores in both screens.
+  - CYT1 and COX4 are core subunits with borderline screen calls.
+  - QCR6 and QCR10 are accessory subunits. In *S. cerevisiae*, qcr6Δ respires at 30 °C but not at 37 °C
+    (PMID 8288589, 2163891). qcr10Δ grows on non-fermentable carbon with complex III activity reduced by 40 %
+    (PMID 8175712). Abstracts read via E-utilities.
+  - The Cas9 screen calls QCR10 essential (FS −4.15).
+- **COX9.** Run under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/cox9_blast_20261030/`.
+  - The W29 "pseudogene" YALI1_F06244g is identical to CLIB122 over 9,950 nt.
+  - Both introns have canonical splice signals. Spliced, the locus gives a 60-aa protein whose Swiss-Prot hits are
+    all COX9 (best E-value 1e-13).
+  - There is no other copy in the W29 genome or proteome.
+  - No guide of either acCRISPR library lies in the locus (all 103,882 guides exact-matched).
+  - Inferred: the pseudogene call is an annotation artifact.
+- **Complex III was never reviewed subunit by subunit** the way complex IV was on 2026-10-08 (package B3, Decision
+  D: Cox8 and Cox13 removed as dispensable). By that rule QCR10 resembles Cox8, but its Cas9 call conflicts. This
+  is open; there is no authorization yet.
+
+**Limits.**
+- The certificate covers maintenance shortfalls only.
+- The ceiling relies on Gurobi's optimality status.
+- The certified result depends on NGAM 7.8625, inherited from iYli21 (origin not traced), and on the glucose cap
+  2.414, measured on a different medium.
+- No independent audit of the report beyond the script review.
+
 ## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (committed c8813ae on claude/aconitase-aco2-split-1c492f, PR #39)
 
 **Authorization.** The user, 2026-10-29: "Approve the aconitase plan in TASK.md §7 on baseline 059316ef"
