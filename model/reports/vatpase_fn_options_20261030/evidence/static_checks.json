@@ -1,0 +1,650 @@
+{
+ "model_sha256": "059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d",
+ "consensus_sha256": "1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b",
+ "cobra_version": "0.30.0",
+ "n_genes": 1081,
+ "n_reactions": 2319,
+ "consensus_key": "gene_id",
+ "consensus_n": 1612,
+ "R794": {
+  "id": "R794",
+  "name": "V-ATPase, Golgi",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "equation": "2.0 m10[C_cy] + m141[C_cy] + m32[C_cy] --> m143[C_cy] + 2.0 m293[C_go] + m35[C_cy]",
+  "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+  "imbalance": {}
+ },
+ "R795": {
+  "id": "R795",
+  "name": "V-ATPase, vacuole",
+  "bounds": [
+   0.0,
+   0.0
+  ],
+  "equation": "2.0 m10[C_cy] + m141[C_cy] + m32[C_cy] --> 2.0 m1007[C_va] + m143[C_cy] + m35[C_cy]",
+  "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+  "imbalance": {}
+ },
+ "vatpase_genes": {
+  "YALI0E16192g": {
+   "consensus_essential": false
+  },
+  "YALI1A09766g": {
+   "consensus_essential": true
+  },
+  "YALI1A11258g": {
+   "consensus_essential": true
+  },
+  "YALI1D00581g": {
+   "consensus_essential": false
+  },
+  "YALI1E10492g": {
+   "consensus_essential": true
+  },
+  "YALI1E12482g": {
+   "consensus_essential": true
+  },
+  "YALI1E14125g": {
+   "consensus_essential": true
+  },
+  "YALI1E32332g": {
+   "consensus_essential": true
+  },
+  "YALI1E37063g": {
+   "consensus_essential": true
+  },
+  "YALI1F13017g": {
+   "consensus_essential": true
+  },
+  "YALI1F20965g": {
+   "consensus_essential": true
+  },
+  "YALI1F21690g": {
+   "consensus_essential": true
+  },
+  "YALI1F31854g": {
+   "consensus_essential": true
+  },
+  "YALI1F38820g": {
+   "consensus_essential": false
+  }
+ },
+ "corrected_rule": "(YALI0E16192g and YALI1A09766g and YALI1A11258g and YALI1D00581g and YALI1E10492g and YALI1E14125g and YALI1E32332g and YALI1E37063g and YALI1F13017g and YALI1F20965g and YALI1F21690g and YALI1F31854g) and (YALI1E12482g or YALI1F38820g)",
+ "single_ko_closes_current": {
+  "YALI0E16192g": false,
+  "YALI1A09766g": false,
+  "YALI1A11258g": false,
+  "YALI1D00581g": false,
+  "YALI1E10492g": false,
+  "YALI1E12482g": false,
+  "YALI1E14125g": false,
+  "YALI1E32332g": false,
+  "YALI1E37063g": false,
+  "YALI1F13017g": false,
+  "YALI1F20965g": false,
+  "YALI1F21690g": false,
+  "YALI1F31854g": false,
+  "YALI1F38820g": false
+ },
+ "single_ko_closes_corrected_core_and_a1_or_a2": {
+  "YALI0E16192g": true,
+  "YALI1A09766g": true,
+  "YALI1A11258g": true,
+  "YALI1D00581g": true,
+  "YALI1E10492g": true,
+  "YALI1E12482g": false,
+  "YALI1E14125g": true,
+  "YALI1E32332g": true,
+  "YALI1E37063g": true,
+  "YALI1F13017g": true,
+  "YALI1F20965g": true,
+  "YALI1F21690g": true,
+  "YALI1F31854g": true,
+  "YALI1F38820g": false
+ },
+ "neighbours_m293[C_go]": [
+  {
+   "id": "R1159",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    0.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R141",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E37764g or YALI1D11015g or YALI1A06229g or YALI1B02637g or YALI1E02413g or YALI1F33246g"
+  },
+  {
+   "id": "R794",
+   "coef": 2.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)"
+  },
+  {
+   "id": "R2048",
+   "coef": -2.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALIUNK3"
+  },
+  {
+   "id": "R_NDP7g",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E41893g"
+  }
+ ],
+ "neighbours_m1007[C_va]": [
+  {
+   "id": "R883",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1C04798g or YALI1E13514g"
+  },
+  {
+   "id": "R2030",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R878",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1F37658g"
+  },
+  {
+   "id": "R2020",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R918",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1A15624g or YALI1F10342g"
+  },
+  {
+   "id": "R879",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E13514g"
+  },
+  {
+   "id": "R795",
+   "coef": 2.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)"
+  },
+  {
+   "id": "R897",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E21478g or YALI1F37658g"
+  },
+  {
+   "id": "R925",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1A15624g or YALI1F10342g"
+  },
+  {
+   "id": "R2038",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R898",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E13514g or YALI1C04798g"
+  },
+  {
+   "id": "R869",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1F37658g"
+  },
+  {
+   "id": "R887",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1F37658g"
+  },
+  {
+   "id": "R1163",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R2028",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R927",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1B27564g or YALI1A15624g or YALI1F10342g"
+  },
+  {
+   "id": "R870",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E13514g"
+  },
+  {
+   "id": "R2040",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R876",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1D14670g"
+  },
+  {
+   "id": "R882",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F37658g"
+  },
+  {
+   "id": "R888",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E13514g or YALI1C04798g"
+  },
+  {
+   "id": "R871",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1D14670g"
+  }
+ ],
+ "neighbours_m676[C_er]": [
+  {
+   "id": "R439",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R1240",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  }
+ ],
+ "neighbours_m674[C_er]": [
+  {
+   "id": "R438",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R441",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R444",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R439",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R442",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R445",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R437",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R440",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R443",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  },
+  {
+   "id": "R446",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1D23128g"
+  }
+ ],
+ "neighbours_m1314[C_go]": [
+  {
+   "id": "R1240",
+   "coef": -1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R2048",
+   "coef": 1.0,
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALIUNK3"
+  },
+  {
+   "id": "R1817",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E19647g"
+  }
+ ],
+ "neighbours_m948[C_cy]": [
+  {
+   "id": "R727",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E14153g"
+  },
+  {
+   "id": "biomass_C",
+   "coef": -3.04e-05,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": ""
+  },
+  {
+   "id": "R2193",
+   "coef": 1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)"
+  },
+  {
+   "id": "R863",
+   "coef": -1.0,
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": ""
+  }
+ ],
+ "biomass_species_in_go_or_va": [],
+ "biomass_m948_coef": -3.04e-05,
+ "boundary_fe_species": [],
+ "R2193": {
+  "id": "R2193",
+  "name": "iron (II) transport",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "equation": "m1273[C_ex] --> m948[C_cy]",
+  "gpr": "(YALI1D09277g and YALI1D09308g) or (YALI1D08684g and YALI1D08564g)",
+  "imbalance": {}
+ },
+ "R1189": {
+  "id": "R1189",
+  "name": "iron(2+) exchange",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "equation": "m1273[C_ex] --> ",
+  "gpr": "",
+  "imbalance": {}
+ },
+ "R2048": {
+  "id": "R2048",
+  "name": "Reaction",
+  "bounds": [
+   -1000.0,
+   1000.0
+  ],
+  "equation": "m1327[C_go] + m1886[C_go] + 2.0 m293[C_go] <=> m1314[C_go] + m835[C_go]",
+  "gpr": "YALIUNK3",
+  "imbalance": {}
+ },
+ "R1240": {
+  "id": "R1240",
+  "name": "M(IP)2C transport",
+  "bounds": [
+   -1000.0,
+   1000.0
+  ],
+  "equation": "m1314[C_go] <=> m676[C_er]",
+  "gpr": "",
+  "imbalance": {}
+ },
+ "R439": {
+  "id": "R439",
+  "name": "IPS phospholipase C",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "equation": "m389[C_er] + m676[C_er] --> m390[C_er] + m674[C_er]",
+  "gpr": "YALI1D23128g",
+  "imbalance": {}
+ },
+ "R1159": {
+  "id": "R1159",
+  "name": "H+ diffusion",
+  "bounds": [
+   -1000.0,
+   0.0
+  ],
+  "equation": "m10[C_cy] <-- m293[C_go]",
+  "gpr": "",
+  "imbalance": {}
+ },
+ "R1163": {
+  "id": "R1163",
+  "name": "H+ diffusion",
+  "bounds": [
+   0.0,
+   0.0
+  ],
+  "equation": "m10[C_cy] --> m1007[C_va]",
+  "gpr": "",
+  "imbalance": {}
+ },
+ "R_NTP1": {
+  "id": "R_NTP1",
+  "name": "R_NTP1",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "equation": "m141[C_cy] + m32[C_cy] --> m143[C_cy] + m35[C_cy]",
+  "gpr": "YALI1A09766g or YALI1E41893g",
+  "imbalance": {}
+ },
+ "R_NDP7g": {
+  "id": "R_NDP7g",
+  "name": "R_NDP7g",
+  "bounds": [
+   -1000.0,
+   1000.0
+  ],
+  "equation": "m835[C_go] + m836[C_go] <=> m293[C_go] + m837[C_go] + m838[C_go]",
+  "gpr": "YALI1E41893g",
+  "imbalance": {
+   "charge": 1.0,
+   "H": 1.0
+  }
+ },
+ "R586": {
+  "id": "R586",
+  "name": "nucleoside diphosphatase",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "equation": "m835[C_go] + m836[C_go] --> m837[C_go] + m838[C_go]",
+  "gpr": "YALI1C25093g",
+  "imbalance": {}
+ }
+}

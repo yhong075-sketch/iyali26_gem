@@ -1,0 +1,7 @@
+Why the before run (git archive of 199dec2 under the scratchpad) shows 29 extra errors, and why 6 dolichol tests error in
+the aconitase round's pytest_after2 but pass here: cobra read_sbml_model rejects str paths of 260+ characters on macOS.
+- before run: tree under /private/tmp/claude-501/.../scratchpad/before_tree -> candidate paths over 260 chars, plus the
+  sibling ../iyali26_gem/model.xml (CoA protonation source) missing under the scratchpad.
+- aconitase after2: worktree aconitase-aco2-split-1c492f, dolichol baseline path 263 chars; same file here 254 chars.
+Every test that differs between the runs, other than the 6 new tests, errors on one of these OSError paths
+(pytest_before.txt, ../../aconitase_aco2_split_20261029/logs/pytest_after2.txt) and passes in this worktree.

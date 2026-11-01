@@ -1,0 +1,22 @@
+Set parameter Username
+Set parameter LicenseID to value 2843063
+Academic license - for non-commercial use only - expires 2027-07-10
+R1170 | homocitrate synthase | ['C_mi'] | [0.0, 1000.0] | YALI1F38776g
+     2-oxoglutarate_C5H6O5 + H2O_H2O + acetyl-CoA_C23H38N7O17P3S --> coenzyme A_C21H36N7O16P3S + homocitrate_C7H10O7
+R1556 | cis-aconitate(3-) to isocitrate | ['C_cy'] | [-1000.0, 1000.0] | YALI1D11984g
+     H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7
+R216 | cis-aconitate(3-) to isocitrate | ['C_mi'] | [-1000.0, 1000.0] | YALI1D11984g
+     H2O_H2O + cis-aconitate_C6H6O6 <=> isocitrate_C6H8O7
+R238 | citrate to cis-aconitate(3-) | ['C_mi'] | [-1000.0, 1000.0] | YALI1D11984g
+     citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6
+R239 | citrate to cis-aconitate(3-), cytoplasmic | ['C_cy'] | [-1000.0, 1000.0] | YALI1D11984g
+     citrate_C6H8O7 <=> H2O_H2O + cis-aconitate_C6H6O6
+R24 | 2-methylcitrate dehydratase | ['C_mi'] | [-1000.0, 1000.0] | YALI1E03387g
+     homocitrate_C7H10O7 <=> H2O_H2O + 3.0 H+_p+1 + but-1-ene-1,2,4-tricarboxylic acid_C7H5O6
+R395 | homoacontinate hydratase | ['C_mi'] | [-1000.0, 1000.0] | YALI1E03387g
+     H2O_H2O + 3.0 H+_p+1 + but-1-ene-1,2,4-tricarboxylic acid_C7H5O6 <=> homoisocitrate_C7H10O7
+R398 | homoisocitrate dehydrogenase | ['C_mi'] | [0.0, 1000.0] | YALI1D13238g
+     NAD_C21H27N7O14P2 + homoisocitrate_C7H10O7 --> 2.0 H+_p+1 + NADH_C21H29N7O14P2 + carbon dioxide_CO2 + 2-oxoadipic acid_C6H6O5
+YALI1E03387g ['R24', 'R395'] XP_503471.1 Q6C791
+YALI1D11984g ['R1556', 'R216', 'R238', 'R239'] XP_502616.2 A0A1D8NDY4
+YALI1E17935g [] XP_503960.1 A0A1H6Q7Y5
