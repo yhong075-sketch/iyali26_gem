@@ -5,7 +5,37 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-10-30: V-ATPase false negatives, diagnosis and options (investigation only, no model change, not committed)
+## 2026-10-31: R24 option C combined with the trehalose line, candidate c1f70ac4 (branch claude/combined-r24-trehalose-20261031)
+
+**Authorization.** The user, 2026-10-30: "can you combine the branch model edition to make sure our model is newest?";
+then, 2026-10-31, "Approve as written" for the merge-and-build plan in
+[TASK.md](reports/combined_r24_trehalose_20261031/TASK.md). Commit on the branch; no push.
+
+**Results** ([REPORT.md](reports/combined_r24_trehalose_20261031/REPORT.md)). Verified this run; the independent
+audit supports every headline claim, and its wording corrections are applied.
+- **Merges:** branch cut from `origin/main` @ `74146c9` (PR #39–#41). Merged `claude/nice-bouman-b161f4` (R24 option C,
+  `0b1a5f8`) and `claude/essential-gene-prediction-e76be3` (V-ATPase report, `59e1547`). Both sides of every conflict
+  were kept; no line of either side was lost (audit).
+- **Candidate:** [E5_…_aco_split_treh_biomass_r24_aco_20261031.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_r24_aco_20261031.xml)
+  (`c1f70ac4198e443ce2bc089f534c021d4111d8c2e999888e5beae06cc7087540`) = `164542fb` + `--r24-homocitrate-aconitase`.
+  - The merged code reproduces both parents, `164542fb` and `f505571d`, byte for byte.
+  - Seeds 0 and 1 give identical bytes.
+  - Diffs: vs `164542fb` only R24 (GPR, notes and three gene links); vs `f505571d` only the `biomass_C` trehalose
+    term and notes.
+  - Not a designated reference.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, certified-infeasible script, 2,246 LPs): WT 0.3122963651 on both.
+  - 0 class changes and 0 knockout growth changes vs `164542fb`.
+  - 15 % primary: **136 / 190 / 43 / 695**, 0 unresolved (rule A: 125 / 190 / 39 / 695, 16 unresolved).
+  - 326 of 1,612 positives are in the model. The 16 mtDNA genes and COX9 are out of scope, all negatives. User-defined
+    negatives; development reference.
+- **pytest vs `origin/main`:** same 19 failures. The 6 extra errors are dolichol tests over cobra's 260-character path
+  limit in this worktree, and they pass from a short path. The counts reconcile with the 6 new R24 tests.
+
+**Limits.** One medium and one strain profile. No new biology; the evidence stays in the R24 and trehalose reports.
+That `164542fb` carries every change from PR #34 to #40 is inferred from the candidates README chain. Two detached
+worktrees, `.claude/worktrees/m74` and `.claude/worktrees/c59`, were left in place for the user to remove.
+
+## 2026-10-30: V-ATPase false negatives, diagnosis and options (investigation only, no model change; committed 40212be on claude/essential-gene-prediction-e76be3)
 
 **Authorization.** The user, 2026-10-30: "how can we solve the VTPase problem?", then "Save as report". Read-only; no
 LP, build or model change.

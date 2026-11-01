@@ -1,0 +1,7 @@
+before: 19 failed, 420 passed, 31 skipped, 36 warnings, 14 errors, 1031 subtests passed in 907.64s (0:15:07)
+after:  19 failed, 420 passed, 31 skipped, 35 warnings, 20 errors, 1008 subtests passed in 864.51s (0:14:24)
+failing/erroring ids: before 33, after 39, identical: False
+only before: []
+only after: ['ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_flag_is_opt_in_and_requires_the_r1726_opening', 'ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_makes_exactly_the_three_edits_and_survives_roundtrip', 'ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_partial_states_are_rejected', 'ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_spec_matches_the_task', 'ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_stale_inputs_fail_closed_without_edits', 'ERROR tests/test_dolichol_route.py::DolicholRouteTests::test_unexpected_scope_is_rejected']
+dolichol tests on the merged commit 59e1547 from the short-path worktree .claude/worktrees/c59: 6 passed, 52 subtests (pytest_dolichol_shortpath_59e1547.txt)
+reconciliation: after passed = 420 (main) - 6 dolichol + 6 R24 = 420; subtests 1031 - 52 + 29 = 1008; errors 14 + 6 = 20; the 19 failures are identical

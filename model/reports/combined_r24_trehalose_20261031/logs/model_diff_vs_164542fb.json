@@ -1,0 +1,65 @@
+[
+ {
+  "section": "reactions",
+  "item": "R24",
+  "field": "gpr",
+  "before": "YALI1E03387g",
+  "after": "YALI1D11984g or YALI1E17935g"
+ },
+ {
+  "section": "reactions",
+  "item": "R24",
+  "field": "notes",
+  "before": {
+   "PROTEIN_CLASS": "4.2.1.114"
+  },
+  "after": {
+   "PROTEIN_CLASS": "4.2.1.114",
+   "r24_homocitrate_aco_curation_id": "R24-HOMOCITRATE-ACO-20261030",
+   "r24_homocitrate_aco_status": "user_authorized_gpr_correction",
+   "r24_homocitrate_aco_authorization": "2026-10-30 user: Option C, then Approve plan (reports/r24_homocitrate_aco_20261030: R24 to YALI1D11984g or YALI1E17935g, flag --r24-homocitrate-aconitase, built after --aconitase-aco2-split). No push.",
+   "r24_homocitrate_aco_previous_gpr": "YALI1E03387g; the LYS4-like homoaconitase, kept on R395",
+   "r24_homocitrate_aco_evidence": "YALI1E03387g (YALI0E02728g, Swiss-Prot Q6C791 LYS4, by similarity) is a homoaconitase; its only reviewed activity is homoisocitrate to cis-homoaconitate (RHEA:15485), the R395 step, and it stays on R395. Yeast and A. fumigatus homoaconitases show no homocitrate activity; homocitrate is converted by aconitase plus homoaconitase (Fazius 2012, PMC3556520, Table 1 and Results). In S. cerevisiae each aco1 or aco2 single mutant grows without lysine, while the aco1 aco2 double mutant is completely lysine auxotrophic (same paper), so either aconitase alone supports the step; R24 therefore reads YALI1D11984g (ACO1-type, Q6C9P6) or YALI1E17935g (ACO2-type, Q6C5V2). The ACO2-type member stands on transfer from S. cerevisiae: Aspergillus Aco2-clade AcoB proteins were inactive, and the Aco2-clade lysine at Aco2p 610 is shared by those inactive proteins. Report reports/r24_homocitrate_aco_20261030; review reports/r24_homocitrate_review_20261029.",
+   "r24_homocitrate_aco_evidence_tier": "YALI1D11984g: homology plus S. cerevisiae and fungal biochemistry and genetics. YALI1E17935g: homology plus S. cerevisiae Aco2p biochemistry only; inactive Aco2-clade homologues exist in Aspergillus. No Y. lipolytica enzymology, knockout or localisation for either aconitase on homocitrate."
+  }
+ },
+ {
+  "section": "genes",
+  "item": "YALI1D11984g",
+  "field": "reactions",
+  "before": [
+   "R1556",
+   "R216",
+   "R238",
+   "R239"
+  ],
+  "after": [
+   "R1556",
+   "R216",
+   "R238",
+   "R239",
+   "R24"
+  ]
+ },
+ {
+  "section": "genes",
+  "item": "YALI1E03387g",
+  "field": "reactions",
+  "before": [
+   "R24",
+   "R395"
+  ],
+  "after": [
+   "R395"
+  ]
+ },
+ {
+  "section": "genes",
+  "item": "YALI1E17935g",
+  "field": "reactions",
+  "before": [],
+  "after": [
+   "R24"
+  ]
+ }
+]
