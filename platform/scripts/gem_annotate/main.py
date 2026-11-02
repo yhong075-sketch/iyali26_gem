@@ -105,6 +105,8 @@ def build_reference_chain(
     r171_atp_synthase_gpr: bool = False,
     r673_prolyl_split: bool = False,
     aconitase_aco2_split: bool = False,
+    trehalose_biomass_removal: bool = False,
+    r24_homocitrate_aconitase: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -899,6 +901,18 @@ def build_reference_chain(
         from .aconitase_aco2_split import apply_aconitase_aco2_split
         selection["aconitase_aco2_split"] = apply_aconitase_aco2_split(model)
         logger.info("Aconitase ACO2 split: %s", selection["aconitase_aco2_split"]["status"])
+    if r24_homocitrate_aconitase:
+        # Opt-in: R24 from the LYS4-like YALI1E03387g to YALI1D11984g or YALI1E17935g (2026-10-30). GPR and notes only.
+        # The step pins the gene state after the aconitase split, so it fails closed without that flag.
+        from .r24_homocitrate_aconitase import apply_r24_homocitrate_aconitase
+        selection["r24_homocitrate_aconitase"] = apply_r24_homocitrate_aconitase(model)
+        logger.info("R24 homocitrate aconitase: %s", selection["r24_homocitrate_aconitase"]["status"])
+    if trehalose_biomass_removal:
+        # Opt-in: trehalose m294[C_cy] removed from biomass_C (2026-10-30). Must stay after every biomass_C edit:
+        # its guard pins the full reviewed e1e7c868 composition.
+        from .trehalose_biomass import apply_trehalose_biomass
+        selection["trehalose_biomass"] = apply_trehalose_biomass(model)
+        logger.info("Trehalose biomass removal: %s", selection["trehalose_biomass"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -1010,6 +1024,8 @@ def build_model(args):
         r171_atp_synthase_gpr=getattr(args, "r171_atp_synthase_gpr", False),
         r673_prolyl_split=getattr(args, "r673_prolyl_split", False),
         aconitase_aco2_split=getattr(args, "aconitase_aco2_split", False),
+        trehalose_biomass_removal=getattr(args, "trehalose_biomass_removal", False),
+        r24_homocitrate_aconitase=getattr(args, "r24_homocitrate_aconitase", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

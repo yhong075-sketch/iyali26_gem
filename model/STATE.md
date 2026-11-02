@@ -60,6 +60,276 @@ the edited files differ between the two.
 
 Until the conftest fix lands, every file after the ledger test silently ran on GLPK.
 
+## 2026-10-31: R24 option C combined with the trehalose line, candidate c1f70ac4 (branch claude/combined-r24-trehalose-20261031)
+
+**Authorization.** The user, 2026-10-30: "can you combine the branch model edition to make sure our model is newest?";
+then, 2026-10-31, "Approve as written" for the merge-and-build plan in
+[TASK.md](reports/combined_r24_trehalose_20261031/TASK.md). Commit on the branch; no push.
+
+**Results** ([REPORT.md](reports/combined_r24_trehalose_20261031/REPORT.md)). Verified this run; the independent
+audit supports every headline claim, and its wording corrections are applied.
+- **Merges:** branch cut from `origin/main` @ `74146c9` (PR #39–#41). Merged `claude/nice-bouman-b161f4` (R24 option C,
+  `0b1a5f8`) and `claude/essential-gene-prediction-e76be3` (V-ATPase report, `59e1547`). Both sides of every conflict
+  were kept; no line of either side was lost (audit).
+- **Candidate:** [E5_…_aco_split_treh_biomass_r24_aco_20261031.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_r24_aco_20261031.xml)
+  (`c1f70ac4198e443ce2bc089f534c021d4111d8c2e999888e5beae06cc7087540`) = `164542fb` + `--r24-homocitrate-aconitase`.
+  - The merged code reproduces both parents, `164542fb` and `f505571d`, byte for byte.
+  - Seeds 0 and 1 give identical bytes.
+  - Diffs: vs `164542fb` only R24 (GPR, notes and three gene links); vs `f505571d` only the `biomass_C` trehalose
+    term and notes.
+  - Not a designated reference.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, certified-infeasible script, 2,246 LPs): WT 0.3122963651 on both.
+  - 0 class changes and 0 knockout growth changes vs `164542fb`.
+  - 15 % primary: **136 / 190 / 43 / 695**, 0 unresolved (rule A: 125 / 190 / 39 / 695, 16 unresolved).
+  - 326 of 1,612 positives are in the model. The 16 mtDNA genes and COX9 are out of scope, all negatives. User-defined
+    negatives; development reference.
+- **pytest vs `origin/main`:** same 19 failures. The 6 extra errors are dolichol tests over cobra's 260-character path
+  limit in this worktree, and they pass from a short path. The counts reconcile with the 6 new R24 tests.
+
+**Limits.** One medium and one strain profile. No new biology; the evidence stays in the R24 and trehalose reports.
+That `164542fb` carries every change from PR #34 to #40 is inferred from the candidates README chain. Two detached
+worktrees, `.claude/worktrees/m74` and `.claude/worktrees/c59`, were left in place for the user to remove.
+
+## 2026-10-30: V-ATPase false negatives, diagnosis and options (investigation only, no model change; committed 40212be on claude/essential-gene-prediction-e76be3)
+
+**Authorization.** The user, 2026-10-30: "how can we solve the VTPase problem?", then "Save as report". Read-only; no
+LP, build or model change.
+
+**Results** ([REPORT.md](reports/vatpase_fn_options_20261030/REPORT.md), [TASK.md](reports/vatpase_fn_options_20261030/TASK.md)).
+Model `059316ef…` from `origin/main`. An eight-agent workflow ran with three adversarial reviewers. The lead re-ran
+the decisive static checks.
+- **Two stacked causes:**
+  - The R794/R795 rule `(12-gene core incl. a1) or (a2 and c'')` is closed by 0 of 14 single knockouts (Boolean,
+    verified).
+  - The corrected rule `core and (a1 or a2)` is closed by 12 of 14 (verified). Even so, closing R794 cannot lower
+    maximum growth. Biomass has no Golgi or vacuolar species, and R2048 is forced to 0 by the dead-end ER `m674`
+    (verified). R794's protons can only leak back or be destroyed, so the pump is a pure ATP drain (static argument;
+    parts reviewer-only).
+- **Options:**
+  - Rule correction: 0 flips; correct for its own sake.
+  - Iron coupling on R2193: mechanically 10 flips, but the biology is refuted. Hughes 2020 shows no uptake defect,
+    D09277g is FET5-like, and the genome has other iron routes.
+  - Generic Golgi H+ demand: 10 flips, but no measured flux, so it would be match-rate tuning.
+  - Vacuolar cysteine storage: not representable in FBA, and it reopens A0.
+- **Recommendation:**
+  - Keep the 11 counted as FN under a structural label.
+  - Gate any coupling on a *Y. lipolytica* inhibitor experiment with iron, copper and cysteine rescue arms.
+  - No targeted *Y. lipolytica* V-ATPase mutant exists; essentiality rests on pooled screens.
+
+**Limits.** No solver run on `059316ef`. The FN labels come from the `6af03c40` sweep (notes-only difference,
+recalled). Literature was opened by agents, mostly abstracts. Side findings left unchanged:
+- R_NDP7g has an extra H and charge;
+- R2048 placeholder chemistry;
+- YALI0E16192g has no screen row (W29 locus typed as a pseudogene);
+- V-ATPase A subunit on R_NTP1.
+
+Literature files are in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/vatpase_fn_options_20261030/`.
+
+## 2026-10-30: R24 homocitrate dehydration to YALI1D11984g or YALI1E17935g (option C), candidate f505571d (committed ff4dd32 on claude/nice-bouman-b161f4, not pushed)
+
+**Authorization.** The user, 2026-10-30, after the R24 review: "Option C", then "Approve plan". The approved plan:
+commit the review (`ac8921d`); merge the local, unpushed `refs/heads/claude/aconitase-aco2-split-1c492f` (`a006df1`)
+into this branch (merge `199dec2`); implement option C through the pipeline. No push. Options H (3 H+) and N (name
+and cross-references) were not in scope. Details: [TASK.md](reports/r24_homocitrate_aco_20261030/TASK.md),
+[REPORT.md](reports/r24_homocitrate_aco_20261030/REPORT.md), [AUDIT.md](reports/r24_homocitrate_aco_20261030/AUDIT.md).
+
+**Results** (verified this session; independent audit found no bug that changes the model, knockouts or erratum; its
+fixes are applied).
+- **Candidate:**
+  [E5_…_aco_split_r24_aco_20261030.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_r24_aco_20261030.xml)
+  (`f505571d3da6d76920f242e334aa74521d0f754c452b65eb12791e89c079e3c6`) = `e1e7c868` + `--r24-homocitrate-aconitase`.
+  Seeds 0 and 1 identical; the control build (flag off) is byte-identical to `e1e7c868`. Not a designated reference.
+- **Change:** R24 `YALI1E03387g` → `YALI1D11984g or YALI1E17935g`, plus 6 notes. `YALI1E03387g` keeps R395.
+  `YALI1E17935g`, unlinked after the aconitase split, is now on R24 only. Whole-model diff: 5 differences, all
+  intended.
+- **Pipeline:** `model/curation/gpr/r24_homocitrate_aconitase.json`, `apply_r24_homocitrate_aconitase` (fails
+  closed; must run after `--aconitase-aco2-split`), `tests/test_r24_homocitrate_aconitase.py`.
+- **Solves** (Task A + PO1f, Gurobi 1e-9; 5 LPs, all optimal): WT 0.3116608216.
+  - `YALI1E03387g` 0.0694: FN / FN / TP / TP.
+  - `YALI1D11984g` 0.0244: FN / TP / TP / TP.
+  - `YALI1E17935g` 1.0: TN.
+  - No class change at 1/5/10/15 %. User-defined negatives; development reference.
+- **pytest:** 421 passed after; only the 6 new tests changed outcome on the code side. TASK criterion 5 is not met
+  as written: 29 tests error in the before run (archived at 199dec2 under the long scratchpad path) and pass after.
+  Each fails on cobra's 260-character path limit or a missing sibling `model.xml`.
+- **Erratum to the review:** in its in-memory variant C, the `YALI1D11984g` knockout wrongly also closed R24. The
+  cause is cobra 0.30.0: a reactionless gene has no model link after an SBML read, so `knock_out()` is not undone
+  on context exit. Same growth (difference 9e-19); no review number changes. Erratum added to the review REPORT §2.
+
+**Limits.** One medium. `YALI1E17935g` activity on homocitrate is unproven in *Y. lipolytica*; it rests on
+*S. cerevisiae* genetics and homology, and option B is the fallback. R24's name and cross-references, m76's
+cross-references and the 3 H+ are unchanged. The aconitase round's files still say `YALI1E17935g` has no reaction,
+which is no longer true of `f505571d`. The aconitase round is on this branch only by a local merge.
+
+## 2026-10-30: Certified-infeasible knockouts scored as growth 0; COX9 out of scope (benchmark rule change, committed 8e8004f on claude/cx34-infeasible-discussion-7b0c5b, PR #41)
+
+**Authorization.** The user, 2026-10-30: "Plan this rule", then "Approve D1–D3" on
+[TASK.md](reports/infeasible_ko_rule_20261030/TASK.md):
+- D1: the rule text;
+- D2: COX9 out of scope;
+- D3: later rounds copy the new script.
+
+Committed on the user's instruction ("Commit on branch", 2026-10-30); not pushed. Worktree
+`claude/cx34-infeasible-discussion-7b0c5b` @ `7aa4baf` (= `origin/main`). No model change.
+
+**Rule** (now in [benchmark.md](expected/benchmark.md) § Classification). An infeasible knockout scores as growth 0
+only when it is certified as a maintenance shortfall:
+1. the sweep solve and a fresh re-solve are both `infeasible`;
+2. the only forced flux is `xMAINTENANCE`;
+3. the maximum of `xMAINTENANCE` with its lower bound set to 0 is optimal, passes the targeted check, and stays
+   below the bound by more than 1e-6;
+4. WT is optimal.
+
+Any other failed solve stays unresolved, and the earlier-rule counts are reported alongside.
+Also new: [untargeted_genes_out_of_scope.json](expected/untargeted_genes_out_of_scope.json), which lists
+`YALI0F04114g` (COX9).
+
+**Results** ([REPORT.md](reports/infeasible_ko_rule_20261030/REPORT.md),
+[REVIEW.md](reports/infeasible_ko_rule_20261030/REVIEW.md)). Verified: observed in this run.
+
+**Run setup:**
+- Model `e1e7c868…`, Task A medium, PO1f, list `1e887f5a…`.
+- Gurobi at 1e-9, reset per knockout, targeted check.
+- 1,123 LPs in all.
+
+**Acceptance:**
+- WT is 0.3116608216, identical to the aconitase run.
+- Rule A reproduces the aconitase scores exactly at all four cutoffs.
+- All 20 infeasible knockouts are certified (16 scored + 4 mtDNA). Each has a maximum maintenance flux of 4.828
+  against 7.8625, a margin of 3.0345.
+- Only those 20 knockouts change class.
+- The WT maintenance ceiling is 63.333.
+
+**15 % scores:**
+- Earlier rule: 125 / 190 / 42 / 692 with 16 unresolved.
+- **New primary** (rule B, mtDNA and untargeted genes out of scope): **136 / 190 / 46 / 692**, 0 unresolved.
+  Recall 0.4172, precision 0.7473, MCC 0.4344.
+- These numbers match the prediction written in TASK.md before the run.
+
+**Other cutoffs (new primary):**
+- 1 %: 108 / 218 / 39 / 699.
+- 5 %: 115 / 211 / 41 / 697.
+- 10 %: 119 / 207 / 46 / 692.
+
+Negatives are the user-defined class; mtDNA genes are out of scope; development reference.
+
+**Findings recorded this day.** Read-only unless marked.
+- **Identities of the 16 genes.** Homology only: the CLIB122 locus-map annotation plus UniProt/Pfam. The
+  *Y. lipolytica* data are from CLIB122 and the *S. cerevisiae* homologs from S288C. No *Y. lipolytica* experiment.
+  - Complex III: RIP1 (A03322g), core 1 / MPP-β (A14736g), CYT1 (A17570g), QCR9 (B02487g), QCR10 (C17100g),
+    cytochrome c (D11769g, a carrier, not a subunit), QCR7 (E40361g), QCR8 (F02758g), QCR2 (F12013g), QCR6
+    (F32010g).
+  - Complex IV: COX6 (E12730g), COX7 (E15606g), COX12 (E19902g), COX4 (E23635g), COX5A (F05089g), COX9
+    (YALI0F04114g).
+  - Table: side-session notes `cx34_subunit_identities_20261030.md`.
+- **The 5 negatives.** All have negative fitness scores in both screens.
+  - CYT1 and COX4 are core subunits with borderline screen calls.
+  - QCR6 and QCR10 are accessory subunits. In *S. cerevisiae*, qcr6Δ respires at 30 °C but not at 37 °C
+    (PMID 8288589, 2163891). qcr10Δ grows on non-fermentable carbon with complex III activity reduced by 40 %
+    (PMID 8175712). Abstracts read via E-utilities.
+  - The Cas9 screen calls QCR10 essential (FS −4.15).
+- **COX9.** Run under `$IYALI26_RESEARCH_ROOT/artifacts/tasks/cox9_blast_20261030/`.
+  - The W29 "pseudogene" YALI1_F06244g is identical to CLIB122 over 9,950 nt.
+  - Both introns have canonical splice signals. Spliced, the locus gives a 60-aa protein whose Swiss-Prot hits are
+    all COX9 (best E-value 1e-13).
+  - There is no other copy in the W29 genome or proteome.
+  - No guide of either acCRISPR library lies in the locus (all 103,882 guides exact-matched).
+  - Inferred: the pseudogene call is an annotation artifact.
+- **Complex III was never reviewed subunit by subunit** the way complex IV was on 2026-10-08 (package B3, Decision
+  D: Cox8 and Cox13 removed as dispensable). By that rule QCR10 resembles Cox8, but its Cas9 call conflicts. This
+  is open; there is no authorization yet.
+
+**Limits.**
+- The certificate covers maintenance shortfalls only.
+- The ceiling relies on Gurobi's optimality status.
+- The certified result depends on NGAM 7.8625, inherited from iYli21 (origin not traced), and on the glucose cap
+  2.414, measured on a different medium.
+- No independent audit of the report beyond the script review.
+- The scores are for `e1e7c868`. The newer trehalose candidate `164542fb` (PR #40, entry below) was not
+  screened under the new rule.
+
+## 2026-10-30: Trehalose removed from biomass_C, candidate 164542fb (committed 53242c3 on claude/trehalose-biomass-24e3c1, PR #40)
+
+**Authorization.** The user, 2026-10-30: "Approve C on e1e7c868"
+([TASK.md](reports/trehalose_biomass_20261030/TASK.md) §6 option C as written in §9, baseline `e1e7c868`, §9
+budget; option D, the R143 rule, deferred to its own round). No commit or push. Brief from the session that started
+this one: the trehalose false-positive group, first among the ready rounds of the 2026-10-29 ranking. Committed on
+the user's instruction ("Commit on branch", 2026-10-30), without the superseded first build `d2e4c0c4`; pushed with a
+pull request to `main`, [PR #40](https://github.com/yhong075-sketch/iyali26_gem/pull/40), on the user's instruction
+("Push and open PR", 2026-10-30).
+
+**Results** ([REPORT.md](reports/trehalose_biomass_20261030/REPORT.md),
+[AUDIT.md](reports/trehalose_biomass_20261030/AUDIT.md),
+[escher/](reports/trehalose_biomass_20261030/escher/README.md)). Verified this session. The independent audit found
+no unsupported claim; its partly supported points (evidence wording in the notes and TASK.md, objective direction
+unchecked, a figure label) were fixed and the model rebuilt as v2.
+- **Candidate:**
+  [E5_…_aco_split_treh_biomass_v2_20261030.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_v2_20261030.xml)
+  (`164542fb6056f01e257ecfaed1b456961e8a07e46e9e4e1942f79489d5014beb`) = `e1e7c868` + `--trehalose-biomass-removal`.
+  First build `d2e4c0c4…` (same LP; two note texts differ) kept until the user decides. Not a designated reference.
+- **Change:** `biomass_C` loses trehalose `m294[C_cy]` −0.00686 mmol/gDW and gains seven `trehalose_biomass_*`
+  notes; nothing else differs (whole-model diff and raw XML diff, 2 entries). Not re-normalised.
+- **Ground:**
+  - Flores et al. 2011 ([PMID 21931609](https://europepmc.org/article/MED/21931609), full text read): WT trehalose
+    < 1 nmol/mg DW on minimal glucose medium (Table 4), also up to stationary phase and on glycerol; the *tps1*
+    disruptant grows on glucose at least as fast as WT (139 vs 149 min); no trehalose detected in `nth1 tps1` or
+    heat-shocked `tps1`. The model's 6.86 nmol/mg is more than 6.8× the reported bound.
+  - The 0.00686 has no source: it is the eciYali5-GEM script's `xCARBOHYDRATE` value, iYali4's `xBIOMASS` trehalose
+    0.0032 scaled about 2.14×.
+  - `YALI1E17616g` = `YALI0E14685g` = UniProt O74932 TPS1 (EMBL AJ011032, the Flores cDNA), verified.
+- **Knockouts** (Task A + PO1f, Gurobi 1e-9, reset per knockout, 2,164 LPs, no failing point): WT 0.3116608 →
+  0.3122964 (+0.20 %). Only `YALI1E17616g` (TPS1), `YALI1D17620g` ("TPS2", homology) and `YALI1E36568g` ("TPS3")
+  change: essential → non-essential at 1, 5, 10 and 15 % (all user-defined negatives, FP → TN). 15 %:
+  125 / 190 / 42 / 692 → 125 / 190 / 39 / 695 (MCC 0.4255 → 0.4338); FP −3 at every cutoff; recall unchanged.
+- **Build checks:** control reproduces `e1e7c868` (twice); seeds 0/1 identical for both builds; pytest the same
+  19 failed and 20 errors (identical IDs) before and after both versions, +5 new tests (19 subtests).
+
+**Limits.** The measurement is an upper bound ("< 1"), in strain CJM 645 on YNB-glutamate glucose, not PO1f on the
+Task A medium; heat shock (7–20 nmol/mg DW) is not modelled. The R143 rule `TPS2 and TPS1 and TPS3` is unchanged
+(option D, own round if wanted). Trehalose terms of the non-objective `xBIOMASS`, `newBiom`, `R1372` unchanged.
+Scores use the development consensus list (user-defined negatives), not independent validation.
+
+## 2026-10-29: R24 / R395 homocitrate steps reviewed on e1e7c868 (investigation only, no model change; committed ac8921d on claude/nice-bouman-b161f4)
+
+**Authorization.** Brief from the session that started this one, 2026-10-29: "Investigation only, no model change",
+in-memory variants only; the follow-up recorded by the aconitase round. Baseline `e1e7c868…` (aconitase candidate,
+uncommitted on `claude/aconitase-aco2-split-1c492f`, not on `origin/main`).
+
+**Results** ([REPORT.md](reports/r24_homocitrate_review_20261029/REPORT.md),
+[TASK.md](reports/r24_homocitrate_review_20261029/TASK.md)). Verified this session unless marked; no independent
+audit.
+- **R24's gene.**
+  - LYS4-like `YALI1E03387g` (Swiss-Prot Q6C791, by similarity) is not supported for homocitrate → cis-homoaconitate.
+    Fazius 2012 full text: homoaconitases show no homocitrate activity, while aconitase plus homoaconitase convert it.
+    In yeast, *aco1 aco2* is lysine-auxotrophic and each single mutant grows.
+  - Candidates: ACO1-type `YALI1D11984g`, and ACO2-type `YALI1E17935g`.
+  - The ACO2-type's activity in *Y. lipolytica* is unknown. Its Aco2-clade K609 is shared by inactive *Aspergillus*
+    AcoB, so it does not show activity.
+- **R395** stays `YALI1E03387g`.
+- **Annotation.**
+  - R24's name and cross-refs are 2-methylcitrate dehydratase: Rhea 57496, MNXR145545, BiGG MCITD, with `ec-code`
+    4.2.1.36.
+  - Product m76 is named homoaconitate but annotated as 2-methyl-cis-aconitate (KEGG C04225, ChEBI 57872).
+  - Correct IDs: KEGG R03444 / RHEA:26101, C04002 / ChEBI 58174.
+  - The name is inherited from Yeast-GEM r_0027 (inferred).
+- **3 H+.** A protonation artefact: neutral homocitrate and homoisocitrate against trianionic homoaconitate. The
+  source XML has no H+. FBA-neutral (statically verified). Physiologically there are no H+ (ChEBI).
+- **Direction.** Reversible is fine. The network allows only forward net flux (statically verified).
+- **In-memory knockouts** (Task A + PO1f, Gurobi 1e-9, 25 LPs):
+  - WT is unchanged in every variant.
+  - Options B (ACO1-type), C (both aconitases) and E: no class change for any gene.
+  - Option D (ACO2-type only): `YALI1E17935g` TN → FP at 10 % and 15 %.
+  - `YALI1E03387g` stays FN / FN / TP / TP: lysine bound, R395 closed.
+  - `YALI1D11984g` stays FN / TP / TP / TP.
+  - User-defined negatives; development reference.
+
+**Waiting for the user's choice**: GPR options A–E; option H (protons) and option N (annotation) are independent.
+REPORT §5 recommends C, with B as the conservative alternative. Each is its own `curation-change` round.
+
+**Limits.** One medium. No *Y. lipolytica* data on either aconitase with homocitrate. Fazius' yeast coupled assays are
+"not shown". Attributing the H+ addition to the build's proton/water balancer is inferred. Seen in passing:
+nuclear-homocitrate dead end R396 / m628, and the R95 / m217 annotations (not reviewed).
+
 ## 2026-10-29: Aconitase rules R1556, R216, R238 without the ACO2-type YALI1E17935g, candidate e1e7c868 (committed c8813ae on claude/aconitase-aco2-split-1c492f, PR #39)
 
 **Authorization.** The user, 2026-10-29: "Approve the aconitase plan in TASK.md §7 on baseline 059316ef"

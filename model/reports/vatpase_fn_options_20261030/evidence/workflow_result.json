@@ -1,0 +1,1107 @@
+{
+ "hist": {
+  "timeline": [
+   {
+    "date": "2026-09-09/10",
+    "report": "model/reports/r794_r795_gpr_review_20260909/ (REPORT.md, GENES.md, continuation_20260910/REPORT.md, target_three_review_20260910/REPORT.md)",
+    "what_was_done": "Literature, sequence, BLAST and existing-AlphaFold review of the R794 (Golgi) / R795 (vacuole) GPR, which is (12-gene AND incl. a-candidate YALI1E12482g) OR (YALI1F38820g AND YALI1F13017g). No GEM solves.",
+    "result": "Verified (read this run): the outer OR is called unsupported. The second branch is only a V0 a + c'' pair with no V1 ATP-hydrolysis head. BLAST: F38820g 53.61% id to Vph1, F13017g 77.40% to Vma16 c''. US-align TM 0.84 (a) and 0.95 (c''). No single KO of the 14 genes falsifies the GPR. Proposed template: shared components AND c'' AND the compartment's a subunit. Rejected options: deleting the branch, and a blanket 14-gene AND. Target-three review: D00581g (V1 D) is supported as a shared AND. Old F YALI0E16192g maps to W29 YALI1E19360g, annotated 'Pseudo mRNA' (frameshift). F38820g should not be an unconditional AND. Audits: 23/20 supported, 25/22 and 33/30, with 3 unresolved each."
+   },
+   {
+    "date": "2026-09-10",
+    "report": "model/reports/vatpase_gpr_hypothesis_20260911/REPORT.md",
+    "what_was_done": "The user's 3-gene shared-AND hypothesis, YALI1D00581g AND YALI0E16192g AND YALI1F38820g AND (G0), was built as default-off --vatpase-gpr-hypothesis. Then a full screen: 1 WT + 1074 KO, SD-Leu/PO1f.",
+    "result": "Verified (read): each of the 3 KOs closes R794/R795, but KO/WT = 1.0000000000000069 / 1.0000000000000018 / 0.9999999999999707. WT 1.8718823069403. Predicted essentials at 1/5/10/15% were 76/93/101/114, with 0 class changes. The 11 consensus-E genes stayed hidden by the inner OR."
+   },
+   {
+    "date": "2026-09-10",
+    "report": "model/reports/vatpase_nonessential_diagnosis_20260911/REPORT.md",
+    "what_was_done": "Three diagnostic LPs: WT; R794+R795 closed; plus R1159 closed.",
+    "result": "Verified (read): growth was 1.8718823069403 / 1.8718823069402994 / 1.8718823069402994. Every Golgi and vacuolar H+ reaction carried 0 flux in all three witnesses. There is no pH or membrane-potential term and no positive acidification demand. R1159 was 0, so it is not the active bypass."
+   },
+   {
+    "date": "2026-09-10",
+    "report": "model/reports/r795_open_diagnostic_20260911/ (REPORT.md, HISTORY.md)",
+    "what_was_done": "Opened R795 [0,0] to [0,1000] in memory (8 LPs) and traced the history of the closure.",
+    "result": "Verified (read): R795 max = 0 even when R795 itself is the objective. The forced chain: R1363 is closed, so the 4 vacuolar dipeptide hydrolyses = 0. The H+-coupled transports then go to 0, and R882 = 0 because R883 is closed. The vacuolar H+ row reduces to 2*v_R795 = 0. All 22 historical XML blobs containing R795 have it at [0,0]. It was already closed in the first import, 05ae6e1 (2026-03-19). No recorded motive."
+   },
+   {
+    "date": "2026-09-10",
+    "report": "model/reports/r795_r1363_open_diagnostic_20260911/REPORT.md",
+    "what_was_done": "Opened R795 and R1363 together (12 LPs). A separate task was handed off to investigate the closure's origin.",
+    "result": "Verified (read): WT 1.8718823069403 in all four open/closed combinations. KO/WT for the 3 targets was 0.9999999999999998. R795 and R1363 max were both 0. A second block: the dipeptide exchanges R2018/R2026/R2031/R2036 are secretion-only. The chain balance gives h = -q with h, q >= 0, so h = 0."
+   },
+   {
+    "date": "2026-09-14",
+    "report": "model/STATE.md entry '\u56db\u79cd\u4e8c\u80bd pool \u4f7f\u6db2\u6ce1\u7f51\u7edc\u90e8\u5206\u6062\u590d' (dipeptide_pool_diagnostic_20260914)",
+    "what_was_done": "Added an artificial cytosolic source [0,1] for each of the 4 dipeptides and opened R795 and R1363 (12 LPs).",
+    "result": "Verified (read in STATE): R2034 and R2039 each reach 1, R795 reaches 1 and R1363 reaches 2. R2021 and R2029 stay at 0 because R871 and R876 are closed. Growth went 1.871882 to 2.172250 (+16.05%). With R795 closed it returns to 1.8718823, i.e. 86.17% of pool WT, above the 15% cutoff. Not accepted."
+   },
+   {
+    "date": "2026-09-14",
+    "report": "model/reports/vatpase_gray_capacity_red_ko_20260914/REPORT.md",
+    "what_was_done": "In the 3-gene hypothesis model with the dipeptide pool, capped R794/R795 at C = 1000, 1, 0.5, 0.1 and 0, then knocked out the 11 red (consensus-E) genes (60 LPs).",
+    "result": "Verified (read): WT was 2.17225 / 2.17225 / 2.05210 / 1.90793 / 1.87188. All 55 KO/WT = 1, 0 essentials at every cutoff. Cause: the inner OR keeps the GPR true for each red KO, so WT and KO are the same LP. The C=0 witness: all 76 Golgi and 38 vacuolar reactions are 0. R_NTP1 carried 179.74, generating ATP with no energy coupling (flagged)."
+   },
+   {
+    "date": "2026-09-14",
+    "report": "model/reports/vatpase_fitness_review_20260914/REPORT.md",
+    "what_was_done": "Read the acCRISPR fitness scores for the 3 grey genes and assessed whether pump capacity could be tuned from FS.",
+    "result": "Verified (read): D00581g Cas9 FS -2.627 (q 0.171), Cas12a -1.784 (q 0.079). F38820g Cas9 -1.749 (q 1), Cas12a -1.516 (q 0.313). Both are 'Non-essential' in both assays. E16192g and its W29 mapping YALI1E19360g are absent from the screens. FS cannot be converted to a capacity. Lowering the pump upper bound cannot reduce growth, because the zero-pump optimum stays feasible."
+   },
+   {
+    "date": "2026-09-14",
+    "report": "model/reports/iyli647_vatpase_comparison_20260914/REPORT.md",
+    "what_was_done": "Checked whether iYLI647 (2018 supplement and corr_3) solves the V-ATPase problem.",
+    "result": "Verified (read): it does not. ATPS3v and ATPS3g are written as ATP synthesis, and ATP[v]/ADP[v] occur in only that one reaction, so both are structurally zero. The 'p' gene group's KO/WT of about 58.3% comes from ATPS3m (mitochondrial), not from acidification."
+   },
+   {
+    "date": "2026-09-14",
+    "report": "model/STATE.md entries on R_NTP1 (r_ntp1_direction_review / r_ntp1_pipeline_20260914)",
+    "what_was_done": "R_NTP1 changed to balanced, forward-only ATP hydrolysis; user instruction '\u8865\u9f50\u989d\u5916H\u207a\u7136\u540e\u5e76\u5165\u7ba1\u7ebf'.",
+    "result": "Verified (read in STATE): the free ATP-synthesis direction was removed. Not tested: whether this changes pump essentiality. Verified this run on m059: R_NTP1 is [0,1000], ATP + H2O -> ADP + Pi, GPR YALI1A09766g or YALI1E41893g. It is still a free ATP-dissipation sink."
+   },
+   {
+    "date": "2026-09-18",
+    "report": "model/reports/vatpase_pair_plus_single_20260918/REPORT.md",
+    "what_was_done": "Double KO F38820g + F13017g, plus 12 triple KOs (28 LPs) in the 3-gene hypothesis model with the pool.",
+    "result": "Verified (read): WT 2.17225036. The double KO and all triples give 1.87188231 = 86.1725% of WT and 100% of the double. Above 15%, so not essential. No extra reactions close."
+   },
+   {
+    "date": "2026-09-18 to 09-21",
+    "report": "model/reports/vatpase_branch_alphafold_20260918/ (REPORT.md, web_server/GPR_REVIEW.md, RESULTS.md)",
+    "what_was_done": "AlphaFold 3 assembly predictions: group A (12 chains, 4106 aa) and group B (2 chains, 1000 aa). HPCC jobs 28896409/28896410, then the web server. Followed by a TypeSafe-style GPR review.",
+    "result": "Verified (read in STATE/report): A ipTM 0.53-0.55, pTM 0.57-0.58, no confident assembly. B ipTM 0.51, pTM 0.68, raw files not retrieved. GPR review: the original OR lets the catalytic A (YALI1A09766g) be missing. The 3-gene hypothesis keeps that loophole. The proposed candidate is C(12 shared, incl. c'') AND (YALI1E12482g OR YALI1F38820g), unverified. 9 claims: 7 supported, 2 unresolved."
+   },
+   {
+    "date": "2026-09-21",
+    "report": "model/reports/screen_vatpase_candidate_20260921/ (REPORT.md, MECHANISM.md)",
+    "what_was_done": "Full screen of the 12-shared-AND (a1 OR a2) candidate against the R539 baseline, 2148 LPs. Plus a static mechanism check.",
+    "result": "Verified (read): both WTs 1.8718823069402997. 116 essentials at 15% in both; 76/93/101 at 1/5/10%; 0 gained, 0 lost. Each of the 12 shared genes closes R794 (R795 was already closed). All 14 target KOs about 100%, because the saved WT has R794 = R795 = 0. Golgi: all 76 C_go reactions are 0 in WT. Mannan is supplied ER -> cytosol via R289 -> R1250 reversed (0.4415). R141 is structurally dead."
+   },
+   {
+    "date": "2026-09-21",
+    "report": "model/reports/vatpase_escher_20260921/README.md",
+    "what_was_done": "Escher view of R794, R795 and R1159 for WT and the 14 KOs.",
+    "result": "Verified (read): five open evidence gaps are listed: growth-linked acidification, R1159 energetics, a-subunit localisation and substitution, W29 F identity, native assembly. 'No arbitrary proton sink, new transport reaction, or extra AND relation was introduced to force essentiality.'"
+   },
+   {
+    "date": "2026-09-23",
+    "report": "STATE '2026-09-23\uff1aR1159 \u6761\u4ef6\u6027 Golgi \u56de\u6f0f\u65b9\u5411\u5df2\u5e76\u5165\u7ba1\u7ebf'; screen_vatpase_candidate_20260921/MECHANISM.md addendum",
+    "what_was_done": "R1159 set to [-1000,0] (Golgi -> cytosol passive leak); user instruction '\u4fee\u6539 \u5e76\u5165\u7ba1\u7ebf \u7136\u540epush'. Pushed f21e5dc.",
+    "result": "Verified (read): it does not change essentiality, because the zero-flux WT remains feasible. Verified this run on m059: R1159 is (-1000, 0)."
+   },
+   {
+    "date": "2026-09-23/24",
+    "report": "STATE entries on dipeptide_supply_repair_20260923 and dipeptide_energy_audit_20260924",
+    "what_was_done": "92 supply scenarios (724 solve labels) and a closed-ATP-path audit.",
+    "result": "Verified (read in STATE): limited supply alone restores no hydrolysis. R1363 + R795 restores R2034/R2039; R871/R876 are also needed for R2021/R2029. WT 1.871882307 -> 1.877889668. The energy check failed at the time (xMAINTENANCE could reach 1000)."
+   },
+   {
+    "date": "2026-09-24",
+    "report": "model/reports/vacuole_open_supply_20260924/REPORT.md",
+    "what_was_done": "E5_vacuole_open candidate (default off): R1363 and R795 ub 0.04, R871 and R876 ub 0.01. Bounded artificial vacuolar dipeptide sources, epsilon = 0.01 (114 optimisations).",
+    "result": "Verified (read): no-source growth is unchanged at 1.429177892. With 4 sources, G3 = 1.434139670 (+0.35%). At the near-strict optimum: R795 = 0.035 ATP (0.07 H+), R1363 = 0.04, each hydrolysis 0.01. Near-strict FVA lower bounds are positive (R795 >= 0.03499). Closing the pump or the water entry blocks all 4. Energy checks are 0. This is model necessity for the extra growth only, not gene essentiality. Not accepted."
+   },
+   {
+    "date": "2026-09-28",
+    "report": "STATE 'Gly-L-Pro\u8d77\u70b9\u00d7\u6c34\u89e3\u533a\u5ba4\u5047\u8bbe\u5bf9\u7167\u5b8c\u6210'",
+    "what_was_done": "Gly-Pro uptake origin x hydrolysis compartment hypotheses (86 optimisations).",
+    "result": "Verified (read in STATE): R795 per scenario: cyto->cyto 0, cyto->vac 0.005, vac->cyto 0.005, vac->vac 0.01. Closing the pump keeps the same q only in cyto->cyto. Normal growth persists without the supply, so this says nothing about gene essentiality."
+   },
+   {
+    "date": "2026-10-26",
+    "report": "STATE '2026-10-26: Ponce-de-Le\u00f3n 2013 gap census of a1237821'",
+    "what_was_done": "Gap census.",
+    "result": "Verified (read in STATE): UM2 = 37 blocked reactions (inherited vacuolar closures + dipeptide sets). Opening the 17 closures unblocks 34/37."
+   },
+   {
+    "date": "2026-10-27",
+    "report": "model/reports/essentiality_fn_causes_20261027/REPORT.md",
+    "what_was_done": "FN cause classification on a1237821, Task A + PO1f, 212 FN at 15%.",
+    "result": "Verified (read): the 11 V-ATPase genes fall in category d, sub-label 'unused_at_optimum:v_atpase', KO/WT 1.0000. Recall at 15% was 103/315. Literature chain 'Is the V-ATPase required in Y. lipolytica?' came back unclear, level 1 (only M. oryzae data)."
+   },
+   {
+    "date": "2026-10-28",
+    "report": "model/reports/um2_vacuolar_closures_20261028/ (TASK.md, REPORT.md)",
+    "what_was_done": "Stage 1 analysed the 17 inherited UM2 closures: history plus options B, B', C, C' and open-all-17, in memory on 9d655c2b and re-checked on 5f54eb22. 5811 + 447 + 1341 LPs, plus 6 full KO sweeps (6492 LPs).",
+    "result": "Verified (read): history: open in Yeast 7.11, closed in iYali4 (2016), inherited since; motive unrecorded (an 'inferred' futile-loop motive is offered). Every option: WT delta < 3e-15, 0 class changes, 0 KO gains. 15% stays TP 112 / FN 203 / FP 42 / TN 692. Freed flux is only futile ATP cycles; R795 range [0, 55.5] at 0% of the optimum; pFBA 0. R1163 as written is an unbounded loop. Conclusion: the 11 FN come from a missing acidification requirement, not from the closure. User chose A0."
+   },
+   {
+    "date": "2026-10-30 (this run)",
+    "report": "m059.xml static check (scratch script /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/agents/hist_check.py)",
+    "what_was_done": "Loaded the current candidate in cobra: SHA-256 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d. Read bounds and GPRs, evaluated Boolean single-gene KOs, checked membership in the consensus list. No solver.",
+    "result": "Verified: R794 [0,1000] and R795 [0,0] still carry the ORIGINAL OR rule. Neither the 3-gene nor the 12-shared candidate is in the current model. No single KO of any of the 14 genes makes either GPR false (the lists of falsifying genes are empty). R1163 = R1363 = R871 = R876 = R883 = (0,0). R882 is (0,1000). biomass_C species are only in C_cy, C_em, C_er, C_lp, C_mi; no C_go or C_va. 11 of the 14 genes are in the consensus list. The 3 that are not are YALI1D00581g, YALI0E16192g and YALI1F38820g: exactly the 3 genes the 09-10 hypothesis made shared-AND."
+   }
+  ],
+  "user_decisions": [
+   "2026-09-09: the user explicitly asked for a direct review of the GPR-replacement suggestion and called govern-agentic-research. This is paraphrased in r794_r795_gpr_review_20260909/TASK.md; no verbatim quote recorded.",
+   "2026-09-10: user chose \"\u628a D00581\u3001E16192\u3001F38820 \u90fd\u8bbe\u4e3a\u5171\u540c AND\uff0c\u4f5c\u4e3a\u5f85\u9a8c\u8bc1\u5047\u8bbe\u7248\" (STATE 2026-09-10). Built default-off; not in the default pipeline.",
+   "2026-09-10: the user asked to evaluate opening R795 and to trace why it was closed. They then 'explicitly asked to send the closure-motive investigation to a new task conversation and to test opening R1363' (paraphrase in STATE).",
+   "2026-09-14: the user clarified the goal as \"\u964d\u4f4e3\u4e2a\u7070\u8272\u6210\u5458\u652f\u6301\u7684\u901a\u91cf\uff0c\u518d\u6572\u5176\u4f59\u7ea2\u8272\u6210\u5458\" (paraphrase in STATE). The earlier FS-fitting plan was cancelled after this clarification and never run.",
+   "2026-09-14: user asked \"\u5148\u52a0\u56db\u79cd\u4e8c\u80bd pool \u6d4b\u8bd5\" (STATE paraphrase). The pool was diagnostic only and not accepted.",
+   "2026-09-14: R_NTP1: \"\u8865\u9f50\u989d\u5916H\u207a\u7136\u540e\u5e76\u5165\u7ba1\u7ebf\" (STATE). Merged.",
+   "2026-09-18: \"\u540c\u65f6\u5173\u95ed(YALI1F38820g and YALI1F13017g))\u548c\u5176\u4ed6\u5355\u72ec\u57fa\u56e0 \u6d4b\u8bd5\u4e00\u4e0b\" (vatpase_pair_plus_single_20260918/TASK.md).",
+   "2026-09-18: the user asked for separate AlphaFold predictions of the first 12 and last 2 proteins, then asked to switch to the web server. A request to cancel HPCC jobs 28896409/28896410 was refused by auto-approval, because the user had not explicitly authorised it.",
+   "2026-09-21: \"\u7528\u65b0\u7684\u5019\u9009 \u505a\u4e00\u6b21screen test\" (STATE and screen_vatpase_candidate_20260921/TASK.md). Ran as a test; not accepted into the pipeline.",
+   "2026-09-23: R1159: \"\u4fee\u6539 \u5e76\u5165\u7ba1\u7ebf \u7136\u540epush\" (STATE). Merged and pushed as f21e5dc.",
+   "2026-09-24: E5 vacuole four-connection candidate 'authorized by the user attachment in this task'. Default off, not accepted.",
+   "2026-10-28: the user answered **\"Option A0\"**: keep all 17 UM2 closures and document only; no build. Also \"Commit on branch\" (10f1656 on claude/fervent-shannon-141b92, not pushed then).",
+   "Standing rule recorded in AGENTS.md and the reports: no recall tuning. Never force a pump lower bound, add an arbitrary proton sink, add an AND or change caps merely to make genes essential."
+  ],
+  "established_mechanism": "The V-ATPase false negatives come from two independent layers. Fixing one layer alone does not change any call.\n\n(1) GPR layer.\n- The current model m059 keeps the inherited rule (12-gene AND, including a-candidate YALI1E12482g) OR (YALI1F38820g AND YALI1F13017g).\n- Verified this run with Boolean evaluation on m059: no single KO of any of the 14 genes makes the R794 or R795 GPR false. The 11 consensus-essential genes (A11258, E14125, E10492, A09766, F20965, F31854, F21690, E37063, E32332, E12482, F13017) therefore never close either reaction.\n- The 09-10 3-gene AND hypothesis put the AND only on the 3 non-consensus genes (D00581, E16192, F38820; verified non-membership this run). It left the 11 E genes hidden by the inner OR.\n- The 09-21 candidate, 12 shared AND (E12482 OR F38820), does propagate KOs of the 12 shared genes to R794.\n\n(2) Network/objective layer (decisive).\n- Even when R794/R795 are closed, KO/WT is about 1. The WT optimum already has R794 = R795 = 0, so the KO feasible set still contains the WT optimum (monotonicity argument, verified in the 09-10, 09-21 and 10-28 reports).\n- Nothing in the objective or constraints needs Golgi or vacuolar H+. biomass_C has no C_go/C_va species (verified on m059 this run). There is no pH, membrane-potential, storage or acid-dependent-process term.\n- The H+ rows are pure balances that the all-zero solution satisfies. Vacuolar H+ is used only for transport.\n- R795 is [0,0], inherited from iYali4 (2016) with no recorded motive. Opening it alone, or with R1363, gives max flux 0. The reasons: R1363 closed; dipeptide exchanges secretion-only; R871/R876/R883 closed; so 2*v_R795 = 0.\n- Opening everything (UM2 options B, B', C, C') only frees ATP-burning futile cycles, with pFBA 0 and 0 KO class changes. R1163 as written creates a loop.\n- Artificial dipeptide supply makes R795 carry flux only for the extra growth. With the pump closed, base growth persists at 86.17% (pool) or about 99.65% (E5 bounded) of WT, so no 15% call flips.\n- R1159 is not an active bypass (0 in WT; now [-1000,0]).\n- The model already has a free ATP-hydrolysis sink, R_NTP1 (verified on m059: [0,1000], ATP + H2O -> ADP + Pi). Pump-based ATP dissipation adds no capability.\n- Project conclusion (UM2 report, 10-28): the 11 FN 'come from a missing acidification requirement, not from the closure'. In the FN classification (10-27) all 11 are category d, 'unused_at_optimum:v_atpase'.\n\nBiology (homology/screen level only; no native name verified):\n- The Y. lipolytica vacuolar H+-ATPase is active (Kulakovskaya 1993; abstract re-read by an earlier session).\n- The core subunits are essential in the PO1f CRISPR screens.\n- The essential a-subunit is YALI1E12482g, which is the reverse-best hit of STV1 though its forward best hit is VPH1. The VPH1-RBH YALI1F38820g is non-essential in both screens.",
+  "open_questions": [
+   "How to represent a growth-linked acidification requirement with evidence. Options: a biomass- or growth-coupled vacuolar/Golgi H+ demand, a pH/membrane-potential constraint, a vacuolar storage term, or coupling of Golgi glycosylation or secretion to H+. The required evidence is the measured or literature-derived stoichiometry and the condition. None has been designed or tested; the 10-28 TASK.md lists this as follow-up 4: 'would need evidence-based constraints, not a recall target'.",
+   "Even with a demand added, the 12 shared-component KOs become lethal only if no other route can satisfy it. Candidate escapes: R1159 (now [-1000,0]), R1163 (closed; uphill as written), the other H+-coupled transports, and the R_NTP1 free hydrolysis sink. Not tested (inferred).",
+   "Compartment-specific a-subunit assignment. YALI1E12482g is essential and STV1 reverse-RBH; YALI1F38820g is VPH1-RBH and non-essential (Cas9 q 1, Cas12a q 0.31). Under the 09-21 candidate (E12482 OR F38820), E12482's KO would still not close the reactions, so E12482 would stay FN (inferred from the Boolean form). Which a serves R794 (Golgi) vs R795 (vacuole) is unresolved.",
+   "W29 F-subunit identity. The old YALI0E16192g (CLIB122) maps to W29 YALI1E19360g, annotated as a pseudogene with a frameshift. This blocks a formal shared-AND rule.",
+   "Whether c'' (YALI1F13017g) belongs in the shared AND. Structural and BLAST support exists; no native data.",
+   "Status of HPCC AlphaFold jobs 28896409/28896410 is unknown since 2026-09-18. The web-server B-branch raw files were not retrieved or audited.",
+   "Whether R795 should be opened at all: the user chose A0 (keep closed). Any demand placed on the vacuole would need R795 (and probably R1163 as a va->cy leak) reopened, which would revisit that decision. Golgi-side R794 is already open, so a Golgi-side requirement would not need it.",
+   "Whether V-ATPase subunits should be treated as outside what a steady-state FBA model can predict, and reported as a known structural FN class rather than fixed. This needs a user decision; no report proposed it formally.",
+   "Related follow-ups not started: R1163 direction (va->cy leak); R925 imbalance (-3 H/charge); dipeptide-route re-curation (PTR2 YALI1D24836g uptake plus cytosolic hydrolysis); R2055/R2056 missing VBA1 RBH YALI1B04391g.",
+   "The current candidate m059 (SHA 059316ef...) is not referenced anywhere in model/ (grep this run found no hit). Its relation to the 10-28 UM2 baseline models (9d655c2b, 5f54eb22, 965ab947) was not checked here beyond the bounds and GPRs listed."
+  ],
+  "options_already_tried_or_rejected": [
+   "Delete the (F38820 AND F13017) branch. Rejected in the 09-09 review: c'' is likely a shared component, and deleting it would remove a real subunit.",
+   "Blanket 14-gene AND. Rejected/not implemented: no evidence that both a isoforms are required in the same compartment.",
+   "3-gene shared AND (D00581, E16192, F38820), 09-10. Built default-off and screened: 0 class changes, the 3 KOs close the reactions, KO/WT about 1. It cannot fix the 11 E genes, which stay OR-hidden.",
+   "12-shared AND (a1 OR a2) candidate, 09-21. Full screen: 116 vs 116 essentials, 0 gained or lost. The GPR propagates, but the network has no demand. Not accepted.",
+   "Open R795 alone (09-10): max flux 0. Open R795 + R1363 (09-10): max flux 0. Cause: secretion-only dipeptide exchanges and other closed exits.",
+   "Artificial dipeptide pool plus R795/R1363 open (09-14): pump used, +16% growth. Pump closed: 86.17%, still above 15%. Not accepted as biology.",
+   "Cap the 'gray' shared-gene capacity and knock out the 11 red genes (09-14): all 55 KO/WT = 1. The inner OR makes the WT and KO problems identical.",
+   "Calibrate pump capacity from acCRISPR FS (09-14). Cancelled after the user's clarification; FS cannot be converted to capacity. Lowering the upper bound cannot reduce the optimum, because the zero-pump solution stays feasible.",
+   "Double KO F38820+F13017 plus 12 triples (09-18): 86.17% of pool WT, not essential.",
+   "Copy the iYLI647 representation (09-14). Rejected: ATPS3v/g are written as synthesis and are structurally blocked.",
+   "AlphaFold assembly to settle the GPR (09-18): low ipTM (0.51-0.55). Cannot confirm catalysis, localisation or redundancy.",
+   "R1159 direction fix to a Golgi->cytosol leak (09-23): merged. No essentiality effect, because the zero-flux WT stays feasible.",
+   "R_NTP1 balanced forward-only hydrolysis (09-14): merged. It removed free ATP synthesis but leaves a free ATP-dissipation sink. Effect on pump essentiality not tested.",
+   "E5 vacuole four-connection candidate with bounded supply (09-24): R795 required only for the extra 0.35% growth at the near-strict optimum. Default off, not accepted.",
+   "UM2 openings B, B', C, C' and open-all-17 (10-28): 0 class changes at all cutoffs; freed flux only futile cycles; open-all-17 creates a loop via R1163. User chose A0 (keep closures).",
+   "Forcing a pump lower bound, adding an arbitrary proton sink, adding extra AND terms, or changing uptake caps to make the genes essential. Explicitly rejected as recall tuning (AGENTS.md; vatpase_escher README; screen MECHANISM.md)."
+  ]
+ },
+ "model": {
+  "r794": "VERIFIED (cobra load of m059.xml, SHA-256 059316ef\u2026 re-checked this run). R794 \"V-ATPase, Golgi\": 2 H+[C_cy] (m10) + ATP[C_cy] (m141) + H2O[C_cy] (m32) --> ADP[C_cy] (m143) + Pi[C_cy] (m35) + 2 H+[C_go] (m293). Bounds [0, 1000]. Mass and charge balanced (check_mass_balance = {}). GPR: (YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g). Notes: metadata_reaction_selection=metadata_reaction_fields_preserve_trna_20260910; selected_fields=stoichiometry; selection_source_sha256=33c14f0c\u2026; evidence_status=\"User-selected model version; not new validation of chemistry or native gene function\". SBO:0000185. The bounds and GPR are identical to the immutable source model/source/iyali26.xml (verified). So the 2-gene OR branch is inherited, and the provisional all-AND hypothesis in model/curation/gpr/vatpase_gpr_hypothesis.json (VATPASE-COMMON-AND-3-20260911) is NOT applied in m059 (verified).",
+  "r795": "VERIFIED. R795 \"V-ATPase, vacuole\": 2 H+[C_cy] + ATP[C_cy] + H2O[C_cy] --> ADP[C_cy] + Pi[C_cy] + 2 H+[C_va] (m1007). Bounds [0, 0], so it is CLOSED in the model file and in the source model. Its GPR is identical to R794's (string equality True), and its notes are the same metadata-selection notes as R794. Because R795 is closed, no gene knockout can change what it contributes. Per STATE.md 2026-09-10 and 2026-10-28 (recalled, not re-run): opening R795 alone leaves its max flux at 0, because vacuolar water entry R1363 [0,0], the dipeptide hydrolysis chains and the Ile exit R883 [0,0] force the vacuolar H+ row to 2*v_R795 = 0. R1363 [0,0] is verified this run.",
+  "vatpase_genes": [
+   {
+    "gene": "YALI1A09766g",
+    "annotation": "Model name COBRAProtein663 (no verified name). Consensus list: highly similar to Ashbya Q9UVJ8 V-ATPase catalytic subunit A; S. cerevisiae TFP1/VMA1 homolog (V1 A). Homology only. Also the sole OR partner with YALI1E41893g on R_NTP1 (free cytosolic ATP hydrolysis), which is a questionable assignment",
+    "in_branch": "branch 1 (12-gene AND); also R_NTP1",
+    "experimental_essential": "yes (consensus_essential_in_at_least_2_of_3_screens); FN cause d / unused_at_optimum:v_atpase, KO growth 0.3116608 = WT",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1A11258g",
+    "annotation": "COBRAProtein663-series placeholder name (COBRAProtein664). Consensus list: VMA5 (YKL080W) homolog, V1 subunit C. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1D00581g",
+    "annotation": "COBRAProtein665; UniProt A0A1D8NCM2, XP_502247.1. Curation file: V1 D central-rotor subunit candidate (sequence and AlphaFold prediction only)",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "no (not on the consensus list; user-defined negative)",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1E10492g",
+    "annotation": "COBRAProtein666. Consensus list: weakly similar to VMA13 (YPR036W), V1 subunit H. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1E12482g",
+    "annotation": "COBRAProtein667. Consensus list: similar to STV1 (YMR054W) and VPH1 (YOR270C), V0 subunit a (Stv1/Vph1-like). Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1E14125g",
+    "annotation": "COBRAProtein668. Consensus list: VMA10 (YHR039C-A) homolog, V1 subunit G. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI0E16192g",
+    "annotation": "COBRAProtein669 (a YALI0, CLIB122 ID, in a YALI1 model). Curation file: V1 F subunit candidate; the W29 pseudogene/active-locus conflict is unresolved",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "no (not on the consensus list; it is a YALI0 ID, so it is probably not mappable to the YALI1-keyed list, inferred)",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1E32332g",
+    "annotation": "COBRAProtein670; A0A1D8NK63. Consensus list: highly similar to VMA2 (YBR127C), V1 subunit B. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1E37063g",
+    "annotation": "COBRAProtein671; A0A1D8NKR8. Consensus list: highly similar to TFP3/VMA11 (YPL234C), V0 proteolipid c'. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1F20965g",
+    "annotation": "COBRAProtein673; A0A1D8NNL2. Consensus list: VMA4 (YOR332W) homolog, Candida albicans V-ATPase subunit E. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1F21690g",
+    "annotation": "COBRAProtein674; A0A1H6PZG0. Consensus list: highly similar to VMA6 (YLR447C), V0 subunit d. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1F31854g",
+    "annotation": "COBRAProtein675; A0A1D8NPS9. Consensus list: highly similar to CUP5/VMA3 (YEL027W), V0 16 kDa proteolipid c. Homology only",
+    "in_branch": "branch 1 (12-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1F38820g",
+    "annotation": "Model name: 'Vph1-like V0 a subunit (candidate; experimental confirmation required)'; A0A1H6PMT1. Notes: provisional, based on sequence homology and AlphaFold prediction; native compartment (vacuole vs Golgi/endosome) unconfirmed",
+    "in_branch": "branch 2 (2-gene AND)",
+    "experimental_essential": "no (not on the consensus list; user-defined negative)",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   },
+   {
+    "gene": "YALI1F13017g",
+    "annotation": "COBRAProtein672; A0A1D8NMN8. Consensus list: highly similar to PPA1/VMA16 (YHR026W), V0 proteolipid c''. Homology only",
+    "in_branch": "branch 2 (2-gene AND)",
+    "experimental_essential": "yes; FN d / unused_at_optimum:v_atpase",
+    "ko_closes_r794": false,
+    "ko_closes_r795": false
+   }
+  ],
+  "proton_network": "Compartment IDs (verified): C_va vacuole, C_vm vacuolar membrane, C_go Golgi, C_gm Golgi membrane; C_en endosome. H+ species: m1007[C_va] (22 reactions), m293[C_go] (5), m19[C_vm] (6), m871[C_gm] (4); m24[C_en] (14). All enumerated from metabolite.reactions, i.e. the stoichiometric matrix, not from names.\n\nGOLGI LUMEN m293, all 5 reactions (verified):\n- R794 V-ATPase: [0,1000]; ATP-coupled pump, cy to go. The only reaction that can supply net H+ into the Golgi.\n- R1159 H+ diffusion cy<-go: [-1000,0]; passive leak, go to cy only (curated 2026-09-23). Golgi H+ sink.\n- R141 alpha-1,2-mannosyltransferase: [0,1000]; produces 1 H+[go]. Not coupled. It is structurally zero, because its substrate m289 and product m291 occur in R141 only (dead ends; verified).\n- R_NDP7g UDP + H2O <=> UMP + Pi + H+: [-1000,1000]; GPR YALI1E41893g. It is H and charge IMBALANCED (+1 H, +1 charge, check_mass_balance verified). Golgi UDP m836 has no producer except R_NDP7g run in reverse; R586 (balanced, same chemistry without H+, YALI1C25093g) only consumes it. So R_NDP7g cannot run net forward (no net H+ source). R586 forward plus R_NDP7g reverse forms a cycle whose only net effect is to destroy 1 H+[go]: a second, mass-imbalanced Golgi H+ sink (verified by stoichiometry; consequence inferred).\n- R2048 MIPC + Ins-1-P + 2 H+[go] <=> M(IP)2C + H2O: [-1000,1000]; GPR YALIUNK3 (placeholder). In the forward direction it is the only Golgi H+ consumer that would need a supply, and that supply could only be R794.\nNo other reaction crossing the Golgi boundary (about 70: ceramide/IPC/MIPC/M(IP)2C transports, R850 GDP-mannose/GMP antiport, R1135, R1137, R1359, R2047, R2049, R2057, R1815-R1834 closed) carries H+ (verified list).\n\nGOLGI MEMBRANE m871: R1661 cy<=>gm H+ [-1000,1000] free exchange; R1759 DGPP phosphatase, R1837 PI4K, R630 PSD (lipid enzymes, local H+). Not gradient-relevant.\n\nVACUOLE m1007, all 22 reactions (verified):\n- R795 pump: [0,0] closed. R1163 H+ diffusion cy->va: [0,0] closed.\n- Open, gene-less, reversible [-1000,1000] H+/solute co-transport (stoichiometrically SYMPORT, H+ and solute both cy<->va, although several are named \"antiport\"): R2020 Gly-Asp, R2028 Gly-Glu, R2030 Gly (mass-imbalanced: vacuolar Gly m1863 lacks a formula), R2038 Gly-Pro, R2040 Pro.\n- Open antiport H+(va out)/Ile(in): R882 [0,1000], YALI1F37658g.\n- Closed [0,0] H+-coupled transports: R869, R878, R887, R897 (Asn/Gln/Leu/Tyr in, antiport); R870 (named Asp but carries Asn), R871 Asp, R876 Glu, R879, R883, R888, R898 (out, H+ co-export); R918 putrescine, R925 spermidine (H/charge imbalanced -3), R927 spermine.\nNo vacuolar reaction is ATP-coupled except R795.\n\nVACUOLAR MEMBRANE m19: R1655 cy<=>vm H+ free exchange; R1716/R665/R7 PI kinases, R1758 DGPP phosphatase, R631 PSD. Not gradient-relevant.\n\nOther ATP-driven H+ translocators anywhere (verified scan of reactions with ATP consumption and H+ in more than one compartment): only R172 (plasma membrane, cy to ex, YALI1B28659g), R794, R795 and the peroxisomal ATP carriers R816/R821. The endosome has no pump (only R1640 cy<=>en free exchange).",
+  "gradient_dependent_processes": [
+   "Golgi: NO H+-coupled solute transporter exists in the model (verified: R794 and R1159 are the only Golgi-boundary reactions carrying H+). The only Golgi process that needs H+ supplied is R2048 forward (MIPC + Ins-1-P + 2 H+ -> M(IP)2C, GPR YALIUNK3), and its only possible H+ source is R794. Not required for biomass: biomass_C contains no sphingolipid (verified full component list), M(IP)2C[go] exits only via R1240 to the ER, where it is consumed only by IPS phospholipase C R439, and R2048 can also run in reverse. Status: open but with no biomass demand (static; flux not computed).",
+   "Vacuole: R2020/R2028/R2038 dipeptide co-transport plus hydrolysis R2021/R2029/R2039 [0,1000]: open, but they feed nothing in biomass. STATE.md 2026-09-10 (recalled) shows the four dipeptide exchanges are secretion-only and R1363 is closed, which forces the hydrolysis to 0. Status: effectively blocked.",
+   "Vacuole: R2030 Gly and R2040 Pro co-transport: open, but the vacuolar Gly and Pro pools connect only to the dipeptide hydrolases (verified other-reaction lists). Not in biomass. Status: blocked by the same chain (recalled mechanism).",
+   "Vacuole: R882 Ile in / H+ out antiport [0,1000]: vacuolar Ile m1076 has only R883 [0,0] as its other reaction, so it is a dead end and R882 is forced to 0 (verified static). Status: blocked.",
+   "Vacuole: amino-acid exporters R870/R871/R876/R879/R883/R888/R898 and importers R869/R878/R887/R897: closed [0,0] (the UM2 decision of 2026-10-28 kept them closed, recalled).",
+   "Vacuole: polyamine storage R918/R925/R927: closed. The vacuolar polyamines have no other reaction (dead ends, verified).",
+   "Conclusion (inferred from the above, consistent with STATE 2026-09-21 and 2026-10-28, recalled): no process in m059 that contributes to biomass consumes a vacuolar or Golgi H+ gradient. R794 is pure ATP cost, R795 is closed, so the optimum uses neither, which is the 'unused_at_optimum' cause. Biological V-ATPase essentiality (pH homeostasis, vacuolar ion/amino-acid storage, Golgi/endosome sorting, glycosylation) is not represented as a metabolic demand."
+  ],
+  "other_bypasses": [
+   "GPR bypass, Boolean, verified: branch 2 (YALI1F38820g and YALI1F13017g) shares no gene with branch 1, so every single knockout of the 14 genes leaves the GPR true for both R794 and R795 (0 of 14 close it). Closing needs one gene from each branch: all 24 cross-pairs close it (verified). Branch 2 (V0 a-like plus c'' only) is not a complete V-ATPase, so it is an incomplete-complex OR (inferred).",
+   "Demand bypass (the dominant cause): even with the GPR closed, growth is unchanged because R794/R795 carry no flux. Recalled from STATE 2026-09-21: full screen with the 12-member common AND gave 0 new essentials; R794 newly closed, WT flux of both pumps 0. Not re-run here.",
+   "Golgi H+ balance without R794: R1159 [-1000,0] removes any Golgi H+ (go to cy). The R586 + R_NDP7g(reverse) cycle also destroys Golgi H+ (R_NDP7g is +1 H imbalanced). Golgi H+ production (R141) is structurally zero, and R2048 can run in reverse, producing H+. So the Golgi H+ row can be satisfied at 0 with R794 = 0 (static).",
+   "Vacuolar H+ balance without R795: R795 and R1163 are closed. Every open vacuolar H+ reaction is a reversible co-transport (R2020/R2028/R2030/R2038/R2040) or R882 (forced 0). All are tied to blocked solute chains, so the vacuolar H+ row is satisfied trivially at 0 (static, consistent with STATE 2026-09-10, recalled).",
+   "Membrane-compartment H+ (C_vm, C_gm, C_en) is freely exchangeable with the cytosol via R1655/R1661/R1640 [-1000,1000], so it never constrains the pumps.",
+   "R_NTP1 (cytosolic ATP -> ADP + Pi, [0,1000]) carries YALI1A09766g (V-ATPase subunit A) OR YALI1E41893g. A free-ATPase role for the V1 A subunit is a questionable assignment (inferred), but not a cause of the FN."
+  ],
+  "checks_run": [
+   "shasum -a 256 m059.xml = 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d (matches the task)",
+   "cobra.io.read_sbml_model(pathlib.Path(m059.xml)): printed R794/R795/R1159 equation, compartments, bounds, GPR, notes, annotation",
+   "Compared R794/R795/R1159/R1163/R1655/R1661 with model/source/iyali26.xml: R794/R795 GPR and bounds identical; R1159 source [-1000,1000], now [-1000,0]",
+   "Boolean GPR: r.gpr.eval({gene}) for all 14 genes on R794 and R795 gave 0 closures; 24 of 24 branch1 x branch2 pairs close it",
+   "Consensus CSV (1612 rows): 11 of the 14 genes are present; YALI1D00581g, YALI0E16192g and YALI1F38820g are absent",
+   "current_fn_fp.json: fn has 191 entries (causes d 95, b 58, a 19, c 13, e 6). Exactly 11 have sub 'unused_at_optimum:v_atpase', all with cause 'd', ko 0.3116608216336117, rxn_ko 1.0000, flags empty: YALI1A09766g, YALI1A11258g, YALI1E10492g, YALI1E12482g, YALI1E14125g, YALI1E32332g, YALI1E37063g, YALI1F13017g, YALI1F20965g, YALI1F21690g, YALI1F31854g. None of the 3 non-listed genes appears in fp or unresolved",
+   "ko_6af03c40.json: WT growth 0.3116608216336117 (Task A medium + PO1f, Gurobi 1e-9), so KO/WT = 1.0. CAVEAT: that file's models are baseline ca43ae0c\u2026 and candidate 6af03c40\u2026, not 059316ef\u2026; current_fn_fp.json has no model SHA field, so whether the FN labels apply to m059 is not verified (inferred to be the same, since the R794/R795 GPR and bounds equal the source)",
+   "Enumerated all reactions on H+ species m1007[C_va], m293[C_go], m19[C_vm], m871[C_gm] and the endosome m24 cross-membrane reactions",
+   "Listed every reaction crossing the Golgi boundary (none besides R794/R1159 carries H+)",
+   "Scanned all reactions that consume ATP with H+ in more than one compartment: R172, R794, R795, R816, R821",
+   "biomass_C components: compartments C_cy/C_er/C_em/C_lp/C_mi; no C_va/C_go metabolite and no sphingolipid; mannan m1324[C_cy] is present",
+   "Traced the other reactions of each vacuolar solute (dead ends: Ile, polyamines, Asn/Gln/Leu/Tyr pairs both closed)",
+   "Traced the Golgi UDP/UMP/GDP/GMP/MIPC/M(IP)2C/R141 substrates (m289, m291 only in R141; UDP[go] has no producer)",
+   "check_mass_balance: R_NDP7g {H:+1, charge:+1}; R925 {H:-3, charge:-3}; R2030 imbalanced (vacuolar Gly has no formula); R586, R794, R1159, R2048, R2020, R2028, R2038, R2040, R882 balanced",
+   "Read STATE.md entries 2026-09-10/11/14/21/23 and 2026-10-28 (UM2) on V-ATPase, R795, R1159 and the vacuolar closures (recalled, not re-run)",
+   "No LP/FBA/FVA was run; no repo file or model was modified; scratch scripts s1-s7.py are in /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/agents/",
+   "Options for 'how to solve' (inferred, for the user to decide; not authorized or tested here): (1) the GPR fix alone (complete V1 AND V0 with a-isoform OR, YALI1E12482g Stv1/Vph1-like OR YALI1F38820g Vph1-like) removes the Boolean bypass but, per the 2026-09-21 screen (recalled), recovers 0 FN because there is no demand; (2) recovering the FN requires an evidence-based acidification or maintenance demand on R794/R795, for example a minimum V-ATPase flux or a vacuolar/Golgi H+ requirement tied to growth, which AGENTS.md forbids if justified only by recall; (3) otherwise, document the 11 as non-metabolic-function FNs. They are in-scope under benchmark.md (model counterparts exist), so they stay FN and cannot be excluded."
+  ]
+ },
+ "lit": {
+  "claims": [
+   {
+    "claim": "Y. lipolytica essentiality calls in the consensus set come from genome-wide screens only: a gene counts as essential if it is called essential in at least 2 of 3 screens (CRISPR-Cas9, CRISPR-Cas12a, Hermes transposon), giving 1,612 genes. The screens used strain PO1f in synthetic defined medium with 2% glucose (SD-Leu).",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=10250353",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Ramesh et al. 2023 (acCRISPR), Results and Fig. 3b legend (paraphrase): the consensus set is the genes common to at least two of the three screens, 1612 genes, for growth on glucose. Methods: the screens ran in SD-leu (0.67% YNB without amino acids, 0.069% CSM-leu, 2% glucose). A full-text search found no culture pH or buffer stated; the only pH values are transformation buffers."
+   },
+   {
+    "claim": "In the raw Cas9/Cas12a screen data, the core V-ATPase subunits on R794/R795 have strongly negative fitness scores. Examples: YALI1F13017g (VMA16/PPA1-like c'') Cas9 FS -5.88 and Cas12a -3.19; YALI1E32332g (VMA2-like) Cas9 -5.46; YALI1E12482g (STV1-like a subunit) Cas9 -5.22 and Cas12a -2.47; YALI1A09766g (VMA1-like) Cas9 -3.63 and Cas12a -1.94. By contrast, YALI1F38820g (the Vph1-like a-subunit candidate) is called nonessential in both screens: Cas9 -1.75 (q=1.0) and Cas12a -1.52 (q=0.31). YALI1D00581g is also called nonessential (Cas9 p=0.049, q=0.17).",
+    "url": "file:///Users/david/Desktop/Lab/Ian%20wheeldon/code/iyali26_gem_research/state/essentiality/repository/cas9_cas12a_fitness.csv",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Rows read this run with grep from cas9_cas12a_fitness.csv (source workbook SHA-256 ba1eca8f...c0c5), e.g. 'YALI1F13017g,...,Cas9,-5.8755...,essential' and 'YALI1F38820g,...,Cas9,-1.7486...,1,nonessential'."
+   },
+   {
+    "claim": "Exactly 11 of the 14 genes in the R794/R795 GPR are on the consensus essential list. YALI1D00581g, YALI0E16192g and YALI1F38820g are not.",
+    "url": "file:///Users/david/Desktop/Lab/Ian%20wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica (model iYali26 m059, SHA 059316ef...)",
+    "quote_or_passage": "cobra load of m059.xml (pathlib.Path) plus a lookup in the consensus CSV: CONSENSUS for A09766, A11258, E10492, E12482, E14125, E32332, E37063, F13017, F20965, F21690, F31854; '-' for D00581, E16192 (YALI0 ID), F38820."
+   },
+   {
+    "claim": "In model m059, R794 (Golgi) and R795 (vacuole) share one GPR: a 12-gene AND complex OR a 2-gene alternative (YALI1F38820g AND YALI1F13017g). R795 has bounds (0,0), so the vacuolar V-ATPase is closed. The vacuolar H+ diffusion reaction R1163 is also (0,0). Golgi H+ (m293) can leave only to the cytosol through R1159 (bounds -1000,0).",
+    "url": "file:///private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/m059.xml",
+    "tier": "verified",
+    "organism": "model iYali26",
+    "quote_or_passage": "Static cobra read (no solver run): 'R795 V-ATPase, vacuole ... (0.0, 0.0)'; 'GPR: (YALI1A11258g and ... YALI1E12482g) or (YALI1F38820g and YALI1F13017g)'; 'R1163 H+ diffusion ... (0.0, 0.0)'; 'R1159 H+ diffusion (-1000.0, 0.0) m10[C_cy] <-- m293[C_go]'."
+   },
+   {
+    "claim": "In the 2-gene OR branch, YALI1F38820g is annotated in the model as a Vph1-like V0 a-subunit candidate that still needs experimental confirmation. The 12-gene branch already contains an a-subunit (YALI1E12482g, STV1-like).",
+    "url": "file:///private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/m059.xml",
+    "tier": "verified",
+    "organism": "model iYali26",
+    "quote_or_passage": "Gene name 'Vph1-like V0 a subunit (candidate; experimental confirmation required)'. Consensus CSV function for E12482g: 'similar to Saccharomyces cerevisiae STV1 (YMR054W)'."
+   },
+   {
+    "claim": "Patterson et al. 2018 (Hermes transposon screen, CLIB89) classified about 22% of genes as essential. They report that Y. lipolytica, an obligate aerobe, has significantly more respiration-related essential genes than S. cerevisiae or S. pombe. The main text does not mention V-ATPase or vacuoles; gene-level calls are in Table S3, which was not read.",
+    "url": "https://escholarship.org/content/qt6333t6v9/qt6333t6v9.pdf",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Abstract (paraphrase): Poisson analysis classified ~22% of genes essential; as an obligate aerobe, Y. lipolytica has significantly more respiration-related essential genes than S. cerevisiae and S. pombe. Grepping the extracted text for 'vacuol' or 'ATPase' returned no hits."
+   },
+   {
+    "claim": "Schwartz et al. 2019 (validated Cas9 library, minimal medium with 2% glucose) called 1,377 genes essential. Of these, 151 are only conditionally essential for respirative growth in S. cerevisiae; the authors attribute this to respiration being essential in the obligately aerobic Y. lipolytica. The main text does not mention V-ATPase specifically.",
+    "url": "https://www.cs.ucr.edu/~stelo/papers/metab_eng19.pdf",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Results (paraphrase): of 1,377 essential genes, 961 have an S. cerevisiae homolog, 480 are essential in both, and 151 are conditionally essential in S. cerevisiae for respirative growth, which the authors expected because Y. lipolytica is an obligate aerobe."
+   },
+   {
+    "claim": "No targeted V-ATPase (vma/vph1/stv1) deletion or depletion mutant in Y. lipolytica was found. The only Y. lipolytica-specific V-ATPase paper found is biochemical: isolated log-phase vacuoles show high vacuolar H+-ATPase activity and generate a proton gradient and membrane potential.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:8385405%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Kulakovskaya et al. 1993 Yeast abstract (paraphrase): log-phase vacuoles had V-ATPase activity of 0.9-1.1 U/mg and generated a chemical proton gradient and membrane potential; activities fell in stationary phase. The 'not found' part is a negative result from Europe PMC title/abstract queries and one web search run this session."
+   },
+   {
+    "claim": "Robertson et al. 2024 (compact DeepGuide library) screened acetate and hydrocarbon tolerance. The abstract says nothing about V-ATPase, and its gene-level data were not read.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39278589%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Abstract (paraphrase): a 23,900-sgRNA, 3-guide-per-gene library covering 98.8% of genes, used for acetate and hydrocarbon tolerance screens. The bioRxiv full text returned HTTP 429."
+   },
+   {
+    "claim": "In S. cerevisiae, disrupting V-ATPase subunit c or B gives conditional lethality: the mutants do not grow above pH 6.5 and grow well only near pH 5.5. The authors propose that the cells survive because low external pH lets fluid-phase endocytosis acidify the vacuole.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:2139726%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Nelson & Nelson 1990 PNAS abstract (paraphrase): mutants did not grow at pH above 6.5 and grew well only in a narrow range around pH 5.5; failure to acidify the vacuolar system is lethal unless low external pH allows acidification by fluid-phase endocytosis."
+   },
+   {
+    "claim": "The S. cerevisiae Vma- phenotype: vma1/2/3/4 disruptants fail to grow with 100 mM CaCl2, with 4 mM ZnCl2, at pH 7.5, or on glycerol. Only the vph1 stv1 double disruption reproduces this phenotype, so the two a-subunit isoforms are partly redundant.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:7514599%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Manolson et al. 1994 JBC abstract (paraphrase): VMA1-4 disruptants fail on 100 mM CaCl2, 4 mM ZnCl2, pH 7.5-buffered medium or glycerol; only the vph1 stv1 double mutant matches them; vph1 alone is moderately inhibited."
+   },
+   {
+    "claim": "A genome-wide deletion screen at pH 7.5 with 60 mM CaCl2 recovered 13 of 16 known V-ATPase subunit and assembly mutants. The known V-ATPase mutants also grow poorly on nonfermentable carbon.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15937126%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Sambade et al. 2005 Genetics abstract (paraphrase): about 4700 deletions screened at pH 7.5 in 60 mM CaCl2; 13 of 16 V-ATPase mutants recovered; 16 further mutants also grew poorly in nonfermentable carbon, like the known V-ATPase mutants."
+   },
+   {
+    "claim": "Calcium-sensitive Pet- (respiration-deficient) cls mutants are V-ATPase mutants (CLS7 = VMA3, CLS8 = VMA1). They have about 6-fold higher cytosolic Ca2+ (900 vs 150 nM) and lost vacuolar Ca2+ uptake, yet no detectable mitochondrial defect.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:1830311%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Ohya et al. 1991 JBC abstract (paraphrase): Pet- cls mutants lack vacuolar ATPase activity; [Ca2+]i is 900 +/- 100 nM vs 150 +/- 80 nM in wild type; the Pet- cls mutants showed no detectable mitochondrial defects."
+   },
+   {
+    "claim": "Mechanism of respiratory failure: V-ATPase-deficient cells (vma mutants or concanamycin A) grow on fermentable carbon but not on glycerol. Loss of vacuolar acidity lets cysteine leave the vacuole, and non-vacuolar cysteine causes oxidant-dependent intracellular iron limitation. This activates the Aft1 iron regulon and starves Fe-S-dependent respiration. Iron supplementation, FET4 overexpression, ROX1 deletion, cysteine depletion, or SOD1+TSA1 overexpression restore respiratory growth; AFT1 loss is lethal in V-ATPase-deficient cells.",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=7164368",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Hughes et al. 2020 Cell, Results (paraphrase from the full text read via efetch): V-ATPase mutants or concA-treated cells grew efficiently on fermentable carbon but failed on glycerol; FET4 was the single high-copy suppressor; ferrous iron restored respiratory growth; loss of AFT1 was lethal in V-ATPase-deficient cells and rescued by iron; the Fig. 7 model has the V-ATPase gradient driving amino acid/H+ antiporters that store cysteine in the vacuole."
+   },
+   {
+    "claim": "vma2 deletion mutants grown at permissive pH 5 show chronic endogenous oxidative stress and induce the Aft1/Aft2 iron regulon. Respiration is not the main source of their ROS.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:17215245%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Milgrom et al. 2007 JBC abstract (paraphrase): vma2Delta has elevated ROS and oxidative protein damage without added oxidant; rho0 did not relieve it; microarrays at pH 5 showed up-regulation of Aft1/Aft2 iron regulon genes and TSA2."
+   },
+   {
+    "claim": "Loss of V-ATPase gives an iron-deprivation signal (P_FIT2-GFP induction) even though total cell iron in vma2Delta is replete. Iron supplementation suppresses the signal.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23457300%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Diab & Kane 2013 JBC abstract (paraphrase): both biosensors were up-regulated in vma2Delta; total iron measurements show the mutant is iron-replete despite iron-regulon up-regulation; iron supplementation decreased P_FIT2-GFP."
+   },
+   {
+    "claim": "A genome-wide screen for growth on iron-restricted medium found that cwh36 (later identified as a V0 subunit, YCL005W-A) cells cannot load copper into apo-Fet3p, which links V-ATPase to high-affinity iron uptake.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:14594803%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Davis-Kaplan et al. 2004 JBC abstract (paraphrase): Deltacwh36 had a severe growth defect on iron-limited medium and could not copper-load apoFet3p; the V-ATPase is not assembled in these cells; the ORF is YCL005W-A."
+   },
+   {
+    "claim": "Vacuolar acidity falls early in replicative aging and limits mitochondrial function. This works through reduced pH-dependent amino acid storage in the vacuole, not through vacuolar proteolysis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23172144%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae",
+    "quote_or_passage": "Hughes & Gottschling 2012 Nature abstract (paraphrase): vacuolar pH changes limit mitochondrial function by reducing pH-dependent amino acid storage in the vacuolar lumen, not by disrupting protein degradation."
+   },
+   {
+    "claim": "In Neurospora crassa (an obligately aerobic filamentous fungus), the V-ATPase is essential: progeny with a RIP-inactivated endogenous vma-1 were inviable unless an ectopic functional copy cosegregated.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:8722770%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Neurospora crassa",
+    "quote_or_passage": "Ferea & Bowman 1996 Genetics abstract (paraphrase): preliminary experiments suggested vma-1 was essential; progeny with inactive endogenous vma-1 were inviable unless a functional copy cosegregated."
+   },
+   {
+    "claim": "A later N. crassa study recovered vma-1 mutants with no V-ATPase activity. The null allele's spores only rarely germinated; the strains grew slowly as mycelia, could not grow at pH 7.0 or above or with added Zn2+, and could not form conidia or perithecia. Essentiality in Neurospora is therefore near-lethal, not absolute.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:10617601%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Neurospora crassa",
+    "quote_or_passage": "Bowman et al. 2000 JBC abstract (paraphrase): one allele produced spores that rarely germinated; neither strain had V-ATPase activity; no growth at pH >= 7.0 or with Zn2+; slow mycelial growth."
+   },
+   {
+    "claim": "In Aspergillus nidulans, the vmaA (subunit A) disruptant grew extremely slowly, did not sporulate, was not viable above pH 7, and was highly Zn2+-sensitive.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:14993324%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Aspergillus nidulans",
+    "quote_or_passage": "Melin et al. 2004 Microbiology abstract (paraphrase): the vmaA1 mutant displayed extremely slow growth, failed to produce asexual spores, and was not viable at pH values above 7."
+   },
+   {
+    "claim": "In Aspergillus niger, deleting vmaD (subunit d) gave very poor growth; a C-terminal truncation allele was thermosensitive and induced the cell-wall stress response.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:22222772%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Aspergillus niger",
+    "quote_or_passage": "Schachtschabel et al. 2012 FGB abstract (paraphrase): deletion of the entire gene resulted in very poor growth; the conditional mutant showed Zn sensitivity and reduced vacuolar acidification."
+   },
+   {
+    "claim": "In Aspergillus oryzae, the vmaA disruptant was viable, with abnormal vacuoles at pH 8.5 and a growth defect at pH 10.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12007818%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Aspergillus oryzae",
+    "quote_or_passage": "Kuroki et al. 2002 FEMS Microbiol Lett abstract (paraphrase): the vmaA disruptant had shrunken vacuoles and hyphal walls at pH 8.5 and a growth defect at pH 10.0."
+   },
+   {
+    "claim": "In Magnaporthe oryzae, the Movma11 (c' subunit) null is viable. It has poor colony morphology, no asexual or sexual reproduction, selective carbon-source use, and Ca2+/heavy-metal sensitivity, but not the typical pH-conditional lethality.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23826342%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Magnaporthe oryzae",
+    "quote_or_passage": "Chen et al. 2013 PLoS One abstract (paraphrase): disruption mimicked yeast vma phenotypes (colony morphology, reproduction, carbon-source use, Ca2+/metal sensitivity) but not the typical pH conditional lethality."
+   },
+   {
+    "claim": "In Candida albicans (Crabtree-negative), V-ATPase subunit mutants are viable on standard media but avirulent or impaired. vma7 null mutants have defective growth at alkaline pH and metal sensitivity. Repressing tetR-VMA2 blocks growth at alkaline pH and alters calcium resistance and growth on nonfermentable carbon.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:25038082%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Candida albicans",
+    "quote_or_passage": "Rane et al. 2014 Eukaryot Cell abstract (paraphrase): inhibiting VMA2 expression caused inability to grow at alkaline pH and altered resistance to calcium, cold, antifungals, and growth on nonfermentable carbon sources."
+   },
+   {
+    "claim": "In C. albicans, VPH1 and STV1 (V0 a isoforms) are redundant for many vma phenotypes, including alkaline-pH sensitivity, calcium homeostasis and respiratory defects. vph1 alone is needed for vacuolar acidification and virulence.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23884420%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Candida albicans",
+    "quote_or_passage": "Patenaude et al. 2013 JBC abstract (paraphrase): the two subunits were redundant in many vma phenotypes such as alkaline pH sensitivity, calcium homeostasis, respiratory defects and cell wall integrity; VPH1 uniquely required for vacuole acidification."
+   },
+   {
+    "claim": "In C. albicans, the vph1 null loses about 90% of vacuolar V-ATPase activity and has an alkalinized vacuole (pH 6.8 vs 5.8); the stv1 null has no phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23316054%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Candida albicans",
+    "quote_or_passage": "Raines et al. 2013 JBC abstract (paraphrase): vph1 null showed a 90% reduction in concanamycin-sensitive ATPase activity and vacuolar pH 6.8 vs 5.8; stv1 null was unaffected."
+   },
+   {
+    "claim": "C. albicans vma7, vma4, vma10 and tfp1 null mutants were constructed and are viable. They are alkaline-pH and metal sensitive and avirulent in mouse models.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15870472%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Candida albicans",
+    "quote_or_passage": "Poltermann et al. 2005 abstract (paraphrase): vma7 null mutants showed reduced vacuole acidification, defective growth at alkaline pH, metal sensitivity, and were avirulent. Kim et al. 2019 (PMID 31542189) and Jia et al. 2014 (PMID 25220074) report vma4/vma10 and tfp1 deletions in the same way; their abstracts were read via the same Europe PMC REST pattern."
+   },
+   {
+    "claim": "In S. pombe, vma1 (subunit A) and vma3 (subunit c) deletion mutants were made. They lost vacuolar acidification and are sensitive to neutral pH and high divalent cations including Ca2+.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:14735354%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Schizosaccharomyces pombe",
+    "quote_or_passage": "Iwaki et al. 2004 MGG abstract (paraphrase): both deletion mutants lost the capacity for vacuolar acidification and showed sensitivity to neutral pH or high divalent cations; missorting of CPY; mating defects."
+   },
+   {
+    "claim": "No study of a Kluyveromyces lactis vma deletion phenotype was found.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Kluyveromyces%22%20AND%20(TITLE:%22vacuolar%22%20OR%20TITLE:%22V-ATPase%22%20OR%20TITLE:%22VMA%22)&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Kluyveromyces lactis",
+    "quote_or_passage": "A Europe PMC title query returned 0 records. A web search turned up only an unopened K. lactis bcs1 paper in which multicopy KlVMA13 suppressed salt sensitivity; it is not a vma deletion study."
+   },
+   {
+    "claim": "Yeast-GEM (main branch, commit 2d594ae, 2026-08-30) splits V-ATPase into r_1085 'V-ATPase, Golgi' (16-gene AND including STV1/YMR054W) and r_1086 'V-ATPase, vacuole' (16-gene AND including VPH1/YOR270C). Each has an alternative branch that differs only by YPR170W-B. Its vacuole and Golgi 'H+ diffusion' reactions (r_1831, r_1826) have bounds -1000 to 1000.",
+    "url": "https://raw.githubusercontent.com/SysBioChalmers/yeast-GEM/main/model/yeast-GEM.yml",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae (model)",
+    "quote_or_passage": "yeast-GEM.yml lines ~58545-58600: r_1085/r_1086 GPRs; s_0802 (vacuolar H+) users include r_1831 'H+ diffusion' lb -1000.0 and amino acid/H+ antiporters; s_0797 users include r_1826 'H+ diffusion' lb -1000.0."
+   },
+   {
+    "claim": "iYali (SysBioChalmers Yarrowia_lipolytica_W29-GEM, last commit 8e08e80, 2021-04-04) has y001085 (Golgi) and y001086 (vacuole) V-ATPase with one 13-gene AND GPR and no OR branch. Its vacuole and Golgi H+ diffusion reactions (y001831, y001826) are reversible (-1000 to 1000).",
+    "url": "https://raw.githubusercontent.com/SysBioChalmers/Yarrowia_lipolytica_W29-GEM/main/model/iYali.yml",
+    "tier": "verified",
+    "organism": "Yarrowia lipolytica (model)",
+    "quote_or_passage": "iYali.yml: 'V-ATPase, Golgi' gene_reaction_rule 'YALI0E27346g and YALI0A09900g and ... YALI0E08617g'; y001831 'H+ diffusion' with s_0802, lower_bound -1000."
+   },
+   {
+    "claim": "Recon3D has one lysosomal V-ATPase reaction, ATPasel_1 (bounds 0 to 1000). Its GPR is an OR of many 5-gene isoform combinations, not the full complex. The universal ATPasel reaction carries 3 cytosolic H+ to 4 lysosomal H+ (net 1 H+ consumed with ATP hydrolysis).",
+    "url": "https://bigg.ucsd.edu/api/v2/models/Recon3D/reactions/ATPasel_1",
+    "tier": "verified",
+    "organism": "Homo sapiens (model)",
+    "quote_or_passage": "BiGG API: ATPasel_1 bounds 0.0/1000.0; GPR '((50617_AT1 and 533_AT1 and 527_AT1 and 8992_AT1 and 245972_AT1) or ...'. Universal ATPasel string 'atp_c + 3.0 h_c + h2o_c -> adp_c + pi_c + 4.0 h_l' was read from https://bigg.ucsd.edu/api/v2/universal/reactions/ATPasel."
+   },
+   {
+    "claim": "The Yeast8 paper does not discuss V-ATPase or vacuoles. It scored gene essentiality against the Yeast Deletion Project list from complete medium.",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=6687777",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae (model)",
+    "quote_or_passage": "Full-text grep counts: 'V-ATPase' 0, 'VMA' 0, 'vacuol' 0. Methods (paraphrase): essential gene list from the Yeast Deletion Project, generated in complete medium."
+   },
+   {
+    "claim": "Published thermodynamic GEM methods use compartment pH and membrane potential only to set reaction directionality and Gibbs energies; they do not impose a pH-homeostasis demand. Thermo-Flux's default is pH 7 and 0 mV between compartments unless the user sets them, and its paper does not mention V-ATPase.",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=13639002",
+    "tier": "verified",
+    "organism": "general (iMM904 demo)",
+    "quote_or_passage": "Thermo-Flux 2026 MSB full text (paraphrase): defaults are pH 7.0, pMg 3.0, I 0.25 M and a membrane potential difference of 0 mV between compartments unless specified; 'V-ATPase' and 'vacuol' have 0 hits. Haraldsdottir 2012 (PMID 22768925) abstract likewise uses compartment pH and potential for directionality in Recon 1."
+   },
+   {
+    "claim": "AcidifyME (an E. coli ME-model) represents acid stress through membrane lipid composition, periplasmic protein stability and chaperones, and membrane-protein activity. It does not model a proton pump or organelle acidification as a growth requirement.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:31809503%20AND%20SRC:MED&resultType=core&format=json",
+    "tier": "verified",
+    "organism": "Escherichia coli (model)",
+    "quote_or_passage": "Du et al. 2019 PLoS Comput Biol abstract (paraphrase): three mechanisms considered: membrane lipid fatty-acid composition, periplasmic protein stability and chaperones, and membrane protein activities."
+   },
+   {
+    "claim": "The yeast proteome-constrained model pcYeast (2022) and StressME (2024) contain no V-ATPase or vacuole terms.",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=8831649",
+    "tier": "verified",
+    "organism": "Saccharomyces cerevisiae / E. coli (models)",
+    "quote_or_passage": "Full-text grep: pcYeast (PMC8831649) 'V-ATPase' 0, 'vacuol' 0; StressME (PMC10890762, https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=10890762) 'V-ATPase' 0, 'vacuol' 0."
+   },
+   {
+    "claim": "No published GEM, ME-model or constraint method was found that predicts V-ATPase subunit knockouts as lethal. Free or reversible organelle H+ diffusion, plus the lack of any required vacuolar-proton consumer, lets FBA bypass V-ATPase in Yeast-GEM and iYali.",
+    "url": "https://raw.githubusercontent.com/SysBioChalmers/yeast-GEM/main/model/yeast-GEM.yml",
+    "tier": "inferred",
+    "organism": "general",
+    "quote_or_passage": "Inferred from: the reversible H+ diffusion bounds read above in Yeast-GEM and iYali; full-text searches of Yeast8, Thermo-Flux, pcYeast and StressME; Europe PMC queries combining 'genome-scale'/'flux balance' with 'V-ATPase' and essentiality, which returned no relevant hits. No FBA was run."
+   },
+   {
+    "claim": "In model m059, any single knockout of a 12-complex V-ATPase gene leaves the R794/R795 GPR TRUE through the (YALI1F38820g AND YALI1F13017g) branch. Only a YALI1F13017g knockout makes both branches FALSE. Even then, R795 is already closed (0,0) in wild type, so KO/WT can drop only if R794 flux is required.",
+    "url": "file:///private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/m059.xml",
+    "tier": "inferred",
+    "organism": "model iYali26",
+    "quote_or_passage": "Boolean reading of the GPR string printed this run. No LP was run, so whether R794 flux is required is not established here; the task context reports KO/WT of about 1.0 for all 11 genes."
+   },
+   {
+    "claim": "The Y. lipolytica screens ran in unbuffered SD-Leu glucose. In S. cerevisiae, vma mutants grow in comparable acidic glucose medium (Nelson 1990: they grow near pH 5.5). Y. lipolytica essentiality on glucose therefore probably reflects its obligate respiratory metabolism (the Pet- side of the Vma- phenotype, through the iron/cysteine mechanism) rather than pH lethality.",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=10250353",
+    "tier": "inferred",
+    "organism": "Yarrowia lipolytica",
+    "quote_or_passage": "Combines verified claims: the screen medium (acCRISPR methods, no pH given), Nelson & Nelson 1990 (growth near pH 5.5), Hughes 2020 (respiratory failure through iron), and Schwartz 2019 (151 genes respiration-conditional in S. cerevisiae but essential in Y. lipolytica). Not tested directly in Y. lipolytica."
+   }
+  ],
+  "ylipolytica_direct_evidence": "No targeted V-ATPase mutant study exists for Y. lipolytica that I could find. I searched Europe PMC titles and abstracts and ran one web search. Every piece of direct evidence comes from genome-wide pooled screens:\n- Hermes Tn-seq: Patterson 2018, strain CLIB89.\n- Validated Cas9 library: Schwartz 2019, strain PO1f, minimal medium with 2% glucose.\n- Cas9 and Cas12a screens analysed with acCRISPR: Ramesh 2023, strain PO1f, SD-Leu with 2% glucose.\n\nThe consensus list (1,612 genes essential in at least 2 of 3 screens) is the benchmark. None of these papers discusses V-ATPase in its main text; the gene-level calls are in their supplements.\n\nFrom the local raw fitness table, verified this run:\n- 11 of the 14 GPR genes on R794/R795 are consensus-essential.\n- Several have very strong Cas9 fitness defects: YALI1F13017g (VMA16/PPA1-like) FS -5.88, YALI1E32332g (VMA2-like) -5.46, YALI1E12482g (STV1-like a subunit) -5.22.\n- Three of the 11 are essential in Cas9 but not in Cas12a: E10492g, E32332g and F21690g. Under the 2-of-3 rule they must also have been essential in the Hermes screen. That is inferred; Patterson Table S3 was not read.\n- YALI1F38820g, the Vph1-like a-subunit candidate in the 2-gene OR branch, is nonessential in both CRISPR screens (Cas9 q=1.0, Cas12a q=0.31). The STV1-like YALI1E12482g is strongly essential. So the alternative a-subunit gives no detectable redundancy in vivo on glucose, unlike the partial VPH1/STV1 redundancy seen in S. cerevisiae and C. albicans. This is inferred: paralog annotation is by similarity only and no localisation data exist.\n- YALI1D00581g is a borderline nonessential (Cas9 p=0.049, q=0.17). YALI0E16192g has no YALI1 screen row.\n\nThe screen papers report no culture pH. The medium is unbuffered YNB-based SD-Leu, so the cells were not at the pH 7.5 that kills S. cerevisiae vma mutants. That points to a respiration- or iron-linked cause of lethality in this obligate aerobe, not pH lethality (inferred).\n\nThe only other Y. lipolytica-specific source is biochemical (Kulakovskaya 1993): log-phase vacuoles have high V-ATPase activity and build a proton gradient and membrane potential.",
+  "essentiality_mechanisms": [
+   "Loss of vacuolar acidification is pH-conditionally lethal. S. cerevisiae vma mutants do not grow above pH 6.5 and grow well only near pH 5.5, probably because low external pH lets endocytosis acidify the vacuole (Nelson & Nelson 1990, verified abstract). Mutants fail at pH 7.5 (Manolson 1994; Sambade 2005, verified abstracts). Filamentous fungi show the same: N. crassa vma-1 does not grow at pH 7.0 or above; A. nidulans vmaA is not viable above pH 7 (verified abstracts).",
+   "Respiratory failure (the Pet- part of the phenotype): vma mutants cannot use glycerol or other nonfermentable carbon (Manolson 1994, Ohya 1991, Sambade 2005, verified abstracts). Hughes 2020 (verified full text) gives the mechanism: the V-ATPase gradient drives amino acid/H+ antiporters that store cysteine in the vacuole. Without it, cytosolic cysteine causes oxidant-dependent iron limitation, starving Fe-S-dependent respiration. Iron, FET4 overexpression, cysteine depletion or antioxidants rescue respiratory growth, and AFT1 loss is synthetically lethal. In an obligate aerobe such as Y. lipolytica, which cannot ferment, this conditional phenotype would become lethal on any carbon source (inferred).",
+   "Iron uptake and iron signalling: V0 subunit loss (cwh36/YCL005W-A) blocks copper loading of apo-Fet3p, so high-affinity iron uptake fails (Davis-Kaplan 2004). vma mutants constitutively activate the Aft1 iron regulon (Milgrom 2007; Diab & Kane 2013). Verified abstracts.",
+   "Chronic endogenous oxidative stress: vma2Delta has elevated ROS and protein oxidation even at permissive pH 5 (Milgrom 2007, verified abstract).",
+   "Ca2+ and metal detoxification: V-ATPase-driven H+/Ca2+ and H+/metal antiport loads the vacuole. vma mutants have about 6-fold higher cytosolic Ca2+ (Ohya 1991) and are sensitive to 100 mM CaCl2 and 4 mM ZnCl2 (Manolson 1994). Zn2+ sensitivity is also seen in N. crassa, A. nidulans, A. niger, C. albicans and M. oryzae (verified abstracts).",
+   "Amino acid storage in the vacuole: pH-dependent amino acid storage, not proteolysis, links vacuolar pH to mitochondrial function (Hughes & Gottschling 2012, verified abstract).",
+   "Morphogenesis and cell wall: severe tip-growth, branching, sporulation and cell-wall defects in N. crassa, A. nidulans, A. niger and M. oryzae (verified abstracts). These are non-metabolic, so FBA cannot represent them.",
+   "Range across fungi: essential or near-lethal in N. crassa (RIP inactivation inviable without rescue; a hypomorph grows slowly) and in A. nidulans and A. niger (extremely or very poor growth). Viable but conditional in S. cerevisiae, S. pombe, C. albicans (Crabtree-negative, still viable on glucose), A. oryzae and M. oryzae (which lacks pH-conditional lethality). Essential on glucose in Y. lipolytica by genome-wide screens. No data were found for K. lactis."
+  ],
+  "how_other_gems_handle_it": "All checked this run:\n\n- **Yeast-GEM (main, commit 2d594ae):** V-ATPase is two reactions. r_1085 (Golgi) has a 16-gene AND rule that includes STV1, and r_1086 (vacuole) has one that includes VPH1. Each also has an alternative branch that drops only YPR170W-B. Vacuolar and Golgi 'H+ diffusion' (r_1831, r_1826) run freely in both directions (-1000 to 1000). Nothing in the network requires a vacuolar proton gradient. The Yeast8 paper does not mention V-ATPase and scores essentiality against complete-medium deletion data, where vma mutants are viable anyway.\n- **iYali (SysBioChalmers W29-GEM, 2021):** y001085 and y001086 use one 13-gene AND rule with no OR branch. Vacuolar and Golgi H+ diffusion are again reversible. So no single V-ATPase knockout can be lethal in FBA there either (inferred, no LP run).\n- **Recon3D:** one lysosomal reaction, ATPasel_1. Its GPR is an OR of 5-gene isoform combinations, not the whole complex.\n- **Published methods:** none found that captures V-ATPase essentiality.\n  - Thermodynamic methods (Haraldsd\u00f3ttir 2012 for Recon 1; Thermo-Flux 2026) use compartment pH and membrane potential only to set reaction directionality. Thermo-Flux defaults to pH 7 and 0 mV.\n  - AcidifyME (an E. coli ME-model) models pH effects on lipids, periplasmic proteins and membrane-protein activity, not proton pumps.\n  - pcYeast and StressME have no V-ATPase terms.\n\n**Contrast with iYali26 m059 (verified static read):**\n- R794 and R795 share the 12-gene complex OR a 2-gene (YALI1F38820g AND YALI1F13017g) branch. That branch has no counterpart in iYali or Yeast-GEM, and the screens do not support it: F38820g is nonessential in both CRISPR screens.\n- R795 (vacuole) and the vacuolar H+ diffusion R1163 are both fixed at 0. Golgi H+ leaves only through R1159.\n- So the false negatives have two layers: the GPR bypass, and no flux requirement on V-ATPase at all. Fixing only the GPR would probably not change KO/WT (inferred, no LP run).\n\n**Options ranked by defensibility (all inferred recommendations; none authorized or tested here):**\n1. **Classify as out of scope.** Treat the 11 genes as mechanistically out-of-scope false negatives for FBA (non-metabolic: pH, Ca2+/metal, iron-signalling and respiratory-support functions), and report them separately rather than forcing the model. This needs no model change and fits the benchmark's no-recall-tuning rule.\n2. **Correct the GPR on its own evidence.** Re-examine the (F38820g AND F13017g) branch for identity and complex-composition reasons alone, since the screens contradict its redundancy, and decide whether an STV1/VPH1 split like Yeast-GEM's is supported. This is a GPR-correctness change; by itself it will not fix the false negatives.\n3. **Mechanistic coupling, only with independent evidence.**\n   - Make a required process depend on organelle acidification. Candidates are high-affinity Fe uptake via Fet3 copper loading (Davis-Kaplan 2004), or vacuolar storage of amino acids and cysteine (Hughes 2012/2020).\n   - Alternatively, give vacuolar H+ a measured non-zero leak or maintenance term.\n   - Any such constraint needs quantitative Y. lipolytica data (vacuolar pH, H+ leak, iron uptake route) and must not be tuned to recall. AGENTS.md forbids adding demands or closing bypasses merely to improve recall.\n   - It should be checked against the S. cerevisiae conditional phenotypes: viable at pH 5.5 on glucose, lethal on glycerol and at pH 7.5.\n\nNo published GEM precedent for options 2 or 3 was found.",
+  "unread_or_failed_urls": [
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC7164368 (reCAPTCHA page; the full text was read instead via NCBI efetch)",
+   "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7164368/fullTextXML (HTTP 500)",
+   "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC1393255/fullTextXML (HTTP 500)",
+   "https://journals.asm.org/doi/10.1128/mmbr.70.1.177-191.2006 (Kane 2006 review, HTTP 403; efetch returned only the abstract, so the review body is unread)",
+   "https://www.biorxiv.org/content/10.1101/2024.06.20.599746.full.pdf (Robertson 2024, HTTP 429; only the Europe PMC abstract was read; gene-level supplement unread)",
+   "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=53929 (Nelson 1990 is a scanned article; abstract only)",
+   "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=1365767 (Sambade 2005; abstract only)",
+   "Patterson 2018 Table S3 and Schwartz 2019 Table S3 (gene-level essentiality supplements) were not opened; per-gene calls came from the local acCRISPR workbook-derived CSV",
+   "https://www.pombase.org/gene/SPAC343.05 and https://www.pombase.org/genotype/vma3delta (S. pombe viability annotations; not opened)",
+   "https://air.unipr.it/handle/11381/1656167 (K. lactis bcs1/KlVMA13 paper; not opened)",
+   "Ohya 1991, Milgrom 2007, Diab & Kane 2013, Davis-Kaplan 2004, Manolson 1994, Ferea & Bowman 1996, Bowman 2000, Melin 2004, Iwaki 2004, C. albicans and Magnaporthe papers: only the abstracts were read (via Europe PMC REST), not the full texts",
+   "Not opened at all: Kumar & Maranas GrowMatch and Chowdhury 2015 (GEM essentiality-correction methods)"
+  ]
+ },
+ "data": {
+  "table": [
+   {
+    "gene": "YALI1A09766g",
+    "subunit_guess": "V1 A, catalytic (S. cerevisiae VMA1/TFP1 homolog by locus-map annotation; native name not verified)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-3.634 q=6.34e-4 Essential (row 1226); Cas12a FS=-1.940 q=0.0269 Essential (row 1222). Model: R794, R795 and also R_NTP1 (GPR YALI1A09766g or YALI1E41893g). [verified]"
+   },
+   {
+    "gene": "YALI1E32332g",
+    "subunit_guess": "V1 B (VMA2 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-5.459 q=4.30e-12 Essential (row 77); Cas12a FS=-1.671 q=0.151 Nonessential (row 1799). Consensus E, so the unrecovered transposon screen must have called it E under the 2-of-3 rule [inferred]."
+   },
+   {
+    "gene": "YALI1A11258g",
+    "subunit_guess": "V1 C (VMA5 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-3.782 q=2.03e-4 Essential (row 1098); Cas12a FS=-2.344 q=6.93e-4 Essential (row 628) [verified]"
+   },
+   {
+    "gene": "YALI1D00581g",
+    "subunit_guess": "V1 D, central stalk (VMA8 homolog)",
+    "in_model": true,
+    "consensus_essential": false,
+    "raw_calls": "Cas9 FS=-2.627 raw p=0.0488 q=0.171 Nonessential (row 2242); Cas12a FS=-1.784 raw p=0.0155 q=0.0792 Nonessential (row 1525). Both negative but both fail FDR 0.05 [verified]. Likely a screen-sensitivity call problem, not a mapping problem [inferred]."
+   },
+   {
+    "gene": "YALI1F20965g",
+    "subunit_guess": "V1 E, peripheral stalk (VMA4 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-4.701 q=3.59e-8 Essential (row 376); Cas12a FS=-2.435 q=2.54e-4 Essential (row 530) [verified]"
+   },
+   {
+    "gene": "YALI0E16192g",
+    "subunit_guess": "V1 F (VMA7 homolog). This is the old CLIB122 ID, used in the model GPR.",
+    "in_model": true,
+    "consensus_essential": false,
+    "raw_calls": "No Cas9 or Cas12a row; 0 matches for E16192 or E19360 in cas9_cas12a_fitness.csv [verified]. It is outside the W29 ID space of the benchmark, so it is not scorable. Unknown, NOT nonessential."
+   },
+   {
+    "gene": "YALI1E19360g",
+    "subunit_guess": "V1 F (VMA7 homolog). W29 locus mapped from YALI0E16192g, typed 'Pseudo mRNA' in the S2 locus map (row 6015).",
+    "in_model": false,
+    "consensus_essential": false,
+    "raw_calls": "No Cas9 or Cas12a row [verified]. Mapping/annotation problem: a W29 pseudo-mRNA call for a core subunit. The YALI0-only CDS sheet shows E16192g split into a 367-bp CDS plus a 2-bp CDS (rows 110-111), which suggests a gene-model artefact [inferred]."
+   },
+   {
+    "gene": "YALI1E14125g",
+    "subunit_guess": "V1 G, peripheral stalk (VMA10 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-3.334 q=4.91e-3 Essential (row 1517); Cas12a FS=-3.144 q=8.86e-9 Essential (row 127) [verified]"
+   },
+   {
+    "gene": "YALI1E10492g",
+    "subunit_guess": "V1 H, regulatory (VMA13 homolog, 'weakly similar')",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-3.368 q=3.95e-3 Essential (row 1489); Cas12a FS=-1.372 q=0.524 Nonessential (row 2731). Consensus E, so transposon presumably E [inferred]."
+   },
+   {
+    "gene": "YALI1E12482g",
+    "subunit_guess": "V0 a isoform 1. Synteny says STV1 (Anc_2.617); best sequence hit is VPH1. Compartment not resolved.",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-5.223 q=8.14e-11 Essential (row 142); Cas12a FS=-2.472 q=1.65e-4 Essential (row 493) [verified]. In the model it sits only in OR branch 1."
+   },
+   {
+    "gene": "YALI1F38820g",
+    "subunit_guess": "V0 a isoform 2 (VPH1-like)",
+    "in_model": true,
+    "consensus_essential": false,
+    "raw_calls": "Cas9 FS=-1.749 raw p=0.558 q=1 Nonessential (row 4168); Cas12a FS=-1.516 raw p=0.0902 q=0.313 Nonessential (row 2251) [verified]. Consistent with a dispensable paralog."
+   },
+   {
+    "gene": "YALI1F31854g",
+    "subunit_guess": "V0 c proteolipid (VMA3/CUP5 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-4.576 q=1.38e-7 Essential (row 447); Cas12a FS=-2.122 q=6.06e-3 Essential (row 920) [verified]"
+   },
+   {
+    "gene": "YALI1E37063g",
+    "subunit_guess": "V0 c' proteolipid (VMA11/TFP3 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-4.055 q=2.08e-5 Essential (row 859); Cas12a FS=-2.657 q=1.63e-5 Essential (row 345) [verified]"
+   },
+   {
+    "gene": "YALI1F13017g",
+    "subunit_guess": "V0 c'' proteolipid (VMA16/PPA1 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-5.876 q=1.44e-14 Essential (row 25); Cas12a FS=-3.194 q=3.87e-9 Essential (row 108) [verified]. In the model it is only in OR branch 2 (with F38820), not in branch 1."
+   },
+   {
+    "gene": "YALI1F21690g",
+    "subunit_guess": "V0 d (VMA6 homolog)",
+    "in_model": true,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-4.462 q=4.40e-7 Essential (row 530); Cas12a FS=-1.580 q=0.236 Nonessential (row 2056); consensus E [verified]"
+   },
+   {
+    "gene": "YALI1F25663g",
+    "subunit_guess": "V0 e (VMA9 homolog; no YALI0 counterpart in the S2 map)",
+    "in_model": false,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-5.234 q=7.24e-11 Essential (row 136); Cas12a FS=+0.452 q=1 Nonessential (row 7608). Strongly discordant [verified]. Missing from the GEM, so it is an out-of-scope positive, not a FN."
+   },
+   {
+    "gene": "YALI1B30163g",
+    "subunit_guess": "Assembly factor VMA21 homolog",
+    "in_model": false,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-5.315 q=2.64e-11 Essential (row 111); Cas12a FS=-2.207 q=2.74e-3 Essential (row 803) [verified]. Out-of-scope positive."
+   },
+   {
+    "gene": "YALI1A01298g",
+    "subunit_guess": "Assembly factor VMA12/VPH2 homolog ('weakly similar')",
+    "in_model": false,
+    "consensus_essential": false,
+    "raw_calls": "Cas9 FS=-2.696 q=0.132 Nonessential (row 2155); Cas12a FS=-2.518 q=9.51e-5 Essential (row 454) [verified]. Split call; not consensus."
+   },
+   {
+    "gene": "YALI1F37528g",
+    "subunit_guess": "Assembly factor PKR1 homolog",
+    "in_model": false,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-3.162 q=0.0139 Essential (row 1668); Cas12a FS=-2.075 q=9.16e-3 Essential (row 990) [verified]"
+   },
+   {
+    "gene": "YALI1C03969g",
+    "subunit_guess": "Possible VOA1 (YGR106C) homolog. Weak: only an ancestral-locus match (Anc_3.450, adjacent to VMA21's Anc_3.449).",
+    "in_model": false,
+    "consensus_essential": false,
+    "raw_calls": "Cas9 FS=+0.666 q=1 Nonessential (row 7767); Cas12a FS=-0.980 q=1 Nonessential (row 4321) [verified]"
+   },
+   {
+    "gene": "YALI1C23873g",
+    "subunit_guess": "RAVE complex RAV1 homolog",
+    "in_model": false,
+    "consensus_essential": true,
+    "raw_calls": "Cas9 FS=-3.814 q=1.58e-4 Essential (row 1064); Cas12a FS=-1.433 q=0.431 Nonessential (row 2510); consensus E [verified]"
+   },
+   {
+    "gene": "VMA22 / RAV2",
+    "subunit_guess": "Assembly factor VMA22; RAVE subunit RAV2",
+    "in_model": false,
+    "consensus_essential": false,
+    "raw_calls": "No locus found: a full regex scan of every S2 locus-map annotation (VMA22, YHR060W, RAV2, YDR202C) returned no hit [verified]. Absence of an annotation is not absence of the gene."
+   }
+  ],
+  "consistency": "Scope and inputs, verified this run:\n- Model: m059.xml, SHA-256 059316ef\u2026a9248d. Loaded with cobra; no LP was run.\n- Consensus list: SHA 1e887f5a\u2026659b, 1612 genes.\n- Cas9/Cas12a long table: SHA 97ef5596\u2026d9ff.\n- S2 YALI1/YALI0 locus map: SHA 42658fb9\u2026a670.\n- Gene identification: one regex scan of every annotation line in the S2 locus map for S. cerevisiae V-ATPase gene names and systematic ORFs. The script is at /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/agents/scan_annot.py, and the table script is vat_table.py in the same folder.\n- Subunit labels are homology annotations only. No native name is verified.\n- Benchmark definition: model genes not on the list count as non-essential, a user-defined negative class.\n\n1) The 11 FNs. R794 and R795 carry 14 genes. Of these, 11 are consensus E: A, B, C, E, G, H, a1 (E12482), c, c', c'' and d [verified]. The other 3 are D, F (old ID YALI0E16192g) and a2 (F38820), and none of them is on the list [verified].\n\nModel state [verified]:\n- Both reactions use the GPR (12 genes: A C G D H E F c d c' B a1) OR (a2 AND c'').\n- R795 bounds are [0,0]; R794 bounds are [0,1000].\n- A Boolean evaluation of the GPR for every one of the 14 single knockouts leaves it TRUE. So no single subunit knockout can ever close these reactions.\n- The rule contradicts the data. Branch 2 needs only a2 and c''. But a2 is non-essential in both screens, and c'' is the most strongly essential gene in the set (Cas9 q 1.4e-14, Cas12a q 3.9e-9). Branch 1 also lacks c'' completely, so knocking out c'' is bypassed through branch 1.\n\n2) Is the experimental data consistent? Mostly yes. Every core subunit with a scorable single W29 locus is consensus essential except D: A, B, C, E, G, H, a1, c, c', c'', d and e, which is 12 of the 13 scorable core-subunit loci [verified].\n\nThe pattern also fits a two-isoform 'a' subunit: a1 is strongly essential and a2 is non-essential in both screens [verified data; isoform interpretation inferred]. Assembly factors VMA21, PKR1 and RAV1 are consensus E, VPH2 is split, and the putative VOA1 is non-essential [verified]. Overall the data say the V-ATPase is required on SD-Leu [inferred].\n\n3) Possible call or mapping problems:\n- (a) D, YALI1D00581g (VMA8). Fitness is negative in both screens and the raw p values are 0.049 and 0.015, but q is 0.17 and 0.079, so it is not consensus. A single-copy central-stalk subunit being dispensable while every partner is essential is unlikely. This is likely a screen-sensitivity false call [inferred], not a mapping error: the locus-map annotation is a clear VMA8 match [verified].\n- (b) F, YALI0E16192g (VMA7). This is a mapping problem [verified facts, inferred cause]:\n  - The model keeps the CLIB122 ID.\n  - Its W29 counterpart YALI1E19360g is typed 'Pseudo mRNA'.\n  - Neither ID has a Cas9 or Cas12a row (0 matches).\n  - The YALI0-only CDS sheet splits it into a 367-bp CDS plus a 2-bp CDS, which looks like a gene-model artefact.\n  - Its essentiality is unknown and must not be treated as non-essential. Yet under the benchmark's user-defined negative class it is scored as a negative.\n- (c) e, YALI1F25663g (VMA9). Cas9 FS is -5.23 (E) and Cas12a FS is +0.45 (NE): a strong discordance, possibly from Cas12a guide coverage on a small gene [inferred]. It is consensus E but absent from the GEM, so it is an out-of-scope positive, not an FN.\n- (d) Consensus E with Cas12a non-essential: B, H, d and RAV1. Their consensus calls must rest on the transposon screen. Per-gene transposon calls are not recovered (benchmark_contract_20260905.md and baseline_manifest), so those votes cannot be shown [verified absence; vote inferred from the 2-of-3 rule].\n- (e) No VMA22 or RAV2 locus could be identified from the annotations [verified scan]. This is unknown, not absent.\n- (f) The a1 identity is ambiguous: synteny says STV1 (Anc_2.617), while the sequence hit is VPH1 [verified annotation text]. A compartment assignment of a1 vs a2 (Golgi vs vacuole) is not supported by the screen data [inferred].\n- (g) Side note: subunit A also sits on R_NTP1 as (A09766g OR E41893g), a generic ATP hydrolysis reaction [verified]. It has no bearing on the V-ATPase FN.\n\n4) What this means for the fix. The data support this rule: core AND (A B C D E F G H c c' c'' d [+ e if added]) AND (a1 OR a2). Making a1 alone required would be a stronger, data-driven claim that needs separate evidence. A GPR fix alone will not create the FNs' growth defect:\n- The 2026-09-21 screen of exactly that rule (core AND, a1 OR a2) gave 0 class changes at all cutoffs [recalled from model/reports/screen_vatpase_candidate_20260921/REPORT.md, read this run, not recomputed].\n- The 2026-09-11 diagnosis found a WT optimum with R794 = R795 = 0. The model has no acidification or H+-gradient demand [recalled from model/reports/vatpase_nonessential_diagnosis_20260911/REPORT.md, read this run].\n- STATE.md says the same: the V-ATPase FNs come from a missing acidification requirement [read this run].\n\nSo the fix needs two parts. First, a GPR correction: drop the c''-only second branch and make the a isoforms an OR. Second, a separately evidenced requirement for organelle H+ pumping, such as making a process the biomass needs depend on Golgi or vacuolar H+. This should also settle the F identity (YALI0E16192g vs pseudo YALI1E19360g). Fixing the D call is not a model change: D should stay in the core AND, and its experimental label stays non-consensus; do not swap the label.\n\nNo literature was opened this run. Every biology statement is homology-based [recalled/inferred], and none counts as experimental validation.",
+  "sources": [
+   "/private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/m059.xml (SHA-256 059316ef34417c88aadba61cfd5606134d27879a842b3835d2cc7df917a9248d)",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/consensus_essential_genes.csv (SHA-256 1e887f5ad4a95827a49b6c86894edaca410bdba3d264ff0d25193dedef3a659b)",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/state/essentiality/repository/cas9_cas12a_fitness.csv (SHA-256 97ef559651cd99ce63144ffe08ae64e983ecaec60d568f859da8926c14c7d9ff; normalized from cas9_cas12a_screen_raw.xlsx SHA ba1eca8f...c0c5)",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem_research/reference/locus_map/S2_table_YALI1_YALI0_map.xlsx (SHA-256 42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670)",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/reports/r794_r795_gpr_review_20260909/GENES.md",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/reports/vatpase_fitness_review_20260914/REPORT.md",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/reports/vatpase_nonessential_diagnosis_20260911/REPORT.md",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/reports/screen_vatpase_candidate_20260921/REPORT.md",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/reports/vatpase_gpr_hypothesis_20260911/REPORT.md",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/expected/benchmark_contract_20260905.md (transposon per-gene calls not recovered)",
+   "/Users/david/Desktop/Lab/Ian wheeldon/code/iyali26_gem/.claude/worktrees/essential-gene-prediction-e76be3/model/STATE.md (line 242, V-ATPase FN attributed to missing acidification requirement)",
+   "/private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/agents/scan_annot.py",
+   "/private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/agents/vat_table.py",
+   "Ramesh et al. 2023 Commun Biol https://doi.org/10.1038/s42003-023-04996-8 (source of the screens; not opened this run, recalled)"
+  ]
+ },
+ "design": {
+  "diagnosis": "The 11 V-ATPase false negatives have two causes that stack. A fix that touches only one of them changes no call (verified by earlier screens, read in their reports; recalled for m059).\n\n(1) GPR layer. On m059 (SHA 059316ef\u2026, reloaded this run), R794 and R795 still use the inherited rule: (12-gene AND) OR (YALI1F38820g AND YALI1F13017g). In the earlier Boolean check (findings, verified this run by that agent), none of the 14 single knockouts makes this rule false. All 24 cross-branch pairs do. Branch 2 is only a V0 a-like subunit plus c''. It has no V1 head, and it contradicts the screens: F38820g is non-essential in both CRISPR screens, while F13017g (c'') is the most strongly essential gene in the set (Cas9 FS -5.88). (verified data; reading of what branch 2 means is inferred)\n\n(2) Network layer, the decisive one. No biomass-linked process in m059 uses Golgi or vacuolar H+:\n- biomass_C has no C_go or C_va species. (verified, findings)\n- R795 is fixed at [0,0], and the user kept it closed with A0 on 2026-10-28. (verified)\n- Every open vacuolar H+ reaction is tied to a blocked solute chain.\n- So the wild-type optimum already has R794 = R795 = 0, and any knockout that closes them still contains that optimum (KO/WT = 1). Shown in the 09-10, 09-21 and 10-28 reports (read; recalled for m059).\n\nNew static facts from this run (verified, cobra load of m059, no solver; scripts opt_check4-6.py in the agents scratch folder):\n- Cytosolic Fe2+ m948 is produced only by R2193, the high-affinity FET3/FTR1 iron uptake. Its other reactions consume it: R863 (to the mitochondrion), R727 (sirohydrochlorin ferrochelatase) and biomass_C, at 3.04e-5.\n- R2193's GPR is (YALI1D09277g AND YALI1D09308g) OR (YALI1D08684g AND YALI1D08564g), a user-authorized change of 2026-10-22.\n- Both D09 genes are consensus-essential. They are themselves FN (cause a, 'or_partner_carries_flux') in current_fn_fp.json.\n- R2048 (YALIUNK3 placeholder) is reversible, and R1240 moves M(IP)2C between ER and Golgi in both directions. A sphingolipid shuttle could therefore supply Golgi H+ without R794 (inferred from the stoichiometry).\n- xMAINTENANCE is [7.8625, 1000] and R_NTP1 is [0,1000]. Both are cytosolic ATP hydrolysis.\n\nBiology:\n- Y. lipolytica: there is no targeted V-ATPase mutant study. The direct evidence is the pooled screens (verified CSV rows) and the vacuolar H+-ATPase activity reported by Kulakovskaya 1993 (verified abstract).\n- S. cerevisiae: the V-ATPase links to growth through three routes. (a) pH-conditional lethality. (b) Respiratory failure via vacuolar cysteine storage and iron limitation (Hughes 2020, verified full text). (c) Fet3 copper loading, which needs an assembled V-ATPase, so high-affinity iron uptake fails without it (Davis-Kaplan 2004, verified abstract).\n- Route (c) is the only one this model can express without inventing a new pool or a magnitude. The model already has a single, essential-in-vivo high-affinity iron-uptake reaction with a mandatory biomass sink (inferred from the verified facts above).",
+  "options": [
+   {
+    "id": "O1",
+    "name": "GPR correction alone",
+    "what_changes": "R794 and R795 GPR becomes core AND (A09766, A11258, D00581, E10492, F20965, F-subunit, E14125, F31854, E37063, F13017 c'', F21690, E32332) AND (a1 YALI1E12482g OR a2 YALI1F38820g). The c''-only second branch is removed. Applied through curated GPR data plus a build into a new candidate. No bound or biomass change.",
+    "mechanism_and_evidence": "Removes the Boolean bypass: each core-gene KO then closes R794 and R795. Evidence is subunit homology plus the screen pattern: every scorable core subunit except D is consensus-E, and a2 is non-essential. For R794/R795 the screens were verified as CSV rows; the full-core pattern is from the experimental finding. Supported by the 09-09 review and the 09-21 AlphaFold-informed GPR review (read; recalled). Yeast-GEM and iYali also use full-complex AND rules with no c''-only branch (verified by the literature agent).",
+    "expected_effect_on_fn": "0 of 11 recovered (inferred). The 09-21 screen of exactly this rule gave 0 class changes at all cutoffs (recalled from screen_vatpase_candidate_20260921/REPORT.md, on the R539 baseline and an older medium, not on m059/Task A). The reason: the WT optimum has R794 = R795 = 0, so closing them costs nothing. E12482 (a1) stays OR-hidden behind a2 even if a demand is later added.",
+    "conflicts_with_decisions_or_rules": "None by itself. It is an identity and complex-composition correction, not recall tuning, so it fits AGENTS.md \u00a75 (an AND member needs complex evidence). Blocker: the F subunit is the YALI0 ID YALI0E16192g, whose W29 locus YALI1E19360g is a 'Pseudo mRNA'. An AND on a possible pseudogene must be resolved first (keep the YALI0 ID with a note, or map it). D00581 enters the AND although it is a user-defined negative. This is harmless while there is no demand, but becomes an FP risk under O2/O3.",
+    "evidence_still_missing": "W29 F-subunit identity. Native compartment and isoform assignment of a1 and a2 (synteny says a1 is STV1-like, sequence says VPH1-like). Whether c'' is a single-copy shared subunit (homology only).",
+    "authorization_and_compute_needed": "Scoped user authorization for a GPR change via the curation-change skill (TASK.md, curated data, guarded apply step, build to a new candidate, whole-model diff, audit, STATE entry). Compute: one regression sweep on Task A + PO1f, about 1 WT + 1 KO per model gene (~1075 LPs), reported at 1/5/10/15%. Needs its own authorization.",
+    "recommendation": "Do it as a stand-alone correctness fix if the user wants the GPR to be right. Do not present it as the V-ATPase FN fix. Resolve the F-subunit ID first, or document it as a known limit."
+   },
+   {
+    "id": "O2a",
+    "name": "GPR fix + Golgi V-ATPase as a co-requirement of high-affinity iron uptake (Fet3 copper loading)",
+    "what_changes": "O1, plus the V-ATPase core gene set (and the Golgi a-isoform) added as an AND co-requirement to both branches of R2193 (iron(II) transport, FET3/FTR1 pairs). A stoichiometric variant would instead add a Golgi H+ cost per Fe imported. That variant needs a magnitude and is open to the R2048/R1240 shuttle bypass, so the GPR co-requirement form is the representable one.",
+    "mechanism_and_evidence": "S. cerevisiae: a V0-subunit (cwh36) mutant cannot assemble the V-ATPase or copper-load apo-Fet3, and grows poorly on iron-limited medium (Davis-Kaplan 2004, verified abstract). vma mutants show iron-regulon induction and iron-dependent respiratory failure (Milgrom 2007, Diab & Kane 2013, verified abstracts; Hughes 2020, verified full text). Y. lipolytica: the D09 FET3/FTR1 pair is consensus-essential (verified this run), so high-affinity iron uptake appears required in the screen medium (inferred). Y. lipolytica is an obligate aerobe, so iron-starved respiration would be lethal (inferred). Model (verified this run, static): R2193 is the only producer of cytosolic Fe2+ m948, and biomass_C consumes m948 at 3.04e-5. Golgi-side, so R795 and the A0 closures are untouched.",
+    "expected_effect_on_fn": "Inferred, not tested. With (a1 OR a2) in the coupling, the 10 consensus-E core genes (A, B, C, E, G, H, c, c', c'', d) close R2193. That cuts all cytosolic Fe2+, so biomass is infeasible and growth is 0: 10 of 11 become TP. E12482 (a1) stays FN unless the coupling names the Golgi a-isoform alone (a1, STV1-like by synteny). Then 11 of 11 would flip, but that claim needs localisation evidence. Side effects (inferred): D00581 and the YALI0E16192g F subunit (both scored as negatives) become new FPs. What makes it fail: (i) the Task A medium supplies iron by some other route, e.g. heme or siderophore uptake (not checked: only m948 producers were scanned, not medium compounds); (ii) the coupling is put on one R2193 branch only (the D08 pair would bypass it); (iii) a solver failure is read as death (keep raw status). R1159, R1163, R_NTP1 and the H+ routes are irrelevant, because the coupling is Boolean, not stoichiometric.",
+    "conflicts_with_decisions_or_rules": "It reopens the R2193 GPR, a user-authorized correction of 2026-10-22 (R2193-IRON-GPR-20261022), and must say so. It stretches the GPR convention: a maturation or trafficking dependency, not catalysis. AGENTS.md accepts an AND for 'co-requirement' only with evidence, and here the evidence is S. cerevisiae only; AGENTS.md prefers direct Y. lipolytica evidence. Without that it risks looking like the rejected 'add an AND to make genes essential'. It does not touch A0 or R795.",
+    "evidence_still_missing": "Direct Y. lipolytica evidence that V-ATPase loss blocks Fet3 maturation or iron uptake. Examples: iron or copper supplementation rescuing V-ATPase knockdown or growth defects; Fet3 activity in a vma mutant; the Hughes 2020 suppressors (FET4-like overexpression, AFT1-like) tested in Y. lipolytica. Also needed: whether Y. lipolytica has a low-affinity iron route (FET4/SMF homologs) that would make the coupling conditional, and which a-isoform is Golgi-resident. Unread sources: Kane 2006 review (HTTP 403) and full texts beyond abstracts.",
+    "authorization_and_compute_needed": "First, an evidence task (literature, or wet lab in the user's fermentor/CRISPR line); no compute. Then, if the evidence holds, an authorized in-memory diagnostic with a stated budget: WT + 14 V-ATPase KOs + 4 R2193 genes + controls (iron-route closed, coupling off) \u2248 25 LPs on Task A + PO1f, Gurobi 1e-9, fresh basis per KO. Then curation-change and a full ~1075-LP regression at four cutoffs.",
+    "recommendation": "This is the most defensible mechanistic route, and the only one the model can represent without inventing a pool or a magnitude. Pursue it as an evidence question first. Do not build it on S. cerevisiae evidence alone."
+   },
+   {
+    "id": "O2b",
+    "name": "GPR fix + vacuolar amino-acid/cysteine storage driven by the V-ATPase gradient",
+    "what_changes": "O1, plus a vacuolar cysteine pool, an H+/cysteine antiporter, R795 reopened, and a growth-coupled vacuolar storage requirement.",
+    "mechanism_and_evidence": "Hughes 2020 (verified full text, S. cerevisiae): the V-ATPase gradient drives vacuolar cysteine storage, and without it cytosolic cysteine causes iron limitation and respiratory failure. Hughes & Gottschling 2012 (verified abstract) describes pH-dependent amino-acid storage. m059 has no vacuolar cysteine species (verified this run by a name scan). The existing vacuolar amino-acid transports are closed by A0.",
+    "expected_effect_on_fn": "Inferred: it could flip only if a storage term forces R795 flux, and storage is not a steady-state demand. Any magnitude would be arbitrary. It fails through the 4 vacuolar H+/solute symports (R2020/R2028/R2030/R2038/R2040, reversible) and through R1163 if reopened. Iron toxicity from cytosolic cysteine is regulatory and not representable in FBA.",
+    "conflicts_with_decisions_or_rules": "It reopens UM2 Option A0 (2026-10-28): R795 and the vacuolar transports would have to open. It adds new species and transports with no Y. lipolytica evidence. A storage magnitude chosen to flip calls would be recall tuning.",
+    "evidence_still_missing": "Y. lipolytica vacuolar cysteine and amino-acid storage data, vacuolar pH, and a quantitative storage flux under growth.",
+    "authorization_and_compute_needed": "A new user decision reopening A0, then curation plus compute. Not recommended for now.",
+    "recommendation": "Park. Mention it as the biological mechanism behind the iron link, but do not model it."
+   },
+   {
+    "id": "O3",
+    "name": "Generic acidification or maintenance pseudo-demand (Golgi or vacuolar H+ demand, or a pump lower bound)",
+    "what_changes": "O1, plus a fixed or growth-coupled demand of Golgi H+ (m293) and/or vacuolar H+ (m1007), or a lower bound on R794/R795, or an H+ term in biomass.",
+    "mechanism_and_evidence": "There is no measured Y. lipolytica H+ leak or pump flux. Kulakovskaya 1993 gives a specific activity of isolated vacuoles (0.9-1.1 U/mg, verified abstract), not an in-vivo flux. No published GEM or method imposes such a demand (literature agent: Yeast-GEM, iYali, Recon3D, Thermo-Flux, pcYeast and StressME checked; the 'no precedent' claim is inferred).",
+    "expected_effect_on_fn": "Inferred: any non-zero required demand turns the KO into a binary outcome. Either the KO problem is infeasible (growth 0, so the gene is called) or the demand is met elsewhere, so the size of the demand does not decide the call. Golgi side: R794 is the only net H+ importer, but R2048 run in reverse with M(IP)2C shuttled in through R1240 (reversible, verified static) can release 2 H+[go]. That could satisfy the demand without R794 (inferred, untested), giving 0 flips. Vacuolar side: R795 would have to be reopened, and the reversible symports are possible escapes. Side effect: D00581 and F would become FPs. A pump lower bound simply hard-codes essentiality.",
+    "conflicts_with_decisions_or_rules": "Explicitly rejected before as recall tuning (AGENTS.md \u00a76 'no recall tuning'; vatpase_escher README; screen MECHANISM.md). A vacuolar version reopens A0. Adding a biomass demand needs mechanistic evidence, which is absent.",
+    "evidence_still_missing": "A measured in-vivo H+ flux or leak for the Y. lipolytica Golgi or vacuole under the screen condition, and a process that consumes it.",
+    "authorization_and_compute_needed": "Would need a user decision that overrides a standing rule, plus curation and compute.",
+    "recommendation": "Do not pursue."
+   },
+   {
+    "id": "O4",
+    "name": "Report the 11 as a structural FN class (no model change)",
+    "what_changes": "No change to the model or the benchmark labels. Reports keep the 11 genes in FN and annotate them as a named sub-class: 'non-metabolic function; no steady-state demand'. This extends the existing category d / unused_at_optimum:v_atpase. Reports may give an additional, clearly labelled breakdown of how many FN fall in this class.",
+    "mechanism_and_evidence": "benchmark.md (read this run) defines out-of-scope only as 'a listed gene with no model counterpart'. These 11 have model counterparts, so they cannot be excluded from FN without a rule change. The mtDNA exclusion of 2026-10-08 is a screen-side precedent (genes the screens cannot target), not a model-side one. The biology agent's verified abstracts show essential functions FBA does not represent: pH, Ca2+/metal detoxification, iron signalling and respiratory support.",
+    "expected_effect_on_fn": "0 of 11 change; FN counts stay as they are (verified by definition). It only makes the reason explicit and keeps the class from being re-investigated.",
+    "conflicts_with_decisions_or_rules": "None, provided they stay counted as FN. Moving them out of FN (a scope change) would need a user decision that changes benchmark.md, and would look like recall tuning; not recommended. Consistent with A0 and with the 10-28 conclusion that the FN come from a missing acidification requirement.",
+    "evidence_still_missing": "None for the annotation. A user decision on the label wording is needed.",
+    "authorization_and_compute_needed": "A documentation-only change (report text and a STATE entry) on user instruction. No compute.",
+    "recommendation": "Adopt now as the baseline position, whatever happens with O1 or O2a."
+   },
+   {
+    "id": "O5",
+    "name": "Side corrections the findings expose (no FN effect)",
+    "what_changes": "(a) Resolve the F-subunit ID: YALI0E16192g in the model, W29 YALI1E19360g annotated 'Pseudo mRNA', no screen row. Record it as unscorable rather than leaving it as a silent user-defined negative. (b) Keep D00581 (V1 D) in the core AND, and keep its non-consensus label (the call is borderline, Cas9 q 0.17 / Cas12a q 0.079); do not swap labels. (c) Review the YALI1A09766g (V1 A) assignment on R_NTP1, a free cytosolic ATPase, as a GPR-identity question. (d) Note the missing V0 e (YALI1F25663g) and assembly factors (VMA21, PKR1, RAV1) as out-of-scope positives.",
+    "mechanism_and_evidence": "Experimental agent (verified screen rows and locus-map annotation). R_NTP1 GPR verified on m059 this run.",
+    "expected_effect_on_fn": "0 of the 11 change (inferred). (a) and (b) matter for the FP side effects of O2a. (c) does not affect the FN, since R_NTP1 has an OR partner.",
+    "conflicts_with_decisions_or_rules": "R_NTP1 was changed on user instruction on 2026-09-14 ('\u8865\u9f50\u989d\u5916H\u207a\u7136\u540e\u5e76\u5165\u7ba1\u7ebf'); changing its GPR revisits that line. Adding V0 e or the assembly factors to the model would need identity evidence and a separate authorization.",
+    "evidence_still_missing": "W29 F-locus gene model (is the frameshift real or an annotation artefact?). Whether V1 A has any role outside the complex (unlikely; inferred).",
+    "authorization_and_compute_needed": "Investigation is free. Any GPR edit goes through curation-change with authorization.",
+    "recommendation": "Fold (a) and (b) into O1. Leave (c) and (d) as listed follow-ups."
+   },
+   {
+    "id": "O6",
+    "name": "Generate the missing Y. lipolytica evidence before any coupling",
+    "what_changes": "No model change. Literature search and/or a wet-lab test in Y. lipolytica: knock down or chemically inhibit the V-ATPase (concanamycin A or bafilomycin) in SD-Leu, with and without iron or copper supplementation. Measure Fet3/ferroxidase activity or iron-regulon readouts. Optionally screen V-ATPase guides under high-iron versus standard medium in the existing CRISPR/fermentor line.",
+    "mechanism_and_evidence": "Hughes 2020 showed iron and FET4 rescue of the V-ATPase respiratory defect in S. cerevisiae (verified full text). Davis-Kaplan 2004 tied Fet3 copper loading to the V-ATPase (verified abstract). If the same rescue happens in Y. lipolytica, the iron coupling (O2a) gains direct evidence. If not, O4 stands.",
+    "expected_effect_on_fn": "None directly. It decides whether O2a is legitimate.",
+    "conflicts_with_decisions_or_rules": "None. Adding a new benchmark condition would need authorization (memory: the fermentor screen line says a benchmark addition needs authorization).",
+    "evidence_still_missing": "Everything here is the evidence to be gathered.",
+    "authorization_and_compute_needed": "User decision on the wet-lab scope. External actions such as messages to collaborators need explicit instruction.",
+    "recommendation": "Run it as the gate in front of O2a."
+   }
+  ],
+  "recommended_path": "Do these steps in order. Each step needs its own user authorization; none is given here.\n\n1. Now, with no model change, adopt O4. Keep the 11 genes counted as FN under benchmark.md, which only treats genes with no model counterpart as out of scope. Label them in reports as a structural FN class: the V-ATPase is not used at the optimum because the model has no non-metabolic function for it. This settles the question without recall tuning, and it respects A0 and the rule against forcing pump flux or adding proton sinks.\n\n2. Optionally, make the GPR correct for its own sake with O1 plus O5(a)/(b). The rule becomes core AND (a1 OR a2), with the c''-only branch removed and the F-subunit ID resolved or documented. Say up front that it is expected to recover 0 of 11 (inferred from the 09-21 screen, recalled). Its value is correctness, and it is a prerequisite for any later coupling.\n\n3. The only mechanistic route worth pursuing is O2a: make high-affinity iron uptake through R2193, FET3/FTR1, depend on the Golgi V-ATPase. It is Golgi-side, so it does not reopen A0. In the model, R2193 is the only producer of cytosolic Fe2+, and biomass needs Fe2+ (verified this run, static). The D09 FET3/FTR1 pair is consensus-essential in Y. lipolytica (verified).\n   - Expected effect (inferred, untested): 10 of 11 flip with (a1 OR a2), 11 of 11 if the coupling names a1 alone. D00581 and the F subunit would become new FPs.\n   - Blockers: the V-ATPase-to-Fet3 link is shown only in S. cerevisiae, and the change reopens the 2026-10-22 R2193 GPR decision. So gate it on O6, direct Y. lipolytica evidence such as iron or copper rescue of V-ATPase inhibition or knockdown.\n   - If that evidence holds: run an authorized diagnostic of about 25 LPs (Task A + PO1f, fresh basis per KO), then curation-change, then a full regression at all four cutoffs.\n\nReject O3, the generic H+ demand or pump lower bound. It is the recall tuning already rejected, a vacuolar version would reopen A0, and on the Golgi side the reversible R2048/R1240 sphingolipid shuttle could defeat it (inferred).\n\nPark O2b, the vacuolar cysteine and amino-acid storage mechanism. It needs new pools, a magnitude nobody has measured, and would reopen A0.\n\nScratch scripts from this run, all read-only and solver-free, in /private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-essential-gene-prediction-e76be3/0a4ec4c9-d926-4768-b75c-c14c6fe4ecec/scratchpad/vat/agents/:\n- opt_check.py and opt_check2.py: scans for metal species, vacuolar cysteine and Fe-containing biomass components.\n- opt_check3.py: ferrochelatase R302 and heme O synthase R384 (stopped with an error before its last check).\n- opt_check4.py: the Fe2+ trace showing R2193 is the only producer.\n- opt_check5.py: R2193 genes and their consensus status.\n- opt_check6.py: R2048/R1240 and the iron exchange R1189."
+ },
+ "verdicts": {
+  "rules": {
+   "per_option": [
+    {
+     "id": "O1",
+     "verdict": "partly_holds",
+     "reason": "Not recall tuning, and the compute it needs is named. Two problems. (1) It says 'Conflicts: none', but it does not mention that it supersedes the user's 2026-09-10 choice to build the 3-gene shared AND as a 'hypothesis version pending verification'. (2) For both R794 and R795 it adopts the (a1 OR a2) form whose same-compartment substitutability STATE recorded on 2026-09-21 as explicitly not accepted. The 09-09 review proposed a compartment-specific a subunit per reaction instead. Smaller points: the LP count is off (m059 has 1081 genes, so a sweep is about 1082 LPs, not about 1075), and m059 is not on this branch (see errors).",
+     "evidence": "verified: STATE.md line 3747 '\u7528\u6237\u660e\u786e\u9009\u62e9\"\u628a D00581\u3001E16192\u3001F38820 \u90fd\u8bbe\u4e3a\u5171\u540c AND\uff0c\u4f5c\u4e3a\u5f85\u9a8c\u8bc1\u5047\u8bbe\u7248\"'. STATE.md line 3317 (09-21) '\u4e24\u4e2aa\u7684\u540c\u533a\u5ba4\u66ff\u4ee3\u6027\u3001\u65e7F\u7684W29\u8eab\u4efd\u51b2\u7a81\u4ecd\u672a\u63a5\u53d7'. That screen used the R539 baseline on SD-Leu with WT 1.8718823069402997 and 0 gained or lost, which confirms the 'older medium' caveat. r794_r795_gpr_review_20260909/TASK.md states the goal \u76ee\u6807\u4e0d\u662f\u8ba9\u9884\u6d4b\u53d8\u5fc5\u9700, so this is not recall tuning. cobra load of m059 (SHA 059316ef\u2026): 1081 genes, 2319 reactions (rules_rev/iron.py)."
+    },
+    {
+     "id": "O2a",
+     "verdict": "partly_holds",
+     "reason": "It correctly says it reopens the R2193 decision. Its static model facts hold, and I checked one failure mode it left open. Four rule-level weaknesses are not flagged. (a) '11 of 11 if the coupling names a1 alone' repeats a pattern the R2193 report itself called benchmark fitting: picking the paralog that matches the essential list. (b) The 09-21 MECHANISM.md says that just adding an AND is not automatically a validated fix. That applies to a new AND on R2193 as much as to H+ sinks, and AGENTS.md \u00a72 forbids science changes made to improve a match rate. (c) D09277g is annotated FET5-like in the consensus list but called FET3 (RBH) in the R2193 report. Whether the Fet3 copper-loading link applies to this exact protein therefore needs stating. (d) Encoding maturation or trafficking in a GPR departs from the project's catalysis/complex GPR convention (AGENTS.md \u00a75), and the option only partly says so. Two points in its favour. Failure mode (i) is closed statically: there is no other iron entry. And a prior computation already shows that closing R2193 kills growth, which supports the expected mechanism (recalled, from a related model).",
+     "evidence": "verified (static, rules_rev/iron.py): the only iron exchange is R1189, m1273[C_ex] \u2192 (0,1000), Task A ub 1.61e-5. m1273 occurs only in R1189 and R2193, and m948 is produced only by R2193. Heme a reaches biomass through R863 \u2192 R302 (mito Fe), so it also depends on m948. R1710 (yeast 8 biomass with heme a) is (0,0). No heme or siderophore exchange appears in a name scan. Medium CSV row: R1189 0.0000161. verified: current_fn_fp.json lists YALI1D09277g and YALI1D09308g as cause a, or_partner_carries_flux, rxn_ko '0.0000' (computed on 6af03c40, so recalled for m059). verified: r2193_iron_import STATE entry: 'Choosing only the D09 pair because it matches the essential list would be fitting to the benchmark.' MECHANISM.md line 62: '\u4ec5\u589e\u52a0AND\u3001\u5f3a\u5236\u6cf5\u4e0b\u754c\u3001\u5f00\u653e\u4e00\u6761\u4f9b\u6c34\u6216\u6dfb\u52a0\u4efb\u610f\u8d28\u5b50\u6d88\u8017\uff0c\u90fd\u4e0d\u80fd\u81ea\u52a8\u6784\u6210\u7ecf\u8fc7\u9a8c\u8bc1\u7684\u4fee\u590d'. verified: consensus CSV, YALI1D09277g 'similar to Saccharomyces cerevisiae FET5 (YFL041W)'. r2193_iron_import_gpr_20261022/REPORT.md line 62 'FET3, ferroxidase (45.8 % id)'."
+    },
+    {
+     "id": "O2b",
+     "verdict": "holds",
+     "reason": "It correctly says it would reopen the user's A0 decision (R795 and the vacuolar transports would have to open), that any storage magnitude would be arbitrary, and it parks the option. The compute is not quantified, but the option is not recommended, so that is acceptable.",
+     "evidence": "verified: STATE.md line 214-216, the user chose 'Option A0' on 2026-10-28 (keep every closure). R795 in m059 is (0,0) (from the findings, consistent with that STATE entry)."
+    },
+    {
+     "id": "O3",
+     "verdict": "partly_holds",
+     "reason": "'Do not pursue' is right for an evidence-free demand. The citation is overstated in three ways. (1) The vatpase_escher README only says no sink or AND was introduced. (2) MECHANISM.md says such steps are 'not automatically a validated fix'; it does not reject them as recall tuning. (3) AGENTS.md \u00a76 'No recall tuning' sits inside the FN-loop section, which applies only if that loop is brought back. The always-on rule is \u00a72: 'Never make one to improve a match rate'. Also, the UM2 TASK.md left an evidence-based acidification constraint open as follow-up 4. So the evidence-backed version of O3 is an open item, not a rejected one.",
+     "evidence": "verified: vatpase_escher_20260921/README.md line 19 'No arbitrary proton sink, new transport reaction, or extra AND relation was introduced to force essentiality.' MECHANISM.md line 62 (quoted under O2a). um2_vacuolar_closures_20261028/TASK.md: '4. V-ATPase false negatives: the model has no acidification requirement; representing one would need evidence-based constraints, not a recall target.' AGENTS.md \u00a76 heading reads '(paused on this line)' and says 'If it is brought back, these rules apply'."
+    },
+    {
+     "id": "O4",
+     "verdict": "partly_holds",
+     "reason": "The conclusion holds: the 11 genes have model counterparts, so they stay FN, and the change is documentation only. But the premise that benchmark.md defines out-of-scope 'only' as listed genes with no model counterpart is wrong. benchmark.md also excludes 16 model genes (mtDNA) from TP/FN/FP/TN. That is a model-gene exclusion, even though the reason for it is on the screen side. The option should cite it and explain why it is not a precedent, rather than say no such rule exists.",
+     "evidence": "verified: benchmark.md, 'Out of scope: a listed gene with no model counterpart' AND 'the 16 model genes encoded in the mitochondrial genome \u2026 are out of scope \u2026 excluded from TP, FN, FP and TN'. verified: current_fn_fp.json has exactly 11 entries with sub 'unused_at_optimum:v_atpase' (from the findings; D09 entries re-read this run). STATE line 242: 'The V-ATPase false negatives come from a missing acidification requirement'."
+    },
+    {
+     "id": "O5",
+     "verdict": "partly_holds",
+     "reason": "Items (a), (b) and (d) are sound. The conflict claimed for (c) is overstated. The 2026-09-14 R_NTP1 authorization ('\u8865\u9f50\u989d\u5916H\u207a\u7136\u540e\u5e76\u5165\u7ba1\u7ebf') covered stoichiometry and direction only. The same entry says the original GPR was not changed and the native GPR is unresolved. Reviewing the GPR therefore picks up an item that was left open; it does not revisit a decision.",
+     "evidence": "verified: STATE.md line 3501: '\u7528\u6237\u5728\u65b9\u5411/\u80fd\u91cf\u5ba1\u67e5\u540e\u6388\u6743\"\u8865\u9f50\u989d\u5916H\u207a\u7136\u540e\u5e76\u5165\u7ba1\u7ebf\"\u2026\u65b0amendment/notes\u660e\u786e\u6388\u6743\u3001\u539f\u72b6\u6001\u4e0e\u539f\u751fGPR\u672a\u51b3\u2026\u539fGPR\u4e0d\u6539'. m059 R_NTP1 is (0,1000), ATP + H2O \u2192 ADP + Pi, GPR 'YALI1A09766g or YALI1E41893g' (rules_rev static read)."
+    },
+    {
+     "id": "O6",
+     "verdict": "holds",
+     "reason": "No model change and no compute, and it correctly needs the user's decision for wet lab and external contact. One caveat to add: under AGENTS.md \u00a74, any Y. lipolytica data used to justify the O2a coupling is curation data. The resulting V-ATPase TP gains would then be a development reference, not independent validation. A new screen condition also needs authorization for a benchmark addition.",
+     "evidence": "verified: AGENTS.md \u00a74 'Data used to build, diagnose or curate is not independent validation'. AGENTS.md \u00a72 lists external messages under actions that need the user's explicit instruction. recalled (memory index): the fermentor CRISPR line says a benchmark addition needs authorization."
+    }
+   ],
+   "errors_in_findings": [
+    "History agent, 'Standing rule recorded in AGENTS.md': it attributes the wording 'never force a pump lower bound, add an arbitrary proton sink, add an AND' to AGENTS.md. AGENTS.md has no such list. \u00a76 reads 'never tune SD-Leu uptake, close a bypass, alter a GPR or add biomass demand merely to improve recall' and is conditional on the paused FN loop. The always-on rule is \u00a72, 'Never make one to improve a match rate'. The pump/sink/AND wording comes from vatpase_escher README line 19, which describes what was done, not a rule. (verified by reading AGENTS.md and the README)",
+    "History agent, R_NTP1 2026-09-14: the quote '\u8865\u9f50\u989d\u5916H\u207a\u7136\u540e\u5e76\u5165\u7ba1\u7ebf' is correct (STATE line 3501). The summary leaves out that the same entry kept the GPR unchanged and marked the native GPR as unresolved ('\u539f\u751fGPR\u672a\u51b3\u2026\u539fGPR\u4e0d\u6539'). The option set then reads changing the GPR in O5(c) as revisiting a decision.",
+    "History agent, open question 10, 'm059 (059316ef\u2026) is not referenced anywhere in model/': this is true for this worktree, but the model is not unidentified. The essential-gene-r171-pro-7e2477 worktree's STATE (PR #37) defines 059316ef as the R171/R673 note-wording successor that 'supersede[s] ca43ae0c and 6af03c40 for note wording', with 'Sanity solves unchanged' (read this run; its content not re-verified). So the FN labels from ko_6af03c40.json plausibly carry over. But m059 is not on this branch (HEAD ff7fc62), whose newest STATE candidate is d8d1bac7.",
+    "Option set O3, 'Explicitly rejected before as recall tuning (AGENTS.md \u00a76; vatpase_escher README; screen MECHANISM.md)': overstated. MECHANISM.md line 62 says these steps are 'not automatically a validated fix', the README says none was introduced, and \u00a76 is conditional on the paused loop. The UM2 TASK.md leaves evidence-based constraints open as follow-up 4.",
+    "Option set O4, 'benchmark.md \u2026 defines out-of-scope only as a listed gene with no model counterpart': incorrect. benchmark.md also puts 16 mtDNA model genes out of scope (decided 2026-10-08).",
+    "Option set O1/O2a, 'about 1075 LPs': m059 has 1081 genes (verified by cobra load), so a sweep is about 1082 LPs. The 2026-10-29 sweeps were 2,164 LPs for two models.",
+    "Option set O2a, failure mode (i), 'not checked: \u2026 medium compounds': this can be settled statically and holds in O2a's favour. R1189 (iron(2+) exchange, Task A ub 1.61e-5) is the only iron entry. m1273 occurs only in R1189/R2193. R1710 (the heme-a-containing yeast 8 biomass) is (0,0). No heme or siderophore exchange exists by name scan. (verified, rules_rev/iron.py)",
+    "Option set and findings call YALI1D09277g 'FET3'. The consensus list annotates it 'similar to S. cerevisiae FET5 (YFL041W)'. The R2193 report calls it FET3 by reciprocal best hit (45.8 % identity). The identity is homology-only and the two annotations disagree, which matters for transferring the Fet3-specific Davis-Kaplan link.",
+    "Option set O5(c), 'R_NTP1 was changed on user instruction \u2026 changing its GPR revisits that line': the GPR was explicitly left unresolved and unchanged in that decision (see the R_NTP1 error above)."
+   ],
+   "missing": [
+    "Baseline identity and branch (AGENTS.md \u00a70): m059/059316ef is not in this worktree's model/candidates or STATE. Any O1/O2a build needs a baseline on a branch that holds it (PR #37 merged or its branch), named with its SHA. The option set does not say this.",
+    "O2a: no mention of the R2193 report's own warning that picking the paralog that matches the essential list is benchmark fitting. The same reasoning applies to choosing a1 alone for '11 of 11'.",
+    "O2a: no mention of MECHANISM.md line 62's caution that just adding an AND is not automatically a validated fix. That caution applies to a new AND on R2193.",
+    "O2a supporting evidence not cited: current_fn_fp.json already records rxn_ko 0.0000 for R2193 (closing R2193 kills growth; computed on 6af03c40, recalled for m059). This supports the expected 10-of-11 flip more directly than pure inference.",
+    "AGENTS.md \u00a74 caveat for O2a/O6: Y. lipolytica evidence gathered to justify the coupling makes the later recall gain a development reference, not independent validation. It should be reported that way.",
+    "Lipid-unlump check (asked for by the lens): no option edits colleague-owned files. A grep of model/curation/lipid_unlump and platform/tools/lipid for R2048, R1240, R2193, R794 and R795 found no curated-data hit. Only full-model candidate XMLs matched, as expected. O3's use of R2048/R1240 is inference only. (verified)",
+    "The model agent found that R_NDP7g (Golgi UDP hydrolysis, YALI1E41893g) is +1 H / +1 charge imbalanced and, with R586, forms a Golgi H+-destroying cycle. Any future Golgi-side demand (an evidence-based O3 or variant) would interact with it. No option lists it as a correctness follow-up.",
+    "History check: the quotes for 09-10 (3-gene), 09-14 (R_NTP1), 09-18 (pair+single, TASK.md line 3), 09-21 (screen test), 09-23 (R1159, commit f21e5dc exists) and 10-28 (A0, 'Commit on branch', 10f1656) all match their sources (verified). The 09-14 'gray capacity' and 'dipeptide pool' items are correctly marked as paraphrases (STATE has no quote marks). The claim that the FS-fitting plan was cancelled was not located in STATE and remains unverified."
+   ]
+  },
+  "mechanics": {
+   "per_option": [
+    {
+     "id": "O1",
+     "verdict": "holds",
+     "reason": "Boolean check (verified this run): with the proposed rule core-AND (12 genes incl. c'') AND (a1 OR a2), a knockout of any of the 12 core genes closes R794/R795, while E12482 (a1) and F38820 (a2) leave it open. The claim that this recovers 0 of the 11 FN can now be upgraded from recalled to statically verified on m059. In the Golgi, R2048 is blocked in both directions (see O3), R141 is dead, and R_NDP7g can only run in reverse (UDP[go] has no other producer). So R794's H+ can only leave through the R1159 leak or the R_NDP7g-reverse + R586 cycle, which only destroys H+. Any R794 flux is therefore a futile ATP drain. Setting it and its sink to zero keeps every other row balanced, and R_NTP1 [0,1000] absorbs the ATP that is freed. Closing R794 cannot lower maximum growth. The F-subunit ID and D00581 caveats stand.",
+     "evidence": "adv_mech3.py: 'O1 rule single-KO closes: [12 core genes]'; 'keeps open: [YALI1E12482g, YALI1F38820g]'. m293 reactions: only R_NDP7g, R2048, R141, R1159 (-1000,0) and R794. m836[C_go] (UDP) appears only in R_NDP7g (rev) and R586 (0,1000, consumer), so net v_NDP7g <= 0. 'Golgi-boundary reactions: 70; carrying H+: [R794, R1159]'. R_NTP1 (0,1000) ATP+H2O->ADP+Pi. adv_mech4/5: R2048 blocked (see O3)."
+    },
+    {
+     "id": "O2a",
+     "verdict": "partly_holds",
+     "reason": "The core mechanics check out (verified). R2193 is the only producer of cytosolic Fe m948. R1189 is the only iron uptake in Task A, and no boundary reaction carries any other Fe or heme species, so failure mode (i), an alternative iron route, is excluded. biomass_C needs m948 at 3.04e-5. With the coupling on both R2193 branches, KOs of exactly the 10 consensus core genes close it. D00581 and YALI0E16192g would be closed too, giving 2 new FPs. With the a1-only coupling, E12482 is added (11 of 11).\n\nThree claims are wrong or missing:\n(1) O1 is NOT a mechanical prerequisite. The effect comes entirely from the R2193 GPR; R794 stays unused and acidification is never represented. In model terms this is exactly 'add an AND so that genes become essential', so it stands or falls on the Y. lipolytica evidence alone.\n(2) Solver-tolerance leak: the iron demand is small. At feasibility tolerance 1e-7 (GLPK) the m948 row could leak up to 3.3e-3 growth, i.e. KO/WT about 1.06%, which would miss the 1% cutoff. At Gurobi 1e-9 the leak is about 1e-4 and harmless. Report raw status and growth.\n(3) WT iron use is 61% of the R1189 cap. Iron does not limit growth now, but O2a would make the call depend on a cap that is inferred from the formulation (arithmetic, inferred).\nThe biology still rests on S. cerevisiae evidence.",
+     "evidence": "adv_mech2.py: 'R2193 | (0,1000) | m1273[C_ex] --> m948[C_cy] | GPR (D09277 and D09308) or (D08684 and D08564)'. m948[C_cy] reactions: R2193 +1, R863 -1 (0,1000), R727 -1 (0,1000), biomass_C -3.04e-05. adv_mech3.py: 'Task A medium exchange metabolites with Fe...: R1189 m1273 0.0000161' only; 'all boundary reactions on Fe/heme species: R1189' only. 'O2a coupled R2193 single-KO closes: [12 core]'; 'closers on consensus: [A09766,A11258,E10492,F20965,E14125,F31854,E37063,F13017,F21690,E32332]'; 'NOT on consensus: [D00581, YALI0E16192g]'. adv_mech5.py: 'WT Fe need = 9.79e-06, cap 1.61e-5, ratio 0.608'; 'tol 1e-07 ... KO/WT 0.01055'; 'tol 1e-09 ... KO/WT 0.000106'."
+    },
+    {
+     "id": "O2b",
+     "verdict": "holds",
+     "reason": "The static facts it relies on hold. There is no vacuolar cysteine species. R795 and R1163 are [0,0]. The vacuolar H+ symports R2020/R2028/R2030/R2038/R2040 are gene-less and reversible, so they are possible escapes if the vacuole is reopened. The rest of the reasoning (a storage magnitude would be arbitrary, iron toxicity is regulatory) is inferred, but it supports the recommendation to park this option. I did not re-trace whether the blocked solute chains would still block the symports after a reopening (that was recalled from the 09-10 and 10-28 reports).",
+     "evidence": "adv_mech3.py: 'vacuolar cysteine species []'; R2020/R2028/R2030/R2038/R2040 bounds (-1000,1000), GPR empty; R1163 (0,0); R795 (0,0); R882 (0,1000)."
+    },
+    {
+     "id": "O3",
+     "verdict": "partly_holds",
+     "reason": "Rejecting it on policy grounds (recall tuning, standing rule, A0) is sound. The mechanical argument for rejecting it is REFUTED on the Golgi side. The claimed escape (R2048 run in reverse, fed with M(IP)2C through R1240) cannot run. m676[C_er] (M(IP)2C) has no producer: its only other reaction, R439 (irreversible), consumes it. R439's product m674[C_er] is a dead end, with 10 irreversible producers and no consumer. So R439 = 0, R1240 = 0 and m1314[go] has no source or sink besides R2048. R2048 is therefore blocked in both directions. This makes R794 the only net Golgi H+ source: 2 v794 >= d for any Golgi H+ demand d. A Golgi demand plus O1 would mechanically make the 12 core-gene KOs lethal, not 0 flips. That is exactly why it is recall-tuning-shaped. I did not re-check the vacuolar side.",
+     "evidence": "adv_mech4.py: 'R1240 (-1000,1000) m1314[C_go] <=> m676[C_er]'; m676[C_er] reactions only R439 (0,1000, consumer) and R1240; R2048 species m1314[C_go] reactions R1817 (0,0), R2048, R1240. adv_mech5.py: 'R439 (0,1000) H2O + M(IP)2C[er] --> ceramide-2'(C24) + mannose-(1D-myo-inositol 1-phosphate)2'; 'm674[C_er] ... [(R437..R446, R439) all (0,1000), coefficient +1]' (no consumer). m293 balance from adv_mech3 as in O1."
+    },
+    {
+     "id": "O4",
+     "verdict": "holds",
+     "reason": "benchmark.md (read this run, lines 33-36) puts a gene out of scope only when it is a listed gene with no model counterpart, and such a gene 'is never counted as FN'. All 14 V-ATPase genes are in the model (R794/R795 gene lists verified), so the 11 must stay FN. Annotating them changes no count.",
+     "evidence": "benchmark.md: 'Out of scope: a listed gene with no model counterpart... it is never counted as FN.' adv_mech3.py gene->reaction listing shows all 14 genes on R794/R795."
+    },
+    {
+     "id": "O5",
+     "verdict": "holds",
+     "reason": "YALI0E16192g is in the R794/R795 GPR. R_NTP1 is (0,1000) with GPR 'YALI1A09766g or YALI1E41893g', so an A09766 KO leaves it open (no effect on the FN). 'No FN effect' is correct for (a)-(d). In O2a's coupled set, YALI0E16192g and D00581 become the 2 new FP closers (verified Boolean), so (a) and (b) do matter for O2a, as stated. Not re-checked: the W29 pseudo-mRNA annotation and the screen rows (from the experimental agent).",
+     "evidence": "adv_mech3.py: 'R_NTP1 | (0,1000) | ATP + H2O --> ADP + Pi | GPR: YALI1A09766g or YALI1E41893g'; 'gene YALI1A09766g reactions [R_NTP1, R795, R794]'; 'closers NOT on consensus: [YALI1D00581g, YALI0E16192g]'."
+    },
+    {
+     "id": "O6",
+     "verdict": "holds",
+     "reason": "No model change, so there is no mechanical effect to refute. It correctly gates O2a. Since the iron coupling (O2a) is mechanically robust in m059 (single iron entry, verified), the call outcome depends entirely on this evidence. O6 is therefore the decisive step, not an optional one.",
+     "evidence": "Follows from the O2a static checks (R2193 is the sole m948 producer; R1189 is the only Fe boundary)."
+    }
+   ],
+   "errors_in_findings": [
+    "REFUTED (verified, adv_mech4.py/adv_mech5.py): the 'R2048 reversible + R1240 bidirectional sphingolipid shuttle could supply Golgi H+ without R794' claim in the diagnosis, in O3 and in the recommended path. m676[C_er] has no producer (only R439 (0,1000) consumes it, besides R1240). R439's product m674[C_er] is a dead end (10 irreversible producers, no consumer), so R439 = R1240 = 0. m1314[go] then touches only R2048 and the closed R1817, and R2048 is blocked in both directions.",
+    "Findings model.proton_network and gradient_dependent_processes say 'R2048 forward ... is the only Golgi H+ consumer that would need a supply' and 'R2048 can also run in reverse, producing H+'. Both are wrong: R2048 is statically forced to 0 (same trace).",
+    "Recommended path step 2 says O1 is 'a prerequisite for any later coupling'. This is false for the GPR form of O2a: the coupling sits on the R2193 GPR, and its effect does not depend on the R794/R795 GPR or on R794 flux (Boolean check: the 12 core genes close the coupled R2193 regardless of R794's rule).",
+    "O1's '0 of 11 recovered' is labelled recalled/inferred. It is actually provable statically on m059. The only Golgi H+ sinks are R1159 (go->cy) and the R_NDP7g-reverse + R586 cycle; R2048 and R141 are blocked; R_NTP1 absorbs freed ATP. So R794 is a pure futile ATP drain and closing it cannot lower maximum growth.",
+    "O2a failure mode (i) ('Task A medium supplies iron by another route, not checked') can be closed. R1189 (m1273 iron) is the only Fe-containing exchange in Task A (uptake 0.0000161), and no boundary reaction in m059 carries any Fe or heme species (adv_mech3.py).",
+    "Minor: R727 (sirohydrochlorin ferrochelatase) is listed as an m948 consumer, but it is structurally zero: its product siroheme m949[C_cy] occurs only in R727 (adv_mech2.py)."
+   ],
+   "missing": [
+    "Solver-tolerance risk for O2a. The iron requirement is 3.04e-5 per unit of growth, so a feasibility-tolerance leak on the m948 row allows growth up to tol/3.04e-5. At 1e-7 (GLPK) this is KO/WT about 1.06%, which would fail the 1% cutoff. At 1e-9 (Gurobi) it is about 1e-4. Any diagnostic must use Gurobi at 1e-9 and report raw status and growth. This matches the memory note that GLPK ignores a 1e-6 heme demand within tolerance.",
+    "O2a makes the 10 genes essential through an annotation, not through pump flux. R794 stays unused, and acidification is still unrepresented. The model will then report 'V-ATPase reaction unused, yet the gene is essential', which reviewers should be told explicitly. The coupling also applies under every medium where R2193 is the only iron entry, so the new essentiality is not pH- or condition-conditional, unlike the S. cerevisiae phenotypes.",
+    "WT iron use is 61% of the Task A R1189 cap (9.79e-6 vs 1.61e-5; arithmetic from WT growth 0.31166 recorded in ko_6af03c40.json). This does not limit growth today, but the cap is a formulation-scaled assumption.",
+    "Hidden interaction: R2048 (YALIUNK3 placeholder; MIPC + Ins-1-P + 2 H+[go] -> M(IP)2C, which is not the IPT1 chemistry MIPC + PI -> M(IP)2C + DAG) is blocked only because the ER product m674 is a dead end. If a later curation adds an m674 consumer, or sphingolipids to biomass, R2048 forward would become an H+-consuming Golgi route that requires R794, and the R794 calls would change for an artefactual reason. Flag this before any sphingolipid or biomass work.",
+    "Not checked here: whether the vacuolar escape routes for O3/O2b stay blocked after R795/R1163 are reopened (relied on recalled 09-10/10-28 traces); whether current_fn_fp.json labels were computed on m059 (no model SHA in that file); and whether R_NDP7g (+1 H/charge imbalance, GPR shared with R_NTP1's partner YALI1E41893g) should be corrected."
+   ]
+  },
+  "evidence": {
+   "per_option": [
+    {
+     "id": "diagnosis",
+     "verdict": "partly_holds",
+     "reason": "The two-layer model diagnosis matches what I could check. The biology section misreads its own key source. Route (c), 'high-affinity iron uptake fails without V-ATPase', is contradicted for S. cerevisiae by Hughes 2020, the paper the diagnosis calls verified full text. Hughes explicitly ruled out impaired iron uptake: total intracellular iron did not fall and was chronically elevated in V-ATPase mutants (ICP-MS). Diab & Kane 2013 likewise found vma2\u0394 iron-replete. The respiratory defect comes from lower mitochondrial iron bioavailability, driven by cysteine, not from uptake. So 'route (c) is the only one the model can express' does not make route (c) the cause of lethality.",
+     "evidence": "Checked this run (scratch: .../vat/agents/rev_bio/).\n- Static cobra load of m059 (SHA 059316ef...a9248d) [verified]: m948[C_cy] reactions are R2193 (producer), R727, R863 and biomass_C. Iron has formula None and charge 0. The exchange R1189 is (0,1000) in the file.\n- Hughes 2020 full text (efetch PMC7164368) [verified]: 'We ruled out alterations in cellular iron uptake as a possibility because total intracellular iron levels did not decline...' Also: mutants 'grew efficiently on fermentable carbon sources'.\n- Diab & Kane 2013 abstract (Europe PMC 23457300) [verified]: 'the vma2\u0394 mutant is iron-replete, despite up-regulation of the iron regulon'.\n- Davis-Kaplan 2004 abstract [verified]: the cwh36 growth defect is 'on iron-limited medium'."
+    },
+    {
+     "id": "O1",
+     "verdict": "holds",
+     "reason": "The biology lens supports correcting the GPR to a full-complex AND for identity reasons. Yeast-GEM and iYali both use full-complex AND rules with no c''-only branch. The screen pattern (11 core subunits consensus-E, a2 non-essential) is consistent. The claim that it recovers 0 of 11 FN comes from earlier screens, which I did not re-check (recalled).",
+     "evidence": "[verified] Yeast-GEM main at 2d594ae (git ls-remote this run):\n- r_1085 and r_1086 are 16-gene ANDs including YHR026W (c''), YCL005W-A and YGR106C. The alternative branch differs only by YPR170W-B.\n- r_1826 and r_1831 have bounds -1000/1000.\n\n[verified] iYali.yml: y001085 and y001086 are a single 13-gene AND that includes YALI0E16192g. y001826 and y001831 are -1000/1000.\n\n[verified] CSV rows: F13017g Cas9 -5.876 q 1.44e-14 essential; F38820g Cas9 q 1 and Cas12a q 0.31, both nonessential."
+    },
+    {
+     "id": "O2a",
+     "verdict": "refuted",
+     "reason": "The mechanism O2a would encode is that V-ATPase loss removes iron entry and so biomass is infeasible. In the cited organism that mechanism is contradicted. S. cerevisiae vma mutants keep or raise total cell iron, and grow on glucose. The Fet3 copper-loading defect matters only on iron-limited medium, and low-affinity routes such as FET4 compensate.\n\nOther problems:\n- The D09 pair is not clearly FET3/FTR1. YALI1D09277g is annotated FET5-like. In S. cerevisiae Fet5 and Fth1 form a vacuolar-membrane complex (Urbanowski & Piper 1999), so 'plasma-membrane high-affinity uptake' is an unverified identity.\n- The Y. lipolytica genome annotates other iron-route homologs that are absent from the model: SMF1-like, SMF3-like, several ARN1-like siderophore transporters and three FTR1-like genes. A Boolean AND on the model's only iron reaction would therefore overstate the dependency and produce lethality by construction.\n- One datum supports the idea, which the findings missed: CCC2-like YALI1D35635g, the Golgi Cu pump that loads Fet3 in S. cerevisiae, is consensus-essential.\n\nThe gating recommendation (do not build without Y. lipolytica evidence) is sound. The mechanistic claim and the 10-of-11 or 11-of-11 expected flips are not biologically supported.",
+     "evidence": "- Hughes 2020 PMC7164368 full text [verified]: 'total intracellular iron levels did not decline upon V-ATPase impairment... chronically elevated in V-ATPase mutants'. FET4 is described as 'low-affinity iron uptake' and was the suppressor.\n- Diab & Kane 2013 abstract [verified]: iron-replete.\n- Davis-Kaplan 2004 abstract [verified]: the defect is 'on iron-limited medium'.\n- Urbanowski & Piper 1999 (PMID 10608875) abstract [verified]: 'Fth1p was localized to the vacuolar surface... associates with... Fet5p'.\n- S2 locus map scan [verified]: D09277g is 'similar to S. cerevisiae FET5 (YFL041W)'. Also present: C05880g SMF1-like, D35356g SMF3-like, A05031g FTR1-like, five ARN1-like genes, A21283g 'weakly similar' to FET3.\n- Fitness CSV [verified]: D35635g (CCC2-like) is consensus-E (Cas9 -3.11 q 0.019 E; Cas12a NE). D09277g is Cas9 and Cas12a E. D09308g is Cas9 E, Cas12a NE. The D08 pair is NE in both.\n- m059 static [verified]: R2193 is the only producer of m948."
+    },
+    {
+     "id": "O2b",
+     "verdict": "partly_holds",
+     "reason": "This is the mechanism Hughes 2020 actually supports in S. cerevisiae: loss of vacuolar cysteine storage leads to lower mitochondrial iron bioavailability and respiratory failure. The option's biology is therefore more accurate than O2a's. It is still S. cerevisiae-only, regulatory or toxic in nature, and has no Y. lipolytica data. Parking it is reasonable. Its description as 'the biological mechanism behind the iron link' is correct, and it undercuts O2a.",
+     "evidence": "- Hughes 2020 full text [verified]: amino-acid limitation restored mitochondrial function. The Fig. 7 model has vacuolar amino-acid/cysteine compartmentation. Aged-cell iron starvation was blocked by AVT1 overexpression.\n- Hughes & Gottschling 2012 abstract [verified]: 'reducing pH-dependent amino acid storage in the vacuolar lumen'."
+    },
+    {
+     "id": "O3",
+     "verdict": "holds",
+     "reason": "No biological source gives a Y. lipolytica in vivo H+ demand. Kulakovskaya 1993 is the specific activity of isolated vacuoles, not a flux. No GEM or method found imposes such a demand. Rejecting it is consistent with the evidence.",
+     "evidence": "- Kulakovskaya 1993 abstract [verified]: '0.9-1.1 U/mg protein' in vacuoles isolated from log-phase cells.\n- Thermo-Flux PMC13639002 [verified]: defaults pH 7.0, 0 mV; 0 hits for V-ATPase or vacuol.\n- Yeast8, pcYeast and StressME full texts [verified]: 0 hits for V-ATPase or vacuol.\n- AcidifyME abstract [verified]: lipids, periplasmic proteins and membrane-protein activity only."
+    },
+    {
+     "id": "O4",
+     "verdict": "holds",
+     "reason": "benchmark.md defines out-of-scope only as a listed gene with no model counterpart, so the 11 must remain FN. Labelling them as a non-metabolic, structural FN class is consistent with the biology. One caveat for the label: 'essential' here means strong pooled-screen depletion (log2 FS over a 4-day culture), not demonstrated lethality.",
+     "evidence": "- [verified] benchmark.md line 39: 'Out of scope: a listed gene with no model counterpart.'\n- acCRISPR PMC10250353 [verified]: FS is 'the log 2 ratio between the normalized counts... after four days of culture'. Consensus is '1612 genes... in at least two of the three independent screens'."
+    },
+    {
+     "id": "O5",
+     "verdict": "partly_holds",
+     "reason": "I verified the D00581 borderline call: Cas9 FS -2.627 p 0.049 q 0.171, Cas12a q 0.079, both nonessential. I verified that iYali also uses the YALI0E16192g F-subunit ID. I did not re-check the YALI1E19360g pseudo-mRNA annotation, the R_NTP1 GPR, or the VMA21/PKR1/RAV1 rows (unverified here). The V0 e note is relevant: the Davis-Kaplan Fet3 evidence concerns YCL005W-A (VMA9, subunit e), whose putative homolog YALI1F25663g is not in the model.",
+     "evidence": "- [verified] Fitness CSV rows 2242 and 1525 for D00581g; F25663g Cas9 -5.23 E, Cas12a +0.45 NE.\n- [verified] iYali.yml GPR includes YALI0E16192g.\n- [verified] Davis-Kaplan 2004 abstract: ORF YCL005W-A."
+    },
+    {
+     "id": "O6",
+     "verdict": "holds",
+     "reason": "Generating direct Y. lipolytica evidence is the right gate.\n\nThe experiment should measure what Hughes says is decisive:\n- total and mitochondrial iron (ICP-MS);\n- rescue by iron or by amino-acid/cysteine limitation;\n- not only Fet3 activity.\n\nIt should also check the alternative iron routes the genome annotates (SMF1-like, ARN-like).\n\nCounter-evidence to weigh: the obligate-aerobe argument is mixed across fungi. The M. oryzae Movma11 null is viable, while N. crassa vma-1 is essential.",
+     "evidence": "- Chen 2013 M. oryzae abstract [verified]: null viable, 'not in the typical pH conditional lethality'.\n- Ferea & Bowman 1996 abstract [verified]: N. crassa 'vacuolar ATPase is essential'.\n- Hughes 2020 [verified]: iron-supplementation and FET4 rescue."
+    }
+   ],
+   "errors_in_findings": [
+    "Errors in O2a and the diagnosis.\n- They cite Hughes 2020 as supporting 'high-affinity iron uptake fails without V-ATPase'. Hughes explicitly rules out impaired iron uptake: total intracellular iron did not decline and was elevated (ICP-MS). The iron limitation is about bioavailability, not uptake.\n- O2a cites Milgrom 2007 and Diab & Kane 2013 for 'iron-dependent respiratory failure'. Neither abstract shows respiratory failure. Milgrom excludes respiration as the main ROS source. Diab & Kane report vma2\u0394 is iron-replete.",
+    "D09277g/D09308g are labelled 'FET3/FTR1'. The locus-map annotation of D09277g is FET5-like (YFL041W), and S. cerevisiae Fet5/Fth1 is a vacuolar-membrane complex (Urbanowski & Piper 1999, abstract verified). Its role as plasma-membrane high-affinity uptake is unverified.",
+    "Patterson 2018: the findings say grepping for 'vacuol' returned no hits. The extracted text has 1 hit, about the PRB1 vacuolar protease and not the V-ATPase. The conclusion is unaffected.",
+    "Davis-Kaplan 2004: the abstract does not say cwh36 is 'a V0 subunit'. It says 'weak homology to a component of the vacuolar H+-ATPase'. The V0/e identity is recalled. Sambade 2005 (verified) only says it disrupts 'a previously uncharacterized V-ATPase subunit'.",
+    "Poltermann 2005: the vma4, vma10 and tfp1 null statements (PMIDs 31542189, 25220074) were not checked this run. Only the vma7 abstract was verified. 'Avirulent in mouse models' is verified for vma7 only.",
+    "Raines 2013: 'stv1 null has no phenotype' overstates the abstract, which says only the tested V-ATPase, vacuolar and in vitro virulence-related phenotypes were unaffected.",
+    "Inferred claim 'obligate aerobe, so V-ATPase loss is lethal': the M. oryzae Movma11 null (an obligate aerobe) is viable (Chen 2013, verified), so this inference is not general across fungi.",
+    "The literature mechanism list omits two verified-abstract alternatives. Sambade 2005 proposes constitutive calcineurin activation as 'the predominant physiological basis of the Vma- growth phenotype'. Ohya 1991 reports that Pet- cls (vma) mutants 'showed no detectable mitochondrial defects'. Both weaken a single iron/respiration explanation."
+   ],
+   "missing": [
+    "No source shows that V-ATPase knockout is lethal (as opposed to strongly depleted) in Y. lipolytica. The evidence is pooled 4-day log2 depletion only, and the mapping from FS to KO/WT < 15% is not established.",
+    "CCC2-like YALI1D35635g (Golgi Cu-ATPase for Fet3 copper loading) is consensus-essential (verified). It is the one Y. lipolytica datum consistent with a secretory-pathway copper-loading requirement, and the findings did not use it.",
+    "The Y. lipolytica genome annotates alternative iron-entry homologs that are absent from m059: SMF1-like C05880g, SMF3-like D35356g, FTR1-like A05031g, five ARN1-like siderophore transporters, and A21283g, weakly similar to FET3. Any V-ATPase AND on R2193 ignores them. All are non-essential in the screens (verified for C05880g, D35356g, A05031g and A21283g).",
+    "Which a-isoform (STV1-like E12482g or VPH1-like F38820g) serves Fet3/Fet5 maturation is unknown. O2a's 11-of-11 variant depends on it.",
+    "SD-Leu iron and copper content and the culture pH were not opened from any source. YNB's FeCl3 content is recalled only. Whether the screen medium is iron-limiting, which is the condition under which Davis-Kaplan's defect appears, is unverified.",
+    "Full texts of Davis-Kaplan 2004, Milgrom 2007, Diab & Kane 2013, Kane 2006 (HTTP 403) and Patterson Table S3 were not read. Only the abstracts were read (Patterson main text was read)."
+   ]
+  }
+ }
+}

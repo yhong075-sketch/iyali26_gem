@@ -1,0 +1,613 @@
+{
+ "baseline_model": {
+  "path": "/private/tmp/claude-501/-Users-david-Desktop-Lab-Ian-wheeldon-code-iyali26-gem--claude-worktrees-trehalose-biomass-24e3c1/72cdc4a5-224d-4d55-aafe-691edb5ac61d/scratchpad/e1e7.xml",
+  "sha256": "e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897"
+ },
+ "biomass_C_notes_on_trehalose": {},
+ "directional_producers_consumers": {
+  "m1167[C_ex]": {
+   "can_consume": [
+    "R1013"
+   ],
+   "can_produce": []
+  },
+  "m1380[C_va]": {
+   "can_consume": [],
+   "can_produce": []
+  },
+  "m294[C_cy]": {
+   "can_consume": [
+    "R1372",
+    "R142",
+    "biomass_C",
+    "newBiom",
+    "xBIOMASS"
+   ],
+   "can_produce": [
+    "R767"
+   ]
+  },
+  "m297[C_cy]": {
+   "can_consume": [
+    "R767"
+   ],
+   "can_produce": [
+    "R143"
+   ]
+  }
+ },
+ "genes": {
+  "YALI1D17620g": {
+   "annotation": {
+    "kegg.genes": "yli:2910243",
+    "ncbigene": "2910243",
+    "refseq": "XP_502823.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1H6Q6H4"
+   },
+   "name": "COBRAProtein162",
+   "notes": {},
+   "reactions": [
+    "R143",
+    "R767"
+   ]
+  },
+  "YALI1D19108g": {
+   "annotation": {
+    "ec-code": "3.2.1.28",
+    "kegg.genes": "yli:2910170",
+    "ncbigene": "2910170",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8NEQ4"
+   },
+   "name": "COBRAProtein161",
+   "notes": {},
+   "reactions": [
+    "R142"
+   ]
+  },
+  "YALI1E17616g": {
+   "annotation": {
+    "ec-code": "2.4.1.15",
+    "ensembl": "CAG79544",
+    "kegg.genes": "yli:2912305",
+    "refseq": "XP_503951.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "O74932"
+   },
+   "name": "COBRAProtein163",
+   "notes": {},
+   "reactions": [
+    "R143"
+   ]
+  },
+  "YALI1E36568g": {
+   "annotation": {
+    "kegg.genes": "yli:2911910",
+    "ncbigene": "2911910",
+    "refseq": "XP_504619.1",
+    "sbo": "SBO:0000243",
+    "uniprot": "A0A1D8NKQ2"
+   },
+   "name": "COBRAProtein164",
+   "notes": {},
+   "reactions": [
+    "R143"
+   ]
+  }
+ },
+ "model_counts": {
+  "genes": 1081,
+  "metabolites": 1882,
+  "reactions": 2319
+ },
+ "objective": [
+  "biomass_C"
+ ],
+ "reactions": {
+  "R1013": {
+   "annotation": {
+    "sbo": "SBO:0000627"
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_ex"
+   ],
+   "equation": "m1167[C_ex] --> ",
+   "equation_names": "trehalose_C12H22O11 --> ",
+   "gpr": "",
+   "id": "R1013",
+   "name": "alpha,alpha-trehalose exchange",
+   "notes": {},
+   "species": {
+    "m1167[C_ex]": {
+     "charge": 0,
+     "compartment": "C_ex",
+     "formula": "C12H22O11",
+     "name": "trehalose_C12H22O11"
+    }
+   },
+   "stoichiometry": {
+    "m1167[C_ex]": -1.0
+   }
+  },
+  "R1349": {
+   "annotation": {
+    "bigg.reaction": [
+     "R_TREt2",
+     "R_TREt2v",
+     "TREt2",
+     "TREt2v"
+    ],
+    "biggr": [
+     "R_TREt2",
+     "R_TREt2v",
+     "TREt2",
+     "TREt2v"
+    ],
+    "metanetx.reaction": "MNXR188932",
+    "sbo": "SBO:0000185",
+    "seed.reaction": [
+     "rxn09655",
+     "rxn09870"
+    ],
+    "seedr": [
+     "rxn09655",
+     "rxn09870"
+    ]
+   },
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "compartments": [
+    "C_cy",
+    "C_va"
+   ],
+   "equation": "m294[C_cy] --> m1380[C_va]",
+   "equation_names": "trehalose_C12H22O11 --> trehalose_C12H22O11",
+   "gpr": "",
+   "id": "R1349",
+   "name": "trehalose vacuolar transport",
+   "notes": {},
+   "species": {
+    "m1380[C_va]": {
+     "charge": 0,
+     "compartment": "C_va",
+     "formula": "C12H22O11",
+     "name": "trehalose_C12H22O11"
+    },
+    "m294[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C12H22O11",
+     "name": "trehalose_C12H22O11"
+    }
+   },
+   "stoichiometry": {
+    "m1380[C_va]": 1.0,
+    "m294[C_cy]": -1.0
+   }
+  },
+  "R1372": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "gpr": "",
+   "id": "R1372",
+   "name": "yeast 5 biomass pseudoreaction"
+  },
+  "R1387": {
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "compartments": [
+    "C_cy",
+    "C_en"
+   ],
+   "gpr": "",
+   "id": "R1387",
+   "name": "yeast 6 biomass pseudoreaction"
+  },
+  "R142": {
+   "annotation": {
+    "bigg.reaction": [
+     "AATHB",
+     "R_AATHB"
+    ],
+    "biggr": [
+     "AATHB",
+     "R_AATHB"
+    ],
+    "ec-code": "3.2.1.28",
+    "metanetx.reaction": "MNXR142620",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn15001",
+     "rxn29921",
+     "rxn31094",
+     "rxn32301"
+    ],
+    "seedr": [
+     "rxn15001",
+     "rxn29921",
+     "rxn31094",
+     "rxn32301"
+    ]
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "equation": "m294[C_cy] + m32[C_cy] --> 2.0 m295[C_cy]",
+   "equation_names": "trehalose_C12H22O11 + H2O_H2O --> 2.0 D-glucose_C6H12O6",
+   "gpr": "YALI1D19108g",
+   "id": "R142",
+   "name": "alpha,alpha-trehalase",
+   "notes": {
+    "PROTEIN_CLASS": "3.2.1.28"
+   },
+   "species": {
+    "m294[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C12H22O11",
+     "name": "trehalose_C12H22O11"
+    },
+    "m295[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H12O6",
+     "name": "D-glucose_C6H12O6"
+    },
+    "m32[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    }
+   },
+   "stoichiometry": {
+    "m294[C_cy]": -1.0,
+    "m295[C_cy]": 2.0,
+    "m32[C_cy]": -1.0
+   }
+  },
+  "R143": {
+   "annotation": {
+    "bigg.reaction": [
+     "R_TRE6PS",
+     "TRE6PS"
+    ],
+    "biggr": [
+     "R_TRE6PS",
+     "TRE6PS"
+    ],
+    "ec-code": "2.4.1.15",
+    "kegg.reaction": "R00836",
+    "keggr": "R00836",
+    "metacyc.reaction": "TREHALOSE6PSYN-RXN",
+    "metacycr": "TREHALOSE6PSYN-RXN",
+    "metanetx.reaction": "MNXR172016",
+    "rh": [
+     "18889",
+     "18890",
+     "18891",
+     "18892"
+    ],
+    "rhea": [
+     "18889",
+     "18890",
+     "18891",
+     "18892"
+    ],
+    "sabiork.reaction": "1177",
+    "sabiorkr": "1177",
+    "sbo": "SBO:0000176",
+    "seed.reaction": "rxn00605",
+    "seedr": "rxn00605",
+    "vmhr": [
+     "R_TRE6PS",
+     "TRE6PS"
+    ],
+    "vmhreaction": [
+     "R_TRE6PS",
+     "TRE6PS"
+    ]
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "equation": "m296[C_cy] + m8[C_cy] --> m11[C_cy] + m297[C_cy]",
+   "equation_names": "D-glucose 6-phosphate_C6H13O9P + UDP-D-glucose_C15H22N2O17P2 --> UDP_C9H14N2O12P2 + alpha,alpha-trehalose 6-phosphate_C12H21O14P",
+   "gpr": "YALI1D17620g and YALI1E17616g and YALI1E36568g",
+   "id": "R143",
+   "name": "alpha,alpha-trehalose-phosphate synthase (UDP-forming)",
+   "notes": {
+    "PROTEIN_CLASS": "2.4.1.15",
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "stoichiometry",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797"
+   },
+   "species": {
+    "m11[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C9H14N2O12P2",
+     "name": "UDP_C9H14N2O12P2"
+    },
+    "m296[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C6H13O9P",
+     "name": "D-glucose 6-phosphate_C6H13O9P"
+    },
+    "m297[C_cy]": {
+     "charge": -2,
+     "compartment": "C_cy",
+     "formula": "C12H21O14P",
+     "name": "alpha,alpha-trehalose 6-phosphate_C12H21O14P"
+    },
+    "m8[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C15H22N2O17P2",
+     "name": "UDP-D-glucose_C15H22N2O17P2"
+    }
+   },
+   "stoichiometry": {
+    "m11[C_cy]": 1.0,
+    "m296[C_cy]": -1.0,
+    "m297[C_cy]": 1.0,
+    "m8[C_cy]": -1.0
+   }
+  },
+  "R1710": {
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "compartments": [
+    "C_cy",
+    "C_en"
+   ],
+   "gpr": "",
+   "id": "R1710",
+   "name": "yeast 8 biomass pseudoreaction"
+  },
+  "R767": {
+   "annotation": {
+    "bigg.reaction": [
+     "R_TRE6PP",
+     "TRE6PP"
+    ],
+    "biggr": [
+     "R_TRE6PP",
+     "TRE6PP"
+    ],
+    "ec-code": "3.1.3.12",
+    "kegg.reaction": [
+     "R02778",
+     "R06228"
+    ],
+    "keggr": [
+     "R02778",
+     "R06228"
+    ],
+    "metacyc.reaction": "TREHALOSEPHOSPHA-RXN",
+    "metacycr": "TREHALOSEPHOSPHA-RXN",
+    "metanetx.reaction": "MNXR146581",
+    "rh": [
+     "23420",
+     "23421",
+     "23422",
+     "23423"
+    ],
+    "rhea": [
+     "23420",
+     "23421",
+     "23422",
+     "23423"
+    ],
+    "sabiork.reaction": "2655",
+    "sabiorkr": "2655",
+    "sbo": "SBO:0000176",
+    "seed.reaction": [
+     "rxn02004",
+     "rxn29924",
+     "rxn31095",
+     "rxn38812"
+    ],
+    "seedr": [
+     "rxn02004",
+     "rxn29924",
+     "rxn31095",
+     "rxn38812"
+    ],
+    "vmhr": [
+     "R_TRE6PP",
+     "TRE6PP"
+    ],
+    "vmhreaction": [
+     "R_TRE6PP",
+     "TRE6PP"
+    ]
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "equation": "2.0 m10[C_cy] + m297[C_cy] + m32[C_cy] --> m294[C_cy] + m35[C_cy]",
+   "equation_names": "2.0 H+_p+1 + alpha,alpha-trehalose 6-phosphate_C12H21O14P + H2O_H2O --> trehalose_C12H22O11 + phosphate_H3O4P",
+   "gpr": "YALI1D17620g",
+   "id": "R767",
+   "name": "trehalose-phosphatase",
+   "notes": {
+    "PROTEIN_CLASS": "3.1.3.12"
+   },
+   "species": {
+    "m10[C_cy]": {
+     "charge": 1,
+     "compartment": "C_cy",
+     "formula": "H",
+     "name": "H+_p+1"
+    },
+    "m294[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "C12H22O11",
+     "name": "trehalose_C12H22O11"
+    },
+    "m297[C_cy]": {
+     "charge": -2,
+     "compartment": "C_cy",
+     "formula": "C12H21O14P",
+     "name": "alpha,alpha-trehalose 6-phosphate_C12H21O14P"
+    },
+    "m32[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H2O",
+     "name": "H2O_H2O"
+    },
+    "m35[C_cy]": {
+     "charge": 0,
+     "compartment": "C_cy",
+     "formula": "H3O4P",
+     "name": "phosphate_H3O4P"
+    }
+   },
+   "stoichiometry": {
+    "m10[C_cy]": -2.0,
+    "m294[C_cy]": 1.0,
+    "m297[C_cy]": -1.0,
+    "m32[C_cy]": -1.0,
+    "m35[C_cy]": 1.0
+   }
+  },
+  "biomass_C": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy",
+    "C_em",
+    "C_er",
+    "C_lp",
+    "C_mi"
+   ],
+   "gpr": "",
+   "id": "biomass_C",
+   "name": "biomass_C"
+  },
+  "newBiom": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy",
+    "C_em",
+    "C_lp"
+   ],
+   "gpr": "",
+   "id": "newBiom",
+   "name": "newBiom"
+  },
+  "xBIOMASS": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "compartments": [
+    "C_cy"
+   ],
+   "gpr": "",
+   "id": "xBIOMASS",
+   "name": "xBIOMASS"
+  }
+ },
+ "targets": {
+  "option_C_biomass_term": {
+   "coefficient": -0.00686,
+   "mass_mg_per_gDW": 2.3482,
+   "nmol_per_mg_DW": 6.86,
+   "reaction": "biomass_C",
+   "species": "m294[C_cy]"
+  },
+  "option_D_rule": {
+   "gpr": "YALI1D17620g and YALI1E17616g and YALI1E36568g",
+   "reaction": "R143"
+  }
+ },
+ "trehalose_in_other_biomass_reactions": {
+  "R1372": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "coefficient": -7.14136798004378e-07,
+   "name": "yeast 5 biomass pseudoreaction"
+  },
+  "R1387": {
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "coefficient": -0.0234,
+   "name": "yeast 6 biomass pseudoreaction"
+  },
+  "R1710": {
+   "bounds": [
+    0.0,
+    0.0
+   ],
+   "coefficient": -0.0234,
+   "name": "yeast 8 biomass pseudoreaction"
+  },
+  "biomass_C": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "coefficient": -0.00686,
+   "name": "biomass_C"
+  },
+  "newBiom": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "coefficient": -0.02814,
+   "name": "newBiom"
+  },
+  "xBIOMASS": {
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "coefficient": -0.0032,
+   "name": "xBIOMASS"
+  }
+ }
+}

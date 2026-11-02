@@ -48,6 +48,12 @@ and TN and reported separately; they stay in the model and in GPRs. Reports made
 date counted them as negatives; when comparing with those, also give the scores without this
 exclusion.
 
+**Genes no screen guide targets (decided 2026-10-30):** model genes that no guide of the Cas9 or
+Cas12a library targets ([untargeted_genes_out_of_scope.json](untargeted_genes_out_of_scope.json),
+currently `YALI0F04114g`, COX9) are out of scope in the same way: excluded from TP, FN, FP and TN,
+reported separately, kept in the model and in GPRs. Evidence and decision:
+[infeasible_ko_rule_20261030](../reports/infeasible_ko_rule_20261030/REPORT.md).
+
 ## Classification
 
 - Essential when the unrounded ratio `KO growth / WT growth` is **strictly below** the cutoff;
@@ -55,8 +61,22 @@ exclusion.
 - Cutoffs 1%, 5%, 10% and 15%; **15% is primary** (decided 2026-10-07; used in STATE.md since
   2026-09-15).
 - WT and every knockout use the same model file, medium, strain profile and objective.
-- Keep raw solver status and growth for every knockout. A failed, missing or non-finite solve is
-  not biological evidence; report such cases separately instead of folding them into a class.
+- Keep raw solver status and growth for every knockout. A knockout whose LP is infeasible is scored
+  as growth 0 (KO/WT = 0, essential at every cutoff) only when the infeasibility is **certified as
+  a maintenance shortfall**:
+  1. the sweep solve and a fresh re-solve (new context) both return `infeasible`;
+  2. `xMAINTENANCE` is the only reaction with a lower bound above 0 or an upper bound below 0 in
+     that context;
+  3. in the same knockout context with the `xMAINTENANCE` lower bound set to 0, maximizing
+     `xMAINTENANCE` is optimal, passes the targeted check, and its maximum is below the original
+     lower bound by more than 1e-6;
+  4. WT is optimal in the same context.
+
+  Record the raw status, the maximum maintenance flux and the margin for each such knockout. Any
+  other failed, missing or non-finite solve is not biological evidence and stays unresolved,
+  reported separately. Reports give the counts under the earlier rule (every non-optimal knockout
+  unresolved) alongside (decided 2026-10-30; reference implementation
+  [ko_screen_certified.py](../reports/infeasible_ko_rule_20261030/scripts/ko_screen_certified.py)).
 
 ## What to report
 

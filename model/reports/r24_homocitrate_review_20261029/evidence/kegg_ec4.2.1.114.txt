@@ -1,0 +1,258 @@
+ENTRY       EC 4.2.1.114                Enzyme
+NAME        methanogen homoaconitase;
+            methanogen HACN
+CLASS       Lyases;
+            Carbon-oxygen lyases;
+            Hydro-lyases
+SYSNAME     (R)-2-hydroxybutane-1,2,4-tricarboxylate hydro-lyase [(1R,2S)-1-hydroxybutane-1,2,4-tricarboxylate-forming]
+REACTION    (R)-2-hydroxybutane-1,2,4-tricarboxylate = (1R,2S)-1-hydroxybutane-1,2,4-tricarboxylate (overall reaction) [RN:R09720];
+            (1a) (R)-2-hydroxybutane-1,2,4-tricarboxylate = (Z)-but-1-ene-1,2,4-tricarboxylate + H2O [RN:R03444];
+            (1b) (Z)-but-1-ene-1,2,4-tricarboxylate + H2O = (1R,2S)-1-hydroxybutane-1,2,4-tricarboxylate [RN:R04371]
+ALL_REAC    R03444 R04371 R09720;
+            (other) R10391 R10392 R10393 R10394 R10395 R10396
+SUBSTRATE   (R)-2-hydroxybutane-1,2,4-tricarboxylate [CPD:C01251];
+            (Z)-but-1-ene-1,2,4-tricarboxylate [CPD:C04002];
+            H2O [CPD:C00001]
+PRODUCT     (1R,2S)-1-hydroxybutane-1,2,4-tricarboxylate [CPD:C05662];
+            (Z)-but-1-ene-1,2,4-tricarboxylate [CPD:C04002];
+            H2O [CPD:C00001]
+COMMENT     This enzyme catalyses several reactions in the pathway of coenzyme-B biosynthesis in methanogenic archaea. Requires a [4Fe-4S] cluster for activity. In contrast to EC 4.2.1.36, homoaconitate hydratase, this enzyme can catalyse both the dehydration of (R)-homocitrate to form cis-homoaconitate and the subsequent hydration reaction that forms homoisocitrate. In addition to cis-homoaconitate, the enzyme can also catalyse the hydration of the physiological substrates dihomoaconitate and trihomoaconitate as well as the non-physiological substrate tetrahomoaconitate. cis-Aconitate and threo-DL-isocitrate cannot act as substrates, and (S)-homocitrate and trans-homoaconitate act as inhibitors of the enzyme.
+HISTORY     EC 4.2.1.114 created 2009
+REFERENCE   1  [PMID:18765671]
+  AUTHORS   Drevland RM, Jia Y, Palmer DR, Graham DE
+  TITLE     Methanogen homoaconitase catalyzes both hydrolyase reactions in coenzyme B biosynthesis.
+  JOURNAL   J Biol Chem 283:28888-96 (2008)
+            DOI:10.1074/jbc.M802159200
+  SEQUENCE  [mja:MJ_1003 MJ_1271]
+PATHWAY     ec00300  Lysine biosynthesis
+            ec00680  Methane metabolism
+            ec01100  Metabolic pathways
+            ec01110  Biosynthesis of secondary metabolites
+            ec01120  Microbial metabolism in diverse environments
+ORTHOLOGY   K16792  methanogen homoaconitase large subunit
+            K16793  methanogen homoaconitase small subunit
+GENES       PAGB: AWM79_15910
+            PEW: KZJ38_04415
+            BOH: AKI39_19115
+            BGV: CAL12_21875
+            DLM: DPPLL_22760
+            SCOR: J3U87_19130 J3U87_19135
+            NCM: QNK12_15500
+            ALKG: MOJ78_01920
+            PLZH: C0638_11390
+            OHI: H8790_00740
+            AHC: JYE49_11640
+            NCJ: MCACP_26180(hacA)
+            DBC: MFMK1_002474
+            SEDM: RBQ61_16875
+            MMAX: LCQ47_06430
+            SACV: SPACI_025170(dmdB_1)
+            FCZ: IMF26_08905
+            FBS: N510_000758(hacA)
+            STUB: MMF93_32380
+            NAEI: GCM126_09540
+            AACD: LWP59_12505
+            RRS: RoseRS_1053 RoseRS_1056
+            RCA: Rcas_3472 Rcas_3474
+            CAU: Caur_0329 Caur_0330
+            CHL: Chy400_0354 Chy400_0355
+            CAG: Cagg_3601 Cagg_3602
+            HAU: Haur_3302 Haur_3303
+            LEK: hrd7_27860(leuC_2) hrd7_27870(leuD_2)
+            KBB: ccbrp13_35940
+            PMET: G4Y79_18425
+            DRA: DR_1610 DR_1614
+            DGE: Dgeo_1154 Dgeo_1156
+            DDR: Deide_13460 Deide_13470
+            DMR: Deima_1353 Deima_1355
+            DGO: DGo_CA1306 DGo_CA1308
+            DPD: Deipe_2762 Deipe_2764
+            DSW: QR90_07810 QR90_09055
+            DCH: SY84_02050 SY84_02060
+            DAB: AUC44_07725
+            DPU: SU48_08705 SU48_08715
+            DEZ: DKM44_08505 DKM44_08520
+            DWU: DVJ83_05635 DVJ83_05640
+            DFC: DFI_07070 DFI_07080
+            DEIN: DAAJ005_09955 DAAJ005_11930
+            DGA: DEGR_14160(leuC1) DEGR_14180(leuD1)
+            DPH: EHF33_03450 EHF33_05185
+            DRB: N0D28_07410 N0D28_11260
+            DAH: DAETH_14730(leuC1) DAETH_14760(leuD1)
+            DAQU: M8445_12290 M8445_12300
+            DTAE: LAJ19_06385 LAJ19_06390
+            DMB: E5F05_13860 E5F05_13870
+            DSC: ABOD76_16820 ABOD76_16825
+            DEID: HLB42_07555 HLB42_08400
+            DSJ: ACINK0_10660 ACINK0_10680
+            TRA: Trad_1389 Trad_1390
+            TTH: TT_C1546 TT_C1547
+            TTJ: TTHA1910(TTHA1910) TTHA1911(TTHA1911)
+            TTS: Ththe16_1910 Ththe16_1911
+            TTL: TtJL18_1992 TtJL18_1993
+            TSC: TSC_c01880(hacA) TSC_c01890(hacB)
+            THC: TCCBUS3UF1_21060 TCCBUS3UF1_21070
+            TOS: Theos_1936 Theos_1937
+            TAQ: TO73_0094 TO73_0095
+            TPAR: AV541_01240 AV541_01245
+            TBC: A0O31_00873 A0O31_00874
+            TANT: KNN15_05110 KNN15_05115
+            TBF: KQ693_03550 KQ693_03555
+            MRB: Mrub_2727 Mrub_2728
+            MRE: K649_08895 K649_08900
+            MTAI: Mtai_v1c23260 Mtai_v1c23270
+            MSV: Mesil_0441 Mesil_0442
+            OPR: Ocepr_1780 Ocepr_1781
+            MHD: Marky_0671 Marky_0672
+            AMIZ: RBH88_00810
+            ARAM: KAR29_05985
+            APRP: KIH16_03365 KIH16_03375
+            MJA: MJ_1003 MJ_1271
+            MFE: Mefer_0048 Mefer_1231
+            MVU: Metvu_0677 Metvu_0864 Metvu_1303
+            MFS: MFS40622_0030 MFS40622_0660 MFS40622_1618
+            MIF: Metin_0516 Metin_1437
+            MJH: JH146_0454 JH146_0954
+            MESG: MLAUSG7_0025(hacB) MLAUSG7_0432(hacA)
+            MESA: MLASG1_0006(hacA) MLASG1_1205(hacB)
+            MIG: Metig_0050 Metig_0807 Metig_1570
+            MMP: MMP0381 MMP1480
+            MMQ: MmarC5_0098 MmarC5_1257
+            MMX: MmarC6_0529 MmarC6_1194
+            MMZ: MmarC7_0724 MmarC7_1379
+            MMD: GYY_08235
+            MMAK: MMKA1_04000(leuD) MMKA1_17030(leuD)
+            MMAO: MMOS7_03940(leuD) MMOS7_15860(leuD)
+            MMAD: MMJJ_06580(dmdB_1) MMJJ_13590(dmdA_1)
+            MAE: Maeo_0311 Maeo_0652
+            MVN: Mevan_0789 Mevan_1368
+            MVO: Mvol_1623 Mvol_1671
+            MMVI: ACS5L2_01135(hacB) ACS5L2_07100(hacA)
+            MOK: Metok_0062 Metok_0567
+            MEAX: Mjas_02585(hacB) Mjas_07045(hacA)
+            METF: CFE53_04745 CFE53_05095
+            MTH: MTH_1631 MTH_829
+            MMG: MTBMA_c02160(leuC1) MTBMA_c12270(leuD1)
+            MWO: MWSIV6_0177(hacA) MWSIV6_1206(hacB)
+            MTEE: MTTB_05450 MTTB_13810
+            METC: MTCT_0743 MTCT_1490
+            METE: tca_00796(DmdB_1) tca_01581(dmdA_2)
+            METZ: METMT2_0903 METMT2_1470
+            METK: FVF72_03470 FVF72_07395
+            MTHM: FZP57_00775 FZP57_05725
+            METJ: FZP68_00480 FZP68_05785
+            MST: Msp_0374(leuD2) Msp_1100(leuC2)
+            METB: AW729_05200 AW729_10315
+            MEIS: PXD04_02105(hacA) PXD04_05680(hacB)
+            MRU: mru_0384(aksD) mru_1689(aksE)
+            MSI: Msm_0723 Msm_0847
+            MEB: Abm4_0180(aksD) Abm4_0514(aksE)
+            MMIL: sm9_1773(aksE) sm9_2161(aksD)
+            MEYE: TL18_01065 TL18_07930
+            MOL: YLM1_0055 YLM1_1157
+            MARO: MarbSA_13800 MarbSA_18800
+            METV: K4897_04160 K4897_07245
+            MINE: ACMC9J_02495(hacB) ACMC9J_05620(hacA)
+            MEL: Metbo_1944 Metbo_2070
+            MEW: MSWAN_0570 MSWAN_0676
+            METH: MBMB1_0289(leuC2) MBMB1_0696(leuD1)
+            MFC: BRM9_1499(aksE) BRM9_1986(aksD)
+            MFI: DSM1535_0178(leuC2) DSM1535_2193(leuD1)
+            MCUB: MCBB_0567(hacA) MCBB_0707(hacB)
+            MSUB: BK009_01700 BK009_11610
+            METN: BK008_07185 BK008_09225
+            METT: CIT01_01955 CIT01_06840
+            METO: CIT02_03290 CIT02_05440
+            MEME: HYG87_03480 HYG87_07560
+            MFEG: GCM10025860_11490 GCM10025860_17660
+            MEER: NKF70_09715(hacA) NKF70_10465(hacB)
+            MRID: FGU46_01585 FGU46_02080
+            MEAC: ACBM69_07530(hacB) ACBM69_10040(hacA)
+            MFV: Mfer_0205 Mfer_0965
+            MSOC: JCM10723_06690(hacA_2) JCM10723_12250(hacB)
+            MKA: MK1206(leuD_2) MK1208(leuC_2)
+            TAGG: NF865_00020
+            MBA: Mbar_A0244 Mbar_A1961 Mbar_A2270
+            MBY: MSBRM_0704 MSBRM_1355 MSBRM_2710
+            MBW: MSBRW_0751 MSBRW_2476 MSBRW_2776
+            MBAR: MSBR2_1054 MSBR2_1672 MSBR2_2666
+            MBAK: MSBR3_1018 MSBR3_1673 MSBR3_2760
+            MAC: MA_1223(leuC) MA_3085(leuC) MA_3751(leuD)
+            MMA: MM_0409 MM_0645
+            MMAZ: MmTuc01_0417 MmTuc01_0660
+            MMJ: MSMAS_0664 MSMAS_0894
+            MMAC: MSMAC_0666 MSMAC_0883
+            MVC: MSVAZ_0690 MSVAZ_1170 MSVAZ_2221
+            MEK: MSKOL_0668 MSKOL_1122 MSKOL_2220
+            MLS: MSLAZ_2100 MSLAZ_2434
+            METM: MSMTP_0731 MSMTP_2281
+            MEF: MSWH1_0826 MSWH1_0957
+            MEQ: MSWHS_0885 MSWHS_1027
+            MSJ: MSSAC_2956 MSSAC_3368 MSSAC_3559
+            MSZ: MSSIH_2594 MSSIH_2894 MSSIH_3101
+            MSW: MSSIT_2634 MSSIT_2938 MSSIT_3158
+            MTHR: MSTHT_2374 MSTHT_2523
+            MTHE: MSTHC_0762 MSTHC_0906
+            MHOR: MSHOH_0786 MSHOH_1131
+            MFZ: AOB57_002735 AOB57_003550
+            MHAB: RSJ42_10790(hacA) RSJ42_12260(hacB)
+            METW: AAY43_06060 AAY43_06810
+            MMAJ: ACSAZL_02880(hacB) ACSAZL_04545(hacA) ACSAZL_14700(hacB)
+            MSDS: ACSAZK_06040(hacB) ACSAZK_15070(hacA)
+            MBU: Mbur_1578 Mbur_2263(hacA)
+            MMET: MCMEM_0412 MCMEM_2089
+            MELO: J7W08_00085 J7W08_09410
+            MMAP: ACR3I3_00825 ACR3I3_03540
+            MMH: Mmah_0127 Mmah_0418
+            MHAZ: BHR79_01390 BHR79_02815
+            MPOT: BKM01_05485 BKM01_07045
+            MEV: Metev_1312 Metev_1371
+            MZH: Mzhil_0725 Mzhil_1660
+            MPY: Mpsy_2354 Mpsy_2821
+            MZI: HWN40_08640 HWN40_10575
+            MMAV: RE476_01605 RE476_12705
+            MSEB: RE474_09445 RE474_11260
+            MEZK: V7O59_00600 V7O59_02755
+            MHZ: Metho_0481 Metho_0694
+            MEHF: MmiHf6_03250(dmdB_1) MmiHf6_03300(leuC_1)
+            MEES: MmiEs2_06120(dmdB_1) MmiEs2_06150(leuC_1)
+            MTP: Mthe_0788 Mthe_0853
+            MCJ: MCON_0444(leuC1) MCON_1922(leuD1)
+            MHI: Mhar_1525 Mhar_2395
+            MHU: Mhun_1799 Mhun_1800
+            MRTJ: KHC33_05410 KHC33_05415
+            MLAA: ACKUB0_17385 ACKUB0_17390
+            MSTM: ACKUB1_02570 ACKUB1_02575
+            MLA: Mlab_0233 Mlab_0234
+            MEM: Memar_0634 Memar_0635
+            MBG: BN140_1716(leuD3) BN140_1717(leuC3)
+            MEMA: MMAB1_2209(leuC)
+            MCHK: MchiMG62_07640 MchiMG62_07650
+            MSUM: OH143_09890 OH143_09895
+            MRC: R6Y96_02540 R6Y96_02545
+            MPI: Mpet_2489 Mpet_2490
+            MEND: L6E24_09225
+            MEFW: F1737_00605 F1737_00610
+            MAQE: RJ40_05975 RJ40_05980
+            MFK: E2N92_06105 E2N92_06110
+            MOU: OU421_03655 OU421_03660
+            MESB: L1S32_07255 L1S32_07260
+            MANQ: L1994_01085
+            MBN: Mboo_0599 Mboo_0600
+            MFO: Metfor_2591 Metfor_2592
+            MESK: METHP_00366 METHP_00367
+            MPL: Mpal_2143 Mpal_2144
+            MPUM: JCM10627_05730(hacA) JCM10627_05740(hacB)
+            MPD: MCP_1961 MCP_1962
+            MEZ: Mtc_1558(leuD-2) Mtc_1559(leuC-2)
+            RCI: RCIX2645(leuD-2) RCIX2646(leuC-2)
+            SSAI: N0B31_20520
+            CDIV: CPM_1676
+            MEUZ: KRP56_01645 KRP56_01650 KRP56_05135
+            MVJ: ACO0C9_01505 ACO0C9_04110
+            LOB: NEF87_001443
+DBLINKS     ExplorEnz - The Enzyme Database: 4.2.1.114
+            IUBMB Enzyme Nomenclature: 4.2.1.114
+            ExPASy - ENZYME nomenclature database: 4.2.1.114
+            BRENDA, the Enzyme Database: 4.2.1.114
+///
