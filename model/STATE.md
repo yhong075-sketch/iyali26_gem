@@ -5,6 +5,85 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-01: Ceramide pool in biomass_C (5.4e-4 mmol/gDW), candidate 2bc263f2 (kept 2026-11-02; branch claude/blocked-wt-fn-discussion-e329eb)
+
+**Authorization.** The user, 2026-11-01, in the blocked-in-WT false-negative discussion, approved each step:
+1. "Approve steps 1–2": literature, then FVA on the bucket-3 reactions.
+2. The in-memory ceramide-pool test, approved "as written".
+3. "Close the evidence gaps".
+4. "Plan the curation round".
+5. "Approve as written" for the plan in [TASK.md](reports/ceramide_pool_biomass_20261101/TASK.md), at 5.4e-4.
+6. 2026-11-02: "Decide the ceramide-pool candidate, and if kept, land it behind the one-line #43 CI fix". Kept, with
+   the caveats under Limits; committed on this branch, to merge to main after PR #43.
+
+Exploratory evidence (FVA, TEST screens, bypass check, literature, build copies) was copied from /private/tmp to
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/ceramide_pool_biomass_20261101/` (275 files, `MANIFEST.sha256`).
+
+**Preceding investigation** (read-only; summaries in the session's shared notes, not in the repo):
+- **Re-review of the 42 FN genes labelled "blocked in WT" on `a1237821`, now on `c1f70ac4`** (static trace, 5
+  investigators each checked by a skeptic). The genes split into 5 groups:
+
+  | Group | Genes |
+  | --- | ---: |
+  | No longer blocked, but kept non-essential by an OR rule | 2 |
+  | No longer blocked, but riboflavin uptake at 1000 bypasses de novo synthesis | 4 |
+  | Connected pathway whose product nothing demands | 11 |
+  | Disconnected pathway, handed to the gap-metabolites line for a new session | 17 |
+  | Probably non-metabolic, or a GPR mis-mapping | 8 |
+
+- **FVA on the 11 connected genes' 24 reactions** (97 LPs, Task A + PO1f, Gurobi 1e-9): all 24 are blocked
+  (min = max = 0).
+- **Literature:** only a sphingolipid term had *Y. lipolytica* support. Mitochondrial NAD(P) and PLP terms were not
+  ready.
+
+**Results** ([REPORT.md](reports/ceramide_pool_biomass_20261101/REPORT.md),
+[AUDIT.md](reports/ceramide_pool_biomass_20261101/AUDIT.md)). Verified this run; the independent audit supports 7
+claims, and C3 (the guarded step) with minor gaps.
+- **Candidate:**
+  [E5_…_treh_biomass_r24_aco_ceramide_pool_20261101.xml](candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_r24_aco_ceramide_pool_20261101.xml)
+  (`2bc263f23603c27131d0b07143300a484dbd5a135ef7151665574400ab64a062`) = `c1f70ac4` + `--ceramide-pool-biomass`.
+  - New pseudo-metabolite `sphingolipid_ceramide_pool[C_er]`.
+  - 10 gene-less `xPOOL_CER_*` reactions, one from each ER ceramide (dihydro, phyto and α-OH; C24/C26).
+  - `biomass_C` consumes the pool at 5.4e-4 mmol/gDW.
+  - The control build reproduces `c1f70ac4`; seeds 0 and 1 are identical; the diff is exactly those 13 entries.
+  - Not a designated reference.
+- **Code:** data `curation/biomass/ceramide_pool_biomass.json`; guarded step
+  `platform/scripts/gem_annotate/ceramide_pool_biomass.py`, which pins c1f70ac4's `biomass_C` and the 10 ceramide
+  identities; flag after `--trehalose-biomass-removal`; 5 tests. pytest shows no new failures (19 failed / 20
+  errors before and after).
+- **Evidence:** provisional.
+  - Rupcic 1996: *Y. lipolytica* total long-chain bases 0.7 % of polar lipids × 52.3 % × 4.9 % lipid/DCW, then ÷
+    331.54 g/mol gives 5.41e-4 mmol/gDW (abstract).
+  - Ianutsevich 2019 (W29) agrees at the mass level (Fig. 4A reading).
+  - Ylsur2Δ is viable with retarded growth (Shin 2025 abstract), which is why the pool accepts dihydro ceramides.
+- **LPs** (Task A + PO1f, Gurobi 1e-9; 1,127 of a 1,300 cap):
+  - WT 0.3122964 → 0.3120535.
+  - With uptake closed, ATP max is 0.
+  - In the certified screen, exactly 7 genes change class, at every cutoff:
+    - FN → TP: LCB1 `YALI1C04265g`, LCB2 `YALI1F20637g`, TSC10 `YALI1B22883g`, ELO `YALI1B26350g`, PHS1-like
+      `YALI1F15781g`, TSC13-like `YALI1A05116g`.
+    - TN → FP: the KAR/IFA38 ortholog `YALI1A06453g`.
+  - 15 % (rule B, mtDNA + untargeted out of scope): 136/190/43/695 → **142/184/44/694**. User-defined negatives;
+    development reference.
+
+**Limits.**
+- One medium and one strain profile. The coefficient comes from 1996 methanol-grown cells (abstract only). The Shin
+  2025 full text is unread.
+- No *Y. lipolytica* deletion data exist for LCB1, LCB2, TSC10 or the elongation genes.
+- SUR2, SCS7 and ceramide synthase `YALI1F09542g` stay FN. The last is bypassed by cytosolic R2127,
+  `YALI1F09542g or YALI1D05038g`, whose product m1980 (no formula) reaches the ER through gene-less R2128; both are
+  elementally unbalanced as written. In the test WT the ER ceramide came from reverse dihydroceramidase R267
+  (`YALI1D25664g`, condensation direction; R268 the C26 copy, both charge +1).
+- The KAR false positive has no evidence-backed fix: the *S. cerevisiae* null is viable through Ayr1, and no
+  *Y. lipolytica* backup is identified.
+- Found, not fixed:
+  - elongation-cycle chemistry: R1407, R1414, R1420, R1427 charge-imbalanced; R1421 and R1428 elementally, because
+    m1449 has no formula;
+  - R37 (forced by the pool) charge −2, H −1, with NADP⁺ stored as C21H29 against its C21H28 name (the same
+    protonation-convention question);
+  - the lipid-unlump `missing_lipids.csv` ceramide formulas, one O lower than this model (the colleague's line,
+    review only).
+
 ## 2026-11-01: Standing pytest failures, test and environment fixes only (committed eeb264d on claude/pytest-performance-1daa1e)
 
 **Authorization.** The blocked-WT FN session forwarded the user's request: "send to session 'Pytest performance

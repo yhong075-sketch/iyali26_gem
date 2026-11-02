@@ -107,6 +107,7 @@ def build_reference_chain(
     aconitase_aco2_split: bool = False,
     trehalose_biomass_removal: bool = False,
     r24_homocitrate_aconitase: bool = False,
+    ceramide_pool_biomass: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -913,6 +914,12 @@ def build_reference_chain(
         from .trehalose_biomass import apply_trehalose_biomass
         selection["trehalose_biomass"] = apply_trehalose_biomass(model)
         logger.info("Trehalose biomass removal: %s", selection["trehalose_biomass"]["status"])
+    if ceramide_pool_biomass:
+        # Opt-in: ER ceramide pool in biomass_C at 5.4e-4 mmol/gDW (2026-11-01). Must stay after every biomass_C
+        # edit, the trehalose removal included: its guard pins the full reviewed c1f70ac4 composition.
+        from .ceramide_pool_biomass import apply_ceramide_pool_biomass
+        selection["ceramide_pool_biomass"] = apply_ceramide_pool_biomass(model)
+        logger.info("Ceramide pool biomass: %s", selection["ceramide_pool_biomass"]["status"])
     if coq9_functional_gpr:
         if not selection["complete"] or not coq9["requested_mode_complete"]:
             raise ValueError("Cannot apply CoQ9 functional GPR to an incomplete reference build")
@@ -1026,6 +1033,7 @@ def build_model(args):
         aconitase_aco2_split=getattr(args, "aconitase_aco2_split", False),
         trehalose_biomass_removal=getattr(args, "trehalose_biomass_removal", False),
         r24_homocitrate_aconitase=getattr(args, "r24_homocitrate_aconitase", False),
+        ceramide_pool_biomass=getattr(args, "ceramide_pool_biomass", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

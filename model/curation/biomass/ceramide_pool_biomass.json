@@ -1,0 +1,317 @@
+{
+ "schema_version": 1,
+ "curation_id": "CERAMIDE-POOL-BIOMASS-20261101",
+ "status": "user_authorized_biomass_term_addition",
+ "authorization": "2026-11-01 user: Approve as written (reports/ceramide_pool_biomass_20261101 TASK.md: ceramide pool sphingolipid_ceramide_pool[C_er] fed by 10 ER ceramides, biomass_C 5.4e-4 mmol/gDW, flag --ceramide-pool-biomass). No commit or push.",
+ "reviewed_model": {
+  "path": "candidates/E5_coq9_resp_pkg_r132_combined_dolichol_route_v2_um7_r2171_1to1_aars_thr_ser_split_r171_atp_synthase_gpr_r673_prolyl_split_aco_split_treh_biomass_r24_aco_20261031.xml",
+  "sha256": "c1f70ac4198e443ce2bc089f534c021d4111d8c2e999888e5beae06cc7087540"
+ },
+ "task": "model/reports/ceramide_pool_biomass_20261101/TASK.md",
+ "report": "model/reports/ceramide_pool_biomass_20261101/REPORT.md",
+ "reviewer": "Claude Code session 2026-11-01 (evidence with review agents, test and implementation); decision by the user; independent audit in the report",
+ "requires_objective": "biomass_C",
+ "pool": {
+  "metabolite_id": "sphingolipid_ceramide_pool[C_er]",
+  "name": "sphingolipid ceramide pool (pseudo-metabolite)",
+  "compartment": "C_er",
+  "charge": 0,
+  "biomass_reaction": "biomass_C",
+  "coefficient": -0.00054,
+  "feeds": [
+   {
+    "reaction_id": "xPOOL_CER_m386",
+    "name": "ceramide pool from ceramide-1-(C24)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m386[C_er]",
+     "name": "ceramide-1-(C24)_",
+     "formula": "C42H85NO3",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m388",
+    "name": "ceramide pool from ceramide-2-(C24)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m388[C_er]",
+     "name": "ceramide-2-(C24)_",
+     "formula": "C42H85NO4",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m390",
+    "name": "ceramide pool from ceramide-2'-(C24)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m390[C_er]",
+     "name": "ceramide-2'-(C24)_",
+     "formula": "C42H85NO4",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m391",
+    "name": "ceramide pool from ceramide-1-(C26)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m391[C_er]",
+     "name": "ceramide-1-(C26)_",
+     "formula": "C44H89NO3",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m392",
+    "name": "ceramide pool from ceramide-2-(C26)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m392[C_er]",
+     "name": "ceramide-2-(C26)_",
+     "formula": "C44H89NO4",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m393",
+    "name": "ceramide pool from ceramide-2'-(C26)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m393[C_er]",
+     "name": "ceramide-2'-(C26)_",
+     "formula": "C44H89NO4",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m397",
+    "name": "ceramide pool from ceramide-3-(C24)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m397[C_er]",
+     "name": "ceramide-3-(C24)_",
+     "formula": "C42H85NO5",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m398",
+    "name": "ceramide pool from ceramide-3-(C26)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m398[C_er]",
+     "name": "ceramide-3-(C26)_",
+     "formula": "C44H89NO5",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m399",
+    "name": "ceramide pool from ceramide-4-(C24)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m399[C_er]",
+     "name": "ceramide-4-(C24)_",
+     "formula": "C42H85NO6",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   },
+   {
+    "reaction_id": "xPOOL_CER_m400",
+    "name": "ceramide pool from ceramide-4-(C26)_ [C_er] (pseudo-reaction)",
+    "ceramide": {
+     "id": "m400[C_er]",
+     "name": "ceramide-4-(C26)_",
+     "formula": "C44H89NO6",
+     "charge": 0,
+     "compartment": "C_er"
+    },
+    "bounds": [
+     0.0,
+     1000.0
+    ]
+   }
+  ]
+ },
+ "biomass_notes": {
+  "ceramide_pool_biomass_curation_id": "CERAMIDE-POOL-BIOMASS-20261101",
+  "ceramide_pool_biomass_status": "user_authorized_biomass_term_addition",
+  "ceramide_pool_biomass_authorization": "2026-11-01 user: Approve as written (reports/ceramide_pool_biomass_20261101 TASK.md: ceramide pool sphingolipid_ceramide_pool[C_er] fed by 10 ER ceramides, biomass_C 5.4e-4 mmol/gDW, flag --ceramide-pool-biomass). No commit or push.",
+  "ceramide_pool_biomass_term": "sphingolipid_ceramide_pool[C_er] at 5.4e-4 mmol/gDW; the pool is filled by gene-less pseudo-reactions xPOOL_CER_* from any of the 10 ER ceramides m386, m388, m390, m391, m392, m393, m397, m398, m399, m400 (dihydro, phyto and alpha-hydroxy forms; C24 and C26)",
+  "ceramide_pool_biomass_evidence": "Rupcic et al. 1996 (PMID 8997745, abstract): Y. lipolytica (as Candida lipolytica) on methanol, total long-chain bases 0.7 percent of polar lipids, polar lipids 52.3 percent of lipid, lipid 4.9 percent of DCW; 0.007 x 0.523 x 0.049 = 1.794e-4 g LCB/gDW / 331.54 g/mol (C19-phytosphingosine) = 5.41e-4 mmol/gDW, one LCB per sphingolipid. Cross-check Ianutsevich et al. 2019 (PMC6950712, W29, glycerol, stationary phase): sphingolipids a minority, Fig. 4A about 1.3-2 percent of 11.2-12.98 mg membrane lipid per g (read from the figure), about 0.15-0.25 mg/gDW, 1.5-3.7e-4 mmol/gDW as intact lipid. Ylsur2 deletion viable with retarded growth (Shin et al. 2025, PMID 39603335, abstract), so the pool accepts dihydro ceramides.",
+  "ceramide_pool_biomass_evidence_tier": "provisional: Y. lipolytica measurements from 1996 TLC/GC (abstract only) and a figure reading, not PO1f on the Task A medium; no Y. lipolytica deletion data for LCB1, LCB2 or TSC10 (S. cerevisiae nulls inviable, SGD)",
+  "ceramide_pool_biomass_scope": "Only the pool metabolite, the 10 xPOOL_CER_* pseudo-reactions and this biomass_C term are added; biomass_C is not re-normalised. The complex-sphingolipid copies (census UM1), R1371, the SUR2/SCS7 rules and the R2127 ceramide-synthase rule are unchanged."
+ },
+ "accepted_before_state": {
+  "id": "c1f70ac4_biomass_C",
+  "biomass_bounds": [
+   0.0,
+   1000.0
+  ],
+  "biomass_stoichiometry": {
+   "m1000[C_cy]": -0.035251,
+   "m10[C_cy]": 23.09,
+   "m1123[C_cy]": -0.943397,
+   "m122[C_cy]": -0.00265,
+   "m1324[C_cy]": -0.235849,
+   "m1401[C_cy]": 1.0,
+   "m141[C_cy]": -23.09,
+   "m143[C_cy]": 23.09,
+   "m149[C_cy]": -0.059363,
+   "m1631[C_em]": -3.5e-05,
+   "m1635[C_cy]": -1e-06,
+   "m1640[C_lp]": -0.000234,
+   "m1648[C_em]": -7.5e-05,
+   "m1700[C_lp]": -0.000237,
+   "m1701[C_lp]": -0.000346,
+   "m1705[C_lp]": -5.8e-05,
+   "m2062[C_mi]": 1e-05,
+   "m2064[C_mi]": 1e-05,
+   "m2065[C_mi]": -1e-05,
+   "m32[C_cy]": -23.09,
+   "m359[C_cy]": -0.003029,
+   "m35[C_cy]": 23.09,
+   "m401[C_cy]": -0.868358,
+   "m41[C_cy]": -0.00057,
+   "m459[C_cy]": -0.010436,
+   "m465[C_cy]": -0.009226,
+   "m468[C_mi]": -0.0001,
+   "m479[C_cy]": -6.34e-05,
+   "m503[C_er]": -0.0001,
+   "m505[C_cy]": -0.010353,
+   "m528[C_cy]": -1e-05,
+   "m586[C_mi]": -1e-05,
+   "m69[C_cy]": -0.00019,
+   "m86[C_cy]": -0.055401,
+   "m89[C_cy]": -0.01007,
+   "m926[C_cy]": -0.00099,
+   "m93[C_cy]": -0.050871,
+   "m948[C_cy]": -3.04e-05,
+   "m95[C_cy]": -0.05721,
+   "m964[C_cy]": -0.02,
+   "m975[C_cy]": -1.2e-06,
+   "trna_biomass_residue_R129": -0.567939,
+   "trna_biomass_residue_R154": -0.125563,
+   "trna_biomass_residue_R157": -0.186498,
+   "trna_biomass_residue_R165": -0.186531,
+   "trna_biomass_residue_R248": -0.003632,
+   "trna_biomass_residue_R336": -0.243866,
+   "trna_biomass_residue_R337": -0.243904,
+   "trna_biomass_residue_R368": -0.509943,
+   "trna_biomass_residue_R392": -0.053881,
+   "trna_biomass_residue_R493": -0.090566,
+   "trna_biomass_residue_R522": -0.19455,
+   "trna_biomass_residue_R531": -0.275005,
+   "trna_biomass_residue_R547": -0.044232,
+   "trna_biomass_residue_R625": -0.082571,
+   "trna_biomass_residue_R673": -0.206372,
+   "trna_biomass_residue_R723": -0.284699,
+   "trna_biomass_residue_R759": -0.210543,
+   "trna_biomass_residue_R771": -0.002154,
+   "trna_biomass_residue_R775": -0.041282,
+   "trna_biomass_residue_R798": -0.172773
+  },
+  "biomass_note_keys": [
+   "canonical_trna_biomass_mode",
+   "cofactor_biomass_terms_authorization",
+   "cofactor_biomass_terms_caveat",
+   "cofactor_biomass_terms_curation_id",
+   "cofactor_biomass_terms_evidence",
+   "cofactor_biomass_terms_evidence_tier",
+   "cofactor_biomass_terms_status",
+   "cofactor_biomass_terms_terms",
+   "coq9_growth_dilution_candidate",
+   "dolichol_route_biomass_caveat",
+   "dolichol_route_biomass_evidence",
+   "dolichol_route_biomass_term",
+   "dolichol_route_curation_id",
+   "experimental_trna_biomass_design",
+   "experimental_trna_biomass_mode",
+   "experimental_trna_biomass_template",
+   "heme_iron_biomass_authorization",
+   "heme_iron_biomass_caveat",
+   "heme_iron_biomass_curation_id",
+   "heme_iron_biomass_evidence",
+   "heme_iron_biomass_evidence_tier",
+   "heme_iron_biomass_status",
+   "heme_iron_biomass_terms",
+   "lipoylation_growth_dilution",
+   "tpp_requirement_authorization",
+   "tpp_requirement_curation_id",
+   "tpp_requirement_evidence",
+   "tpp_requirement_evidence_tier",
+   "tpp_requirement_previous_state",
+   "tpp_requirement_rationale",
+   "tpp_requirement_status",
+   "trehalose_biomass_authorization",
+   "trehalose_biomass_curation_id",
+   "trehalose_biomass_evidence",
+   "trehalose_biomass_evidence_tier",
+   "trehalose_biomass_previous_term",
+   "trehalose_biomass_scope",
+   "trehalose_biomass_status"
+  ]
+ },
+ "evidence_tier": "provisional: Y. lipolytica measurements from 1996 TLC/GC (abstract only) and a figure reading; species choice from a Y. lipolytica deletion phenotype",
+ "evidence": [
+  {
+   "url": "https://europepmc.org/article/MED/8997745",
+   "claim": "total long-chain bases 0.7 percent of polar lipids; polar lipids 52.3 percent of lipid; lipid 4.9 percent of DCW (methanol-grown C. lipolytica)",
+   "tier": "Y. lipolytica measurement, abstract read 2026-11-01"
+  },
+  {
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6950712/",
+   "claim": "W29: phospholipids about 50 percent, sterols 45 percent, a minority of SL; membrane lipids 12.98 mg/g dry weight; Fig. 4A SL about 1.3-2 percent at pH 5.5, 29 C (figure reading, no number in the text)",
+   "tier": "Y. lipolytica measurement, full text and figure read 2026-11-01"
+  },
+  {
+   "url": "https://europepmc.org/article/MED/39603335",
+   "claim": "Ylsur2 deletion viable with retarded growth",
+   "tier": "Y. lipolytica mutant phenotype, abstract read 2026-11-01; full text closed access, unread"
+  },
+  {
+   "url": "https://www.yeastgenome.org/locus/YMR296C",
+   "claim": "S. cerevisiae lcb1 null inviable (likewise LCB2, TSC10, AUR1)",
+   "tier": "homolog phenotype; the inviable nulls were checked on SGD by a review agent 2026-11-01; this locus URL (LCB1 = YMR296C) is constructed, not opened"
+  }
+ ],
+ "out_of_scope": "Only the pool term is added. Not changed: SUR2/SCS7 rules and labels, the R2127 OR rule, the KAR (YALI1A06453g) rule, elongation-cycle chemistry (R1407, R1414, R1420, R1421, R1427, R1428), complex-sphingolipid copies (UM1), R1371, lipid-unlump ceramide formulas."
+}
