@@ -5,6 +5,103 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-02: 29 demand-family false negatives (sphingolipid, GPI, cardiolipin, N-glycan, mitochondrial translation) scoped on e1e7c868 (investigation only, no model change; branch claude/fn29-demand-families-report-a4dc68, committed and opened as a PR to main on the user's "Commit and open PR", 2026-11-02)
+
+**Authorization.** The user, 2026-10-30, in the gap-census session: "can we solve this problem: Sphingolipid, GPI,
+cardiolipin, N-glycan and mitochondrial-translation demands (29 FN): each needs a pathway connection, a composition
+value, or reversal of a recorded decision."
+- The gap session answered with a scoping workflow: 5 scouts, then 15 adversarial verifiers (LP reproduction,
+  biology and evidence, project rules), then 1 synthesis. That is 21 roles in 42 agent launches.
+- It handed the filing to this session as documentation only.
+- Nothing in the model, curation data, benchmark or code was changed. Every variant was in memory.
+
+**Inputs.**
+- Model: `e1e7c868` (`…_aco_split_20261029.xml`, `e1e7c8686c1fbbbbe1ab949000e873cd5f2d7089bc008a4ec129f7ba8dcdf897`).
+- Condition: `cond_taskA_po1f.json` (`db78d70531a447535147c7e462d7d9add9589ec38345d15ec7f894ee29023a63`; Task A
+  medium, R612 closed, no plasmid LEU2 complement of R45).
+- Solver: Gurobi 13, tolerance 1e-9.
+- List: `1e887f5a…`, 326 of 1,612 positives in the model. Model genes not on the list are the user-defined negative
+  class.
+
+**Results** ([REPORT.md](reports/fn29_demand_families_20261102/REPORT.md),
+[TASK.md](reports/fn29_demand_families_20261102/TASK.md), [tables](reports/fn29_demand_families_20261102/tables/),
+[Escher figure](reports/fn29_demand_families_20261102/escher/README.md)):
+- **28 of 29 flippable mechanically.** The exception is `YALI1D08000g`, a GPR mis-assignment.
+- **18 flippable under the project's rules after named decisions:** cardiolipin 2, GPI 6, sphingolipid 9, VRG4 1.
+- **10 blocked on evidence:** mitochondrial translation 8, ALG7 and ALG1. These need a biomass coefficient with no
+  source, and mitochondrial translation also needs Met/Ile transport evidence.
+- **Cost:**
+  - Five new FP (KCR `YALI1A06453g`, PBN1 `YALI1E20666g`, GEP4-like `YALI1A13994g`, GDA1-like `YALI1C25093g`,
+    CWH8-like `YALI1D26639g`).
+  - Reader note 2 of the report: under its own tables the 18-gene build has four FP. CWH8 belongs to the ALG7/ALG1
+    part.
+  - Side-effect TP `YALI1F08225g` and `YALI1A09121g`.
+  - WT losses of 0.04–11.3 %.
+  - No energy-generating cycle in any recommended variant.
+- **R289 creates carbon:** R289 creates C18H33O16 per turnover. It is the PMT lump that makes the mannan term.
+
+**Per-family verdicts and verification levels** (REPORT.md section 5):
+| Family | Verdict | Level |
+| --- | --- | --- |
+| Cardiolipin (2) | solvable after decision (variant a, Sekova-based 7.16e-4) | reproduced by the LP lens (1,342 LPs), incl. a fully independent sweep |
+| GPI (6) | solvable after decision (b1/b2, *S. cerevisiae* proxy 1.70e-4; scale conflict with the lipid pool) | reproduced by the LP lens (1,316 LPs); b1 scout only |
+| Sphingolipid (9 of 10) | solvable after decision (V2; V1 gives 8 and has no full sweep) | V2 reproduced by the LP lens (1,433 LPs); V1 scout only |
+| N-glycan VRG4 (1) | solvable after decision (variant B: R289 1:1 + Golgi route, WT −9.9 %) | reproduced by the LP lens (837 LPs) |
+| N-glycan ALG7, ALG1 (2) | not by curation now (no N-glycan composition source) | LPs reproduced; coefficient refuted by two lenses |
+| Mitochondrial translation (8) | not by curation now (no coefficient source; R1251/R1218 reversals unevidenced) | LP lens ran the recommended design and its full sweep (1,176 LPs) |
+| `YALI1D08000g` (1) | not by curation (GPR correction and a GlcCer branch) | identity recalled; BLAST not run |
+
+- All rule-B after-counts are inferred, not run. The combined-family model was not run by anyone.
+
+**Recommended order:**
+1. cardiolipin;
+2. GPI b1;
+3. sphingolipid V1 or V2;
+4. N-glycan 4a (R289 1:1 chemistry), then 4b (Golgi mannan route + R1137 closure);
+5. the `YALI1D08000g` identity and GPR correction.
+
+Mitochondrial translation and ALG7/ALG1 are to be documented as structural false negatives.
+
+**Decisions for the user:**
+- name the base candidate and re-score under rule B;
+- whether a sphingolipid, GPI or cardiolipin term may enter `biomass_C`, and at which value;
+- b1 or b2 for GPI (b2 reverses the 2026-10-21 "keep the GPI exit open" decision);
+- whether to open R1825-R1834 and add the gene-less DAG link;
+- whether to authorize the R289 1:1 fix alone or with the Golgi route;
+- whether to accept each new FP;
+- whether to reopen mitochondrial translation as a named exception.
+
+**Ownership flags.**
+- The lipid-unlump line (colleague) owns species, coefficients and pools for the sphingolipid, GPI and cardiolipin
+  terms.
+- `lipid_unlump_sn_core_curation.json` records the cardiolipin biomass weight as `blocked`.
+- The UM18 owner is unknown.
+
+**Related.** The bucket-4 session reconciled its draft with this report on `2bc263f2`. The draft is uncommitted at
+`.claude/worktrees/dreamy-moore-d727a1/model/reports/bucket4_disconnected_20261101/TASK.md`. On `2bc263f2` the
+ceramide pool (entry below) already flips 6 of the 10 sphingolipid genes.
+
+**This filing:**
+- REPORT.md is the delivered report plus a status section and reader notes. No number or verdict was changed.
+- 29-gene and 5-family CSVs, parsed from the JSON.
+- Escher status figure: 581 LPs. It reproduces every variant's WT within 1e-9, and the viewer was checked in headless
+  Chrome.
+- Archive at `$IYALI26_RESEARCH_ROOT/artifacts/tasks/fn29_demand_families_20261102/`: 317 files, `MANIFEST.sha256`,
+  scripts, JSON, logs and `workflow_journal.jsonl`.
+- Verification levels:
+  - **Report claims:** as the verifiers recorded them.
+  - **Tables and figure:** verified this run.
+  - **Status section:** recalled from STATE.md.
+
+**Limits.**
+- Older base (`e1e7c868`; `f505571d`, `164542fb`, `c1f70ac4` and `2bc263f2` are newer).
+- The counts use the pre-2026-10-30 scoring convention, or a mixture of conventions. They must be re-run on a named
+  base before any TASK.md.
+- The condition file lacks the PO1f LEU2 complement.
+- One medium.
+- Combined effects were not run.
+- Several coefficients are cross-species or unsourced.
+
 ## 2026-11-01: Ceramide pool in biomass_C (5.4e-4 mmol/gDW), candidate 2bc263f2 (kept 2026-11-02; branch claude/blocked-wt-fn-discussion-e329eb)
 
 **Authorization.** The user, 2026-11-01, in the blocked-in-WT false-negative discussion, approved each step:
