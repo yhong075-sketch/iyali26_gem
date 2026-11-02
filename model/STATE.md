@@ -11,8 +11,12 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 optimization' to deal with it" (19 FAILED, 20 ERROR on b83e13a / origin/main). The user then approved fixes 1–5 of
 the plan in this session ("Approve 1–5", 2026-11-01). No model, curation, benchmark or test-baseline change.
 Committed in `eeb264d` on the user's instruction ("Commit the working tree changes with a sensible message",
-2026-11-01). No push or merge: the branch is at 7aa4baf + eeb264d, 16 commits behind origin/main 5a922d2, but none of
-the edited files differ between the two.
+2026-11-01). The branch was then 16 commits behind origin/main 5a922d2; none of the edited files differed between
+the two. Pushed with a pull request to `main`, [PR #43](https://github.com/yhong075-sketch/iyali26_gem/pull/43),
+on the user's "Create PR" (2026-11-01). Then merged with origin/main 5a922d2 (the STATE.md top conflict resolved by
+keeping both sides) on the user's instruction ("Merge the base branch in, resolve the conflicts, and push",
+2026-11-01). On the merged tree, `pytest -n 6 --dist loadfile` gave the same failing set as before the merge, and
+origin/main's new r24 (6) and trehalose (5) tests pass.
 
 **Causes** (verified this session, from the forwarded logs, `git show origin/main:…` and targeted runs):
 - 8 failures: the `workflow-automation-review-6765da` venv has no scipy (Gurobi `getA()`); they pass where scipy is
