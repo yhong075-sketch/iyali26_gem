@@ -5,13 +5,14 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-01: Standing pytest failures, test and environment fixes only (uncommitted on claude/pytest-performance-1daa1e)
+## 2026-11-01: Standing pytest failures, test and environment fixes only (committed eeb264d on claude/pytest-performance-1daa1e)
 
 **Authorization.** The blocked-WT FN session forwarded the user's request: "send to session 'Pytest performance
 optimization' to deal with it" (19 FAILED, 20 ERROR on b83e13a / origin/main). The user then approved fixes 1–5 of
-the plan in this session ("Approve 1–5", 2026-11-01). No model, curation, benchmark or test-baseline change. No
-commit, push or merge: the branch is at 7aa4baf, 16 commits behind origin/main 5a922d2, but none of the edited files
-differ between the two.
+the plan in this session ("Approve 1–5", 2026-11-01). No model, curation, benchmark or test-baseline change.
+Committed in `eeb264d` on the user's instruction ("Commit the working tree changes with a sensible message",
+2026-11-01). No push or merge: the branch is at 7aa4baf + eeb264d, 16 commits behind origin/main 5a922d2, but none of
+the edited files differ between the two.
 
 **Causes** (verified this session, from the forwarded logs, `git show origin/main:…` and targeted runs):
 - 8 failures: the `workflow-automation-review-6765da` venv has no scipy (Gurobi `getA()`); they pass where scipy is
