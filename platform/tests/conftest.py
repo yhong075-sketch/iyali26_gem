@@ -4,8 +4,12 @@ import os
 import tempfile
 from pathlib import Path
 
-import cobra
 import pytest
+
+try:
+    import cobra
+except ImportError:  # The evidence CI job installs only pydantic, pyyaml and pytest.
+    cobra = None
 
 from scripts.gem_annotate.model_layout import SCRATCH_DIR
 
@@ -24,6 +28,9 @@ def pytest_configure(config):
 def restore_default_solver():
     # Some tools set cobra's process-wide default solver (tools/lipid/lipid_moiety_ledger.py sets
     # GLPK); restore it after each test file so later files read their models with the usual one.
+    if cobra is None:
+        yield
+        return
     configuration = cobra.Configuration()
     solver = configuration.solver
     yield
