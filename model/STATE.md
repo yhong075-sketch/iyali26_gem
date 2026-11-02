@@ -5,6 +5,65 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-01: Standing pytest failures, test and environment fixes only (committed eeb264d on claude/pytest-performance-1daa1e)
+
+**Authorization.** The blocked-WT FN session forwarded the user's request: "send to session 'Pytest performance
+optimization' to deal with it" (19 FAILED, 20 ERROR on b83e13a / origin/main). The user then approved fixes 1–5 of
+the plan in this session ("Approve 1–5", 2026-11-01). No model, curation, benchmark or test-baseline change.
+Committed in `eeb264d` on the user's instruction ("Commit the working tree changes with a sensible message",
+2026-11-01). The branch was then 16 commits behind origin/main 5a922d2; none of the edited files differed between
+the two. Pushed with a pull request to `main`, [PR #43](https://github.com/yhong075-sketch/iyali26_gem/pull/43),
+on the user's "Create PR" (2026-11-01). Then merged with origin/main 5a922d2 (the STATE.md top conflict resolved by
+keeping both sides) on the user's instruction ("Merge the base branch in, resolve the conflicts, and push",
+2026-11-01). On the merged tree, `pytest -n 6 --dist loadfile` gave the same failing set as before the merge, and
+origin/main's new r24 (6) and trehalose (5) tests pass.
+
+**Causes** (verified this session, from the forwarded logs, `git show origin/main:…` and targeted runs):
+- 8 failures: the `workflow-automation-review-6765da` venv has no scipy (Gurobi `getA()`); they pass where scipy is
+  installed.
+- 1, order-dependent (`test_vacuole_supply …xml_only…`): `tools/lipid/lipid_moiety_ledger.py::_read_model` sets
+  `cobra.Configuration().solver = "glpk"` process-wide. From that file on, every later test file read its models
+  with GLPK. It passes alone and fails right after `test_lipid_moiety_ledger.py`.
+- 6 (dolichol): cobra rejects str SBML paths of 260+ characters on macOS (`cobra/io/sbml.py:497–499`).
+- 6 (CoA) and 14 (lp_sn12): default source model `../iyali26_gem/model.xml` (pre-restructure). The pinned snapshot
+  `bc2aac8f…` is not in git (`legacy/model.xml` is `576a284e…`); 9 byte-identical copies are in the research
+  workspace.
+- 1 (vacuole_explicit): the archived `E5_vacuole_open.build.json` records absolute `…/iyali26_gem/artifacts/…` paths.
+- 1 (ledger doc): `docs/lipid_moiety_ledger.md` now exists only under `reports/r608_engineering_20260907/code/docs/`.
+- 2 outdated pins: dFBA Slurm runner pin `b3529742…` vs the tool `46865060…` (changed in 6dc78af, c338af1);
+  vacuole_supply records the source SHA of the pre-restructure `validate_vacuole_supply.py`.
+
+**Changes:**
+1. `platform/pyproject.toml` and `uv.lock`: scipy (dependency); pytest and pytest-xdist (dev group). The lockfile only
+   adds scipy, pytest-xdist and execnet. The worktree's own `platform/.venv` was built by uv. The shared main `.venv`
+   was not changed and still lacks `pydantic_ai`.
+2. `tests/conftest.py`: a module-scoped autouse fixture restores cobra's default solver after each test file.
+3. `tests/test_dolichol_route.py`: model reads take `Path`, not `str` (3 lines).
+4. `tests/test_coa_protonation_curation.py`: the default `MODEL_PATH` is
+   `$IYALI26_RESEARCH_ROOT/artifacts/tasks/reference_pipeline_restore_20260909/baseline.xml` (SHA `bc2aac8f…`
+   checked this session; the loader still fails closed on drift). `IYALI26_SOURCE_MODEL` still overrides it.
+5. `scripts/gem_annotate/config.py::resolve_legacy_path`: a missing absolute `…/iyali26_gem/artifacts/<x>` resolves
+   like `artifacts/<x>`, only when that file exists. The new test `tests/test_recorded_paths.py` (3 tests) covers it.
+
+**Results** (full serial pytest, worktree venv, IYALI26_RESEARCH_ROOT set, verified this session):
+- Before the code edits: 11 failed, 417 passed, 31 skipped, 20 errors (14 min).
+- After: 3 failed, 438 passed, 24 skipped, 14 errors (19.5 min).
+- Test by test: 14 FAILED/ERROR → PASSED, and 7 CoA tests that were skipped now run and pass. No test got worse.
+  The run is slower because files after the ledger test copy models under Gurobi again.
+- The resolver narrowing and the new test came after that run. A targeted rerun passed; a parallel full run
+  (`-n 6 --dist loadfile`, 5.7 min) matched except for 4 tests.
+- Those 4 (`test_r1521_current_snapshot_handoff` ×2, `test_fatty_acyl_coa_handoff`, `test_coq_literature_pipeline`)
+  fail only under xdist: execnet cannot serialize `Path` values passed to `subTest(...)`. They pass serially.
+- An independent read-only review found no bug. Its scope note (the redirect also caught new output paths) and its
+  test gap were fixed.
+
+**Left, needs a decision:**
+- the two pins;
+- lipid line (colleague-owned, recommendation only): `_read_model` should set the solver on the model, not
+  globally; `test_lp_sn12` needs the same source-model path fix; the ledger test's doc path.
+
+Until the conftest fix lands, every file after the ledger test silently ran on GLPK.
+
 ## 2026-10-31: R24 option C combined with the trehalose line, candidate c1f70ac4 (branch claude/combined-r24-trehalose-20261031)
 
 **Authorization.** The user, 2026-10-30: "can you combine the branch model edition to make sure our model is newest?";

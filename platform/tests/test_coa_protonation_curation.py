@@ -28,11 +28,13 @@ from scripts.gem_annotate.patches import (
 )
 
 
-from scripts.gem_annotate.config import resolve_recorded_path
+from scripts.gem_annotate.config import load_project_paths, resolve_recorded_path
 from scripts.gem_annotate.model_layout import PLATFORM_ROOT
-REPOSITORY = Path(__file__).resolve().parents[2]
+# The curated source snapshot (SHA-256 bc2aac8f...) is the former ../iyali26_gem/model.xml; after the
+# restructure a byte-identical copy is kept only in the research workspace. The loader checks its SHA.
 MODEL_PATH = Path(os.environ.get(
-    "IYALI26_SOURCE_MODEL", REPOSITORY.parent / "iyali26_gem" / "model.xml"
+    "IYALI26_SOURCE_MODEL",
+    load_project_paths().task_outputs / "reference_pipeline_restore_20260909" / "baseline.xml",
 ))
 from scripts.gem_annotate.model_layout import MODEL
 COA_CURATION_PATH = MODEL.curation_file("coa_protonation_curation.json")

@@ -76,6 +76,16 @@ class ProjectPaths:
         """Resolve a former repository-relative research path externally."""
         candidate = Path(path)
         if candidate.is_absolute():
+            # Runs before the model/ and platform/ split recorded absolute paths into the former
+            # checkout's artifacts/ folder (.../iyali26_gem/artifacts/...). Resolve a missing one like the
+            # relative form, only when that file exists, so new output paths are left as given.
+            parts = candidate.parts
+            if not candidate.exists() and "artifacts" in parts:
+                index = parts.index("artifacts")
+                if parts[index - 1] == "iyali26_gem":
+                    relocated = self.resolve_legacy_path(Path(*parts[index:]))
+                    if relocated.exists():
+                        return relocated
             return candidate.resolve()
         parts = candidate.parts
         if parts[:2] == ("data", "essentiality"):

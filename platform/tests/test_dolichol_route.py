@@ -32,7 +32,7 @@ def state(model):
 
 def expected_model(spec):
     """The baseline with the three edits made by hand."""
-    model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+    model = read_sbml_model(MODEL.candidate_file(BASELINE))
     model.reactions.R2178.bounds = (0.0, 0.0)
     model.reactions.R2178.notes.update(spec["closed_reaction"]["notes"])
     reaction = Reaction(NEW, name=spec["new_reaction"]["reaction_name"], subsystem="N-Glycan biosynthesis",
@@ -50,7 +50,7 @@ def expected_model(spec):
 class DolicholRouteTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        cls.model = read_sbml_model(MODEL.candidate_file(BASELINE))
         cls.spec = json.loads(CURATION_PATH.read_text())
 
     def test_spec_matches_the_task(self):
@@ -182,7 +182,7 @@ class DolicholRouteTests(unittest.TestCase):
 
     def test_makes_exactly_the_three_edits_and_survives_roundtrip(self):
         # Fresh reads, not copies: Model.copy() formats solver bounds differently (0 vs 0.0).
-        model = read_sbml_model(str(MODEL.candidate_file(BASELINE)))
+        model = read_sbml_model(MODEL.candidate_file(BASELINE))
         expected = expected_model(self.spec)
         self.assertEqual(apply_dolichol_route(model)["status"], "applied")
         self.assertTrue(state(model) == state(expected), "Unexpected model change")
