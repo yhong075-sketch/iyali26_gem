@@ -5,6 +5,65 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-03: Reviewed BiGG-crosswalk annotations from Andrew McNaughton's mcnaugh_pass handoff, plus a mcnaugh_pass-ID export (candidate 9158e9f2; uncommitted, branch claude/lipid-unlump-collage-zip-merge-a59051)
+
+**Authorization.** The user, 2026-11-03:
+- "plz check it and try to merge in our model";
+- scope "IDs + annotations";
+- "Keep ours + export";
+- "yeast-GEM codes" for the exported compartment suffixes;
+- "Approve plan";
+- "Narrow the check" for the export;
+- after the audit, "Yes, after fixes".
+
+Andrew's handoff is read only and was not changed.
+
+**Why.** Andrew's crosswalk and our annotations disagreed in 1,133 places. A multi-agent adjudication judged each
+row for which value names our entity: a first reviewer, a skeptic, and a tie-breaker where they disagreed. Our side
+was often wrong for a builder reason. The metabolite formula fallback (Strategy C) produced 155 of the 182 wrong
+MetaNetX values, verified by replaying `annotate_metabolites`, and the wrong ChEBI and KEGG values follow from it.
+
+**Results** ([REPORT.md](reports/bigg_crosswalk_annotations_20261103/REPORT.md),
+[AUDIT.md](reports/bigg_crosswalk_annotations_20261103/AUDIT.md); observed this session).
+- **Builder step and data:**
+  - opt-in `--bigg-crosswalk-annotations`, guarded and idempotent;
+  - `curation/annotation/bigg_crosswalk_annotation_decisions_20261103.csv`: 895 values written plus 1 removal
+    (R2069 `r0393`), on 595 entities; 890 rows rest on verified evidence and 6 on inferred.
+- **Candidate:** `candidates/E5_…_ceramide_pool_bigg_annot_v2_20261103.xml`, SHA-256 `9158e9f2…4129`, which is
+  `2bc263f2` plus the flag. Compared with the baseline:
+  - the whole-model diff shows exactly the 896 annotation targets;
+  - WT growth (Task A + PO1f, Gurobi 1e-9) is unchanged at 0.31205354361020554;
+  - the certified knockout screen is identical for all 1,081 genes (15 %: 142/184/44/694, MCC 0.456; development
+    reference).
+- **Export:** `platform/tools/export_bigg_ids.py` with `curation/annotation/bigg_export_policy_20261103.json`. It
+  wrote `$IYALI26_RESEARCH_ROOT/artifacts/tasks/bigg_crosswalk_annotations_20261103/export/iyali26_mcnaugh_ids_9158e9f2.xml`
+  (`181fe59e…`).
+  - 1,529 metabolites and 1,818 reactions renamed to Andrew's mcnaugh_pass IDs, with yeast-GEM compartment codes
+    (`em`→`erm`, `en`→`ce`).
+  - Kept with legacy IDs:
+    - 31 entities whose BiGG row was not written;
+    - 6 target collisions;
+    - 4 reactions changed since the crosswalk;
+    - 14 entities newer than it.
+  - Only IDs change; growth is the same.
+  - Not a BiGG model: 914 of the IDs have no BiGG value in the crosswalk.
+- **Tests:** in `iyali26_gem/.venv`, 17 new tests pass and no existing test changed outcome (3 failed / 23 errors
+  both before and after).
+- **Superseded:** candidate `…ceramide_pool_bigg_annot_20261103.xml` (`19cf7cef`, 899 rows) and its exports. It was
+  built before the audit and also carries 3 NAD ChEBI rows that are now held.
+
+**Limits and next gates.**
+- **For the meeting with Andrew:** 133 rows (`artifacts/…/adjudication/for_andrew_review.csv`), the 3 NAD rows, the
+  31 skipped entities and the `em`/`en` codes. A sibling session reports, unverified here, that iYali5 uses
+  `em`/`en`.
+- **Not done:** the 1,610 keys only Andrew has were not filled; protonation species wait for the charges task.
+- **Over budget:** the solve budget was exceeded (REPORT §7).
+- **Separate branches:** the C_em/C_en compartment-name fix (`claude/xenodochial-clarke-c02b1f`, candidate
+  `ebf18a5f`) and a gap-fill suffix fix (`claude/mystifying-hofstadter-c109f5`). A combined candidate needs one
+  rebuild.
+- **Root cause still open:** the Strategy C fallback is unchanged for entities outside the crosswalk. Changing it is
+  a separate, model-wide decision.
+
 ## 2026-11-02: W29 tag-protein guard, stage 1 (strand and position; no model change; PR #46, branch claude/w29-tag-audit)
 
 **Authorization.** The user, 2026-11-02: "Approve stage 1" of the guard plan. Stage 1 is a read-only tool, a

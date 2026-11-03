@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "decision_set_id": "BIGG-XW-ANNOT-20261103",
+  "status": "user_authorized",
+  "authorization": "User, 2026-11-03: scope \"IDs + annotations\"; \"Keep ours + export\"; \"Approve plan\" (write_his rows whose reviewed value is exactly his, 1 drop_wrong, rows where reviewers recommend another ID held, the 14 held rows, no keys only Andrew has); after the audit, \"Yes, after fixes\": the 3 NAD ChEBI rows whose note names a more exact species are held too.",
+  "reviewer": "multi-agent adjudication (first reviewer, independent skeptic, tie-breaker), 2026-11-03",
+  "decisions_file": "bigg_crosswalk_annotation_decisions_20261103.csv",
+  "decisions_sha256": "2a7c9505169c7fb85e8f267b40c5722cd7b6a785ffaf05ce2a7dd91b44717064",
+  "rows": 896,
+  "actions": {
+    "write_his": 895,
+    "drop_wrong": 1
+  },
+  "keys": [
+    "bigg.metabolite",
+    "bigg.reaction",
+    "chebi",
+    "kegg.compound",
+    "metanetx.chemical",
+    "metanetx.reaction"
+  ],
+  "entities": 595,
+  "excluded_conflict_rows": {
+    "third_value": 15,
+    "reviewers_recommend_other_id": 83,
+    "keep_ours": 101,
+    "charges_task": 22,
+    "held_same_values_judged_differently": 14,
+    "meeting": 2
+  },
+  "baseline_model_sha256": "2bc263f23603c27131d0b07143300a484dbd5a135ef7151665574400ab64a062",
+  "crosswalk_sha256": {
+    "metabolite_crosswalk.csv": "86970fa84ac03ae7040e670b6ab1d8c0c5c1501ab39adaa4dee7499132e9cf64",
+    "reaction_crosswalk.csv": "743b2680d69b883c17a98077818b674c46facd8fd9172a879528ee9d6adf1037"
+  },
+  "adjudication_csv": {
+    "path": "artifacts/tasks/bigg_crosswalk_annotations_20261103/adjudication/final_adjudication.csv",
+    "sha256": "88670f93df58121ff33587919950ead0d8c8fc46a9300efb13f393ad9ae135eb"
+  },
+  "generator": {
+    "path": "artifacts/tasks/bigg_crosswalk_annotations_20261103/scripts/make_decisions.py",
+    "sha256": "fa737f88505ebc2edbd36f07d883c2c34ead0a07e07b9fb5d6e719f50934ee0a"
+  }
+}

@@ -108,6 +108,7 @@ def build_reference_chain(
     trehalose_biomass_removal: bool = False,
     r24_homocitrate_aconitase: bool = False,
     ceramide_pool_biomass: bool = False,
+    bigg_crosswalk_annotations: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -931,6 +932,12 @@ def build_reference_chain(
     if coq_literature_revision:
         selection["coq_literature_revision"] = apply_coq_literature_revision(model, enabled=True)
         logger.warning("Applied CoQ R19/R18 literature candidate; downstream redox gap remains unresolved")
+    if bigg_crosswalk_annotations:
+        # Opt-in: reviewed annotation values from the mcnaugh_pass BiGG crosswalk (2026-11-03). Must stay after every
+        # step that writes annotations: its guard pins each target's reviewed starting value.
+        from .bigg_crosswalk_annotations import apply_bigg_crosswalk_annotations
+        selection["bigg_crosswalk_annotations"] = apply_bigg_crosswalk_annotations(model)
+        logger.info("BiGG crosswalk annotations: %s", selection["bigg_crosswalk_annotations"]["status"])
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
@@ -1034,6 +1041,7 @@ def build_model(args):
         trehalose_biomass_removal=getattr(args, "trehalose_biomass_removal", False),
         r24_homocitrate_aconitase=getattr(args, "r24_homocitrate_aconitase", False),
         ceramide_pool_biomass=getattr(args, "ceramide_pool_biomass", False),
+        bigg_crosswalk_annotations=getattr(args, "bigg_crosswalk_annotations", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

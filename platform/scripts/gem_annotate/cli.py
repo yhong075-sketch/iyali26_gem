@@ -97,6 +97,8 @@ def parse_args(argv=None):
                         help="Assign the mitochondrial homocitrate dehydration R24 to the aconitases YALI1D11984g or YALI1E17935g instead of the LYS4-like YALI1E03387g, which stays on R395; needs --aconitase-aco2-split (curated 2026-10-30, R24-HOMOCITRATE-ACO-20261030)")
     parser.add_argument("--ceramide-pool-biomass", action="store_true",
                         help="Add sphingolipid_ceramide_pool[C_er] (filled by gene-less xPOOL_CER_* pseudo-reactions from the 10 ER ceramides) to biomass_C at 5.4e-4 mmol/gDW (Y. lipolytica total long-chain bases, Rupcic 1996); biomass_C must equal the reviewed c1f70ac4 state (curated 2026-11-01, CERAMIDE-POOL-BIOMASS-20261101)")
+    parser.add_argument("--bigg-crosswalk-annotations", action="store_true",
+                        help="Set 896 reviewed annotation values (BiGG, MetaNetX, ChEBI, KEGG) from Andrew McNaughton's mcnaugh_pass crosswalk on 595 metabolites and reactions; IDs, chemistry and stoichiometry unchanged; every target must hold its reviewed starting value (curated 2026-11-03, BIGG-XW-ANNOT-20261103)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
