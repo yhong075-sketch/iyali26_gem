@@ -1,0 +1,80 @@
+[
+ {
+  "scenario": "status",
+  "status_line": "AS BUILT (e1e7c868): orange = blocked, dark grey = closed (0,0), light blue = can carry flux but 0 at the pFBA optimum, green = carries pFBA flux, purple = what",
+  "escher_not_loaded": false,
+  "reaction_groups": 138,
+  "node_circles": 909,
+  "labels": {
+   "R1825": "R1825 IPC synthase",
+   "R1836": "R1836 phosphatidylgly\u2026",
+   "R850": "R850 GDP-mannose ant\u2026",
+   "MITO_TRANSLATION_14": "MITO_TRANSLATION_14 mitochondrial t\u2026"
+  }
+ },
+ {
+  "scenario": "pfba_as_built",
+  "status_line": "AS BUILT: pFBA flux at the optimum. Every family reaction is 0 except R289 / R287 (mannan via the PMT lump) and the mitochondrial Met / Ile exits R1251 / R1218.",
+  "escher_not_loaded": false,
+  "reaction_groups": 138,
+  "node_circles": 909,
+  "labels": {
+   "R1825": "R1825 IPC synthase 0.00",
+   "R1836": "R1836 phosphatidylgly\u2026 0.00",
+   "R850": "R850 GDP-mannose ant\u2026 0.00",
+   "MITO_TRANSLATION_14": "MITO_TRANSLATION_14 mitochondrial t\u2026 (nd)"
+  }
+ },
+ {
+  "scenario": "capacity_as_built",
+  "status_line": "AS BUILT: capacity = max |flux| any feasible state can carry (FVA at 0 %). Blocked reactions are 0; the GPI chain and much of the sphingolipid set can carry flu",
+  "escher_not_loaded": false,
+  "reaction_groups": 138,
+  "node_circles": 909,
+  "labels": {
+   "R1825": "R1825 IPC synthase 0.00",
+   "R1836": "R1836 phosphatidylgly\u2026 12.6",
+   "R850": "R850 GDP-mannose ant\u2026 0.00",
+   "MITO_TRANSLATION_14": "MITO_TRANSLATION_14 mitochondrial t\u2026 (nd)"
+  }
+ },
+ {
+  "scenario": "capacity_whatif",
+  "status_line": "WHAT-IF (NOT implemented): capacity under each family's recommended variant, each applied ALONE (sphingolipid V2, GPI b1, cardiolipin a, N-glycan C2, mitochondr",
+  "escher_not_loaded": false,
+  "reaction_groups": 138,
+  "node_circles": 909,
+  "labels": {
+   "R1825": "R1825 IPC synthase 13.2",
+   "R1836": "R1836 phosphatidylgly\u2026 12.6",
+   "R850": "R850 GDP-mannose ant\u2026 0.515",
+   "MITO_TRANSLATION_14": "MITO_TRANSLATION_14 mitochondrial t\u2026 0.00579"
+  }
+ },
+ {
+  "scenario": "pfba_whatif",
+  "status_line": "WHAT-IF (NOT implemented): pFBA flux at the optimum under each family's recommended variant, each applied ALONE; the demanded route now carries flux in every se",
+  "escher_not_loaded": false,
+  "reaction_groups": 138,
+  "node_circles": 909,
+  "labels": {
+   "R1825": "R1825 IPC synthase 0.00",
+   "R1836": "R1836 phosphatidylgly\u2026 0.000223",
+   "R850": "R850 GDP-mannose ant\u2026 0.196",
+   "MITO_TRANSLATION_14": "MITO_TRANSLATION_14 mitochondrial t\u2026 0.00579"
+  }
+ },
+ {
+  "scenario": "pfba_whatif_nglycan_B",
+  "status_line": "WHAT-IF N-glycan B only (NOT implemented): R289 1:1, Golgi mannan route, Golgi Pi exit, R1137 closed; no LLO link or N-glycan term. Other sections: no data. Tas",
+  "escher_not_loaded": false,
+  "reaction_groups": 138,
+  "node_circles": 909,
+  "labels": {
+   "R1825": "R1825 IPC synthase (nd)",
+   "R1836": "R1836 phosphatidylgly\u2026 (nd)",
+   "R850": "R850 GDP-mannose ant\u2026 0.199",
+   "MITO_TRANSLATION_14": "MITO_TRANSLATION_14 mitochondrial t\u2026 (nd)"
+  }
+ }
+]
