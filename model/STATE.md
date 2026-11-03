@@ -5,6 +5,58 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-02: W29 tag-protein guard, stage 1 (strand and position; no model change; PR #46, branch claude/w29-tag-audit)
+
+**Authorization.** The user, 2026-11-02: "Approve stage 1" of the guard plan. Stage 1 is a read-only tool, a
+generated audit, curated decisions, a test, one AGENTS.md line and this entry. Stage 2 (sequence identity, which
+needs a CLIB122 proteome download) is not authorized.
+
+**Why.** The YALI0→YALI1 S2 map (Magnan 2016) is right, but for some tags the CDS that GenBank and RefSeq file under
+the tag is on the other strand. Sequence work keyed on the tag then reads an antisense ORF. This was found in the
+single-partner OR review (R712, R540; branch claude/vigilant-pare-9eeae7).
+
+**Results** ([REPORT.md](reports/w29_tag_protein_audit_20261102/REPORT.md); verified this session).
+- **Tool and data:**
+  - `platform/tools/audit_w29_tag_protein.py` compares the S2 row with the RefSeq CDS
+    (`reference/ncbi/clib89_feature_table.txt`) for all 1,082 gene IDs in the start model and the 45 candidates.
+  - Output: `curation/annotation/w29_tag_protein_audit.csv` plus a JSON sidecar.
+- **Flags:**
+
+  | Flag | Genes |
+  | --- | ---: |
+  | `ok` | 1,044 |
+  | `strand_flip` | 7 |
+  | `no_overlap` | 2 |
+  | `no_s2_row` | 1 |
+  | mitochondrial, not in the feature table | 12 |
+  | non-YALI1 IDs | 16 |
+
+- **Decisions** (`curation/annotation/w29_tag_protein_decisions.csv`, 10 rows). Each row is tied to the audited RefSeq
+  protein and span.
+  - **6 strand flips: RefSeq protein is an antisense ORF.** These are POX3 `YALI1D32754g` (O74936), `D32550g`,
+    `E27218g` (complex I accessory, R2062), `F31153g`, `F15367g` and `F02518g` (EYI1). Each has no Swiss-Prot hit,
+    and tblastn puts the CLIB122 protein on the S2 strand.
+  - **`YALI1E18171g` is an unresolved conflict, for the user.** The active `curated_locus_identity_exclusions.csv`
+    row 1 calls its minus-strand protein RNA-seq-supported.
+  - **2 no-overlap genes: the RefSeq protein is right** (GLT1 for R331; BCKDH E2 for R1968-R1970 and R2281).
+  - **`YALI1M00338r`:** the ID differs from the S2 tag `YALI1_M00338g`; this is ND5, kept per the 2026-10-08 entry.
+- **Test:** `platform/tests/test_w29_tag_protein_audit.py`, 12 tests, no cobra. It fails on:
+  - a changed gene set;
+  - a missing, invalid or stale decision;
+  - a changed RefSeq protein or span under a decided tag;
+  - raw inputs that no longer reproduce the committed files (errors when the research root is unset).
+- **Full pytest** (venv `.claude/worktrees/pytest-performance-1daa1e/platform/.venv`): 3 failed / 14 errors before
+  and after. The only differences are the 12 new passing tests.
+- **Review:** an independent read-only review found 2 medium and 5 low issues, all fixed or documented.
+
+**Limits.**
+- Strand and position only: a same-strand wrong frame, start or truncation passes (stage 2).
+- The overlap criterion is ≥ 1 bp.
+- Not in CI.
+- The crosswalk and exclusions are unchanged. Excluding the flips would strip POX3's UniProt annotation on the next
+  build.
+- "Antisense ORF" is inferred; transcription of the minus strand was not checked.
+
 ## 2026-11-02: 29 demand-family false negatives (sphingolipid, GPI, cardiolipin, N-glycan, mitochondrial translation) scoped on e1e7c868 (investigation only, no model change; branch claude/fn29-demand-families-report-a4dc68, committed and opened as a PR to main on the user's "Commit and open PR", 2026-11-02)
 
 **Authorization.** The user, 2026-10-30, in the gap-census session: "can we solve this problem: Sphingolipid, GPI,

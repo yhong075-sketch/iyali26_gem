@@ -117,6 +117,10 @@ Skill: `curation-change`.
   - the evidence level.
 
   A model or GPR assignment is not experimental validation.
+- **W29 protein sequences:** before BLAST, localisation predictors or AlphaFold on a YALI1 gene,
+  look it up in `model/curation/annotation/w29_tag_protein_audit.csv`. For a flagged gene, use
+  the protein named in `w29_tag_protein_decisions.csv`: some RefSeq proteins filed under a tag
+  are antisense ORFs. An `unresolved_conflict` row names no protein: report the conflict.
 - **AlphaFold**, for weak identity evidence:
   - Reuse an existing identical model when one exists.
   - Record the sequence source, version and SHA, the tool and version, the date, pLDDT, PAE
