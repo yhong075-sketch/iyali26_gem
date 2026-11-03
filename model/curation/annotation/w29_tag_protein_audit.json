@@ -1,0 +1,26 @@
+{
+  "generator": "platform/tools/audit_w29_tag_protein.py",
+  "inputs": {
+    "s2_table": {
+      "path": "reference/locus_map/S2_table_YALI1_YALI0_map.xlsx",
+      "sheet": "YALI1 Genes",
+      "sha256": "42658fb95202b4114e5c6b5dbd60020de7a4038797ee2211a5352078a729a670"
+    },
+    "feature_table": {
+      "path": "reference/ncbi/clib89_feature_table.txt",
+      "sha256": "15a15c73ca0817d2fe64d055101a627084278fbdd1ae004eb78ee98978c0a7f2"
+    }
+  },
+  "model_gene_count": 1082,
+  "model_gene_fingerprint": "sha256:70a0a515b128873e2f212d4e1022b00b8dc20b7dd79c4d0325cfbd551f373420",
+  "flag_counts": {
+    "ok": 1044,
+    "strand_flip": 7,
+    "no_overlap": 2,
+    "no_s2_row": 1,
+    "no_refseq_cds": 0,
+    "mito_absent_from_feature_table": 12,
+    "not_protein_coding": 0,
+    "not_yali1": 16
+  }
+}
