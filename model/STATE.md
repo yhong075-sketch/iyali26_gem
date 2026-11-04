@@ -5,6 +5,158 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-03/04: 17 reviewed mcnaugh_pass reactions (chain-specific lipid-particle Kennedy steps plus two biomass alternatives), lumped steps closed (candidate e584151f; committed ad927509 on claude/lipid-unlump-collage-zip-merge-a59051, PR #47)
+
+**Authorization.** The user, 2026-11-03, on merging Andrew McNaughton's lipid unlumping and extra reactions:
+- "yes, this is what important we wanna merge";
+- "Andrew owns it; go ahead" and "All 56", narrowed after review by "Approve, core screen";
+- "Copy his design, allow imbalance";
+- on the biomass reactions, "I think we can't skip", then "Both verbatim from Andrew";
+- "Name it in the exception" for the C18:2 charge, and "Record it, change later" for the acyl-pool artefact;
+- "Andrew's DGA1 or DGA2";
+- "Accept, finish" for the OLE1 loss;
+- after the audit, "Fix and rebuild v4", then "Fix and rebuild".
+
+Andrew's handoff is read only and was not changed.
+
+**Why.** Andrew's model replaces our lumped lipid-particle G3PAT/AGPAT/DGAT steps (generic acyl-CoA m570) with
+chain-specific ones (C16:0, C16:1, C18:0, C18:1, C18:2). The user wants the model to follow the real biology.
+- **Review:** a multi-agent biology review (reviewer, skeptic, tie-breaker) covered his 56 reactions with no recorded
+  counterpart.
+  - 26 look-alikes and 10 more are duplicates of ours. Of the 10, 7 are term for term and 3 differ by one H+.
+  - 2 would reverse authorized curations: ALCD2irm = removed R132, G3PD1irm = removed R349.
+  - 1 is held by the CoQ9 gate (cytosolic COQ2).
+  - 17 were added.
+
+**Results** ([REPORT.md](reports/mcnaugh_reactions_merge_20261103/REPORT.md),
+[AUDIT.md](reports/mcnaugh_reactions_merge_20261103/AUDIT.md); observed this session).
+- **Builder step and data:**
+  - opt-in `--mcnaugh-reactions`, guarded and idempotent, running before `--bigg-crosswalk-annotations`;
+  - `curation/mcnaugh_pass/mcnaugh_reactions_20261103.json`, revision 2 (`a62050e3`).
+  - It adds the 15 lipid steps (in group "Glycerolipid metabolism") and BIOMASS_C_core/_full at objective 0. It
+    closes R353, R1846, R1771 and R2165 (bounds 0..0).
+  - R351 stays open, a departure from Andrew's design.
+  - R1771 must close with the new DGATs: left open, the pair loops and WT growth reaches 0.5127.
+- **Candidate:** `candidates/E5_…_ceramide_pool_bigg_annot_v2_mcnaugh_rxns_v3_20261103.xml`, SHA-256
+  `e584151f…39d2`, the file of record. It is v2 `9158e9f2` plus the flag.
+  - The `…_mcnaugh_rxns_v2_…` file holds the same bytes, built with the earlier guard code.
+  - The first build, `…_mcnaugh_rxns_20261103.xml` (`ec7e3465`), is superseded: no group membership, short biomass
+    notes. It has the same LP.
+- **Whole-model diff against v2:** only the 17 additions, the 4 closures and the 15 new members of group33. This is
+  composed from two diffs that were run, v3 against v2 and v4 against v3. The third build reproduced v4 byte for
+  byte.
+- **Growth and energy** (Task A + PO1f, Gurobi 1e-9): WT growth 0.31248856, +0.139 %. This is a recorded artefact of
+  our reversible acyl pools; it would be +0.014 % with forward-only pools. ATP with no uptake is 0.
+- **Knockout screen** (certified, biomass_C; development reference): at 15 %, 142/184/44/694 → 141/185/43/695, MCC
+  0.4563 → 0.4562. Two genes change, and both changes are inferred to come from one design effect:
+  - YALI1C07638g (Δ9 desaturase, OLE1 recalled) goes essential → non-essential, losing a TP. The cause is the
+    generic-product design: every chain makes the same generic lipid, so no unsaturated chain is required (inferred;
+    pools ruled out, observed).
+  - YALI1D22124g (fatty-acid–CoA ligase) goes model-essential → non-essential, an FP fixed.
+  - **Re-run on v4** ("do a new screen test", 2026-11-04; observed): the TSV is byte-identical to the v3 screen, and
+    an independent re-score matches all 16 confusion matrices. Artifacts `screen_v4_20261104/`.
+- **Screen on BIOMASS_C_core** (for information): 97/229/29/709. Andrew's biomass lacks 18 of our terms, mostly
+  cofactors.
+- **Tests:** in `iyali26_gem/.venv`, the final code gives 451 passed, 3 failed, 23 errors and 24 skipped. Against the
+  before run, the only differences are 25 new tests, all passing (17 from the annotation round, 8 mcnaugh); no
+  existing test changed outcome.
+- **Audits:** an independent audit (F1–F7), a fix review and a guard review.
+  - Findings F1–F3, F5 and F6 are closed.
+  - F4 is a REPORT correction.
+  - G1 (rows not compared with each other) is open: low, latent, with no effect on the current data.
+- **Memote** ("do a memote test", 2026-11-04; REPORT §11; observed this session). memote 0.17.0 with Gurobi on v2
+  and v4. A memote score is not evidence for a model change.
+  - **Total:** 0.603724 → 0.603836. Consistency 0.492448 → 0.492841; reaction annotation 0.746291 → 0.745714.
+  - **Every one of the 34 changed tests traces to this round:**
+    - the 15 lipid steps become mass-imbalanced, and the 3 C18:2 steps also charge-imbalanced;
+    - the closures remove 8 unbounded-flux reactions and 10 cycle reactions (provable from the closures; that they
+      form one loop through R1771 is inferred), and leave 3 never-producible decanoyl-CoA species with no consumer
+      (R2165);
+    - the 17 reactions carry only an SBO term.
+  - **The new biomass reactions:** their charged-tRNA design shows up as 20 "blocked precursors".
+  - **Old biomass reactions under the file's own bounds:** newBiom grows +1.23 %, the same free chain choice as the
+    +0.139 % artefact.
+  - **Run defect:** in `run_memote.py`, FVA workers re-ran the script. The final files are the parent results; see
+    the artifacts `memote/README.md`.
+
+**Limits and next gates.**
+- **Accepted limits:** the OLE1 false negative; the R-group mass imbalance of the 15 steps; the +4 charge on the
+  C18:2 steps (m1735[C_lp], a pre-existing −4 on a neutral formula); the +0.139 % artefact.
+- **Not for screens:** the two biomass reactions (no ceramide pool, 13 cofactor terms missing; trehalose in _full).
+- **For Andrew** (REPORT §7):
+  - R351;
+  - DGA1 alone vs DGA1 or DGA2;
+  - ALCD2irm/G3PD1irm;
+  - restoring the chain-composition requirement;
+  - the pool reversibility;
+  - m1735;
+  - the crosswalk links for the 10 duplicates, including our two cytosolic GABA species m133/m2040;
+  - the subsystem for the 15 steps;
+  - database links for the 17 reactions.
+- **Separate lines:** a GPR candidate (R1869, a Δ12 step, carries the Δ9 desaturase gene; not checked); the `*`
+  formulas of m1640, m1123 and m1648; the pre-existing libSBML notes error on R304 in every build.
+- **Budget:** 3 builds against "one build and a spare". The third was approved. The LP counts from the review stage
+  and the OLE1 diagnosis were not tallied (REPORT §9).
+
+## 2026-11-03: Reviewed BiGG-crosswalk annotations from Andrew McNaughton's mcnaugh_pass handoff, plus a mcnaugh_pass-ID export (candidate 9158e9f2; committed 048e18ec on claude/lipid-unlump-collage-zip-merge-a59051, PR #47)
+
+**Authorization.** The user, 2026-11-03:
+- "plz check it and try to merge in our model";
+- scope "IDs + annotations";
+- "Keep ours + export";
+- "yeast-GEM codes" for the exported compartment suffixes;
+- "Approve plan";
+- "Narrow the check" for the export;
+- after the audit, "Yes, after fixes".
+
+Andrew's handoff is read only and was not changed.
+
+**Why.** Andrew's crosswalk and our annotations disagreed in 1,133 places. A multi-agent adjudication judged each
+row for which value names our entity: a first reviewer, a skeptic, and a tie-breaker where they disagreed. Our side
+was often wrong for a builder reason. The metabolite formula fallback (Strategy C) produced 155 of the 182 wrong
+MetaNetX values, verified by replaying `annotate_metabolites`, and the wrong ChEBI and KEGG values follow from it.
+
+**Results** ([REPORT.md](reports/bigg_crosswalk_annotations_20261103/REPORT.md),
+[AUDIT.md](reports/bigg_crosswalk_annotations_20261103/AUDIT.md); observed this session).
+- **Builder step and data:**
+  - opt-in `--bigg-crosswalk-annotations`, guarded and idempotent;
+  - `curation/annotation/bigg_crosswalk_annotation_decisions_20261103.csv`: 895 values written plus 1 removal
+    (R2069 `r0393`), on 595 entities; 890 rows rest on verified evidence and 6 on inferred.
+- **Candidate:** `candidates/E5_…_ceramide_pool_bigg_annot_v2_20261103.xml`, SHA-256 `9158e9f2…4129`, which is
+  `2bc263f2` plus the flag. Compared with the baseline:
+  - the whole-model diff shows exactly the 896 annotation targets;
+  - WT growth (Task A + PO1f, Gurobi 1e-9) is unchanged at 0.31205354361020554;
+  - the certified knockout screen is identical for all 1,081 genes (15 %: 142/184/44/694, MCC 0.456; development
+    reference).
+- **Export:** `platform/tools/export_bigg_ids.py` with `curation/annotation/bigg_export_policy_20261103.json`. It
+  wrote `$IYALI26_RESEARCH_ROOT/artifacts/tasks/bigg_crosswalk_annotations_20261103/export/iyali26_mcnaugh_ids_9158e9f2.xml`
+  (`181fe59e…`).
+  - 1,529 metabolites and 1,818 reactions renamed to Andrew's mcnaugh_pass IDs, with yeast-GEM compartment codes
+    (`em`→`erm`, `en`→`ce`).
+  - Kept with legacy IDs:
+    - 31 entities whose BiGG row was not written;
+    - 6 target collisions;
+    - 4 reactions changed since the crosswalk;
+    - 14 entities newer than it.
+  - Only IDs change; growth is the same.
+  - Not a BiGG model: 914 of the IDs have no BiGG value in the crosswalk.
+- **Tests:** in `iyali26_gem/.venv`, 17 new tests pass and no existing test changed outcome (3 failed / 23 errors
+  both before and after).
+- **Superseded:** candidate `…ceramide_pool_bigg_annot_20261103.xml` (`19cf7cef`, 899 rows) and its exports. It was
+  built before the audit and also carries 3 NAD ChEBI rows that are now held.
+
+**Limits and next gates.**
+- **For the meeting with Andrew:** 133 rows (`artifacts/…/adjudication/for_andrew_review.csv`), the 3 NAD rows, the
+  31 skipped entities and the `em`/`en` codes. A sibling session reports, unverified here, that iYali5 uses
+  `em`/`en`.
+- **Not done:** the 1,610 keys only Andrew has were not filled; protonation species wait for the charges task.
+- **Over budget:** the solve budget was exceeded (REPORT §7).
+- **Separate branches:** the C_em/C_en compartment-name fix (`claude/xenodochial-clarke-c02b1f`, candidate
+  `ebf18a5f`) and a gap-fill suffix fix (`claude/mystifying-hofstadter-c109f5`). A combined candidate needs one
+  rebuild.
+- **Root cause still open:** the Strategy C fallback is unchanged for entities outside the crosswalk. Changing it is
+  a separate, model-wide decision.
+
 ## 2026-11-02: W29 tag-protein guard, stage 1 (strand and position; no model change; PR #46, branch claude/w29-tag-audit)
 
 **Authorization.** The user, 2026-11-02: "Approve stage 1" of the guard plan. Stage 1 is a read-only tool, a

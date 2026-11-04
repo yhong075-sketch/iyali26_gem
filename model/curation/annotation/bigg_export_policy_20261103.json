@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "policy_id": "BIGG-EXPORT-20261103",
+  "status": "user_authorized",
+  "authorization": "User, 2026-11-03: \"Keep ours + export\" (working model keeps legacy IDs; a copy with the mcnaugh_pass IDs is exported), \"yeast-GEM codes\" (compartment suffixes follow yeast-GEM / iYali, not BiGG), \"Narrow the check\", and after the audit \"Yes, after fixes\" (skip every entity whose BiGG annotation row was not written).",
+  "renamed_reaction_statuses": [
+    "identical",
+    "h_h2o_only",
+    "proton_translocation_differs"
+  ],
+  "compartment_code_replacements": {
+    "C_em": {
+      "from": "em",
+      "to": "erm"
+    },
+    "C_en": {
+      "from": "en",
+      "to": "ce"
+    }
+  },
+  "crosswalk_sha256": {
+    "metabolite_crosswalk.csv": "86970fa84ac03ae7040e670b6ab1d8c0c5c1501ab39adaa4dee7499132e9cf64",
+    "reaction_crosswalk.csv": "743b2680d69b883c17a98077818b674c46facd8fd9172a879528ee9d6adf1037"
+  },
+  "skip_rename": [
+    {
+      "entity": "metabolite",
+      "entity_id": "m1433[C_em]",
+      "andrew_bigg_value": "3odocoscoa",
+      "verdict": "equivalent_ours_more_specific",
+      "correct_value": "CE2250",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1435[C_em]",
+      "andrew_bigg_value": "3ottccoa",
+      "verdict": "equivalent_ours_more_specific",
+      "correct_value": "CE2253",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1440[C_em]",
+      "andrew_bigg_value": "3htdcoa",
+      "verdict": "both_wrong",
+      "correct_value": "R_3hmrscoa",
+      "evidence_tier": "inferred",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1442[C_em]",
+      "andrew_bigg_value": "3hodcoa",
+      "verdict": "ours_correct",
+      "correct_value": "CE2248",
+      "evidence_tier": "inferred",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1443[C_em]",
+      "andrew_bigg_value": "3heicoscoa",
+      "verdict": "equivalent_ours_more_specific",
+      "correct_value": "CE2247",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1444[C_em]",
+      "andrew_bigg_value": "3hdocoscoa",
+      "verdict": "equivalent_identical_compound",
+      "correct_value": "3hdcscoa (ours; 3hdocoscoa is acceptable at record level)",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1675[C_en]",
+      "andrew_bigg_value": "pa",
+      "verdict": "ours_correct",
+      "correct_value": "pa_LM",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1686[C_vm]",
+      "andrew_bigg_value": "pa",
+      "verdict": "ours_correct",
+      "correct_value": "pa_LM",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1688[C_gm]",
+      "andrew_bigg_value": "pa",
+      "verdict": "ours_correct",
+      "correct_value": "pa_LM",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1726[C_cy]",
+      "andrew_bigg_value": "protein",
+      "verdict": "equivalent_identical_compound",
+      "correct_value": "PROTEIN",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1731[C_em]",
+      "andrew_bigg_value": "lincoa",
+      "verdict": "his_correct",
+      "correct_value": "lnlccoa",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1735[C_lp]",
+      "andrew_bigg_value": "lincoa",
+      "verdict": "his_correct",
+      "correct_value": "lnlccoa",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1743[C_mm]",
+      "andrew_bigg_value": "lincoa",
+      "verdict": "his_correct",
+      "correct_value": "lnlccoa",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1797[C_pe]",
+      "andrew_bigg_value": "lincoa",
+      "verdict": "his_correct",
+      "correct_value": "lnlccoa",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1798[C_cy]",
+      "andrew_bigg_value": "lincoa",
+      "verdict": "his_correct",
+      "correct_value": "lnlccoa",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1833[C_mi]",
+      "andrew_bigg_value": "glutcoa",
+      "verdict": "equivalent_protonation_variant",
+      "correct_value": "glutcoa",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m1993[C_cy]",
+      "andrew_bigg_value": "pa",
+      "verdict": "ours_correct",
+      "correct_value": "pa_LM",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m280[C_cy]",
+      "andrew_bigg_value": "aproa",
+      "verdict": "equivalent_identical_compound",
+      "correct_value": "bamppald",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m378[C_em]",
+      "andrew_bigg_value": "pa",
+      "verdict": "ours_correct",
+      "correct_value": "pa_LM",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m3[C_mi]",
+      "andrew_bigg_value": "focytc",
+      "verdict": "equivalent_ours_more_specific",
+      "correct_value": "focytC",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "metabolite",
+      "entity_id": "m623[C_cy]",
+      "andrew_bigg_value": "NPmehis",
+      "verdict": "equivalent_identical_compound",
+      "correct_value": "3mhis or NPmehis (both acceptable; ours needs no change)",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R1237",
+      "andrew_bigg_value": "LYStm",
+      "verdict": "both_wrong",
+      "correct_value": "",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R178",
+      "andrew_bigg_value": "C3STDH2",
+      "verdict": "both_wrong",
+      "correct_value": "HMR_1505",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R182",
+      "andrew_bigg_value": "C4STMO2",
+      "verdict": "both_wrong",
+      "correct_value": "HMR_1502",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R2068",
+      "andrew_bigg_value": "ALDD22x",
+      "verdict": "equivalent_identical_compound",
+      "correct_value": "BAMPPALDOX",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R2069",
+      "andrew_bigg_value": "ALCD19",
+      "verdict": "ours_correct",
+      "correct_value": "GLYALDDr",
+      "evidence_tier": "inferred",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R2122",
+      "andrew_bigg_value": "CAO",
+      "verdict": "his_correct",
+      "correct_value": "13DAMPPOX",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG annotation row not written"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R510",
+      "andrew_bigg_value": "LALDO",
+      "verdict": "ours_correct",
+      "correct_value": "LALDO3",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R559",
+      "andrew_bigg_value": "MI1PS",
+      "verdict": "ours_correct",
+      "correct_value": "MI3PS (preferred structured ID; ours MI1PS2 is also correct by name and should not be marked wrong)",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R569",
+      "andrew_bigg_value": "NADS1n",
+      "verdict": "both_wrong",
+      "correct_value": "",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    },
+    {
+      "entity": "reaction",
+      "entity_id": "R726",
+      "andrew_bigg_value": "SIRHD",
+      "verdict": "both_wrong",
+      "correct_value": "SHCHD2",
+      "evidence_tier": "verified",
+      "reason": "reviewed BiGG ID names another entity"
+    }
+  ],
+  "adjudication_csv_sha256": "88670f93df58121ff33587919950ead0d8c8fc46a9300efb13f393ad9ae135eb",
+  "decisions_csv_sha256": "2a7c9505169c7fb85e8f267b40c5722cd7b6a785ffaf05ce2a7dd91b44717064",
+  "generator_sha256": "ffee44cd347509d27603d4c13c54084c04c96252e5709c0e481fa92b7ad1912d"
+}

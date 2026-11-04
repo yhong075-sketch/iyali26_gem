@@ -1,0 +1,754 @@
+{
+ "schema_version": 1,
+ "change_id": "MCNAUGH-REACTIONS-20261103",
+ "status": "user_authorized",
+ "authorization": "User, 2026-11-03: merge Andrew's extra reactions except true duplicates ('All 56'; Andrew owns the lipid-unlump line and approves); 'Copy his design, allow imbalance'; the two biomass reactions 'can't skip', 'Both verbatim from Andrew'; 'Approve, core screen'; 'Name it in the exception' for the C18:2 charge; 'Record it, change later' for the acyl-pool artefact; DGAT GPR 'Andrew's DGA1 or DGA2'.",
+ "revision": "2 (after the audit): group membership for the lipid steps (F1) and term-by-term biomass notes (F3). Revision 1 built candidate ec7e3465 and is kept in superseded_ec7e3465/.",
+ "baseline_model_sha256": "9158e9f2a0d21f654f0a7919eed9f2bacba01aea8b315808d93ec14dd3af4129",
+ "mcnaugh_model_sha256": "e74a0f50a0a877002d6bdda978cc570ac816c18d2f34fc010ea7ba13f921331a",
+ "objective_unchanged": "biomass_C",
+ "reactions": [
+  {
+   "id": "G3PAT160_lp",
+   "name": "glycerol-3-phosphate acyltransferase (palmitoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1484[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m576[C_lp]": -1.0,
+    "m577[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C00230g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "G3PAT160_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "G3PAT161_lp",
+   "name": "glycerol-3-phosphate acyltransferase (palmitoleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1486[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m576[C_lp]": -1.0,
+    "m577[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C00230g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "G3PAT161_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "G3PAT180_lp",
+   "name": "glycerol-3-phosphate acyltransferase (stearoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1488[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m576[C_lp]": -1.0,
+    "m577[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C00230g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "G3PAT180_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "G3PAT181_lp",
+   "name": "glycerol-3-phosphate acyltransferase (oleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1490[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m576[C_lp]": -1.0,
+    "m577[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C00230g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "G3PAT181_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "G3PAT182_lp",
+   "name": "glycerol-3-phosphate acyltransferase (linoleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1735[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m576[C_lp]": -1.0,
+    "m577[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C00230g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "G3PAT182_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula",
+    "charge_exception": "+4 charge from the pre-existing species defect m1735[C_lp] (charge -4 on a neutral formula); left for the charges task"
+   }
+  },
+  {
+   "id": "AGPAT160_lp",
+   "name": "1-acylglycerol-3-phosphate O-acyltransferase (palmitoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1484[C_lp]": -1.0,
+    "m1705[C_lp]": 1.0,
+    "m573[C_lp]": 1.0,
+    "m577[C_lp]": -1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22736g or YALI1F25951g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "AGPAT160_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "AGPAT161_lp",
+   "name": "1-acylglycerol-3-phosphate O-acyltransferase (palmitoleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1486[C_lp]": -1.0,
+    "m1705[C_lp]": 1.0,
+    "m573[C_lp]": 1.0,
+    "m577[C_lp]": -1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22736g or YALI1F25951g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "AGPAT161_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "AGPAT180_lp",
+   "name": "1-acylglycerol-3-phosphate O-acyltransferase (stearoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1488[C_lp]": -1.0,
+    "m1705[C_lp]": 1.0,
+    "m573[C_lp]": 1.0,
+    "m577[C_lp]": -1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22736g or YALI1F25951g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "AGPAT180_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "AGPAT181_lp",
+   "name": "1-acylglycerol-3-phosphate O-acyltransferase (oleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1490[C_lp]": -1.0,
+    "m1705[C_lp]": 1.0,
+    "m573[C_lp]": 1.0,
+    "m577[C_lp]": -1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22736g or YALI1F25951g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "AGPAT181_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "AGPAT182_lp",
+   "name": "1-acylglycerol-3-phosphate O-acyltransferase (linoleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1705[C_lp]": 1.0,
+    "m1735[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m577[C_lp]": -1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E22736g or YALI1F25951g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "AGPAT182_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula",
+    "charge_exception": "+4 charge from the pre-existing species defect m1735[C_lp] (charge -4 on a neutral formula); left for the charges task"
+   }
+  },
+  {
+   "id": "DGAT160_lp",
+   "name": "diacylglycerol acyltransferase (palmitoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1484[C_lp]": -1.0,
+    "m1640[C_lp]": 1.0,
+    "m1642[C_lp]": -1.0,
+    "m573[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E38810g or YALI1D10264g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "DGAT160_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "DGAT161_lp",
+   "name": "diacylglycerol acyltransferase (palmitoleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1486[C_lp]": -1.0,
+    "m1640[C_lp]": 1.0,
+    "m1642[C_lp]": -1.0,
+    "m573[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E38810g or YALI1D10264g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "DGAT161_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "DGAT180_lp",
+   "name": "diacylglycerol acyltransferase (stearoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1488[C_lp]": -1.0,
+    "m1640[C_lp]": 1.0,
+    "m1642[C_lp]": -1.0,
+    "m573[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E38810g or YALI1D10264g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "DGAT180_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "DGAT181_lp",
+   "name": "diacylglycerol acyltransferase (oleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1490[C_lp]": -1.0,
+    "m1640[C_lp]": 1.0,
+    "m1642[C_lp]": -1.0,
+    "m573[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E38810g or YALI1D10264g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "DGAT181_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula"
+   }
+  },
+  {
+   "id": "DGAT182_lp",
+   "name": "diacylglycerol acyltransferase (linoleoyl-CoA), lipid particle",
+   "stoichiometry": {
+    "m1640[C_lp]": 1.0,
+    "m1642[C_lp]": -1.0,
+    "m1735[C_lp]": -1.0,
+    "m573[C_lp]": 1.0
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E38810g or YALI1D10264g",
+   "groups": [
+    "Glycerolipid metabolism"
+   ],
+   "annotation": {
+    "sbo": "SBO:0000176"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "DGAT182_lp",
+    "mcnaugh_ledger_batches": "44",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mass_balance_exception": "user-accepted R-group bookkeeping: a chain-specific acyl-CoA acylates a generic R lipid (mcnaugh_pass design); generic lipid-particle species m577, m1705, m1642 and m1640 carry no balanced chain formula",
+    "charge_exception": "+4 charge from the pre-existing species defect m1735[C_lp] (charge -4 on a neutral formula); left for the charges task"
+   }
+  },
+  {
+   "id": "BIOMASS_C_core",
+   "name": "Biomass synthesis core structural (essential catalytic and structural polymers only)",
+   "stoichiometry": {
+    "m1000[C_cy]": -0.035251,
+    "m1010[C_cy]": 0.172773,
+    "m1011[C_cy]": -0.172773,
+    "m10[C_cy]": 23.09,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m141[C_cy]": -23.09,
+    "m143[C_cy]": 23.09,
+    "m149[C_cy]": -0.059363,
+    "m1631[C_em]": -3.5e-05,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "m273[C_cy]": 0.567939,
+    "m274[C_cy]": -0.567939,
+    "m314[C_cy]": 0.125563,
+    "m315[C_cy]": -0.125563,
+    "m320[C_cy]": 0.186498,
+    "m321[C_cy]": -0.186498,
+    "m32[C_cy]": -23.09,
+    "m335[C_cy]": 0.186531,
+    "m336[C_cy]": -0.186531,
+    "m359[C_cy]": -0.003029,
+    "m35[C_cy]": 23.09,
+    "m401[C_cy]": -0.868358,
+    "m447[C_cy]": 0.003632,
+    "m448[C_cy]": -0.003632,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m505[C_cy]": -0.010353,
+    "m553[C_cy]": 0.243866,
+    "m554[C_cy]": -0.243866,
+    "m555[C_cy]": 0.243904,
+    "m556[C_cy]": -0.243904,
+    "m590[C_cy]": 0.509943,
+    "m591[C_cy]": -0.509943,
+    "m618[C_cy]": 0.053881,
+    "m619[C_cy]": -0.053881,
+    "m746[C_cy]": 0.090566,
+    "m747[C_cy]": -0.090566,
+    "m777[C_cy]": 0.19455,
+    "m778[C_cy]": -0.19455,
+    "m794[C_cy]": 0.275005,
+    "m795[C_cy]": -0.275005,
+    "m806[C_cy]": 0.044232,
+    "m807[C_cy]": -0.044232,
+    "m861[C_cy]": 0.082571,
+    "m862[C_cy]": -0.082571,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m905[C_cy]": 0.206372,
+    "m906[C_cy]": -0.206372,
+    "m93[C_cy]": -0.050871,
+    "m943[C_cy]": 0.284699,
+    "m944[C_cy]": -0.284699,
+    "m95[C_cy]": -0.05721,
+    "m964[C_cy]": -0.02,
+    "m978[C_cy]": 0.210543,
+    "m979[C_cy]": -0.210543,
+    "m987[C_cy]": 0.002154,
+    "m988[C_cy]": -0.002154,
+    "m995[C_cy]": 0.041282,
+    "m996[C_cy]": -0.041282
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "groups": [],
+   "annotation": {
+    "sbo": "SBO:0000629"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "BIOMASS_C_core",
+    "mcnaugh_ledger_batches": "none",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mcnaugh_curator_note": "Core essential structural and catalytic biomass formulation for knockout essentiality screens (omits facultative storage trehalose and neutral TAGs).",
+    "composition_note": "mcnaugh_pass composition translated term for term; not the objective and not for screens. Compared with biomass_C it lacks 18 terms: m122[C_cy] NAD, m1401[C_cy] biomass, m1635[C_cy] heme a, m1640[C_lp] triglyceride, m2062[C_mi] apo-glycine cleavage H-protein (L-lysyl-[GcvH]), m2064[C_mi] apo-E2 lipoyl domain (L-lysyl-[Lat1/Kgd2]), m2065[C_mi] lipoyl-E2 (N6-lipoyl-L-lysyl-[Lat1/Kgd2]), m41[C_cy] NADP(+), m468[C_mi] ubiquinone-9, m479[C_cy] THF, m503[C_er] dolichyl phosphate, m528[C_cy] FAD, m586[C_mi] lipoylprotein, m69[C_cy] coenzyme A, m926[C_cy] riboflavin, m948[C_cy] iron, m975[C_cy] TDP, sphingolipid_ceramide_pool[C_er] sphingolipid ceramide pool (pseudo-metabolite). It draws 20 charged tRNAs directly in place of the trna_biomass_residue terms. Shared terms have the same coefficients"
+   }
+  },
+  {
+   "id": "BIOMASS_C_full",
+   "name": "Biomass synthesis full physiological (including storage carbohydrates and lipids)",
+   "stoichiometry": {
+    "m1000[C_cy]": -0.035251,
+    "m1010[C_cy]": 0.172773,
+    "m1011[C_cy]": -0.172773,
+    "m10[C_cy]": 23.09,
+    "m1123[C_cy]": -0.943397,
+    "m1324[C_cy]": -0.235849,
+    "m141[C_cy]": -23.09,
+    "m143[C_cy]": 23.09,
+    "m149[C_cy]": -0.059363,
+    "m1631[C_em]": -3.5e-05,
+    "m1640[C_lp]": -0.000234,
+    "m1648[C_em]": -7.5e-05,
+    "m1700[C_lp]": -0.000237,
+    "m1701[C_lp]": -0.000346,
+    "m1705[C_lp]": -5.8e-05,
+    "m273[C_cy]": 0.567939,
+    "m274[C_cy]": -0.567939,
+    "m294[C_cy]": -0.00686,
+    "m314[C_cy]": 0.125563,
+    "m315[C_cy]": -0.125563,
+    "m320[C_cy]": 0.186498,
+    "m321[C_cy]": -0.186498,
+    "m32[C_cy]": -23.09,
+    "m335[C_cy]": 0.186531,
+    "m336[C_cy]": -0.186531,
+    "m359[C_cy]": -0.003029,
+    "m35[C_cy]": 23.09,
+    "m401[C_cy]": -0.868358,
+    "m447[C_cy]": 0.003632,
+    "m448[C_cy]": -0.003632,
+    "m459[C_cy]": -0.010436,
+    "m465[C_cy]": -0.009226,
+    "m505[C_cy]": -0.010353,
+    "m553[C_cy]": 0.243866,
+    "m554[C_cy]": -0.243866,
+    "m555[C_cy]": 0.243904,
+    "m556[C_cy]": -0.243904,
+    "m590[C_cy]": 0.509943,
+    "m591[C_cy]": -0.509943,
+    "m618[C_cy]": 0.053881,
+    "m619[C_cy]": -0.053881,
+    "m746[C_cy]": 0.090566,
+    "m747[C_cy]": -0.090566,
+    "m777[C_cy]": 0.19455,
+    "m778[C_cy]": -0.19455,
+    "m794[C_cy]": 0.275005,
+    "m795[C_cy]": -0.275005,
+    "m806[C_cy]": 0.044232,
+    "m807[C_cy]": -0.044232,
+    "m861[C_cy]": 0.082571,
+    "m862[C_cy]": -0.082571,
+    "m86[C_cy]": -0.055401,
+    "m89[C_cy]": -0.01007,
+    "m905[C_cy]": 0.206372,
+    "m906[C_cy]": -0.206372,
+    "m93[C_cy]": -0.050871,
+    "m943[C_cy]": 0.284699,
+    "m944[C_cy]": -0.284699,
+    "m95[C_cy]": -0.05721,
+    "m964[C_cy]": -0.02,
+    "m978[C_cy]": 0.210543,
+    "m979[C_cy]": -0.210543,
+    "m987[C_cy]": 0.002154,
+    "m988[C_cy]": -0.002154,
+    "m995[C_cy]": 0.041282,
+    "m996[C_cy]": -0.041282
+   },
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "",
+   "groups": [],
+   "annotation": {
+    "sbo": "SBO:0000629"
+   },
+   "notes": {
+    "mcnaugh_source_reaction": "BIOMASS_C_full",
+    "mcnaugh_ledger_batches": "none",
+    "curation": "MCNAUGH-REACTIONS-20261103",
+    "mcnaugh_curator_note": "Full physiological biomass including empirical storage compounds (trehalose, storage TAGs).",
+    "composition_note": "mcnaugh_pass composition translated term for term; not the objective and not for screens. Compared with biomass_C it lacks 17 terms: m122[C_cy] NAD, m1401[C_cy] biomass, m1635[C_cy] heme a, m2062[C_mi] apo-glycine cleavage H-protein (L-lysyl-[GcvH]), m2064[C_mi] apo-E2 lipoyl domain (L-lysyl-[Lat1/Kgd2]), m2065[C_mi] lipoyl-E2 (N6-lipoyl-L-lysyl-[Lat1/Kgd2]), m41[C_cy] NADP(+), m468[C_mi] ubiquinone-9, m479[C_cy] THF, m503[C_er] dolichyl phosphate, m528[C_cy] FAD, m586[C_mi] lipoylprotein, m69[C_cy] coenzyme A, m926[C_cy] riboflavin, m948[C_cy] iron, m975[C_cy] TDP, sphingolipid_ceramide_pool[C_er] sphingolipid ceramide pool (pseudo-metabolite). It draws 20 charged tRNAs directly in place of the trna_biomass_residue terms. Shared terms have the same coefficients. It adds m294 trehalose, which was removed from biomass_C on 2026-10-30"
+   }
+  }
+ ],
+ "closures": [
+  {
+   "id": "R353",
+   "equation": "m570[C_lp] + m576[C_lp] --> m573[C_lp] + m577[C_lp]",
+   "stoichiometry": {
+    "m570[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m576[C_lp]": -1.0,
+    "m577[C_lp]": 1.0
+   },
+   "before_bounds": [
+    0.0,
+    1000.0
+   ],
+   "after_bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1C00230g",
+   "reason": "lumped glycerol-3-phosphate acyltransferase (generic acyl-CoA m570); replaced by G3PAT160-182_lp"
+  },
+  {
+   "id": "R1846",
+   "equation": "m570[C_lp] + m577[C_lp] --> m1705[C_lp] + m573[C_lp]",
+   "stoichiometry": {
+    "m1705[C_lp]": 1.0,
+    "m570[C_lp]": -1.0,
+    "m573[C_lp]": 1.0,
+    "m577[C_lp]": -1.0
+   },
+   "before_bounds": [
+    0.0,
+    1000.0
+   ],
+   "after_bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E22736g or YALI1F13550g or YALI1D21511g",
+   "reason": "lumped 1-acylglycerol-3-phosphate acyltransferase (generic acyl-CoA); replaced by AGPAT160-182_lp"
+  },
+  {
+   "id": "R1771",
+   "equation": "m1642[C_lp] + m570[C_lp] <=> m1640[C_lp] + m573[C_lp]",
+   "stoichiometry": {
+    "m1640[C_lp]": 1.0,
+    "m1642[C_lp]": -1.0,
+    "m570[C_lp]": -1.0,
+    "m573[C_lp]": 1.0
+   },
+   "before_bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "after_bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1E38810g",
+   "reason": "lumped, reversible lipid-particle DGAT (generic acyl-CoA); replaced by DGAT160-182_lp. Left open next to them it runs in reverse and loops, raising WT growth to 0.5127"
+  },
+  {
+   "id": "R2165",
+   "equation": "0.27 m1349[C_cy] + 0.05 m1409[C_cy] + 0.06 m1514[C_cy] + 0.1 m1515[C_cy] + 0.09 m1517[C_cy] + 0.24 m1798[C_cy] + 0.01 m1994[C_cy] + 0.17 m2009[C_cy] + 0.02 m2010[C_cy] --> 0.01 m1399[C_cy] + m69[C_cy]",
+   "stoichiometry": {
+    "m1349[C_cy]": -0.27,
+    "m1399[C_cy]": 0.01,
+    "m1409[C_cy]": -0.05,
+    "m1514[C_cy]": -0.06,
+    "m1515[C_cy]": -0.1,
+    "m1517[C_cy]": -0.09,
+    "m1798[C_cy]": -0.24,
+    "m1994[C_cy]": -0.01,
+    "m2009[C_cy]": -0.17,
+    "m2010[C_cy]": -0.02,
+    "m69[C_cy]": 1.0
+   },
+   "before_bounds": [
+    0.0,
+    1000.0
+   ],
+   "after_bounds": [
+    0.0,
+    0.0
+   ],
+   "gpr": "YALI1D10264g",
+   "reason": "cytosolic lumped TAG synthesis; removed in Andrew's design; carries no flux in the baseline (FVA 0..0)"
+  }
+ ],
+ "not_added": [
+  {
+   "mcnaugh_id": "4ABUTtm",
+   "our_counterpart": "R975",
+   "reason": "duplicate once Andrew's 4abut_c is mapped to our m133[C_cy]"
+  },
+  {
+   "mcnaugh_id": "ABUTt2r",
+   "our_counterpart": "R809",
+   "reason": "duplicate once 4abut_c is mapped to m133[C_cy]; identical GPR"
+  },
+  {
+   "mcnaugh_id": "ALCD2irm",
+   "our_counterpart": "removed R132",
+   "reason": "re-adds R132, removed by R132-MITO-ADH-20261013 (user-authorized); +37.9% WT growth"
+  },
+  {
+   "mcnaugh_id": "G3PD1irm",
+   "our_counterpart": "removed R349",
+   "reason": "re-adds R349, removed by CoQ9 respiratory package item C4 (user-authorized 2026-10-08)"
+  },
+  {
+   "mcnaugh_id": "3HPCOAHYD",
+   "our_counterpart": "R2140",
+   "reason": "duplicate once 3hpcoa_c is mapped to m1990[C_cy]"
+  },
+  {
+   "mcnaugh_id": "COMT2",
+   "our_counterpart": "R2097",
+   "reason": "duplicate once 34dhoxpeg_c/3m4hoxpeg_c are mapped to m1954/m1955[C_cy]"
+  },
+  {
+   "mcnaugh_id": "COMT3",
+   "our_counterpart": "R2098",
+   "reason": "duplicate once 34dhoxmand_c/3mox4hoxm_c are mapped to m1956/m1957[C_cy]"
+  },
+  {
+   "mcnaugh_id": "PAC2HYD",
+   "our_counterpart": "R2191",
+   "reason": "duplicate once pac_c is mapped to m2026[C_cy]"
+  },
+  {
+   "mcnaugh_id": "DIPEP1_v",
+   "our_counterpart": "R2021",
+   "reason": "duplicate once gly_v is mapped to m1863[C_va]"
+  },
+  {
+   "mcnaugh_id": "DIPEP2_v",
+   "our_counterpart": "R2029",
+   "reason": "duplicate once gly_v is mapped to m1863[C_va]"
+  },
+  {
+   "mcnaugh_id": "DIPEP3_v",
+   "our_counterpart": "R2034",
+   "reason": "duplicate once gly_v is mapped to m1863[C_va]"
+  },
+  {
+   "mcnaugh_id": "DIPEP4_v",
+   "our_counterpart": "R2039",
+   "reason": "duplicate once gly_v is mapped to m1863[C_va]"
+  }
+ ],
+ "held": [
+  {
+   "mcnaugh_id": "COQ2",
+   "reason": "cytosolic Coq2 conflicts with the mitochondrial CoQ9 package (R407); CoQ9 gate"
+  }
+ ],
+ "known_artefact": "WT growth +0.139% (0.3120535 to about 0.3124886): chain-specific acylation makes generic species and the reversible xPOOL_AC/FA pools let chains interconvert; forward-only pools would give +0.014%. Recorded, not changed (user, 2026-11-03).",
+ "review": "artifacts/tasks/mcnaugh_reactions_review_20261103/review_output.json",
+ "generator_sha256": "7d274a77bf9b0b988f30e58aa17563bac0072ee48bfc034b0b77cdb381eb60d3"
+}
