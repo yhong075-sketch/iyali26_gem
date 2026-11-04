@@ -110,6 +110,7 @@ def build_reference_chain(
     ceramide_pool_biomass: bool = False,
     bigg_crosswalk_annotations: bool = False,
     mcnaugh_reactions: bool = False,
+    vatpase_a1_gpr: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -181,6 +182,9 @@ def build_reference_chain(
         or r608_curation_path is not None
     ):
         raise ValueError("V-ATPase hypothesis requires an offline/no-solve metadata build without other experimental overlays")
+    if vatpase_a1_gpr and vatpase_gpr_hypothesis:
+        # Both rewrite the R794/R795 rule; the A1 step pins the inherited rule.
+        raise ValueError("--vatpase-a1-gpr replaces the inherited R794/R795 rule; not with --vatpase-gpr-hypothesis")
     if starting_model_path.resolve() == Path(output_model_path).resolve():
         raise ValueError("Input and output must be separate files")
     if r608_curation_path is not None:
@@ -910,6 +914,12 @@ def build_reference_chain(
         from .r24_homocitrate_aconitase import apply_r24_homocitrate_aconitase
         selection["r24_homocitrate_aconitase"] = apply_r24_homocitrate_aconitase(model)
         logger.info("R24 homocitrate aconitase: %s", selection["r24_homocitrate_aconitase"]["status"])
+    if vatpase_a1_gpr:
+        # Opt-in: R794/R795 as the core AND (a1 or a2) with V0 e YALI1F25663g as one new gene (2026-11-03). GPRs and
+        # notes only; no flag dependency: the step pins the before-state of both reactions and their 14 genes.
+        from .vatpase_a1_gpr import apply_vatpase_a1_gpr
+        selection["vatpase_a1_gpr"] = apply_vatpase_a1_gpr(model)
+        logger.info("V-ATPase A1 GPR: %s", selection["vatpase_a1_gpr"]["status"])
     if trehalose_biomass_removal:
         # Opt-in: trehalose m294[C_cy] removed from biomass_C (2026-10-30). Must stay after every biomass_C edit:
         # its guard pins the full reviewed e1e7c868 composition.
@@ -1050,6 +1060,7 @@ def build_model(args):
         ceramide_pool_biomass=getattr(args, "ceramide_pool_biomass", False),
         bigg_crosswalk_annotations=getattr(args, "bigg_crosswalk_annotations", False),
         mcnaugh_reactions=getattr(args, "mcnaugh_reactions", False),
+        vatpase_a1_gpr=getattr(args, "vatpase_a1_gpr", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
