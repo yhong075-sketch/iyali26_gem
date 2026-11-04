@@ -172,7 +172,8 @@ validation.
   - 3 builds.
 
   The screen and the rebuild were approved after the audit; the earlier solves went over the stated budget.
-- **Publishing:** nothing is committed or pushed.
+- **Publishing:** committed as `048e18ec` on branch `claude/lipid-unlump-collage-zip-merge-a59051`; pushed with the
+  mcnaugh_pass reactions round and opened as PR #47 to `main` (2026-11-04).
 
 ## 8. Tests
 

@@ -340,10 +340,12 @@ Compared test by test:
   - `screen_v4_20261104/`: the v4 screen (§4), its input SHAs, the comparisons with v3 and v2, the re-score and its
     README;
   - `SHA256SUMS`.
-- **Publishing:** committed on branch `claude/lipid-unlump-collage-zip-merge-a59051` on the user's "Yes, commit"
-  (2026-11-04); not pushed. Left uncommitted: the superseded v3 candidate `…_mcnaugh_rxns_20261103.*` (`ec7e3465`), the
-  `…_mcnaugh_rxns_v2_20261103.*` copy (the same bytes as v4), the superseded pre-audit annotation candidate
-  `…_bigg_annot_20261103.*`, and the auditor's `platform/lps_out.json`.
+- **Publishing:** committed as `ad927509` on branch `claude/lipid-unlump-collage-zip-merge-a59051` on the user's
+  "Yes, commit", pushed on "Yes, push" and opened as PR #47 to `main` on "Open PR" (2026-11-04). Left uncommitted:
+  - the superseded v3 candidate `…_mcnaugh_rxns_20261103.*` (`ec7e3465`);
+  - the `…_mcnaugh_rxns_v2_20261103.*` copy (the same bytes as v4);
+  - the superseded pre-audit annotation candidate `…_bigg_annot_20261103.*`;
+  - the auditor's `platform/lps_out.json`.
 
 ## 11. Memote snapshot (2026-11-04)
 

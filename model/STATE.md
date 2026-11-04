@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-03/04: 17 reviewed mcnaugh_pass reactions (chain-specific lipid-particle Kennedy steps plus two biomass alternatives), lumped steps closed (candidate e584151f; committed on branch claude/lipid-unlump-collage-zip-merge-a59051 on the user's "Yes, commit", 2026-11-04, not pushed)
+## 2026-11-03/04: 17 reviewed mcnaugh_pass reactions (chain-specific lipid-particle Kennedy steps plus two biomass alternatives), lumped steps closed (candidate e584151f; committed ad927509 on claude/lipid-unlump-collage-zip-merge-a59051, PR #47)
 
 **Authorization.** The user, 2026-11-03, on merging Andrew McNaughton's lipid unlumping and extra reactions:
 - "yes, this is what important we wanna merge";
@@ -98,7 +98,7 @@ chain-specific ones (C16:0, C16:1, C18:0, C18:1, C18:2). The user wants the mode
 - **Budget:** 3 builds against "one build and a spare". The third was approved. The LP counts from the review stage
   and the OLE1 diagnosis were not tallied (REPORT §9).
 
-## 2026-11-03: Reviewed BiGG-crosswalk annotations from Andrew McNaughton's mcnaugh_pass handoff, plus a mcnaugh_pass-ID export (candidate 9158e9f2; committed 048e18ec on branch claude/lipid-unlump-collage-zip-merge-a59051, not pushed)
+## 2026-11-03: Reviewed BiGG-crosswalk annotations from Andrew McNaughton's mcnaugh_pass handoff, plus a mcnaugh_pass-ID export (candidate 9158e9f2; committed 048e18ec on claude/lipid-unlump-collage-zip-merge-a59051, PR #47)
 
 **Authorization.** The user, 2026-11-03:
 - "plz check it and try to merge in our model";
