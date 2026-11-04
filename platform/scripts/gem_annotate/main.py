@@ -109,6 +109,7 @@ def build_reference_chain(
     r24_homocitrate_aconitase: bool = False,
     ceramide_pool_biomass: bool = False,
     bigg_crosswalk_annotations: bool = False,
+    mcnaugh_reactions: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -932,6 +933,12 @@ def build_reference_chain(
     if coq_literature_revision:
         selection["coq_literature_revision"] = apply_coq_literature_revision(model, enabled=True)
         logger.warning("Applied CoQ R19/R18 literature candidate; downstream redox gap remains unresolved")
+    if mcnaugh_reactions:
+        # Opt-in: 17 reviewed mcnaugh_pass reactions; closes the lumped Kennedy steps they replace (2026-11-03). Must run
+        # before the crosswalk annotations, which stay the last step that writes annotations.
+        from .mcnaugh_reactions import apply_mcnaugh_reactions
+        selection["mcnaugh_reactions"] = apply_mcnaugh_reactions(model)
+        logger.info("mcnaugh_pass reactions: %s", selection["mcnaugh_reactions"]["status"])
     if bigg_crosswalk_annotations:
         # Opt-in: reviewed annotation values from the mcnaugh_pass BiGG crosswalk (2026-11-03). Must stay after every
         # step that writes annotations: its guard pins each target's reviewed starting value.
@@ -1042,6 +1049,7 @@ def build_model(args):
         r24_homocitrate_aconitase=getattr(args, "r24_homocitrate_aconitase", False),
         ceramide_pool_biomass=getattr(args, "ceramide_pool_biomass", False),
         bigg_crosswalk_annotations=getattr(args, "bigg_crosswalk_annotations", False),
+        mcnaugh_reactions=getattr(args, "mcnaugh_reactions", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
