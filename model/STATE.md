@@ -5,7 +5,31 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-03: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (candidate ab320e18; branch claude/vatpase-gpr-a1-20261103, not committed)
+## 2026-11-03/04: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (pipeline step merged, candidate ab320e18 not kept; branch claude/vatpase-gpr-a1-20261103, PR to main)
+
+**2026-11-04 update.** The user said: "we merge a better candidate than this, can you just merge the pipeline part?".
+The user chose "Code + Scope-1 + docs" and "Commit and open a PR".
+
+**What is merged:**
+- the curated data `curation/gpr/vatpase_a1_gpr.json`;
+- the step `vatpase_a1_gpr.py`, the flag `--vatpase-a1-gpr` (opt-in, off in every existing argv) and its test;
+- the Scope-1 edit;
+- the report.
+
+**What is not merged:**
+- candidate `ab320e18` (archived in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/vatpase_gpr_a1_20261103/`);
+- its README row;
+- the W29 audit row for the new gene, which is needed once a flag-on candidate is kept.
+
+**Checks on main `9b6eafd8`** (verified):
+- the control with `e584151f`'s argv reproduces `e584151f` byte for byte;
+- the flag-on scratch build (`e8991a2c`, not kept) differs from it only in R794/R795 rule and notes and the new gene;
+- focused pytest: 52 passed.
+
+**Not run on main's line:** no LP and no full pytest.
+
+The text below describes the 2026-11-03 round on `2bc263f2`.
+
 
 **Authorization.** On 2026-11-03 the user accepted the recommended line of the V-ATPase decision write-up ("ok, do
 that"). After the read-only E-2 guide check, the user answered "Yes, with E-1 + Scope-1" to "Run the V-ATPase round

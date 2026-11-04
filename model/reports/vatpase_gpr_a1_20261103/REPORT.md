@@ -1,13 +1,15 @@
-# V-ATPase R794/R795 rule (A1 + V0 e) and F-subunit scope (2026-11-03)
+# V-ATPase R794/R795 rule (A1 + V0 e) and F-subunit scope (2026-11-03; merged as pipeline only 2026-11-04)
 
-**Status:** built, verified within the authorized scope, and audited.
+**Status:** the opt-in builder step `--vatpase-a1-gpr`, its curated data and test, and the Scope-1 benchmark edit are
+merged as pipeline only (§8).
 
-**Candidate:** `candidates/E5_…_treh_biomass_r24_aco_ceramide_pool_vatpase_a1_20261103.xml`, SHA-256
-`ab320e18477a186e77773de2acde761c17dc8319f989f5e66b467c88ef3e408e`.
+**Candidate:** the candidate built in this round on `2bc263f2` is **not kept**. On 2026-11-04 the user asked to merge
+only the pipeline part, because main has since taken a better candidate (`e584151f`, PR #47).
+- The candidate was `…_ceramide_pool_vatpase_a1_20261103.xml`, SHA-256
+  `ab320e18477a186e77773de2acde761c17dc8319f989f5e66b467c88ef3e408e`.
+- Its files are archived in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/vatpase_gpr_a1_20261103/candidate_ab320e18_not_kept/`.
 
-**Baseline:** `2bc263f2…a062`.
-
-This is not a designated reference. Nothing is committed or pushed.
+The results in §1–§6 are for that candidate. §8 checks the step on main's line.
 
 The scope, the user's authorization and the acceptance criteria are in [TASK.md](TASK.md).
 
@@ -311,10 +313,14 @@ before tree lives under the session scratchpad, not in a git worktree.
 - `platform/tests/test_vatpase_a1_gpr.py`
 - `model/expected/untargeted_genes_out_of_scope.json`
 - `model/expected/benchmark.md`
-- `model/curation/annotation/w29_tag_protein_audit.csv` and `.json` (regenerated: one new row, `ok`)
-- the candidate XML with its `.build.json` and `.coq9_genes.tsv`
 - this folder
-- `model/STATE.md` and the `candidates/README.md` row
+- `model/STATE.md`
+
+**Not merged (2026-11-04):**
+- the candidate XML with its `.build.json` and `.coq9_genes.tsv` (archived);
+- its `candidates/README.md` row;
+- the W29 audit row for YALI1F25663g. The audit covers only genes in committed models, so it stays as on main. It
+  must be regenerated when a candidate built with `--vatpase-a1-gpr` is kept.
 
 **Scripts in this folder:**
 
@@ -327,3 +333,34 @@ before tree lives under the session scratchpad, not in a git worktree.
 | `ko_targets.py` | the Verify-1 LPs |
 | `recount.py` | the score recount |
 | `run_pytest.zsh` | the full pytest runs |
+
+## 8. Pipeline-only merge on main (2026-11-04)
+
+**Authorization.** The user, 2026-11-04: "we merge a better candidate than this, can you just merge the pipeline
+part?". The user then chose:
+- "Code + Scope-1 + docs" (no candidate XML, no README row, W29 audit as on main);
+- "Commit and open a PR".
+
+**Branch.** `claude/vatpase-gpr-a1-20261103`, rebased onto origin/main `9b6eafd8` (PR #47). The conflicts in
+`cli.py`, `main.py` and `STATE.md` were additions on both sides, and both were kept. The step runs after the R24
+step, before PR #47's mcnaugh_pass and BiGG-crosswalk steps.
+
+**Checks** (verified 2026-11-04):
+
+| Check | Result |
+| --- | --- |
+| In-memory apply on main's candidate `e584151f` | `applied` |
+| Control build, `e584151f`'s argv with the flag off ([scripts/args_e584151f.json](scripts/args_e584151f.json), [scripts/run_builds_main.zsh](scripts/run_builds_main.zsh)) | reproduces `e584151f…39d2` byte for byte |
+| The same argv plus `--vatpase-a1-gpr`, scratch only, not kept | `e8991a2c123fffbaa373a2ef4c4dd57eb84e62c8a58fee139494ee85b3f28233` |
+| Its whole-model diff against `e584151f` ([logs/model_diff_main_vatpase_a1_vs_e584151f.json](logs/model_diff_main_vatpase_a1_vs_e584151f.json)) | the same 5 differences as on 2bc263f2: R794/R795 rule and notes, and gene YALI1F25663g |
+| Focused pytest: this step, mcnaugh_pass, BiGG crosswalk, BiGG export, W29 audit, ceramide pool, 2026-09-11 V-ATPase hypothesis ([logs/pytest_main_merge_focused.txt](logs/pytest_main_merge_focused.txt)) | 52 passed |
+
+**Not run on main's line:**
+- no LP;
+- no knockout sweep;
+- no full pytest.
+
+No score on `e584151f` + the flag is claimed. The Verify-1 results in §3 are for ab320e18 on 2bc263f2.
+
+**Scope-1 on main's scoring.** It removes YALI0E16192g from the TN count of any later sweep. This was not recounted for
+`e584151f`.
