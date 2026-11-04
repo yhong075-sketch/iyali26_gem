@@ -101,6 +101,8 @@ def parse_args(argv=None):
                         help="Add 15 chain-specific lipid-particle G3PAT/AGPAT/DGAT reactions (C16:0-C18:2) and the BIOMASS_C_core/BIOMASS_C_full alternatives (objective 0) from Andrew McNaughton's mcnaugh_pass model, closing the lumped R353, R1846, R1771 and R2165; the lipid steps carry a user-accepted R-group mass imbalance (curated 2026-11-03, MCNAUGH-REACTIONS-20261103)")
     parser.add_argument("--bigg-crosswalk-annotations", action="store_true",
                         help="Set 896 reviewed annotation values (BiGG, MetaNetX, ChEBI, KEGG) from Andrew McNaughton's mcnaugh_pass crosswalk on 595 metabolites and reactions; IDs, chemistry and stoichiometry unchanged; every target must hold its reviewed starting value (curated 2026-11-03, BIGG-XW-ANNOT-20261103)")
+    parser.add_argument("--vatpase-a1-gpr", action="store_true",
+                        help="Write the V-ATPases R794 (Golgi) and R795 (vacuole) as the 12 V1/V0 core subunits (c'' YALI1F13017g moved into the core) and V0 e YALI1F25663g (new gene) AND (a1 YALI1E12482g or a2 YALI1F38820g), removing the headless (a2 and c'') branch; not with --vatpase-gpr-hypothesis (curated 2026-11-03, VATPASE-A1-GPR-20261103)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

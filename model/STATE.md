@@ -5,6 +5,123 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-03/04: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (pipeline step merged, candidate ab320e18 not kept; branch claude/vatpase-gpr-a1-20261103, PR to main)
+
+**2026-11-04 update.** The user said: "we merge a better candidate than this, can you just merge the pipeline part?".
+The user chose "Code + Scope-1 + docs" and "Commit and open a PR".
+
+**What is merged:**
+- the curated data `curation/gpr/vatpase_a1_gpr.json`;
+- the step `vatpase_a1_gpr.py`, the flag `--vatpase-a1-gpr` (opt-in, off in every existing argv) and its test;
+- the Scope-1 edit;
+- the report.
+
+**What is not merged:**
+- candidate `ab320e18` (archived in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/vatpase_gpr_a1_20261103/`);
+- its README row;
+- the W29 audit row for the new gene, which is needed once a flag-on candidate is kept.
+
+**Checks on main `9b6eafd8`** (verified):
+- the control with `e584151f`'s argv reproduces `e584151f` byte for byte;
+- the flag-on scratch build (`e8991a2c`, not kept) differs from it only in R794/R795 rule and notes and the new gene;
+- focused pytest: 52 passed.
+
+**Not run on main's line:** no LP and no full pytest.
+
+The text below describes the 2026-11-03 round on `2bc263f2`.
+
+
+**Authorization.** On 2026-11-03 the user accepted the recommended line of the V-ATPase decision write-up ("ok, do
+that"). After the read-only E-2 guide check, the user answered "Yes, with E-1 + Scope-1" to "Run the V-ATPase round
+with this plan?". The choices:
+- **Std-§5:** AGENTS.md §5 decides the a-subunit OR.
+- **Fgate-lift:** the F subunit may be a required AND member.
+- **A1:** the same rule on both reactions.
+- **Label-1:** the structural-FN label goes in REPORT and STATE only.
+- **Scope-1:** YALI0E16192g goes on the untargeted list.
+- **ID-keep:** keep the CLIB122 ID.
+- **E-1:** add V0 e.
+- **Verify-1:** build, diff, WT and 15 knockout LPs.
+
+No commit or push.
+
+**Change** ([REPORT.md](reports/vatpase_gpr_a1_20261103/REPORT.md), [TASK.md](reports/vatpase_gpr_a1_20261103/TASK.md)).
+
+- **R794 (Golgi) and R795 (vacuole)** change from `(V1 A–H, V0 c, c′, d, a1) or (a2 and c″)` to
+  `V1 A–H and V0 c, c′, c″, d and V0 e YALI1F25663g and (a1 YALI1E12482g or a2 YALI1F38820g)`. The old second branch
+  had no V1 head and no c/c′ ring.
+- **New gene YALI1F25663g:** NCBI Gene 90949792, RefSeq XP_065950526.1. It has no name, UniProt or KEGG ID.
+- **Data and step:** `model/curation/gpr/vatpase_a1_gpr.json`; `platform/scripts/gem_annotate/vatpase_a1_gpr.py`; flag
+  `--vatpase-a1-gpr`, refused together with `--vatpase-gpr-hypothesis`; test `test_vatpase_a1_gpr.py`.
+- **Scope-1:** `YALI0E16192g` added to `expected/untargeted_genes_out_of_scope.json`, with the `benchmark.md` sentence
+  updated. No library guide lies in its W29 locus.
+- **W29 audit:** `curation/annotation/w29_tag_protein_audit.csv/.json` regenerated, giving one new row for
+  YALI1F25663g, flag `ok`.
+- **Not reasons:** score counts and the screen calls of E12482 and F38820. The effect is FN +1 and TN −1.
+
+**Evidence** (tiers in the report):
+- 13 of 15 rule genes are reciprocal best hits of *S. cerevisiae* subunits. a1 is not reciprocal; F has no W29 protein.
+- The c″ null loses all activity (Hirata 1997).
+- Both yeast a isoforms form active pumps, which meets the §5 OR test by homology. Same-compartment substitution is
+  only one-way (Deschamps 2020), so the 2026-09-21 test is deliberately not met.
+- **V0 e:**
+  - for: reciprocal best hit of Vma9 at 61.4 %, and the e null fails assembly (Compton 2006);
+  - against: once assembled, e is not needed in vitro (Bueler 2015);
+  - E-2: the Cas12a "non-essential" call rests on 2 guides that did not cut (CS −1.60, −0.36), while 4 Cas9 guides cut
+    (CS 5.3–7.2) and deplete.
+- **F subunit:** intact when spliced (inferred; no RNA evidence).
+
+**Results** (verified this session):
+- **Builds:**
+  - the control (flag off) reproduces `2bc263f2` byte for byte;
+  - the candidate `ab320e18477a186e77773de2acde761c17dc8319f989f5e66b467c88ef3e408e` is identical at seeds 0 and 1.
+- **Whole-model diff:** 5 differences: R794 and R795 rule and notes, and the new gene.
+- **Verify-1** (16 LPs: Task A + PO1f, Gurobi 1e-9, reset per solve, targeted check):
+  - all optimal and all passed;
+  - WT 0.3120535436 is unchanged;
+  - the 13 core and e knockouts close R794 and grow at WT (KO/WT 1 − 1.6e-14);
+  - a1 or a2 alone close nothing.
+- **Scores** (rule B; mtDNA and untargeted genes out of scope; negatives = model genes not on the consensus list, a
+  user-defined class; a development reference):
+
+  | Cutoff | Before → after (TP / FN / FP / TN) |
+  | --- | --- |
+  | **15 %** | 142 / 184 / 44 / 694 → **142 / 185 / 44 / 693** |
+  | 10 % | 125 / 201 / 44 / 694 → 125 / 202 / 44 / 693 |
+  | 5 % | 121 / 205 / 39 / 699 → 121 / 206 / 39 / 698 |
+  | 1 % | 114 / 212 / 37 / 701 → 114 / 213 / 37 / 700 |
+
+  - In-model positives 326 → 327.
+  - The other 1,067 classes are carried over from the 2bc263f2 sweep. This is inferred, because the LP is the same
+    for knockouts outside the rule; no full sweep was run.
+- **Labels (Label-1):**
+  - **Structural FN (growth in the model does not require this pump):** the 10 earlier FN subunits plus V0 e. Each
+    knockout closes only R794, and no reaction or biomass term needs an organelle H+ gradient.
+  - **a1 E12482:** OR-isoform redundancy.
+- **Audit:** an independent read-only audit (3 builds and 11 LPs of its own) supported 9 of 10 claims. The notes
+  overclaimed ("all 15 reciprocal best hits", F splice not marked inferred, Bueler 2015 missing). They were corrected
+  and the candidate rebuilt (9771e44a → ab320e18, notes only), and Verify-1 was re-run with identical results.
+- **Pytest** (`workflow-automation-review-6765da` venv, no scipy):
+  - **Before** (`b57272d3`, scratch path): 12 failed / 418 passed / 56 errors. 42 of those errors are cobra's
+    260-character path rejection; the same files pass from a short path.
+  - **After:** 14 failed / 465 passed / 14 errors.
+  - **The 2 extra failures** were the W29 audit test seeing the new gene. After regenerating the audit, that file
+    passes (12 passed).
+
+**Limits.**
+- The rule is a homology-based candidate: there are no *Y. lipolytica* localisation, knockout or complex data, and the
+  a1/a2 isoform assignment has only moderate support.
+- R795 stays closed (UM2 A0).
+- Not re-run: the full sweep, and the full pytest after the audit regeneration.
+- **Still open:**
+  - the R_NTP1 rule;
+  - the assembly factors VMA21 and RAV1;
+  - pump-to-growth coupling;
+  - the 2 H+/ATP coefficient;
+  - a pre-existing libSBML "Setting notes on R_R304" error in every build.
+- **Disclosure:** on 2026-11-01 a BLAST-round agent sent the user's e-mail address to EBI Clustal Omega as the required
+  contact field without asking (`vatpase_gpr_blast_20261101/aiso/runs.md`).
+
 ## 2026-11-03/04: 17 reviewed mcnaugh_pass reactions (chain-specific lipid-particle Kennedy steps plus two biomass alternatives), lumped steps closed (candidate e584151f; committed ad927509 on claude/lipid-unlump-collage-zip-merge-a59051, PR #47)
 
 **Authorization.** The user, 2026-11-03, on merging Andrew McNaughton's lipid unlumping and extra reactions:

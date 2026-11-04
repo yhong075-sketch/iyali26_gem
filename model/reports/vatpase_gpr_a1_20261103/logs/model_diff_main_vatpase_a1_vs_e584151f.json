@@ -1,0 +1,69 @@
+[
+ {
+  "section": "reactions",
+  "item": "R794",
+  "field": "gpr",
+  "before": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+  "after": "YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1F13017g and YALI1F25663g and (YALI1E12482g or YALI1F38820g)"
+ },
+ {
+  "section": "reactions",
+  "item": "R794",
+  "field": "notes",
+  "before": {
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+  },
+  "after": {
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+   "vatpase_a1_gpr_curation_id": "VATPASE-A1-GPR-20261103",
+   "vatpase_a1_gpr_status": "user_authorized_gpr_correction",
+   "vatpase_a1_gpr_authorization": "2026-11-03 user: Yes, with E-1 + Scope-1, answering Run the V-ATPase round with this plan? after accepting the recommended line (Std-\u00a75, Fgate-lift, A1, Label-1, Scope-1, ID-keep, Verify-1) and the E-2 guide check: R794 and R795 get the 12 V1/V0 core subunits and V0 e YALI1F25663g AND (a1 YALI1E12482g or a2 YALI1F38820g); flag --vatpase-a1-gpr on baseline 2bc263f2. No commit or push.",
+   "vatpase_a1_gpr_previous_gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+   "vatpase_a1_gpr_standard": "meets AGENTS.md section 5 by homology (each S. cerevisiae a isoform forms an active pump on its own; isoform assignment of a1 and a2 has moderate support); does not meet the 2026-09-21 same-compartment substitution recommendation",
+   "vatpase_a1_gpr_evidence": "13 of the 15 rule genes are reciprocal best hits of S. cerevisiae V-ATPase subunits (BLAST 2026-11-01; H weakest, 26.8%). The two exceptions: a1 YALI1E12482g, whose best S. cerevisiae hit is VPH1 (876 vs 811 bits over STV1), so its Stv1-type assignment is not reciprocal; and V1 F, which has no W29 protein (CLIB122 Q6C5Q2 best hit VMA7, forward only). The former second branch (a2 and c\u2033) had no V1 head and no c/c\u2032 ring; c\u2033 null loses all activity (Hirata 1997, PMID 9030535), so c\u2033 joins the core. Both S. cerevisiae a isoforms form active pumps (Manolson 1994, PMID 7514599; Kawasaki-Nishi 2001, PMID 11592965; Perzov 2002, PMID 11948198), which meets the AGENTS.md section 5 OR test when carried to Y. lipolytica by homology; same-compartment substitution is partial and one-way (Deschamps 2020, PMC7002768), so the 2026-09-21 same-compartment test is deliberately not met until Y. lipolytica localisation data exist. V0 e YALI1F25663g: reciprocal best hit of Vma9 (61.4%); the e null fails V1-V0 assembly (Compton 2006, PMID 16569636); against: once assembled, e is not needed for coupled pumping in vitro (Bueler 2015, PMID 25546637); its Cas12a guides did not cut (CS -1.60, -0.36) while four Cas9 guides cut and deplete. V1 F YALI0E16192g: the W29 pseudogene call is taken to be a missed 2-nt first exon plus a 56-nt intron, giving an intact ORF when spliced (inferred; no RNA evidence checked) (Fgate-lift).",
+   "vatpase_a1_gpr_evidence_tier": "orthology (reciprocal BLAST) and S. cerevisiae mutant and biochemical literature; no Y. lipolytica localisation, knockout or complex data; homology-based candidate rule, not a verified native rule"
+  }
+ },
+ {
+  "section": "reactions",
+  "item": "R795",
+  "field": "gpr",
+  "before": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+  "after": "YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1F13017g and YALI1F25663g and (YALI1E12482g or YALI1F38820g)"
+ },
+ {
+  "section": "reactions",
+  "item": "R795",
+  "field": "notes",
+  "before": {
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+  },
+  "after": {
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+   "vatpase_a1_gpr_curation_id": "VATPASE-A1-GPR-20261103",
+   "vatpase_a1_gpr_status": "user_authorized_gpr_correction",
+   "vatpase_a1_gpr_authorization": "2026-11-03 user: Yes, with E-1 + Scope-1, answering Run the V-ATPase round with this plan? after accepting the recommended line (Std-\u00a75, Fgate-lift, A1, Label-1, Scope-1, ID-keep, Verify-1) and the E-2 guide check: R794 and R795 get the 12 V1/V0 core subunits and V0 e YALI1F25663g AND (a1 YALI1E12482g or a2 YALI1F38820g); flag --vatpase-a1-gpr on baseline 2bc263f2. No commit or push.",
+   "vatpase_a1_gpr_previous_gpr": "(YALI1A11258g and YALI1E14125g and YALI1D00581g and YALI1E10492g and YALI1A09766g and YALI1F20965g and YALI0E16192g and YALI1F31854g and YALI1F21690g and YALI1E37063g and YALI1E32332g and YALI1E12482g) or (YALI1F38820g and YALI1F13017g)",
+   "vatpase_a1_gpr_standard": "meets AGENTS.md section 5 by homology (each S. cerevisiae a isoform forms an active pump on its own; isoform assignment of a1 and a2 has moderate support); does not meet the 2026-09-21 same-compartment substitution recommendation",
+   "vatpase_a1_gpr_evidence": "13 of the 15 rule genes are reciprocal best hits of S. cerevisiae V-ATPase subunits (BLAST 2026-11-01; H weakest, 26.8%). The two exceptions: a1 YALI1E12482g, whose best S. cerevisiae hit is VPH1 (876 vs 811 bits over STV1), so its Stv1-type assignment is not reciprocal; and V1 F, which has no W29 protein (CLIB122 Q6C5Q2 best hit VMA7, forward only). The former second branch (a2 and c\u2033) had no V1 head and no c/c\u2032 ring; c\u2033 null loses all activity (Hirata 1997, PMID 9030535), so c\u2033 joins the core. Both S. cerevisiae a isoforms form active pumps (Manolson 1994, PMID 7514599; Kawasaki-Nishi 2001, PMID 11592965; Perzov 2002, PMID 11948198), which meets the AGENTS.md section 5 OR test when carried to Y. lipolytica by homology; same-compartment substitution is partial and one-way (Deschamps 2020, PMC7002768), so the 2026-09-21 same-compartment test is deliberately not met until Y. lipolytica localisation data exist. V0 e YALI1F25663g: reciprocal best hit of Vma9 (61.4%); the e null fails V1-V0 assembly (Compton 2006, PMID 16569636); against: once assembled, e is not needed for coupled pumping in vitro (Bueler 2015, PMID 25546637); its Cas12a guides did not cut (CS -1.60, -0.36) while four Cas9 guides cut and deplete. V1 F YALI0E16192g: the W29 pseudogene call is taken to be a missed 2-nt first exon plus a 56-nt intron, giving an intact ORF when spliced (inferred; no RNA evidence checked) (Fgate-lift).",
+   "vatpase_a1_gpr_evidence_tier": "orthology (reciprocal BLAST) and S. cerevisiae mutant and biochemical literature; no Y. lipolytica localisation, knockout or complex data; homology-based candidate rule, not a verified native rule"
+  }
+ },
+ {
+  "section": "genes",
+  "item": "YALI1F25663g",
+  "change": "added"
+ }
+]

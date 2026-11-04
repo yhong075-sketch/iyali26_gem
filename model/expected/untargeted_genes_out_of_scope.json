@@ -5,9 +5,17 @@
   "rule": "Model genes that no guide of the Cas9 or Cas12a screen library targets are out of scope for the essentiality benchmark: they are excluded from TP/FN/FP/TN and reported separately. They stay in the model and in GPRs.",
   "identification": "Every library guide (acCRISPR, Ramesh et al. 2023, Supplementary Data 1 and 2) exact-matched on both strands against the gene's W29 locus; no guide lies in it.",
   "evidence": {
-    "YALI0F04114g": "COX9; W29 locus NC_090775.1:624482-625376 (RefSeq pseudogene YALI1_F06244g, 'nonfunctional due to frameshift'; sequence identical to CLIB122 and intact when spliced). No guide in the locus: $IYALI26_RESEARCH_ROOT/artifacts/tasks/cox9_blast_20261030/out/run7_guides_in_cox9_region.tsv."
+    "YALI0F04114g": "COX9; W29 locus NC_090775.1:624482-625376 (RefSeq pseudogene YALI1_F06244g, 'nonfunctional due to frameshift'; sequence identical to CLIB122 and intact when spliced). No guide in the locus: $IYALI26_RESEARCH_ROOT/artifacts/tasks/cox9_blast_20261030/out/run7_guides_in_cox9_region.tsv.",
+    "YALI0E16192g": "V1 F subunit; W29 locus NC_090774.1:1935676-1936100 (RefSeq pseudogene YALI1_E19360g, 'frameshift' from a missed 2-nt first exon plus a 56-nt intron; intact when spliced). No guide in the locus and no guide ID naming E19360 or E16192: $IYALI26_RESEARCH_ROOT/artifacts/tasks/vatpase_gpr_blast_20261101/fsubunit/out/run7_guides_in_F_region.tsv (re-run 2026-11-02, byte-identical)."
   },
   "genes": [
-    "YALI0F04114g"
-  ]
+    "YALI0F04114g",
+    "YALI0E16192g"
+  ],
+  "additions": {
+    "YALI0E16192g": {
+      "decided": "2026-11-03",
+      "authorization": "User, 2026-11-03: 'Yes, with E-1 + Scope-1' on the V-ATPase round plan (Scope-1: YALI0E16192g out of scope, like COX9); model/reports/vatpase_gpr_a1_20261103/TASK.md."
+    }
+  }
 }
