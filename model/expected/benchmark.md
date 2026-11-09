@@ -50,9 +50,10 @@ exclusion.
 
 **Genes no screen guide targets (decided 2026-10-30):** model genes that no guide of the Cas9 or
 Cas12a library targets ([untargeted_genes_out_of_scope.json](untargeted_genes_out_of_scope.json),
-currently `YALI0F04114g`, COX9) are out of scope in the same way: excluded from TP, FN, FP and TN,
-reported separately, kept in the model and in GPRs. Evidence and decision:
-[infeasible_ko_rule_20261030](../reports/infeasible_ko_rule_20261030/REPORT.md).
+currently `YALI0F04114g`, COX9, and `YALI0E16192g`, the V1 F subunit) are out of scope in the same
+way: excluded from TP, FN, FP and TN, reported separately, kept in the model and in GPRs. Evidence
+and decisions: [infeasible_ko_rule_20261030](../reports/infeasible_ko_rule_20261030/REPORT.md) (COX9)
+and [vatpase_gpr_a1_20261103](../reports/vatpase_gpr_a1_20261103/REPORT.md) (V1 F, added 2026-11-03).
 
 ## Classification
 
