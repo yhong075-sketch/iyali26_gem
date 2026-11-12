@@ -5,6 +5,55 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-12: folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added (candidate 85c623c8, uncommitted)
+
+**Authorization.** The user, 2026-11-12, after the review in the shared session notes:
+- "I think there is a gap to fix";
+- "Authorize F1+F2+F4";
+- "Approve plan", covering the implementation, about 2,200 sweep LPs plus the targeted solves, pytest and one audit.
+
+F3 (the R989 gene) stays with the lipid-unlump line. No commit or push.
+
+**Change.** Opt-in `--folinic-acid-module`; data in `curation/folate/folinic_acid_module.json`.
+- **R748** (mitochondrial methenyl-THF → 5-formyl-THF): from the glycine-cleavage T protein `YALI1F04082g` to
+  `YALI1D28569g or YALI1E19557g` (SHMT, as R359); EC 2.1.2.1; renamed.
+- **R990** (gene-less "isomerase" = R64 + R543): closed to (0, 0) and kept.
+- **R_THFAT** (new, cytosolic hydrolysis, rule as R358): gives cytosolic 5-formyl-THF a source. Before this,
+  the FAU1-type R64 could not carry flux, because R991 is export-only.
+- **Evidence:** Rhea 34767 (reviewed enzymes all SHMTs); Stover & Schirch 1990 and Holmes & Appling 2002
+  (abstracts); KEGG files R02300 under EC 2.1.2.10. The *Y. lipolytica* genes rest on KEGG orthology only, and paralog
+  localisation was not checked.
+
+**Result (verified this run).** Candidate `..._mcnaugh_rxns_v3_folinic_acid_v2_20261112.xml`, `85c623c8…`.
+- **Builds:** the control build is byte-identical to `e584151f`; seeds 0 and 1 are identical.
+- **Diff:** the whole-model diff is the intended 11 entries, with a byte-level diff in the logs.
+- **Flux (Task A + PO1f, Gurobi 1e-9):**
+  - WT is unchanged (Δ 3.7e-15);
+  - R64 goes from 0/0 to 0–55.5 with no growth floor;
+  - the module stays ≤ 7.1e-8 within the 1e-9 growth slack.
+- **Sweep:** full certified sweep on both models; zero class or status changes at 1/5/10/15 %. Rule B, mtDNA and
+  untargeted out of scope, 15 %: TP / FN / FP / TN = 141 / 185 / 43 / 694. 326 of the 1,612 positives are in the
+  model.
+- **Pytest** (root `.venv`): 463 → 470 passed; only the 7 new tests differ.
+- **Audit:** independent; 10 findings, all wording or reporting, resolved. Two model note texts were reworded, which
+  gave v2; the superseded `d4832b29` is the same problem, kept until the user decides.
+
+**Limits and open items.**
+- **Stale base.** `main` moved to `efd7f780` (the R2121 and R1172 closures, the AGENTS.md §5 rule) before the builds.
+  This candidate lacks those closures, and merging needs a conflict resolution and a combined build.
+- **User decision:** keep R990 closed at (0, 0) or delete it. Closing a lumped duplicate creates a (0, 0) reaction,
+  and the new §5 rule calls that a gap.
+- **Follow-ups:**
+  - methenyl-THF charge 0 vs ChEBI −1;
+  - R542 blocked at any growth;
+  - 10-formyl-THF metabolites carrying 5-formyl-THF identifiers;
+  - R542 cross-references.
+
+**Links.**
+- [REPORT](reports/folinic_acid_module_20261112/REPORT.md), [AUDIT](reports/folinic_acid_module_20261112/AUDIT.md),
+  [TASK](reports/folinic_acid_module_20261112/TASK.md).
+- Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/folinic_acid_module_20261112/`.
+
 ## 2026-11-03/04: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (pipeline step merged, candidate ab320e18 not kept; branch claude/vatpase-gpr-a1-20261103, PR to main)
 
 **2026-11-04 update.** The user said: "we merge a better candidate than this, can you just merge the pipeline part?".

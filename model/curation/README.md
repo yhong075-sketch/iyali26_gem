@@ -10,6 +10,17 @@ The sections below were moved unchanged from the former top-level README (2026-1
 only paths were updated to the new layout. Commands run from `platform/`. Newer decisions
 are recorded in [../STATE.md](../STATE.md).
 
+## Folinic-acid (5-formyl-THF) module (2026-11-12)
+
+- `folate/folinic_acid_module.json` makes three changes:
+  - R748 (mitochondrial methenyl-THF → 5-formyl-THF) moves from the glycine-cleavage T protein `YALI1F04082g` to the
+    SHMT genes `YALI1D28569g or YALI1E19557g` (EC 2.1.2.1);
+  - the gene-less lumped R990 (= R64 + R543) is closed;
+  - the cytosolic hydrolysis `R_THFAT` is added with the same rule.
+- The data pins the full e584151f definition of R748 and R990, the species, and the three genes' reaction links.
+- Applied by `--folinic-acid-module`.
+- Report: `../reports/folinic_acid_module_20261112/REPORT.md`.
+
 ## R2193 iron-import GPR (2026-10-22)
 
 - `gpr/r2193_iron_gpr.json` replaces R2193's GPR `YALI1F07747g` (a PHO4-like bHLH transcription

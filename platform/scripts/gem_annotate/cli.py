@@ -103,6 +103,8 @@ def parse_args(argv=None):
                         help="Set 896 reviewed annotation values (BiGG, MetaNetX, ChEBI, KEGG) from Andrew McNaughton's mcnaugh_pass crosswalk on 595 metabolites and reactions; IDs, chemistry and stoichiometry unchanged; every target must hold its reviewed starting value (curated 2026-11-03, BIGG-XW-ANNOT-20261103)")
     parser.add_argument("--vatpase-a1-gpr", action="store_true",
                         help="Write the V-ATPases R794 (Golgi) and R795 (vacuole) as the 12 V1/V0 core subunits (c'' YALI1F13017g moved into the core) and V0 e YALI1F25663g (new gene) AND (a1 YALI1E12482g or a2 YALI1F38820g), removing the headless (a2 and c'') branch; not with --vatpase-gpr-hypothesis (curated 2026-11-03, VATPASE-A1-GPR-20261103)")
+    parser.add_argument("--folinic-acid-module", action="store_true",
+                        help="Move R748 (mitochondrial methenyl-THF hydrolysis to 5-formyl-THF) from the glycine-cleavage T protein YALI1F04082g to the SHMT genes YALI1D28569g or YALI1E19557g (EC 2.1.2.1), close the gene-less lumped R990 (R64 + R543), and add the cytosolic hydrolysis R_THFAT with the same rule, so the FAU1-type R64 gets a 5-formyl-THF source (curated 2026-11-12, FOLINIC-ACID-MODULE-20261112)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
