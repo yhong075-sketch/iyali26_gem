@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "curation_id": "R2121-MALONYL-COA-CLOSE-20261112",
+  "status": "user_authorized",
+  "authorization": "2026-11-12 user, after the Stage 1 results (model/reports/r2121_malonyl_coa_20261110/REPORT.md): \"Approve Stage 2\" = close R2121 to (0, 0), keeping the reaction and its GPR, with a note giving the KEGG evidence, through a guarded --r2121-malonyl-coa-close step. Stage 1 was approved on 2026-11-10 (\"A2 malonyl-CoA first\", \"Approve Stage 1\").",
+  "report": "model/reports/r2121_malonyl_coa_20261110/",
+  "reviewer": "Claude (reaction-activation-options session, 2026-11-10/12); independent audit in the report",
+  "baseline_model_sha256": "e584151fc79475fc2daa59e76c8c84ebfd06b0f3cb1fbd75fbb69cc9f31039d2",
+  "baseline_model_note": "Provenance only; the guard pins the reaction states below, not the file SHA.",
+  "reaction_id": "R2121",
+  "reaction_name": "3-Oxopropanoate:NADP+ oxidoreductase (CoA-malonylating)",
+  "gpr": "YALI1C02550g",
+  "before_bounds": [
+    -1000,
+    1000
+  ],
+  "after_bounds": [
+    0,
+    0
+  ],
+  "stoichiometry": {
+    "m41[C_cy]": -1.0,
+    "m69[C_cy]": -1.0,
+    "m1976[C_cy]": -1.0,
+    "m40[C_cy]": 1.0,
+    "m200[C_cy]": 1.0
+  },
+  "species": {
+    "m41[C_cy]": {
+      "formula": "C21H29N7O17P3",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m69[C_cy]": {
+      "formula": "C21H36N7O16P3S",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m1976[C_cy]": {
+      "formula": "C3H3O3",
+      "charge": -1,
+      "compartment": "C_cy"
+    },
+    "m40[C_cy]": {
+      "formula": "C21H30N7O17P3",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m200[C_cy]": {
+      "formula": "C24H38N7O19P3S",
+      "charge": 0,
+      "compartment": "C_cy"
+    }
+  },
+  "annotation": {
+    "sbo": "SBO:0000176",
+    "kegg.reaction": "R00740",
+    "metacyc.reaction": "RXN-8963",
+    "rh": [
+      "26446",
+      "26447",
+      "26448",
+      "26449"
+    ],
+    "rhea": [
+      "26446",
+      "26447",
+      "26448",
+      "26449"
+    ],
+    "seed.reaction": "rxn00532",
+    "vmhreaction": [
+      "MMSAD5",
+      "R_MMSAD5"
+    ],
+    "metanetx.reaction": "MNXR106663",
+    "ec-code": "1.2.1.27",
+    "keggr": "R00740",
+    "metacycr": "RXN-8963",
+    "seedr": "rxn00532",
+    "vmhr": [
+      "MMSAD5",
+      "R_MMSAD5"
+    ]
+  },
+  "before_notes": {
+    "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+    "metadata_selected_fields": "stoichiometry",
+    "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+    "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+  },
+  "balance_note": "As inherited: C and H balance; charge -1 on the substrate side (malonate semialdehyde m1976[C_cy] is -1) and 0 on the product side. Not changed: closing the reaction does not touch its chemistry.",
+  "retained_reaction": {
+    "reaction_id": "R2119",
+    "reaction_name": "3-Oxopropanoate:NAD+ oxidoreductase (decarboxylating, CoA-acetylating)",
+    "gpr": "YALI1C02550g",
+    "bounds": [
+      0.0,
+      1000.0
+    ],
+    "annotation": {
+      "sbo": "SBO:0000176",
+      "bigg.reaction": "MMSAD3",
+      "seed.reaction": "rxn02424",
+      "vmhreaction": [
+        "MMTSAD",
+        "MMTSADm",
+        "R_MMTSAD",
+        "R_MMTSADm"
+      ],
+      "metanetx.reaction": "MNXR188441",
+      "ec-code": "1.2.1.27",
+      "biggr": [
+        "MMTSADm",
+        "R_MMTSADm"
+      ],
+      "seedr": "rxn02424",
+      "vmhr": [
+        "MMTSAD",
+        "MMTSADm",
+        "R_MMTSAD",
+        "R_MMTSADm"
+      ]
+    },
+    "stoichiometry": {
+      "m69[C_cy]": -1.0,
+      "m122[C_cy]": -1.0,
+      "m1976[C_cy]": -1.0,
+      "m10[C_cy]": -1.0,
+      "m68[C_cy]": 1.0,
+      "m82[C_cy]": 1.0,
+      "m123[C_cy]": 1.0
+    },
+    "species": {
+      "m69[C_cy]": {
+        "formula": "C21H36N7O16P3S",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m122[C_cy]": {
+        "formula": "C21H27N7O14P2",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m1976[C_cy]": {
+        "formula": "C3H3O3",
+        "charge": -1,
+        "compartment": "C_cy"
+      },
+      "m10[C_cy]": {
+        "formula": "H",
+        "charge": 1,
+        "compartment": "C_cy"
+      },
+      "m68[C_cy]": {
+        "formula": "C23H38N7O17P3S",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m82[C_cy]": {
+        "formula": "CO2",
+        "charge": 0,
+        "compartment": "C_cy"
+      },
+      "m123[C_cy]": {
+        "formula": "C21H29N7O14P2",
+        "charge": 0,
+        "compartment": "C_cy"
+      }
+    },
+    "role": "KEGG R00705 (EC 1.2.1.18 / 1.2.1.27), the reaction of the K00140 ortholog group that YALI1C02550g belongs to; kept unchanged"
+  },
+  "evidence": [
+    {
+      "claim": "R2121 is KEGG R00740, EC 1.2.1.75, malonyl-CoA reductase (malonate semialdehyde-forming) of the 3-hydroxypropanoate CO2-fixation cycles of green non-sulfur bacteria and thermoacidophilic archaea",
+      "source_url": "https://www.kegg.jp/entry/R00740; https://www.kegg.jp/entry/1.2.1.75",
+      "evidence_tier": "verified (KEGG REST read 2026-11-10)"
+    },
+    {
+      "claim": "YALI1C02550g is yli:2909116, ortholog K00140 (EC 1.2.1.18 / 1.2.1.27), whose reaction R00705 (decarboxylating, CoA-acetylating) is R2119 here",
+      "source_url": "https://www.kegg.jp/entry/yli:2909116; https://www.kegg.jp/entry/R00705",
+      "evidence_tier": "verified (KEGG REST read 2026-11-10; model annotation ec-code 1.2.1.27)"
+    },
+    {
+      "claim": "KEGG assigns no K15017 (malonyl-CoA reductase) gene to Y. lipolytica (yli) or S. cerevisiae (sce)",
+      "source_url": "https://www.kegg.jp/entry/K15017",
+      "evidence_tier": "verified, annotation-level absence (KEGG REST link query 2026-11-10); not an enzyme assay"
+    },
+    {
+      "claim": "Yeast-GEM carries R00705 (r_4573, irreversible) and not R00740; eciYali5-GEM carries neither",
+      "source_url": "$IYALI26_RESEARCH_ROOT/reference/external_models/yeast_gem/Yeast-GEM.xml (SHA-256 9fd2c572...); chalmers_yarrowia/eciYali5-GEM/model/eciYali5-GEM.xml (628df440...)",
+      "evidence_tier": "verified (local copies scanned by KEGG id and name, 2026-11-10)"
+    },
+    {
+      "claim": "Acetyl-CoA carboxylase ACC1 is essential in S. cerevisiae",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/8098706/",
+      "evidence_tier": "verified (abstract)"
+    },
+    {
+      "claim": "R2121 is inherited unchanged (reversible, YALI1C02550g) from iYli21 and the immutable source",
+      "source_url": "model/source/iyli21.xml; model/source/iyali26.xml",
+      "evidence_tier": "verified (read 2026-11-10)"
+    },
+    {
+      "claim": "Stage 1 in memory on e584151f: WT -0.139 %; R88 required (FVA minimum 0.0077); no-uptake ATP maximum 0; sweep 15 % 141/185/43/694 to 143/183/43/694",
+      "source_url": "model/reports/r2121_malonyl_coa_20261110/REPORT.md",
+      "evidence_tier": "observed (computation, 2026-11-10)"
+    }
+  ],
+  "notes": {
+    "r2121_malonyl_coa_close_curation": "R2121-MALONYL-COA-CLOSE-20261112",
+    "r2121_previous_bounds": "[-1000, 1000]",
+    "r2121_malonyl_coa_close_evidence": "KEGG R00740 / EC 1.2.1.75 is the malonyl-CoA reductase (malonate semialdehyde-forming) of the 3-hydroxypropanoate CO2-fixation cycles of green non-sulfur bacteria and thermoacidophilic archaea. YALI1C02550g is KEGG yli:2909116, K00140 (EC 1.2.1.18 / 1.2.1.27); its reaction R00705 is R2119 in this model, kept. KEGG lists no K15017 gene for Y. lipolytica or S. cerevisiae; Yeast-GEM carries R00705 and not R00740, eciYali5-GEM neither (checked 2026-11-10).",
+    "r2121_malonyl_coa_close_effect": "Stage 1 on e584151f (Task A medium + PO1f, Gurobi 1e-9): WT growth -0.139 %; cytosolic malonyl-CoA moves to the acetyl-CoA carboxylase R88; a pFBA TAG lipolysis, beta-oxidation and elongation cycle on glucose stops.",
+    "r2121_malonyl_coa_close_limits": "Inherited from iYli21 with no recorded reason. Absence from KEGG and from the yeast models is annotation-level evidence, not an enzyme assay; no Y. lipolytica enzyme data. Chemistry unchanged (charge -1 on the substrate side as inherited). The inherited ec-code annotation 1.2.1.27 is the EC of the K00140 group of YALI1C02550g, not of R00740 (EC 1.2.1.75); annotations are not changed here.",
+    "r2121_malonyl_coa_close_sources": "https://www.kegg.jp/entry/R00740; https://www.kegg.jp/entry/1.2.1.75; https://www.kegg.jp/entry/yli:2909116; https://www.kegg.jp/entry/R00705; https://www.kegg.jp/entry/K15017",
+    "r2121_malonyl_coa_close_authorization": "User authorized closing R2121 to (0, 0), reaction and GPR kept, on 2026-11-12 after the Stage 1 report (model/reports/r2121_malonyl_coa_20261110/)."
+  }
+}

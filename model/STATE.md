@@ -52,6 +52,95 @@ uncommitted (in the A2 worktree), so the two entries will meet at the top of thi
 the reaction and R412, stack on A2 once it is committed). Found, not changed (REPORT §6): the cytosolic acetyl-CoA
 source; R83's gene annotated peroxisomal (PAT1); Yeast-GEM's ERG13 compartment.
 
+## 2026-11-12: R2121 closed through the builder, candidate 2f352037 (branch claude/reaction-activation-options-1ca120, not committed)
+
+**Authorization.** The user, 2026-11-12: "Approve Stage 2", after the Stage 1 results in
+[REPORT.md](reports/r2121_malonyl_coa_20261110/REPORT.md) (section 6). The scope is in
+[TASK.md](reports/r2121_malonyl_coa_20261110/TASK.md) section 8: close R2121, keeping the reaction and its rule, through
+curated data and the builder, with an Escher figure. No commit.
+
+**Results** ([REPORT.md](reports/r2121_malonyl_coa_20261110/REPORT.md) section 7,
+[AUDIT.md](reports/r2121_malonyl_coa_20261110/AUDIT.md), [escher/](reports/r2121_malonyl_coa_20261110/escher/README.md)).
+Observed this session; the independent audit supports 8 claims and partly supports 2, which are now corrected.
+- **Candidate:** `candidates/E5_…_mcnaugh_rxns_v3_r2121_close_20261112.xml`, SHA-256
+  `2f35203750d1904aa4e50dd7d8eac494d5e6a15b142ea005c33152cea889af7c` = e584151f + `--r2121-malonyl-coa-close`. Not a
+  designated reference.
+- **Change:** R2121 (KEGG R00740, EC 1.2.1.75, a bacterial and archaeal malonyl-CoA reductase on the K00140 gene
+  YALI1C02550g) goes [−1000, 1000] → (0, 0), with 7 notes. R2119, that gene's R00705 reaction, is kept. The whole-model
+  diff against e584151f shows exactly these two entries.
+- **Code:**
+  - data `curation/direction/r2121_malonyl_coa_close.json`;
+  - step `platform/scripts/gem_annotate/r2121_malonyl_coa_close.py`, guarded, idempotent, last model step;
+  - flag `--r2121-malonyl-coa-close`;
+  - test `tests/test_r2121_malonyl_coa_close.py` (6 tests, 43 subtests).
+
+  The code review found no blocking issue; its 5 low findings are fixed.
+- **Builds:** 3 against 3 plus a spare. The control reproduces e584151f byte for byte; seeds 0 and 1 are identical.
+- **Solves** (Task A + PO1f, Gurobi 1e-9):
+  - WT 0.31248856 → 0.31205270 (−0.139 %);
+  - no-uptake ATP maximum 0;
+  - the certified sweep reproduces the Stage 1 in-memory sweep exactly.
+  - At 15 % (rule B, mtDNA + untargeted out of scope): 141 / 185 / 43 / 694 → 143 / 183 / 43 / 694, MCC 0.4560 →
+    0.4616. YALI1E35955g (via the R88 AND rule) and YALI1F28274g (carbonic anhydrase by annotation) change FN → TP at
+    every cutoff; no TP lost. User-defined negatives; development reference.
+- **pytest** (short-path tree copies): 463 → 469 passed. The only differences are the 6 new tests; the same 3 failures
+  and 18 errors before and after.
+- **Escher figure:** in e584151f pFBA, R2121's malonyl-CoA drove a TAG lipolysis, β-oxidation and re-elongation cycle
+  on glucose. In the candidate it stops (45 → 11 of 51 mapped reactions carry flux). R88 now makes the cytosolic
+  malonyl-CoA.
+
+**Limits.** One medium. Absence of R2121 activity rests on annotation (KEGG K15017 and K14468 have no yli gene), not
+an assay. Not addressed:
+- the YALI1E35955g AND-rule question;
+- the optional Asp → β-alanine → R2119 acetyl-CoA route;
+- the chitin coefficient;
+- ATP-citrate lyase at 0;
+- the R304 libSBML notes error, present in every build.
+
+Large outputs are in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r2121_malonyl_coa_20261110/stage2/`.
+
+## 2026-11-10: R2121 malonyl-CoA bypass, Stage 1 in memory on e584151f (computation only, no model change; branch claude/reaction-activation-options-1ca120, not committed)
+
+**Authorization.** The user, 2026-11-10, in the reaction-activation-options session: "A2 malonyl-CoA first" (from the
+ranked options for zero-flux reactions), then "Approve Stage 1" for the plan in
+[TASK.md](reports/r2121_malonyl_coa_20261110/TASK.md). No model XML, curated data, code or test change; no build; no
+commit.
+
+**Why.** In WT pFBA on e584151f, R2121 (3-oxopropanoate + CoA + NADP⁺ ⇌ malonyl-CoA + NADPH, gene YALI1C02550g)
+makes all cytosolic malonyl-CoA (0.186), and the cytosolic ACC R88 carries 0. R2121 is KEGG R00740 / EC 1.2.1.75, the
+malonyl-CoA reductase of bacterial and archaeal CO2-fixation cycles. Its gene is K00140, whose reaction R00705 is
+already in the model as R2119. KEGG has no K15017 gene in yli or sce, and Yeast-GEM and eciYali5 carry no R00740.
+All of this was verified on 2026-11-10; absence from KEGG is annotation-level evidence. R2121 is inherited unchanged
+from iYli21.
+
+**Results** ([REPORT.md](reports/r2121_malonyl_coa_20261110/REPORT.md); observed this run; Task A + PO1f, Gurobi 1e-9;
+1,193 LPs against a budget of 1,400). V1 is e584151f with R2121 set to (0, 0) in memory.
+- **WT:** 0.31248856 (v4 + 3e-15) → 0.31205270 (−0.139 %). The no-uptake ATP maximum is 0 in both. No stop condition
+  was met.
+- **Routes:**
+  - In the baseline, R2121 drove a TAG cycle on glucose: lipase → peroxisomal β-oxidation → ER elongation → DGAT,
+    0.09–0.16. Its acetyl-CoA reached the cytosol through the carnitine shuttle.
+  - In V1 the cycle stops. R88 is required (FVA minimum 0.0077), and cytosolic acetyl-CoA comes from the optional
+    Asp → β-alanine → R2119 route (FVA minimum 0).
+- **Certified sweep** (rule B, mtDNA + current untargeted out of scope; user-defined negatives; development
+  reference):
+  - At 15 %: 141 / 185 / 43 / 694 → 143 / 183 / 43 / 694, MCC 0.4560 → 0.4616.
+  - The same two genes change, FN → TP, at all four cutoffs:
+    - `YALI1E35955g` (biotin–protein ligase by annotation). The call comes only from the R88 AND rule: with ACC alone
+      on R88, its knockout is viable.
+    - `YALI1F28274g` (carbonic anhydrase by annotation), KO/WT 0.159 → 0. Every cytosolic bicarbonate source
+      depends on it, and ACC needs bicarbonate. This matches S. cerevisiae nce103Δ needing high CO2 (Amoroso 2005,
+      verified abstract).
+  - No TP lost, no new FP, no knockout above WT.
+
+**Limits.** One medium. The built candidate is not tested. FVA covers 14 named reactions only. Gene names are database
+annotations. Found and not checked: chitin in `biomass_C` at 0.868 mmol/gDW (the largest cytosolic acetyl-CoA sink);
+ATP-citrate lyase R1894 carries 0 in both models; R88 and R87 encode biotinylation differently.
+
+**Next gate.** Stage 2 needs its own approval: close R2121 through curated data and the builder, with the acceptance
+criteria in REPORT.md §6 and an Escher before/after figure. Large outputs are in
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/r2121_malonyl_coa_20261110/` (`MANIFEST.sha256`).
+
 ## 2026-11-03/04: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (pipeline step merged, candidate ab320e18 not kept; branch claude/vatpase-gpr-a1-20261103, PR to main)
 
 **2026-11-04 update.** The user said: "we merge a better candidate than this, can you just merge the pipeline part?".
