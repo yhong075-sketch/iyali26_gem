@@ -1,0 +1,475 @@
+{
+  "schema_version": 1,
+  "curation_id": "R1172-HMGCOA-TRANSPORT-CLOSE-20261112",
+  "status": "user_authorized",
+  "authorization": "2026-11-12 user, after the Stage 1 results (model/reports/r1172_hmgcoa_transport_20261112/REPORT.md): \"Reverse, approve Stage 2\" = reverse the 2026-09-09 retention for R1172 flux and close R1172 to (0, 0), keeping the reaction, through a guarded --r1172-hmgcoa-transport-close step stacked on the R2121 closure; then \"Commit Stage 1, merge main (Recommended)\" for the base. Stage 1 was approved the same day (\"Approve Stage 1\").",
+  "report": "model/reports/r1172_hmgcoa_transport_20261112/",
+  "reviewer": "Claude (A3 session started from reaction-activation-options, 2026-11-12); independent audit in the report",
+  "baseline_model_sha256": "2f35203750d1904aa4e50dd7d8eac494d5e6a15b142ea005c33152cea889af7c",
+  "baseline_model_note": "Provenance only; the guard pins the reaction states below, not the file SHA. R1172 and the pinned route are the same in e584151f.",
+  "reaction_id": "R1172",
+  "reaction_name": "hydroxymethylglutaryl-CoA transport",
+  "gpr": "",
+  "before_bounds": [
+    -1000,
+    1000
+  ],
+  "after_bounds": [
+    0,
+    0
+  ],
+  "stoichiometry": {
+    "m646[C_cy]": -1.0,
+    "m648[C_mi]": 1.0
+  },
+  "species": {
+    "m646[C_cy]": {
+      "formula": "C27H44N7O20P3S",
+      "charge": 0,
+      "compartment": "C_cy"
+    },
+    "m648[C_mi]": {
+      "formula": "C27H44N7O20P3S",
+      "charge": 0,
+      "compartment": "C_mi"
+    }
+  },
+  "annotation": {
+    "sbo": "SBO:0000185",
+    "bigg.reaction": [
+      "HMGCOAtm",
+      "HMGCOAtx",
+      "R_HMGCOAtm",
+      "R_HMGCOAtx"
+    ],
+    "seed.reaction": "rxn09743",
+    "vmhreaction": [
+      "HMGCOAtm",
+      "HMGCOAtx",
+      "R_HMGCOAtm",
+      "R_HMGCOAtx"
+    ],
+    "metanetx.reaction": "MNXR188233",
+    "biggr": [
+      "HMGCOAtm",
+      "HMGCOAtx",
+      "R_HMGCOAtm",
+      "R_HMGCOAtx"
+    ],
+    "seedr": "rxn09743",
+    "vmhr": [
+      "HMGCOAtm",
+      "HMGCOAtx",
+      "R_HMGCOAtm",
+      "R_HMGCOAtx"
+    ]
+  },
+  "before_notes": {
+    "retention_previous_policy": "Removed as carrier-free HMG-CoA transport between cytosol and mitochondria",
+    "retention_current_status": "Retained by user request; native transport mechanism and carrier GPR remain unconfirmed",
+    "retention_authorization": "User requested retaining R1172 and SPHPL in the previous reference build pipeline on 2026-09-09"
+  },
+  "balance_note": "Balanced as inherited: the same HMG-CoA formula and charge in both compartments. Not changed: closing the reaction does not touch its chemistry.",
+  "required_route": [
+    {
+      "reaction_id": "R82",
+      "reaction_name": "acetyl-CoA C-acetyltransferase",
+      "gpr": "YALI1B11532g",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "ACACT1m",
+          "ACACT1r",
+          "ACACT1x",
+          "KAT1",
+          "R_ACACT1m",
+          "R_ACACT1r",
+          "R_ACACT1x",
+          "R_KAT1",
+          "ACCOAS",
+          "R_ACCOAS"
+        ],
+        "kegg.reaction": "R00238",
+        "metacyc.reaction": "ACETYL-COA-ACETYLTRANSFER-RXN",
+        "rh": [
+          "21036",
+          "21037",
+          "21038",
+          "21039"
+        ],
+        "rhea": [
+          "21036",
+          "21037",
+          "21038",
+          "21039"
+        ],
+        "sabiork.reaction": "531",
+        "seed.reaction": [
+          "rxn00178",
+          "rxn19031",
+          "rxn31209",
+          "rxn31210"
+        ],
+        "vmhreaction": [
+          "ACACT1r",
+          "ACACT1rm",
+          "ACACT1x",
+          "R_ACACT1r",
+          "R_ACACT1rm",
+          "R_ACACT1x"
+        ],
+        "metanetx.reaction": "MNXR190494",
+        "ec-code": "2.3.1.9",
+        "biggr": [
+          "ACACT1m",
+          "ACACT1r",
+          "ACACT1x",
+          "KAT1",
+          "R_ACACT1m",
+          "R_ACACT1r",
+          "R_ACACT1x",
+          "R_KAT1",
+          "ACCOAS",
+          "R_ACCOAS"
+        ],
+        "keggr": "R00238",
+        "metacycr": "ACETYL-COA-ACETYLTRANSFER-RXN",
+        "sabiorkr": "531",
+        "seedr": [
+          "rxn00178",
+          "rxn19031",
+          "rxn31209",
+          "rxn31210"
+        ],
+        "vmhr": [
+          "ACACT1r",
+          "ACACT1rm",
+          "ACACT1x",
+          "R_ACACT1r",
+          "R_ACACT1rm",
+          "R_ACACT1x"
+        ]
+      },
+      "stoichiometry": {
+        "m68[C_cy]": -2.0,
+        "m69[C_cy]": 1.0,
+        "m189[C_cy]": 1.0
+      },
+      "species": {
+        "m68[C_cy]": {
+          "formula": "C23H38N7O17P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m69[C_cy]": {
+          "formula": "C21H36N7O16P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m189[C_cy]": {
+          "formula": "C25H40N7O18P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "role": "cytosolic acetyl-CoA C-acetyltransferase (EC 2.3.1.9, ERG10-like); the only cytosolic acetoacetyl-CoA producer once R1172 is closed; kept unchanged"
+    },
+    {
+      "reaction_id": "R411",
+      "reaction_name": "hydroxymethylglutaryl CoA synthase",
+      "gpr": "YALI1F38116g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "HMGCOAS",
+          "HMGCOASm",
+          "MHGS",
+          "R_HMGCOAS",
+          "R_HMGCOASm",
+          "R_MHGS",
+          "R_r0463",
+          "r0463"
+        ],
+        "kegg.reaction": "R01978",
+        "metacyc.reaction": "HYDROXYMETHYLGLUTARYL-COA-SYNTHASE-RXN",
+        "rh": [
+          "10188",
+          "10189",
+          "10190",
+          "10191"
+        ],
+        "rhea": [
+          "10188",
+          "10189",
+          "10190",
+          "10191"
+        ],
+        "sabiork.reaction": "2021",
+        "seed.reaction": [
+          "rxn01454",
+          "rxn30395"
+        ],
+        "vmhreaction": [
+          "HMGCOAS",
+          "HMGCOASi",
+          "HMGCOASim",
+          "R_HMGCOAS",
+          "R_HMGCOASi",
+          "R_HMGCOASim",
+          "R_r0463",
+          "r0463"
+        ],
+        "metanetx.reaction": "MNXR145223",
+        "ec-code": "2.3.3.10",
+        "biggr": [
+          "HMGCOAS",
+          "HMGCOASm",
+          "MHGS",
+          "R_HMGCOAS",
+          "R_HMGCOASm",
+          "R_MHGS",
+          "R_r0463",
+          "r0463"
+        ],
+        "keggr": "R01978",
+        "metacycr": "HYDROXYMETHYLGLUTARYL-COA-SYNTHASE-RXN",
+        "sabiorkr": "2021",
+        "seedr": [
+          "rxn01454",
+          "rxn30395"
+        ],
+        "vmhr": [
+          "HMGCOAS",
+          "HMGCOASi",
+          "HMGCOASim",
+          "R_HMGCOAS",
+          "R_HMGCOASi",
+          "R_HMGCOASim",
+          "R_r0463",
+          "r0463"
+        ]
+      },
+      "stoichiometry": {
+        "m32[C_cy]": -1.0,
+        "m68[C_cy]": -1.0,
+        "m189[C_cy]": -1.0,
+        "m69[C_cy]": 1.0,
+        "m646[C_cy]": 1.0
+      },
+      "species": {
+        "m32[C_cy]": {
+          "formula": "H2O",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m68[C_cy]": {
+          "formula": "C23H38N7O17P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m189[C_cy]": {
+          "formula": "C25H40N7O18P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m69[C_cy]": {
+          "formula": "C21H36N7O16P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m646[C_cy]": {
+          "formula": "C27H44N7O20P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "role": "cytosolic HMG-CoA synthase (EC 2.3.3.10, ERG13-like); the only cytosolic HMG-CoA producer once R1172 is closed; kept unchanged"
+    },
+    {
+      "reaction_id": "R410",
+      "reaction_name": "hydroxymethylglutaryl CoA reductase",
+      "gpr": "YALI1E05731g",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "annotation": {
+        "sbo": "SBO:0000176",
+        "bigg.reaction": [
+          "HMGCOAR",
+          "HMGCOARr",
+          "HMGCOARx",
+          "R_HMGCOAR",
+          "R_HMGCOARr",
+          "R_HMGCOARx"
+        ],
+        "kegg.reaction": "R02082",
+        "metacyc.reaction": "1.1.1.34-RXN",
+        "rh": [
+          "15989",
+          "15990",
+          "15991",
+          "15992"
+        ],
+        "rhea": [
+          "15989",
+          "15990",
+          "15991",
+          "15992"
+        ],
+        "sabiork.reaction": "2092",
+        "seed.reaction": [
+          "rxn01501",
+          "rxn16887",
+          "rxn16888",
+          "rxn16889",
+          "rxn27458",
+          "rxn37869",
+          "rxn37870",
+          "rxn37871"
+        ],
+        "vmhreaction": [
+          "HMGCOARc",
+          "HMGCOARr",
+          "HMR_4630",
+          "R_HMGCOARc",
+          "R_HMGCOARr",
+          "R_HMR_4630",
+          "R_r0488",
+          "r0488"
+        ],
+        "metanetx.reaction": "MNXR145221",
+        "ec-code": "1.1.1.34",
+        "biggr": [
+          "HMGCOAR",
+          "HMGCOARr",
+          "HMGCOARx",
+          "R_HMGCOAR",
+          "R_HMGCOARr",
+          "R_HMGCOARx"
+        ],
+        "keggr": "R02082",
+        "metacycr": "1.1.1.34-RXN",
+        "sabiorkr": "2092",
+        "seedr": [
+          "rxn01501",
+          "rxn16887",
+          "rxn16888",
+          "rxn16889",
+          "rxn27458",
+          "rxn37869",
+          "rxn37870",
+          "rxn37871"
+        ],
+        "vmhr": [
+          "HMGCOARc",
+          "HMGCOARr",
+          "HMR_4630",
+          "R_HMGCOARc",
+          "R_HMGCOARr",
+          "R_HMR_4630",
+          "R_r0488",
+          "r0488"
+        ]
+      },
+      "stoichiometry": {
+        "m10[C_cy]": -2.0,
+        "m40[C_cy]": -2.0,
+        "m646[C_cy]": -1.0,
+        "m41[C_cy]": 2.0,
+        "m69[C_cy]": 1.0,
+        "m647[C_cy]": 1.0
+      },
+      "species": {
+        "m10[C_cy]": {
+          "formula": "H",
+          "charge": 1,
+          "compartment": "C_cy"
+        },
+        "m40[C_cy]": {
+          "formula": "C21H30N7O17P3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m646[C_cy]": {
+          "formula": "C27H44N7O20P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m41[C_cy]": {
+          "formula": "C21H29N7O17P3",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m69[C_cy]": {
+          "formula": "C21H36N7O16P3S",
+          "charge": 0,
+          "compartment": "C_cy"
+        },
+        "m647[C_cy]": {
+          "formula": "C6H12O4",
+          "charge": 0,
+          "compartment": "C_cy"
+        }
+      },
+      "role": "HMG-CoA reductase (EC 1.1.1.34), the cytosolic consumer that makes mevalonate; kept unchanged"
+    }
+  ],
+  "not_changed": {
+    "R412": "mitochondrial HMG-CoA synthase (YALI1F38116g); Stage 1 showed no role in growth or gene calls once R1172 is closed; its existence is a separate question"
+  },
+  "evidence": [
+    {
+      "claim": "R1172 has no GPR and no carrier; the model has a cytosolic HMG-CoA synthase R411, so R1172 is not needed for connectivity",
+      "source_url": "static read of 2f352037 and e584151f (model/reports/r1172_hmgcoa_transport_20261112/TASK.md section 3)",
+      "evidence_tier": "verified (2026-11-12)"
+    },
+    {
+      "claim": "No evidence found for HMG-CoA crossing the inner mitochondrial membrane in yeast",
+      "source_url": "model/reports/w29_13c_consistency_20261012/REPORT.md section 5.4",
+      "evidence_tier": "recalled; absence of found evidence, not evidence of absence"
+    },
+    {
+      "claim": "S. cerevisiae ERG10 (P41338) is cytosolic by experiment (ECO:0000269, PubMed 5571830; GO cytoplasm IDA:SGD)",
+      "source_url": "https://www.uniprot.org/uniprotkb/P41338/entry",
+      "evidence_tier": "verified (UniProt REST 2026-11-12); cited paper not opened; related yeast"
+    },
+    {
+      "claim": "S. cerevisiae ERG13 (P54839) has no subcellular-location comment; GO nucleus HDA:SGD and mitochondrion NAS:UniProt only",
+      "source_url": "https://www.uniprot.org/uniprotkb/P54839/entry",
+      "evidence_tier": "verified (UniProt REST 2026-11-12)"
+    },
+    {
+      "claim": "Y. lipolytica orthologs: Q6BZW0 (YALI0F30481g) has no compartment annotation; Q6CFB6 (YALI0B08536g) cytoplasm IEA",
+      "source_url": "https://www.uniprot.org/uniprotkb/Q6BZW0/entry; https://www.uniprot.org/uniprotkb/Q6CFB6/entry",
+      "evidence_tier": "verified, annotation only"
+    },
+    {
+      "claim": "Against: Yeast-GEM 9.0.2 (r_1840), iMM904 (HMGCOAtm) and iYali5 (1840) carry the same gene-less reversible transport; Yeast-GEM puts ERG13 only in the mitochondrion",
+      "source_url": "$IYALI26_RESEARCH_ROOT/reference/external_models/ (Yeast-GEM.xml 9fd2c572..., iMM904.xml a4bcff4f..., chalmers_yarrowia iYali5.xml)",
+      "evidence_tier": "verified (local copies scanned 2026-11-12); a model lineage, not biological evidence"
+    },
+    {
+      "claim": "Stage 1 in memory: R1172 closed on 2f352037 gives WT -0.305 %, R82 and R411 required, no-uptake ATP maximum 0, sweep 15 % 143/183/43/694 to 145/181/43/694",
+      "source_url": "model/reports/r1172_hmgcoa_transport_20261112/REPORT.md",
+      "evidence_tier": "observed (computation, 2026-11-12)"
+    }
+  ],
+  "notes": {
+    "r1172_hmgcoa_transport_close_curation": "R1172-HMGCOA-TRANSPORT-CLOSE-20261112",
+    "r1172_previous_bounds": "[-1000, 1000]",
+    "r1172_hmgcoa_transport_close_evidence": "No GPR and no known carrier; no evidence found for HMG-CoA crossing the inner mitochondrial membrane in yeast (model/reports/w29_13c_consistency_20261012 section 5.4). S. cerevisiae ERG10 (UniProt P41338) is cytosolic by experiment; ERG13 (P54839) has no experimental mitochondrial location (GO mitochondrion NAS only). The cytosolic route R82 (YALI1B11532g) and R411 (YALI1F38116g) to HMGR R410 is kept.",
+    "r1172_hmgcoa_transport_close_effect": "Stage 1 in memory (Task A medium + PO1f, Gurobi 1e-9): WT -0.305 % on 2f352037 (-0.207 % on e584151f); R82 and R411 become required; R412 then has no role in growth or gene calls; the YALI1F38116g and YALI1B11532g knockouts go to 0.",
+    "r1172_hmgcoa_transport_close_limits": "Absence of found evidence, not evidence of absence: an uncharacterised carrier may exist. Yeast-GEM 9.0.2 (r_1840), iMM904 (HMGCOAtm) and iYali5 (1840) carry the same gene-less transport. The retention notes stay: the reaction is kept but closed. R412 (mitochondrial HMG-CoA synthase) is not changed. Chemistry unchanged.",
+    "r1172_hmgcoa_transport_close_sources": "https://www.uniprot.org/uniprotkb/P41338/entry; https://www.uniprot.org/uniprotkb/P54839/entry; https://www.uniprot.org/uniprotkb/Q6BZW0/entry; https://www.uniprot.org/uniprotkb/Q6CFB6/entry",
+    "r1172_hmgcoa_transport_close_authorization": "User reversed the 2026-09-09 retention for R1172 flux and authorized closing it to (0, 0), reaction kept, on 2026-11-12 after the Stage 1 report (model/reports/r1172_hmgcoa_transport_20261112/)."
+  }
+}

@@ -54,6 +54,212 @@ F3 (the R989 gene) stays with the lipid-unlump line. No commit or push.
   [TASK](reports/folinic_acid_module_20261112/TASK.md).
 - Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/folinic_acid_module_20261112/`.
 
+## 2026-11-12: Legacy biomass pseudo-reactions, deletion planned (static review only, no model change; committed on claude/great-chebyshev-bc86db, PR to main)
+
+**Authorization.** The user chose on 2026-11-12, in the strict-sn port's D8, to handle deleting the legacy biomass
+family as a separate cleanup. This round was investigation and planning only. The user then said "Approve as
+drafted", approving decisions L1–L8 of the [TASK.md](reports/legacy_biomass_cleanup_20261112/TASK.md). Stage 1, the
+code, the build, the message to Andrew and any commit are not authorized yet.
+
+**Plan.**
+- One opt-in step, `--legacy-biomass-cleanup`, that runs last in the build, after the strict-sn port.
+- It deletes newBiom, xBIOMASS, xAMINOACID, xLIPID, R1372, R1371, R1387 and R1710, plus protein_ m1726, lipids_ m1727
+  and lipid_ m1400.
+- Ergosterol ester m1394 stays as a flagged orphan.
+- BIOMASS_C_core/full stay closed until Andrew agrees to delete them.
+- `biomass_C`, R1373, xMAINTENANCE and biomass_ m1401 stay.
+
+**Findings** (static, verified on e584151f and 684f3752; the family is identical in both):
+- None of the ten reactions has a GPR. The objective is `biomass_C` alone.
+- R1372 cannot carry flux: m1400's only producer, R1371, is 0..0. The source has R1372 at 0..0; `fix_biomass_reaction`
+  opens it.
+- BIOMASS_C_core/full do not make m1401.
+- The tRNA template (R1387/R1710), the four biomass guard files, the metadata selection and the R1372 diagnosis all
+  run earlier in the build, so a last step avoids them.
+- Real blocker: `platform/tools/export_bigg_ids.py:82–85` refuses a model missing any entity of Andrew's SHA-pinned
+  crosswalk, which lists most of the family. The plan changes the exporter to accept curated removals.
+
+**Limits.**
+- Static only: that WT growth is unchanged and that no reaction becomes blocked are inferred. Stage 1 (WT, FVA,
+  no-uptake ATP; a screen only if a gene-carrying reaction changes) needs approval.
+- Next step blocked: L8 (a) needs the port candidate, and the port's D0 is waiting on Andrew.
+- Static review: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/legacy_biomass_cleanup_20261112/static_review/`.
+
+## 2026-11-12: R1172 closed through the builder on top of the R2121 closure, candidate 684f3752 (committed 692f4c5f on claude/trusting-mahavira-6f0342, PR #51)
+
+**Authorization.** The user, 2026-11-12, after the Stage 1 results: "Reverse, approve Stage 2", which reverses the
+2026-09-09 retention for R1172's flux (the reaction stays, closed). Then "Commit Stage 1, merge main (Recommended)" for
+the base, A2 having been merged to main as PR #50: Stage 1 commit `f379441c`, merge of `origin/main` `b3c150f7`, no
+push. Scope: [TASK.md](reports/r1172_hmgcoa_transport_20261112/TASK.md) section 8; results:
+[REPORT.md](reports/r1172_hmgcoa_transport_20261112/REPORT.md) section 7;
+[AUDIT.md](reports/r1172_hmgcoa_transport_20261112/AUDIT.md); figure
+[escher/](reports/r1172_hmgcoa_transport_20261112/escher/README.md).
+
+**Change.** R1172 bounds [−1000, 1000] → [0, 0] plus 7 notes; reaction, empty GPR, stoichiometry, annotation and the
+3 retention notes kept. Data `model/curation/selection/r1172_hmgcoa_transport_close.json`
+(`R1172-HMGCOA-TRANSPORT-CLOSE-20261112`), guarded step `apply_r1172_hmgcoa_transport_close`, opt-in flag
+`--r1172-hmgcoa-transport-close` (last step, after `--r2121-malonyl-coa-close`), 8 tests. The guard pins R1172 and the
+cytosolic route R82 / R411 / R410; R412 and R2121 are not touched. `retained_reactions.json` records the reversal in a
+field that does not reach the XML.
+
+**Results** (observed this run; audited):
+- Base 2f352037 (`2f352037…af7c`, committed `1d0ed68b`). Candidate
+  `model/candidates/E5_…_mcnaugh_rxns_v3_r2121_close_r1172_close_20261112.xml`, SHA-256
+  `684f3752764fb8f25219008966953863141724f34a451dffb77c235aa3cb2f62`. The control build reproduces 2f352037 byte for
+  byte; seeds 0 and 1 are identical; the whole-model diff is R1172's bounds and notes only.
+- WT 0.3111005359259494 (−0.305 % vs 2f352037; Task A medium + PO1f, Gurobi 1e-9); no-uptake ATP maximum 0. The
+  certified sweep is byte-identical to the Stage 1 S1 sweep: at 15 % rule B 143 / 183 / 43 / 694 → 145 / 181 / 43 / 694;
+  YALI1F38116g and YALI1B11532g FN → TP at every cutoff; nothing else changes class; no TP lost.
+- Escher before/after map and offline viewer: the HMG-CoA supply moves from R83 → R412 → R1172 (+ CoA return R834) to
+  R82 → R411.
+- pytest (root `.venv`): 469 → 477 passed; only the 8 new tests differ, all passing; the 3 failed / 18 errors are standing.
+- Code review: no blocking finding (two low findings acted on). Independent audit: every claim supported except the
+  review's provenance (unverified, since recorded); five paperwork problems fixed.
+
+**Scoring note.** Negatives are the user-defined class; mtDNA and untargeted genes out of scope; development reference.
+
+**Limits and open gaps.** One medium and objective. R1172 at (0, 0) is itself an inactive reaction under the root
+AGENTS.md §5 rule added 2026-11-12: recorded as an open gap (no known carrier), not a finished fix of the transport.
+Found, not changed: R2119 (Asp → β-alanine route) becomes required near the optimum (FVA [0.2115, 0.5647]), the
+cytosolic acetyl-CoA source question from A2 grows; R412's existence; R410's inherited −2 charge residual. Stage 2
+committed as `692f4c5f` and opened as PR #51 on the user's instructions. Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/`.
+
+## 2026-11-12: R1172 gene-less HMG-CoA transport closed in memory (option A3, Stage 1; no build, no model change; committed f379441c on claude/trusting-mahavira-6f0342, PR #51)
+
+**Authorization.** The user, 2026-11-12: "Approve Stage 1", approving the A3 Stage 1 plan as written (both sweeps).
+Computation and documentation only. This does **not** reverse the recorded 2026-09-09 decision to retain R1172
+(`model/curation/selection/retained_reactions.json`, "Retained by user request"); Stage 2 needs that reversal plus
+a separate approval. Details: [TASK.md](reports/r1172_hmgcoa_transport_20261112/TASK.md),
+[REPORT.md](reports/r1172_hmgcoa_transport_20261112/REPORT.md); artifacts in
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/` (`MANIFEST.sha256`).
+
+**Inputs.** e584151f (`e584151f…39d2`, committed `ad927509`) and, for the stacked run, the uncommitted A2 candidate
+2f352037 (`2f352037…af7c`, worktree `yali1-c06006g-gene-024dc8`); both via short-path copies with the same SHA. Task A
+medium `6eca70fd…` + PO1f `35307853…`; list `1e887f5a…`; untargeted scope `244b941c…`. Gurobi 1e-9, checked solve
+`69c42690…`, certified sweep `313d5d01…` plus one line closing R1172. HEAD `154eb64c`. 2,469 LPs (budget 2,600).
+
+**Results** (observed this run unless marked):
+- B0 reproduces v4 WT (+3e-15) and S0 reproduces the A2 V1 WT exactly. Every energy check 0, optimal.
+- R1172 closed: WT −0.207 % on e584151f (0.3118417510071664) and −0.305 % on 2f352037 (0.3111005359259494).
+  R82 and R411 become required (FVA minimum 0.072). R412 has no role once R1172 is closed (R412 also closed:
+  WT −2e-15; R412 alone closed in V1: KO/WT 1.000).
+- Controls in V1: YALI1F38116g 0, YALI1B11532g 0, R411 alone closed 0, YALI1E13899g (R83) 1.000.
+- Sweeps, rule B, 15 %: v4 141 / 185 / 43 / 694 → V1 143 / 183 / 43 / 694; A2 V1 143 / 183 / 43 / 694 → S1
+  145 / 181 / 43 / 694. Class changes: YALI1F38116g and YALI1B11532g FN → TP at all four cutoffs, in both
+  comparisons; no TP lost, no FP change, no knockout above WT, no interaction with A2. The same 20 knockouts are
+  certified infeasible in all four screens.
+- Mechanism: the extra ~0.216 cytosolic acetyl-CoA comes from the carnitine shuttle fed by the R2121 TAG cycle
+  (e584151f) or from the Asp → β-alanine → R2119 route (2f352037); ATP-citrate lyase stays at 0 in pFBA.
+  YALI1F20788g (R834, CoA import into the mitochondrion) goes 0.998 → 1.000: R834 only returned the CoA that left
+  with HMG-CoA. It stays FN.
+- Evidence (TASK.md §3): no GPR or carrier (verified); no evidence found for HMG-CoA crossing the inner membrane
+  (Task C, recalled); S. cerevisiae ERG10 cytosolic by experiment and ERG13 with no experimental mitochondrial
+  location (UniProt REST, verified). Against: the 2026-09-09 retention; Yeast-GEM 9.0.2, iMM904 and iYali5 carry the
+  same gene-less transport (verified static scan); Yeast-GEM has ERG13 only in the mitochondrion.
+
+**Gene names.** YALI1F38116g and YALI1B11532g have no verified name; HMG-CoA synthase and acetoacetyl-CoA thiolase by
+database annotation only (Q6BZW0, Q6CFB6).
+
+**Scoring note.** Negatives are the user-defined class (model genes not on the consensus list); mtDNA and untargeted
+genes are out of scope; the list was used in development, so this is a development reference.
+
+**Limits.** In memory only; one medium; one pFBA optimum; FVA on 19 reactions. No new literature search, no
+independent audit, no Escher figure (Stage 2). S1 depends on the uncommitted 2f352037. The A2 STATE entry is also
+uncommitted (in the A2 worktree), so the two entries will meet at the top of this file on merge.
+
+**Open decisions (user).** Reverse the R1172 retention and approve Stage 2 (REPORT §5a: close R1172 to (0, 0), keep
+the reaction and R412, stack on A2 once it is committed). Found, not changed (REPORT §6): the cytosolic acetyl-CoA
+source; R83's gene annotated peroxisomal (PAT1); Yeast-GEM's ERG13 compartment.
+
+## 2026-11-12: R2121 closed through the builder, candidate 2f352037 (branch claude/reaction-activation-options-1ca120, not committed)
+
+**Authorization.** The user, 2026-11-12: "Approve Stage 2", after the Stage 1 results in
+[REPORT.md](reports/r2121_malonyl_coa_20261110/REPORT.md) (section 6). The scope is in
+[TASK.md](reports/r2121_malonyl_coa_20261110/TASK.md) section 8: close R2121, keeping the reaction and its rule, through
+curated data and the builder, with an Escher figure. No commit.
+
+**Results** ([REPORT.md](reports/r2121_malonyl_coa_20261110/REPORT.md) section 7,
+[AUDIT.md](reports/r2121_malonyl_coa_20261110/AUDIT.md), [escher/](reports/r2121_malonyl_coa_20261110/escher/README.md)).
+Observed this session; the independent audit supports 8 claims and partly supports 2, which are now corrected.
+- **Candidate:** `candidates/E5_…_mcnaugh_rxns_v3_r2121_close_20261112.xml`, SHA-256
+  `2f35203750d1904aa4e50dd7d8eac494d5e6a15b142ea005c33152cea889af7c` = e584151f + `--r2121-malonyl-coa-close`. Not a
+  designated reference.
+- **Change:** R2121 (KEGG R00740, EC 1.2.1.75, a bacterial and archaeal malonyl-CoA reductase on the K00140 gene
+  YALI1C02550g) goes [−1000, 1000] → (0, 0), with 7 notes. R2119, that gene's R00705 reaction, is kept. The whole-model
+  diff against e584151f shows exactly these two entries.
+- **Code:**
+  - data `curation/direction/r2121_malonyl_coa_close.json`;
+  - step `platform/scripts/gem_annotate/r2121_malonyl_coa_close.py`, guarded, idempotent, last model step;
+  - flag `--r2121-malonyl-coa-close`;
+  - test `tests/test_r2121_malonyl_coa_close.py` (6 tests, 43 subtests).
+
+  The code review found no blocking issue; its 5 low findings are fixed.
+- **Builds:** 3 against 3 plus a spare. The control reproduces e584151f byte for byte; seeds 0 and 1 are identical.
+- **Solves** (Task A + PO1f, Gurobi 1e-9):
+  - WT 0.31248856 → 0.31205270 (−0.139 %);
+  - no-uptake ATP maximum 0;
+  - the certified sweep reproduces the Stage 1 in-memory sweep exactly.
+  - At 15 % (rule B, mtDNA + untargeted out of scope): 141 / 185 / 43 / 694 → 143 / 183 / 43 / 694, MCC 0.4560 →
+    0.4616. YALI1E35955g (via the R88 AND rule) and YALI1F28274g (carbonic anhydrase by annotation) change FN → TP at
+    every cutoff; no TP lost. User-defined negatives; development reference.
+- **pytest** (short-path tree copies): 463 → 469 passed. The only differences are the 6 new tests; the same 3 failures
+  and 18 errors before and after.
+- **Escher figure:** in e584151f pFBA, R2121's malonyl-CoA drove a TAG lipolysis, β-oxidation and re-elongation cycle
+  on glucose. In the candidate it stops (45 → 11 of 51 mapped reactions carry flux). R88 now makes the cytosolic
+  malonyl-CoA.
+
+**Limits.** One medium. Absence of R2121 activity rests on annotation (KEGG K15017 and K14468 have no yli gene), not
+an assay. Not addressed:
+- the YALI1E35955g AND-rule question;
+- the optional Asp → β-alanine → R2119 acetyl-CoA route;
+- the chitin coefficient;
+- ATP-citrate lyase at 0;
+- the R304 libSBML notes error, present in every build.
+
+Large outputs are in `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r2121_malonyl_coa_20261110/stage2/`.
+
+## 2026-11-10: R2121 malonyl-CoA bypass, Stage 1 in memory on e584151f (computation only, no model change; branch claude/reaction-activation-options-1ca120, not committed)
+
+**Authorization.** The user, 2026-11-10, in the reaction-activation-options session: "A2 malonyl-CoA first" (from the
+ranked options for zero-flux reactions), then "Approve Stage 1" for the plan in
+[TASK.md](reports/r2121_malonyl_coa_20261110/TASK.md). No model XML, curated data, code or test change; no build; no
+commit.
+
+**Why.** In WT pFBA on e584151f, R2121 (3-oxopropanoate + CoA + NADP⁺ ⇌ malonyl-CoA + NADPH, gene YALI1C02550g)
+makes all cytosolic malonyl-CoA (0.186), and the cytosolic ACC R88 carries 0. R2121 is KEGG R00740 / EC 1.2.1.75, the
+malonyl-CoA reductase of bacterial and archaeal CO2-fixation cycles. Its gene is K00140, whose reaction R00705 is
+already in the model as R2119. KEGG has no K15017 gene in yli or sce, and Yeast-GEM and eciYali5 carry no R00740.
+All of this was verified on 2026-11-10; absence from KEGG is annotation-level evidence. R2121 is inherited unchanged
+from iYli21.
+
+**Results** ([REPORT.md](reports/r2121_malonyl_coa_20261110/REPORT.md); observed this run; Task A + PO1f, Gurobi 1e-9;
+1,193 LPs against a budget of 1,400). V1 is e584151f with R2121 set to (0, 0) in memory.
+- **WT:** 0.31248856 (v4 + 3e-15) → 0.31205270 (−0.139 %). The no-uptake ATP maximum is 0 in both. No stop condition
+  was met.
+- **Routes:**
+  - In the baseline, R2121 drove a TAG cycle on glucose: lipase → peroxisomal β-oxidation → ER elongation → DGAT,
+    0.09–0.16. Its acetyl-CoA reached the cytosol through the carnitine shuttle.
+  - In V1 the cycle stops. R88 is required (FVA minimum 0.0077), and cytosolic acetyl-CoA comes from the optional
+    Asp → β-alanine → R2119 route (FVA minimum 0).
+- **Certified sweep** (rule B, mtDNA + current untargeted out of scope; user-defined negatives; development
+  reference):
+  - At 15 %: 141 / 185 / 43 / 694 → 143 / 183 / 43 / 694, MCC 0.4560 → 0.4616.
+  - The same two genes change, FN → TP, at all four cutoffs:
+    - `YALI1E35955g` (biotin–protein ligase by annotation). The call comes only from the R88 AND rule: with ACC alone
+      on R88, its knockout is viable.
+    - `YALI1F28274g` (carbonic anhydrase by annotation), KO/WT 0.159 → 0. Every cytosolic bicarbonate source
+      depends on it, and ACC needs bicarbonate. This matches S. cerevisiae nce103Δ needing high CO2 (Amoroso 2005,
+      verified abstract).
+  - No TP lost, no new FP, no knockout above WT.
+
+**Limits.** One medium. The built candidate is not tested. FVA covers 14 named reactions only. Gene names are database
+annotations. Found and not checked: chitin in `biomass_C` at 0.868 mmol/gDW (the largest cytosolic acetyl-CoA sink);
+ATP-citrate lyase R1894 carries 0 in both models; R88 and R87 encode biotinylation differently.
+
+**Next gate.** Stage 2 needs its own approval: close R2121 through curated data and the builder, with the acceptance
+criteria in REPORT.md §6 and an Escher before/after figure. Large outputs are in
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/r2121_malonyl_coa_20261110/` (`MANIFEST.sha256`).
+
 ## 2026-11-03/04: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (pipeline step merged, candidate ab320e18 not kept; branch claude/vatpase-gpr-a1-20261103, PR to main)
 
 **2026-11-04 update.** The user said: "we merge a better candidate than this, can you just merge the pipeline part?".
