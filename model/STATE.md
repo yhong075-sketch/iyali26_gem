@@ -5,6 +5,37 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-12: Legacy biomass pseudo-reactions, deletion planned (static review only, no model change; committed on claude/great-chebyshev-bc86db, PR to main)
+
+**Authorization.** The user chose on 2026-11-12, in the strict-sn port's D8, to handle deleting the legacy biomass
+family as a separate cleanup. This round was investigation and planning only. The user then said "Approve as
+drafted", approving decisions L1–L8 of the [TASK.md](reports/legacy_biomass_cleanup_20261112/TASK.md). Stage 1, the
+code, the build, the message to Andrew and any commit are not authorized yet.
+
+**Plan.**
+- One opt-in step, `--legacy-biomass-cleanup`, that runs last in the build, after the strict-sn port.
+- It deletes newBiom, xBIOMASS, xAMINOACID, xLIPID, R1372, R1371, R1387 and R1710, plus protein_ m1726, lipids_ m1727
+  and lipid_ m1400.
+- Ergosterol ester m1394 stays as a flagged orphan.
+- BIOMASS_C_core/full stay closed until Andrew agrees to delete them.
+- `biomass_C`, R1373, xMAINTENANCE and biomass_ m1401 stay.
+
+**Findings** (static, verified on e584151f and 684f3752; the family is identical in both):
+- None of the ten reactions has a GPR. The objective is `biomass_C` alone.
+- R1372 cannot carry flux: m1400's only producer, R1371, is 0..0. The source has R1372 at 0..0; `fix_biomass_reaction`
+  opens it.
+- BIOMASS_C_core/full do not make m1401.
+- The tRNA template (R1387/R1710), the four biomass guard files, the metadata selection and the R1372 diagnosis all
+  run earlier in the build, so a last step avoids them.
+- Real blocker: `platform/tools/export_bigg_ids.py:82–85` refuses a model missing any entity of Andrew's SHA-pinned
+  crosswalk, which lists most of the family. The plan changes the exporter to accept curated removals.
+
+**Limits.**
+- Static only: that WT growth is unchanged and that no reaction becomes blocked are inferred. Stage 1 (WT, FVA,
+  no-uptake ATP; a screen only if a gene-carrying reaction changes) needs approval.
+- Next step blocked: L8 (a) needs the port candidate, and the port's D0 is waiting on Andrew.
+- Static review: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/legacy_biomass_cleanup_20261112/static_review/`.
+
 ## 2026-11-12: R1172 closed through the builder on top of the R2121 closure, candidate 684f3752 (committed 692f4c5f on claude/trusting-mahavira-6f0342, PR #51)
 
 **Authorization.** The user, 2026-11-12, after the Stage 1 results: "Reverse, approve Stage 2", which reverses the
