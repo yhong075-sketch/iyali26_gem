@@ -5,7 +5,7 @@ Scope, authorization, evidence and plan: [TASK.md](TASK.md) (Stage 2 is section 
 user approved). Section 7 is Stage 2, with the independent audit in [AUDIT.md](AUDIT.md) and the figure in
 [escher/](escher/README.md). Scripts, raw solves and sweeps:
 `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/` (`MANIFEST.sha256`). Stage 1 was committed
-in `f379441c`; Stage 2 is not committed.
+in `f379441c` and Stage 2 in `692f4c5f`; both are in PR #51.
 
 ## 1. Run
 

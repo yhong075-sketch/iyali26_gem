@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-12: R1172 closed through the builder on top of the R2121 closure, candidate 684f3752 (branch claude/trusting-mahavira-6f0342, not committed)
+## 2026-11-12: R1172 closed through the builder on top of the R2121 closure, candidate 684f3752 (committed 692f4c5f on claude/trusting-mahavira-6f0342, PR #51)
 
 **Authorization.** The user, 2026-11-12, after the Stage 1 results: "Reverse, approve Stage 2", which reverses the
 2026-09-09 retention for R1172's flux (the reaction stays, closed). Then "Commit Stage 1, merge main (Recommended)" for
@@ -41,10 +41,10 @@ field that does not reach the XML.
 **Limits and open gaps.** One medium and objective. R1172 at (0, 0) is itself an inactive reaction under the root
 AGENTS.md §5 rule added 2026-11-12: recorded as an open gap (no known carrier), not a finished fix of the transport.
 Found, not changed: R2119 (Asp → β-alanine route) becomes required near the optimum (FVA [0.2115, 0.5647]), the
-cytosolic acetyl-CoA source question from A2 grows; R412's existence; R410's inherited −2 charge residual. Nothing
-committed or pushed for Stage 2. Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/`.
+cytosolic acetyl-CoA source question from A2 grows; R412's existence; R410's inherited −2 charge residual. Stage 2
+committed as `692f4c5f` and opened as PR #51 on the user's instructions. Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/`.
 
-## 2026-11-12: R1172 gene-less HMG-CoA transport closed in memory (option A3, Stage 1; no build, no model change; branch claude/trusting-mahavira-6f0342, not committed)
+## 2026-11-12: R1172 gene-less HMG-CoA transport closed in memory (option A3, Stage 1; no build, no model change; committed f379441c on claude/trusting-mahavira-6f0342, PR #51)
 
 **Authorization.** The user, 2026-11-12: "Approve Stage 1", approving the A3 Stage 1 plan as written (both sweeps).
 Computation and documentation only. This does **not** reverse the recorded 2026-09-09 decision to retain R1172
