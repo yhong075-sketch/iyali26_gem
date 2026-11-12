@@ -111,6 +111,7 @@ def build_reference_chain(
     bigg_crosswalk_annotations: bool = False,
     mcnaugh_reactions: bool = False,
     vatpase_a1_gpr: bool = False,
+    r2121_malonyl_coa_close: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -955,6 +956,13 @@ def build_reference_chain(
         from .bigg_crosswalk_annotations import apply_bigg_crosswalk_annotations
         selection["bigg_crosswalk_annotations"] = apply_bigg_crosswalk_annotations(model)
         logger.info("BiGG crosswalk annotations: %s", selection["bigg_crosswalk_annotations"]["status"])
+    if r2121_malonyl_coa_close:
+        # Opt-in: R2121 (KEGG R00740) closed to (0, 0), R2119 kept (2026-11-12). Bounds and notes only. Runs last:
+        # its guard pins R2121 and R2119 as written in e584151f (after the E5 read-back, and R2119's annotation after
+        # the crosswalk), so it needs the e584151f flag set and fails closed at this point without it.
+        from .r2121_malonyl_coa_close import apply_r2121_malonyl_coa_close
+        selection["r2121_malonyl_coa_close"] = apply_r2121_malonyl_coa_close(model)
+        logger.info("R2121 malonyl-CoA closure: %s", selection["r2121_malonyl_coa_close"]["status"])
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
@@ -1061,6 +1069,7 @@ def build_model(args):
         bigg_crosswalk_annotations=getattr(args, "bigg_crosswalk_annotations", False),
         mcnaugh_reactions=getattr(args, "mcnaugh_reactions", False),
         vatpase_a1_gpr=getattr(args, "vatpase_a1_gpr", False),
+        r2121_malonyl_coa_close=getattr(args, "r2121_malonyl_coa_close", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
