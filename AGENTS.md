@@ -147,6 +147,14 @@ a full-model audit or a new compute matrix.
   - An OR member needs evidence that it catalyses the step on its own.
   - An AND member needs evidence of a complex or co-requirement.
   - Look for duplicate reactions that bypass a knockout.
+- **Inactive reactions:** a reaction that can never carry flux (bounds (0,0) or blocked by a
+  dead-end metabolite) is a curation gap to fix, especially on essential genes, not a harmless
+  leftover.
+  - When explaining a gene, list all its reactions, inactive ones included.
+  - Fix toward the real biology (missing producer, consumer, transport, compartment, species
+    merge or GPR), with evidence and through the build.
+  - Run the regression screen: a newly connected route can change other genes' calls.
+  - Never activate a reaction by adding an unsupported exchange, sink or transport.
 - **Direction and bypasses:** trace them by stoichiometry, cofactors and compartments.
   - A direction change needs enzymology, thermodynamics and conditions; never a reaction
     name, another model's bounds or a hit rate.
