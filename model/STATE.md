@@ -5,6 +5,45 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-12: R1172 closed through the builder on top of the R2121 closure, candidate 684f3752 (branch claude/trusting-mahavira-6f0342, not committed)
+
+**Authorization.** The user, 2026-11-12, after the Stage 1 results: "Reverse, approve Stage 2", which reverses the
+2026-09-09 retention for R1172's flux (the reaction stays, closed). Then "Commit Stage 1, merge main (Recommended)" for
+the base, A2 having been merged to main as PR #50: Stage 1 commit `f379441c`, merge of `origin/main` `b3c150f7`, no
+push. Scope: [TASK.md](reports/r1172_hmgcoa_transport_20261112/TASK.md) section 8; results:
+[REPORT.md](reports/r1172_hmgcoa_transport_20261112/REPORT.md) section 7;
+[AUDIT.md](reports/r1172_hmgcoa_transport_20261112/AUDIT.md); figure
+[escher/](reports/r1172_hmgcoa_transport_20261112/escher/README.md).
+
+**Change.** R1172 bounds [−1000, 1000] → [0, 0] plus 7 notes; reaction, empty GPR, stoichiometry, annotation and the
+3 retention notes kept. Data `model/curation/selection/r1172_hmgcoa_transport_close.json`
+(`R1172-HMGCOA-TRANSPORT-CLOSE-20261112`), guarded step `apply_r1172_hmgcoa_transport_close`, opt-in flag
+`--r1172-hmgcoa-transport-close` (last step, after `--r2121-malonyl-coa-close`), 8 tests. The guard pins R1172 and the
+cytosolic route R82 / R411 / R410; R412 and R2121 are not touched. `retained_reactions.json` records the reversal in a
+field that does not reach the XML.
+
+**Results** (observed this run; audited):
+- Base 2f352037 (`2f352037…af7c`, committed `1d0ed68b`). Candidate
+  `model/candidates/E5_…_mcnaugh_rxns_v3_r2121_close_r1172_close_20261112.xml`, SHA-256
+  `684f3752764fb8f25219008966953863141724f34a451dffb77c235aa3cb2f62`. The control build reproduces 2f352037 byte for
+  byte; seeds 0 and 1 are identical; the whole-model diff is R1172's bounds and notes only.
+- WT 0.3111005359259494 (−0.305 % vs 2f352037; Task A medium + PO1f, Gurobi 1e-9); no-uptake ATP maximum 0. The
+  certified sweep is byte-identical to the Stage 1 S1 sweep: at 15 % rule B 143 / 183 / 43 / 694 → 145 / 181 / 43 / 694;
+  YALI1F38116g and YALI1B11532g FN → TP at every cutoff; nothing else changes class; no TP lost.
+- Escher before/after map and offline viewer: the HMG-CoA supply moves from R83 → R412 → R1172 (+ CoA return R834) to
+  R82 → R411.
+- pytest (root `.venv`): 469 → 477 passed; only the 8 new tests differ, all passing; the 3 failed / 18 errors are standing.
+- Code review: no blocking finding (two low findings acted on). Independent audit: every claim supported except the
+  review's provenance (unverified, since recorded); five paperwork problems fixed.
+
+**Scoring note.** Negatives are the user-defined class; mtDNA and untargeted genes out of scope; development reference.
+
+**Limits and open gaps.** One medium and objective. R1172 at (0, 0) is itself an inactive reaction under the root
+AGENTS.md §5 rule added 2026-11-12: recorded as an open gap (no known carrier), not a finished fix of the transport.
+Found, not changed: R2119 (Asp → β-alanine route) becomes required near the optimum (FVA [0.2115, 0.5647]), the
+cytosolic acetyl-CoA source question from A2 grows; R412's existence; R410's inherited −2 charge residual. Nothing
+committed or pushed for Stage 2. Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/`.
+
 ## 2026-11-12: R1172 gene-less HMG-CoA transport closed in memory (option A3, Stage 1; no build, no model change; branch claude/trusting-mahavira-6f0342, not committed)
 
 **Authorization.** The user, 2026-11-12: "Approve Stage 1", approving the A3 Stage 1 plan as written (both sweeps).
