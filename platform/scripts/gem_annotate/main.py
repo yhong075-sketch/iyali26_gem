@@ -112,6 +112,7 @@ def build_reference_chain(
     mcnaugh_reactions: bool = False,
     vatpase_a1_gpr: bool = False,
     r2121_malonyl_coa_close: bool = False,
+    r1172_hmgcoa_transport_close: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -963,6 +964,13 @@ def build_reference_chain(
         from .r2121_malonyl_coa_close import apply_r2121_malonyl_coa_close
         selection["r2121_malonyl_coa_close"] = apply_r2121_malonyl_coa_close(model)
         logger.info("R2121 malonyl-CoA closure: %s", selection["r2121_malonyl_coa_close"]["status"])
+    if r1172_hmgcoa_transport_close:
+        # Opt-in: gene-less HMG-CoA transport R1172 closed to (0, 0), reaction and retention notes kept (2026-11-12).
+        # Bounds and notes only; independent of R2121. Runs last: its guard pins R1172 (with the retention notes)
+        # and the cytosolic R82 / R411 / R410 route as written in e584151f, so it needs the e584151f flag set.
+        from .r1172_hmgcoa_transport_close import apply_r1172_hmgcoa_transport_close
+        selection["r1172_hmgcoa_transport_close"] = apply_r1172_hmgcoa_transport_close(model)
+        logger.info("R1172 HMG-CoA transport closure: %s", selection["r1172_hmgcoa_transport_close"]["status"])
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
@@ -1070,6 +1078,7 @@ def build_model(args):
         mcnaugh_reactions=getattr(args, "mcnaugh_reactions", False),
         vatpase_a1_gpr=getattr(args, "vatpase_a1_gpr", False),
         r2121_malonyl_coa_close=getattr(args, "r2121_malonyl_coa_close", False),
+        r1172_hmgcoa_transport_close=getattr(args, "r1172_hmgcoa_transport_close", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

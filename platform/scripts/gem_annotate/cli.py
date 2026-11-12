@@ -105,6 +105,8 @@ def parse_args(argv=None):
                         help="Write the V-ATPases R794 (Golgi) and R795 (vacuole) as the 12 V1/V0 core subunits (c'' YALI1F13017g moved into the core) and V0 e YALI1F25663g (new gene) AND (a1 YALI1E12482g or a2 YALI1F38820g), removing the headless (a2 and c'') branch; not with --vatpase-gpr-hypothesis (curated 2026-11-03, VATPASE-A1-GPR-20261103)")
     parser.add_argument("--r2121-malonyl-coa-close", action="store_true",
                         help="Close R2121 (malonate semialdehyde + CoA + NADP+ to malonyl-CoA + NADPH, KEGG R00740 / EC 1.2.1.75, a bacterial and archaeal malonyl-CoA reductase) to (0, 0), keeping the reaction and its YALI1C02550g rule; that gene's R00705 chemistry stays as R2119; runs last and needs the e584151f flag set, because R2121 and R2119 must hold their reviewed e584151f state (curated 2026-11-12, R2121-MALONYL-COA-CLOSE-20261112)")
+    parser.add_argument("--r1172-hmgcoa-transport-close", action="store_true",
+                        help="Close R1172 (gene-less HMG-CoA transport between cytosol and mitochondrion, no carrier known) to (0, 0), keeping the reaction and its retention notes; the cytosolic route R82, R411 and HMGR R410 must hold its reviewed state and is not changed; R412 not touched; runs after --r2121-malonyl-coa-close and needs the e584151f flag set (curated 2026-11-12, R1172-HMGCOA-TRANSPORT-CLOSE-20261112)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)
