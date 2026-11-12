@@ -5,6 +5,53 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-12: R1172 gene-less HMG-CoA transport closed in memory (option A3, Stage 1; no build, no model change; branch claude/trusting-mahavira-6f0342, not committed)
+
+**Authorization.** The user, 2026-11-12: "Approve Stage 1", approving the A3 Stage 1 plan as written (both sweeps).
+Computation and documentation only. This does **not** reverse the recorded 2026-09-09 decision to retain R1172
+(`model/curation/selection/retained_reactions.json`, "Retained by user request"); Stage 2 needs that reversal plus
+a separate approval. Details: [TASK.md](reports/r1172_hmgcoa_transport_20261112/TASK.md),
+[REPORT.md](reports/r1172_hmgcoa_transport_20261112/REPORT.md); artifacts in
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/` (`MANIFEST.sha256`).
+
+**Inputs.** e584151f (`e584151f…39d2`, committed `ad927509`) and, for the stacked run, the uncommitted A2 candidate
+2f352037 (`2f352037…af7c`, worktree `yali1-c06006g-gene-024dc8`); both via short-path copies with the same SHA. Task A
+medium `6eca70fd…` + PO1f `35307853…`; list `1e887f5a…`; untargeted scope `244b941c…`. Gurobi 1e-9, checked solve
+`69c42690…`, certified sweep `313d5d01…` plus one line closing R1172. HEAD `154eb64c`. 2,469 LPs (budget 2,600).
+
+**Results** (observed this run unless marked):
+- B0 reproduces v4 WT (+3e-15) and S0 reproduces the A2 V1 WT exactly. Every energy check 0, optimal.
+- R1172 closed: WT −0.207 % on e584151f (0.3118417510071664) and −0.305 % on 2f352037 (0.3111005359259494).
+  R82 and R411 become required (FVA minimum 0.072). R412 has no role once R1172 is closed (R412 also closed:
+  WT −2e-15; R412 alone closed in V1: KO/WT 1.000).
+- Controls in V1: YALI1F38116g 0, YALI1B11532g 0, R411 alone closed 0, YALI1E13899g (R83) 1.000.
+- Sweeps, rule B, 15 %: v4 141 / 185 / 43 / 694 → V1 143 / 183 / 43 / 694; A2 V1 143 / 183 / 43 / 694 → S1
+  145 / 181 / 43 / 694. Class changes: YALI1F38116g and YALI1B11532g FN → TP at all four cutoffs, in both
+  comparisons; no TP lost, no FP change, no knockout above WT, no interaction with A2. The same 20 knockouts are
+  certified infeasible in all four screens.
+- Mechanism: the extra ~0.216 cytosolic acetyl-CoA comes from the carnitine shuttle fed by the R2121 TAG cycle
+  (e584151f) or from the Asp → β-alanine → R2119 route (2f352037); ATP-citrate lyase stays at 0 in pFBA.
+  YALI1F20788g (R834, CoA import into the mitochondrion) goes 0.998 → 1.000: R834 only returned the CoA that left
+  with HMG-CoA. It stays FN.
+- Evidence (TASK.md §3): no GPR or carrier (verified); no evidence found for HMG-CoA crossing the inner membrane
+  (Task C, recalled); S. cerevisiae ERG10 cytosolic by experiment and ERG13 with no experimental mitochondrial
+  location (UniProt REST, verified). Against: the 2026-09-09 retention; Yeast-GEM 9.0.2, iMM904 and iYali5 carry the
+  same gene-less transport (verified static scan); Yeast-GEM has ERG13 only in the mitochondrion.
+
+**Gene names.** YALI1F38116g and YALI1B11532g have no verified name; HMG-CoA synthase and acetoacetyl-CoA thiolase by
+database annotation only (Q6BZW0, Q6CFB6).
+
+**Scoring note.** Negatives are the user-defined class (model genes not on the consensus list); mtDNA and untargeted
+genes are out of scope; the list was used in development, so this is a development reference.
+
+**Limits.** In memory only; one medium; one pFBA optimum; FVA on 19 reactions. No new literature search, no
+independent audit, no Escher figure (Stage 2). S1 depends on the uncommitted 2f352037. The A2 STATE entry is also
+uncommitted (in the A2 worktree), so the two entries will meet at the top of this file on merge.
+
+**Open decisions (user).** Reverse the R1172 retention and approve Stage 2 (REPORT §5a: close R1172 to (0, 0), keep
+the reaction and R412, stack on A2 once it is committed). Found, not changed (REPORT §6): the cytosolic acetyl-CoA
+source; R83's gene annotated peroxisomal (PAT1); Yeast-GEM's ERG13 compartment.
+
 ## 2026-11-03/04: V-ATPase R794/R795 rule = core AND (a1 or a2) plus V0 e, and the F subunit out of scope (pipeline step merged, candidate ab320e18 not kept; branch claude/vatpase-gpr-a1-20261103, PR to main)
 
 **2026-11-04 update.** The user said: "we merge a better candidate than this, can you just merge the pipeline part?".

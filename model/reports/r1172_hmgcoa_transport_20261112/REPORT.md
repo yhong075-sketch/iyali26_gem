@@ -1,0 +1,169 @@
+# R1172 gene-less HMG-CoA transport (option A3): Stage 1 (in memory, 2026-11-12)
+
+Scope, authorization, evidence and plan: [TASK.md](TASK.md). Target state: [before.json](before.json). Scripts, raw
+solves and sweeps: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_hmgcoa_transport_20261112/` (`MANIFEST.sha256`).
+No model, curated-data, builder or test change; nothing committed.
+
+## 1. Run
+
+- Models: e584151f (`e584151f…39d2`) and the uncommitted R2121-closed candidate 2f352037 (`2f352037…af7c`), each
+  through a short-path copy with the same SHA. Variants set in memory after the condition is applied:
+  B0 = e584151f; V1 = B0 + R1172 (0, 0); V2 = V1 + R412 (0, 0); S0 = 2f352037; S1 = S0 + R1172 (0, 0).
+- Task A medium (`6eca70fd…`) plus PO1f (`35307853…`). Gurobi 13.0.1, FeasibilityTol / OptimalityTol 1e-9, cobra
+  0.30.0, Python 3.13.5 (root `.venv`). Platform files have the same SHAs as the v4 screen (`fc78ee8c`, `01b55f73`,
+  `46865060`).
+- Checks: `scripts/stage1_checks.py`. Sweeps: `scripts/ko_screen_certified_r1172.py`, the reference
+  `ko_screen_certified.py` (`313d5d01…`) plus one line in `context()` that closes R1172 (diff in
+  `scripts/ko_screen_certified_r1172.diff`), run on e584151f (V1) and on 2f352037 (S1) by `scripts/run_sweeps.zsh`.
+  Comparison: `scripts/compare_screens.py` (generalised from the A2 `compare_v1_v4.py`).
+- LPs: 223 for the checks (5 WT, 10 pFBA, 195 FVA, 5 energy, 8 controls) and 2,246 for the two sweeps (each 1,082
+  sweep, 1 maintenance ceiling, 40 certificate; no fresh re-solve). 2,469 in total, against a budget of 2,600. No
+  build. Each sweep ran 106–107 s.
+
+## 2. Checks (observed this run)
+
+| Check | B0 | V1 (R1172 closed) | V2 (+ R412 closed) | S0 (2f352037) | S1 (S0 + R1172 closed) | Stop condition |
+| --- | --- | --- | --- | --- | --- | --- |
+| WT growth | 0.31248856100769 (v4 + 3e-15) | 0.31184175100717 (−0.207 %) | 0.31184175100716 (= V1 − 2e-15) | 0.31205269538104 (= A2 V1) | 0.31110053592595 (−0.305 % vs S0) | not met (limit −5 %; baselines reproduce within 1e-9) |
+| No-uptake ATP maximum | 0, optimal | 0, optimal | 0, optimal | 0, optimal | 0, optimal | not met |
+| R411 (cytosolic HMGS), FVA 99.9 % | [0, 0.0348] | [0.0720, 0.0739] | [0.0720, 0.0739] | [0, 0.0236] | [0.0718, 0.0736] | not met (minimum > 0) |
+| R82 (cytosolic thiolase), FVA | [0, 0.0348] | [0.0720, 0.0739] | [0.0720, 0.0739] | [0, 0.0236] | [0.0718, 0.0736] | not met (minimum > 0) |
+| R1172, FVA | [−0.0741, −0.0373] | [0, 0] | [0, 0] | [−0.0740, −0.0485] | [0, 0] | — |
+| R412 (mitochondrial HMGS), FVA | [0.0368, 0.1428] | [0, 0.0707] | [0, 0] | [0.0367, 0.1427] | [0, 0.0707] | — |
+| R83 (mitochondrial thiolase), FVA | [0.0015, 0.0741] | [−0.0707, 0] | [−0.0707, 0] | [0.0014, 0.0740] | [−0.0707, 0] | — |
+| HMGR R410, FVA | [0.0721, 0.0741] | [0.0720, 0.0739] | [0.0720, 0.0739] | [0.0720, 0.0740] | [0.0718, 0.0736] | — |
+| Leucine route R1968 / R1973, FVA | [0, 0.0353] | [0, 0.0236] | [0, 0.0236] | [0, 0.0353] | [0, 0.0236] | — |
+| 3-methylcrotonyl-CoA transport R2083 | [0, 0] | [0, 0] | [0, 0] | [0, 0] | [0, 0] | — |
+| ATP-citrate lyase R1894, FVA | [0, 0.1232] | [0, 0.1232] | [0, 0.1232] | [0, 0.2802] | [0, 0.2826] | — |
+
+B0 and S0 reproduce the v4 WT (0.3124885610076883, +3e-15) and the A2 V1 WT (0.3120526953810365, exactly). Every WT
+point is optimal and passes the targeted check.
+
+**Controls (gene knockouts and single reactions, KO/WT):**
+
+| Knockout | B0 (bypass open) | V1 (R1172 closed) |
+| --- | --- | --- |
+| YALI1F38116g (R411 + R412) | 0.998 | 0 (optimal, growth 0) |
+| YALI1B11532g (R82) | 1.000 | 0 (optimal, growth 0) |
+| YALI1E13899g (R83) | 0.999 | 1.000 |
+| R411 alone closed | — | 0 |
+| R412 alone closed | — | 1.000 |
+
+So in V1 the YALI1F38116g call comes from R411 alone; R412 does not contribute.
+
+## 3. Mechanism
+
+- **Baseline (observed, pFBA).** R83 (0.0722) makes mitochondrial acetoacetyl-CoA, R412 makes mitochondrial HMG-CoA,
+  and R1172 carries it to the cytosol (−0.0722, mitochondrion → cytosol) for HMGR R410. The FVA minimum of R412 is
+  0.037 and the maximum of R1172 is −0.037, so the baseline optimum cannot do without the mitochondrial route. R82
+  and R411 can carry up to 0.035 but carry 0 in pFBA.
+- **V1 (observed).** R1172 is closed; R82 → R411 → R410 carry the whole mevalonate supply (0.0720, required). R82
+  takes 2 and R411 1 cytosolic acetyl-CoA per HMG-CoA, so cytosolic acetyl-CoA demand rises by about 0.216. In pFBA
+  it comes from the carnitine shuttle: R191 cytosolic carnitine acetyltransferase 0.272 → 0.488, fed by the
+  R2121-driven TAG lipolysis / peroxisomal β-oxidation cycle of the A2 report (R2121 0.186 → 0.327). ATP-citrate
+  lyase R1894 stays at 0 in pFBA.
+- **S1 (observed).** With R2121 already closed, the extra cytosolic acetyl-CoA comes from R2119 (malonate
+  semialdehyde → acetyl-CoA + CO2 + NADH, YALI1C02550g) at 0.280 → 0.495, the Asp → β-alanine → malonate
+  semialdehyde route the A2 report flagged (its §5 item 2). R1894 again stays at 0 in pFBA.
+- **R412 once R1172 is closed (observed).** pFBA 0. FVA [0, 0.0707]; the same capacity appears on R1974 and R1933,
+  which is the R412 + R1974 + R1933 (reverse) loop that sums to succinyl-CoA hydrolysis (stoichiometry, inferred).
+  Closing R412 as well (V2) changes WT by −2e-15 and only narrows R1974 and R1933 to the leucine-route range
+  [0, 0.0236].
+
+## 4. Sweeps
+
+Rule B; mtDNA and the current untargeted list (`YALI0F04114g`, `YALI0E16192g`, `244b941c…`) out of scope; model
+genes not on the consensus list count as non-essential (a user-defined negative class); the list was used in
+development, so these are a development reference. All four screens are rescored here under the same scope by
+`compare_screens.py`. Both sweeps have WT equal to the check value, 20 certified-infeasible knockouts (the same 20
+genes as v4 and A2 V1), no unresolved knockout and no fresh re-solve.
+
+| Cutoff | v4 (B0) | V1 (R1172 closed) | A2 V1 (S0) | S1 (R2121 + R1172 closed) |
+| --- | --- | --- | --- | --- |
+| 1 % | 113 / 213 / 36 / 701 (0.3955) | 115 / 211 / 36 / 701 (0.4014) | 115 / 211 / 36 / 701 (0.4014) | 117 / 209 / 36 / 701 (0.4073) |
+| 5 % | 120 / 206 / 38 / 699 (0.4103) | 122 / 204 / 38 / 699 (0.4161) | 122 / 204 / 38 / 699 (0.4161) | 124 / 202 / 38 / 699 (0.4219) |
+| 10 % | 124 / 202 / 43 / 694 (0.4081) | 126 / 200 / 43 / 694 (0.4138) | 126 / 200 / 43 / 694 (0.4138) | 128 / 198 / 43 / 694 (0.4196) |
+| 15 % | 141 / 185 / 43 / 694 (0.4560) | 143 / 183 / 43 / 694 (0.4616) | 143 / 183 / 43 / 694 (0.4616) | 145 / 181 / 43 / 694 (0.4670) |
+
+TP / FN / FP / TN (MCC). With only the mtDNA scope, FP and TN are one higher in every column (`YALI0E16192g`); the
+class changes are the same. At 15 %: recall 0.4325 → 0.4387 (V1) and 0.4448 (S1); specificity 0.9417 in every
+column; precision 0.7663 → 0.7688 (V1) and 0.7713 (S1).
+
+**Class changes, V1 vs v4 and S1 vs A2 V1 (the same 2 genes, both FN → TP at every cutoff):**
+- `YALI1F38116g` (YALI0F30481g, Q6BZW0): no verified name; HMG-CoA synthase by annotation (EC 2.3.3.10). KO/WT
+  0.998 → 0. Database annotation only.
+- `YALI1B11532g` (YALI0B08536g, Q6CFB6): no verified name; acetyl-CoA C-acetyltransferase by annotation
+  (EC 2.3.1.9). KO/WT 1.0 → 0. Database annotation only.
+
+S1 vs v4 changes these two plus the two A2 genes (`YALI1E35955g`, `YALI1F28274g`): +4 TP, no other change. The two
+closures do not interact in any class at any cutoff. No TP becomes FN and no knockout grows above WT + 1e-6 in
+either sweep.
+
+**Ratio shifts without a class change** (146 genes move by more than 1e-6 in V1, 135 in S1; most by about 0.002,
+the WT change):
+- `YALI1F20788g` (YALI0F15433g; no verified name; GPR of R834, coenzyme A transport cytosol → mitochondrion;
+  consensus-positive, FN in both): 0.998 → 1.000. In B0, R1172 exports CoA as HMG-CoA from the matrix and R834
+  brings free CoA back; with R1172 closed the matrix loses no CoA and R834 is no longer needed (observed: its v4
+  KO/WT equals the V1 WT cost, 0.99793). It stays FN; its call now rests on the absence of any other net
+  mitochondrial CoA demand.
+- The 14-subunit ATP synthase AND group of R171 (e.g. `YALI1M00318g`, `YALI1F04433g`): 0.1095 → 0.1076, still
+  between 10 % and 15 % (essential at 15 %, non-essential at 10 %, unchanged).
+- In S1 the largest other shifts are under 0.003 (`YALI1F01981g` 0.917 → 0.920; `YALI1C08262g` 0.877 → 0.880).
+
+## 5. What this means, and limits
+
+- **Stop conditions:** none met (section 2 and the sweeps). The Stage 1 bar of TASK.md §7 is met: V1 WT −0.207 %,
+  energy 0, R411 and R82 required, both genes at 0, no TP lost, every other shift explained.
+- **What it means.** With R1172 closed, the cytosolic ERG10-like / ERG13-like route is the only source of mevalonate,
+  so the model's sterol, UQ9 and dolichol requirement makes both genes essential, as in the consensus screens. The
+  rescue in e584151f came from one gene-less transport whose existence has no evidence found for or against it.
+  This is a mechanism result; it does not show that HMG-CoA cannot cross the inner membrane in *Y. lipolytica*.
+- **R412.** Once R1172 is closed it has no role in growth or in any call (V2 = V1 to 2e-15; R412 alone closed
+  1.000). Closing it is not needed for A3; its existence is a separate question (TASK.md §3.3).
+- **Statement levels.**
+  - Observed in this run: every number in sections 2–4.
+  - Statically verified: the producer and consumer lists of the HMG-CoA, acetoacetyl-CoA and mevalonate pools, the
+    external-model structures, the UniProt annotations.
+  - Recalled: the Task C literature search, the a1237821 and a56f3649 closures, the A2 diff of 2f352037.
+  - Inferred: that R412 + R1974 + R1933 is a dissipative loop; that a Stage 2 build would reproduce V1 or S1.
+  - Untested: the built candidate; other media; whether *Y. lipolytica* has any mitochondrial HMG-CoA synthase or
+    HMG-CoA carrier.
+- **Limits.**
+  - Single-gene knockouts, one medium, one objective. Route lists show one pFBA optimum; FVA covers 19 named
+    reactions only.
+  - No new literature search; the evidence for the closure is absence of found evidence plus S. cerevisiae
+    localisation (TASK.md §3).
+  - No independent audit of this Stage 1 (as in the A2 Stage 1); no Escher figure (it belongs to Stage 2).
+  - S1 uses the uncommitted 2f352037; if that file changes, S1 must be re-run.
+- **Possible improvements to the method.** A loopless FVA on R412 / R1974 / R1933 / R83 would confirm that the
+  remaining R412 range in V1 is only the dissipative loop. Test: loopless vs standard FVA on those four reactions in
+  V1; expected R412 maximum 0 under loopless.
+
+## 5a. Stage 2 proposal (needs the user's approval; not started)
+
+1. **Decision only the user can make:** reverse the 2026-09-09 "Retained by user request" decision for R1172.
+2. **Change:** R1172 bounds [−1000, 1000] → [0, 0], with the reaction, stoichiometry, empty GPR and existing notes
+   kept and a dated note giving the evidence and this Stage 1 result (as for R2121), through a curated data file
+   and a guarded opt-in builder step (skill `curation-change`). `retained_reactions.json` would get a dated note
+   that the reaction is kept but closed. R412 unchanged.
+3. **Base:** stack on the A2 closure (expected: WT 0.3111005359259494; 15 % rule B 145 / 181 / 43 / 694) once the
+   A2 work is committed, because its builder step lives only in the uncommitted A2 worktree; otherwise build on
+   e584151f (expected: WT 0.3118417510071664; 143 / 183 / 43 / 694).
+4. **Acceptance criteria:** control build reproduces the base byte for byte; whole-model diff shows only R1172's
+   bounds and the new notes; seed 0 and seed 1 builds byte-identical; WT equals the Stage 1 value within 1e-9 and
+   the no-uptake ATP maximum is 0; the certified sweep reproduces `ko_screen_V1.tsv` (or `ko_screen_S1.tsv`) class
+   by class with KO growth within 1e-9; pytest shows only new passing tests; review and independent audit leave no
+   blocking finding; an Escher before/after figure of the HMG-CoA / acetyl-CoA routes.
+
+## 6. Found, not changed (each affects another line)
+
+1. **Cytosolic acetyl-CoA source.** Closing R1172 moves about 0.216 acetyl units into the cytosol, and in neither
+   variant does ATP-citrate lyase take them. On e584151f they come through the R2121 TAG cycle and the carnitine
+   shuttle; on 2f352037 through the Asp → β-alanine → malonate semialdehyde → R2119 route. Both routes were already
+   flagged in the A2 report; this round makes them larger.
+2. **R83's gene.** YALI1E13899g (YALI0E11099g) is UniProt Q6L8K7, gene name "PAT1", annotated peroxisome
+   (subcellular location) and mitochondrion (GO IBA); the model places R83 in the mitochondrion only. Annotation
+   only; not checked further.
+3. **Yeast-GEM's ERG13 compartment.** Yeast-GEM 9.0.2 puts ERG13 (YML126C) only in the mitochondrion (`r_0560`) and
+   needs the gene-less `r_1840` for sterols, while UniProt lists no experimental mitochondrial location for P54839.
+   Relevant if Yeast-GEM is used as a structural reference.
