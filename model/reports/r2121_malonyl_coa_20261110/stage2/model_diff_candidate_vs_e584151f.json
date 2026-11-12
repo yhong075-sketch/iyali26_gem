@@ -1,0 +1,39 @@
+[
+ {
+  "section": "reactions",
+  "item": "R2121",
+  "field": "bounds",
+  "before": [
+   -1000.0,
+   1000.0
+  ],
+  "after": [
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "section": "reactions",
+  "item": "R2121",
+  "field": "notes",
+  "before": {
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function"
+  },
+  "after": {
+   "metadata_reaction_selection": "metadata_reaction_fields_preserve_trna_20260910",
+   "metadata_selected_fields": "stoichiometry",
+   "metadata_selection_source_sha256": "33c14f0c524197ec732e09ba86c4382d5b21bc25b4bd73b18eba5f452dd7e797",
+   "metadata_selection_evidence_status": "User-selected model version; not new validation of chemistry or native gene function",
+   "r2121_malonyl_coa_close_curation": "R2121-MALONYL-COA-CLOSE-20261112",
+   "r2121_previous_bounds": "[-1000, 1000]",
+   "r2121_malonyl_coa_close_evidence": "KEGG R00740 / EC 1.2.1.75 is the malonyl-CoA reductase (malonate semialdehyde-forming) of the 3-hydroxypropanoate CO2-fixation cycles of green non-sulfur bacteria and thermoacidophilic archaea. YALI1C02550g is KEGG yli:2909116, K00140 (EC 1.2.1.18 / 1.2.1.27); its reaction R00705 is R2119 in this model, kept. KEGG lists no K15017 gene for Y. lipolytica or S. cerevisiae; Yeast-GEM carries R00705 and not R00740, eciYali5-GEM neither (checked 2026-11-10).",
+   "r2121_malonyl_coa_close_effect": "Stage 1 on e584151f (Task A medium + PO1f, Gurobi 1e-9): WT growth -0.139 %; cytosolic malonyl-CoA moves to the acetyl-CoA carboxylase R88; a pFBA TAG lipolysis, beta-oxidation and elongation cycle on glucose stops.",
+   "r2121_malonyl_coa_close_limits": "Inherited from iYli21 with no recorded reason. Absence from KEGG and from the yeast models is annotation-level evidence, not an enzyme assay; no Y. lipolytica enzyme data. Chemistry unchanged (charge -1 on the substrate side as inherited). The inherited ec-code annotation 1.2.1.27 is the EC of the K00140 group of YALI1C02550g, not of R00740 (EC 1.2.1.75); annotations are not changed here.",
+   "r2121_malonyl_coa_close_sources": "https://www.kegg.jp/entry/R00740; https://www.kegg.jp/entry/1.2.1.75; https://www.kegg.jp/entry/yli:2909116; https://www.kegg.jp/entry/R00705; https://www.kegg.jp/entry/K15017",
+   "r2121_malonyl_coa_close_authorization": "User authorized closing R2121 to (0, 0), reaction and GPR kept, on 2026-11-12 after the Stage 1 report (model/reports/r2121_malonyl_coa_20261110/)."
+  }
+ }
+]

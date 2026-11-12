@@ -1,0 +1,921 @@
+{
+ "model_sha256": "e584151fc79475fc2daa59e76c8c84ebfd06b0f3cb1fbd75fbb69cc9f31039d2",
+ "wt_pfba_flux_source": "user map data (scenario pfba, Task A + PO1f; map meta says GLPK for the map, the screen used Gurobi)",
+ "reactions": {
+  "R2121": {
+   "name": "3-Oxopropanoate:NADP+ oxidoreductase (CoA-malonylating)",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1C02550g",
+   "equation": "m1976[C_cy] + m41[C_cy] + m69[C_cy] <=> m200[C_cy] + m40[C_cy]",
+   "subsystem": "Propanoate metabolism",
+   "wt_pfba_flux_map": 0.185953,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "kegg.reaction": "R00740",
+    "metacyc.reaction": "RXN-8963",
+    "rh": [
+     "26446",
+     "26447",
+     "26448",
+     "26449"
+    ],
+    "rhea": [
+     "26446",
+     "26447",
+     "26448",
+     "26449"
+    ],
+    "seed.reaction": "rxn00532",
+    "vmhreaction": [
+     "MMSAD5",
+     "R_MMSAD5"
+    ],
+    "metanetx.reaction": "MNXR106663",
+    "ec-code": "1.2.1.27",
+    "keggr": "R00740",
+    "metacycr": "RXN-8963",
+    "seedr": "rxn00532",
+    "vmhr": [
+     "MMSAD5",
+     "R_MMSAD5"
+    ]
+   }
+  },
+  "R2119": {
+   "name": "3-Oxopropanoate:NAD+ oxidoreductase (decarboxylating, CoA-acetylating)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C02550g",
+   "equation": "m10[C_cy] + m122[C_cy] + m1976[C_cy] + m69[C_cy] --> m123[C_cy] + m68[C_cy] + m82[C_cy]",
+   "subsystem": "Propanoate metabolism",
+   "wt_pfba_flux_map": 0.0,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": "MMSAD3",
+    "seed.reaction": "rxn02424",
+    "vmhreaction": [
+     "MMTSAD",
+     "MMTSADm",
+     "R_MMTSAD",
+     "R_MMTSADm"
+    ],
+    "metanetx.reaction": "MNXR188441",
+    "ec-code": "1.2.1.27",
+    "biggr": [
+     "MMTSADm",
+     "R_MMTSADm"
+    ],
+    "seedr": "rxn02424",
+    "vmhr": [
+     "MMTSAD",
+     "MMTSADm",
+     "R_MMTSAD",
+     "R_MMTSADm"
+    ]
+   }
+  },
+  "R2120": {
+   "name": "beta-alanine:2-oxoglutarate aminotransferase",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E21915g",
+   "equation": "m281[C_cy] + m51[C_cy] <=> m10[C_cy] + m1976[C_cy] + m50[C_cy]",
+   "subsystem": "Propanoate metabolism",
+   "wt_pfba_flux_map": 0.185953,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "3A2OA",
+     "APAT2rm",
+     "R_3A2OA",
+     "R_APAT2rm"
+    ],
+    "kegg.reaction": "R00908",
+    "metacyc.reaction": "RXN-2901",
+    "rh": [
+     "30699",
+     "30700",
+     "30701",
+     "30702"
+    ],
+    "rhea": [
+     "30699",
+     "30700",
+     "30701",
+     "30702"
+    ],
+    "sabiork.reaction": "1228",
+    "seed.reaction": [
+     "rxn00657",
+     "rxn23816",
+     "rxn28267"
+    ],
+    "vmhreaction": [
+     "AMAMTi",
+     "APAT2rm",
+     "R_AMAMTi",
+     "R_APAT2rm"
+    ],
+    "metanetx.reaction": "MNXR95862",
+    "ec-code": "2.6.1.19",
+    "biggr": [
+     "3A2OA",
+     "APAT2rm",
+     "R_3A2OA",
+     "R_APAT2rm"
+    ],
+    "keggr": "R00908",
+    "metacycr": "RXN-2901",
+    "sabiorkr": "1228",
+    "seedr": [
+     "rxn00657",
+     "rxn23816",
+     "rxn28267"
+    ],
+    "vmhr": [
+     "AMAMTi",
+     "APAT2rm",
+     "R_AMAMTi",
+     "R_APAT2rm"
+    ]
+   }
+  },
+  "R1936": {
+   "name": "L-aspartate 1-carboxy-lyase (beta-alanine-forming)",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F11827g or YALI1C23902g",
+   "equation": "m267[C_cy] --> m281[C_cy] + m82[C_cy]",
+   "subsystem": "beta-Alanine metabolism",
+   "wt_pfba_flux_map": 0.185953,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "ASP1DC",
+     "R_ASP1DC"
+    ],
+    "kegg.reaction": "R00489",
+    "metacyc.reaction": "ASPDECARBOX-RXN",
+    "rh": [
+     "19497",
+     "19498",
+     "19499",
+     "19500"
+    ],
+    "rhea": [
+     "19497",
+     "19498",
+     "19499",
+     "19500"
+    ],
+    "sabiork.reaction": "921",
+    "seed.reaction": "rxn00346",
+    "vmhreaction": [
+     "ASP1DC",
+     "R_ASP1DC"
+    ],
+    "metanetx.reaction": "MNXR96077",
+    "ec-code": "4.1.1.15",
+    "biggr": [
+     "ASP1DC",
+     "R_ASP1DC"
+    ],
+    "keggr": "R00489",
+    "metacycr": "ASPDECARBOX-RXN",
+    "sabiorkr": "921",
+    "seedr": "rxn00346",
+    "vmhr": [
+     "ASP1DC",
+     "R_ASP1DC"
+    ]
+   }
+  },
+  "R88": {
+   "name": "acetyl-CoA carboxylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C15991g and YALI1E35955g",
+   "equation": "m10[C_cy] + m141[C_cy] + m199[C_cy] + m68[C_cy] --> m143[C_cy] + m200[C_cy] + m35[C_cy]",
+   "subsystem": "Fatty acid biosynthesis",
+   "wt_pfba_flux_map": 0.0,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "ACCOAC",
+     "ACCOAC_h",
+     "ACCOACrm",
+     "ACCOAhi",
+     "R_ACCOAC",
+     "R_ACCOAC_h",
+     "R_ACCOACrm",
+     "R_ACCOAhi"
+    ],
+    "kegg.reaction": "R00742",
+    "metacyc.reaction": "ACETYL-COA-CARBOXYLTRANSFER-RXN",
+    "rh": [
+     "11308",
+     "11309",
+     "11310",
+     "11311"
+    ],
+    "rhea": [
+     "11308",
+     "11309",
+     "11310",
+     "11311"
+    ],
+    "sabiork.reaction": "542",
+    "seed.reaction": [
+     "rxn00533",
+     "rxn27668",
+     "rxn30331",
+     "rxn38011"
+    ],
+    "vmhreaction": [
+     "ACCOAC",
+     "ACCOACm",
+     "R_ACCOAC",
+     "R_ACCOACm"
+    ],
+    "metanetx.reaction": "MNXR190515",
+    "ec-code": "6.4.1.2",
+    "biggr": [
+     "ACCOAC",
+     "ACCOAC_h",
+     "ACCOACrm",
+     "ACCOAhi",
+     "R_ACCOAC",
+     "R_ACCOAC_h",
+     "R_ACCOACrm",
+     "R_ACCOAhi"
+    ],
+    "keggr": "R00742",
+    "metacycr": "ACETYL-COA-CARBOXYLTRANSFER-RXN",
+    "sabiorkr": "542",
+    "seedr": [
+     "rxn00533",
+     "rxn27668",
+     "rxn30331",
+     "rxn38011"
+    ],
+    "vmhr": [
+     "ACCOAC",
+     "ACCOACm",
+     "R_ACCOAC",
+     "R_ACCOACm"
+    ]
+   }
+  },
+  "R87": {
+   "name": "acetyl-Coa carboxylase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1C15991g",
+   "equation": "m196[C_mi] + m28[C_mi] + m46[C_mi] + m71[C_mi] --> m197[C_mi] + m198[C_mi] + m58[C_mi]",
+   "subsystem": "Fatty acid biosynthesis",
+   "wt_pfba_flux_map": 1.87493e-05,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "ACCOAC",
+     "ACCOAC_h",
+     "ACCOACrm",
+     "ACCOAhi",
+     "R_ACCOAC",
+     "R_ACCOAC_h",
+     "R_ACCOACrm",
+     "R_ACCOAhi"
+    ],
+    "kegg.reaction": "R00742",
+    "metacyc.reaction": "ACETYL-COA-CARBOXYLTRANSFER-RXN",
+    "rh": [
+     "11308",
+     "11309",
+     "11310",
+     "11311"
+    ],
+    "rhea": [
+     "11308",
+     "11309",
+     "11310",
+     "11311"
+    ],
+    "sabiork.reaction": "542",
+    "seed.reaction": [
+     "rxn00533",
+     "rxn27668",
+     "rxn30331",
+     "rxn38011"
+    ],
+    "vmhreaction": [
+     "ACCOAC",
+     "ACCOACm",
+     "R_ACCOAC",
+     "R_ACCOACm"
+    ],
+    "metanetx.reaction": "MNXR190515",
+    "ec-code": "6.4.1.2",
+    "biggr": [
+     "ACCOAC",
+     "ACCOAC_h",
+     "ACCOACrm",
+     "ACCOAhi",
+     "R_ACCOAC",
+     "R_ACCOAC_h",
+     "R_ACCOACrm",
+     "R_ACCOAhi"
+    ],
+    "keggr": "R00742",
+    "metacycr": "ACETYL-COA-CARBOXYLTRANSFER-RXN",
+    "sabiorkr": "542",
+    "seedr": [
+     "rxn00533",
+     "rxn27668",
+     "rxn30331",
+     "rxn38011"
+    ],
+    "vmhr": [
+     "ACCOAC",
+     "ACCOACm",
+     "R_ACCOAC",
+     "R_ACCOACm"
+    ]
+   }
+  },
+  "R175": {
+   "name": "biotin-[acetyl-CoA-carboxylase] ligase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E35955g",
+   "equation": "m141[C_cy] + m348[C_cy] --> m10[C_cy] + m203[C_cy] + m349[C_cy]",
+   "subsystem": "Biotin metabolism",
+   "wt_pfba_flux_map": 0.0,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "BACCL",
+     "BACCLm",
+     "R_BACCL",
+     "R_BACCLm"
+    ],
+    "kegg.reaction": "R01074",
+    "metacyc.reaction": "RXN0-7192",
+    "rh": [
+     "31115",
+     "31116",
+     "31117",
+     "31118"
+    ],
+    "rhea": [
+     "31115",
+     "31116",
+     "31117",
+     "31118"
+    ],
+    "seed.reaction": [
+     "rxn00792",
+     "rxn47090"
+    ],
+    "vmhreaction": [
+     "BACCL",
+     "BACCLi",
+     "BACCLm",
+     "R_BACCL",
+     "R_BACCLi",
+     "R_BACCLm"
+    ],
+    "metanetx.reaction": "MNXR190726",
+    "ec-code": [
+     "6.2.1.11",
+     "6.3.4.10",
+     "6.3.4.11",
+     "6.3.4.9"
+    ],
+    "biggr": [
+     "BACCL",
+     "BACCLm",
+     "R_BACCL",
+     "R_BACCLm"
+    ],
+    "keggr": "R01074",
+    "metacycr": "RXN0-7192",
+    "seedr": [
+     "rxn00792",
+     "rxn47090"
+    ],
+    "vmhr": [
+     "BACCL",
+     "BACCLi",
+     "BACCLm",
+     "R_BACCL",
+     "R_BACCLi",
+     "R_BACCLm"
+    ]
+   }
+  },
+  "R1575": {
+   "name": "malonyl-CoA transport, cytoplasm-ER membrane",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "m200[C_cy] <=> m1423[C_em]",
+   "subsystem": "Transport, ER membrane",
+   "wt_pfba_flux_map": 0.178769,
+   "annotation": {
+    "sbo": "SBO:0000185",
+    "bigg.reaction": [
+     "EX_malcoa_e",
+     "R_EX_malcoa_e"
+    ],
+    "seed.reaction": [
+     "rxn32282",
+     "rxn32285",
+     "rxn32286",
+     "rxn32288"
+    ],
+    "metanetx.reaction": "MNXR189578",
+    "biggr": [
+     "EX_malcoa_e",
+     "R_EX_malcoa_e"
+    ],
+    "seedr": [
+     "rxn32282",
+     "rxn32285",
+     "rxn32286",
+     "rxn32288"
+    ]
+   }
+  },
+  "R2003": {
+   "name": "Acetyl-CoA:malonate CoA-transferase",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "",
+   "equation": "2.0 m10[C_cy] + m1854[C_cy] + m68[C_cy] <=> m200[C_cy] + m202[C_cy]",
+   "subsystem": "Fatty acid biosynthesis",
+   "wt_pfba_flux_map": 0.0,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "kegg.reaction": "R00743",
+    "metacyc.reaction": "MALONATE-COA-TRANSFERASE-RXN",
+    "rh": [
+     "18817",
+     "18818",
+     "18819",
+     "18820"
+    ],
+    "rhea": [
+     "18817",
+     "18818",
+     "18819",
+     "18820"
+    ],
+    "seed.reaction": "rxn00534",
+    "metanetx.reaction": "MNXR106664",
+    "ec-code": "2.8.3.3",
+    "keggr": "R00743",
+    "metacycr": "MALONATE-COA-TRANSFERASE-RXN",
+    "seedr": "rxn00534"
+   }
+  },
+  "R191": {
+   "name": "carnitine O-acetyltransferase",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1F28064g",
+   "equation": "m369[C_cy] + m68[C_cy] <=> m370[C_cy] + m69[C_cy]",
+   "subsystem": "Fatty acid metabolism",
+   "wt_pfba_flux_map": -0.272378,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": "CSNATr",
+    "metanetx.reaction": "MNXR190198",
+    "biggr": [
+     "HMR_2886",
+     "LNLNCGCPT1",
+     "LNLNCGCPT2",
+     "R_HMR_2886",
+     "R_LNLNCGCPT1",
+     "R_LNLNCGCPT2"
+    ]
+   }
+  },
+  "R90": {
+   "name": "acetyl-CoA synthetase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1F08845g",
+   "equation": "m141[C_cy] + m202[C_cy] + m69[C_cy] --> m203[C_cy] + m68[C_cy] + m86[C_cy]",
+   "subsystem": "Glycolysis/Gluconeogenesis",
+   "wt_pfba_flux_map": 0.010902,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "ACS",
+     "ACS_1",
+     "ACS_h",
+     "ACSm",
+     "ACSp",
+     "R_ACS",
+     "R_ACS_1",
+     "R_ACS_h",
+     "R_ACSm",
+     "R_ACSp"
+    ],
+    "kegg.reaction": "R00235",
+    "metacyc.reaction": "ACETATE--COA-LIGASE-RXN",
+    "rh": [
+     "23176",
+     "23177",
+     "23178",
+     "23179"
+    ],
+    "rhea": [
+     "23176",
+     "23177",
+     "23178",
+     "23179"
+    ],
+    "sabiork.reaction": "179",
+    "seed.reaction": [
+     "rxn00175",
+     "rxn27659",
+     "rxn27660",
+     "rxn30338",
+     "rxn33879"
+    ],
+    "vmhreaction": [
+     "ACS",
+     "ACSm",
+     "R_ACS",
+     "R_ACSm"
+    ],
+    "metanetx.reaction": "MNXR190571",
+    "ec-code": "6.2.1.1",
+    "biggr": [
+     "ACS",
+     "ACS_1",
+     "ACS_h",
+     "ACSm",
+     "ACSp",
+     "R_ACS",
+     "R_ACS_1",
+     "R_ACS_h",
+     "R_ACSm",
+     "R_ACSp"
+    ],
+    "keggr": "R00235",
+    "metacycr": "ACETATE--COA-LIGASE-RXN",
+    "sabiorkr": "179",
+    "seedr": [
+     "rxn00175",
+     "rxn27659",
+     "rxn27660",
+     "rxn30338",
+     "rxn33879"
+    ],
+    "vmhr": [
+     "ACS",
+     "ACSm",
+     "R_ACS",
+     "R_ACSm"
+    ]
+   }
+  },
+  "R325": {
+   "name": "glucose 6-phosphate dehydrogenase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1E26811g",
+   "equation": "m296[C_cy] + m41[C_cy] --> m10[C_cy] + m168[C_cy] + m40[C_cy]",
+   "subsystem": "Pentose phosphate pathway",
+   "wt_pfba_flux_map": 0.0,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "G6PDH2c",
+     "G6PDH2er",
+     "G6PDH2r",
+     "R_G6PDH2c",
+     "R_G6PDH2er",
+     "R_G6PDH2r"
+    ],
+    "kegg.reaction": "R00835",
+    "metacyc.reaction": "GLU6PDEHYDROG-RXN",
+    "rh": [
+     "15841",
+     "15842",
+     "15843",
+     "15844"
+    ],
+    "rhea": [
+     "15841",
+     "15842",
+     "15843",
+     "15844"
+    ],
+    "sabiork.reaction": [
+     "1176",
+     "6509"
+    ],
+    "seed.reaction": [
+     "rxn00604",
+     "rxn30383",
+     "rxn34218"
+    ],
+    "vmhreaction": [
+     "G6PDH2",
+     "G6PDH2c",
+     "G6PDH2r",
+     "G6PDH2rer",
+     "R_G6PDH2",
+     "R_G6PDH2c",
+     "R_G6PDH2r",
+     "R_G6PDH2rer"
+    ],
+    "metanetx.reaction": "MNXR192434",
+    "ec-code": [
+     "1.1.1.47",
+     "1.1.1.363",
+     "1.1.1.49"
+    ],
+    "biggr": [
+     "G6PDH2c",
+     "G6PDH2er",
+     "G6PDH2r",
+     "R_G6PDH2c",
+     "R_G6PDH2er",
+     "R_G6PDH2r"
+    ],
+    "keggr": "R00835",
+    "metacycr": "GLU6PDEHYDROG-RXN",
+    "sabiorkr": [
+     "1176",
+     "6509"
+    ],
+    "seedr": [
+     "rxn00604",
+     "rxn30383",
+     "rxn34218"
+    ],
+    "vmhr": [
+     "G6PDH2",
+     "G6PDH2c",
+     "G6PDH2r",
+     "G6PDH2rer",
+     "R_G6PDH2",
+     "R_G6PDH2c",
+     "R_G6PDH2r",
+     "R_G6PDH2rer"
+    ]
+   }
+  },
+  "R639": {
+   "name": "phosphogluconate dehydrogenase",
+   "bounds": [
+    0.0,
+    1000.0
+   ],
+   "gpr": "YALI1B20462g",
+   "equation": "m169[C_cy] + m41[C_cy] --> m10[C_cy] + m40[C_cy] + m82[C_cy] + m96[C_cy]",
+   "subsystem": "Pentose phosphate pathway",
+   "wt_pfba_flux_map": 0.0,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "GND",
+     "GNDc",
+     "GNDer",
+     "PGDHh",
+     "R_GND",
+     "R_GNDc",
+     "R_GNDer",
+     "R_PGDHh"
+    ],
+    "kegg.reaction": "R01528",
+    "metacyc.reaction": "RXN-9952",
+    "rh": [
+     "10116",
+     "10117",
+     "10118",
+     "10119"
+    ],
+    "rhea": [
+     "10116",
+     "10117",
+     "10118",
+     "10119"
+    ],
+    "sabiork.reaction": "108",
+    "seed.reaction": [
+     "rxn01115",
+     "rxn27624",
+     "rxn33304",
+     "rxn33323",
+     "rxn38006",
+     "rxn38009"
+    ],
+    "vmhreaction": [
+     "GND",
+     "GNDc",
+     "GNDer",
+     "R_GND",
+     "R_GNDc",
+     "R_GNDer"
+    ],
+    "metanetx.reaction": "MNXR100389",
+    "ec-code": "1.1.1.44",
+    "biggr": [
+     "GND",
+     "GNDc",
+     "GNDer",
+     "PGDHh",
+     "R_GND",
+     "R_GNDc",
+     "R_GNDer",
+     "R_PGDHh"
+    ],
+    "keggr": "R01528",
+    "metacycr": "RXN-9952",
+    "sabiorkr": "108",
+    "seedr": [
+     "rxn01115",
+     "rxn27624",
+     "rxn33304",
+     "rxn33323",
+     "rxn38006",
+     "rxn38009"
+    ],
+    "vmhr": [
+     "GND",
+     "GNDc",
+     "GNDer",
+     "R_GND",
+     "R_GNDc",
+     "R_GNDer"
+    ]
+   }
+  },
+  "R550": {
+   "name": "methylenetetrahydrofolate dehydrogenase (NADP)",
+   "bounds": [
+    -1000.0,
+    1000.0
+   ],
+   "gpr": "YALI1E01589g or YALI1F38386g",
+   "equation": "m153[C_cy] + m41[C_cy] <=> 2.0 m10[C_cy] + m160[C_cy] + m40[C_cy]",
+   "subsystem": "One carbon pool by folate",
+   "wt_pfba_flux_map": 0.0930864,
+   "annotation": {
+    "sbo": "SBO:0000176",
+    "bigg.reaction": [
+     "MTHFD",
+     "MTHFD_1",
+     "MTHFDm",
+     "MTHFDm_1",
+     "R_MTHFD",
+     "R_MTHFD_1",
+     "R_MTHFDm",
+     "R_MTHFDm_1"
+    ],
+    "kegg.reaction": "R01220",
+    "rh": [
+     "22812",
+     "22813",
+     "22814",
+     "22815"
+    ],
+    "rhea": [
+     "22812",
+     "22813",
+     "22814",
+     "22815"
+    ],
+    "sabiork.reaction": "73",
+    "seed.reaction": [
+     "rxn00907",
+     "rxn30158",
+     "rxn32777"
+    ],
+    "vmhreaction": [
+     "MTHFD",
+     "MTHFDm",
+     "R_MTHFD",
+     "R_MTHFDm"
+    ],
+    "metanetx.reaction": "MNXR188456",
+    "ec-code": [
+     "1.5.1.5",
+     "3.5.4.9",
+     "6.3.4.3"
+    ],
+    "biggr": [
+     "MTHFD",
+     "MTHFD_1",
+     "MTHFDm",
+     "MTHFDm_1",
+     "R_MTHFD",
+     "R_MTHFD_1",
+     "R_MTHFDm",
+     "R_MTHFDm_1"
+    ],
+    "keggr": "R01220",
+    "sabiorkr": "73",
+    "seedr": [
+     "rxn00907",
+     "rxn30158",
+     "rxn32777"
+    ],
+    "vmhr": [
+     "MTHFD",
+     "MTHFDm",
+     "R_MTHFD",
+     "R_MTHFDm"
+    ]
+   }
+  }
+ },
+ "genes": {
+  "YALI1C02550g": {
+   "reactions": [
+    "R2112",
+    "R2119",
+    "R2121"
+   ],
+   "experimental_positive": "False",
+   "v4_ko": "0.3117439954620555",
+   "v4_class_B_0.15": "non-essential"
+  },
+  "YALI1E21915g": {
+   "reactions": [
+    "R2066",
+    "R2120",
+    "R50"
+   ],
+   "experimental_positive": "False",
+   "v4_ko": "0.311743995462052",
+   "v4_class_B_0.15": "non-essential"
+  },
+  "YALI1F11827g": {
+   "reactions": [
+    "R1936",
+    "R328"
+   ],
+   "experimental_positive": "False",
+   "v4_ko": "0.3124885610076908",
+   "v4_class_B_0.15": "non-essential"
+  },
+  "YALI1C23902g": {
+   "reactions": [
+    "R1936"
+   ],
+   "experimental_positive": "False",
+   "v4_ko": "0.31248856100769146",
+   "v4_class_B_0.15": "non-essential"
+  },
+  "YALI1C15991g": {
+   "reactions": [
+    "R1393",
+    "R87",
+    "R88"
+   ],
+   "experimental_positive": "True",
+   "v4_ko": "0.0",
+   "v4_class_B_0.15": "essential"
+  },
+  "YALI1E35955g": {
+   "reactions": [
+    "R175",
+    "R88"
+   ],
+   "experimental_positive": "True",
+   "v4_ko": "0.3124885610076889",
+   "v4_class_B_0.15": "non-essential"
+  }
+ }
+}
