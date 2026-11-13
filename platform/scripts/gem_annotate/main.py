@@ -113,6 +113,7 @@ def build_reference_chain(
     vatpase_a1_gpr: bool = False,
     r2121_malonyl_coa_close: bool = False,
     r1172_hmgcoa_transport_close: bool = False,
+    folinic_acid_module: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -922,6 +923,13 @@ def build_reference_chain(
         from .vatpase_a1_gpr import apply_vatpase_a1_gpr
         selection["vatpase_a1_gpr"] = apply_vatpase_a1_gpr(model)
         logger.info("V-ATPase A1 GPR: %s", selection["vatpase_a1_gpr"]["status"])
+    if folinic_acid_module:
+        # Opt-in: R748 to the SHMT genes, gene-less lumped R990 closed, cytosolic R_THFAT added (2026-11-12). No flag
+        # dependency: the step pins the e584151f state of its targets, species and genes. Must run before the
+        # crosswalk annotations, which stay the last step that writes annotations.
+        from .folinic_acid_module import apply_folinic_acid_module
+        selection["folinic_acid_module"] = apply_folinic_acid_module(model)
+        logger.info("Folinic acid module: %s", selection["folinic_acid_module"]["status"])
     if trehalose_biomass_removal:
         # Opt-in: trehalose m294[C_cy] removed from biomass_C (2026-10-30). Must stay after every biomass_C edit:
         # its guard pins the full reviewed e1e7c868 composition.
@@ -1079,6 +1087,7 @@ def build_model(args):
         vatpase_a1_gpr=getattr(args, "vatpase_a1_gpr", False),
         r2121_malonyl_coa_close=getattr(args, "r2121_malonyl_coa_close", False),
         r1172_hmgcoa_transport_close=getattr(args, "r1172_hmgcoa_transport_close", False),
+        folinic_acid_module=getattr(args, "folinic_acid_module", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)

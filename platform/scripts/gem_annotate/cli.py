@@ -107,6 +107,8 @@ def parse_args(argv=None):
                         help="Close R2121 (malonate semialdehyde + CoA + NADP+ to malonyl-CoA + NADPH, KEGG R00740 / EC 1.2.1.75, a bacterial and archaeal malonyl-CoA reductase) to (0, 0), keeping the reaction and its YALI1C02550g rule; that gene's R00705 chemistry stays as R2119; runs last and needs the e584151f flag set, because R2121 and R2119 must hold their reviewed e584151f state (curated 2026-11-12, R2121-MALONYL-COA-CLOSE-20261112)")
     parser.add_argument("--r1172-hmgcoa-transport-close", action="store_true",
                         help="Close R1172 (gene-less HMG-CoA transport between cytosol and mitochondrion, no carrier known) to (0, 0), keeping the reaction and its retention notes; the cytosolic route R82, R411 and HMGR R410 must hold its reviewed state and is not changed; R412 not touched; runs after --r2121-malonyl-coa-close and needs the e584151f flag set (curated 2026-11-12, R1172-HMGCOA-TRANSPORT-CLOSE-20261112)")
+    parser.add_argument("--folinic-acid-module", action="store_true",
+                        help="Move R748 (mitochondrial methenyl-THF hydrolysis to 5-formyl-THF) from the glycine-cleavage T protein YALI1F04082g to the SHMT genes YALI1D28569g or YALI1E19557g (EC 2.1.2.1), close the gene-less lumped R990 (R64 + R543), and add the cytosolic hydrolysis R_THFAT with the same rule, so the FAU1-type R64 gets a 5-formyl-THF source (curated 2026-11-12, FOLINIC-ACID-MODULE-20261112)")
     parser.add_argument("--energy-candidate", choices=("E0", "E1", "E2", "E3", "E4", "E5"), default="E0",
                         help="Optional energy repair: E1 directions, E2 chemistry, E3 both, E4 NDP1/R72, E5 CAT2p/OAADCm; offline/no-solve and new output required")
     return parser.parse_args(argv)

@@ -1,0 +1,34 @@
+[
+ {
+  "after": {
+   "PROTEIN_CLASS": "2.1.2.1",
+   "folinic_acid_module_curation": "FOLINIC-ACID-MODULE-20261112: rule moved from the glycine-cleavage T protein YALI1F04082g (K00605, EC 2.1.2.10) to the SHMT genes, as on R359; name and EC follow.",
+   "folinic_acid_module_evidence": "KEGG R02300 is filed under EC 2.1.2.10, which ExPASy ENZYME describes only as the lipoyl-aminomethyl to methylene-THF step; the reaction is the SHMT side activity (Rhea 34767). Yeast-GEM r_1030 and iMM904 THFATm also carry glycine-cleavage-complex rules (different subunit sets); that iYali26 inherited its rule from them is inferred.",
+   "folinic_acid_module_evidence_tier": "Chemistry: Rhea 34767 (reviewed enzymes are SHMTs only) and Stover and Schirch 1990 (PMID 2201683, abstract read). Yeast source: Holmes and Appling 2002 (PMID 11923304, abstract read), 5-formyl-THF undetectable without SHMT. Y. lipolytica genes: KEGG orthology K00600 only; paralog localisation not checked; the side reaction takes the same rule as the SHMT step in its compartment."
+  },
+  "before": {
+   "PROTEIN_CLASS": "2.1.2.1",
+   "folinic_acid_module_curation": "FOLINIC-ACID-MODULE-20261112: rule moved from the glycine-cleavage T protein YALI1F04082g (K00605, EC 2.1.2.10) to the SHMT genes, as on R359; name and EC follow.",
+   "folinic_acid_module_evidence": "KEGG R02300 is filed under EC 2.1.2.10, which ExPASy ENZYME does not describe as hydrolysing methenyl-THF; the reaction is the SHMT side activity (Rhea 34767). Yeast-GEM r_1030 and iMM904 THFATm carry the same inherited glycine-cleavage rule.",
+   "folinic_acid_module_evidence_tier": "Chemistry: Rhea 34767 (reviewed enzymes are SHMTs only) and Stover and Schirch 1990 (PMID 2201683, abstract read). Yeast source: Holmes and Appling 2002 (PMID 11923304, abstract read), 5-formyl-THF undetectable without SHMT. Y. lipolytica genes: KEGG orthology K00600 only; paralog localisation not checked; the side reaction takes the same rule as the SHMT step in its compartment."
+  },
+  "field": "notes",
+  "id": "R748",
+  "kind": "reactions"
+ },
+ {
+  "after": {
+   "folinic_acid_module_curation": "FOLINIC-ACID-MODULE-20261112: closed, kept in the model. The stoichiometry is exactly R64 plus R543 (5-formyl-THF cyclo-ligase then methenyl-THF cyclohydrolase), which the model already has with genes.",
+   "folinic_acid_module_evidence": "No EC, KEGG or Rhea entry describes a 5-formyl-THF isomerase (searched 2026-11-12); BiGG FTHFI is in iMM904 only, gene-less. Inferred: open and gene-less it would bypass a knockout of the FAU1-type gene YALI1D01489g once cytosolic 5-formyl-THF has a source (R_THFAT).",
+   "folinic_acid_module_evidence_tier": "Lumped duplicate: verified by stoichiometry on e584151f. Absence of a distinct isomerase: no source found (KEGG, Rhea, BiGG checked)."
+  },
+  "before": {
+   "folinic_acid_module_curation": "FOLINIC-ACID-MODULE-20261112: closed, kept in the model. The stoichiometry is exactly R64 plus R543 (5-formyl-THF cyclo-ligase then methenyl-THF cyclohydrolase), which the model already has with genes.",
+   "folinic_acid_module_evidence": "No EC, KEGG or Rhea reaction exists for a 5-formyl-THF isomerase; BiGG FTHFI is in iMM904 only, gene-less. Open and gene-less it bypasses a knockout of the FAU1-type gene YALI1D01489g once cytosolic 5-formyl-THF has a source (R_THFAT).",
+   "folinic_acid_module_evidence_tier": "Lumped duplicate: verified by stoichiometry on e584151f. Absence of a distinct isomerase: no source found (KEGG, Rhea, BiGG checked)."
+  },
+  "field": "notes",
+  "id": "R990",
+  "kind": "reactions"
+ }
+]

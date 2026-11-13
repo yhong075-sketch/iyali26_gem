@@ -1,0 +1,121 @@
+98464c98464
+<       <reaction metaid="meta_R_R748" sboTerm="SBO:0000176" id="R_R748" name="tetrahydrofolate aminomethyltransferase" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+---
+>       <reaction metaid="meta_R_R748" sboTerm="SBO:0000176" id="R_R748" name="5,10-methenyl-THF hydrolysis (SHMT side activity)" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+98467c98467,98470
+<             <p>PROTEIN_CLASS: 2.1.2.10</p>
+---
+>             <p>PROTEIN_CLASS: 2.1.2.1</p>
+>             <p>folinic_acid_module_curation: FOLINIC-ACID-MODULE-20261112: rule moved from the glycine-cleavage T protein YALI1F04082g (K00605, EC 2.1.2.10) to the SHMT genes, as on R359; name and EC follow.</p>
+>             <p>folinic_acid_module_evidence: KEGG R02300 is filed under EC 2.1.2.10, which ExPASy ENZYME describes only as the lipoyl-aminomethyl to methylene-THF step; the reaction is the SHMT side activity (Rhea 34767). Yeast-GEM r_1030 and iMM904 THFATm also carry glycine-cleavage-complex rules (different subunit sets); that iYali26 inherited its rule from them is inferred.</p>
+>             <p>folinic_acid_module_evidence_tier: Chemistry: Rhea 34767 (reviewed enzymes are SHMTs only) and Stover and Schirch 1990 (PMID 2201683, abstract read). Yeast source: Holmes and Appling 2002 (PMID 11923304, abstract read), 5-formyl-THF undetectable without SHMT. Y. lipolytica genes: KEGG orthology K00600 only; paralog localisation not checked; the side reaction takes the same rule as the SHMT step in its compartment.</p>
+98485,98502d98487
+<                   <rdf:li rdf:resource="https://identifiers.org/kegg.reaction/R02300"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rh/34767"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rh/34768"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rh/34769"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rh/34770"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rhea/34767"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rhea/34768"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rhea/34769"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/rhea/34770"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/sabiork.reaction/2262"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/seed.reaction/rxn01652"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/seed.reaction/rxn24149"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/FOMETR"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/R_FOMETR"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/R_r0522"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/r0522"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/metanetx.reaction/MNXR153595"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/ec-code/2.1.2.10"/>
+98512a98498,98499
+>                   <rdf:li rdf:resource="https://identifiers.org/ec-code/2.1.2.1"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/kegg.reaction/R02300"/>
+98513a98501,98510
+>                   <rdf:li rdf:resource="https://identifiers.org/metanetx.reaction/MNXR153595"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rh/34767"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rh/34768"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rh/34769"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rh/34770"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rhea/34767"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rhea/34768"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rhea/34769"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rhea/34770"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/sabiork.reaction/2262"/>
+98514a98512,98513
+>                   <rdf:li rdf:resource="https://identifiers.org/seed.reaction/rxn01652"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/seed.reaction/rxn24149"/>
+98520a98520,98523
+>                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/FOMETR"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/R_FOMETR"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/R_r0522"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/vmhreaction/r0522"/>
+98535c98538,98541
+<           <fbc:geneProductRef fbc:geneProduct="G_YALI1F04082g"/>
+---
+>           <fbc:or>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1D28569g"/>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1E19557g"/>
+>           </fbc:or>
+109994c110000,110007
+<       <reaction metaid="meta_R_R990" sboTerm="SBO:0000176" id="R_R990" name="5-formyltetrahydrofolate:10-formyltetrahydrofolate isomerase" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+---
+>       <reaction metaid="meta_R_R990" sboTerm="SBO:0000176" id="R_R990" name="5-formyltetrahydrofolate:10-formyltetrahydrofolate isomerase" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
+>         <notes>
+>           <html xmlns="http://www.w3.org/1999/xhtml">
+>             <p>folinic_acid_module_curation: FOLINIC-ACID-MODULE-20261112: closed, kept in the model. The stoichiometry is exactly R64 plus R543 (5-formyl-THF cyclo-ligase then methenyl-THF cyclohydrolase), which the model already has with genes.</p>
+>             <p>folinic_acid_module_evidence: No EC, KEGG or Rhea entry describes a 5-formyl-THF isomerase (searched 2026-11-12); BiGG FTHFI is in iMM904 only, gene-less. Inferred: open and gene-less it would bypass a knockout of the FAU1-type gene YALI1D01489g once cytosolic 5-formyl-THF has a source (R_THFAT).</p>
+>             <p>folinic_acid_module_evidence_tier: Lumped duplicate: verified by stoichiometry on e584151f. Absence of a distinct isomerase: no source found (KEGG, Rhea, BiGG checked).</p>
+>           </html>
+>         </notes>
+110004,110005d110016
+<                   <rdf:li rdf:resource="https://identifiers.org/seed.reaction/rxn01209"/>
+<                   <rdf:li rdf:resource="https://identifiers.org/metanetx.reaction/MNXR153623"/>
+110009a110021,110022
+>                   <rdf:li rdf:resource="https://identifiers.org/metanetx.reaction/MNXR153623"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/seed.reaction/rxn01209"/>
+164004a164018,164056
+>       <reaction metaid="meta_R_R_THFAT" sboTerm="SBO:0000176" id="R_R_THFAT" name="5,10-methenyl-THF hydrolysis (SHMT side activity), cytosol" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+>         <notes>
+>           <html xmlns="http://www.w3.org/1999/xhtml">
+>             <p>PROTEIN_CLASS: 2.1.2.1</p>
+>             <p>folinic_acid_module_curation: FOLINIC-ACID-MODULE-20261112: cytosolic source of 5-formyl-THF m159, which had none, so the FAU1-type R64 could never carry flux. Rule as R358 (cytosolic SHMT).</p>
+>             <p>folinic_acid_module_evidence: Stover and Schirch 1990: cytosolic SHMT hydrolyses methenyl-THF to 5-formyl-THF. Holmes and Appling 2002: SHMT is the in vivo source in S. cerevisiae. Charge imbalance -1 as in R748: methenyl-THF m160 is stored at charge 0 with the formula of the -1 species (ChEBI 57455).</p>
+>             <p>folinic_acid_module_evidence_tier: Chemistry: Rhea 34767 (reviewed enzymes are SHMTs only) and Stover and Schirch 1990 (PMID 2201683, abstract read). Yeast source: Holmes and Appling 2002 (PMID 11923304, abstract read), 5-formyl-THF undetectable without SHMT. Y. lipolytica genes: KEGG orthology K00600 only; paralog localisation not checked; the side reaction takes the same rule as the SHMT step in its compartment.</p>
+>           </html>
+>         </notes>
+>         <annotation>
+>           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+>             <rdf:Description rdf:about="#meta_R_R_THFAT">
+>               <bqbiol:is>
+>                 <rdf:Bag>
+>                   <rdf:li rdf:resource="https://identifiers.org/bigg.reaction/THFAT"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/ec-code/2.1.2.1"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/rhea/34767"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/kegg.reaction/R02300"/>
+>                   <rdf:li rdf:resource="https://identifiers.org/metanetx.reaction/MNXR153595"/>
+>                 </rdf:Bag>
+>               </bqbiol:is>
+>             </rdf:Description>
+>           </rdf:RDF>
+>         </annotation>
+>         <listOfReactants>
+>           <speciesReference species="M_m160__91__C_cy__93__" stoichiometry="1" constant="true"/>
+>           <speciesReference species="M_m32__91__C_cy__93__" stoichiometry="1" constant="true"/>
+>         </listOfReactants>
+>         <listOfProducts>
+>           <speciesReference species="M_m10__91__C_cy__93__" stoichiometry="1" constant="true"/>
+>           <speciesReference species="M_m159__91__C_cy__93__" stoichiometry="1" constant="true"/>
+>         </listOfProducts>
+>         <fbc:geneProductAssociation>
+>           <fbc:or>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1D28569g"/>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1E19557g"/>
+>           </fbc:or>
+>         </fbc:geneProductAssociation>
+>       </reaction>
+180530c180582,180583
+<           <groups:member groups:name="tetrahydrofolate aminomethyltransferase" groups:idRef="R_R748"/>
+---
+>           <groups:member groups:name="5,10-methenyl-THF hydrolysis (SHMT side activity)" groups:idRef="R_R748"/>
+>           <groups:member groups:name="5,10-methenyl-THF hydrolysis (SHMT side activity), cytosol" groups:idRef="R_R_THFAT"/>
