@@ -1,5 +1,7 @@
 # Folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added, 2026-11-12
 
+**Current candidate: `353cefdc` on main's `684f3752` (R2121 + R1172 closures); see §8.** The sections below document the first round on `e584151f`.
+
 Scope, authorization and acceptance criteria: [TASK.md](TASK.md). Independent audit and its resolution:
 [AUDIT.md](AUDIT.md). Not committed.
 
@@ -228,4 +230,52 @@ and after. After the note rewording, the focused test passes again (7 / 24 subte
 **Effect on the code.** `main.py` and `cli.py` on main add parameters at the same insertion points, so merging this
 work needs a textual conflict resolution, then a combined build.
 
-None of that was done here; it needs the user's instruction.
+None of that was done in the first round. **Resolved in §8:** the user chose "Merge main, rebuild".
+
+## 8. Rebuild on current main (2026-11-12, user: "Merge main, rebuild")
+
+**Merge.**
+- This round's code, data, tests and docs were committed as `c00ec033`. The two `e584151f`-based candidate XMLs were
+  not committed.
+- `origin/main` (`cf7b8dd9`: PRs #50–#52, the R2121 and R1172 closures and the legacy-biomass plan) was merged as
+  `768c187e`.
+- The conflicts in `cli.py`, `main.py` and `STATE.md` were resolved by keeping both sides. The folinic step still runs
+  after the V-ATPase A1 step and before main's R2121 and R1172 steps; the targets of the three steps are disjoint.
+- Not pushed.
+
+**New baseline.** `..._mcnaugh_rxns_v3_r2121_close_r1172_close_20261112.xml`,
+`684f3752764fb8f25219008966953863141724f34a451dffb77c235aa3cb2f62` (main's newest candidate). Its argv is
+[scripts/args_684f3752.txt](scripts/args_684f3752.txt): the e584151f argv plus `--r2121-malonyl-coa-close
+--r1172-hmgcoa-transport-close`.
+
+**Candidate.** `..._mcnaugh_rxns_v3_r2121_close_r1172_close_fthf_20261112.xml`,
+`353cefdc16ef1dc510eae49c168fc999254c2652c3994287af45589621a90cd9`. That is the 684f3752 argv plus
+`--folinic-acid-module`, built with [scripts/run_build_684f3752.zsh](scripts/run_build_684f3752.zsh). The name uses
+`fthf` because `folinic_acid` pushed the builder's temporary file past the macOS 255-byte limit; the first attempt
+failed with `Errno 63`.
+
+| Check | Result |
+| --- | --- |
+| Control build (684f3752 argv, merged code, no flag) | byte-identical to `684f3752` |
+| Candidate seed 0 vs seed 1 | byte-identical (`353cefdc`) |
+| Whole-model diff vs `684f3752` ([model_diff_vs_684f3752.json](model_diff_vs_684f3752.json)) | the same 11 entries, field for field equal to the v2-vs-e584151f diff (`json ==` True); byte-level hunks identical apart from line numbers ([logs/xml_text_diff_vs_684f3752.txt](logs/xml_text_diff_vs_684f3752.txt)) |
+| WT (Task A + PO1f, Gurobi 1e-9) | 0.3111005359259494 → 0.311100535925948 (Δ 1.4e-15) ([targeted684_control.json](targeted684_control.json), [targeted684_candidate.json](targeted684_candidate.json)) |
+| R64, no growth floor | 0 / 0 → 0 / 55.47; R_THFAT 0 / 55.47; R990 0 / 0; R748 = R989 0 / 69.34; R542 still 0 / 0 |
+| Module at (1 − 1e-9) × WT | ≤ 7.1e-8 (unchecked LPs, as before) |
+| Targeted knockouts | `YALI1F04082g` 0.98243 both (R748 no longer closed); both SHMTs 0.98534 both; single SHMTs and `YALI1D01489g` 1.0 |
+| Full certified sweep, both models ([sweep684_compare.json](sweep684_compare.json)) | 1,082 LPs each, no check failures, 20 non-optimal, all certified; zero status or class changes; max KO growth difference 2.8e-14 |
+| Rule B, mtDNA + untargeted out of scope, TP/FN/FP/TN at 1/5/10/15 % | 117/209/36/701, 124/202/38/699, 128/198/43/694, **145/181/43/694**, identical in both; 326 of 1,612 positives in the model, none out of scope |
+
+**Pytest on the merged code.** Root `.venv`, `--continue-on-collection-errors`, short-path archive copies:
+
+| Run | Passed | Failed | Errors | Skipped |
+| --- | --- | --- | --- | --- |
+| Before (`origin/main` `cf7b8dd9`) | 477 | 3 | 18 | 24 |
+| After (merged HEAD `768c187e`) | 484 | 3 | 18 | 24 |
+
+[logs/pytest684_compare.txt](logs/pytest684_compare.txt) compares the junit files test by test. The only differences
+are the 7 new `test_folinic_acid_module` tests, all passed. This run uses the v2 note text, so it also closes the
+"full suite not re-run for the note change" gap in §3.
+
+The superseded candidates `d4832b29` (first build) and `85c623c8` (v2 on e584151f) stay untracked in
+`model/candidates/` until the user decides.

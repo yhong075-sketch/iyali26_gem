@@ -5,7 +5,22 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-12: folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added (candidate 85c623c8, uncommitted)
+## 2026-11-12: folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added (candidate 353cefdc on main's 684f3752; code committed c00ec033, merge 768c187e on claude/eloquent-ishizaka-954d88, not pushed)
+
+**Rebuild on current main.** The user chose "Merge main, rebuild".
+- **Commits.** This round was committed as `c00ec033`; `origin/main` `cf7b8dd9` was merged as `768c187e`, with
+  conflicts in cli.py, main.py and STATE.md resolved by keeping both sides.
+- **Rebuild.** The step was rebuilt on main's `684f3752` (the R2121 + R1172 closures): the control is
+  byte-identical, the candidate is `353cefdc` for both seeds, and the 11-entry diff is equal field for field to the
+  first round's.
+- **Results.** WT is unchanged (0.3111005359, Δ 1.4e-15). The full certified sweep on both models shows zero class
+  or status changes; rule B 15 %: 145 / 181 / 43 / 694.
+- **Pytest:** `origin/main` 477 passed / 3 failed / 18 errors → merged 484 / 3 / 18; only the 7 new tests
+  differ.
+- **Superseded.** The `e584151f`-based `85c623c8` (and `d4832b29`) is replaced by `353cefdc`; both stay
+  untracked. Details: [REPORT §8](reports/folinic_acid_module_20261112/REPORT.md).
+
+**First round on e584151f** (kept as recorded):
 
 **Authorization.** The user, 2026-11-12, after the review in the shared session notes:
 - "I think there is a gap to fix";

@@ -81,3 +81,20 @@ Nothing else may change.
 
 Large outputs (control and candidate copies, sweep tables) go to
 `$IYALI26_RESEARCH_ROOT/artifacts/tasks/folinic_acid_module_20261112/`.
+
+## 4. Addendum: rebuild on current main (2026-11-12)
+
+**Authorization.** The user's choice "Merge main, rebuild", in reply to "Merge current main and rebuild this change on
+top of it?".
+
+**Scope.**
+1. Commit this round's work on this branch (`c00ec033`).
+2. Merge `origin/main` `cf7b8dd9` (`768c187e`).
+3. Rebuild on main's newest candidate `684f3752`:
+   - control build;
+   - candidate seeds 0 and 1;
+   - whole-model diff;
+   - the same targeted solves and full sweeps on both models;
+   - pytest before (an `origin/main` archive) and after (a merged-HEAD archive).
+
+Acceptance criteria as in §2, with `684f3752` in place of `e584151f`. No push.
