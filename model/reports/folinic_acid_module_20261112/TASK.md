@@ -98,3 +98,5 @@ top of it?".
    - pytest before (an `origin/main` archive) and after (a merged-HEAD archive).
 
 Acceptance criteria as in §2, with `684f3752` in place of `e584151f`. No push.
+
+Later, on the user's "Commit and open PR" (2026-11-13): rebuild committed as `88b28280`, branch pushed, and [PR #53](https://github.com/yhong075-sketch/iyali26_gem/pull/53) opened to `main`.

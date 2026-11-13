@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-12: folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added (candidate 353cefdc on main's 684f3752; code committed c00ec033, merge 768c187e on claude/eloquent-ishizaka-954d88, not pushed)
+## 2026-11-12: folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added (candidate 353cefdc on main's 684f3752; commits c00ec033, merge 768c187e, rebuild 88b28280 on claude/eloquent-ishizaka-954d88, PR #53)
 
 **Rebuild on current main.** The user chose "Merge main, rebuild".
 - **Commits.** This round was committed as `c00ec033`; `origin/main` `cf7b8dd9` was merged as `768c187e`, with
