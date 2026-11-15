@@ -24,7 +24,8 @@ _COMP_SUFFIX_RE = re.compile(r"_[a-z]$")   # strips compartment suffix from BiGG
 _TRANSPORT_SUFFIXES = ("tex", "tpp", "abc", "t2", "t3", "pp", "t")
 
 # Ubiquitous metabolites that dilute Jaccard similarity in Strategies C and D.
-# MNXM1=H+, MNXM3=ATP, MNXM5=NAD+/NADH, MNXM9=ADP, WATER=H2O
+# MNXM1=H+, MNXM3=ATP, MNXM5=NADP(+), MNXM9=phosphate, WATER=H2O (names per MetaNetX 4.5 chem_prop.tsv;
+# NAD+ MNXM8, NADH MNXM10 and ADP MNXM40333 are not in the set)
 _UBIQUITOUS_MNXM = frozenset({"MNXM1", "WATER", "MNXM3", "MNXM9", "MNXM5"})
 
 # Runtime-only MNXM normalisation for fingerprint matching.

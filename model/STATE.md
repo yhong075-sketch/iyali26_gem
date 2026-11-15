@@ -5,6 +5,105 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-13/15: Reaction cross-reference cleanup through the builder, candidate 7ccbb568 on main's 353cefdc (committed on claude/peaceful-pascal-66d07e on top of main 79109038)
+
+**Authorization.** The user, in this session:
+- 2026-11-12, answering "Implement the annotator metabolite post-check through the builder here?": "Yes, fix here".
+- 2026-11-13, to the plan of a last-step reviewed removal on the 684f3752 flag set (one note per reaction,
+  `ec-code` and crosswalk-decided values untouched, no LP): "Approve as planned".
+- On also removing the values merged in as "equivalents" of the same wrong pick: "if it's about the lipid-unlump,
+  don't touch it, if for other parts, remove."
+- On the 14 fatty-acid-synthesis reactions: "Exclude them too (Recommended)".
+- 2026-11-15, answering "Merge main into this branch and rebuild the cleanup on 353cefdc?": "Merge and rebuild".
+
+Scope: [TASK.md](reports/reaction_xref_cleanup_20261113/TASK.md); results:
+[REPORT.md](reports/reaction_xref_cleanup_20261113/REPORT.md) (§7 for the rebuild on 353cefdc).
+
+**Change.**
+- Data `model/curation/annotation/reaction_xref_cleanup_decisions_20261113.csv` (374 rows) and `.json`
+  (`REACTION-XREF-CLEANUP-20261113`, notes, 51 exclusions).
+- Guarded step `apply_reaction_xref_cleanup`, behind opt-in flag `--reaction-xref-cleanup`, last in the build. It
+  refuses crosswalk-decided keys, excluded reactions, stale rows, and targets whose crosswalk values are not applied.
+- 9 tests. Comment fixes in `annotate_reactions_extended.py` (`_UBIQUITOUS_MNXM`) and in `main.py` / `cli.py`
+  (ordering statements this step made untrue).
+- On 62 reactions outside the lipid-unlump line, 896 cross-reference values whose MetaNetX equation does not match
+  the reaction were removed (all 374 keys emptied), and one `xref_cleanup` note was added to each:
+  - 27 another-substrate, 15 another-reaction and 11 partial-MNXR rows;
+  - 9 rows whose leftover keys came from a pre-crosswalk MNXR.
+- Kept: GPRs, chemistry, bounds, metabolites, genes, `ec-code`, SBO and every crosswalk-decided value.
+
+**Merge.** `cf7b8dd9` → `main` `79109038` as a fast-forward, the uncommitted changes reapplied 3-way. The conflicts
+(`main.py`, `cli.py`, `STATE.md`) were resolved by keeping both sides. No commit, no stash.
+
+**Results** (verified):
+- Candidate `model/candidates/E5_353cefdc_xref_20261115.xml`, SHA-256
+  `7ccbb56834a37ad4c75e434868e9e1b9e1f6a657a11ca17ee0a93dbe56232146`, identical for seeds 0 and 1. It is
+  353cefdc's recorded argv plus `--reaction-xref-cleanup`.
+- The control build reproduces 353cefdc byte for byte. The whole-model diff is exactly the 374 decision keys and
+  the 62 notes; the folinic-acid targets are untouched.
+- Short name: the cumulative name would exceed the writer's 255-byte temporary-file limit; the lineage is in its
+  `.build.json`.
+- No LP: annotations are not part of the optimization problem, so 353cefdc's WT and knockout results carry over
+  (provable).
+- pytest (root `.venv`): `main` 484 → 493 passed; only the 9 new tests differ; the 3 failed / 18 errors are standing.
+- Three independent reviews (code review, audit, merge/rebuild review) found nothing blocking. Their findings were
+  fixed and the builds rerun to the same SHAs.
+- First round `9ce7c54a…` (the same change on 684f3752) is superseded and kept untracked.
+
+**Limits and open items.**
+- Adjudication labels are inferred; the fingerprint classes are verified.
+- The annotator still makes the same picks without the flag.
+- 51 excluded reactions (37 lipid-unlump scope, 14 fatty-acid synthesis) keep their wrong xrefs, for the lipid
+  owner.
+- Six reactions keep at least one wrong `ec-code` from the wrong MNXR (R288 2.4.1.32; R29–R33 3.1.4.35; R2252
+  3.5.1.11; KEGG-verified).
+- Committed on the user's instruction (2026-11-15) together with the audit report it cites
+  (`reports/annotation_xref_audit_20261112/`); the superseded 9ce7c54a stays untracked. No push.
+- Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/reaction_xref_cleanup_20261113/`
+  (`MANIFEST_20261115.sha256` `2b8bcf1e…`).
+
+## 2026-11-12: Annotation cross-reference audit of e584151f, model-wide (read-only; no model change; committed with the 2026-11-13/15 cleanup on claude/peaceful-pascal-66d07e)
+
+**Authorization.** Task brief from the parent session (`local_d48d4f64…`), 2026-11-12: investigation and
+documentation only, following up items 1–2 of `gpr_name_mismatch_leads_20261112` §8. No model, curated-data, builder
+or test change; no LP; public REST lookups with IDs only. Scope and inputs:
+[TASK.md](reports/annotation_xref_audit_20261112/TASK.md); results:
+[REPORT.md](reports/annotation_xref_audit_20261112/REPORT.md),
+[reaction_xref_mismatches.csv](reports/annotation_xref_audit_20261112/reaction_xref_mismatches.csv),
+[deleted_uniprot_xrefs.csv](reports/annotation_xref_audit_20261112/deleted_uniprot_xrefs.csv).
+
+**Results.**
+- **Reaction cross-references** (static fingerprint vs MetaNetX 4.5 `reac_prop.tsv`, verified). 1,632 reactions carry
+  an xref.
+  - Reading the 149 strong-disagreement rows (labels inferred), 97 reactions carry an MNXR, and with it its
+    KEGG/Rhea/BiGG IDs, that describes another reaction (20) or another specific substrate (63), or only part of
+    the reaction (14). Examples: R1711 → HisA; 12 enoyl-CoA hydratases → a C13 dienoyl MNXR; 18 cis-prenyltransferase
+    steps → the `PPi = IPP` rubber-allyltransferase stub; nine acyl-ACP hydrolases → C18:0; RNR NDP steps → the NTP
+    reductase.
+  - 16 more reactions have a correct MNXR but stale KEGG/Rhea: the BiGG crosswalk step rewrites only
+    `metanetx.reaction` and `bigg.reaction`.
+  - 198 partial rows are listed but not adjudicated.
+- **Provenance** (in-memory replay of the build through Priority 4e with line tracing, verified; no model written;
+  1,448 of 1,627 final MNXRs reproduced, 162 more explained exactly by crosswalk decisions).
+  - Strategy C's single-candidate branch fired on 8 reactions; only R1711 is wrong.
+  - The 97 come from:
+    - name-only paths: primary Strategy B 38/814, Strategy C Layer 3 20/52, B6 5/66;
+    - fingerprints built from annotated metabolites only: Strategy C Layer 2 18/81, primary C 8/171, B5 7/278.
+- **Gene UniProt** (REST, 2026-11-12, verified). 690 of the 835 gene accessions are deleted (680 "Not part of a
+  reference proteome"). All 690 come from the cached W29 proteome UP000182444, which the annotator reads first.
+  NCBI Gene → KEGG → UniProt gives a live CLIB122 entry for 679 (544 with an identical sequence, 135 different).
+  UniParc gives an identical-sequence entry for 2 more (YALI1D32594g → Q6C7X2, YALI1E31685g → Q12724). 9 have none,
+  including YALI1D15063g. The four known cases reproduce the sibling review.
+- **Proposal** (not implemented; needs authorization and the builder): one metabolite post-check for every
+  annotation strategy, no fingerprints of partly annotated reactions, a coherent xref bundle after crosswalk
+  rewrites, reference proteome first, and the `_UBIQUITOUS_MNXM` comment fixed (MNXM5 is NADP+, MNXM9 phosphate).
+  Test design T1–T7 is in REPORT §4. Annotation fixes cannot change any FBA/FVA/KO result (provable).
+
+**Limits.** Adjudication labels are my reading of equations (inferred) and the partial class is unreviewed. KEGG
+and Rhea were not queried directly; MetaNetX 4.5 was the bridge. Replacement names are database annotations, not
+identity evidence. Scripts, raw responses and full tables:
+`$IYALI26_RESEARCH_ROOT/artifacts/tasks/annotation_xref_audit_20261112/` (`MANIFEST.sha256` `22ae9a6c…`).
+
 ## 2026-11-12: folinic-acid (5-formyl-THF) module: R748 to SHMT, R990 closed, cytosolic R_THFAT added (candidate 353cefdc on main's 684f3752; commits c00ec033, merge 768c187e, rebuild 88b28280 on claude/eloquent-ishizaka-954d88, PR #53)
 
 **Rebuild on current main.** The user chose "Merge main, rebuild".

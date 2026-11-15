@@ -114,6 +114,7 @@ def build_reference_chain(
     r2121_malonyl_coa_close: bool = False,
     r1172_hmgcoa_transport_close: bool = False,
     folinic_acid_module: bool = False,
+    reaction_xref_cleanup: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -926,7 +927,7 @@ def build_reference_chain(
     if folinic_acid_module:
         # Opt-in: R748 to the SHMT genes, gene-less lumped R990 closed, cytosolic R_THFAT added (2026-11-12). No flag
         # dependency: the step pins the e584151f state of its targets, species and genes. Must run before the
-        # crosswalk annotations, which stay the last step that writes annotations.
+        # crosswalk annotations, which stay the last step that writes annotations before --reaction-xref-cleanup.
         from .folinic_acid_module import apply_folinic_acid_module
         selection["folinic_acid_module"] = apply_folinic_acid_module(model)
         logger.info("Folinic acid module: %s", selection["folinic_acid_module"]["status"])
@@ -955,30 +956,40 @@ def build_reference_chain(
         logger.warning("Applied CoQ R19/R18 literature candidate; downstream redox gap remains unresolved")
     if mcnaugh_reactions:
         # Opt-in: 17 reviewed mcnaugh_pass reactions; closes the lumped Kennedy steps they replace (2026-11-03). Must run
-        # before the crosswalk annotations, which stay the last step that writes annotations.
+        # before the crosswalk annotations, which stay the last step that writes annotations before
+        # --reaction-xref-cleanup.
         from .mcnaugh_reactions import apply_mcnaugh_reactions
         selection["mcnaugh_reactions"] = apply_mcnaugh_reactions(model)
         logger.info("mcnaugh_pass reactions: %s", selection["mcnaugh_reactions"]["status"])
     if bigg_crosswalk_annotations:
         # Opt-in: reviewed annotation values from the mcnaugh_pass BiGG crosswalk (2026-11-03). Must stay after every
-        # step that writes annotations: its guard pins each target's reviewed starting value.
+        # step that writes annotations: its guard pins each target's reviewed starting value. The one exception,
+        # --reaction-xref-cleanup, runs later; it never touches a crosswalk-decided key and requires the crosswalk.
         from .bigg_crosswalk_annotations import apply_bigg_crosswalk_annotations
         selection["bigg_crosswalk_annotations"] = apply_bigg_crosswalk_annotations(model)
         logger.info("BiGG crosswalk annotations: %s", selection["bigg_crosswalk_annotations"]["status"])
     if r2121_malonyl_coa_close:
-        # Opt-in: R2121 (KEGG R00740) closed to (0, 0), R2119 kept (2026-11-12). Bounds and notes only. Runs last:
-        # its guard pins R2121 and R2119 as written in e584151f (after the E5 read-back, and R2119's annotation after
-        # the crosswalk), so it needs the e584151f flag set and fails closed at this point without it.
+        # Opt-in: R2121 (KEGG R00740) closed to (0, 0), R2119 kept (2026-11-12). Bounds and notes only. Runs after
+        # the crosswalk: its guard pins R2121 and R2119 as written in e584151f (after the E5 read-back, and R2119's
+        # annotation after the crosswalk), so it needs the e584151f flag set and fails closed at this point without it.
         from .r2121_malonyl_coa_close import apply_r2121_malonyl_coa_close
         selection["r2121_malonyl_coa_close"] = apply_r2121_malonyl_coa_close(model)
         logger.info("R2121 malonyl-CoA closure: %s", selection["r2121_malonyl_coa_close"]["status"])
     if r1172_hmgcoa_transport_close:
         # Opt-in: gene-less HMG-CoA transport R1172 closed to (0, 0), reaction and retention notes kept (2026-11-12).
-        # Bounds and notes only; independent of R2121. Runs last: its guard pins R1172 (with the retention notes)
-        # and the cytosolic R82 / R411 / R410 route as written in e584151f, so it needs the e584151f flag set.
+        # Bounds and notes only; independent of R2121. Runs after the crosswalk: its guard pins R1172 (with the
+        # retention notes) and the cytosolic R82 / R411 / R410 route as written in e584151f, so it needs the e584151f
+        # flag set.
         from .r1172_hmgcoa_transport_close import apply_r1172_hmgcoa_transport_close
         selection["r1172_hmgcoa_transport_close"] = apply_r1172_hmgcoa_transport_close(model)
         logger.info("R1172 HMG-CoA transport closure: %s", selection["r1172_hmgcoa_transport_close"]["status"])
+    if reaction_xref_cleanup:
+        # Opt-in: remove reaction cross-references whose MetaNetX equation does not match the reaction, on 62
+        # reactions outside the lipid-unlump line (2026-11-13). Annotations and notes only. Runs last: its rows pin the
+        # 684f3752 annotation state, and it refuses to run unless the crosswalk's values on its targets are applied.
+        from .reaction_xref_cleanup import apply_reaction_xref_cleanup
+        selection["reaction_xref_cleanup"] = apply_reaction_xref_cleanup(model)
+        logger.info("Reaction xref cleanup: %s", selection["reaction_xref_cleanup"]["status"])
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
@@ -1088,6 +1099,7 @@ def build_model(args):
         r2121_malonyl_coa_close=getattr(args, "r2121_malonyl_coa_close", False),
         r1172_hmgcoa_transport_close=getattr(args, "r1172_hmgcoa_transport_close", False),
         folinic_acid_module=getattr(args, "folinic_acid_module", False),
+        reaction_xref_cleanup=getattr(args, "reaction_xref_cleanup", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
