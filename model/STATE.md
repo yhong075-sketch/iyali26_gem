@@ -5,6 +5,60 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-16: Gap census of 7ccbb568 and LP tests of single-reaction candidates per root (computation only, no model change; committed on claude/metabolic-pathway-gnn-priorities-9b8f18, not pushed)
+
+**Authorization.** The user, in this session, on a GNN that should say why a reaction cannot carry flux ("is it
+must be muted due to steady state?" or "is it some reactions is missing"): "Write the plan" for two checks, then
+"Run them" to the stated plan: the gap census re-run on `7ccbb568`; an LP test of every single-reaction candidate
+per root; 150,000 LPs or 3 hours; two new scripts in the report folder; this entry; one read-only review.
+After the review, to "Apply the other fixes and leave the loop test out?": "Yes, without it" (hash gates in the
+scripts, a fail-closed tables stage, one more decision label, one 54-LP closure test, a re-run).
+Computation and reporting only. Last: "Commit the working tree changes with a sensible message."
+
+Scope: [TASK.md](reports/gap_census_candidates_20261116/TASK.md); results:
+[REPORT.md](reports/gap_census_candidates_20261116/REPORT.md).
+
+**Results.** Verified this session unless marked. The blocked sets and every candidate pass-or-fail solve are by
+GLPK and by Gurobi at 1e-9; the fix tests, the drain tests (so the cause table) and the re-counts are GLPK only.
+- **Gates passed:** file hashes; the Task A condition file equals the platform's medium + profile context (0 of
+  2,347 bounds differ); the October census reproduces on `a1237821` (756 blocked, identical set); the root table
+  (364) and the candidate list (391 pairs) equal the counts made at plan time.
+- **Census, every exchange open:** 692 of 2,347 reactions blocked (76 closed, 427 with a gene rule), 649 gap
+  metabolites, 364 roots, 213 modules; the same set by both solvers. Task A + PO1f: 829 (GLPK) / 826 (Gurobi).
+  October, `a1237821`: 756 of 2,316.
+- **Causes (October order):** several roots 252, dead-end root 190, closed 76, missing transport 58, coupling 49,
+  cofactor pseudo-gap 38, missing exchange 17, duplicate id 6, behind a closure 6. The coupling group is not
+  decided between "steady state" and "something missing".
+- **Since October:** 31 reactions added, all active; 78 became active; 14 became blocked. Of the 14, 5 were closed
+  by later builds (R1172, R1771, R1846, R2121, R353) and 9 kept their bounds (R2074–R2077, R2112, R25, R552, R95,
+  R834). The 9 are freed by a FAD or a CoA drain, and the follow-up test shows why they became blocked:
+  reopening R1172 (the HMG-CoA transport closed on 2026-11-12) in memory frees all 9, reopening R2121 frees none
+  (GLPK, census `fixtests.py`, not cross-checked with Gurobi). Six of the 9 carry a gene rule. LP evidence about
+  a side effect of that closure, not a proposal to reopen it.
+- **Single-reaction candidates (MetaNetX 4.5):** 81 of the 364 roots have a balance-marked candidate (250 pairs);
+  181 pairs work alone and 243 with the other roots opened. Roots with two or more working candidates: 42 alone,
+  57 with the other roots opened (the cut set before the run was 30). 283 roots have no balance-marked candidate.
+- **Independent review** (read-only, no LP): recounts confirm the candidate list and the per-root counts. Its main
+  finding: a pass also counts candidates that only close a loop with the root's own reaction, one of which nets to
+  ATP from nothing. Two proxies size it: 19 pairs flagged by a same-reaction-up-to-currency rule (the count of 57
+  becomes 51), 32 pairs at 16 roots by the census sink test. It was not separated exactly; the user declined
+  the exact loop test because it would not change the reading. A second pass recomputed the numbers of the
+  report and of the first version of this entry from the tables: none differed.
+- **Follow-up fixes:** both scripts now check the input hashes (`input_hashes.csv`); the tables stage stops on a
+  recorded consistency problem or a failed fix test and reports unresolved solves in their own column; "R1725
+  stays closed" (2026-10-27) is labelled. The five new gates were exercised on scratch copies and all stop as
+  intended. The candidate stage was re-run and its outputs are byte-identical to the first run's.
+- **Inferred:** the LP test does not rank candidates (243 of 250 pass), so evidence has to; a single-reaction
+  ranker has at most 57 roots to work on, and most roots are out of its reach.
+- **Budget:** 102,746 nominal LPs of the 150,000 cap (first run 96,656, follow-up 6,090); 30 + 6 minutes of
+  wall-clock time.
+
+**Limits.** No model change; every test is LP evidence, not a recommendation. MetaNetX is the only candidate
+source, and 256 of the 1,883 species have no MetaNetX id. A pass is blind to direction, compartment and loops.
+The freed-reaction counts are lower bounds. Module labels belong to one run and do not match October's. No
+second code review was run on the follow-up edits, and the scripts have no test file. Committed on this branch
+on the user's instruction (2026-11-16); not pushed.
+
 ## 2026-11-13/15: Reaction cross-reference cleanup through the builder, candidate 7ccbb568 on main's 353cefdc (committed on claude/peaceful-pascal-66d07e on top of main 79109038)
 
 **Authorization.** The user, in this session:
