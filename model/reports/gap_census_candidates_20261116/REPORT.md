@@ -1,7 +1,7 @@
 # Inactive reactions of candidate 7ccbb568: causes, and LP tests of single-reaction candidates per root (2026-11-16)
 
-Scope and authorization: [TASK.md](TASK.md). Computation and reporting only; no model change. Committed on the
-user's later instruction; not pushed.
+Scope and authorization: [TASK.md](TASK.md). Computation and reporting only; no model change. Committed (`9dd3ec17`)
+and opened as a pull request to `main` on the user's later instructions.
 Small tables are in this folder; scripts in [scripts/](scripts/); raw outputs, logs and full tables in
 `$IYALI26_RESEARCH_ROOT/artifacts/tasks/gap_census_candidates_20261116/`.
 

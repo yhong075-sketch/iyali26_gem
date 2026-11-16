@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-16: Gap census of 7ccbb568 and LP tests of single-reaction candidates per root (computation only, no model change; committed on claude/metabolic-pathway-gnn-priorities-9b8f18, not pushed)
+## 2026-11-16: Gap census of 7ccbb568 and LP tests of single-reaction candidates per root (computation only, no model change; committed 9dd3ec17 on claude/metabolic-pathway-gnn-priorities-9b8f18, PR to main)
 
 **Authorization.** The user, in this session, on a GNN that should say why a reaction cannot carry flux ("is it
 must be muted due to steady state?" or "is it some reactions is missing"): "Write the plan" for two checks, then
@@ -13,7 +13,8 @@ must be muted due to steady state?" or "is it some reactions is missing"): "Writ
 per root; 150,000 LPs or 3 hours; two new scripts in the report folder; this entry; one read-only review.
 After the review, to "Apply the other fixes and leave the loop test out?": "Yes, without it" (hash gates in the
 scripts, a fail-closed tables stage, one more decision label, one 54-LP closure test, a re-run).
-Computation and reporting only. Last: "Commit the working tree changes with a sensible message."
+Computation and reporting only. Then "Commit the working tree changes with a sensible message.", and the app's
+Create PR command for a pull request to `main`.
 
 Scope: [TASK.md](reports/gap_census_candidates_20261116/TASK.md); results:
 [REPORT.md](reports/gap_census_candidates_20261116/REPORT.md).
@@ -56,8 +57,8 @@ GLPK and by Gurobi at 1e-9; the fix tests, the drain tests (so the cause table) 
 **Limits.** No model change; every test is LP evidence, not a recommendation. MetaNetX is the only candidate
 source, and 256 of the 1,883 species have no MetaNetX id. A pass is blind to direction, compartment and loops.
 The freed-reaction counts are lower bounds. Module labels belong to one run and do not match October's. No
-second code review was run on the follow-up edits, and the scripts have no test file. Committed on this branch
-on the user's instruction (2026-11-16); not pushed.
+second code review was run on the follow-up edits, and the scripts have no test file. Committed (`9dd3ec17`),
+pushed and opened as a pull request to `main` on the user's instructions (2026-11-16).
 
 ## 2026-11-13/15: Reaction cross-reference cleanup through the builder, candidate 7ccbb568 on main's 353cefdc (committed on claude/peaceful-pascal-66d07e on top of main 79109038)
 

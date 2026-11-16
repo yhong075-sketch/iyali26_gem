@@ -102,5 +102,9 @@ non-optimal solve inside a re-count (review finding 5, second part), which was n
 The first run's outputs, report tables and script versions are kept in the artifacts folder under `run1/`.
 
 **Commit (user, same conversation, 2026-11-16):** "Commit the working tree changes with a sensible message."
-This folder and the `model/STATE.md` entry are committed on `claude/metabolic-pathway-gnn-priorities-9b8f18`.
-Not pushed.
+This folder and the `model/STATE.md` entry are committed on `claude/metabolic-pathway-gnn-priorities-9b8f18`
+(`9dd3ec17`).
+
+**Pull request (user, same conversation, 2026-11-16):** the app's Create PR command, base `main`, repository
+`yhong075-sketch/iyali26_gem`. The branch was pushed and the pull request opened; this note and the matching
+lines in REPORT.md and `model/STATE.md` are a second commit on the same branch.
