@@ -5,7 +5,7 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-16: Methylcitrate cycle built on 7ccbb568, candidate ad901ddb (R_OBDHm added with an inferred PDH rule, R2075 closed; branch claude/bold-bartik-794e7e, not committed)
+## 2026-11-16: Methylcitrate cycle built on 7ccbb568, candidate ad901ddb (R_OBDHm added with an inferred PDH rule, R2075 closed; committed 9a3de22b on claude/bold-bartik-794e7e, PR #57)
 
 **Authorization.** The user, 2026-11-16, in this session:
 - "O1 + R2075 closed", answering "Which option should be built for the nine reactions?" after the investigation below;
@@ -63,7 +63,95 @@ Scope: [TASK.md](reports/methylcitrate_cycle_7ccbb568_20261116/TASK.md). Results
   will be defined on both.
 - Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/methylcitrate_cycle_7ccbb568_20261116/`.
 
-## 2026-11-16: Why the R1172 closure blocked nine reactions in 7ccbb568, and the options (investigation only; no model change; branch claude/bold-bartik-794e7e, not committed)
+## 2026-11-16: Gene-less CoA-ester transports across the inner mitochondrial membrane in 7ccbb568, and options (investigation only; no model change; committed on claude/lucid-visvesvaraya-a40bbb, not pushed)
+
+**Authorization.**
+- Task from the coordinating session `local_ebd14d46…`, following the R1172 side-effect round. That round's report
+  and STATE entry are uncommitted in worktree `bold-bartik-794e7e`.
+- The user, 2026-11-16: **"Approve, add TargetP"**, answering "Approve this computation plan (≤1,300 LPs, ≤40
+  fetches, no build, no sweep)?".
+- Scope: [TASK.md](reports/geneless_acylcoa_transports_20261116/TASK.md). Results:
+  [REPORT.md](reports/geneless_acylcoa_transports_20261116/REPORT.md).
+
+**Inputs.**
+- Model `candidates/E5_353cefdc_xref_20261115.xml` (`7ccbb568…2146`).
+- Task A medium `6eca70fd…` + PO1f `35307853…`, and the open-exchange condition.
+- Solvers: Gurobi 13.0.2 at 1e-9 and GLPK.
+- HEAD `5c497039`.
+- Budget used: 1,086 of the 1,300 approved LPs, all optimal; 27 of 40 read-only fetches (a reviewer subagent; I
+  re-checked the quotes in the saved responses); TargetP-2.0 jobs `6AFBA2A6…` (8 proteins) and `6AFBA4A8…` (the
+  319-aa form of YALI1B14044g). A first job failed on input format.
+
+**Results.**
+- **Today (observed: LP, two solvers, two conditions).**
+  - R2077, R2083, R2084, R2118, R1291 and R2117 are blocked.
+  - R2025 and R2113 form a one-way pass-through (≤ 2.67 on Task A): cytosolic m1970 goes into the matrix and back out
+    as m1875 (no formula), then to propanoate through R2024 backwards. It is the only outlet of the cytosolic
+    isoleucine branch R2281–R2285.
+  - None of the eight is needed: WT changes by at most 1.6e-15 when any or all are closed; R2025 and R2113 can be 0 at
+    99.9999 % of the optimum; 30 targeted knockouts are unchanged.
+- **Carriers.** No carrier is known for propionyl-, succinyl-, isovaleryl-, 3-methylcrotonyl- or isobutyryl-CoA, or
+  for 4'-phosphopantetheine. Verified sources: Leu5, SLC25A42/A16 and fly dPCoAC move free CoA or dephospho-CoA;
+  Crc1 moves acylcarnitines; Xue 2023 states the 4'-phosphopantetheine transporter question is open. The rest is a
+  negative search, so absence of evidence only.
+- **Valine steps.**
+  - Homologues are mitochondrial in human and plant (UniProt records). The one exception is peroxisomal Arabidopsis
+    CHY1.
+  - TargetP-2.0 (prediction) gives mTP ≥ 0.98 for YALI1D19252g (R2117), YALI1F03883g (R2114), YALI1C02550g (R2112)
+    and YALI1E15555g (R2082). It gives mTP 0.9998 for YALI1B14044g (R2116) only on its 319-aa form; on the 346-aa
+    W29 RefSeq model the call is Other 0.69.
+  - Inferred: the steps belong in the matrix. No *Y. lipolytica* compartment data exist.
+- **Options in memory** (Task A; R1172 stays closed; 11 variants on as is and on the methylcitrate line's
+  T_OBDHm + R2075-closed package).
+  - Common to all 11: WT 0.31110053592595 (|Δ| ≤ 1e-14); energy check 0 on both solvers; no targeted knockout class
+    change in the 6 variants tested.
+  - The merge of m1875 into m1970 (R2024 + 3 H+) leaves R2113 blocked as is.
+  - Moving R2114–R2117 and R2112 into the matrix (R2118 closed) frees R1969 and the methylcitrate trio (5.86)
+    without T_OBDHm.
+  - R834 is active only while a propionyl-CoA transport is open.
+- **Genes.** No gene name is verified. On the consensus list: YALI1D07981g (EHD3/mS47-like, on R2140; a candidate for
+  the gene-less R2115) and YALI1F20788g (R834). Both are FN as before (KO/WT 1.0).
+
+**Leading option (user decides).**
+- Merge m1875 into m1970, and drop the R2025 duplicate.
+- Close R2113, R2083, R2084, R1291 and R2118.
+- Move R2117, R2116, R2115, R2114 and R2112 into the matrix, with their gene rules unchanged.
+- Close R2077, recommendation only: it is listed in the colleague-owned lipid-unlump handoff.
+- Candidate gene rules, not tested: YALI1E15555g on R1971, whose gene YALI0D12573g is not found in UniProt or
+  UniParc; YALI1D07981g on R2115.
+
+**Limits and open gaps.**
+- One medium. A full certified sweep was run only for B0/ALL, below; the other ten variants have targeted knockouts
+  only.
+- The new matrix species' formulas and the 3 H+ in R2024 are inferred.
+- The TargetP call for YALI1B14044g depends on the gene model.
+- Not addressed: the cytosolic isoleucine branch (BCKDH rule in the cytosol, R2282 with no electron acceptor, the
+  m1830 dead end); R2119/R2121; the YALI0-tag duplicate genes (YALI0B10406g = YALI1B14044g, YALI0E18568g =
+  YALI1E22238g).
+- Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/geneless_acylcoa_transports_20261116/`.
+
+**Follow-up, same day: full certified sweep of the leading option B0/ALL** (REPORT.md section 11; TASK.md section 6).
+- **Authorization.** The user: **"Run the sweep"**, answering "Run a full certified knockout sweep (about 1,100 LPs)
+  on the leading option?". Budget 1,300 LPs; used 1,141. Gurobi 13.0.2 at 1e-9, Task A + PO1f.
+- **Harness.** `scripts/step6_sweep.py` is the reference `ko_screen_certified.py` (`313d5d01…`), with
+  `checked_solve.py` (`69c42690…`) unchanged. Only the loader changes: it applies the step-4 edits in memory.
+- **Baseline.** The certified sweep of 353cefdc, `sweep684_candidate` (`49b4f27b…`). Statically verified as the same
+  optimisation problem as 7ccbb568, with no LP: 2,347 reactions; stoichiometry, bounds, rules, objective and genes are
+  identical. Reproduced for the 12 moved genes plus WT, difference 0.0.
+- **Results (observed, LP):**
+  - WT +1.2e-15;
+  - 0 of 1,081 genes change class at 1, 5, 10 or 15 %, under Rule A or B;
+  - TP/FN/FP/TN are identical. At 15 %, Rule B, mtDNA and untargeted genes out of scope: TP 145, FN 181, FP 43,
+    TN 694 (recall 0.445, specificity 0.942, precision 0.771). Negatives are user-defined; the result is a
+    development reference;
+  - the same 20 certified maintenance-shortfall knockouts; every point passed the targeted check.
+- **Only change:** the 12 ATP-synthase (R171) subunit genes go from KO/WT 0.10778 to 0.10853. In one pFBA, the option
+  lets valine be degraded in the matrix (R797 → R1969 → R2117_mi…R2112_mi → R25/R95/R552, FADH2 to R1977), and
+  valine uptake rises from 0.012 to 0.026. The energy check stays 0.
+- **Not done:** a sweep of any other edit set; no build.
+- Committed with the round on `claude/lucid-visvesvaraya-a40bbb` (the user: "Commit it"); not pushed.
+
+## 2026-11-16: Why the R1172 closure blocked nine reactions in 7ccbb568, and the options (investigation only; no model change; committed 9a3de22b on claude/bold-bartik-794e7e, PR #57)
 
 **Authorization.** Task from the gap-census session (`local_1088c84c…`). The user, 2026-11-16: "Approve plan",
 answering "Approve this computation plan (at most 1,200 LPs, no build, no sweep)?". Scope:
@@ -120,6 +208,61 @@ answering "Approve this computation plan (at most 1,200 LPs, no build, no sweep)
   - the m1875/m1970 duplicate propionyl-CoA;
   - R2112's direction.
 - Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_side_effect_20261116/`.
+
+## 2026-11-16: Gap census of 7ccbb568 and LP tests of single-reaction candidates per root (computation only, no model change; committed 9dd3ec17 on claude/metabolic-pathway-gnn-priorities-9b8f18, PR to main)
+
+**Authorization.** The user, in this session, on a GNN that should say why a reaction cannot carry flux ("is it
+must be muted due to steady state?" or "is it some reactions is missing"): "Write the plan" for two checks, then
+"Run them" to the stated plan: the gap census re-run on `7ccbb568`; an LP test of every single-reaction candidate
+per root; 150,000 LPs or 3 hours; two new scripts in the report folder; this entry; one read-only review.
+After the review, to "Apply the other fixes and leave the loop test out?": "Yes, without it" (hash gates in the
+scripts, a fail-closed tables stage, one more decision label, one 54-LP closure test, a re-run).
+Computation and reporting only. Then "Commit the working tree changes with a sensible message.", and the app's
+Create PR command for a pull request to `main`.
+
+Scope: [TASK.md](reports/gap_census_candidates_20261116/TASK.md); results:
+[REPORT.md](reports/gap_census_candidates_20261116/REPORT.md).
+
+**Results.** Verified this session unless marked. The blocked sets and every candidate pass-or-fail solve are by
+GLPK and by Gurobi at 1e-9; the fix tests, the drain tests (so the cause table) and the re-counts are GLPK only.
+- **Gates passed:** file hashes; the Task A condition file equals the platform's medium + profile context (0 of
+  2,347 bounds differ); the October census reproduces on `a1237821` (756 blocked, identical set); the root table
+  (364) and the candidate list (391 pairs) equal the counts made at plan time.
+- **Census, every exchange open:** 692 of 2,347 reactions blocked (76 closed, 427 with a gene rule), 649 gap
+  metabolites, 364 roots, 213 modules; the same set by both solvers. Task A + PO1f: 829 (GLPK) / 826 (Gurobi).
+  October, `a1237821`: 756 of 2,316.
+- **Causes (October order):** several roots 252, dead-end root 190, closed 76, missing transport 58, coupling 49,
+  cofactor pseudo-gap 38, missing exchange 17, duplicate id 6, behind a closure 6. The coupling group is not
+  decided between "steady state" and "something missing".
+- **Since October:** 31 reactions added, all active; 78 became active; 14 became blocked. Of the 14, 5 were closed
+  by later builds (R1172, R1771, R1846, R2121, R353) and 9 kept their bounds (R2074–R2077, R2112, R25, R552, R95,
+  R834). The 9 are freed by a FAD or a CoA drain, and the follow-up test shows why they became blocked:
+  reopening R1172 (the HMG-CoA transport closed on 2026-11-12) in memory frees all 9, reopening R2121 frees none
+  (GLPK, census `fixtests.py`, not cross-checked with Gurobi). Six of the 9 carry a gene rule. LP evidence about
+  a side effect of that closure, not a proposal to reopen it.
+- **Single-reaction candidates (MetaNetX 4.5):** 81 of the 364 roots have a balance-marked candidate (250 pairs);
+  181 pairs work alone and 243 with the other roots opened. Roots with two or more working candidates: 42 alone,
+  57 with the other roots opened (the cut set before the run was 30). 283 roots have no balance-marked candidate.
+- **Independent review** (read-only, no LP): recounts confirm the candidate list and the per-root counts. Its main
+  finding: a pass also counts candidates that only close a loop with the root's own reaction, one of which nets to
+  ATP from nothing. Two proxies size it: 19 pairs flagged by a same-reaction-up-to-currency rule (the count of 57
+  becomes 51), 32 pairs at 16 roots by the census sink test. It was not separated exactly; the user declined
+  the exact loop test because it would not change the reading. A second pass recomputed the numbers of the
+  report and of the first version of this entry from the tables: none differed.
+- **Follow-up fixes:** both scripts now check the input hashes (`input_hashes.csv`); the tables stage stops on a
+  recorded consistency problem or a failed fix test and reports unresolved solves in their own column; "R1725
+  stays closed" (2026-10-27) is labelled. The five new gates were exercised on scratch copies and all stop as
+  intended. The candidate stage was re-run and its outputs are byte-identical to the first run's.
+- **Inferred:** the LP test does not rank candidates (243 of 250 pass), so evidence has to; a single-reaction
+  ranker has at most 57 roots to work on, and most roots are out of its reach.
+- **Budget:** 102,746 nominal LPs of the 150,000 cap (first run 96,656, follow-up 6,090); 30 + 6 minutes of
+  wall-clock time.
+
+**Limits.** No model change; every test is LP evidence, not a recommendation. MetaNetX is the only candidate
+source, and 256 of the 1,883 species have no MetaNetX id. A pass is blind to direction, compartment and loops.
+The freed-reaction counts are lower bounds. Module labels belong to one run and do not match October's. No
+second code review was run on the follow-up edits, and the scripts have no test file. Committed (`9dd3ec17`),
+pushed and opened as a pull request to `main` on the user's instructions (2026-11-16).
 
 ## 2026-11-13/15: Reaction cross-reference cleanup through the builder, candidate 7ccbb568 on main's 353cefdc (committed on claude/peaceful-pascal-66d07e on top of main 79109038)
 

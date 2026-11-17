@@ -1,0 +1,41 @@
+reaction,in_task,name,equation,gene_rule,bounds,compartments,mass_charge_balance,open_gurobi_min,open_gurobi_max,open_glpk_min,open_glpk_max,taskA_gurobi_min,taskA_gurobi_max,taskA_glpk_min,taskA_glpk_max,taskA_fva_999999_min,taskA_fva_999999_max,taskA_fva_999_min,taskA_fva_999_max,taskA_wt_change_if_closed,closed_wt_status
+R2025,True,Propanoate:CoA transport,m1875[C_cy] <=> m78[C_mi],NONE,"(-1000, 1000)",C_cy;C_mi,"{""charge"": -4.0, ""C"": 24.0, ""H"": 36.0, ""N"": 7.0, ""O"": 17.0, ""P"": 3.0, ""S"": 1.0}",-1000,0,-1000,0,-2.66544,0,-2.66544,7.02017e-18,-3.03877e-06,0,-0.00303877,0,-1.55431e-15,optimal
+R2113,True,Propanoyl-CoA transport,m78[C_mi] <=> m1970[C_cy],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,-1000,0,-1000,0,-2.66544,0,-2.66544,7.02017e-18,-3.03877e-06,0,-0.00303877,0,1.55431e-15,optimal
+R2077,True,Succinyl-CoA transport,m156[C_mi] <=> 5.0 m10[C_cy] + m2046[C_cy],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,0,0,0,0,0,0,-1.15354e-18,-4.15107e-19,0,0,0,0,2.22045e-16,optimal
+R2083,True,3-Methylcrotonyl-CoA transport,m1831[C_mi] <=> m2050[C_cy],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,0,0,0,0,0,0,4.0871e-32,0,0,0,0,0,1.33227e-15,optimal
+R2084,True,3-Methylbutanoyl-CoA transport,m1828[C_mi] <=> 4.0 m10[C_cy] + m2049[C_cy],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,0,0,0,0,0,0,0,-2.69958e-19,0,0,0,0,4.44089e-16,optimal
+R2118,True,2-Methylpropanoyl-CoA transport,m1829[C_mi] <=> 4.0 m10[C_cy] + m1971[C_cy],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,0,0,0,0,0,0,0,1.15354e-18,0,0,0,0,4.44089e-16,optimal
+R1291,True,panthetheine 4'-phosphate transport,m854[C_cy] <=> m1350[C_mi],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,0,0,0,0,0,0,0,-5.2639e-18,0,0,0,0,1.33227e-15,optimal
+R2117,True,"2-methylpropanoyl-CoA:(acceptor) 2,3-oxidoreductase",m1971[C_cy] + m528[C_cy] <=> m1972[C_cy] + m566[C_mi],YALI1D19252g,"(-1000, 1000)",C_cy;C_mi,"{""charge"": 4.0, ""C"": -25.0, ""H"": -36.0, ""N"": -7.0, ""O"": -17.0, ""P"": -3.0, ""S"": -1.0}",0,0,0,0,0,0,0,1.15354e-18,0,0,0,0,3.33067e-16,optimal
+R2024,False,Propanoate:CoA ligase (AMP-forming),m141[C_cy] + m1874[C_cy] + m69[C_cy] <=> m1875[C_cy] + m203[C_cy] + m86[C_cy],YALI1F08845g,"(-1000, 1000)",C_cy,"{""charge"": 1.0, ""C"": -24.0, ""H"": -39.0, ""N"": -7.0, ""O"": -17.0, ""P"": -3.0, ""S"": -1.0}",-1000,0,,,-2.66544,0,,,,,,,,
+R2023,False,Propanoate transport,m1873[C_ex] <=> m1874[C_cy],NONE,"(-1000, 1000)",C_cy;C_ex,balanced,-1000,0,,,-2.66544,0,,,,,,,,
+R2022,False,Propanoate exchange,m1873[C_ex] --> ,NONE,"(0, 1000)",C_ex,"{""charge"": 1.0, ""C"": -3.0, ""H"": -5.0, ""O"": -2.0}",0,1000,,,0,2.66544,,,,,,,,
+R2281,False,(S)3-methyl-2-oxopentanoate,m69[C_cy] + m744[C_cy] --> m2057[C_cy] + m82[C_cy],YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g,"(0, 1000)",C_cy,"{""charge"": 1.0, ""C"": -26.0, ""H"": -45.0, ""N"": -7.0, ""O"": -17.0, ""P"": -3.0, ""S"": -1.0}",0,1000,,,0,2.66544,,,,,,,,
+R2282,False,"(S)-2-methylbutanoyl-CoA:acceptor 2,3-oxidoreductase",m2057[C_cy] <=> m2058[C_cy],YALI1D19252g,"(-1000, 1000)",C_cy,balanced,0,1000,,,0,2.66544,,,,,,,,
+R2283,False,"(2S,3S)-3-Hydroxy-2-methylbutanoyl-CoA hydro-liase",m2058[C_cy] + m32[C_cy] --> m2059[C_cy],YALI0B10406g,"(0, 1000)",C_cy,"{""H"": -2.0, ""O"": -1.0}",0,1000,,,0,2.66544,,,,,,,,
+R2284,False,"(2S,3S)-3-hydroxy-2-methylbutanoyl-CoA:NAD+ oxidoreductase",m122[C_cy] + m2059[C_cy] --> m123[C_cy] + m2060[C_cy],NONE,"(0, 1000)",C_cy,"{""H"": 2.0}",0,1000,,,0,2.66544,,,,,,,,
+R2285,False,Acetyl-CoA:propanoyl-CoA 2-C-acetyltransferase; 2-methylacetoacetyl-CoA thiolase,m2060[C_cy] + m69[C_cy] --> m1970[C_cy] + m68[C_cy],YALI0E18568g,"(0, 1000)",C_cy,"{""charge"": -4.0, ""C"": 26.0, ""H"": 38.0, ""N"": 7.0, ""O"": 18.0, ""P"": 3.0, ""S"": 1.0}",0,1000,,,0,2.66544,,,,,,,,
+R968,False,3-methyl-2-oxopentanoate transport,m744[C_cy] <=> m489[C_mi],NONE,"(-1000, 1000)",C_cy;C_mi,balanced,-1000,0,,,-2.66544,0,,,,,,,,
+R2112,False,(S)-Methylmalonate semialdehyde:NAD+ oxidoreductase (CoA-propanoylating),m122[C_cy] + m1975[C_cy] + m69[C_cy] <=> m123[C_cy] + m1970[C_cy] + m82[C_cy],YALI1C02550g,"(-1000, 1000)",C_cy,"{""charge"": -4.0, ""C"": 4.0, ""H"": 2.0, ""O"": 3.0}",0,0,,,0,0,,,,,,,,
+R2074,False,(S)-Methylmalonate semialdehyde:NAD+ oxidoreductase,m122[C_cy] + m1975[C_cy] + m32[C_cy] --> m123[C_cy] + m2045[C_cy],YALI1B02194g or YALI1C04093g or YALI1E00588g or YALI1F31215g,"(0, 1000)",C_cy,"{""charge"": -2.0, ""H"": 4.0, ""O"": 3.0, ""C"": 4.0}",0,0,,,0,0,,,,,,,,
+R2075,False,(R)-Methylmalonyl-CoA CoA-carbonylmutase,m2047[C_cy] --> m2046[C_cy],NONE,"(0, 1000)",C_cy,balanced,0,0,,,0,0,,,,,,,,
+R2076,False,NO NAME,m2045[C_cy] + m69[C_cy] --> 3.0 m10[C_cy] + m2047[C_cy] + m32[C_cy],NONE,"(0, 1000)",C_cy,balanced,0,0,,,0,0,,,,,,,,
+R1969,False,3-methyl-2-oxopentanoate dehydrogenase,m27[C_mi] + m70[C_mi] + m73[C_mi] --> m1829[C_mi] + m30[C_mi] + m44[C_mi],YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g,"(0, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
+R2114,False,3-Hydroxy-2-methylpropanoate:NAD+ oxidoreductase,m122[C_cy] + m1974[C_cy] --> m10[C_cy] + m123[C_cy] + m1975[C_cy],YALI1F03883g,"(0, 1000)",C_cy,"{""charge"": 1.0, ""H"": 3.0}",0,0,,,0,0,,,,,,,,
+R2115,False,(S)-3-Hydroxyisobutyryl-CoA hydrolase,m1973[C_cy] + m32[C_cy] --> m10[C_cy] + m1974[C_cy] + m69[C_cy],NONE,"(0, 1000)",C_cy,"{""charge"": 1.0, ""H"": -7.0, ""O"": -3.0, ""C"": -4.0}",0,0,,,0,0,,,,,,,,
+R2116,False,(S)-3-Hydroxyisobutyryl-CoA hydro-lyase,m1972[C_cy] + m32[C_cy] --> m1973[C_cy],YALI1B14044g,"(0, 1000)",C_cy,"{""H"": 40.0, ""O"": 17.0, ""C"": 25.0, ""N"": 7.0, ""P"": 3.0, ""S"": 1.0}",0,0,,,0,0,,,,,,,,
+R2082,False,"3-Methylbutanoyl-CoA:(acceptor) 2,3-oxidoreductase",4.0 m10[C_cy] + m2049[C_cy] + m528[C_cy] --> m1048[C_cy] + m2050[C_cy],YALI1E15555g,"(0, 1000)",C_cy,balanced,0,0,,,0,0,,,,,,,,
+R847,False,fadH2 transport,m566[C_mi] --> m1048[C_cy],YALI1A16988g,"(0, 1000)",C_cy;C_mi,balanced,0,0,,,0,0,,,,,,,,
+R2140,False,No name,m1990[C_cy] + m32[C_cy] <=> m1992[C_cy] + m69[C_cy],YALI1D07981g,"(-1000, 1000)",C_cy,"{""charge"": -1.0, ""H"": 39.0, ""O"": 18.0, ""C"": 24.0, ""N"": 7.0, ""P"": 3.0, ""S"": 1.0}",0,0,,,0,0,,,,,,,,
+R2141,False,3-Hydroxypropionyl-CoA hydro-lyase,m1990[C_cy] <=> m1991[C_cy] + m32[C_cy],YALI1B14044g,"(-1000, 1000)",C_cy,"{""H"": 2.0, ""O"": 1.0}",0,0,,,0,0,,,,,,,,
+R2142,False,"propanoyl-CoA:electron-transfer flavoprotein 2,3-oxidoreductase",m1970[C_cy] + m528[C_cy] <=> m1048[C_cy] + m1991[C_cy],NONE,"(-1000, 1000)",C_cy,"{""charge"": 4.0, ""C"": -24.0, ""H"": -34.0, ""N"": -7.0, ""O"": -17.0, ""P"": -3.0, ""S"": -1.0}",0,0,,,0,0,,,,,,,,
+R1292,False,panthetheine-phosphate adenylyltransferase,m1350[C_mi] + m46[C_mi] --> m204[C_mi] + 2.0 m28[C_mi] + m475[C_mi],NONE,"(0, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
+R265,False,dephospho-CoA kinase,2.0 m28[C_mi] + m46[C_mi] + m475[C_mi] --> m197[C_mi] + m73[C_mi],YALI1F13202g,"(0, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
+R834,False,coenzyme A transport,m69[C_cy] --> m73[C_mi],YALI1F20788g,"(0, 1000)",C_cy;C_mi,balanced,0,0,,,0,0,,,,,,,,
+R1971,False,3-methylbutanoyl-CoA dehydrogenase;,m1828[C_mi] + m563[C_mi] --> m1831[C_mi] + m566[C_mi],YALI0D12573g,"(0, 1000)",C_mi,balanced,0,428.571,,,0,5.55826,,,,,,,,
+R1972,False,3-methylcrotonyl-CoA carboxylase,m1831[C_mi] + m196[C_mi] + m28[C_mi] + m46[C_mi] --> m1832[C_mi] + m197[C_mi] + m58[C_mi],YALI1B19217g,"(0, 1000)",C_mi,balanced,0,428.571,,,0,5.55826,,,,,,,,
+R25,False,2-methylcitrate synthase,m26[C_mi] + m28[C_mi] + m77[C_mi] + m78[C_mi] --> m73[C_mi] + m79[C_mi],YALI1E01019g or YALI1E03300g,"(0, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
+R95,False,aconitase,3.0 m28[C_mi] + m79[C_mi] <=> m217[C_mi],YALI1F03803g,"(-1000, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
+R552,False,methylisocitrate lyase,m217[C_mi] --> m6[C_mi] + m810[C_mi],YALI1C24124g or YALI1F39620g,"(0, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
+R1968,False,4-methyl-2-oxopentanoate dehydrogenase,m27[C_mi] + m73[C_mi] + m84[C_mi] --> m1828[C_mi] + m30[C_mi] + m44[C_mi],YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g,"(0, 1000)",C_mi,balanced,0,428.571,,,0,5.55826,,,,,,,,
+R1970,False,(S)3-methyl-2-oxopentanoate dehydrogenase,m27[C_mi] + m28[C_mi] + m489[C_mi] + m73[C_mi] --> m1830[C_mi] + m30[C_mi] + m44[C_mi],YALI1D11159g and YALI1F07630g and YALI1D26360g and YALI1D30866g,"(0, 1000)",C_mi,balanced,0,0,,,0,0,,,,,,,,
