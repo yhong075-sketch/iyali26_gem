@@ -1,0 +1,332 @@
+{
+ "schema_version": 1,
+ "curation_id": "METHYLCITRATE-CYCLE-20261116",
+ "status": "user_authorized",
+ "authorization": "User, 2026-11-15/16: fix 'Methylcitrate cycle'; gene rule 'Pyruvate dehydrogenase, but need marked as \"just infer\"'; side route A 'Close R2075'.",
+ "baseline_model_sha256": "cbf2ef95143bc5b74941257b9ddef38b5209f89f557cd591ac7ee75947934526",
+ "reviewer": "Claude Code session 2026-11-16 (methylcitrate cycle round); independent audit in the report",
+ "report": "model/reports/methylcitrate_cycle_20261116/REPORT.md",
+ "new_reaction": {
+  "reaction_id": "R_OBDHm",
+  "name": "2-oxobutanoate dehydrogenase (PDH side activity, inferred), mitochondrion",
+  "subsystem": "Propanoate metabolism",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "gpr": "YALI1E31947g and YALI1F27556g and YALI1D26360g and YALI1B13179g and YALI1D30618g",
+  "gpr_source_reaction": "R693",
+  "gpr_status": "inferred",
+  "stoichiometry": {
+   "m42[C_mi]": -1.0,
+   "m73[C_mi]": -1.0,
+   "m27[C_mi]": -1.0,
+   "m78[C_mi]": 1.0,
+   "m44[C_mi]": 1.0,
+   "m30[C_mi]": 1.0,
+   "m28[C_mi]": 4.0
+  },
+  "annotation": {
+   "sbo": "SBO:0000176",
+   "rhea": "33223"
+  },
+  "notes": {
+   "methylcitrate_cycle_curation": "METHYLCITRATE-CYCLE-20261116: matrix 2-oxobutanoate dehydrogenase, the missing producer of matrix propionyl-CoA m78 from threonine-derived 2-oxobutanoate m42; it lets the methylcitrate cycle R25, R95, R552 carry flux.",
+   "methylcitrate_cycle_gpr_status": "INFERRED (user, 2026-11-16: just infer). Rule copied from R693, pyruvate dehydrogenase. No Y. lipolytica experiment shows that this complex, or any enzyme, carries this step in the matrix. The branched-chain 2-oxo acid dehydrogenase complex is the other candidate and is not used.",
+   "methylcitrate_cycle_evidence": "Park 2019 (Y. lipolytica, PMC6987463) states alpha-ketobutyrate is converted to propionyl-CoA by the PDH complex or pyruvate oxidase and measures odd-chain fatty acids rising with threonine pathway overexpression; the catalyst is a statement, not an experiment, and the compartment is not shown. Paxton 1986 (rat, PMID 3718468): purified PDH and branched-chain 2-oxo acid dehydrogenase both decarboxylate 2-oxobutyrate. Rhea 33223 is the reaction (no EC, no UniProt enzyme).",
+   "methylcitrate_cycle_protons": "4 H+ close hydrogen and charge on the formulas of the model: propionyl-CoA m78 is stored as the tetra-anion (H36, -4) next to neutral CoA m73 (H36, 0). A protonation convention, not chemistry."
+  },
+  "group": "Propanoate metabolism"
+ },
+ "closed_reaction": {
+  "reaction_id": "R2075",
+  "name": "(R)-Methylmalonyl-CoA CoA-carbonylmutase",
+  "gpr": "",
+  "stoichiometry": {
+   "m2046[C_cy]": 1.0,
+   "m2047[C_cy]": -1.0
+  },
+  "annotation": {
+   "bigg.reaction": [
+    "MMM2",
+    "MMMm",
+    "R_MMM2",
+    "R_MMMm"
+   ],
+   "biggr": [
+    "MMM2",
+    "MMMm",
+    "R_MMM2",
+    "R_MMMm"
+   ],
+   "ec-code": "5.4.99.2",
+   "kegg.reaction": "R00833",
+   "keggr": "R00833",
+   "metacyc.reaction": "METHYLMALONYL-COA-MUT-RXN",
+   "metacycr": "METHYLMALONYL-COA-MUT-RXN",
+   "metanetx.reaction": "MNXR188435",
+   "rh": [
+    "22888",
+    "22889",
+    "22890",
+    "22891"
+   ],
+   "rhea": [
+    "22888",
+    "22889",
+    "22890",
+    "22891"
+   ],
+   "sabiork.reaction": "1174",
+   "sabiorkr": "1174",
+   "sbo": "SBO:0000176",
+   "seed.reaction": [
+    "rxn00602",
+    "rxn20202"
+   ],
+   "seedr": [
+    "rxn00602",
+    "rxn20202"
+   ],
+   "vmhr": [
+    "MMM2r",
+    "MMMm",
+    "R_MMM2r",
+    "R_MMMm"
+   ],
+   "vmhreaction": [
+    "MMM2r",
+    "MMMm",
+    "R_MMM2r",
+    "R_MMMm"
+   ]
+  },
+  "before_bounds": [
+   0.0,
+   1000.0
+  ],
+  "after_bounds": [
+   0.0,
+   0.0
+  ],
+  "before_notes": {},
+  "notes": {
+   "methylcitrate_cycle_curation": "METHYLCITRATE-CYCLE-20261116: closed, not deleted, to stop the gene-less side route R2113, R2112 reversed, R2074, R2076, R2075, R2077 reversed that R_OBDHm would otherwise open.",
+   "methylcitrate_cycle_previous_bounds": "[0.0, 1000.0]",
+   "methylcitrate_cycle_closure_evidence": "INFERRED, absence by annotation and homology only. No W29 protein similar to human MMUT P22033 or P. freudenreichii MutB P11653 at E 1e-5 or lower (orphan gene search 2026-10-19, which itself kept R2075 as an orphan and notes that no paper states Y. lipolytica lacks the enzyme). KEGG has no yli or sce gene for EC 5.4.99.2; UniProt has no EC 5.4.99.2 entry in Ascomycota. No experiment shows absence."
+  },
+  "evidence_tier": "inferred: absence by annotation and homology; no experiment"
+ },
+ "gpr_source": {
+  "reaction_id": "R693",
+  "name": "pyruvate dehydrogenase",
+  "bounds": [
+   0.0,
+   1000.0
+  ],
+  "gpr": "YALI1E31947g and YALI1F27556g and YALI1D26360g and YALI1B13179g and YALI1D30618g",
+  "stoichiometry": {
+   "m27[C_mi]": -1.0,
+   "m30[C_mi]": 1.0,
+   "m44[C_mi]": 1.0,
+   "m6[C_mi]": -1.0,
+   "m71[C_mi]": 1.0,
+   "m73[C_mi]": -1.0
+  }
+ },
+ "species": {
+  "m42[C_mi]": {
+   "name": "2-oxobutanoate_C4H6O3",
+   "formula": "C4H6O3",
+   "charge": 0,
+   "compartment": "C_mi"
+  },
+  "m73[C_mi]": {
+   "name": "coenzyme A_C21H36N7O16P3S",
+   "formula": "C21H36N7O16P3S",
+   "charge": 0,
+   "compartment": "C_mi"
+  },
+  "m27[C_mi]": {
+   "name": "NAD_C21H27N7O14P2",
+   "formula": "C21H27N7O14P2",
+   "charge": 0,
+   "compartment": "C_mi"
+  },
+  "m78[C_mi]": {
+   "name": "propionyl-CoA_C24H36N7O17P3S",
+   "formula": "C24H36N7O17P3S",
+   "charge": -4,
+   "compartment": "C_mi"
+  },
+  "m44[C_mi]": {
+   "name": "carbon dioxide_CO2",
+   "formula": "CO2",
+   "charge": 0,
+   "compartment": "C_mi"
+  },
+  "m30[C_mi]": {
+   "name": "NADH_C21H29N7O14P2",
+   "formula": "C21H29N7O14P2",
+   "charge": 0,
+   "compartment": "C_mi"
+  },
+  "m28[C_mi]": {
+   "name": "H+_p+1",
+   "formula": "H",
+   "charge": 1,
+   "compartment": "C_mi"
+  },
+  "m2047[C_cy]": {
+   "name": "(R)-Methylmalonyl-CoA",
+   "formula": "C25H35N7O19P3S",
+   "charge": -5,
+   "compartment": "C_cy"
+  },
+  "m2046[C_cy]": {
+   "name": "Succinyl-CoA",
+   "formula": "C25H35N7O19P3S",
+   "charge": -5,
+   "compartment": "C_cy"
+  }
+ },
+ "species_reactions_before": {
+  "m42[C_mi]": [
+   "R13",
+   "R515",
+   "R963"
+  ],
+  "m78[C_mi]": [
+   "R2025",
+   "R2113",
+   "R25"
+  ],
+  "m2047[C_cy]": [
+   "R2075",
+   "R2076"
+  ],
+  "m2046[C_cy]": [
+   "R2075",
+   "R2077"
+  ]
+ },
+ "genes": {
+  "YALI1E31947g": {
+   "reactions_before": [
+    "R693"
+   ],
+   "reactions_after": [
+    "R693",
+    "R_OBDHm"
+   ]
+  },
+  "YALI1F27556g": {
+   "reactions_before": [
+    "R693"
+   ],
+   "reactions_after": [
+    "R693",
+    "R_OBDHm"
+   ]
+  },
+  "YALI1D26360g": {
+   "reactions_before": [
+    "R1968",
+    "R1969",
+    "R1970",
+    "R1976",
+    "R2281",
+    "R357",
+    "R360",
+    "R361",
+    "R364",
+    "R365",
+    "R613",
+    "R614",
+    "R693"
+   ],
+   "reactions_after": [
+    "R1968",
+    "R1969",
+    "R1970",
+    "R1976",
+    "R2281",
+    "R357",
+    "R360",
+    "R361",
+    "R364",
+    "R365",
+    "R613",
+    "R614",
+    "R693",
+    "R_OBDHm"
+   ]
+  },
+  "YALI1B13179g": {
+   "reactions_before": [
+    "R693"
+   ],
+   "reactions_after": [
+    "R693",
+    "R_OBDHm"
+   ]
+  },
+  "YALI1D30618g": {
+   "reactions_before": [
+    "R693"
+   ],
+   "reactions_after": [
+    "R693",
+    "R_OBDHm"
+   ]
+  }
+ },
+ "evidence": [
+  {
+   "claim": "Rhea 33223 is 2-oxobutanoate + NAD(+) + CoA = propanoyl-CoA + CO2 + NADH, with no EC number",
+   "url": "https://www.rhea-db.org/rhea?query=2-oxobutanoate%20propanoyl-CoA&columns=rhea-id,equation,ec&format=tsv&limit=20",
+   "tier": "verified 2026-11-16 (Rhea TSV read)"
+  },
+  {
+   "claim": "Y. lipolytica: alpha-ketobutyrate is converted to propionyl-CoA by the PDH complex or pyruvate oxidase (statement); a cytosolic PDH lowered the odd-chain share, attributed to PDH's lower specificity for alpha-ketobutyrate than pyruvate",
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6987463/fullTextXML",
+   "tier": "verified 2026-11-16 (full text read); the catalyst is the authors' statement, the compartment is not shown"
+  },
+  {
+   "claim": "Rat mitochondria: purified PDH (Km 114 uM) and branched-chain 2-oxo acid dehydrogenase (Km 26 uM) both decarboxylate 2-oxobutyrate; both intramitochondrial complexes are responsible",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3718468/",
+   "tier": "verified 2026-11-16 (abstract read via Europe PMC); mammalian enzymology, not Y. lipolytica"
+  },
+  {
+   "claim": "Y. lipolytica phd1 (YALI0F02497) deletion JMY3350 cannot grow on propionate as sole carbon source: the methylcitrate cycle is this organism's propionate route",
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5991449/fullTextXML",
+   "tier": "verified 2026-11-16 (full text read)"
+  },
+  {
+   "claim": "Gene rule of the new step = R693 pyruvate dehydrogenase rule",
+   "url": "",
+   "tier": "inferred (user decision 2026-11-16: 'Pyruvate dehydrogenase, but need marked as \"just infer\"'); no Y. lipolytica evidence"
+  },
+  {
+   "claim": "No W29 protein similar to human MMUT P22033 or P. freudenreichii MutB P11653 at E 1e-5 or lower; best E 0.5 over 7-26 % of the query; that search's call was keep_orphan",
+   "url": "model/reports/orphan_gene_search_20261019/gene_search.csv",
+   "tier": "re-read 2026-11-16 (REPORT.md line 171, gene_search.csv, curation_calls.json), not re-run"
+  },
+  {
+   "claim": "KEGG links no yli and no sce gene to EC 5.4.99.2; the human control returns hsa:4594",
+   "url": "https://rest.kegg.jp/link/yli/ec:5.4.99.2",
+   "tier": "verified 2026-11-16 (yli, sce and hsa links read)"
+  },
+  {
+   "claim": "UniProt has 0 entries with EC 5.4.99.2 in Yarrowia (4951), Saccharomycetes (4891) and Ascomycota (4890); 97 in fungi (4751), all in early-diverging phyla",
+   "url": "https://rest.uniprot.org/uniprotkb/search?query=ec:5.4.99.2+AND+taxonomy_id:4890",
+   "tier": "verified 2026-11-16 (counts and the 97 lineages read)"
+  },
+  {
+   "claim": "S. cerevisiae: propionyl-CoA carboxylase activity negligible; the 2-methylcitrate pathway is the major propionate route",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/7912143/",
+   "tier": "verified 2026-11-16 (abstract read via Europe PMC); another yeast and another enzyme of the methylmalonyl route"
+  }
+ ],
+ "side_route_b": "R834, R2025, R2024, R2023, R2022 left as they are (no user decision); reported only."
+}

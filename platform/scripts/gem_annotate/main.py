@@ -115,6 +115,7 @@ def build_reference_chain(
     r1172_hmgcoa_transport_close: bool = False,
     folinic_acid_module: bool = False,
     reaction_xref_cleanup: bool = False,
+    methylcitrate_cycle: bool = False,
 ):
     starting_model_path = Path(starting_model_path)
     # The literature patch is defined on the reviewed C5 + COQ9 context.
@@ -990,6 +991,12 @@ def build_reference_chain(
         from .reaction_xref_cleanup import apply_reaction_xref_cleanup
         selection["reaction_xref_cleanup"] = apply_reaction_xref_cleanup(model)
         logger.info("Reaction xref cleanup: %s", selection["reaction_xref_cleanup"]["status"])
+    if methylcitrate_cycle:
+        # Opt-in: matrix 2-oxobutanoate dehydrogenase R_OBDHm (rule as R693, inferred) and R2075 closed (2026-11-16).
+        # No flag dependency: the step pins its targets, R693, the species and the PDH genes' links; it runs last.
+        from .methylcitrate_cycle import apply_methylcitrate_cycle
+        selection["methylcitrate_cycle"] = apply_methylcitrate_cycle(model)
+        logger.info("Methylcitrate cycle: %s", selection["methylcitrate_cycle"]["status"])
     output_model_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Saving updated model to: {output_model_path.name}")
     # COBRApy stores Group.members as sets, so its stock writer emits pathway
@@ -1100,6 +1107,7 @@ def build_model(args):
         r1172_hmgcoa_transport_close=getattr(args, "r1172_hmgcoa_transport_close", False),
         folinic_acid_module=getattr(args, "folinic_acid_module", False),
         reaction_xref_cleanup=getattr(args, "reaction_xref_cleanup", False),
+        methylcitrate_cycle=getattr(args, "methylcitrate_cycle", False),
     )
     output = args.output_model
     evidence = gene_evidence(model)
