@@ -5,6 +5,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-16: Methylcitrate cycle built on 7ccbb568, candidate ad901ddb (R_OBDHm added with an inferred PDH rule, R2075 closed; committed 9a3de22b on claude/bold-bartik-794e7e, PR #57)
+
+**Authorization.** The user, 2026-11-16, in this session:
+- "O1 + R2075 closed", answering "Which option should be built for the nine reactions?" after the investigation below;
+- "Approve plan", answering "Approve this build plan, including the full certified sweep?".
+
+Scope: [TASK.md](reports/methylcitrate_cycle_7ccbb568_20261116/TASK.md). Results:
+[REPORT.md](reports/methylcitrate_cycle_7ccbb568_20261116/REPORT.md). Audit:
+[AUDIT.md](reports/methylcitrate_cycle_7ccbb568_20261116/AUDIT.md).
+
+**Change** (one curation-change round, through the builder):
+- New opt-in flag `--methylcitrate-cycle`, run last.
+- Step `methylcitrate_cycle.py` and data `curation/methylcitrate_cycle/methylcitrate_cycle_20261116.json` are
+  byte-identical copies from the other line's uncommitted round (worktree `gene-essentiality-reactions-d09601`). So
+  the data still names that line's baseline (cbf2ef95) and report.
+- New test `test_methylcitrate_cycle_7ccbb568.py`.
+- Two model edits:
+  - **R_OBDHm (new):** matrix 2-oxobutanoate + CoA + NAD → propionyl-CoA + CO2 + NADH + 4 H+, (0, 1000), rule
+    copied from R693 (PDH), marked INFERRED;
+  - **R2075:** the gene-less methylmalonyl-CoA mutase, closed to (0, 0) and kept.
+
+**Models.**
+- Baseline `candidates/E5_353cefdc_xref_20261115.xml` (`7ccbb568…2146`).
+- Candidate `candidates/E5_7ccbb568_methylcitrate_20261116.xml`
+  (`ad901ddb4a2cfe5b09eb29f9c4b6630c0ee77cf93cef5be5aff3c7dfc954c279`). Built from HEAD `af7c5432` with the baseline's
+  47 arguments plus the flag.
+
+**Results** (verified this round from the built files; Task A + PO1f; Gurobi 1e-9):
+- **Builds.** The control is byte-identical to 7ccbb568, and seeds 0 and 1 are byte-identical.
+- **Diff.** 9 entries, all on the targets (R2075 bounds and notes, R_OBDHm, five PDH gene links, group60). R_OBDHm
+  is balanced.
+- **WT growth.** 0.31110053592594944 (Δ 1.4e-15).
+- **Blocked set.** R25, R95 and R552 reach 7.5987. The five methylmalonyl reactions stay 0/0. R834 reaches 3.31
+  through side route B (observed route; uniqueness inferred).
+- **Energy check.** 0.
+- **Small capacity rises.** The maintenance ceiling goes from 63.333 to 63.372; R693, R412, R741, R83 and R410 rise
+  by less than 0.1 %.
+- **Full certified sweep (1,081 genes, 1,123 LPs).** No status or class change at 1, 5, 10 or 15 %, rule A or B.
+  Scores identical to the recorded 353cefdc sweep: rule B, 15 %, TP 145 / FN 181 / FP 44 / TN 695, with
+  user-defined negatives (development reference).
+- **Tests.** Full pytest on short-path archive copies, root `.venv`. Before: 493 passed, 3 failed, 18 errors.
+  After: 501 passed, 3 failed, 18 errors. The only differences are the 8 new tests, all passed; the standing failures
+  and errors are identical.
+- **Audit.** One independent read-only audit checked 48 claims. 43 were supported. Five fell short and are corrected
+  in the report: unreported capacity rises, `YALI1C24124g` wrongly called listed, two overstated proof levels, one
+  table value.
+- **LPs.** 1,230 of the 1,300 approved, not counting the LPs inside the pytest suites.
+
+**Limits.**
+- The rule of R_OBDHm is inferred, with no *Y. lipolytica* evidence for the catalyst or compartment.
+- R2075's absence rests on annotation and homology.
+- Side route B (R834 → R_OBDHm → gene-less R2025 → R2024 backwards) stays open.
+- One medium only. Growth on propionate is not tested.
+- The comparison sweep ran on 353cefdc (LP-identical by a static check).
+- If the other line changes the copied files before landing, they must be re-synced. When the lines merge, the flag
+  will be defined on both.
+- Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/methylcitrate_cycle_7ccbb568_20261116/`.
+
 ## 2026-11-16: Gene-less CoA-ester transports across the inner mitochondrial membrane in 7ccbb568, and options (investigation only; no model change; committed on claude/lucid-visvesvaraya-a40bbb, not pushed)
 
 **Authorization.**
@@ -92,6 +150,64 @@ Codex worktrees, and candidate XMLs that were never committed. -->
   valine uptake rises from 0.012 to 0.026. The energy check stays 0.
 - **Not done:** a sweep of any other edit set; no build.
 - Committed with the round on `claude/lucid-visvesvaraya-a40bbb` (the user: "Commit it"); not pushed.
+
+## 2026-11-16: Why the R1172 closure blocked nine reactions in 7ccbb568, and the options (investigation only; no model change; committed 9a3de22b on claude/bold-bartik-794e7e, PR #57)
+
+**Authorization.** Task from the gap-census session (`local_1088c84c…`). The user, 2026-11-16: "Approve plan",
+answering "Approve this computation plan (at most 1,200 LPs, no build, no sweep)?". Scope:
+[TASK.md](reports/r1172_side_effect_20261116/TASK.md); results:
+[REPORT.md](reports/r1172_side_effect_20261116/REPORT.md).
+
+**Inputs.**
+- Model `candidates/E5_353cefdc_xref_20261115.xml` (`7ccbb568…2146`; LP-identical to 353cefdc by static check).
+- Task A medium `6eca70fd…` + PO1f `35307853…`, and the open-exchange condition.
+- Solvers: Gurobi 13.0.2 at 1e-9 and GLPK.
+- HEAD `af7c5432`.
+- 1,147 of the 1,200 approved LPs; 13 read-only web fetches.
+
+**Results.**
+- **Reproduced (observed: LP, two solvers, two conditions, all optimal).**
+  - R25, R552, R95, R2074, R2075, R2076, R2077, R2112 and R834 are blocked as is.
+  - All nine are free with R1172 reopened in memory.
+  - WT on Task A: 0.311100535925948 as is, 0.3120526953810371 with R1172 reopened.
+- **Mechanism.**
+  - **Proven (static scan plus S·v = 0).** No matrix reaction makes or destroys the CoA moiety. 34 matrix reactions
+    conserve it, and 9 transports move it. So net moiety import into the matrix is 0 at every steady state.
+  - **Observed (LP).** Each of the nine needs CoA moiety to enter the matrix and an exit for the freed CoA. R1172
+    (HMG-CoA out) was the only working exit. Max net propionyl-CoA import is 0 as is, and equals R25's maximum
+    with R1172 reopened. Every route pairs one moiety in with one HMG-CoA out.
+  - **Statically verified.** R2077, R2083 and R1291 can only import, and R2025 only passes propionyl-CoA through.
+  - **Inferred.** R2118's exit needs R2117's cytosol-to-matrix FAD flow, which explains why the census FAD drain
+    frees them.
+  - **Before the closure, at the WT optimum.** R834 = R1172 = R83 = R412 = R410 = 0.0721; the other eight were 0.
+- **Genes.** Rule B, user-defined negatives, development reference. Three consensus-essential genes, all FN at
+  15 % (KO/WT 1.0): `YALI1F20788g` (R834), `YALI1F03803g` (R95), `YALI1F39620g` (R552). Names are not verified.
+- **Options tested in memory** (R1172 kept closed). Every option frees all nine, every energy check is 0, and none
+  of 26 targeted knockouts changes class at 15 %.
+  - **O1, matrix 2-oxobutanoate dehydrogenase (PDH rule, inferred).** Frees the methylcitrate trio inside the
+    matrix (7.60). Alone it opens side route A (R2112 backwards), so it goes with R2075 closed. With that closure
+    the methylmalonyl five stay blocked. R834 becomes active only through the gene-less R2025 (side route B).
+  - **O3, propionyl-carnitine shuttle.** Frees the trio, but opens a futile loop through the gene-less R2113.
+  - **O4, matrix CoA dilution (placeholder).** Frees the nine only at 5.9e-6. R834's gene stays non-essential,
+    because R2113 replaces it.
+
+**Leading option (user decides).**
+- **Methylcitrate trio:** O1 + R2075 closed, the package already authorized and built on the other line
+  (b24a5e78, `gene-essentiality-reactions-d09601`, uncommitted).
+- **Methylmalonyl five:** leave blocked. There is no mutase gene (KEGG, verified), and the route only ran with
+  R2112 backwards.
+- **R834:** leave blocked, and record it as a structural limit of steady-state FBA.
+- **R1172:** not proposed for reopening.
+
+**Limits and open gaps.**
+- One medium; no full sweep; O2 (matrix valine/methylmalonate steps) not tested.
+- Literature: abstracts only; Park 2018/2019 and Paxton 1986 are second-hand.
+- Follow-ups found, not changed:
+  - the gene-less acyl-CoA transports R2025, R2113, R2077, R2083, R2084, R2118 and pantetheine-4'-P transport R1291;
+  - R2117's FAD cy → FADH2 mi mix;
+  - the m1875/m1970 duplicate propionyl-CoA;
+  - R2112's direction.
+- Large outputs: `$IYALI26_RESEARCH_ROOT/artifacts/tasks/r1172_side_effect_20261116/`.
 
 ## 2026-11-16: Gap census of 7ccbb568 and LP tests of single-reaction candidates per root (computation only, no model change; committed 9dd3ec17 on claude/metabolic-pathway-gnn-priorities-9b8f18, PR to main)
 

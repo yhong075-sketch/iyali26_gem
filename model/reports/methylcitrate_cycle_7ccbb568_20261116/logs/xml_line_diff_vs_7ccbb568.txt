@@ -1,0 +1,55 @@
+153944c153944,153951
+<       <reaction metaid="meta_R_R2075" sboTerm="SBO:0000176" id="R_R2075" name="(R)-Methylmalonyl-CoA CoA-carbonylmutase" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+---
+>       <reaction metaid="meta_R_R2075" sboTerm="SBO:0000176" id="R_R2075" name="(R)-Methylmalonyl-CoA CoA-carbonylmutase" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_0_bound">
+>         <notes>
+>           <html xmlns="http://www.w3.org/1999/xhtml">
+>             <p>methylcitrate_cycle_curation: METHYLCITRATE-CYCLE-20261116: closed, not deleted, to stop the gene-less side route R2113, R2112 reversed, R2074, R2076, R2075, R2077 reversed that R_OBDHm would otherwise open.</p>
+>             <p>methylcitrate_cycle_previous_bounds: [0.0, 1000.0]</p>
+>             <p>methylcitrate_cycle_closure_evidence: INFERRED, absence by annotation and homology only. No W29 protein similar to human MMUT P22033 or P. freudenreichii MutB P11653 at E 1e-5 or lower (orphan gene search 2026-10-19, which itself kept R2075 as an orphan and notes that no paper states Y. lipolytica lacks the enzyme). KEGG has no yli or sce gene for EC 5.4.99.2; UniProt has no EC 5.4.99.2 entry in Ascomycota. No experiment shows absence.</p>
+>           </html>
+>         </notes>
+163752a163760,163800
+>       <reaction metaid="meta_R_R_OBDHm" sboTerm="SBO:0000176" id="R_R_OBDHm" name="2-oxobutanoate dehydrogenase (PDH side activity, inferred), mitochondrion" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+>         <notes>
+>           <html xmlns="http://www.w3.org/1999/xhtml">
+>             <p>methylcitrate_cycle_curation: METHYLCITRATE-CYCLE-20261116: matrix 2-oxobutanoate dehydrogenase, the missing producer of matrix propionyl-CoA m78 from threonine-derived 2-oxobutanoate m42; it lets the methylcitrate cycle R25, R95, R552 carry flux.</p>
+>             <p>methylcitrate_cycle_gpr_status: INFERRED (user, 2026-11-16: just infer). Rule copied from R693, pyruvate dehydrogenase. No Y. lipolytica experiment shows that this complex, or any enzyme, carries this step in the matrix. The branched-chain 2-oxo acid dehydrogenase complex is the other candidate and is not used.</p>
+>             <p>methylcitrate_cycle_evidence: Park 2019 (Y. lipolytica, PMC6987463) states alpha-ketobutyrate is converted to propionyl-CoA by the PDH complex or pyruvate oxidase and measures odd-chain fatty acids rising with threonine pathway overexpression; the catalyst is a statement, not an experiment, and the compartment is not shown. Paxton 1986 (rat, PMID 3718468): purified PDH and branched-chain 2-oxo acid dehydrogenase both decarboxylate 2-oxobutyrate. Rhea 33223 is the reaction (no EC, no UniProt enzyme).</p>
+>             <p>methylcitrate_cycle_protons: 4 H+ close hydrogen and charge on the formulas of the model: propionyl-CoA m78 is stored as the tetra-anion (H36, -4) next to neutral CoA m73 (H36, 0). A protonation convention, not chemistry.</p>
+>           </html>
+>         </notes>
+>         <annotation>
+>           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+>             <rdf:Description rdf:about="#meta_R_R_OBDHm">
+>               <bqbiol:is>
+>                 <rdf:Bag>
+>                   <rdf:li rdf:resource="https://identifiers.org/rhea/33223"/>
+>                 </rdf:Bag>
+>               </bqbiol:is>
+>             </rdf:Description>
+>           </rdf:RDF>
+>         </annotation>
+>         <listOfReactants>
+>           <speciesReference species="M_m27__91__C_mi__93__" stoichiometry="1" constant="true"/>
+>           <speciesReference species="M_m42__91__C_mi__93__" stoichiometry="1" constant="true"/>
+>           <speciesReference species="M_m73__91__C_mi__93__" stoichiometry="1" constant="true"/>
+>         </listOfReactants>
+>         <listOfProducts>
+>           <speciesReference species="M_m28__91__C_mi__93__" stoichiometry="4" constant="true"/>
+>           <speciesReference species="M_m30__91__C_mi__93__" stoichiometry="1" constant="true"/>
+>           <speciesReference species="M_m44__91__C_mi__93__" stoichiometry="1" constant="true"/>
+>           <speciesReference species="M_m78__91__C_mi__93__" stoichiometry="1" constant="true"/>
+>         </listOfProducts>
+>         <fbc:geneProductAssociation>
+>           <fbc:and>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1E31947g"/>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1F27556g"/>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1D26360g"/>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1B13179g"/>
+>             <fbc:geneProductRef fbc:geneProduct="G_YALI1D30618g"/>
+>           </fbc:and>
+>         </fbc:geneProductAssociation>
+>       </reaction>
+179838a179887
+>           <groups:member groups:name="2-oxobutanoate dehydrogenase (PDH side activity, inferred), mitochondrion" groups:idRef="R_R_OBDHm"/>
