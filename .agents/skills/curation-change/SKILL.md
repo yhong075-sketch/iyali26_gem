@@ -29,7 +29,7 @@ per run. Run commands from `platform/`.
    targets. Load the file with `MODEL.curation_file(name)`.
 3. Add a focused test in `platform/tests/` that runs on an in-memory model.
 4. Call the function from `main.py` at the right stage.
-5. Run `python -m pytest` and compare with the previous run test by test.
+5. Run `python -m pytest -n 6 --dist loadfile` and compare with the previous run test by test.
 
 ## 3. Build to a new file
 

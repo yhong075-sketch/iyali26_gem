@@ -22,7 +22,7 @@ export IYALI26_RESEARCH_ROOT=/path/to/iyali26_gem_research
 cd platform
 python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" \
   --offline --no-solve --coq9-curation metadata --output-model ../model/candidates/NEW_NAME.xml
-python -m pytest
+python -m pytest -n 6 --dist loadfile
 ```
 
 `run.sh` currently stops at its first step. Its default build output is the canonical

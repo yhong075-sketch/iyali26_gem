@@ -1,5 +1,6 @@
 """Keep test runs from writing into the model's report folders."""
 
+import dataclasses
 import os
 import tempfile
 from pathlib import Path
@@ -22,6 +23,27 @@ def pytest_configure(config):
     SCRATCH_DIR.mkdir(exist_ok=True)
     os.environ.setdefault("IYALI26_ENERGY_BUDGET", str(scratch / "budget.json"))
     os.environ.setdefault("IYALI26_ENERGY_TEST_OUTPUT", str(scratch / "energy_behavior"))
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_report_to_serializable(report):
+    # Called by pytest-xdist only: a worker sends each report to the controller with execnet, which takes
+    # plain values only. A sub-test label holding anything else (a Path, say) would fail its whole test
+    # with a DumpError, so that value goes as its repr. Returning None leaves the serialising to pytest.
+    context = getattr(report, "context", None)
+    if context is not None:
+        report.context = dataclasses.replace(
+            context, kwargs={key: _sendable(value) for key, value in context.kwargs.items()})
+
+
+def _sendable(value):
+    import execnet  # pytest-xdist depends on it, so it is there whenever the hook above runs
+
+    try:
+        execnet.dumps(value)
+    except execnet.DumpError:
+        return repr(value)
+    return value
 
 
 @pytest.fixture(autouse=True, scope="module")

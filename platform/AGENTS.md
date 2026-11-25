@@ -36,8 +36,10 @@ this folder.
 - **Tests:**
   - Write temporary outputs to `SCRATCH_DIR` (git-ignored `.scratch/`) or a system temp
     folder, never into `model/`.
-  - Before handing back, run `python -m pytest` and compare with the previous run test by
-    test.
+  - Before handing back, run `python -m pytest -n 6 --dist loadfile` and compare with the
+    previous run test by test. Six workers take about a third of the serial time;
+    `--dist loadfile` keeps each test file on one worker, because a file's tests share one
+    model. Plain `python -m pytest` gives the same results one file at a time.
   - Then have a fresh read-only reviewer check the diff (Claude: the `code-reviewer` subagent).
     Give it the task, the diff range and the tests run, not your reasoning. Fix what it finds or
     report the disagreement.

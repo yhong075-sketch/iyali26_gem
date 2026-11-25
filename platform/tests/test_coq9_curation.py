@@ -6,8 +6,12 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from cobra import Metabolite
 from cobra.core.gene import GPR
 from cobra.io import read_sbml_model, write_sbml_model
+from optlang import symbolics
+from swiglpk import (doubleArray, glp_get_col_name, glp_get_mat_row, glp_get_num_cols, glp_get_num_rows,
+                     glp_get_row_name, intArray)
 
 from scripts.gem_annotate.coq9 import (
     apply_coq9_curation, boolean_key, deduplicate_and, exact_residual, gene_evidence,
@@ -19,12 +23,49 @@ FIXTURE = Path(__file__).parent / "fixtures" / "coq9_reference_extract.xml"
 
 
 def expression_terms(expression):
-    return sorted((str(term), float(coefficient))
+    # One (variable name, coefficient, lower bound, upper bound, type) per term: what the "variables" entry of
+    # semantics() holds for the variable, so an entry compared alone sees a change of its variables. The bounds are
+    # the variable's numbers, so a bound written 0 in one model and 0.0 in another compares equal. A constant term
+    # has none of the three.
+    return sorted((term.name, float(coefficient), term.lb, term.ub, term.type) if hasattr(term, "name")
+                  else (str(term), float(coefficient), None, None, None)
                   for term, coefficient in expression.as_coefficients_dict().items())
+
+
+def constraint_terms(model):
+    """Each constraint's terms, read from the solver's own matrix.
+
+    Same content as expression_terms(constraint.expression) for every constraint, without building one symbolic
+    expression per constraint (that took most of a snapshot's time).
+    """
+    model.solver.update()  # apply optlang's queued additions and removals, as reading model.constraints does
+    problem, interface = model.solver.problem, model.problem.__name__
+    rows = {}
+    if interface == "optlang.gurobi_interface":
+        for constraint in problem.getConstrs():
+            row, name = problem.getRow(constraint), constraint.ConstrName
+            terms = ((row.getVar(i).VarName, row.getCoeff(i)) for i in range(row.size()))
+            # optlang gives a two-sided constraint a helper column "<name>_aux" and leaves it out of the expression.
+            rows[name] = [term for term in terms if term[0] != name + "_aux"]
+    elif interface == "optlang.glpk_interface":
+        count = glp_get_num_cols(problem)
+        columns = [None] + [glp_get_col_name(problem, j) for j in range(1, count + 1)]
+        indices, values = intArray(count + 1), doubleArray(count + 1)
+        for i in range(1, glp_get_num_rows(problem) + 1):
+            length = glp_get_mat_row(problem, i, indices, values)
+            rows[glp_get_row_name(problem, i)] = [(columns[indices[k]], values[k]) for k in range(1, length + 1)]
+    else:
+        return {c.name: expression_terms(c.expression) for c in model.constraints}
+    variables = {v.name: (v.lb, v.ub, v.type) for v in model.variables}
+    # A row without terms reads as the symbolic path writes it (the constant 0), so every path gives the same rows.
+    empty = expression_terms(symbolics.add([]))
+    return {name: sorted((variable, coefficient, *variables[variable]) for variable, coefficient in terms)
+            or list(empty) for name, terms in rows.items()}
 
 
 def semantics(model):
     """S, species, bounds/directions, objective, variables and ALL solver constraints."""
+    rows = constraint_terms(model)
     return {
         "species": {m.id: (m.name, m.formula, m.charge, m.compartment) for m in model.metabolites},
         "compartments": model.compartments,
@@ -33,7 +74,7 @@ def semantics(model):
                                r.reversibility, boolean_key(r.gpr.body)) for r in model.reactions},
         "objective": (model.objective.direction, expression_terms(model.objective.expression)),
         "variables": {v.name: (v.lb, v.ub, v.type) for v in model.variables},
-        "constraints": {c.name: (c.lb, c.ub, expression_terms(c.expression)) for c in model.constraints},
+        "constraints": {c.name: (c.lb, c.ub, rows[c.name]) for c in model.constraints},
     }
 
 
@@ -198,6 +239,74 @@ class CoQ9CurationTests(unittest.TestCase):
         self.assertTrue(evidence["YALI1A08781g"]["association_changed_from_reference"])
         self.assertEqual(m.reactions.R573.bounds, (0, 1000))
         self.assertFalse(report["requested_mode_complete"])
+
+
+class SnapshotTests(unittest.TestCase):
+    """semantics() reads the constraint rows from the solver's matrix: one reader for Gurobi and one for GLPK."""
+
+    def model(self, solver):
+        m = read_sbml_model(str(FIXTURE))
+        m.solver = solver
+        flux = m.reactions.R305.flux_expression
+        m.add_cons_vars([m.problem.Constraint(flux, ub=9, name="one_sided"),
+                         m.problem.Constraint(flux, lb=-3, ub=9, name="two_sided")])
+        m.add_metabolites([Metabolite("unused[C_cy]", compartment="C_cy")])  # its row has no terms
+        return m
+
+    def matrix_only(self, m):
+        """Fail when a constraint's symbolic expression is built: that is the path for other solvers, not a reader."""
+        return patch.object(m.problem.Constraint, "expression",
+                            property(lambda constraint: self.fail("a constraint row was built symbolically")))
+
+    @staticmethod
+    def changed(m, edit):
+        """The entries of the snapshot, and the constraint rows, that differ after the edit."""
+        before = semantics(m)
+        edit()
+        after = semantics(m)
+        return ({key for key in after if after[key] != before[key]},
+                {name for name, row in after["constraints"].items() if row != before["constraints"][name]})
+
+    def test_matrix_rows_equal_the_symbolic_rows(self):
+        for solver in ("gurobi", "glpk"):
+            with self.subTest(solver=solver):
+                m = self.model(solver)
+                direct = constraint_terms(m)  # read first: optlang has not yet applied the last added row
+                with self.matrix_only(m):
+                    snapshot = {name: row[2] for name, row in semantics(m)["constraints"].items()}
+                symbolic = {c.name: expression_terms(c.expression) for c in m.constraints}
+                self.assertEqual((direct, snapshot), (symbolic, symbolic))
+                r305 = m.reactions.R305
+                # Each term: variable, coefficient, lower bound, upper bound, type.
+                flux = [(r305.id, 1.0, 0, 1000, "continuous"), (r305.reverse_id, -1.0, 0, 0, "continuous")]
+                self.assertEqual((symbolic["one_sided"], symbolic["two_sided"]), (flux, flux))
+                self.assertEqual(symbolic["unused[C_cy]"], expression_terms(symbolics.add([])))
+
+    def test_solver_only_edits_show_in_every_entry_that_holds_them(self):
+        # None of these edits reaches cobra's own reaction data, so only the solver's side of the snapshot sees them.
+        for solver in ("gurobi", "glpk"):
+            with self.subTest(solver=solver):
+                m = self.model(solver)
+                r305, row = m.reactions.R305, m.constraints["m10[C_cy]"]
+                forward = r305.forward_variable
+                # The same bounds written in the other numeric type (0.0 for 0, 1000 for 1000.0) are no change.
+                printed = str(forward)
+                retyped = [float(bound) if isinstance(bound, int) else int(bound) for bound in (forward.lb, forward.ub)]
+                self.assertEqual(self.changed(m, lambda: forward.set_bounds(*retyped)), (set(), set()))
+                self.assertNotEqual(str(forward), printed)
+                # A changed coefficient shows in its own row and nowhere else.
+                self.assertEqual(self.changed(m, lambda: row.set_linear_coefficients({forward: 0.5})),
+                                 ({"constraints"}, {row.name}))
+                # A changed bound shows in every entry that holds the variable, also when that entry is compared alone.
+                holding = {metabolite.id for metabolite in r305.metabolites} | {"one_sided", "two_sided"}
+                self.assertEqual(self.changed(m, lambda: setattr(forward, "ub", 123)),
+                                 ({"objective", "variables", "constraints"}, holding))
+                # So does a changed type. (optlang then writes the bounds as ints, which alone is no change.)
+                self.assertEqual(self.changed(m, lambda: setattr(forward, "type", "integer")),
+                                 ({"objective", "variables", "constraints"}, holding))
+                # With an integer variable in the model, the terms still say what the symbolic rows say.
+                self.assertEqual(semantics(m)["objective"][1][0], (r305.id, 1.0, 0, 123, "integer"))
+                self.assertEqual(constraint_terms(m), {c.name: expression_terms(c.expression) for c in m.constraints})
 
 
 if __name__ == "__main__":

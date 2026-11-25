@@ -11,7 +11,7 @@ setting `IYALI26_MODEL_DIR`.
 | `scripts/gem_annotate/` | The builder: the only code that writes model XML. Import path `scripts.gem_annotate`. |
 | `tools/` | Stand-alone tools, e.g. candidate builders, energy and supply diagnostics, dFBA (`tools.<name>`) |
 | `tools/lipid/` | Lipid-unlump tools (owned by a colleague; review only) |
-| `tests/` | Tests (`python -m pytest`) |
+| `tests/` | Tests (`python -m pytest -n 6 --dist loadfile`) |
 | `hpc/` | Slurm job scripts. They pin a specific past checkout and keep its old paths. |
 | `ci/` | GitHub Actions helper for memote |
 
@@ -57,8 +57,12 @@ python -m scripts.gem_annotate --research-root "$IYALI26_RESEARCH_ROOT" \
 ## Tests
 
 ```bash
-python -m pytest
+python -m pytest -n 6 --dist loadfile
 ```
+
+Six workers take about a third of the serial time. `--dist loadfile` keeps each test file on one
+worker, because a file's tests share one model. Both options come from `pytest-xdist`, which is
+in the `dev` dependency group. Plain `python -m pytest` gives the same results one file at a time.
 
 The tests build into the git-ignored `../.scratch/` folder and never write into `model/`. Some
 tests fail or skip for reasons outside this checkout:
