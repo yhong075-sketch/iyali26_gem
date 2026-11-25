@@ -5,6 +5,70 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
+## 2026-11-24: Shorter pytest runs: test files in parallel and a faster state snapshot (tooling only; committed 655b9b68 on claude/pytest-performance-analysis-3e0794, PR to main)
+
+**Authorization.** The user, 2026-11-24, in this session:
+- "The pytest usually takes long time, can you explain by code, and how can we make it shorter?";
+- "1 and 2", answering "Which of the three proposed changes should I implement?";
+- "All three", answering "Which of the review's three follow-ups should I apply?";
+- "Add the type too", answering "Keep the bounds in the snapshot terms as they are now?";
+- "Commit the working tree changes with a sensible message.";
+- "Create PR" in the app: push the branch and open a pull request to `main`.
+
+Scope: [TASK.md](reports/pytest_runtime_20261124/TASK.md). Results:
+[REPORT.md](reports/pytest_runtime_20261124/REPORT.md).
+
+**Change** (no model, curation file or builder step touched, and no existing test assertion):
+- `platform/tests/conftest.py`: a hook that lets pytest-xdist send sub-test reports whose labels hold an object
+  execnet cannot serialise (a `Path`).
+- `platform/tests/test_coq9_curation.py`:
+  - `semantics()` reads constraint rows straight from the solver matrix (Gurobi, GLPK; other interfaces keep the
+    symbolic path);
+  - a term is (variable name, coefficient, lower bound, upper bound, type): what the `variables` entry holds for
+    the variable, with the bounds as numbers (follow-up, and the type by the last decision);
+  - two new tests, class `SnapshotTests`, run both readers under Gurobi and GLPK (follow-up).
+- `platform/AGENTS.md`, and as a follow-up `.agents/skills/curation-change/SKILL.md`, `README.md` and
+  `platform/README.md`: the hand-back run is `python -m pytest -n 6 --dist loadfile`.
+- Root `.venv`: `pytest-xdist` 3.8.0 and `execnet` 2.1.2 installed (the versions in `platform/uv.lock`).
+
+**Results** (verified this round; full suite of `2b428e29` on short-path copies, root `.venv`, Gurobi):
+- **Where the time goes** (serial, before): model copies 46 %, SBML reads 29 %, state snapshots 18 %; the code
+  under test 0.6 %.
+- **Runs after changes 1 and 2.** Serial before 2,138 s; serial after 1,899 s; six workers after 727 s. Each run:
+  501 passed, 3 failed, 24 skipped, 18 errors, 1,391 sub-tests; no test differs between any two of them. The four
+  tests that failed only in parallel now pass there.
+- **Runs after the follow-ups and after the type.** Six workers: 398 s on an otherwise idle machine, then 489 s
+  beside another session's pytest. Each: 503 passed, 3 failed, 24 skipped, 18 errors, 1,395 sub-tests. No outcome
+  differs among the 546 earlier tests; the 2 new tests pass.
+- **Snapshot.** `semantics()` fell from 308.8 s to 63.9 s over the same 1,297 calls (changes 1 and 2). On 61
+  models (60 SBML files under `model/` and the fixture) under both solvers, each term of the final snapshot is the
+  old term, and its bounds and type are those of `variables`: 118,359 constraints, 1,105,653 terms and 122
+  objective terms per solver.
+- **Change detection, entry by entry.** With bounds alone, the follow-ups' criterion B2 was not met as written in
+  6 of 120 edit cases; the user settled that by choosing the type. With the type, all 124 cases are as the
+  criterion written beforehand says:
+  - 106 give the same changed entries in the old and the final snapshot;
+  - 12 only reprint an unchanged bound and are reported by the old snapshot alone;
+  - in 2, under Gurobi, the final snapshot reports a removed objective reaction at once, where the old one's
+    first call was stale;
+  - in 4, a type change that reprints no bound, the final snapshot reports every entry that holds the variable,
+    where the old one reports `variables` only.
+- **The new tests** fail under each of 20 deliberate breakages of the helper.
+- **Reviews.** Three independent read-only reviews, one per round: no bug that can occur in this repository. The
+  first's findings led to the follow-ups, the second's to the type and to a guard in the tests, the third's to two
+  more assertions.
+
+**Limits.**
+- No decision is open.
+- Under GLPK the `objective` entry can stay stale after the objective reaction is removed, with the old helper
+  and the new one alike.
+- A variable named `1` in a model would make the snapshot's sort of terms raise. No model file here has one.
+- The model files hold continuous variables only, so other types were checked on constructed edits and in the
+  tests, not on the models.
+- Times are single runs on a machine that other sessions also used; three of the five full runs were on battery.
+- Change 3 (GLPK-backed models where no LP is solved) is not authorized.
+- The other active line was not run with these changes.
+
 ## 2026-11-16: Methylcitrate cycle built on 7ccbb568, candidate ad901ddb (R_OBDHm added with an inferred PDH rule, R2075 closed; committed 9a3de22b on claude/bold-bartik-794e7e, PR #57)
 
 **Authorization.** The user, 2026-11-16, in this session:
