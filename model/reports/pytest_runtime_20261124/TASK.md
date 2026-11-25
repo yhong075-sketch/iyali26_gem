@@ -1,8 +1,8 @@
 **Status: changes 1 and 2 done (section 2). The three review follow-ups are done (section 4): five of their six
 criteria are met, and B2 was not met as written. The user settled that by choosing the variable's type in each
 term (section 5), which is done with all six of its criteria met. No decision is open. Change 3 is not authorized
-and not started. Committed on branch `claude/pytest-performance-analysis-3e0794`; not pushed. Results:
-[REPORT.md](REPORT.md).**
+and not started. Committed as `655b9b68` on branch `claude/pytest-performance-analysis-3e0794`; pull request
+to `main`. Results: [REPORT.md](REPORT.md).**
 
 # Shorter pytest runs: parallel test files and a faster state snapshot, 2026-11-24
 
@@ -21,7 +21,9 @@ The user, 2026-11-24, in this session:
    the user answered: "All three". Their scope and criteria are in section 4.
 4. **The type.** Asked "Keep the bounds in the snapshot terms as they are now?", the user answered: "Add the type
    too". Scope and criteria are in section 5.
-5. **The commit.** "Commit the working tree changes with a sensible message." Nothing is pushed.
+5. **The commit.** "Commit the working tree changes with a sensible message." Commit `655b9b68`.
+6. **The pull request.** The user chose "Create PR" in the app: push the branch and open a pull request to `main`
+   of `yhong075-sketch/iyali26_gem`.
 
 In scope:
 

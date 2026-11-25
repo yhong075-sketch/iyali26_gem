@@ -1,12 +1,13 @@
 **Status: changes 1 and 2, the three review follow-ups and the variable's type in each term are in the working
 tree. The criteria for changes 1 and 2 (A1 to A6) and for the type (C1 to C6) are met. Of the six for the
 follow-ups, B2 was not met as written (section 10); the user settled it by choosing the type (section 11). No
-decision is open. Committed on branch `claude/pytest-performance-analysis-3e0794`; not pushed.**
+decision is open. Committed as `655b9b68` on branch `claude/pytest-performance-analysis-3e0794`;
+pull request to `main`.**
 
 # Shorter pytest runs: results, 2026-11-24
 
 Scope and authorization: [TASK.md](TASK.md). Branch `claude/pytest-performance-analysis-3e0794`: the changes below are
-one commit on top of `2b428e29`. No model, curation file or builder step changed, and no existing test
+commit `655b9b68` on top of `2b428e29`. No model, curation file or builder step changed, and no existing test
 assertion. Two tests were added (sections 10 and 11).
 
 ## 1. Result

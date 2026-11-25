@@ -5,14 +5,15 @@ Codex worktrees, and candidate XMLs that were never committed. -->
 
 # iYali26 项目状态
 
-## 2026-11-24: Shorter pytest runs: test files in parallel and a faster state snapshot (tooling only; committed on claude/pytest-performance-analysis-3e0794, not pushed)
+## 2026-11-24: Shorter pytest runs: test files in parallel and a faster state snapshot (tooling only; committed 655b9b68 on claude/pytest-performance-analysis-3e0794, PR to main)
 
 **Authorization.** The user, 2026-11-24, in this session:
 - "The pytest usually takes long time, can you explain by code, and how can we make it shorter?";
 - "1 and 2", answering "Which of the three proposed changes should I implement?";
 - "All three", answering "Which of the review's three follow-ups should I apply?";
 - "Add the type too", answering "Keep the bounds in the snapshot terms as they are now?";
-- "Commit the working tree changes with a sensible message."
+- "Commit the working tree changes with a sensible message.";
+- "Create PR" in the app: push the branch and open a pull request to `main`.
 
 Scope: [TASK.md](reports/pytest_runtime_20261124/TASK.md). Results:
 [REPORT.md](reports/pytest_runtime_20261124/REPORT.md).
